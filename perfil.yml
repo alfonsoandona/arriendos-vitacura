@@ -1,0 +1,301 @@
+# ---------------------------------------------------------------------------
+# Perfil de búsqueda — Radar de Arriendos
+#
+# Este es el único archivo que necesitas editar para ajustar la búsqueda.
+# Todo lo demás se deriva de acá.
+#
+# Se edita desde el teléfono: abrir el archivo en GitHub → lápiz ✏️ → editar →
+# "Commit changes". La corrida siguiente ya usa lo nuevo.
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# DÓNDE
+#
+# La zona son DOS criterios unidos por un "o", no uno solo, y esa unión es la
+# instrucción textual: "en Vitacura o a no más de 1.2 km a la redonda del
+# Sport Francés".
+#
+#   1. Vitacura, la COMUNA ENTERA. No hay radio que valga acá: un
+#      departamento en Santa María con Américo Vespucio está a 3 km del Sport
+#      Francés y sigue siendo Vitacura, y el pedido fue explícito —"prioriza
+#      Vitacura comuna entera"—.
+#
+#   2. Un anillo de 1,2 km alrededor del Sport Francés. Esto es lo que deja
+#      entrar el borde de Las Condes que queda pegado al club, y nada más.
+#
+# Una propiedad entra si cumple CUALQUIERA de los dos. Y entre las que entran,
+# Vitacura va primero: ver `prioridad_comuna`.
+# ---------------------------------------------------------------------------
+
+# El centro del anillo. Es el Sport Francés y no el punto medio con la casa,
+# porque el radio se pidió medido desde el club.
+#
+# Coordenadas tomadas a mano desde Google Maps, no estimadas.
+ancla:
+  nombre: "Sport Francés"
+  direccion: "Club Deportivo Sport Francés, Vitacura, Región Metropolitana, Chile"
+  lat: -33.381591
+  lon: -70.562037
+  coords_verificadas: true
+
+# Radios en km. Los dos significan cosas distintas y conviene no confundirlos:
+#
+#   1.2 km  el ANILLO. Fuera de Vitacura, esto es un límite duro: lo que cae
+#           más lejos y no es Vitacura se descarta.
+#   0.9 km  ~11 min a pie. Es una PREFERENCIA: no descarta a nadie, puntúa
+#           más alto. Sirve para ordenar, no para filtrar.
+#
+# La lección viene del radar de remates, que confundió las dos cosas y
+# descartó EN SILENCIO propiedades que sí interesaban: caminar se paga en
+# puntaje, el límite se paga con el descarte, y hay que decir cuál es cuál.
+radio_km:
+  anillo: 1.2
+  preferente: 0.9
+
+# Comunas. La lista no es un filtro por sí sola —el filtro es la regla de
+# arriba— pero sí decide cuánto vale estar en cada una.
+#
+# `nucleo` entra completa, sin mirar distancia. `vecinas` entra SOLO si cae
+# dentro del anillo de 1,2 km.
+comunas:
+  nucleo:
+    - Vitacura
+  vecinas:
+    - Las Condes
+    - Lo Barnechea
+
+# Cuánto vale estar en cada comuna, aunque la distancia diga otra cosa.
+#
+# El ancla está a menos de 400 m del límite entre Vitacura y Las Condes, así
+# que dentro del anillo de 1,2 km Las Condes gana por distancia casi siempre.
+# Sin este multiplicador, "prioriza Vitacura comuna entera" quedaría escrito
+# en el perfil y desmentido por el tablero.
+#
+# Los números están calibrados para que se cumpla al pie de la letra: un
+# departamento de Vitacura en el borde de la comuna (el peor caso de
+# ubicación dentro del núcleo) tiene que ir por delante de uno de Las Condes
+# pegado al club (el mejor caso de una vecina). Eso obliga a que Las Condes
+# valga bastante menos de la mitad.
+prioridad_comuna:
+  Vitacura: 1.0
+  Las Condes: 0.45
+  Lo Barnechea: 0.40
+
+# ---------------------------------------------------------------------------
+# QUÉ — los filtros duros
+#
+# Todo lo de acá abajo DESCARTA. Es la diferencia con `preferencias`, que solo
+# ordena. Se separaron a propósito: el pedido trae tres cosas dichas como
+# obligatorias ("debe ser sí o sí más de 100 m² totales, 3 piezas mínimo, y
+# cerca de 1.6 millones máximo") y el resto como deseable.
+# ---------------------------------------------------------------------------
+requisitos:
+  tipo: [departamento]
+
+  # "Sí o sí más de 100 m² TOTALES". Totales, no útiles: en Chile los portales
+  # publican las dos y la total incluye terrazas y balcones.
+  #
+  # `estricto: true` significa MÁS de 100, no "100 o más". Un departamento de
+  # exactamente 100,0 m² no cumple "más de 100".
+  m2_totales:
+    min: 100
+    estricto: true
+
+  # Mínimo tres piezas. En un aviso chileno "pieza" y "dormitorio" son lo
+  # mismo; el parser lee las dos palabras.
+  dormitorios:
+    min: 3
+
+  # "Cerca de 1.6 millones máximo". El "cerca de" es parte del pedido y está
+  # implementado: el tope duro no son 1,6 millones exactos sino 1,6 millones
+  # más la holgura de abajo. Entre el tope y el tope+holgura la propiedad
+  # entra pero pierde puntos, que es lo que "cerca de" quiere decir.
+  #
+  # Un arriendo de 1.650.000 que cumple todo lo demás no se puede tirar en
+  # silencio: se negocia. Uno de 2.200.000 sí, porque no hay negociación que
+  # lo baje 600 mil.
+  arriendo_clp:
+    max: 1600000
+    holgura_pct: 12        # hasta $1.792.000 entra, penalizado
+
+  # Qué se compara contra el tope de arriba.
+  #
+  #   "arriendo"  solo el canon mensual, como lo publica el aviso.
+  #   "total"     canon + gastos comunes.
+  #
+  # Vale la pena entender la diferencia antes de elegir. En departamentos de
+  # más de 100 m² en Vitacura los gastos comunes van entre $150.000 y
+  # $400.000 al mes: comparar solo el canon contra 1,6 millones puede dejar
+  # entrar algo que en la práctica cuesta 2 millones.
+  #
+  # Por omisión se compara el CANON, porque es lo que dice el pedido y es el
+  # único número que todos los avisos publican. Pero el costo total se
+  # calcula igual, se muestra en la alerta, y se puntúa: un departamento con
+  # gastos comunes bajos gana puntos contra uno igual con gastos altos.
+  #
+  # Para que el tope sea sobre el costo total, cambiar a: comparar: total
+  comparar: arriendo
+
+  # Qué hacer cuando el aviso no publica el dato del filtro.
+  #
+  # Descartar por dato ausente es el error más caro que puede cometer este
+  # radar: no se ve. Una propiedad descartada en silencio por no publicar los
+  # metros no aparece en ninguna parte, y nadie va a extrañarla.
+  #
+  # Así que un dato ausente NUNCA descarta: la propiedad entra, no suma los
+  # puntos de ese rubro, y la alerta dice qué falta. Es exactamente al revés
+  # con un dato PRESENTE que no cumple: ese sí descarta.
+  descartar_si_falta: false
+
+  # Cuánto puede desviarse un dato CONOCIDO antes de descartar de plano.
+  # Existe porque los portales redondean y porque "superficie" significa
+  # cosas distintas en cada uno.
+  tolerancias:
+    m2_totales: 5          # 96 m² totales declarados contra un mínimo de 100 -> entra, penalizado
+    dormitorios: 0         # tres piezas es tres piezas: acá no hay holgura
+
+# ---------------------------------------------------------------------------
+# "IDEAL MÁS NUEVO" — el eje del puntaje
+#
+# Esto no descarta nada. Es el criterio de orden que se pidió explícitamente
+# ("ideal más nuevo, entonces vamos poniendo puntaje") y por eso se lleva el
+# rubro más pesado después de la ubicación.
+#
+# La curva es por tramos y no lineal, porque así se comporta el mercado de
+# arriendo en Vitacura: lo de menos de 10 años es otra categoría de producto
+# —termopanel, calefacción central, gimnasio, estacionamientos amplios— y de
+# 30 para arriba la diferencia entre 32 y 45 años ya casi no se nota.
+#
+# El dato canónico es la ANTIGÜEDAD EN AÑOS, no el año de construcción: así
+# el perfil no se pudre solo con el paso del tiempo. El año se deriva.
+antiguedad:
+  ideal_max: 10            # 0-10 años: puntaje completo
+  bueno_max: 20            # 10-20 años: baja parejo
+  aceptable_max: 35        # 20-35 años: baja fuerte
+  # Sobre `aceptable_max` puntúa el mínimo, pero NO descarta: un edificio de
+  # 1985 de 140 m² bien mantenido en Vitacura sigue siendo un arriendo
+  # razonable, y descartarlo por el año sería decidir por el usuario.
+
+# ---------------------------------------------------------------------------
+# PREFERENCIAS — los desempates
+#
+# Nada de acá descarta. Son las que deciden cuál mirar primero entre las que
+# ya calificaron.
+# ---------------------------------------------------------------------------
+preferencias:
+  # Más grande es mejor, pero con rendimientos decrecientes: sobre 160 m² el
+  # arriendo sube más rápido que la utilidad del metro extra.
+  m2_totales:
+    comodo: 130
+    tope_util: 170
+
+  banos:
+    minimo_deseable: 3
+
+  piso:
+    # Piso alto, pero el último no: vista sin la terraza expuesta ni los
+    # problemas de techo del penthouse.
+    minimo_deseable: 5
+    penalizar_ultimo: true
+
+  orientacion:
+    preferida: [nororiente, nor oriente, norte oriente, oriente, norte]
+
+  # Holgura = m² totales por dormitorio. Distingue un 130 m² de 3 dormitorios
+  # amplios de un 130 m² picado en 5 piezas chicas.
+  holgura_m2_por_dormitorio:
+    minimo_deseable: 33
+
+  # Estacionamiento y bodega. En arriendo se cobran aparte con frecuencia, así
+  # que "incluye" es un dato económico y no un lujo.
+  estacionamientos:
+    minimo_deseable: 2
+
+  # Gastos comunes, como fracción del canon. Sobre 20% el departamento es más
+  # caro de lo que dice su aviso.
+  gastos_comunes_pct:
+    bueno_max: 12
+    tolerable_max: 20
+
+  # Amoblado. Por omisión no se prefiere ninguna de las dos: en un arriendo
+  # largo lo amoblado encarece, en uno corto salva. Dejar en "" desactiva el
+  # criterio; los valores válidos son "amoblado" y "sin amoblar".
+  amoblado_preferido: ""
+
+  # Palabras que suben el puntaje cuando aparecen en el aviso. No inventan
+  # datos: solo desempatan.
+  keywords_bonus:
+    - "estrenar"
+    - "nuevo"
+    - "termopanel"
+    - "calefaccion central"
+    - "calefacción central"
+    - "losa radiante"
+    - "aire acondicionado"
+    - "remodelado"
+    - "impecable"
+    - "family room"
+    - "sala de estar"
+    - "logia"
+    - "piso flotante"
+    - "quincho"
+    - "conserje"
+
+  # Palabras que restan. No descartan: avisan.
+  keywords_alerta:
+    - "primer piso"
+    - "interior"
+    - "sin ascensor"
+    - "a refaccionar"
+    - "para remodelar"
+
+# ---------------------------------------------------------------------------
+# EL RUIDO — lo que se descarta antes de mirar nada
+#
+# Los portales mezclan venta y arriendo en la misma grilla, y el arriendo por
+# día no es lo que se busca.
+# ---------------------------------------------------------------------------
+excluir:
+  # Un aviso de VENTA que se cuela en un listado de arriendo. La señal más
+  # confiable es el monto: nadie arrienda en 8.500 UF.
+  ventas: true
+  # Arriendo por día o por semana: Airbnb, temporada, ejecutivos.
+  temporada: true
+  # Habitación suelta dentro de un departamento compartido.
+  piezas: true
+
+# ---------------------------------------------------------------------------
+# ALERTAS
+# ---------------------------------------------------------------------------
+alertas:
+  # Puntaje mínimo (0-100) para que un hallazgo genere aviso.
+  #
+  # Bajo a propósito. Los filtros duros ya hicieron el trabajo pesado: lo que
+  # llega hasta acá es un departamento de Vitacura o del anillo, de más de
+  # 100 m², con tres piezas y dentro del presupuesto. Entre esos, preferimos
+  # un aviso de más que enterarnos de que se arrendó.
+  score_minimo: 35
+
+  # Un arriendo que cumple los filtros duros alerta aunque le falten datos
+  # (antigüedad, gastos comunes, piso). El mercado de arriendo se mueve en
+  # días: perder uno por esperar un dato es peor que revisarlo a mano.
+  alertar_incompletos: true
+
+  # Tope de alertas por corrida. Existe porque la primera corrida contra
+  # portales de arriendo trae inventario acumulado, no novedades del día, y
+  # sin tope serían cuarenta mensajes seguidos a las ocho de la mañana.
+  # Se mandan las de mayor puntaje; el resto queda en el tablero y alerta en
+  # la corrida siguiente.
+  max_por_corrida: 8
+
+  # Por dónde avisar. Telegram y nada más.
+  canales: [telegram]
+
+  # Re-avisar algo ya visto cuando cambia lo que importa. En arriendo la
+  # señal es la baja de precio: un aviso que baja el canon lleva tiempo sin
+  # arrendarse y se negocia.
+  reavisar:
+    baja_precio_pct: 4     # baja de 4% o más -> vuelve a avisar
+    # Un aviso que lleva mucho tiempo publicado se negocia mejor. Se avisa
+    # una sola vez al cruzar el umbral, no todos los días.
+    dias_publicado_aviso: 45

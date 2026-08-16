@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.tmp
+
+# HTML descargado al calibrar: pesado y regenerable con `arriendo calibrar`.
+# Los fixtures de tests (tests/fixtures/) sí se versionan.
+/fixtures/
+
+# La bitácora se versiona (por eso NO se ignora), salvo la salida cruda de
+# una corrida local, que solo tiene sentido en el runner.
+logs/.tmp

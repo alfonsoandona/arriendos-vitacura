@@ -1,0 +1,314 @@
+"""Modelo de datos normalizado.
+
+Toda fuente —un portal grande, la página de una corredora, un aviso suelto—
+termina convertida a un `Arriendo`. El resto del sistema solo conoce esta forma.
+
+La parte más importante de este módulo no es el dataclass sino el
+`fingerprint`, y conviene decir por qué: **el mismo departamento se publica en
+seis portales a la vez**. Es la diferencia con un radar de remates, donde cada
+edicto sale una o dos veces. Acá, sin una identidad estable que cruce portales,
+un solo departamento de Vitacura manda seis mensajes de Telegram y el radar se
+vuelve inutilizable en una semana.
+
+La normalización de direcciones viene del radar de remates (repo `claude-code`),
+donde se calibró contra duplicados reales entre agregadores. Se trajo entera
+porque el problema es el mismo y ahí ya está resuelto.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import re
+from dataclasses import dataclass, field, asdict
+from datetime import date, datetime
+from typing import Any
+
+
+@dataclass
+class Arriendo:
+    """Un arriendo publicado, normalizado."""
+
+    # --- identidad ---
+    source: str                      # id de la fuente, ej. "toctoc"
+    url: str
+    title: str = ""
+
+    # --- ubicación ---
+    direccion: str = ""
+    comuna: str = ""
+    lat: float | None = None
+    lon: float | None = None
+
+    # --- qué es ---
+    tipo: str = ""                   # "departamento" | "casa" | ""
+    # `operacion` separa el arriendo de la venta que se cuela en la grilla, y
+    # del arriendo por día que no es lo que se busca.
+    operacion: str = "arriendo"      # "arriendo" | "venta" | "temporada" | "pieza"
+
+    # --- superficies ---
+    # Se guardan las dos porque significan cosas distintas y el filtro duro es
+    # sobre la TOTAL: útil es el interior, total incluye terrazas y balcones.
+    m2_totales: float | None = None
+    m2_utiles: float | None = None
+    m2_terraza: float | None = None
+
+    # --- programa ---
+    dormitorios: int | None = None
+    banos: int | None = None
+    estacionamientos: int | None = None
+    bodega: bool | None = None
+    piso: int | None = None
+    ultimo_piso: bool = False
+    orientacion: str = ""
+    # "amoblado" | "sin amoblar" | "". El vacío es honesto: la mayoría de los
+    # avisos no lo dice, y suponerlo cambia el precio esperado en 30%.
+    amoblado: str = ""
+    mascotas: str = ""               # "acepta" | "no acepta" | ""
+
+    # --- economía ---
+    # El canon mensual. En CLP porque así se publica el arriendo en Chile; la
+    # UF existe pero es minoría, y cuando viene en UF se convierte y se deja
+    # anotado de dónde salió.
+    arriendo_clp: float | None = None
+    arriendo_uf: float | None = None
+    gastos_comunes_clp: float | None = None
+    # Cuánto pide de garantía, en meses. Dato de decisión: dos meses de
+    # garantía sobre 1,6 millones son 3,2 millones al firmar.
+    garantia_meses: float | None = None
+
+    # --- proceso ---
+    disponible_desde: date | None = None
+    publicado_el: date | None = None
+    corredora: str = ""
+
+    # --- trazabilidad ---
+    raw_text: str = ""               # texto crudo del que se extrajo todo
+    scraped_at: datetime = field(default_factory=datetime.utcnow)
+    extras: dict[str, Any] = field(default_factory=dict)
+
+    # --- resultado del scoring (lo llena scoring.py) ---
+    score: int = 0
+    razones: list[str] = field(default_factory=list)
+    distancia_km: float | None = None
+    # Descarte duro. `descartado` es el veredicto y `motivo_descarte` la
+    # explicación en una línea; `clase_descarte` es la misma cosa en una
+    # palabra, para poder contar por qué se cae el inventario sin leer prosa.
+    descartado: bool = False
+    motivo_descarte: str = ""
+    clase_descarte: str = ""
+
+    # ------------------------------------------------------------------
+    @property
+    def costo_mensual(self) -> float | None:
+        """Lo que de verdad se paga al mes: canon más gastos comunes.
+
+        Es el número con el que se decide y casi ningún portal lo muestra. Un
+        departamento de $1.500.000 con $380.000 de gastos comunes cuesta más
+        que uno de $1.750.000 con $120.000, y mirando solo el canon el orden
+        sale al revés.
+
+        Devuelve None si no hay canon. Si hay canon y no hay gastos comunes
+        devuelve el canon solo —no se inventa un promedio— y quien lo use
+        tiene que mirar `gastos_comunes_clp` para saber si el número está
+        completo.
+        """
+        if self.arriendo_clp is None:
+            return None
+        return self.arriendo_clp + (self.gastos_comunes_clp or 0)
+
+    @property
+    def gastos_comunes_pct(self) -> float | None:
+        """Gastos comunes como % del canon. None si falta cualquiera de los dos."""
+        if not self.arriendo_clp or self.gastos_comunes_clp is None:
+            return None
+        return round(100 * self.gastos_comunes_clp / self.arriendo_clp, 1)
+
+    @property
+    def m2_referencia(self) -> float | None:
+        """La superficie con la que se filtra, y de dónde salió.
+
+        El filtro duro es sobre m² TOTALES. Cuando el aviso solo publica la
+        útil hay que decidir, y la geometría decide sola: la total nunca es
+        menor que la útil, así que una útil de 118 m² garantiza una total de
+        al menos 118. Ahí se puede usar la útil y el filtro sigue siendo
+        correcto.
+
+        Al revés no funciona —una útil de 92 m² no dice nada sobre la total,
+        que puede ser 105 con terrazas— y por eso `scoring` trata ese caso
+        como dato ausente en vez de como incumplimiento.
+        """
+        if self.m2_totales is not None:
+            return self.m2_totales
+        return self.m2_utiles
+
+    @property
+    def dias_publicado(self) -> int | None:
+        """Cuántos días lleva publicado. Es la palanca de negociación."""
+        if not self.publicado_el:
+            return None
+        return (datetime.utcnow().date() - self.publicado_el).days
+
+    @property
+    def fingerprint(self) -> str:
+        """Identidad estable para deduplicar entre portales y entre corridas.
+
+        Se prefiere la dirección normalizada por sobre la URL, y acá eso es lo
+        único que funciona: el mismo departamento está publicado por la
+        corredora, por dos portales que le sindican el aviso y por el dueño,
+        con cuatro URLs y cuatro títulos distintos.
+
+        Cuando el aviso trae el número del departamento, ese número ENTRA en
+        la llave. Es la diferencia con un remate: en un edificio de Vitacura
+        se arriendan tres departamentos distintos de la misma torre a la vez,
+        y colapsarlos en uno haría perder dos.
+
+        El precio NO entra. Un portal publica $1.550.000 y otro "desde
+        1.55 millones" por el mismo departamento, y una baja de canon tiene
+        que reconocerse como el mismo aviso más barato —que es la señal que
+        interesa— y no como uno nuevo.
+        """
+        base = clave_direccion(self.direccion, self.comuna)
+        if base and self.comuna:
+            unidad = _normalize_key(self.extras.get("unidad", "") or "")
+            key = f"{base}|{_normalize_key(self.comuna)}"
+            if unidad:
+                key += f"|{unidad}"
+            return hashlib.sha1(key.encode()).hexdigest()[:16]
+
+        # Sin dirección utilizable se cae a la URL, pero la URL sola no basta:
+        # un listado paginado la comparte entre varias tarjetas. El texto de
+        # la tarjeta es lo que las distingue.
+        detalle = _normalize_key(self.title or self.raw_text)[:120]
+        return hashlib.sha1(f"{self.url}|{detalle}".encode()).hexdigest()[:16]
+
+    def to_dict(self) -> dict[str, Any]:
+        d = asdict(self)
+        d["scraped_at"] = self.scraped_at.isoformat()
+        for campo in ("disponible_desde", "publicado_el"):
+            valor = getattr(self, campo)
+            d[campo] = valor.isoformat() if valor else None
+        d["fingerprint"] = self.fingerprint
+        d["costo_mensual"] = self.costo_mensual
+        return d
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "Arriendo":
+        d = dict(d)
+        for calculado in ("fingerprint", "costo_mensual", "gastos_comunes_pct",
+                          "m2_referencia", "dias_publicado"):
+            d.pop(calculado, None)
+        if isinstance(d.get("scraped_at"), str):
+            d["scraped_at"] = datetime.fromisoformat(d["scraped_at"])
+        for campo in ("disponible_desde", "publicado_el"):
+            if isinstance(d.get(campo), str):
+                d[campo] = date.fromisoformat(d[campo])
+        known = set(cls.__dataclass_fields__)
+        return cls(**{k: v for k, v in d.items() if k in known})
+
+
+# ---------------------------------------------------------------------------
+# Normalización de direcciones
+#
+# Todo lo que sigue viene del radar de remates, calibrado contra duplicados
+# reales. Cada limpieza tiene un caso que la justifica y por eso se conservan
+# los ejemplos: sin ellos, la próxima persona que lea esto va a "simplificar"
+# alguna y a reintroducir un duplicado que ya se había arreglado.
+# ---------------------------------------------------------------------------
+
+_ACCENTS = str.maketrans("áéíóúüñÁÉÍÓÚÜÑ", "aeiouunAEIOUUN")
+
+
+def _normalize_key(s: str) -> str:
+    """Normaliza texto para comparación: sin tildes, sin puntuación, compacto.
+
+    'Av. Lo Beltrán #2.500, Depto 41-B' -> 'av lo beltran 2500 depto 41 b'
+    """
+    s = (s or "").translate(_ACCENTS).lower()
+    # El separador de miles se elimina ANTES que la puntuación: si no,
+    # '#2.340' quedaría como '2 340' y no calzaría con '2340' de otra fuente.
+    s = re.sub(r"(?<=\d)[.,](?=\d)", "", s)
+    s = re.sub(r"[^\w\s]", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+# "Nº", "N°", "No.", "#": marcas del número de la calle. Cada portal usa la
+# suya para la misma dirección, así que sobran en una llave de identidad.
+# El "º" hay que nombrarlo: Python lo considera \w y sobrevive a la limpieza
+# de puntuación de _normalize_key.
+_MARCA_NUMERO = re.compile(r"\b(?:n[º°o]?|nro|num(?:ero)?)\s*(?=\d)", re.I)
+
+# Cada portal abrevia distinto la misma avenida. Se llevan todas a una forma.
+_TIPOS_VIA = {
+    "avenida": "av", "avda": "av", "avd": "av", "av": "av",
+    "pasaje": "psje", "psje": "psje", "pje": "psje",
+    "callejon": "callejon", "calle": "calle", "camino": "camino",
+}
+
+
+def _sin_via_inicial(clave: str) -> str:
+    """Saca el tipo de vía del principio: no identifica nada.
+
+    Un portal escribe "Calle Alonso de Córdova 4200" y otro "Alonso de
+    Córdova 4200". Canonizar la palabra no alcanza —"calle x 4200" sigue
+    siendo distinto de "x 4200"— y el mismo departamento alerta dos veces.
+
+    El riesgo asumido: dos calles del mismo nombre y número que solo se
+    distingan por el tipo de vía quedarían con la misma llave. Con la comuna
+    también en la llave, eso no existe en la zona del perfil.
+    """
+    partes = clave.split()
+    return " ".join(partes[1:]) if partes and partes[0] in _TIPOS_VIA else clave
+
+
+# La cola administrativa que algunos portales pegan y otros no: "…4200,
+# Vitacura, Región Metropolitana" frente a "…Nº 4200". No aporta identidad
+# —la comuna ya va aparte en el fingerprint— y sin sacarla la misma
+# propiedad no calza entre fuentes.
+_COLA_ADMINISTRATIVA = re.compile(r"\b(?:comuna|region|provincia|ciudad)\b.*$")
+
+
+def clave_direccion(direccion: str, comuna: str = "") -> str:
+    """Llave de comparación de direcciones entre portales distintos.
+
+    Cuatro limpiezas, todas con un duplicado real detrás:
+
+        'Alonso de Córdova Nº 4200'          marca del número
+        'Alonso De Cordova Vitacura 4200'    comuna intercalada
+        'Calle Alonso de Cordova 4200'       tipo de vía al principio
+        'Alonso de Córdova 4200, Vitacura,   cola administrativa
+         Región Metropolitana'
+
+    Las cuatro son el mismo edificio y sin limpiar son cuatro llaves distintas.
+    """
+    clave = _normalize_key(direccion)
+    if not clave:
+        return ""
+
+    clave = _MARCA_NUMERO.sub("", clave)
+    sin_cola = _COLA_ADMINISTRATIVA.sub("", clave).strip()
+    # Salvo que la dirección SEA la cola: "comuna de Vitacura" a secas es lo
+    # único que trae algún aviso, y dejarla vacía la volvería inidentificable.
+    if sin_cola:
+        clave = sin_cola
+    clave = _sin_via_inicial(clave)
+
+    c = _normalize_key(comuna)
+    if c:
+        # La comuna al FINAL es igual de prescindible que la región: sobra en
+        # "Alonso de Córdova 4200 Vitacura" y falta en "Alonso de Córdova Nº
+        # 4200", que es el mismo edificio. Se pide que quede el número de la
+        # calle: sin él lo que sobrevive no es una dirección.
+        sin_final = re.sub(rf"\s+\b{re.escape(c)}\b$", "", clave)
+        if sin_final != clave and re.search(r"\d", sin_final):
+            clave = sin_final
+
+        sin_comuna = re.sub(rf"\b{re.escape(c)}\b\s+(?=\d)", "", clave)
+        # Solo si queda un nombre de calle de verdad. En 'Av. Vitacura 5480'
+        # la comuna ES la calle, y sacarla dejaría '5480', que calzaría con
+        # cualquier otra dirección del mismo número.
+        nombre = [p for p in sin_comuna.split()
+                  if p not in _TIPOS_VIA and not p.isdigit()]
+        if nombre:
+            clave = sin_comuna
+
+    return re.sub(r"\s+", " ", clave).strip()
