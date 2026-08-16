@@ -303,12 +303,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              272 tests.
+tests/              301 tests.
 ```
 
 ### Sobre los tests
 
-272 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+301 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
@@ -335,11 +335,11 @@ python -m pytest tests/ -q
 | Pieza | Estado |
 |---|---|
 | Parser de avisos chilenos (montos, superficies, programa) | ✅ 71 tests |
-| Filtros duros y puntaje | ✅ 52 tests |
-| Deduplicación y fusión entre portales | ✅ 22 tests |
+| Filtros duros y puntaje | ✅ 61 tests |
+| Deduplicación y fusión entre portales | ✅ 31 tests |
 | Extracción (JSON-LD, SPA, tarjetas) | ✅ 36 tests |
-| Alertas por Telegram y fichas | ✅ 39 tests |
-| Configuración, paginación y CLI | ✅ 39 tests |
+| Alertas por Telegram y fichas | ✅ 50 tests |
+| Configuración, paginación y CLI | ✅ 51 tests |
 | Corrida completa de punta a punta | ✅ 13 tests |
 | Automatización (GitHub Actions, 2x al día) | ✅ Configurada |
 | URLs de los 20 portales activos | ✅ Confirmadas una por una |

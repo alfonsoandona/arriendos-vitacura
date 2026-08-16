@@ -267,7 +267,7 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 287 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 301 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |
