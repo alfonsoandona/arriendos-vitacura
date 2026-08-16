@@ -89,6 +89,22 @@ crudo queda como artifact:
 | ⚠️ **cero resultados** | La página respondió pero no se reconoció ningún aviso | Baja el artifact y abre el HTML. Si trae los avisos, agrégale `selector_card`. Si viene vacío, ponle `motor: navegador` |
 | ❌ **sin respuesta** | 404, bloqueo anti-bot o robots.txt | Si es 403, prueba `motor: navegador`. Si es DNS, la URL está mala |
 
+### Paginación
+
+Por omisión cada fuente lee solo la primera página del listado, que son unos
+20 avisos. Los portales grandes tienen más, así que llevan `paginacion` en
+`fuentes.yml`:
+
+```yaml
+paginacion: {paginas: 3, parametro: page}     # ...?page=2
+```
+
+Se corta sola cuando una página no trae nada, y conserva los filtros que ya
+trae la URL. El tope de fichas de detalle (`detalle.max`) es un presupuesto de
+la **fuente completa**, no de cada página: si fuera por página, tres páginas
+con `max: 12` serían 39 cargas de navegador y una sola fuente se comería el
+presupuesto de 30 minutos del job.
+
 ### El arreglo que más rinde, y se hace desde el teléfono
 
 Abre el portal en el navegador del celular, filtra a mano por **Vitacura +
@@ -257,19 +273,23 @@ arriendo/
     base.py         HTTP educado: reintentos, rate limit, robots.txt.
     generic.py      Las tres pasadas de extracción.
     navegador.py    Chromium, para los portales que arman la página con JS.
-    registry.py     Carga de fuentes.yml y barrido.
+    registry.py     Carga de fuentes.yml, paginación y barrido.
   alerts/
     telegram.py     El mensaje de ocho líneas.
 
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              251 tests.
+tests/              272 tests.
 ```
 
 ### Sobre los tests
 
-251 tests, todos sin red. Los fixtures de `tests/fixtures/` son HTML escrito
+272 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+socket, así que un test que intente salir a internet falla en el acto. No es
+paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
+el archivo y cargara el catálogo real, y el síntoma fue un test de validación
+de YAML que salió a consultar los diecisiete portales y tardó 84 segundos. Los fixtures de `tests/fixtures/` son HTML escrito
 como lo escriben los portales chilenos, con el ruido real incluido: el menú de
 navegación, el panel de filtros facetados, el botón de "publica tu propiedad"
 metido dentro de cada tarjeta, y avisos de venta y de temporada mezclados en la
@@ -292,12 +312,12 @@ python -m pytest tests/ -q
 | Pieza | Estado |
 |---|---|
 | Parser de avisos chilenos (montos, superficies, programa) | ✅ 71 tests |
-| Filtros duros y puntaje | ✅ 46 tests |
-| Deduplicación y fusión entre portales | ✅ 21 tests |
+| Filtros duros y puntaje | ✅ 52 tests |
+| Deduplicación y fusión entre portales | ✅ 22 tests |
 | Extracción (JSON-LD, SPA, tarjetas) | ✅ 36 tests |
 | Alertas por Telegram y fichas | ✅ 39 tests |
-| Validación de `perfil.yml` y `fuentes.yml` | ✅ 27 tests |
-| Corrida completa de punta a punta | ✅ 11 tests |
+| Configuración, paginación y CLI | ✅ 39 tests |
+| Corrida completa de punta a punta | ✅ 13 tests |
 | Automatización (GitHub Actions, 2x al día) | ✅ Configurada |
 | **URLs de los portales** | ⚠️ **Sin verificar — correr `Calibrar fuentes`** |
 

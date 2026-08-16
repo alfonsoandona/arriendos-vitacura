@@ -153,6 +153,18 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
     """
     resultado = ResultadoFuente(fuente_id=fuente.id)
 
+    # El tope de fichas es de la FUENTE, no de cada página.
+    #
+    # Al principio se aplicaba por página y con la paginación eso se
+    # multiplicaba: TocToc con 3 páginas y `max: 12` pedía 39 cargas de
+    # navegador, unos diez minutos para una sola fuente, y entre dos fuentes
+    # así se acababa el presupuesto de 30 minutos del job antes de llegar a
+    # las otras quince.
+    #
+    # Como presupuesto de fuente, las fichas se gastan en las primeras
+    # páginas, que además es donde están los avisos más nuevos.
+    presupuesto = int(fuente.detalle.get("max", 10)) if fuente.detalle else 0
+
     for base in fuente.urls:
         for url in urls_paginadas(base, fuente.paginacion):
             try:
@@ -175,9 +187,11 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
             encontrados = extraer(html, url, fuente, valor_uf)
             resultado.hallazgos.extend(encontrados)
 
-            if seguir_detalles and fuente.detalle.get("patron"):
-                resultado.hallazgos.extend(
-                    _seguir_fichas(fuente, fetcher, html, url, valor_uf))
+            if seguir_detalles and presupuesto > 0 and fuente.detalle.get("patron"):
+                fichas = _seguir_fichas(fuente, fetcher, html, url,
+                                        presupuesto, valor_uf)
+                resultado.hallazgos.extend(fichas)
+                presupuesto -= len(fichas)
 
             # Una página vacía significa que se acabó el inventario. Seguir
             # pidiendo páginas después de eso son requests al sitio que no
@@ -190,7 +204,7 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
 
 
 def _seguir_fichas(fuente: FuenteConfig, fetcher: Fetcher, html: str,
-                   base_url: str,
+                   base_url: str, presupuesto: int,
                    valor_uf: float | None = None) -> list[Arriendo]:
     """Abre las fichas de detalle del listado y extrae lo que solo vive ahí.
 
@@ -203,8 +217,8 @@ def _seguir_fichas(fuente: FuenteConfig, fetcher: Fetcher, html: str,
     deduplicación por dirección los fusiona después quedándose con lo mejor
     de cada uno.
     """
-    tope = int(fuente.detalle.get("max", 10))
-    enlaces = enlaces_de_detalle(html, base_url, fuente.detalle["patron"], tope)
+    enlaces = enlaces_de_detalle(html, base_url, fuente.detalle["patron"],
+                                 presupuesto)
 
     salida: list[Arriendo] = []
     for enlace in enlaces:

@@ -374,3 +374,43 @@ def test_el_valor_uf_configurado_llega_al_extractor(monkeypatch):
 
     (b,) = extraer(html, "https://x.cl/arriendo", fuente, valor_uf=40_000)
     assert b.arriendo_clp == 1_520_000
+
+
+def test_el_tope_de_fichas_es_de_la_fuente_y_no_de_cada_pagina():
+    """La paginación no puede multiplicar el costo de seguir fichas.
+
+    Con el tope aplicado por página, TocToc con 3 páginas y `max: 12` pedía
+    39 cargas de navegador —unos diez minutos para una sola fuente— y entre
+    dos fuentes así se acababa el presupuesto de 30 minutos del job antes de
+    llegar a las otras quince.
+    """
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.sources.registry import barrer
+
+    listado = "".join(
+        f'<article><a href="/aviso/{n}">Depto en arriendo</a>'
+        f'<p>Luis Carrera {1000 + n}, Vitacura</p><p>$1.450.000</p>'
+        f'<p>134 m² totales · 3 dormitorios</p></article>'
+        for n in range(30))
+    html = f"<html><body>{listado}</body></html>"
+
+    pedidas: list[str] = []
+
+    class FetcherFalso(Fetcher):
+        def __init__(self):
+            super().__init__(delay=0)
+
+        def get(self, url, reintentos=3, ignorar_robots=False):
+            pedidas.append(url)
+            return html
+
+    fuente = FuenteConfig(
+        id="x", nombre="X", urls=["https://x.cl/arriendo"],
+        paginacion={"paginas": 3, "parametro": "page"},
+        detalle={"patron": r"/aviso/\d+", "max": 5})
+
+    barrer(fuente, FetcherFalso())
+
+    fichas = [u for u in pedidas if "/aviso/" in u]
+    assert len(fichas) == 5, f"se pidieron {len(fichas)} fichas, el tope era 5"
+    assert len([u for u in pedidas if "/aviso/" not in u]) == 3
