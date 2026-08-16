@@ -1,0 +1,65 @@
+name: Calibrar fuentes
+
+# El primer paso obligatorio del proyecto.
+#
+# Las URLs de fuentes.yml están armadas con el patrón que usa cada portal
+# pero nunca se pudieron abrir: el entorno donde se escribió este código
+# tiene bloqueado el acceso de red a todos los sitios objetivo. Varias van a
+# estar mal, y esto dice cuáles.
+#
+# Corre en los servidores de GitHub, que sí tienen internet abierto.
+
+on:
+  workflow_dispatch:
+    inputs:
+      fuente:
+        description: "Limitar a una sola fuente (id de fuentes.yml)"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  calibrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Instalar Chromium
+        timeout-minutes: 5
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          python -m playwright install --with-deps chromium \
+            || python -m playwright install chromium
+
+      - name: Calibrar
+        run: |
+          python -m arriendo calibrar \
+            ${{ inputs.fuente && format('--fuente {0}', inputs.fuente) || '' }} \
+            --reporte calibracion.md --fixtures fixtures --verbose
+
+      - name: Mostrar el reporte en el resumen del run
+        # Para poder leerlo desde el teléfono sin bajar ningún artifact.
+        if: always()
+        run: cat calibracion.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Guardar el HTML crudo
+        # Es lo que permite escribir los selectores que falten: se abre el
+        # archivo y se mira cómo está armada la tarjeta de verdad.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: calibracion-fixtures
+          path: |
+            fixtures/
+            calibracion.md
+          if-no-files-found: warn
+          retention-days: 14

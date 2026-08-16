@@ -1,0 +1,49 @@
+name: Agregar un portal al radar
+description: Pega el link de un portal de arriendos y se agrega al catálogo.
+title: "[fuente] "
+labels: ["fuente"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Para agregar un portal sin escribir YAML.
+
+        **El link que más sirve** es el de la búsqueda YA FILTRADA: abre el
+        portal, filtra por Vitacura + arriendo + departamento, y copia la URL
+        que te queda en la barra. Menos páginas que barrer y mucho menos ruido.
+
+  - type: input
+    id: nombre
+    attributes:
+      label: Nombre del portal
+      placeholder: "TocToc"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL del listado, ya filtrado si se puede
+      placeholder: "https://www.toctoc.com/resultados/arriendo/departamento/vitacura/"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: motor
+    attributes:
+      label: ¿La página se ve vacía o cargando por un segundo antes de mostrar los avisos?
+      description: >-
+        Si es así, el sitio arma la página con JavaScript y necesita navegador.
+        Si no estás seguro, deja "no sé": la calibración lo detecta.
+      options:
+        - "No sé"
+        - "Sí, carga con un spinner"
+        - "No, los avisos salen de inmediato"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Algo que valga la pena saber
+      placeholder: "Publica los gastos comunes en la ficha. Mucho aviso de particular."

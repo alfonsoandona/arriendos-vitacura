@@ -1,0 +1,160 @@
+name: Radar de Arriendos
+
+on:
+  schedule:
+    # 08:00 y 19:00 en Chile continental (UTC-4). En horario de verano
+    # (UTC-3) corre a las 09:00 y 20:00; la diferencia no es relevante.
+    #
+    # Dos veces al día y no más: el mercado de arriendo se mueve en días, no
+    # en horas, y una corrida cada hora solo agrega ruido y minutos de Actions.
+    - cron: "0 12 * * *"
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Imprimir los avisos sin mandarlos"
+        type: boolean
+        default: false
+      sin_historial:
+        description: "Correr como si fuera la primera vez (no toca el estado)"
+        type: boolean
+        default: false
+      forzar_avisos:
+        description: "Avisar igual sin historial — REENVÍA TODO lo que encuentre"
+        type: boolean
+        default: false
+      fuente:
+        description: "Limitar a una sola fuente (id de fuentes.yml)"
+        type: string
+        default: ""
+
+# Dos corridas simultáneas se pisarían al escribir el estado.
+concurrency:
+  group: radar-arriendos
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # persistir el estado y las fichas entre corridas
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Instalar Chromium
+        # Varios portales arman la página con JavaScript y necesitan navegador.
+        #
+        # Sin timeout este paso puede colgarse: --with-deps corre apt-get, que
+        # a veces queda esperando un lock del runner y se lleva los 30 minutos
+        # del job. Con tope falla rápido, y el fallback instala solo el
+        # navegador — la imagen ubuntu-latest ya trae casi todas sus librerías.
+        timeout-minutes: 5
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          python -m playwright install --with-deps chromium \
+            || python -m playwright install chromium
+
+      - name: Verificar el motor de filtrado
+        # Si el scoring está roto es preferible fallar antes de mandar avisos
+        # equivocados que descubrirlo por un mensaje mal disparado.
+        run: |
+          pip install -r requirements-dev.txt
+          python -m pytest tests/ -q
+
+      - name: Correr el radar
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Si no están configurados, el canal se apaga solo y queda avisado
+          # en el log. El paso a paso para obtenerlos está en AVISOS.md.
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Opcional: para convertir los avisos publicados en UF. Sin esto se
+          # usa el valor por omisión del parser, que basta de sobra para
+          # decidir si un arriendo está cerca de 1,6 millones.
+          VALOR_UF: ${{ vars.VALOR_UF }}
+        run: |
+          mkdir -p logs
+          set -o pipefail
+
+          # "Como si fuera la primera vez": el estado se lee de un directorio
+          # vacío y descartable, así que el radar no recuerda nada. Es la
+          # única forma de ver lo que vería alguien que recién instala esto.
+          #
+          # Apunta a otro directorio en vez de borrar state/, que es la
+          # diferencia entre un ensayo y perder la memoria del radar.
+          #
+          # Por omisión fuerza --dry-run: sin historial TODO se ve nuevo, así
+          # que la corrida reenviaría cada aviso ya mandado.
+          MODO=""
+          if [[ "${{ inputs.sin_historial }}" == "true" ]]; then
+            export ARRIENDO_STATE_DIR="$RUNNER_TEMP/estado-limpio"
+            mkdir -p "$ARRIENDO_STATE_DIR"
+            if [[ "${{ inputs.forzar_avisos }}" == "true" ]]; then
+              echo "::warning::Sin historial y avisando igual: se reenvía TODO"
+            else
+              MODO="--dry-run"
+              echo "::notice::Corrida sin historial, sin enviar avisos"
+            fi
+          elif [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            MODO="--dry-run"
+          fi
+
+          python -m arriendo run $MODO \
+            ${{ inputs.fuente && format('--fuente {0}', inputs.fuente) || '' }} \
+            --verbose 2>&1 | tee logs/ultima-corrida.log
+
+      - name: Guardar el estado, las fichas y la bitácora
+        # always(): la bitácora se commitea TAMBIÉN cuando la corrida falla,
+        # que es justo cuando sirve. Una corrida que revienta sin dejar rastro
+        # en el repo se ve, desde afuera, igual que una que no encontró nada.
+        #
+        # Una corrida sin historial no guarda nada: su estado es descartable y
+        # su bitácora describe un mundo que no existe.
+        if: ${{ always() && !inputs.dry_run && !inputs.sin_historial }}
+        run: |
+          # La salida cruda se recorta: interesa el final, donde está el error.
+          if [[ -f logs/ultima-corrida.log ]]; then
+            tail -n 400 logs/ultima-corrida.log > logs/.tmp \
+              && mv logs/.tmp logs/ultima-corrida.log
+          fi
+          # alertas/ va junto con el estado y no aparte: el mensaje de
+          # Telegram lleva el link a alertas/casos/<ficha>.md adentro, así que
+          # si el push se hace sin las fichas el aviso llega con un 404.
+          if [[ -z "$(git status --porcelain state/ logs/ alertas/)" ]]; then
+            echo "Sin cambios que guardar."
+            exit 0
+          fi
+          git config user.name  "radar-arriendos[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/ logs/ alertas/
+          git commit -m "bitacora: corrida $(date -u +%Y-%m-%d\ %H:%M) UTC"
+          # La rama pudo avanzar mientras corría el job.
+          for i in 1 2 3; do
+            git push && break
+            echo "Push falló, reintentando ($i/3)..."
+            git pull --rebase --autostash && sleep $((i * 2))
+          done
+
+      - name: Guardar diagnóstico si algo falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-diagnostico
+          path: |
+            state/
+            fixtures/
+            logs/
+          if-no-files-found: ignore
+          retention-days: 7

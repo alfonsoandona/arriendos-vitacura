@@ -1,0 +1,29 @@
+name: Probar aviso de Telegram
+
+# Existe porque el modo más caro de fallar es encontrar el departamento y no
+# conseguir avisar: desde afuera se ve exactamente igual que no haber
+# encontrado nada. Esto lo cierra en dos segundos en vez de esperar a la
+# corrida siguiente y preguntarle a alguien si le sonó el teléfono.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Mandar el mensaje de prueba
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m arriendo probar-aviso
