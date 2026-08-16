@@ -135,6 +135,34 @@ la **fuente completa**, no de cada página: si fuera por página, tres páginas
 con `max: 12` serían 39 cargas de navegador y una sola fuente se comería el
 presupuesto de 30 minutos del job.
 
+### El presupuesto de tiempo
+
+El job de Actions corta a los 30 minutos. Con 39 fuentes la corrida normal
+toma unos 12, pero si varias se cuelgan hasta su timeout el peor caso llega a
+54 — y que lo corte Actions es el peor final posible: mata el proceso, así que
+no se manda ninguna alerta, no se guarda el estado y no se escribe la
+bitácora. Se pierde también todo lo que las fuentes sanas ya habían entregado.
+
+Por eso el radar se corta solo a los **18 minutos** (`--tope-minutos`): avisa
+lo que alcanzó a encontrar, guarda el estado, y deja anotado en la bitácora
+qué fuentes quedaron sin mirar.
+
+### La UF del día
+
+No es un detalle. **Yapo publica buena parte de su inventario de Vitacura en
+UF** (`CLF 46.00`), así que para esa fuente el precio en pesos no lo publica
+nadie: lo calcula este radar. Y de ese cálculo depende el veredicto:
+
+```
+UF 39 × $40.800 (constante)  = $1.591.200   → entra
+UF 39 × $41.500 (UF real)    = $1.618.500   → se pasa del tope
+```
+
+Se resuelve con una cascada: la variable `VALOR_UF` si está, si no la API
+pública del día, si no la caché de la última corrida —un valor de hace dos
+días es mucho mejor que uno escrito hace meses— y solo al final la constante.
+La bitácora dice cuál se usó.
+
 ### El arreglo que más rinde, y se hace desde el teléfono
 
 Abre el portal en el navegador del celular, filtra a mano por **Vitacura +
@@ -309,6 +337,7 @@ arriendo/
   store.py          Memoria entre corridas y fusión entre portales.
   fichas.py         Las fichas en Markdown y el tablero.
   bitacora.py       Qué pasó en cada corrida.
+  uf.py             El valor de la UF, con respaldo en cascada.
   cli.py            Orquestación y línea de comandos.
   sources/
     base.py         HTTP educado: reintentos, rate limit, robots.txt.
@@ -321,12 +350,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              317 tests.
+tests/              340 tests.
 ```
 
 ### Sobre los tests
 
-317 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+340 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación

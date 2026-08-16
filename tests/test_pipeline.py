@@ -10,6 +10,7 @@ el estado se complete ANTES de evaluar, que un envío fallido no se marque como
 avisado.
 """
 
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -32,6 +33,8 @@ class ArgsFalsos:
         self.fuente = ""
         self.delay = 0.0
         self.sin_detalles = True
+        self.tope_minutos = 0.0
+        self.timeout = 20
         self.__dict__.update(kw)
 
 
@@ -384,3 +387,55 @@ def test_un_error_de_configuracion_no_se_reporta_como_caida(entorno, tmp_path):
     assert cli.main(["run", "--fuentes", str(yml), "--dry-run"]) == 2
     # Y da igual de qué lado del subcomando vaya la opción.
     assert cli.main(["--fuentes", str(yml), "run", "--dry-run"]) == 2
+
+
+# ---------------------------------------------------------------------------
+# Presupuesto de tiempo
+# ---------------------------------------------------------------------------
+
+def test_la_corrida_se_corta_antes_de_que_actions_la_mate(entorno, mensajes,
+                                                          tmp_path, monkeypatch):
+    """El peor final posible es que GitHub Actions mate el job.
+
+    Ahí no se manda ninguna alerta, no se guarda el estado, no se escribe la
+    bitácora, y desde afuera solo se ve una X roja. Cortar nosotros conserva
+    todo lo que ya se había encontrado.
+    """
+    yml = tmp_path / "muchas.yml"
+    yml.write_text(
+        "fuentes:\n" + "".join(
+            f"  - {{id: f{n}, nombre: Fuente {n}, urls: ['https://f{n}.cl/']}}\n"
+            for n in range(10)), encoding="utf-8")
+
+    vistas: list[str] = []
+
+    def barrer_lento(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+        vistas.append(fuente.id)
+        return _fuente_falsa("portal_tarjetas.html")(fuente, fetcher)
+
+    monkeypatch.setattr(cli, "barrer", barrer_lento)
+    # El presupuesto ya vencido: se corta antes de la primera fuente.
+    monkeypatch.setattr(cli, "_deadline", lambda t: datetime.utcnow())
+
+    assert cli.correr(ArgsFalsos(fuentes=str(yml), tope_minutos=18)) == 0
+    assert vistas == [], "no debería haber barrido ninguna con el tope vencido"
+
+    bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
+    assert "se cortó por tiempo" in bitacora
+    assert "Fuente 0" in bitacora
+
+
+def test_sin_tope_se_barren_todas(entorno, mensajes, una_fuente, monkeypatch):
+    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, tope_minutos=0)) == 0
+    assert len(mensajes) == 1
+
+
+def test_el_corte_por_tiempo_se_avisa_por_telegram():
+    """Cortar en silencio sería el mismo error que fallar en silencio."""
+    from arriendo.alerts.telegram import _que_se_rompio
+
+    texto = _que_se_rompio({"fuentes_consultadas": 39, "fuentes_ok": 20,
+                            "corte_por_tiempo": [f"F{n}" for n in range(19)]})
+    assert "cortó por tiempo" in texto
+    assert "19 fuentes" in texto

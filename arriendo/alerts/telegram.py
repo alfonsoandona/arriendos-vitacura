@@ -480,6 +480,21 @@ def _que_se_rompio(stats: dict) -> str:
             "corrida.\n\nRevisa logs/ultima-corrida.md"
         )
 
+    # Cortar por tiempo no es un error, pero sí hay que decirlo: significa
+    # que el radar miró una parte del mercado y no todo, y el usuario no
+    # tiene cómo saberlo si no se lo dicen.
+    pendientes = stats.get("corte_por_tiempo") or []
+    if len(pendientes) >= 5:
+        return (
+            "⏱ <b>La corrida se cortó por tiempo</b>\n\n"
+            f"Quedaron {len(pendientes)} fuentes sin revisar, así que esta "
+            "vez el radar miró solo una parte del mercado.\n\n"
+            "Se cortó a propósito, para alcanzar a avisar lo encontrado antes "
+            "de que GitHub Actions matara el job.\n\n"
+            "Revisa logs/ultima-corrida.md: si se repite, hay una fuente "
+            "colgándose."
+        )
+
     caidas = stats.get("fuentes_caidas") or []
     if caidas:
         lista = "\n".join(f"· {_escapar(str(c))}" for c in caidas[:8])

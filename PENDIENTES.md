@@ -266,27 +266,23 @@ cambiar tres líneas.
 No están hechas. Van ordenadas por cuánto cambian el resultado, no por
 cuánto cuestan.
 
-### 1. Traer el valor de la UF del día 🟠
+### ~~1. Traer el valor de la UF del día~~ ✅ HECHO
 
-**Ya no es teórico.** Al probar contra un aviso real descubrí que Yapo publica
-buena parte de su inventario de Vitacura en UF (`CLF 46.00`, `CLF 33.00`).
-Hoy convierto con una constante de $40.800, y la UF se mueve: con la UF real
-en $41.500, un arriendo de UF 39 son $1.618.500 y **cruza el tope de
-$1.600.000** que con la constante no cruzaba. O sea: el veredicto de una
-fuente entera depende de un número que está envejeciendo.
+Cascada: variable `VALOR_UF` → API pública del día → caché de la última
+corrida → constante. La bitácora dice cuál se usó, porque eso explica que un
+aviso quede justo a un lado u otro del tope.
 
-Se arregla leyendo la UF de una API pública chilena al empezar la corrida,
-con la constante como respaldo si falla. Es media hora de trabajo.
+### ~~2. Que la corrida no muera por tiempo~~ ✅ HECHO
 
-- [ ] Hazlo
+Con 39 fuentes el peor caso eran 54 minutos contra un job de 30. Ahora se
+corta sola a los 18 y avisa qué quedó sin mirar.
 
-### 2. Paralelizar las fuentes 🟡
+### 2b. Paralelizar las fuentes 🟡
 
-Las 20 fuentes se consultan una después de otra, y 5 de ellas levantan
-Chromium. En el peor caso eso se acerca al tope de 30 minutos del job, y si
-lo cruza la corrida se corta a la mitad. Como el límite de velocidad ya es
-por sitio, se pueden consultar varios portales a la vez sin ser
-descortés con ninguno.
+Sigue valiendo la pena, aunque ya no sea urgente: con el corte por tiempo lo
+que antes era "se pierde la corrida" ahora es "se miran menos fuentes".
+Paralelizar recupera esas fuentes. El límite de velocidad ya es por sitio, así
+que se pueden consultar varios portales a la vez sin ser descortés.
 
 - [ ] Hazlo
 
@@ -350,7 +346,7 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 317 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 340 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |

@@ -72,6 +72,11 @@ def _resumen(stats: dict) -> str:
     L.append(f"| Después de deduplicar | {stats.get('unicos', 0)} |")
     L.append(f"| Pasaron los filtros | {stats.get('candidatos', 0)} |")
     L.append(f"| Avisados por Telegram | {stats.get('avisados', 0)} |")
+    if stats.get("valor_uf"):
+        # De dónde salió la UF explica por qué un aviso publicado en UF quedó
+        # justo a un lado u otro del tope de presupuesto.
+        uf = f"{stats['valor_uf']:,.2f}".replace(",", ".")
+        L.append(f"| Valor UF usado | ${uf} · {stats.get('origen_uf', '?')} |")
     L.append("")
 
     por_fuente = stats.get("por_fuente") or {}
@@ -83,6 +88,22 @@ def _resumen(stats: dict) -> str:
         for fid, n in sorted(por_fuente.items(), key=lambda kv: -kv[1]):
             marca = "" if n else " ⚠️"
             L.append(f"| {fid}{marca} | {n} |")
+        L.append("")
+
+    if (pendientes := stats.get("corte_por_tiempo")):
+        L.append("## ⏱ La corrida se cortó por tiempo")
+        L.append("")
+        L.append(f"Se agotó el presupuesto y quedaron **{len(pendientes)} "
+                 f"fuentes sin mirar**:")
+        L.append("")
+        for n in pendientes:
+            L.append(f"- {n}")
+        L.append("")
+        L.append("No es un error: es preferible avisar lo que se alcanzó a "
+                 "encontrar antes de que GitHub Actions mate el job, que "
+                 "perdería la corrida entera. Si se repite, lo más probable "
+                 "es que una fuente esté colgándose hasta el timeout — la "
+                 "tabla de arriba dice cuál trajo cero.")
         L.append("")
 
     if (caidas := stats.get("fuentes_caidas")):
@@ -125,6 +146,7 @@ def _anotar_historial(stats: dict, ruta: Path) -> None:
         "candidatos": stats.get("candidatos", 0),
         "avisados": stats.get("avisados", 0),
         "error": str(stats.get("error", ""))[:200] or None,
+        "corte_por_tiempo": len(stats.get("corte_por_tiempo") or []) or None,
     }
     inicio, fin = stats.get("inicio"), stats.get("fin")
     if isinstance(inicio, datetime) and isinstance(fin, datetime):

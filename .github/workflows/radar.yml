@@ -80,9 +80,10 @@ jobs:
           # en el log. El paso a paso para obtenerlos está en AVISOS.md.
           TELEGRAM_TOKEN_ARRIENDOS: ${{ secrets.TELEGRAM_TOKEN_ARRIENDOS }}
           TELEGRAM_CHAT_ID_ARRIENDOS: ${{ secrets.TELEGRAM_CHAT_ID_ARRIENDOS }}
-          # Opcional: para convertir los avisos publicados en UF. Sin esto se
-          # usa el valor por omisión del parser, que basta de sobra para
-          # decidir si un arriendo está cerca de 1,6 millones.
+          # Opcional y casi nunca necesaria: el radar trae la UF del día de
+          # una API pública y la guarda en caché. Esta variable solo sirve
+          # para FIJAR un valor a mano —reproducir una corrida vieja, o
+          # trabajar con la API caída—. Si está, gana sobre todo lo demás.
           VALOR_UF: ${{ vars.VALOR_UF }}
         run: |
           mkdir -p logs

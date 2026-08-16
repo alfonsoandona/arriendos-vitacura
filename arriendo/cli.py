@@ -13,8 +13,8 @@ from . import scoring as S
 from .alerts.telegram import Telegram
 from .bitacora import escribir_bitacora
 from .config import (ALERTAS_DIR, LOGS_DIR, STATE_DIR, PerfilInvalido,
-                     cargar_perfil, dir_alertas, dir_estado, dir_logs,
-                     valor_uf)
+                     cargar_perfil, dir_alertas, dir_estado, dir_logs)
+from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .models import Arriendo
 from .sources.base import Fetcher
@@ -27,6 +27,19 @@ log = logging.getLogger("arriendo")
 
 class ArchivoNoEncontrado(FileNotFoundError):
     """Un archivo que pidió el usuario y no está. Se reporta como config."""
+
+
+def _deadline(tope_minutos: float):
+    """Cuándo hay que dejar de barrer. None si no hay tope.
+
+    Se calcula al empezar y no se recalcula: el punto es acotar la corrida
+    entera, no cada fuente.
+    """
+    from datetime import timedelta
+
+    if not tope_minutos or tope_minutos <= 0:
+        return None
+    return datetime.utcnow() + timedelta(minutes=float(tope_minutos))
 
 
 def _configurar_log(verbose: bool) -> None:
@@ -81,10 +94,14 @@ def correr(args: argparse.Namespace) -> int:
 def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             stats: dict) -> int:
     store = Store(dir_estado())
-    fetcher = Fetcher(delay=args.delay)
-    # El valor de la UF sale de la variable de entorno VALOR_UF y sirve para
-    # convertir los avisos publicados en UF, que son minoría pero existen.
-    uf = valor_uf()
+    fetcher = Fetcher(delay=args.delay, timeout=args.timeout)
+    # El valor de la UF. No es un detalle: Yapo publica buena parte de su
+    # inventario de Vitacura en UF, así que para esa fuente el precio en pesos
+    # lo calcula este radar, y de ese cálculo depende si el aviso pasa o no el
+    # tope de presupuesto. Ver arriendo/uf.py.
+    uf, origen_uf = valor_uf_del_dia(dir_estado())
+    stats["valor_uf"], stats["origen_uf"] = uf, origen_uf
+    log.info("UF = $%s (%s)", f"{uf:,.2f}".replace(",", "."), origen_uf)
 
     stats.update({
         "fuentes_consultadas": len(fuentes),
@@ -94,8 +111,31 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     })
 
     # --- 1. barrer ---
+    #
+    # Con presupuesto de tiempo. Hace falta desde que el catálogo pasó de 20 a
+    # 39 fuentes: en el caso normal la corrida toma unos 12 minutos, pero si
+    # varias fuentes se cuelgan hasta su timeout el peor caso llega a 54 —
+    # contra un job de GitHub Actions que corta a los 30.
+    #
+    # Y que lo corte Actions es el peor final posible: mata el proceso, así
+    # que no se manda ninguna alerta, no se guarda el estado, no se escribe la
+    # bitácora, y desde afuera solo se ve una X roja sin explicación. Las
+    # fuentes que ya habían entregado se pierden junto con las que colgaron.
+    #
+    # Cortar nosotros es infinitamente mejor: se avisa lo que se alcanzó a
+    # encontrar, se guarda el estado, y la bitácora dice qué quedó sin mirar
+    # para que la corrida siguiente empiece por ahí.
+    limite = _deadline(args.tope_minutos)
     crudos: list[Arriendo] = []
-    for fuente in fuentes:
+    for i, fuente in enumerate(fuentes):
+        if limite and datetime.utcnow() >= limite:
+            pendientes = [f.nombre for f in fuentes[i:]]
+            log.warning("Presupuesto de %d min agotado: quedan %d fuentes sin "
+                        "mirar (%s)", args.tope_minutos, len(pendientes),
+                        ", ".join(pendientes[:5]) + ("…" if len(pendientes) > 5 else ""))
+            stats["corte_por_tiempo"] = pendientes
+            break
+
         log.info("Barriendo %s (%s)…", fuente.nombre, fuente.id)
         resultado = barrer(fuente, fetcher,
                            seguir_detalles=not args.sin_detalles,
@@ -240,7 +280,7 @@ def demo(args: argparse.Namespace) -> int:
     html = ruta.read_text(encoding="utf-8", errors="replace")
     fuente = FuenteConfig(id="demo", nombre="Demo", urls=[args.url])
 
-    hallazgos = deduplicar(extraer(html, args.url, fuente, valor_uf()))
+    hallazgos = deduplicar(extraer(html, args.url, fuente, valor_uf_del_dia(dir_estado())[0]))
     for a in hallazgos:
         S.evaluar(a, perfil)
 
@@ -317,7 +357,8 @@ def calibrar(args: argparse.Namespace) -> int:
 
     perfil = cargar_perfil(args.perfil)
     fuentes = fuentes_activas(cargar_fuentes(args.fuentes), args.fuente)
-    fetcher = Fetcher(delay=args.delay)
+    fetcher = Fetcher(delay=args.delay, timeout=args.timeout)
+    uf = valor_uf_del_dia(dir_estado())[0]
 
     destino = Path(args.fixtures)
     destino.mkdir(parents=True, exist_ok=True)
@@ -350,7 +391,7 @@ def calibrar(args: argparse.Namespace) -> int:
             archivo = destino / f"{fuente.id}_{i}.html"
             archivo.write_text(html, encoding="utf-8")
             print(f"  ✅ {len(html):,} bytes → {archivo}".replace(",", "."))
-            avisos.extend(extraer(html, url, fuente, valor_uf()))
+            avisos.extend(extraer(html, url, fuente, uf))
 
         if avisos:
             for a in avisos:
@@ -494,6 +535,12 @@ def construir_parser() -> argparse.ArgumentParser:
     c.add_argument("--sin-detalles", action="store_true",
                    help="no seguir las fichas de detalle (más rápido, "
                         "menos datos)")
+    c.add_argument("--tope-minutos", type=float, default=18.0,
+                   help="presupuesto de tiempo para barrer las fuentes. Al "
+                        "agotarse se sigue con lo encontrado en vez de dejar "
+                        "que Actions mate el job. 0 = sin tope")
+    c.add_argument("--timeout", type=int, default=20,
+                   help="segundos de espera por petición")
     c.set_defaults(func=correr)
 
     c = sub.add_parser("demo", parents=[comun], help="probar el filtrado con HTML local")
@@ -508,6 +555,7 @@ def construir_parser() -> argparse.ArgumentParser:
     c.add_argument("--reporte", default="calibracion.md")
     c.add_argument("--fixtures", default="fixtures")
     c.add_argument("--delay", type=float, default=2.0)
+    c.add_argument("--timeout", type=int, default=20)
     c.set_defaults(func=calibrar)
 
     c = sub.add_parser("probar-aviso", parents=[comun], help="mandar un mensaje de prueba")
