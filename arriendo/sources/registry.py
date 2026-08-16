@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import yaml
 
@@ -99,8 +100,50 @@ def _bajar(fetcher: Fetcher, fuente: FuenteConfig, url: str) -> str | None:
     return bajar_con_navegador(url, fuente.acciones)
 
 
+def urls_paginadas(url: str, paginacion: dict) -> list[str]:
+    """Las URLs de las páginas 1..N de un listado.
+
+    Sin esto el radar ve solo la primera página de cada portal —unos 20
+    avisos— y se pierde el resto en silencio, que para un portal con 60
+    arriendos en Vitacura es perder dos tercios del inventario.
+
+    Dos formas, porque los portales chilenos usan las dos:
+
+        paginacion: {paginas: 3, parametro: page}     ...?page=2
+        paginacion: {paginas: 3, plantilla: "{url}/pagina-{n}"}
+
+    La página 1 siempre es la URL tal cual: varios portales devuelven un
+    listado distinto (o un 404) cuando se les pide explícitamente `?page=1`.
+    """
+    paginas = int(paginacion.get("paginas") or 0)
+    if paginas <= 1:
+        return [url]
+
+    desde = int(paginacion.get("desde", 1))
+    salida = [url]
+
+    for n in range(desde + 1, desde + paginas):
+        if (plantilla := paginacion.get("plantilla")):
+            salida.append(str(plantilla).format(url=url.rstrip("/"), n=n))
+            continue
+
+        parametro = paginacion.get("parametro")
+        if not parametro:
+            log.warning("paginacion sin 'parametro' ni 'plantilla': se ignora")
+            return [url]
+
+        partes = urlsplit(url)
+        query = [(k, v) for k, v in parse_qsl(partes.query, keep_blank_values=True)
+                 if k != parametro]
+        query.append((str(parametro), str(n)))
+        salida.append(urlunsplit(partes._replace(query=urlencode(query))))
+
+    return salida
+
+
 def barrer(fuente: FuenteConfig, fetcher: Fetcher,
-           seguir_detalles: bool = True) -> ResultadoFuente:
+           seguir_detalles: bool = True,
+           valor_uf: float | None = None) -> ResultadoFuente:
     """Consulta una fuente completa y devuelve lo que encontró.
 
     Nunca levanta: una fuente rota no puede voltear la corrida entera. El
@@ -110,35 +153,45 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
     """
     resultado = ResultadoFuente(fuente_id=fuente.id)
 
-    for url in fuente.urls:
-        try:
-            html = _bajar(fetcher, fuente, url)
-        except Exception as e:                                   # noqa: BLE001
-            # Un fallo del navegador (Chromium ausente, timeout del JS) es una
-            # excepción y no un None, y sin capturarla se lleva la corrida.
-            log.warning("[%s] %s falló: %s", fuente.id, url, e)
-            resultado.urls_fallidas += 1
-            resultado.error = resultado.error or str(e)[:160]
-            continue
+    for base in fuente.urls:
+        for url in urls_paginadas(base, fuente.paginacion):
+            try:
+                html = _bajar(fetcher, fuente, url)
+            except Exception as e:                               # noqa: BLE001
+                # Un fallo del navegador (Chromium ausente, timeout del JS) es
+                # una excepción y no un None, y sin capturarla se lleva la
+                # corrida entera por una sola fuente rota.
+                log.warning("[%s] %s falló: %s", fuente.id, url, e)
+                resultado.urls_fallidas += 1
+                resultado.error = resultado.error or str(e)[:160]
+                break        # si falló una página, las siguientes también
 
-        if not html:
-            resultado.urls_fallidas += 1
-            resultado.error = resultado.error or fetcher.ultimo_motivo
-            continue
+            if not html:
+                resultado.urls_fallidas += 1
+                resultado.error = resultado.error or fetcher.ultimo_motivo
+                break
 
-        resultado.urls_ok += 1
-        encontrados = extraer(html, url, fuente)
-        resultado.hallazgos.extend(encontrados)
+            resultado.urls_ok += 1
+            encontrados = extraer(html, url, fuente, valor_uf)
+            resultado.hallazgos.extend(encontrados)
 
-        if seguir_detalles and fuente.detalle.get("patron"):
-            resultado.hallazgos.extend(
-                _seguir_fichas(fuente, fetcher, html, url))
+            if seguir_detalles and fuente.detalle.get("patron"):
+                resultado.hallazgos.extend(
+                    _seguir_fichas(fuente, fetcher, html, url, valor_uf))
+
+            # Una página vacía significa que se acabó el inventario. Seguir
+            # pidiendo páginas después de eso son requests al sitio que no
+            # traen nada, y varios portales responden la última página una y
+            # otra vez en vez de dar 404.
+            if not encontrados:
+                break
 
     return resultado
 
 
 def _seguir_fichas(fuente: FuenteConfig, fetcher: Fetcher, html: str,
-                   base_url: str) -> list[Arriendo]:
+                   base_url: str,
+                   valor_uf: float | None = None) -> list[Arriendo]:
     """Abre las fichas de detalle del listado y extrae lo que solo vive ahí.
 
     Es la pasada que más mejora el puntaje en arriendos. Los gastos comunes,
@@ -162,7 +215,7 @@ def _seguir_fichas(fuente: FuenteConfig, fetcher: Fetcher, html: str,
             continue
         if not ficha:
             continue
-        for a in extraer(ficha, enlace, fuente):
+        for a in extraer(ficha, enlace, fuente, valor_uf):
             a.extras["desde_ficha"] = True
             salida.append(a)
 

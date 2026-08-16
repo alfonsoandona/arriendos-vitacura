@@ -275,3 +275,102 @@ def test_verbose_a_los_dos_lados():
     p = construir_parser()
     assert _con_defaults(p.parse_args(["-v", "run"])).verbose is True
     assert _con_defaults(p.parse_args(["run", "-v"])).verbose is True
+
+
+# ---------------------------------------------------------------------------
+# Paginación
+#
+# Sin esto el radar ve solo la primera página de cada portal —unos 20 avisos—
+# y se pierde el resto en silencio.
+# ---------------------------------------------------------------------------
+
+def test_sin_paginacion_es_una_sola_url():
+    from arriendo.sources.registry import urls_paginadas
+
+    assert urls_paginadas("https://x.cl/arriendo", {}) == ["https://x.cl/arriendo"]
+    assert urls_paginadas("https://x.cl/a", {"paginas": 1}) == ["https://x.cl/a"]
+
+
+def test_paginacion_por_parametro():
+    from arriendo.sources.registry import urls_paginadas
+
+    urls = urls_paginadas("https://x.cl/arriendo",
+                          {"paginas": 3, "parametro": "page"})
+    assert urls == ["https://x.cl/arriendo",
+                    "https://x.cl/arriendo?page=2",
+                    "https://x.cl/arriendo?page=3"]
+
+
+def test_la_primera_pagina_va_sin_el_parametro():
+    """Varios portales devuelven otro listado (o un 404) ante ?page=1."""
+    from arriendo.sources.registry import urls_paginadas
+
+    urls = urls_paginadas("https://x.cl/a", {"paginas": 2, "parametro": "page"})
+    assert "page=" not in urls[0]
+
+
+def test_la_paginacion_conserva_los_filtros_de_la_url():
+    """La URL ya viene filtrada a Vitacura: perder eso sería barrer todo Chile."""
+    from arriendo.sources.registry import urls_paginadas
+
+    urls = urls_paginadas("https://x.cl/a?comuna=vitacura&tipo=depto",
+                          {"paginas": 2, "parametro": "page"})
+    assert "comuna=vitacura" in urls[1]
+    assert "tipo=depto" in urls[1]
+    assert "page=2" in urls[1]
+
+
+def test_la_paginacion_no_duplica_el_parametro():
+    from arriendo.sources.registry import urls_paginadas
+
+    urls = urls_paginadas("https://x.cl/a?page=7",
+                          {"paginas": 2, "parametro": "page"})
+    assert urls[1].count("page=") == 1
+    assert "page=2" in urls[1]
+
+
+def test_paginacion_por_plantilla():
+    """Los portales que paginan en la ruta y no en el query."""
+    from arriendo.sources.registry import urls_paginadas
+
+    urls = urls_paginadas("https://x.cl/arriendo/",
+                          {"paginas": 3, "plantilla": "{url}/pagina-{n}"})
+    assert urls == ["https://x.cl/arriendo/",
+                    "https://x.cl/arriendo/pagina-2",
+                    "https://x.cl/arriendo/pagina-3"]
+
+
+def test_paginacion_mal_configurada_no_revienta():
+    """Sin 'parametro' ni 'plantilla' no se puede paginar: se usa la página 1."""
+    from arriendo.sources.registry import urls_paginadas
+
+    assert urls_paginadas("https://x.cl/a", {"paginas": 5}) == ["https://x.cl/a"]
+
+
+# ---------------------------------------------------------------------------
+# El valor de la UF llega hasta donde se usa
+# ---------------------------------------------------------------------------
+
+def test_el_valor_uf_configurado_llega_al_extractor(monkeypatch):
+    """La variable VALOR_UF está documentada en el workflow: tiene que servir.
+
+    Estaba definida y no se usaba en ninguna parte: el extractor convertía
+    siempre con el valor por omisión.
+    """
+    from arriendo.sources.base import FuenteConfig
+    from arriendo.sources.generic import extraer
+
+    html = """<html><body><article>
+        <a href="/aviso/1">Departamento en arriendo</a>
+        <p>Luis Carrera 1200, Vitacura</p>
+        <p>Arriendo UF 38 mensuales</p>
+        <p>134 m² totales · 3 dormitorios</p>
+        </article></body></html>"""
+    fuente = FuenteConfig(id="x", nombre="X", urls=["https://x.cl"])
+
+    (a,) = extraer(html, "https://x.cl/arriendo", fuente, valor_uf=50_000)
+    assert a.arriendo_uf == 38
+    assert a.arriendo_clp == 1_900_000
+
+    (b,) = extraer(html, "https://x.cl/arriendo", fuente, valor_uf=40_000)
+    assert b.arriendo_clp == 1_520_000

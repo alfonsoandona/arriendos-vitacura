@@ -77,6 +77,9 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             stats: dict) -> int:
     store = Store(dir_estado())
     fetcher = Fetcher(delay=args.delay)
+    # El valor de la UF sale de la variable de entorno VALOR_UF y sirve para
+    # convertir los avisos publicados en UF, que son minoría pero existen.
+    uf = valor_uf()
 
     stats.update({
         "fuentes_consultadas": len(fuentes),
@@ -90,7 +93,8 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     for fuente in fuentes:
         log.info("Barriendo %s (%s)…", fuente.nombre, fuente.id)
         resultado = barrer(fuente, fetcher,
-                           seguir_detalles=not args.sin_detalles)
+                           seguir_detalles=not args.sin_detalles,
+                           valor_uf=uf)
         crudos.extend(resultado.hallazgos)
         stats["por_fuente"][fuente.id] = len(resultado.hallazgos)
         if resultado.ok:
@@ -216,7 +220,7 @@ def demo(args: argparse.Namespace) -> int:
     html = Path(args.archivo).read_text(encoding="utf-8", errors="replace")
     fuente = FuenteConfig(id="demo", nombre="Demo", urls=[args.url])
 
-    hallazgos = deduplicar(extraer(html, args.url, fuente))
+    hallazgos = deduplicar(extraer(html, args.url, fuente, valor_uf()))
     for a in hallazgos:
         S.evaluar(a, perfil)
 
@@ -319,7 +323,7 @@ def calibrar(args: argparse.Namespace) -> int:
             archivo = destino / f"{fuente.id}_{i}.html"
             archivo.write_text(html, encoding="utf-8")
             print(f"  ✅ {len(html):,} bytes → {archivo}".replace(",", "."))
-            avisos.extend(extraer(html, url, fuente))
+            avisos.extend(extraer(html, url, fuente, valor_uf()))
 
         if avisos:
             for a in avisos:

@@ -188,8 +188,8 @@ def _precio_ld(nodo: dict) -> tuple[float | None, str]:
     return precio, str(offers.get("priceCurrency") or "").upper()
 
 
-def _desde_jsonld(soup: BeautifulSoup, base_url: str,
-                  fuente: FuenteConfig) -> list[Arriendo]:
+def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
+                  valor_uf: float | None = None) -> list[Arriendo]:
     nodos: list[dict] = []
     for tag in soup.find_all("script", type="application/ld+json"):
         try:
@@ -220,7 +220,7 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str,
             lat, lon = _num(geo.get("latitude")), _num(geo.get("longitude"))
 
         blob = " ".join([nombre, desc, direccion]).strip()
-        a = _armar(blob, url, fuente, base_url)
+        a = _armar(blob, url, fuente, base_url, valor_uf)
         a.title = nombre or a.title
         a.direccion = direccion or a.direccion
         a.comuna = comuna or a.comuna
@@ -245,14 +245,14 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str,
         if precio:
             if moneda == "CLF":            # CLF es el código ISO de la UF
                 a.arriendo_uf = precio
-                a.arriendo_clp = round(precio * P.VALOR_UF_DEFECTO)
+                a.arriendo_clp = round(precio * (valor_uf or P.VALOR_UF_DEFECTO))
             elif precio >= 200_000 or moneda == "CLP":
                 a.arriendo_clp = precio
             else:
                 # Un "precio" de tres cifras en un aviso chileno de arriendo no
                 # son pesos: es la UF sin declarar la moneda.
                 a.arriendo_uf = precio
-                a.arriendo_clp = round(precio * P.VALOR_UF_DEFECTO)
+                a.arriendo_clp = round(precio * (valor_uf or P.VALOR_UF_DEFECTO))
 
         if a.url and (a.direccion or a.title):
             salida.append(a)
@@ -345,8 +345,8 @@ def _recolectar_avisos(nodo: Any, salida: list[dict], profundidad: int = 0) -> N
             _recolectar_avisos(v, salida, profundidad + 1)
 
 
-def _desde_estado_embebido(html: str, base_url: str,
-                           fuente: FuenteConfig) -> list[Arriendo]:
+def _desde_estado_embebido(html: str, base_url: str, fuente: FuenteConfig,
+                           valor_uf: float | None = None) -> list[Arriendo]:
     crudos: list[dict] = []
     for patron in _ESTADO_EMBEBIDO:
         for m in patron.finditer(html or ""):
@@ -367,7 +367,7 @@ def _desde_estado_embebido(html: str, base_url: str,
         comuna_cruda = _texto_de(_busca(d, _LLAVES["comuna"]))
 
         blob = " ".join([titulo, desc, direccion, comuna_cruda]).strip()
-        a = _armar(blob, url, fuente, base_url)
+        a = _armar(blob, url, fuente, base_url, valor_uf)
         a.title = titulo or a.title
         a.direccion = direccion or a.direccion
         a.comuna = P.parse_comuna(comuna_cruda) or a.comuna
@@ -404,7 +404,7 @@ def _desde_estado_embebido(html: str, base_url: str,
         if precio:
             if "UF" in moneda or moneda == "CLF" or (not moneda and precio < 1000):
                 a.arriendo_uf = precio
-                a.arriendo_clp = round(precio * P.VALOR_UF_DEFECTO)
+                a.arriendo_clp = round(precio * (valor_uf or P.VALOR_UF_DEFECTO))
             else:
                 a.arriendo_clp = precio
 
@@ -527,15 +527,15 @@ def _enlace(card: Any, base_url: str, fuente: FuenteConfig) -> str:
     return respaldo
 
 
-def _desde_tarjetas(soup: BeautifulSoup, base_url: str,
-                    fuente: FuenteConfig) -> list[Arriendo]:
+def _desde_tarjetas(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
+                    valor_uf: float | None = None) -> list[Arriendo]:
     salida: list[Arriendo] = []
     for card in _candidatos(soup, fuente):
         texto = _texto(card)
         url = _enlace(card, base_url, fuente)
         if not url:
             continue
-        a = _armar(texto, url, fuente, base_url)
+        a = _armar(texto, url, fuente, base_url, valor_uf)
         a.extras["via"] = "tarjeta"
         # Sin nada que lo identifique no se puede deduplicar ni mostrar.
         if a.direccion or a.title:
@@ -559,8 +559,8 @@ def _titulo_desde(texto: str) -> str:
     return (texto or "").strip()[:150]
 
 
-def _armar(texto: str, url: str, fuente: FuenteConfig,
-           base_url: str = "") -> Arriendo:
+def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
+           valor_uf: float | None = None) -> Arriendo:
     """Convierte texto libre en un `Arriendo`, aplicando todo el parser.
 
     Es el único lugar donde se decide qué campo sale de qué función, así que
@@ -584,7 +584,7 @@ def _armar(texto: str, url: str, fuente: FuenteConfig,
         publicado_el=P.parse_publicado(texto),
     )
 
-    montos = P.parse_montos(texto)
+    montos = P.parse_montos(texto, valor_uf)
     a.arriendo_clp = montos.get("arriendo_clp")
     a.arriendo_uf = montos.get("arriendo_uf")
     a.gastos_comunes_clp = montos.get("gastos_comunes_clp")
@@ -748,7 +748,8 @@ def _direccion_desde(texto: str, comuna: str) -> str:
 # Entrada del módulo
 # ---------------------------------------------------------------------------
 
-def extraer(html: str, base_url: str, fuente: FuenteConfig) -> list[Arriendo]:
+def extraer(html: str, base_url: str, fuente: FuenteConfig,
+            valor_uf: float | None = None) -> list[Arriendo]:
     """Extrae los avisos de una página, con las tres pasadas en orden.
 
     Las pasadas no se suman: se prefiere la primera que dé resultado. Sumarlas
@@ -762,9 +763,10 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig) -> list[Arriendo]:
     soup = BeautifulSoup(html, "lxml")
 
     for nombre, pasada in (
-        ("json-ld", lambda: _desde_jsonld(soup, base_url, fuente)),
-        ("estado-embebido", lambda: _desde_estado_embebido(html, base_url, fuente)),
-        ("tarjetas", lambda: _desde_tarjetas(soup, base_url, fuente)),
+        ("json-ld", lambda: _desde_jsonld(soup, base_url, fuente, valor_uf)),
+        ("estado-embebido",
+         lambda: _desde_estado_embebido(html, base_url, fuente, valor_uf)),
+        ("tarjetas", lambda: _desde_tarjetas(soup, base_url, fuente, valor_uf)),
     ):
         resultado = pasada()
         if resultado:

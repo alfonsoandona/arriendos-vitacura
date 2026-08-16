@@ -28,6 +28,11 @@
 #   detalle      seguir la ficha de cada aviso. {patron: "...", max: N}
 #                En arriendo rinde mucho: los gastos comunes, la superficie
 #                total y el año casi nunca están en la tarjeta del listado.
+#   paginacion   cuántas páginas del listado recorrer. Sin esto se ve solo la
+#                primera —unos 20 avisos— y el resto se pierde en silencio.
+#                  {paginas: 3, parametro: page}        ...?page=2
+#                  {paginas: 3, plantilla: "{url}/pagina-{n}"}
+#                Se corta sola cuando una página no trae nada.
 #   selector_card  CSS de la tarjeta de resultado. Se deja vacío hasta
 #                  calibrar; sin él se usa la detección automática.
 #   notas        texto libre para acordarte de por qué está acá.
@@ -67,6 +72,7 @@ fuentes:
     urls: ["https://www.toctoc.com/resultados/arriendo/departamento/vitacura/"]
     motor: navegador
     detalle: {patron: "/propiedad/\\d+", max: 12}
+    paginacion: {paginas: 3, parametro: pagina}
     notas: >-
       El más grande de los que no son Portal Inmobiliario. Publica ficha con
       gastos comunes y año de construcción, que son justo los dos datos que
@@ -78,6 +84,7 @@ fuentes:
     urls: ["https://www.goplaceit.com/cl/arriendo/departamento/vitacura"]
     motor: navegador
     detalle: {patron: "/propiedad/\\d+", max: 10}
+    paginacion: {paginas: 3, parametro: page}
     notas: >-
       Agrega avisos de corredoras chicas que no publican en otra parte. Trae
       mapa, así que suele emitir coordenadas en el payload — y con
@@ -88,6 +95,7 @@ fuentes:
     nombre: Chilepropiedades
     urls: ["https://www.chilepropiedades.cl/propiedades/arriendo/departamento/vitacura/0"]
     detalle: {patron: "/propiedades/\\d+", max: 10}
+    paginacion: {paginas: 3, parametro: page}
     notas: >-
       HTML servido por el servidor, sin JavaScript: es de los pocos que
       funciona con un GET simple. Mucho aviso de particular, que además no
@@ -96,6 +104,7 @@ fuentes:
   - id: yapo
     nombre: Yapo
     urls: ["https://www.yapo.cl/region_metropolitana/arriendo_departamentos?ca=15_s&l=0&w=1&cmn=341"]
+    paginacion: {paginas: 3, parametro: o}
     notas: >-
       Clasificados generales. La calidad de los datos es peor —muchos avisos
       sin superficie ni año— pero es donde publica el dueño que no quiere
@@ -105,6 +114,7 @@ fuentes:
   - id: emol_propiedades
     nombre: Emol Propiedades
     urls: ["https://propiedades.emol.com/arriendo/departamento/region-metropolitana/vitacura"]
+    paginacion: {paginas: 2, parametro: page}
     notas: >-
       El portal de El Mercurio. Hereda los avisos del diario, así que trae
       corredoras tradicionales del sector oriente que no están en otra parte.

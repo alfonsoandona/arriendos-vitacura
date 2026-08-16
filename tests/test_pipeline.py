@@ -76,7 +76,7 @@ def mensajes(monkeypatch):
 
 def _fuente_falsa(fixture: str):
     """Un `barrer` que lee de un fixture en vez de la red."""
-    def barrer(fuente, fetcher, seguir_detalles=True):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         html = (FIXTURES / fixture).read_text(encoding="utf-8")
         url = fuente.urls[0]
         return ResultadoFuente(fuente_id=fuente.id,
@@ -242,7 +242,7 @@ def test_el_mismo_departamento_en_dos_portales_avisa_una_vez(
             </article></body></html>""",
     }
 
-    def barrer(fuente, fetcher, seguir_detalles=True):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         return ResultadoFuente(
             fuente_id=fuente.id,
             hallazgos=extraer(paginas[fuente.id], fuente.urls[0], fuente),
@@ -278,11 +278,11 @@ def test_una_fuente_caida_no_voltea_la_corrida(entorno, mensajes, tmp_path,
         "    urls: ['https://ejemplo.cl/arriendo']\n",
         encoding="utf-8")
 
-    def barrer(fuente, fetcher, seguir_detalles=True):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         if fuente.id == "rota":
             return ResultadoFuente(fuente_id=fuente.id, urls_fallidas=1,
                                    error="HTTP 403")
-        return _fuente_falsa("portal_tarjetas.html")(fuente, fetcher)
+        return _fuente_falsa("portal_tarjetas.html")(fuente, fetcher, valor_uf=valor_uf)
 
     monkeypatch.setattr(cli, "barrer", barrer)
     assert cli.correr(ArgsFalsos(fuentes=str(yml))) == 0
@@ -290,7 +290,7 @@ def test_una_fuente_caida_no_voltea_la_corrida(entorno, mensajes, tmp_path,
 
 
 def test_sin_resultados_no_revienta(entorno, mensajes, una_fuente, monkeypatch):
-    def barrer(fuente, fetcher, seguir_detalles=True):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         return ResultadoFuente(fuente_id=fuente.id, urls_ok=1)
 
     monkeypatch.setattr(cli, "barrer", barrer)
@@ -311,7 +311,7 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
         <p>134 m² totales · 3 dormitorios · 3 baños</p></article>"""
         for n in range(20))
 
-    def barrer(fuente, fetcher, seguir_detalles=True):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         html = f"<html><body>{tarjetas}</body></html>"
         return ResultadoFuente(fuente_id=fuente.id,
                                hallazgos=extraer(html, fuente.urls[0], fuente),
@@ -340,7 +340,7 @@ def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
     exactamente igual que una que no encontró ningún departamento. Sin este
     camino se pueden pasar dos semanas sin radar sin que nadie lo note.
     """
-    def barrer_roto(fuente, fetcher, seguir_detalles=True):
+    def barrer_roto(fuente, fetcher, seguir_detalles=True, valor_uf=None):
         raise RuntimeError("el navegador no arrancó")
 
     monkeypatch.setattr(cli, "barrer", barrer_roto)
