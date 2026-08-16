@@ -148,11 +148,21 @@ requisitos:
   descartar_si_falta: false
 
   # Cuánto puede desviarse un dato CONOCIDO antes de descartar de plano.
-  # Existe porque los portales redondean y porque "superficie" significa
-  # cosas distintas en cada uno.
+  #
+  # Las dos van en cero, y es deliberado: el pedido dice "sí o sí", así que
+  # una superficie total declarada de 96 m² no cumple "más de 100" por mucho
+  # que se le parezca. Tres piezas es tres piezas.
+  #
+  # La red de seguridad de este filtro no es la tolerancia sino la regla
+  # asimétrica del scoring: cuando el aviso publica solo la superficie ÚTIL,
+  # esa cifra puede confirmar que cumple (útil de 118 => total de al menos
+  # 118) pero nunca puede descartar (útil de 92 puede ser total de 107 con
+  # terraza). Ahí la propiedad entra como "dato faltante" y se revisa a mano.
+  #
+  # Subir esto a 5 haría entrar departamentos de 95 m² totales declarados.
   tolerancias:
-    m2_totales: 5          # 96 m² totales declarados contra un mínimo de 100 -> entra, penalizado
-    dormitorios: 0         # tres piezas es tres piezas: acá no hay holgura
+    m2_totales: 0
+    dormitorios: 0
 
 # ---------------------------------------------------------------------------
 # "IDEAL MÁS NUEVO" — el eje del puntaje

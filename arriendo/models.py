@@ -60,6 +60,18 @@ class Arriendo:
     piso: int | None = None
     ultimo_piso: bool = False
     orientacion: str = ""
+
+    # --- antigüedad ---
+    # El dato canónico es la ANTIGÜEDAD EN AÑOS y no el año de construcción,
+    # para que el perfil no se pudra solo con el paso del tiempo: un rango
+    # escrito como "2016-2021" hay que reescribirlo cada enero, y uno escrito
+    # como "5 a 10 años" no.
+    #
+    # El año se guarda igual porque es lo que publican los portales cuando
+    # publican algo, y porque en la ficha se lee mejor "construido en 2018"
+    # que "8 años". Uno se deriva del otro en `scoring._completar`.
+    antiguedad_anos: int | None = None
+    ano_construccion: int | None = None
     # "amoblado" | "sin amoblar" | "". El vacío es honesto: la mayoría de los
     # avisos no lo dice, y suponerlo cambia el precio esperado en 30%.
     amoblado: str = ""
