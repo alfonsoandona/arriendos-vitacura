@@ -25,6 +25,10 @@ from .store import Store, deduplicar
 log = logging.getLogger("arriendo")
 
 
+class ArchivoNoEncontrado(FileNotFoundError):
+    """Un archivo que pidió el usuario y no está. Se reporta como config."""
+
+
 def _configurar_log(verbose: bool) -> None:
     logging.basicConfig(
         level=logging.DEBUG if verbose else logging.INFO,
@@ -219,7 +223,21 @@ def demo(args: argparse.Namespace) -> int:
     from .sources.generic import extraer
 
     perfil = cargar_perfil(args.perfil)
-    html = Path(args.archivo).read_text(encoding="utf-8", errors="replace")
+
+    ruta = Path(args.archivo)
+    if not ruta.exists():
+        # `demo` es el comando con el que alguien prueba el radar por primera
+        # vez, casi siempre escribiendo la ruta a mano. Un traceback acá es la
+        # peor primera impresión posible y no dice qué hacer.
+        raise ArchivoNoEncontrado(
+            f"No existe el archivo: {ruta}\n\n"
+            "  `demo` corre el filtrado sobre un HTML que ya tienes guardado.\n"
+            "  Para conseguir uno: abre el portal en el navegador, guarda la\n"
+            "  página (Ctrl+S) y pásale esa ruta.\n\n"
+            "  Para probar sin bajar nada, el repositorio trae ejemplos:\n"
+            "    python -m arriendo demo tests/fixtures/portal_tarjetas.html")
+
+    html = ruta.read_text(encoding="utf-8", errors="replace")
     fuente = FuenteConfig(id="demo", nombre="Demo", urls=[args.url])
 
     hallazgos = deduplicar(extraer(html, args.url, fuente, valor_uf()))
@@ -504,7 +522,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         return args.func(args)
-    except (PerfilInvalido, FuentesInvalidas) as e:
+    except (PerfilInvalido, FuentesInvalidas, ArchivoNoEncontrado) as e:
         # Errores de configuración: el mensaje es para una persona que está
         # editando un YAML desde el teléfono, no un stack trace.
         print(f"\n✗ {e}\n", file=sys.stderr)

@@ -414,3 +414,21 @@ def test_el_tope_de_fichas_es_de_la_fuente_y_no_de_cada_pagina():
     fichas = [u for u in pedidas if "/aviso/" in u]
     assert len(fichas) == 5, f"se pidieron {len(fichas)} fichas, el tope era 5"
     assert len([u for u in pedidas if "/aviso/" not in u]) == 3
+
+
+def test_demo_con_archivo_inexistente_no_escupe_traceback():
+    """`demo` es el comando con el que alguien prueba el radar por primera vez.
+
+    Casi siempre escribiendo la ruta a mano, así que equivocarse es lo normal.
+    Un traceback ahí es la peor primera impresión posible y no dice qué hacer.
+    """
+    from arriendo import cli
+
+    assert cli.main(["demo", "/no/existe.html"]) == 2
+
+
+def test_demo_funciona_con_los_ejemplos_del_repo():
+    """El mensaje de error ofrece este comando: tiene que andar."""
+    from arriendo import cli
+
+    assert cli.main(["demo", "tests/fixtures/portal_tarjetas.html"]) == 0
