@@ -262,23 +262,100 @@ def deduplicar(hallazgos: list[Arriendo]) -> list[Arriendo]:
     for a in hallazgos:
         por_fp.setdefault(a.fingerprint, []).append(a)
 
-    salida: list[Arriendo] = []
-    for copias in por_fp.values():
-        if len(copias) == 1:
-            salida.append(copias[0])
-            continue
+    salida = [_colapsar(copias) for copias in por_fp.values()]
+    return _colapsar_por_direccion(salida)
 
-        principal = max(copias, key=lambda a: (a.score, _riqueza(a)))
-        for otra in copias:
-            if otra is principal:
-                continue
+
+def _colapsar(copias: list[Arriendo]) -> Arriendo:
+    """Fusiona un grupo de copias en una sola, y anota de dónde salieron."""
+    if len(copias) == 1:
+        return copias[0]
+
+    principal = max(copias, key=lambda a: (a.score, _riqueza(a)))
+    for otra in copias:
+        if otra is not principal:
             _fusionar(principal, otra)
 
-        principal.extras["tambien_en"] = sorted(
-            {f"{o.source}|{o.url}" for o in copias if o is not principal})
-        salida.append(principal)
+    otros = {f"{o.source}|{o.url}" for o in copias if o is not principal}
+    otros |= set(principal.extras.get("tambien_en", []))
+    for o in copias:
+        otros |= set(o.extras.get("tambien_en", []))
+    otros.discard(f"{principal.source}|{principal.url}")
+    principal.extras["tambien_en"] = sorted(otros)
+    return principal
+
+
+def _colapsar_por_direccion(hallazgos: list[Arriendo]) -> list[Arriendo]:
+    """Segunda pasada: cruza las copias que el fingerprint no alcanzó a juntar.
+
+    El fingerprint mete el número del departamento en la llave, y tiene que
+    hacerlo: en un edificio de Vitacura se arriendan tres unidades distintas
+    de la misma torre a la vez, y colapsarlas haría perder dos.
+
+    Pero eso deja fuera el caso más común de todos: **un portal publica el
+    número y el otro no**. TocToc dice "Alonso de Córdova 4200 depto 802" y
+    Yapo dice "Alonso de Córdova 4200" — el mismo departamento, dos
+    fingerprints, dos mensajes de Telegram.
+
+    La regla es la misma que usa el estado para heredar datos: dentro de una
+    dirección, un aviso SIN unidad se puede juntar con uno CON unidad solo si
+    hay una sola unidad en juego. Con dos o más no se sabe a cuál pertenece, y
+    ahí se prefiere duplicar antes que fusionar dos departamentos distintos:
+    un mensaje de más se ignora, un departamento perdido no se recupera.
+    """
+    grupos: dict[tuple[str, str], list[Arriendo]] = {}
+    sueltos: list[Arriendo] = []
+
+    for a in hallazgos:
+        clave = clave_direccion(a.direccion, a.comuna)
+        if clave and a.comuna:
+            grupos.setdefault((clave, _normalize_key(a.comuna)), []).append(a)
+        else:
+            sueltos.append(a)
+
+    salida = list(sueltos)
+    for grupo in grupos.values():
+        unidades = {str(a.extras.get("unidad", "")).upper()
+                    for a in grupo if a.extras.get("unidad")}
+        if len(unidades) <= 1:
+            salida.append(_colapsar(grupo))
+            continue
+
+        # Varias unidades del mismo edificio: cada una es un departamento
+        # distinto y no se pueden juntar.
+        por_unidad: dict[str, list[Arriendo]] = {}
+        for a in grupo:
+            por_unidad.setdefault(
+                str(a.extras.get("unidad", "")).upper(), []).append(a)
+
+        # Los avisos sin unidad se intentan asignar por PRECIO antes de
+        # rendirse. Misma dirección y mismo canon exacto es evidencia fuerte:
+        # el portal que no publicó el número igual publicó lo que cuesta.
+        for suelto in por_unidad.pop("", []):
+            destino = _unidad_por_precio(suelto, por_unidad)
+            if destino:
+                por_unidad[destino].append(suelto)
+            else:
+                salida.append(suelto)
+
+        salida.extend(_colapsar(c) for c in por_unidad.values())
 
     return salida
+
+
+def _unidad_por_precio(suelto: Arriendo,
+                       por_unidad: dict[str, list[Arriendo]]) -> str:
+    """A qué unidad pertenece un aviso sin número, si el precio lo dice.
+
+    Devuelve "" cuando no hay exactamente una coincidencia. Dos unidades de la
+    misma torre al mismo precio existen —departamentos de planta idéntica— y
+    ahí el precio no desambigua nada, así que se prefiere duplicar.
+    """
+    if suelto.arriendo_clp is None:
+        return ""
+    calzan = [u for u, avisos in por_unidad.items()
+              if any(a.arriendo_clp == suelto.arriendo_clp for a in avisos)]
+    return calzan[0] if len(calzan) == 1 else ""
 
 
 # Los campos que se fusionan entre copias. El precio NO está: dos portales

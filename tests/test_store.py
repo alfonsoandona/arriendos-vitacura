@@ -285,3 +285,116 @@ def test_la_baja_se_mide_contra_el_precio_avisado(store, perfil_reaviso):
     motivo = store.cambio_relevante(aviso(arriendo_clp=1_500_000), perfil_reaviso)
     assert "Bajó" in motivo
     assert "1.600.000" in motivo, "la baja se mide desde el precio que el usuario vio"
+
+
+# ---------------------------------------------------------------------------
+# El caso más común de todos: un portal publica la unidad y el otro no
+# ---------------------------------------------------------------------------
+
+def test_dedup_cuando_solo_un_portal_publica_la_unidad():
+    """TocToc dice "depto 802" y Yapo no. Es el mismo departamento.
+
+    El fingerprint mete la unidad en la llave —tiene que hacerlo, o dos
+    departamentos distintos de la misma torre colapsarían— y eso deja este
+    caso fuera. Sin la segunda pasada son dos mensajes de Telegram.
+    """
+    copias = [
+        aviso(source="toctoc", url="https://t.cl/1", extras={"unidad": "802"}),
+        aviso(source="yapo", url="https://y.cl/2"),
+    ]
+    assert len({c.fingerprint for c in copias}) == 2, "premisa del test"
+    assert len(deduplicar(copias)) == 1
+
+
+def test_la_fusion_conserva_la_unidad():
+    (fusionado,) = deduplicar([
+        aviso(source="toctoc", url="https://t.cl/1", extras={"unidad": "802"}),
+        aviso(source="yapo", url="https://y.cl/2"),
+    ])
+    assert fusionado.extras.get("unidad") == "802"
+    assert fusionado.extras["tambien_en"]
+
+
+def test_dos_unidades_del_mismo_edificio_siguen_separadas():
+    """Colapsarlas haría perder un departamento, que no se recupera."""
+    copias = [
+        aviso(source="a", url="https://a.cl/1", extras={"unidad": "802"}),
+        aviso(source="b", url="https://b.cl/2", extras={"unidad": "1204"}),
+    ]
+    assert len(deduplicar(copias)) == 2
+
+
+def test_con_dos_unidades_el_aviso_sin_unidad_no_se_asigna():
+    """No se sabe a cuál pertenece: se prefiere duplicar antes que fusionar mal.
+
+    Un mensaje de más se ignora; un departamento perdido no se recupera.
+    """
+    copias = [
+        aviso(source="a", url="https://a.cl/1", extras={"unidad": "802"}),
+        aviso(source="b", url="https://b.cl/2", extras={"unidad": "1204"}),
+        aviso(source="c", url="https://c.cl/3"),
+    ]
+    assert len(deduplicar(copias)) == 3
+
+
+def test_direcciones_distintas_no_se_juntan_por_la_segunda_pasada():
+    copias = [
+        aviso(direccion="Alonso de Córdova 4200"),
+        aviso(direccion="Luis Carrera 1200", url="https://x.cl/2"),
+    ]
+    assert len(deduplicar(copias)) == 2
+
+
+def test_la_segunda_pasada_fusiona_los_datos():
+    (fusionado,) = deduplicar([
+        aviso(source="toctoc", url="https://t.cl/1", extras={"unidad": "802"},
+              gastos_comunes_clp=190_000, antiguedad_anos=None),
+        aviso(source="yapo", url="https://y.cl/2",
+              gastos_comunes_clp=None, antiguedad_anos=8),
+    ])
+    assert fusionado.gastos_comunes_clp == 190_000
+    assert fusionado.antiguedad_anos == 8
+
+
+def test_el_precio_desambigua_al_aviso_sin_unidad():
+    """Misma dirección y mismo canon exacto es evidencia fuerte.
+
+    El portal que no publicó el número del departamento igual publicó lo que
+    cuesta, y en un edificio con dos unidades en arriendo a precios distintos
+    eso alcanza para saber cuál es cuál.
+    """
+    copias = [
+        aviso(source="a", url="https://a.cl/1", extras={"unidad": "1102"},
+              arriendo_clp=1_480_000, gastos_comunes_clp=195_000),
+        aviso(source="b", url="https://b.cl/2", extras={"unidad": "704"},
+              arriendo_clp=1_390_000),
+        aviso(source="c", url="https://c.cl/3", arriendo_clp=1_480_000,
+              antiguedad_anos=8),
+    ]
+    salida = deduplicar(copias)
+    assert len(salida) == 2
+
+    unido = next(a for a in salida if a.extras.get("unidad") == "1102")
+    assert unido.gastos_comunes_clp == 195_000
+    assert unido.antiguedad_anos == 8, "no se fusionó con el aviso sin número"
+
+
+def test_si_dos_unidades_valen_lo_mismo_el_precio_no_desambigua():
+    """Departamentos de planta idéntica existen: ahí se prefiere duplicar."""
+    copias = [
+        aviso(source="a", url="https://a.cl/1", extras={"unidad": "802"},
+              arriendo_clp=1_480_000),
+        aviso(source="b", url="https://b.cl/2", extras={"unidad": "902"},
+              arriendo_clp=1_480_000),
+        aviso(source="c", url="https://c.cl/3", arriendo_clp=1_480_000),
+    ]
+    assert len(deduplicar(copias)) == 3
+
+
+def test_sin_precio_no_se_puede_desambiguar():
+    copias = [
+        aviso(source="a", url="https://a.cl/1", extras={"unidad": "802"}),
+        aviso(source="b", url="https://b.cl/2", extras={"unidad": "902"}),
+        aviso(source="c", url="https://c.cl/3", arriendo_clp=None),
+    ]
+    assert len(deduplicar(copias)) == 3
