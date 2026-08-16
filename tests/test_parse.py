@@ -478,3 +478,32 @@ def test_publicado_relativo():
 def test_particular():
     assert P.es_particular("Publicado por el dueño, trato directo") is True
     assert P.es_particular("Corredora XYZ Propiedades") is False
+
+
+# ---------------------------------------------------------------------------
+# Códigos ISO de moneda — el formato de Yapo
+#
+# Salieron de mirar un aviso real: Yapo genera sus títulos desde su base de
+# datos y escribe la moneda como código ISO, sin separadores de miles. Con los
+# patrones que había, esa fuente entera entregaba avisos sin precio.
+# ---------------------------------------------------------------------------
+
+def test_clp_como_codigo_iso():
+    """'Departamento en Luis Carrera 3 Dormitorios por CLP 1600000.00'."""
+    m = P.parse_montos("Departamento en Luis Carrera 3 Dormitorios "
+                       "por CLP 1600000.00")
+    assert m["arriendo_clp"] == 1_600_000
+
+
+def test_clf_es_la_uf():
+    """CLF es el código ISO de la UF, y Yapo publica mucho arriendo así."""
+    m = P.parse_montos("ARRIENDO AMPLIO DPTO VITACURA 3 Dormitorios "
+                       "por CLF 46.00", valor_uf=40_000)
+    assert m["arriendo_uf"] == 46
+    assert m["arriendo_clp"] == 1_840_000
+
+
+def test_clf_bajo_no_se_lee_como_pesos():
+    """46 en CLF son 46 UF, no 46 pesos."""
+    m = P.parse_montos("por CLF 33.00", valor_uf=40_000)
+    assert m["arriendo_clp"] == 1_320_000

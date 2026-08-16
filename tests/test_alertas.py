@@ -442,3 +442,33 @@ def test_el_portal_se_nombra_como_lo_conoce_una_persona(perfil):
     """'Ver en TocToc', no 'Ver en toctoc'."""
     a = S.evaluar(depto(extras={"portal": "TocToc"}), perfil)
     assert "Ver en TocToc" in _mensaje(a, "", 0.9, "")
+
+
+# ---------------------------------------------------------------------------
+# El título cuando el aviso no publica dirección
+# ---------------------------------------------------------------------------
+
+def test_el_titulo_se_limpia_del_precio_y_la_coletilla():
+    """Título real de Yapo, que sin limpiar ocupa la línea entera.
+
+    El precio ya va en su propia línea del mensaje: repetido en el título es
+    ruido que empuja todo lo demás fuera de la pantalla.
+    """
+    a = Arriendo(source="yapo", url="https://yapo.cl/1",
+                 title="Departamento en Luis Carrera 3 Dormitorios por CLP "
+                       "1600000.00 Arriendo de Departamentos en Vitacura",
+                 comuna="Vitacura", tipo="departamento")
+    assert titulo_corto(a) == "Departamento en Luis Carrera 3 Dormitorios"
+
+
+def test_el_titulo_limpio_no_queda_vacio():
+    """Si limpiar se lleva todo, es mejor el título crudo que nada."""
+    a = Arriendo(source="yapo", url="https://yapo.cl/1", title="por CLP 1600000")
+    assert titulo_corto(a)
+
+
+def test_la_direccion_le_gana_al_titulo():
+    a = Arriendo(source="yapo", url="https://yapo.cl/1",
+                 title="Departamento por CLP 1600000.00",
+                 direccion="Luis Carrera 1200, Vitacura", comuna="Vitacura")
+    assert titulo_corto(a) == "Luis Carrera 1200"

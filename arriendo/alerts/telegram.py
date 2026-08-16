@@ -210,6 +210,21 @@ def _sin_comuna(direccion: str, comuna: str) -> str:
     return recortado.strip(" ,") or texto
 
 
+# Dónde termina el nombre útil de un aviso y empieza el ruido: el precio, la
+# moneda y la coletilla del portal.
+#
+# Hace falta cuando el aviso no publica dirección con altura. Yapo titula
+# "Departamento en Luis Carrera 3 Dormitorios por CLP 1600000.00 Arriendo de
+# Departamentos en Vitacura", y eso recortado a 90 caracteres es una línea
+# ilegible en la pantalla de bloqueo — con el precio repetido, además, porque
+# ya va en su propia línea.
+_COLA_DEL_TITULO = re.compile(
+    r"\s+(?:por\s+)?(?:CLP|CLF|UF|\$)\s*[\d.,]+.*$"
+    r"|\s+Arriendo\s+de\s+(?:Departamentos?|Casas?)\b.*$"
+    r"|\s*[-—|·]\s*(?:Arriendo|Venta)\b.*$",
+    re.I)
+
+
 def titulo_corto(a: Arriendo) -> str:
     """Cómo llamar a este departamento en una línea.
 
@@ -222,7 +237,12 @@ def titulo_corto(a: Arriendo) -> str:
         if (unidad := a.extras.get("unidad")):
             base = f"{base}, depto {unidad}"
         return base[:90]
-    return (a.title or "Aviso sin título")[:90]
+
+    # Sin dirección hay que usar el título del aviso, pero limpio: el precio y
+    # la coletilla del portal ocupan la mitad de la línea y no identifican
+    # nada.
+    titulo = _COLA_DEL_TITULO.sub("", (a.title or "").strip()).strip(" ,.-–—")
+    return (titulo or a.title or "Aviso sin título")[:90]
 
 
 def _ubicacion(a: Arriendo, caminable_km: float, ancla: str) -> str:

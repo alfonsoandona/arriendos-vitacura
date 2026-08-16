@@ -657,8 +657,23 @@ _MARCAS_DE_UNIDAD = {"depto", "depto.", "dpto", "dpto.", "departamento",
                      "torre", "block", "blok"}
 
 # Unidades que descalifican al número: "134 m²" no es una altura.
+#
+# La lista de programa —dormitorios, baños, estacionamientos— se agregó al ver
+# un aviso real de Yapo: "Departamento en Luis Carrera 3 Dormitorios por CLP
+# 1600000.00" producía la dirección "Luis Carrera 3", tomando como altura el
+# número de dormitorios.
+#
+# No es cosmético: la dirección es la llave con la que se deduplica entre
+# portales, así que una inventada puede fusionar dos departamentos distintos
+# o impedir que se junten dos copias del mismo.
+#
+# "piso" queda deliberadamente fuera: en "Luis Carrera 1200 piso 5" el 1200 sí
+# es la altura, y descartarlo por la palabra que viene después sería perder la
+# dirección de verdad.
 _UNIDAD_TRAS_NUMERO = re.compile(
-    r"^\s*(?:m2|m²|mt2|mts2|mts|metros|uf|a[nñ]os?|d\b|b\b|%)", re.I)
+    r"^\s*(?:m2|m²|mt2|mts2|mts|metros|uf|clp|clf|a[nñ]os?|%"
+    r"|dormitorios?|dorm\b|piezas?|habitaciones?|ba[nñ]os?"
+    r"|estacionamientos?|bodegas?|d\b|b\b)", re.I)
 
 _TOKEN = re.compile(r"[^\s,;·•|]+")
 _ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?(\d{1,5})$", re.I)
@@ -711,7 +726,16 @@ def _direccion_desde(texto: str, comuna: str) -> str:
         if not altura:
             continue
         # "134 m²" tiene forma de altura y es una superficie.
-        if _UNIDAD_TRAS_NUMERO.match(t[fin:fin + 8]):
+        #
+        # La ventana tiene que alcanzar para la palabra más larga de la lista
+        # ("estacionamientos", 16 letras). Con la ventana de 8 que había, el
+        # patrón nunca llegaba a leer "Dormitorios" y el número de dormitorios
+        # se colaba como altura de la calle.
+        #
+        # Ampliarla es seguro porque el patrón está anclado en `^\s*`: la
+        # unidad tiene que venir pegada al número. En "Luis Carrera 1200, 3
+        # dormitorios" lo que sigue al 1200 es una coma, y no calza.
+        if _UNIDAD_TRAS_NUMERO.match(t[fin:fin + 20]):
             continue
         # El número que sigue a "Depto" es la unidad, no la calle.
         if i and tokens[i - 1][0].lower() in _MARCAS_DE_UNIDAD:

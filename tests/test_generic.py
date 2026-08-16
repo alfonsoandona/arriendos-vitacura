@@ -305,3 +305,29 @@ def test_direcciones_de_distintos_portales_dedupican():
     ]
     claves = {clave_direccion(d, "Vitacura") for d in variantes}
     assert len(claves) == 1, f"{variantes} -> {claves}"
+
+
+def test_el_numero_de_dormitorios_no_es_la_altura_de_la_calle():
+    """Aviso real de Yapo que producía la dirección "Luis Carrera 3".
+
+    La dirección es la llave con la que se deduplica entre portales, así que
+    una inventada puede fusionar dos departamentos distintos o impedir que se
+    junten dos copias del mismo.
+    """
+    assert _direccion_desde(
+        "Departamento en Luis Carrera 3 Dormitorios por CLP 1600000.00", "") == ""
+
+
+@pytest.mark.parametrize("texto", [
+    "Depto 3 dormitorios",
+    "Amplio depto 2 baños",
+    "Con 2 estacionamientos",
+    "Superficie 134 m²",
+])
+def test_una_cifra_de_programa_nunca_es_una_direccion(texto):
+    assert _direccion_desde(texto, "") == ""
+
+
+def test_la_altura_de_verdad_sobrevive_a_la_palabra_piso():
+    """En "Luis Carrera 1200 piso 5" el 1200 sí es la altura."""
+    assert _direccion_desde("Luis Carrera 1200 piso 5", "") == "Luis Carrera 1200"

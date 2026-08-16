@@ -126,6 +126,12 @@ _MONTOS_CLP = [
     re.compile(rf"{_NUM}\s*millon(?:es)?\b", re.I),
     # "1.550.000 pesos"
     re.compile(rf"{_NUM}\s*pesos\b", re.I),
+    # El código ISO de la moneda, que es como publican los portales que
+    # generan sus títulos desde una base de datos. Yapo escribe
+    # "Departamento en Luis Carrera 3 Dormitorios por CLP 1600000.00" y sin
+    # esta forma esa fuente entera entrega avisos sin precio: el número no
+    # lleva separadores de miles, así que ningún otro patrón lo reconoce.
+    re.compile(rf"\bCLP\s*\$?\s*{_NUM}", re.I),
     # Un número grande y pelado, sin símbolo. Va último y es el más riesgoso:
     # se exige forma de monto chileno CON separadores de miles ("1.550.000")
     # para no leer el número de la calle ni un código de aviso.
@@ -134,6 +140,11 @@ _MONTOS_CLP = [
 
 _MONTOS_UF = [
     re.compile(rf"\bu\.?\s?f\.?\s*\$?\s*{_NUM}", re.I),
+    # CLF es el código ISO de la UF, y Yapo lo usa mucho: buena parte de sus
+    # arriendos de Vitacura se publican como "CLF 46.00". Sin esto quedaban
+    # sin precio, que en este radar significa no poder aplicar el filtro de
+    # presupuesto — el criterio central del pedido.
+    re.compile(rf"\bCLF\s*{_NUM}", re.I),
     re.compile(rf"{_NUM}\s*u\.?\s?f\.?(?![a-z])", re.I),
 ]
 
