@@ -325,8 +325,8 @@ def calibrar(args: argparse.Namespace) -> int:
     nucleo = {c.lower() for c in (perfil.get("comunas") or {}).get("nucleo") or []}
     L: list[str] = ["# Calibración de fuentes", "",
                     f"Corrida: {datetime.utcnow():%d-%m-%Y %H:%M} UTC", "",
-                    "| Fuente | Estado | Avisos | En zona | Pasan filtros |",
-                    "|---|---|---|---|---|"]
+                    "| Fuente | URL | Estado | Avisos | En zona | Pasan filtros |",
+                    "|---|---|---|---|---|---|"]
     detalle: list[str] = []
 
     for fuente in fuentes:
@@ -362,11 +362,11 @@ def calibrar(args: argparse.Namespace) -> int:
                   f"{len(pasan)} pasan los filtros")
             for a in sorted(pasan, key=lambda x: -x.score)[:3]:
                 print(f"     · [{a.score}] {(a.direccion or a.title)[:60]}")
-            L.append(f"| {fuente.nombre} | {estado} | {len(avisos)} | "
-                     f"{len(en_zona)} | {len(pasan)} |")
+            L.append(f"| {fuente.nombre} | {_marca_url(fuente)} | {estado} | "
+                     f"{len(avisos)} | {len(en_zona)} | {len(pasan)} |")
         else:
             estado = "⚠️ cero resultados" if fetcher.ultimo_motivo == "" else estado
-            L.append(f"| {fuente.nombre} | {estado} | 0 | 0 | 0 |")
+            L.append(f"| {fuente.nombre} | {_marca_url(fuente)} | {estado} | 0 | 0 | 0 |")
             sin_motivo = "la página respondió pero no se reconoció ningún aviso"
             # Que la URL esté confirmada cambia el diagnóstico por completo, y
             # sin decirlo los dos casos se ven idénticos en el reporte.
@@ -397,10 +397,26 @@ def calibrar(args: argparse.Namespace) -> int:
                  "teléfono y copia la que funciona.")
         L.append("")
 
+    L.append("")
+    L.append("`✔︎` = URL confirmada contra el sitio · `?` = ruta por calibrar, "
+             "apunta a la raíz para dejar el HTML guardado.")
+    L.append("")
+
     reporte = Path(args.reporte)
     reporte.write_text("\n".join(L), encoding="utf-8")
     print(f"\nReporte en {reporte}")
     return 0
+
+
+def _marca_url(fuente) -> str:
+    """Si la URL de esta fuente estaba confirmada o era una apuesta.
+
+    Va en el reporte porque cambia el diagnóstico por completo: una fuente
+    CONFIRMADA que entrega cero se rompió o cambió su HTML; una POR CALIBRAR
+    que entrega cero lo más probable es que tenga la ruta mala. Sin la
+    columna, las dos filas se ven idénticas.
+    """
+    return "✔︎" if fuente.url_confirmada else "?"
 
 
 def geocode(args: argparse.Namespace) -> int:

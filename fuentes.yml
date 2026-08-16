@@ -297,34 +297,176 @@ fuentes:
 
   - id: century21
     nombre: Century 21 Chile
-    urls: ["https://www.century21.cl/propiedades/arriendo/departamento/vitacura"]
-    activa: false
+    urls: ["https://www.century21.cl/"]
     url_confirmada: false
     notas: >-
-      APAGADA hasta tener la URL buena. Sus fichas individuales sí están
-      indexadas (century21.cl/listingDetails/...), pero no se encontró la URL
-      del buscador con los filtros aplicados, y encenderla con una URL
-      inventada solo agrega una fuente que reporta cero sin motivo.
-      Ver PENDIENTES.md.
+      Sus fichas individuales están indexadas
+      (century21.cl/listingDetails/...) pero no se encontró la URL del
+      buscador con los filtros aplicados. Apunta a la raíz para que la
+      calibración deje el HTML guardado y se pueda escribir la ruta buena.
 
   - id: sothebys
     nombre: Chile Sotheby's Realty
-    urls: ["https://www.chilesothebysrealty.com/arriendo/vitacura"]
-    activa: false
+    # OJO: el dominio es chile.sothebysrealty.com. La primera versión de este
+    # archivo apuntaba a chilesothebysrealty.com, que no existe — verificado
+    # por DNS.
+    urls: ["https://chile.sothebysrealty.com/"]
     url_confirmada: false
     notas: >-
-      APAGADA hasta tener la URL buena. Segmento alto: muchos de sus
-      arriendos superan el presupuesto, pero los que caen dentro suelen ser
-      exactamente el producto que busca el perfil. Ver PENDIENTES.md.
+      Segmento alto: muchos de sus arriendos superan el presupuesto, pero los
+      que caen dentro suelen ser exactamente el producto que busca el perfil.
 
   - id: contempora
     nombre: Contempora Propiedades
-    urls: ["https://www.contempora.cl/arriendos"]
-    activa: false
+    urls: ["https://www.contempora.cl/"]
+    url_confirmada: false
+    notas: "Corredora con foco en Vitacura y Lo Barnechea."
+
+  # -------------------------------------------------------------------
+  # Corredoras y plataformas por calibrar
+  #
+  # ⚠️ LEER ESTO ANTES DE CONFIAR EN LO QUE ENTREGUEN
+  #
+  # Las 20 fuentes de arriba tienen `url_confirmada: true`: se buscó y se vio
+  # la URL exacta del listado filtrado. Las de este bloque NO. De cada una se
+  # verificó únicamente que **el dominio existe** (resuelve por DNS); la ruta
+  # del buscador con los filtros aplicados está sin confirmar.
+  #
+  # Por eso todas apuntan a la RAÍZ del sitio y no a una ruta inventada. Es
+  # deliberado y la diferencia importa para el diagnóstico:
+  #
+  #   raíz            → la calibración baja el HTML y queda guardado, así que
+  #                     se puede leer y escribir la ruta buena.
+  #   ruta inventada  → 404, que en el reporte se ve igual que un sitio caído
+  #                     y no deja nada con qué trabajar.
+  #
+  # Cuatro de estas —Magnolia, Portilla, Nativo y MaxRenta— aparecieron
+  # publicando avisos reales de Vitacura en Economicos, Mitula y GoPlaceIt, o
+  # sea que tienen inventario en la zona con seguridad. El resto son
+  # corredoras y plataformas del mercado chileno que todavía hay que
+  # comprobar.
+  #
+  # SIGUIENTE PASO: Actions → Calibrar fuentes. El reporte separa estas de las
+  # confirmadas y dice, para cada una, si el problema es la URL o el
+  # extractor.
+  # -------------------------------------------------------------------
+
+  - id: propertypartners
+    nombre: Property Partners
+    urls: ["https://www.propertypartners.cl/"]
     url_confirmada: false
     notas: >-
-      APAGADA hasta tener la URL buena. Corredora con foco en Vitacura y Lo
-      Barnechea. Ver PENDIENTES.md.
+      Corredora del sector oriente. Pedida explícitamente. Dominio verificado
+      por DNS; falta la ruta del buscador filtrado a arriendo + Vitacura.
+
+  - id: magnoliaproperty
+    nombre: Magnolia Property
+    urls: ["https://www.magnoliaproperty.cl/"]
+    url_confirmada: false
+    notas: >-
+      Vista publicando arriendos de departamento en Vitacura a través de
+      Economicos.cl, así que tiene inventario en la zona con seguridad. Vale
+      la pena llegarle directo: lo que publica en su propio sitio suele ser
+      más y antes que lo que sindica.
+
+  - id: portillapropiedades
+    nombre: Portilla Propiedades
+    urls: ["https://www.portillapropiedades.cl/"]
+    url_confirmada: false
+    notas: >-
+      Igual que Magnolia: vista con avisos de Vitacura en Economicos.cl.
+
+  - id: nativopropiedades
+    nombre: Nativo Propiedades
+    urls: ["https://www.nativopropiedades.cl/"]
+    url_confirmada: false
+    notas: "Vista con avisos de arriendo en Vitacura a través de Mitula."
+
+  - id: maxrenta
+    nombre: MaxRenta
+    urls: ["https://www.maxrenta.cl/"]
+    url_confirmada: false
+    notas: >-
+      Vista publicando arriendo de departamento en Vitacura vía GoPlaceIt.
+      El nombre sugiere foco en renta, que es exactamente lo que se busca.
+
+  - id: colliers
+    nombre: Colliers Chile
+    urls: ["https://www.colliers.cl/"]
+    url_confirmada: false
+    notas: >-
+      Corredora internacional con operación fuerte en Chile. Su foco es
+      oficinas e industrial, pero tiene área residencial en el sector oriente.
+
+  - id: zentagroup
+    nombre: Zenta Group
+    urls: ["https://www.zentagroup.com/"]
+    url_confirmada: false
+    notas: "Corredora chilena con presencia en el sector oriente."
+
+  - id: inciti
+    nombre: Inciti
+    urls: ["https://www.inciti.com/"]
+    url_confirmada: false
+    notas: "Plataforma inmobiliaria chilena."
+
+  - id: enlaceinmobiliario
+    nombre: Enlace Inmobiliario
+    urls: ["https://www.enlaceinmobiliario.cl/"]
+    url_confirmada: false
+    notas: >-
+      Plataforma que agrupa inventario de varias inmobiliarias. Es la misma
+      que usan varios bancos para sus propiedades, así que su HTML ya se
+      conoce del radar de remates: deja el listado en un objeto JavaScript
+      embebido, que la pasada 2 del extractor sabe leer.
+
+  - id: arriendoasegurado
+    nombre: Arriendo Asegurado
+    urls: ["https://www.arriendoasegurado.cl/"]
+    url_confirmada: false
+    notas: >-
+      Gestión de arriendos. Inventario propio y disponibilidad real, como
+      Houm.
+
+  - id: rentas_cl
+    nombre: Rentas.cl
+    urls: ["https://www.rentas.cl/"]
+    url_confirmada: false
+    notas: "Portal de arriendos."
+
+  - id: arriendos_cl
+    nombre: Arriendos.cl
+    urls: ["https://www.arriendos.cl/"]
+    url_confirmada: false
+    notas: "Portal dedicado exclusivamente a arriendo."
+
+  - id: propiedades_cl
+    nombre: Propiedades.cl
+    urls: ["https://www.propiedades.cl/"]
+    url_confirmada: false
+    notas: "Portal generalista chileno."
+
+  - id: inmuebles_cl
+    nombre: Inmuebles.cl
+    urls: ["https://www.inmuebles.cl/"]
+    url_confirmada: false
+    notas: "Portal generalista chileno."
+
+  - id: clasificados_cl
+    nombre: Clasificados.cl
+    urls: ["https://www.clasificados.cl/"]
+    url_confirmada: false
+    notas: >-
+      Clasificados generales. Calidad de datos probablemente baja, pero es
+      donde publica el particular que no paga corretaje.
+
+  - id: capitalizarme
+    nombre: Capitalizarme
+    urls: ["https://www.capitalizarme.com/"]
+    url_confirmada: false
+    notas: >-
+      Proptech de inversión inmobiliaria. Su foco es la venta a inversionista,
+      pero administra arriendo de la cartera que coloca.
 
   # -------------------------------------------------------------------
   # Registradas y apagadas a propósito

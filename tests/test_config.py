@@ -432,3 +432,54 @@ def test_demo_funciona_con_los_ejemplos_del_repo():
     from arriendo import cli
 
     assert cli.main(["demo", "tests/fixtures/portal_tarjetas.html"]) == 0
+
+
+# ---------------------------------------------------------------------------
+# Las fuentes por calibrar
+# ---------------------------------------------------------------------------
+
+def test_property_partners_esta_en_el_catalogo():
+    """Pedida explícitamente."""
+    ids = {f.id for f in cargar_fuentes()}
+    assert "propertypartners" in ids
+
+
+def test_hay_dos_grupos_de_fuentes_y_se_distinguen():
+    """La marca es lo que separa "se rompió" de "la URL está mala".
+
+    Sin ella, una fuente confirmada que entrega cero y una sin confirmar que
+    entrega cero se ven idénticas en el reporte, y piden arreglos distintos.
+    """
+    activas = fuentes_activas(cargar_fuentes())
+    confirmadas = [f for f in activas if f.url_confirmada]
+    por_calibrar = [f for f in activas if not f.url_confirmada]
+
+    assert len(confirmadas) >= 20
+    assert len(por_calibrar) >= 15
+
+
+def test_las_fuentes_por_calibrar_apuntan_a_la_raiz():
+    """Una ruta inventada da 404, que en el reporte se ve como sitio caído.
+
+    La raíz siempre existe y deja el HTML guardado, que es con lo que después
+    se escribe la ruta buena.
+    """
+    from urllib.parse import urlparse
+
+    for f in fuentes_activas(cargar_fuentes()):
+        if f.url_confirmada:
+            continue
+        for u in f.urls:
+            ruta = urlparse(u).path
+            assert ruta in ("", "/"), f"{f.id} apunta a {ruta}, no a la raíz"
+
+
+def test_ningun_dominio_se_repite_entre_fuentes():
+    """Dos fuentes con el mismo dominio son la misma: se pisan y duplican."""
+    from urllib.parse import urlparse
+
+    vistos: dict[str, str] = {}
+    for f in cargar_fuentes():
+        host = (urlparse(f.urls[0]).hostname or "").replace("www.", "")
+        assert host not in vistos, f"{f.id} repite el dominio de {vistos.get(host)}"
+        vistos[host] = f.id

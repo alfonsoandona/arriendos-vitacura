@@ -51,29 +51,58 @@ Cuando estén, corre **Actions → Probar aviso de Telegram** y avísame si lleg
 
 ---
 
-## 🟠 2. Las tres corredoras que quedaron apagadas
+## 🟠 2. Las 19 fuentes "por calibrar"
 
-Busqué las URLs de los 20 portales activos y las confirmé una por una. Estas
-tres no las encontré: sus fichas individuales están indexadas, pero no la URL
-del buscador con los filtros puestos. Las dejé `activa: false` en vez de
-inventar una URL, porque una fuente que reporta cero sin motivo ensucia el
-diagnóstico de las que sí están rotas.
+El catálogo tiene ahora **41 portales, 39 activos**. Se dividen en dos grupos
+y la diferencia importa:
 
-**Lo que necesito de cada una:** abres el sitio, filtras a mano por *arriendo
-+ departamento + Vitacura*, y copias la URL que te queda en la barra.
+| | Cuántas | Qué se verificó |
+|---|---|---|
+| ✔︎ **Confirmadas** | 20 | Se vio la URL exacta del listado filtrado |
+| ? **Por calibrar** | 19 | Solo que **el dominio existe** (resuelve por DNS) |
+
+Las 19 apuntan a la **raíz** del sitio, no a una ruta inventada. Es
+deliberado: la raíz siempre carga y deja el HTML guardado, así que después se
+puede leer y escribir la ruta buena. Una ruta inventada da 404, que en el
+reporte se ve igual que un sitio caído y no deja nada con qué trabajar.
+
+Entre ellas van **Property Partners** (la que pediste) y cuatro que ya vi
+publicando avisos reales de Vitacura en Economicos, Mitula y GoPlaceIt:
+Magnolia Property, Portilla Propiedades, Nativo Propiedades y MaxRenta.
+
+**Lo que necesito:** para las que te importen, abres el sitio, filtras a mano
+por *arriendo + departamento + Vitacura*, y copias la URL. Con eso pasan a
+confirmadas y dejan de generar ruido.
 
 ```yaml
-century21:   ______________________________________________
-sothebys:    ______________________________________________
-contempora:  ______________________________________________
+propertypartners:    ______________________________________________
+magnoliaproperty:    ______________________________________________
+portillapropiedades: ______________________________________________
+nativopropiedades:   ______________________________________________
+maxrenta:            ______________________________________________
+century21:           ______________________________________________
+sothebys:            ______________________________________________
+contempora:          ______________________________________________
+colliers:            ______________________________________________
+zentagroup:          ______________________________________________
+inciti:              ______________________________________________
+enlaceinmobiliario:  ______________________________________________
+arriendoasegurado:   ______________________________________________
+rentas_cl:           ______________________________________________
+arriendos_cl:        ______________________________________________
+propiedades_cl:      ______________________________________________
+inmuebles_cl:        ______________________________________________
+clasificados_cl:     ______________________________________________
+capitalizarme:       ______________________________________________
 ```
 
-Si alguna no tiene buscador con filtros, dímelo y la saco del catálogo en vez
-de dejarla apagada para siempre.
+No hace falta llenarlas todas: la calibración va a decir cuáles entregan algo
+y cuáles no valen la pena. Si alguna resulta que no hace arriendo
+residencial, dímelo y la saco.
 
 **¿Se te ocurre alguna otra corredora del sector?** Las que publican solo en
-su propio sitio son las que más valen — es literalmente la razón por la que
-este radar existe.
+su propio sitio son las que más valen — es la razón por la que este radar
+existe.
 
 ```
 ______________________________________________
@@ -321,7 +350,7 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 313 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 317 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |

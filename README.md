@@ -13,8 +13,9 @@ nuevos.
 > **Este radar complementa a Portal Inmobiliario, no lo reemplaza.** Ya tienes
 > alertas configuradas ahí, así que Portal Inmobiliario está deliberadamente
 > apagado en [`fuentes.yml`](fuentes.yml) y lo que este radar cubre es todo lo
-> demás: TocToc, GoPlaceIt, Houm, Hey, Engel & Völkers, Chilepropiedades, Yapo
-> y las corredoras del sector oriente que publican solo en su propio sitio.
+> demás: **41 portales** — TocToc, GoPlaceIt, Houm, Hey, Engel & Völkers,
+> Chilepropiedades, Yapo, Economicos, Property Partners y las corredoras del
+> sector oriente que publican solo en su propio sitio.
 
 ---
 
@@ -303,12 +304,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              313 tests.
+tests/              317 tests.
 ```
 
 ### Sobre los tests
 
-313 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+317 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
@@ -339,10 +340,11 @@ python -m pytest tests/ -q
 | Deduplicación y fusión entre portales | ✅ 31 tests |
 | Extracción (JSON-LD, SPA, tarjetas) | ✅ 42 tests |
 | Alertas por Telegram y fichas | ✅ 53 tests |
-| Configuración, paginación y CLI | ✅ 51 tests |
+| Configuración, fuentes, paginación y CLI | ✅ 45 tests |
 | Corrida completa de punta a punta | ✅ 13 tests |
 | Automatización (GitHub Actions, 2x al día) | ✅ Configurada |
-| URLs de los 20 portales activos | ✅ Confirmadas una por una |
+| URLs de 20 portales | ✅ Confirmadas una por una |
+| URLs de otros 19 portales | ⚠️ Solo dominio verificado — apuntan a la raíz |
 | **Que el extractor entienda cada portal** | ⚠️ **Correr `Calibrar fuentes`** |
 | **Telegram** | ⚠️ **Falta crear el bot — ver `PENDIENTES.md`** |
 
