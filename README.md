@@ -47,7 +47,7 @@ público los minutos son ilimitados.
 
 > **¿Qué falta para que quede al 100%?** Está todo en
 > [`PENDIENTES.md`](PENDIENTES.md), en formato de campos por rellenar: el bot
-> de Telegram, tres corredoras a las que no les encontré la URL, y las
+> de Telegram, las 19 fuentes a las que les falta afinar la URL, y las
 > decisiones que tomé yo y que quizás quieras cambiar.
 
 ---
@@ -63,10 +63,21 @@ todos los portales objetivo (política de egreso: `403` en `CONNECT` para
 toctoc.com, houm.com, yapo.cl y el resto). **Nunca se pudo abrir ninguno de
 esos sitios.**
 
-Las URLs sí se buscaron y confirmaron una por una contra el sitio indexado
-—están marcadas con `url_confirmada: true` en `fuentes.yml`— pero eso
-garantiza que la página existe, **no que el extractor la entienda**. Son dos
-cosas distintas y la segunda solo se puede comprobar con internet.
+Las fuentes están en dos grupos, y `fuentes.yml` los distingue con
+`url_confirmada`:
+
+| | Cuántas | Qué se verificó | A dónde apuntan |
+|---|---|---|---|
+| ✔︎ **Confirmadas** | 20 | Se vio la URL exacta del listado filtrado | Al listado |
+| ? **Por calibrar** | 19 | Solo que el dominio existe (DNS) | A la raíz del sitio |
+
+Las de la segunda fila apuntan a la raíz a propósito: la raíz siempre carga y
+deja el HTML guardado, que es con lo que después se escribe la ruta buena. Una
+ruta inventada da 404, que en el reporte se ve igual que un sitio caído y no
+deja nada con qué trabajar.
+
+Y en los dos casos, que la página exista no garantiza **que el extractor la
+entienda**. Son cosas distintas y esa segunda solo se comprueba con internet.
 
 Escribir selectores CSS a ciegas habría sido adivinar. En vez de eso el
 extractor usa tres pasadas que no dependen del diseño de cada sitio:
@@ -89,18 +100,24 @@ El reporte queda en el resumen del run (se lee desde el teléfono) y el HTML
 crudo queda como artifact:
 
 ```
-| Fuente        | Estado             | Avisos | En zona | Pasan filtros |
-|---------------|--------------------|--------|---------|---------------|
-| TocToc        | ✅ entrega         |   47   |   31    |       4       |
-| Houm          | ⚠️ cero resultados |    0   |    0    |       0       |
-| Fuenzalida    | ❌ sin respuesta   |    0   |    0    |       0       |
+| Fuente            | URL | Estado             | Avisos | En zona | Pasan filtros |
+|-------------------|-----|--------------------|--------|---------|---------------|
+| TocToc            | ✔︎  | ✅ entrega         |   47   |   31    |       4       |
+| Houm              | ✔︎  | ⚠️ cero resultados |    0   |    0    |       0       |
+| Property Partners | ?   | ⚠️ cero resultados |    0   |    0    |       0       |
 ```
+
+La columna **URL** es la que hace útil al reporte: las dos últimas filas dicen
+lo mismo y significan cosas distintas. Houm está confirmada, así que su cero
+es el extractor; Property Partners está por calibrar, así que su cero es
+casi seguro la ruta.
 
 | Resultado | Qué significa | Qué hacer |
 |---|---|---|
 | ✅ **entrega** | Esa fuente ya funciona | Nada |
-| ⚠️ **cero resultados** | La página respondió pero no se reconoció ningún aviso | Baja el artifact y abre el HTML. Si trae los avisos, agrégale `selector_card`. Si viene vacío, ponle `motor: navegador` |
-| ❌ **sin respuesta** | 404, bloqueo anti-bot o robots.txt | Si es 403, prueba `motor: navegador`. Si es DNS, la URL está mala |
+| ⚠️ **cero** con `✔︎` | La URL es buena pero no se reconocieron los avisos | Baja el artifact y abre el HTML. Si trae los avisos, agrégale `selector_card`. Si viene vacío, ponle `motor: navegador` |
+| ⚠️ **cero** con `?` | Casi seguro que la ruta está mala | Filtra a mano en el sitio y copia la URL |
+| ❌ **sin respuesta** | 404, bloqueo anti-bot o robots.txt | Si es 403, prueba `motor: navegador`. Si es DNS, el dominio cambió |
 
 ### Paginación
 
