@@ -232,28 +232,82 @@ cambiar tres líneas.
 
 ---
 
-## ⚪ 7. Cosas que puedo construir si las quieres
+## ⚪ 7. Lo que yo mejoraría ahora, en orden
 
-No están hechas. Las anoto porque salieron mientras armaba esto y me parecen
-las siguientes en valor.
+No están hechas. Van ordenadas por cuánto cambian el resultado, no por
+cuánto cuestan.
 
-- [ ] **Historial de precios por departamento.** Guardar cada canon visto y
-      mostrar la curva en la ficha. Hoy solo detecto la baja contra el precio
-      con el que te avisé; con el historial completo se vería "lleva 3 bajas
-      en 2 meses", que es una señal mucho más fuerte.
-- [ ] **Comparador lado a lado.** Una tabla con los 5 mejores y sus
-      diferencias resaltadas, para decidir cuál visitar primero.
-- [ ] **Aviso de "se fue del mercado".** Cuando un aviso que venías siguiendo
-      desaparece de todos los portales, decirlo: cierra el ciclo y te dice a
-      qué velocidad se mueve el mercado en tu rango.
-- [ ] **Estimación de gastos comunes cuando no se publican.** A partir del
-      promedio de los que sí se publican en edificios parecidos. Hoy digo "no
-      publicados" y dejo el costo incompleto.
-- [ ] **Filtro por línea de metro / colegios / tiempo a un punto B.** Si hay
-      un segundo lugar que importa (oficina, colegio), lo puedo sumar como
-      criterio junto al Sport Francés.
-- [ ] **Reporte semanal.** Un resumen de qué apareció, qué bajó de precio y
-      qué se arrendó, una vez por semana.
+### 1. Traer el valor de la UF del día 🟠
+
+**Ya no es teórico.** Al probar contra un aviso real descubrí que Yapo publica
+buena parte de su inventario de Vitacura en UF (`CLF 46.00`, `CLF 33.00`).
+Hoy convierto con una constante de $40.800, y la UF se mueve: con la UF real
+en $41.500, un arriendo de UF 39 son $1.618.500 y **cruza el tope de
+$1.600.000** que con la constante no cruzaba. O sea: el veredicto de una
+fuente entera depende de un número que está envejeciendo.
+
+Se arregla leyendo la UF de una API pública chilena al empezar la corrida,
+con la constante como respaldo si falla. Es media hora de trabajo.
+
+- [ ] Hazlo
+
+### 2. Paralelizar las fuentes 🟡
+
+Las 20 fuentes se consultan una después de otra, y 5 de ellas levantan
+Chromium. En el peor caso eso se acerca al tope de 30 minutos del job, y si
+lo cruza la corrida se corta a la mitad. Como el límite de velocidad ya es
+por sitio, se pueden consultar varios portales a la vez sin ser
+descortés con ninguno.
+
+- [ ] Hazlo
+
+### 3. Historial de precios por departamento 🟡
+
+Hoy detecto la baja contra el precio con el que te avisé. Con el historial
+completo se podría decir "lleva 3 bajas en 2 meses, van -12%", que es una
+señal mucho más fuerte para negociar — y ver la curva en la ficha.
+
+- [ ] Hazlo
+
+### 4. Polígono de Vitacura en vez del nombre de la comuna 🟡
+
+Hoy la zona se decide por el texto "Vitacura" en el aviso, con las
+coordenadas como apoyo. Con el polígono real de la comuna, las coordenadas
+decidirían solas y dejaría de importar si el portal escribió bien la comuna.
+Quita toda una clase de errores.
+
+- [ ] Hazlo
+
+### 5. Un resumen cuando hay muchas alertas 🟡
+
+Si califican 8 departamentos, hoy llegan 8 mensajes seguidos. Podría llegar
+uno con la tabla y los 3 mejores en detalle.
+
+- [ ] Hazlo
+
+### 6. Aviso de "se fue del mercado" ⚪
+
+Cuando un aviso que venías siguiendo desaparece de todos los portales,
+decirlo: cierra el ciclo y te muestra a qué velocidad se mueve tu rango.
+
+- [ ] Hazlo
+
+### 7. Estimar los gastos comunes cuando no se publican ⚪
+
+A partir del promedio de los que sí se publican en edificios parecidos. Hoy
+digo "no publicados" y el costo mensual queda incompleto — que es honesto,
+pero un rango estimado sería más útil que nada.
+
+- [ ] Hazlo
+
+### 8. Un segundo punto de referencia ⚪
+
+Si hay otro lugar que importe (oficina, colegio), lo sumo como criterio junto
+al Sport Francés.
+
+```
+Segundo punto: ______________________________________
+```
 
 ```
 Otras ideas tuyas:
@@ -267,7 +321,7 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 301 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 313 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |
