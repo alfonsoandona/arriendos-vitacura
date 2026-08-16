@@ -33,6 +33,7 @@ basta el navegador de un celular o la app de GitHub.
 | **Buscar ahora mismo** | Actions → *Radar de Arriendos* → *Run workflow* |
 | **Ver qué fuentes sirven** | Actions → *Calibrar fuentes* → *Run workflow* |
 | **Probar que Telegram anda** | Actions → *Probar aviso de Telegram* |
+| **Ver qué falta** | [`PENDIENTES.md`](PENDIENTES.md) — campos por rellenar |
 
 ### ¿Cuánto cuesta?
 
@@ -40,6 +41,13 @@ basta el navegador de un celular o la app de GitHub.
 alrededor de **360 minutos al mes**, dentro del plan gratuito de GitHub Actions
 incluso con el repositorio privado (2.000 minutos al mes). En repositorio
 público los minutos son ilimitados.
+
+---
+
+> **¿Qué falta para que quede al 100%?** Está todo en
+> [`PENDIENTES.md`](PENDIENTES.md), en formato de campos por rellenar: el bot
+> de Telegram, tres corredoras a las que no les encontré la URL, y las
+> decisiones que tomé yo y que quizás quieras cambiar.
 
 ---
 
@@ -52,8 +60,12 @@ Vale la pena entender por qué, porque es la única parte que no está terminada
 El entorno donde se escribió este código tiene bloqueado el acceso de red a
 todos los portales objetivo (política de egreso: `403` en `CONNECT` para
 toctoc.com, houm.com, yapo.cl y el resto). **Nunca se pudo abrir ninguno de
-esos sitios.** Las URLs de `fuentes.yml` están armadas con el patrón que usa
-cada portal, y varias van a estar mal.
+esos sitios.**
+
+Las URLs sí se buscaron y confirmaron una por una contra el sitio indexado
+—están marcadas con `url_confirmada: true` en `fuentes.yml`— pero eso
+garantiza que la página existe, **no que el extractor la entienda**. Son dos
+cosas distintas y la segunda solo se puede comprobar con internet.
 
 Escribir selectores CSS a ciegas habría sido adivinar. En vez de eso el
 extractor usa tres pasadas que no dependen del diseño de cada sitio:
@@ -319,6 +331,8 @@ python -m pytest tests/ -q
 | Configuración, paginación y CLI | ✅ 39 tests |
 | Corrida completa de punta a punta | ✅ 13 tests |
 | Automatización (GitHub Actions, 2x al día) | ✅ Configurada |
-| **URLs de los portales** | ⚠️ **Sin verificar — correr `Calibrar fuentes`** |
+| URLs de los 20 portales activos | ✅ Confirmadas una por una |
+| **Que el extractor entienda cada portal** | ⚠️ **Correr `Calibrar fuentes`** |
+| **Telegram** | ⚠️ **Falta crear el bot — ver `PENDIENTES.md`** |
 
 El último punto es el que falta, y está explicado arriba.
