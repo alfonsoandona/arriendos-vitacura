@@ -57,7 +57,17 @@ RUBRO_COMPLETO = (PESO_UBICACION + PESO_ANTIGUEDAD + PESO_PRECIO
 # propiedad califica: dicen cuál preferir entre las que ya calificaron. Van
 # fuera del porcentaje porque metiéndolas adentro dos propiedades distintas
 # saturaban las dos en 100 y el desempate desaparecía.
-PESO_PREFERENCIAS = 14
+PESO_PREFERENCIAS = 12
+
+# Cuánto del puntaje final se lleva el rubro, dejando el resto a las
+# preferencias. Los dos suman 100.
+#
+# La proporción existe para que el puntaje siga ordenando ARRIBA, que es
+# donde importa: con el rubro llevándose los 100 puntos completos, cualquier
+# departamento bueno con una preferencia a favor se iba a 100 y empataba con
+# todos los demás buenos. Y el tope de avisos por corrida hace que el orden
+# de los primeros ocho sea justamente lo que el usuario ve.
+ESCALA_RUBRO = 88
 
 
 @dataclass
@@ -659,7 +669,11 @@ def evaluar(l: Arriendo, perfil: dict) -> Arriendo:
     ev.medibles = sum(r.peso for r in ev.rubros if r.medido)
     ev.preferencias, razones_pref = evaluar_preferencias(l, perfil)
 
-    ev.score = max(0, min(100, _normalizar(bruto, ev.medibles) + ev.preferencias))
+    # El rubro se escala a 88 y las preferencias aportan los otros 12. Ver
+    # ESCALA_RUBRO: es lo que evita que todos los departamentos buenos
+    # empaten en 100 y el puntaje deje de ordenar justo arriba.
+    rubro = round(_normalizar(bruto, ev.medibles) * ESCALA_RUBRO / 100)
+    ev.score = max(0, min(100, rubro + ev.preferencias))
     ev.razones = [f"{r.nombre}: {r.detalle}" for r in ev.rubros if r.medido]
     ev.razones += razones_pref
 
@@ -702,7 +716,10 @@ def techo_alcanzable(l: Arriendo) -> int:
         return l.score
     logrado = sum(r.obtenido for r in rubros)
     por_medir = sum(r.peso for r in rubros if not r.medido)
-    return max(0, min(100, logrado + por_medir + l.extras.get("preferencias", 0)))
+    # Se escala igual que el puntaje real: si no, el techo se compararía
+    # contra otra regla y podría quedar por debajo del puntaje que ya tiene.
+    rubro = round((logrado + por_medir) * ESCALA_RUBRO / 100)
+    return max(0, min(100, rubro + l.extras.get("preferencias", 0)))
 
 
 def debe_alertar(l: Arriendo, perfil: dict) -> bool:

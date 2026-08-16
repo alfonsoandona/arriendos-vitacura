@@ -1,0 +1,137 @@
+"""Bitácora: qué pasó en cada corrida, versionada en el repo.
+
+Se escribe al repositorio y no solo al log de Actions porque los logs de
+Actions expiran y hay que pedirlos por API. La bitácora se lee desde el
+navegador del teléfono, que es donde se opera este radar.
+
+Se escribe TAMBIÉN cuando la corrida falla, que es justo cuando sirve: una
+corrida que revienta y no deja rastro en el repo se ve, desde afuera, igual
+que una que no encontró nada.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+from datetime import datetime
+from pathlib import Path
+
+log = logging.getLogger(__name__)
+
+ULTIMA = "ultima-corrida.md"
+HISTORIAL = "historial.jsonl"
+
+# Cuántas corridas conservar en el historial. Con dos corridas al día, 400
+# entradas son unos siete meses: suficiente para ver una tendencia y poco
+# suficiente para que el archivo siga abriéndose en el teléfono.
+MAX_HISTORIAL = 400
+
+
+def escribir_bitacora(stats: dict, directorio: Path) -> None:
+    """Escribe el resumen de la corrida. Nunca levanta.
+
+    Que no levante es deliberado: la bitácora es diagnóstico, y un fallo
+    escribiéndola no puede voltear una corrida que sí encontró departamentos
+    y sí mandó los avisos.
+    """
+    try:
+        directorio.mkdir(parents=True, exist_ok=True)
+        (directorio / ULTIMA).write_text(_resumen(stats), encoding="utf-8")
+        _anotar_historial(stats, directorio / HISTORIAL)
+    except OSError as e:
+        log.warning("No se pudo escribir la bitácora: %s", e)
+
+
+def _duracion(stats: dict) -> str:
+    inicio, fin = stats.get("inicio"), stats.get("fin")
+    if not isinstance(inicio, datetime) or not isinstance(fin, datetime):
+        return "—"
+    return f"{(fin - inicio).total_seconds():.0f}s"
+
+
+def _resumen(stats: dict) -> str:
+    cuando = stats.get("inicio")
+    cuando = cuando if isinstance(cuando, datetime) else datetime.utcnow()
+
+    L = [f"# Última corrida — {cuando:%d-%m-%Y %H:%M} UTC", ""]
+
+    if stats.get("error"):
+        L.append(f"## ❌ La corrida falló")
+        L.append("")
+        L.append("```")
+        L.append(str(stats["error"])[:1500])
+        L.append("```")
+        L.append("")
+
+    L.append("| | |")
+    L.append("|---|---|")
+    L.append(f"| Duración | {_duracion(stats)} |")
+    L.append(f"| Fuentes consultadas | {stats.get('fuentes_consultadas', 0)} |")
+    L.append(f"| Fuentes que entregaron | {stats.get('fuentes_ok', 0)} |")
+    L.append(f"| Avisos leídos | {stats.get('total', 0)} |")
+    L.append(f"| Después de deduplicar | {stats.get('unicos', 0)} |")
+    L.append(f"| Pasaron los filtros | {stats.get('candidatos', 0)} |")
+    L.append(f"| Avisados por Telegram | {stats.get('avisados', 0)} |")
+    L.append("")
+
+    por_fuente = stats.get("por_fuente") or {}
+    if por_fuente:
+        L.append("## Qué entregó cada fuente")
+        L.append("")
+        L.append("| Fuente | Avisos |")
+        L.append("|---|---|")
+        for fid, n in sorted(por_fuente.items(), key=lambda kv: -kv[1]):
+            marca = "" if n else " ⚠️"
+            L.append(f"| {fid}{marca} | {n} |")
+        L.append("")
+
+    if (caidas := stats.get("fuentes_caidas")):
+        L.append("## ⚠️ Fuentes que dejaron de entregar")
+        L.append("")
+        for c in caidas:
+            L.append(f"- {c}")
+        L.append("")
+        L.append("Venían trayendo avisos y hoy no trajeron ninguno. Puede ser "
+                 "falta de inventario nuevo, o que el sitio haya cambiado. "
+                 "`Actions → Calibrar fuentes` lo distingue.")
+        L.append("")
+
+    # Una fuente que nunca ha entregado no está rota: está sin calibrar, y son
+    # cosas distintas que piden acciones distintas.
+    sin_calibrar = [fid for fid, n in por_fuente.items() if n == 0]
+    if sin_calibrar and not stats.get("fuentes_caidas"):
+        L.append("## Fuentes en cero")
+        L.append("")
+        L.append(", ".join(f"`{f}`" for f in sorted(sin_calibrar)))
+        L.append("")
+        L.append("Si nunca han entregado, lo más probable es que su URL esté "
+                 "mal: corre `Actions → Calibrar fuentes` y arréglalas "
+                 "copiando la URL desde el navegador.")
+        L.append("")
+
+    return "\n".join(L)
+
+
+def _anotar_historial(stats: dict, ruta: Path) -> None:
+    """Una línea JSON por corrida. Sirve para ver tendencias sin parsear prosa."""
+    entrada = {
+        "cuando": (stats.get("inicio") or datetime.utcnow()).isoformat(
+            timespec="seconds"),
+        "duracion_s": None,
+        "fuentes_ok": stats.get("fuentes_ok", 0),
+        "fuentes_consultadas": stats.get("fuentes_consultadas", 0),
+        "total": stats.get("total", 0),
+        "unicos": stats.get("unicos", 0),
+        "candidatos": stats.get("candidatos", 0),
+        "avisados": stats.get("avisados", 0),
+        "error": str(stats.get("error", ""))[:200] or None,
+    }
+    inicio, fin = stats.get("inicio"), stats.get("fin")
+    if isinstance(inicio, datetime) and isinstance(fin, datetime):
+        entrada["duracion_s"] = round((fin - inicio).total_seconds())
+
+    lineas = []
+    if ruta.exists():
+        lineas = ruta.read_text(encoding="utf-8").splitlines()
+    lineas.append(json.dumps(entrada, ensure_ascii=False))
+    ruta.write_text("\n".join(lineas[-MAX_HISTORIAL:]) + "\n", encoding="utf-8")

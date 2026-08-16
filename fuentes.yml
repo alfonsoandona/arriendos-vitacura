@@ -1,0 +1,234 @@
+# ===========================================================================
+# FUENTES — de dónde saca avisos el radar
+#
+# Este archivo se edita desde el navegador, sin instalar nada: abre el archivo
+# en GitHub → botón del lápiz (✏️) → editas → "Commit changes".
+#
+# ---------------------------------------------------------------------------
+# POR QUÉ NO ESTÁ PORTAL INMOBILIARIO
+#
+# Porque ya tienes alertas configuradas ahí. Este radar existe para cubrir
+# TODO LO DEMÁS: los portales que Portal Inmobiliario no incluye y las
+# corredoras que publican solo en su propio sitio.
+#
+# Portal Inmobiliario está más abajo, registrado pero con `activa: false`,
+# para que quede escrito que la omisión es deliberada y no un olvido. Si
+# alguna vez quieres unificar todo acá, es cambiar esa línea a `true`.
+#
+# ---------------------------------------------------------------------------
+# CAMPOS DE CADA FUENTE
+#
+#   id           obligatorio. Identificador único, sin espacios ni tildes.
+#   nombre       obligatorio. Cómo aparece en los reportes.
+#   urls         obligatorio. Una o más URLs a revisar.
+#   activa       false para dejarla registrada pero sin consultar.
+#   motor        "requests" (un GET simple) o "navegador" (Chromium
+#                ejecutando el JavaScript). El navegador es mucho más caro:
+#                solo donde el sitio lo exige.
+#   detalle      seguir la ficha de cada aviso. {patron: "...", max: N}
+#                En arriendo rinde mucho: los gastos comunes, la superficie
+#                total y el año casi nunca están en la tarjeta del listado.
+#   selector_card  CSS de la tarjeta de resultado. Se deja vacío hasta
+#                  calibrar; sin él se usa la detección automática.
+#   notas        texto libre para acordarte de por qué está acá.
+#
+# ---------------------------------------------------------------------------
+# ⚠️ LAS URLs NO ESTÁN VERIFICADAS TODAVÍA
+#
+# El entorno donde se escribió este código tiene bloqueado el acceso de red a
+# todos estos sitios (403 en CONNECT), así que ninguna de estas URLs se pudo
+# abrir ni una vez. Están armadas con el patrón que usa cada portal, y varias
+# van a estar mal.
+#
+# ARREGLARLAS ES EL PRIMER PASO Y ES LO QUE MÁS RINDE:
+#
+#   Actions → "Calibrar fuentes" → Run workflow
+#
+# Corre en los servidores de GitHub, que sí tienen internet abierto, y deja
+# una tabla con qué fuente funciona y cuántos avisos de Vitacura encontró.
+#
+# Y lo que más rinde de todo lo puedes hacer desde el teléfono: abre el portal,
+# filtra a mano por Vitacura + arriendo + departamento + 3 dormitorios, copia
+# la URL que te queda en la barra y pégala acá. Menos páginas que barrer y
+# muchísimo menos ruido.
+# ===========================================================================
+
+fuentes:
+
+  # -------------------------------------------------------------------
+  # Los grandes agregadores
+  #
+  # Concentran la mayor parte del inventario de arriendo en Vitacura. Casi
+  # todos arman la página con JavaScript, así que van con navegador.
+  # -------------------------------------------------------------------
+
+  - id: toctoc
+    nombre: TocToc
+    urls: ["https://www.toctoc.com/resultados/arriendo/departamento/vitacura/"]
+    motor: navegador
+    detalle: {patron: "/propiedad/\\d+", max: 12}
+    notas: >-
+      El más grande de los que no son Portal Inmobiliario. Publica ficha con
+      gastos comunes y año de construcción, que son justo los dos datos que
+      más pesan en el puntaje y que casi nadie más trae. Vale la pena el
+      costo del navegador y de seguir las fichas.
+
+  - id: goplaceit
+    nombre: GoPlaceIt
+    urls: ["https://www.goplaceit.com/cl/arriendo/departamento/vitacura"]
+    motor: navegador
+    detalle: {patron: "/propiedad/\\d+", max: 10}
+    notas: >-
+      Agrega avisos de corredoras chicas que no publican en otra parte. Trae
+      mapa, así que suele emitir coordenadas en el payload — y con
+      coordenadas el anillo de 1,2 km se puede aplicar de verdad en vez de
+      caer al filtro por comuna.
+
+  - id: chilepropiedades
+    nombre: Chilepropiedades
+    urls: ["https://www.chilepropiedades.cl/propiedades/arriendo/departamento/vitacura/0"]
+    detalle: {patron: "/propiedades/\\d+", max: 10}
+    notas: >-
+      HTML servido por el servidor, sin JavaScript: es de los pocos que
+      funciona con un GET simple. Mucho aviso de particular, que además no
+      cobra comisión.
+
+  - id: yapo
+    nombre: Yapo
+    urls: ["https://www.yapo.cl/region_metropolitana/arriendo_departamentos?ca=15_s&l=0&w=1&cmn=341"]
+    notas: >-
+      Clasificados generales. La calidad de los datos es peor —muchos avisos
+      sin superficie ni año— pero es donde publica el dueño que no quiere
+      pagar corretaje. El parámetro cmn=341 debería ser Vitacura; verificar
+      al calibrar.
+
+  - id: emol_propiedades
+    nombre: Emol Propiedades
+    urls: ["https://propiedades.emol.com/arriendo/departamento/region-metropolitana/vitacura"]
+    notas: >-
+      El portal de El Mercurio. Hereda los avisos del diario, así que trae
+      corredoras tradicionales del sector oriente que no están en otra parte.
+
+  - id: doomos
+    nombre: Doomos
+    urls: ["https://www.doomos.cl/qb/1/vitacura/departamento-arriendo.html"]
+    notas: "Antiguo pero sigue vivo; inventario de corredoras chicas."
+
+  - id: icasas
+    nombre: iCasas
+    urls: ["https://www.icasas.cl/arriendo/departamentos-vitacura"]
+    notas: "Agregador internacional con presencia en Chile."
+
+  - id: zoominmobiliario
+    nombre: Zoom Inmobiliario
+    urls: ["https://www.zoominmobiliario.com/arriendo/departamento/vitacura"]
+    notas: "Foco en proyectos nuevos, que es justo lo que el perfil prefiere."
+
+  # -------------------------------------------------------------------
+  # Plataformas de arriendo (proptech)
+  #
+  # Administran el arriendo de punta a punta. Inventario más chico pero
+  # mejor descrito, y con disponibilidad real: lo que publican está
+  # disponible, no arrendado hace tres semanas.
+  # -------------------------------------------------------------------
+
+  - id: houm
+    nombre: Houm
+    urls: ["https://www.houm.com/chile/arriendo/departamento/vitacura"]
+    motor: navegador
+    detalle: {patron: "/propiedad/\\d+", max: 8}
+    notas: >-
+      Publica fotos, plano y disponibilidad real. Su inventario tiende a
+      departamentos más nuevos, que puntúan alto en este perfil. Casi todo
+      su contenido se arma en el navegador.
+
+  - id: hey
+    nombre: Hey
+    urls: ["https://www.hey.cl/arriendo/vitacura"]
+    motor: navegador
+    notas: >-
+      Proptech chilena de arriendo. Verificar la URL al calibrar: puede que
+      el listado viva bajo /propiedades o /buscar.
+
+  - id: assetplan
+    nombre: AssetPlan
+    urls: ["https://www.assetplan.cl/arriendo/departamento/vitacura"]
+    notas: >-
+      Especialista en multifamily. Aviso: la mayor parte de su inventario
+      son departamentos chicos de renta, así que probablemente entregue poco
+      que pase el filtro de 100 m². Se deja porque el costo de consultarla es
+      bajo y una torre en Vitacura de 3 dormitorios sí aparecería.
+
+  # -------------------------------------------------------------------
+  # Corredoras del sector oriente
+  #
+  # Muchas de estas NO sindican a los agregadores: publican solo en su
+  # propio sitio, y ahí está el inventario que nadie más ve. Es la razón
+  # principal por la que este radar existe.
+  # -------------------------------------------------------------------
+
+  - id: engelvoelkers
+    nombre: Engel & Völkers
+    urls: ["https://www.engelvoelkers.com/cl/es/search/?q=vitacura&businessArea=residential&transactionType=rent"]
+    motor: navegador
+    notas: >-
+      Segmento alto, con presencia fuerte en Vitacura. Sitio internacional:
+      la URL de búsqueda es la parte más probable de estar mal y la más
+      fácil de arreglar copiándola del navegador.
+
+  - id: fuenzalida
+    nombre: Fuenzalida Propiedades
+    urls: ["https://www.fuenzalida.com/arriendo/departamento/vitacura"]
+    notas: "Corredora tradicional del sector oriente, inventario propio."
+
+  - id: remax
+    nombre: RE/MAX Chile
+    urls: ["https://www.remax.cl/es/arriendo/departamento/vitacura"]
+    motor: navegador
+    notas: "Red de corredores independientes; mucho aviso exclusivo."
+
+  - id: century21
+    nombre: Century 21 Chile
+    urls: ["https://www.century21.cl/propiedades/arriendo/departamento/vitacura"]
+    notas: "Otra red grande de corredores con inventario propio."
+
+  - id: sothebys
+    nombre: Chile Sotheby's Realty
+    urls: ["https://www.chilesothebysrealty.com/arriendo/vitacura"]
+    notas: >-
+      Segmento alto. Muchos de sus arriendos superan el presupuesto, pero los
+      que caen dentro suelen ser exactamente el producto que busca el perfil:
+      más de 100 m², nuevos y en la zona.
+
+  - id: contempora
+    nombre: Contempora Propiedades
+    urls: ["https://www.contempora.cl/arriendos"]
+    notas: "Corredora con foco en Vitacura y Lo Barnechea."
+
+  # -------------------------------------------------------------------
+  # Registrada y apagada a propósito
+  # -------------------------------------------------------------------
+
+  - id: portalinmobiliario
+    nombre: Portal Inmobiliario
+    urls: ["https://www.portalinmobiliario.com/arriendo/departamento/vitacura-metropolitana"]
+    activa: false
+    notas: >-
+      APAGADA A PROPÓSITO: ya tienes alertas configuradas directamente en
+      Portal Inmobiliario, y este radar existe para complementarlas, no para
+      duplicarlas. Queda registrada para que la omisión sea una decisión
+      visible y no un olvido.
+
+      Si algún día quieres centralizar todo acá, cambia `activa` a true. La
+      deduplicación por dirección ya está resuelta, así que un departamento
+      que aparezca en Portal Inmobiliario y en TocToc va a alertar una sola
+      vez igual.
+
+  - id: mercadolibre
+    nombre: MercadoLibre Inmuebles
+    urls: ["https://inmuebles.mercadolibre.cl/departamentos/arriendo/vitacura/"]
+    activa: false
+    notas: >-
+      APAGADA: MercadoLibre es dueño de Portal Inmobiliario y su sección de
+      inmuebles redirige a él en la práctica, así que encenderla sería
+      duplicar la fuente que ya está cubierta.
