@@ -152,7 +152,9 @@ def test_prefiere_el_link_a_la_ficha(perfil):
                   perfil)
     texto = _mensaje(a, "", 0.9, "")
     assert "Ficha completa" in texto
-    assert "Aviso original" in texto
+    # El portal va nombrado en el link: ayuda a decidir si vale la pena
+    # abrirlo, porque no todos los portales publican lo mismo.
+    assert "Ver en toctoc" in texto
 
 
 def test_publicado_hace_rato_se_dice(perfil):
@@ -389,3 +391,54 @@ def test_los_nombres_llevan_sufijo_propio():
 
     assert VAR_TOKEN.endswith("_ARRIENDOS")
     assert VAR_CHAT_ID.endswith("_ARRIENDOS")
+
+
+# ---------------------------------------------------------------------------
+# El aviso que se pasa del presupuesto
+# ---------------------------------------------------------------------------
+
+def test_avisa_cuando_se_pasa_del_tope(perfil):
+    """Entra a propósito —"cerca de 1,6 millones"— pero tiene que decirlo.
+
+    Sin esta línea, $1.690.000 se ve idéntico a $1.450.000 en la pantalla de
+    bloqueo y el usuario descubre que se pasó del presupuesto recién al
+    abrirlo.
+    """
+    a = S.evaluar(depto(arriendo_clp=1_690_000), perfil)
+    texto = _mensaje(a, "", 0.9, "Sport Francés", tope_arriendo=1_600_000)
+    assert "sobre tu tope" in texto
+    assert "$90.000" in texto
+
+
+def test_no_molesta_cuando_cabe_en_el_presupuesto(perfil):
+    a = S.evaluar(depto(arriendo_clp=1_450_000), perfil)
+    texto = _mensaje(a, "", 0.9, "Sport Francés", tope_arriendo=1_600_000)
+    assert "sobre tu tope" not in texto
+
+
+def test_sin_tope_configurado_no_inventa_la_advertencia(perfil):
+    a = S.evaluar(depto(arriendo_clp=1_690_000), perfil)
+    assert "sobre tu tope" not in _mensaje(a, "", 0.9, "")
+
+
+def test_el_tablero_no_repite_la_comuna(tmp_path, perfil):
+    """La comuna tiene su propia columna: repetida se come el ancho del móvil."""
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    fila = next(l for l in texto.splitlines() if "Alonso" in l)
+    assert "[Alonso de Córdova 4200]" in fila
+    assert fila.count("Vitacura") == 1
+
+
+def test_el_tablero_marca_la_superficie_util(tmp_path, perfil):
+    """118 sin aclarar se lee como si ya hubiera pasado el filtro de 100 totales."""
+    a = S.evaluar(depto(m2_totales=None, m2_utiles=118.0), perfil)
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    assert "118 út." in texto
+    assert "superficie útil" in texto
+
+
+def test_el_portal_se_nombra_como_lo_conoce_una_persona(perfil):
+    """'Ver en TocToc', no 'Ver en toctoc'."""
+    a = S.evaluar(depto(extras={"portal": "TocToc"}), perfil)
+    assert "Ver en TocToc" in _mensaje(a, "", 0.9, "")

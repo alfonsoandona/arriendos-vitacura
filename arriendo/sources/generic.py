@@ -614,6 +614,12 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     if P.es_particular(texto):
         a.extras["particular"] = True
 
+    # El nombre legible del portal, para poder escribir "Ver en TocToc" en vez
+    # de "Ver en toctoc". El id sirve para la configuración; el nombre es lo
+    # que se le muestra a una persona.
+    if fuente.nombre:
+        a.extras["portal"] = fuente.nombre
+
     a.direccion = _direccion_desde(texto, a.comuna)
     return a
 

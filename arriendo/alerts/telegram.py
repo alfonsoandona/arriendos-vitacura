@@ -75,7 +75,8 @@ MIN_POR_KM = 12
 
 class Telegram:
     def __init__(self, token: str = "", chat_id: str = "", dry_run: bool = False,
-                 caminable_km: float = 0.0, ancla: str = ""):
+                 caminable_km: float = 0.0, ancla: str = "",
+                 tope_arriendo: float = 0.0):
         self.token = token or os.environ.get(VAR_TOKEN, "")
         self.chat_id = chat_id or os.environ.get(VAR_CHAT_ID, "")
         self.dry_run = dry_run
@@ -83,6 +84,10 @@ class Telegram:
         # dato con el que se decide si vale la pena ir a verlo.
         self.caminable_km = caminable_km
         self.ancla = ancla
+        # El tope del perfil, para poder marcar el aviso que se pasa. Sin él,
+        # un arriendo de $1.690.000 se ve igual que uno de $1.450.000 y el
+        # usuario descubre que se pasó del presupuesto recién al abrirlo.
+        self.tope_arriendo = tope_arriendo
         self.s = requests.Session()
 
     @property
@@ -143,7 +148,8 @@ class Telegram:
 
     # ------------------------------------------------------------------
     def alertar(self, a: Arriendo, motivo: str = "") -> bool:
-        return self.enviar(_mensaje(a, motivo, self.caminable_km, self.ancla))
+        return self.enviar(_mensaje(a, motivo, self.caminable_km, self.ancla,
+                                    self.tope_arriendo))
 
     def resumen(self, stats: dict[str, Any], alertas: int,
                 marca_dir: Any = None) -> None:
@@ -276,7 +282,7 @@ def _veredicto(a: Arriendo) -> str:
 
 
 def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
-             ancla: str = "") -> str:
+             ancla: str = "", tope_arriendo: float = 0.0) -> str:
     """El aviso, pensado para leerse en la pantalla de bloqueo."""
     lineas = [f"🏠 <b>{_escapar(titulo_corto(a))}</b>"]
     lineas.append(f"📍 {_ubicacion(a, caminable_km, ancla)}")
@@ -295,6 +301,16 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
         else:
             plata += " · GC no publicados"
         lineas.append(f"💰 {plata}")
+
+        # El aviso que se pasa del tope entra a propósito —el pedido dice
+        # "cerca de 1,6 millones" y $1.690.000 se negocia— pero tiene que
+        # decirlo. Sin esta línea se ve idéntico a uno que sí cabe en el
+        # presupuesto, y el usuario se entera recién al abrirlo.
+        if tope_arriendo and a.arriendo_clp > tope_arriendo:
+            sobre = a.arriendo_clp - tope_arriendo
+            lineas.append(
+                f"⚠️ {_pesos(sobre)} sobre tu tope de {_pesos(tope_arriendo)}"
+                " — hay que negociar")
 
     medidas = []
     if a.m2_totales:
@@ -359,13 +375,17 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
         lineas.append(f"🔁 También en {len(otros)} portal(es) más")
 
     lineas.append("")
+    # El nombre del portal va en el link. Importa para decidir si abrirlo: un
+    # aviso de Houm trae plano y disponibilidad real, y uno de Yapo puede ser
+    # de hace tres meses.
+    portal = _escapar(str(a.extras.get("portal") or a.source))
     if (ficha := a.extras.get("ficha_url")):
         lineas.append(f'📄 <a href="{_escapar(str(ficha))}">Ficha completa</a>')
-        lineas.append(f'🔗 <a href="{_escapar(a.url)}">Aviso original</a>')
+        lineas.append(f'🔗 <a href="{_escapar(a.url)}">Ver en {portal}</a>')
     else:
         # Sin ficha va el aviso original: un mensaje sin ningún link no se
         # puede seguir.
-        lineas.append(_escapar(a.url))
+        lineas.append(f'🔗 <a href="{_escapar(a.url)}">Ver en {portal}</a>')
 
     return "\n".join(lineas)
 

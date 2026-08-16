@@ -290,7 +290,7 @@ def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
     # -- los enlaces --
     L.append("## Dónde está publicado")
     L.append("")
-    L.append(f"- [{a.source}]({a.url})")
+    L.append(f"- [{a.extras.get('portal') or a.source}]({a.url})")
     for otro in a.extras.get("tambien_en", []):
         fuente, _, url = str(otro).partition("|")
         L.append(f"- [{fuente}]({url})")
@@ -358,7 +358,7 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
             costo = _pesos(a.costo_mensual)
             if a.gastos_comunes_clp is None and a.arriendo_clp:
                 costo += " *"
-            m2 = _num(a.m2_referencia, "")
+            m2 = _m2_tabla(a)
             db = f"{a.dormitorios or '—'}/{a.banos or '—'}"
             anos = (str(a.antiguedad_anos) if a.antiguedad_anos is not None
                     else "—")
@@ -366,6 +366,7 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
                      f"| {db} | {anos} | {a.score} |")
         L.append("")
         L.append("`*` = costo sin gastos comunes, porque el aviso no los publica.")
+        L.append("`út.` = superficie útil; el aviso no publicó la total.")
         L.append("")
 
     if descartados:
@@ -385,6 +386,29 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
 
 
 def _corto(a: Arriendo) -> str:
-    texto = a.direccion or a.title or a.url
+    """El nombre del aviso para la tabla, sin la comuna repetida.
+
+    La comuna tiene su propia columna. Repetida dentro de la dirección se come
+    el ancho de la pantalla de un teléfono sin agregar nada.
+    """
+    texto = (a.direccion or a.title or a.url).strip()
+    if a.comuna:
+        sin_comuna = re.split(rf",\s*{re.escape(a.comuna)}\b", texto,
+                              maxsplit=1, flags=re.I)[0].strip(" ,")
+        texto = sin_comuna or texto
     # El pipe rompe la tabla de Markdown.
     return texto.replace("|", "/")[:60]
+
+
+def _m2_tabla(a: Arriendo) -> str:
+    """Los metros, diciendo cuáles son.
+
+    El filtro del perfil es sobre la superficie TOTAL, así que una fila que
+    muestra 118 sin aclarar que son útiles se lee como si ya hubiera pasado
+    el filtro, cuando en realidad está pendiente de confirmar.
+    """
+    if a.m2_totales is not None:
+        return _num(a.m2_totales)
+    if a.m2_utiles is not None:
+        return f"{_num(a.m2_utiles)} út."
+    return "—"

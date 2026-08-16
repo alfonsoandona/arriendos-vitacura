@@ -163,6 +163,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         dry_run=args.dry_run,
         caminable_km=float((perfil.get("radio_km") or {}).get("preferente") or 0),
         ancla=(perfil.get("ancla") or {}).get("nombre", ""),
+        tope_arriendo=S.tope_arriendo(perfil)[0] or 0.0,
     )
 
     enviados = 0
