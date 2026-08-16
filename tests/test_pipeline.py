@@ -16,6 +16,7 @@ from pathlib import Path
 import pytest
 
 from arriendo import cli
+from arriendo.sources import registry
 from arriendo.sources.base import ResultadoFuente
 from arriendo.sources.generic import extraer
 
@@ -35,6 +36,12 @@ class ArgsFalsos:
         self.sin_detalles = True
         self.tope_minutos = 0.0
         self.timeout = 20
+        # Los tests corren en paralelo de verdad: es el camino de producción,
+        # y una carrera que solo aparece con hilos no se descubre corriendo en
+        # serie. El orden del resultado no depende de eso —`barrer_todas`
+        # devuelve en orden de catálogo— así que las aserciones siguen siendo
+        # deterministas.
+        self.hilos = 4
         self.__dict__.update(kw)
 
 
@@ -79,7 +86,8 @@ def mensajes(monkeypatch):
 
 def _fuente_falsa(fixture: str):
     """Un `barrer` que lee de un fixture en vez de la red."""
-    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+               limite=None):
         html = (FIXTURES / fixture).read_text(encoding="utf-8")
         url = fuente.urls[0]
         return ResultadoFuente(fuente_id=fuente.id,
@@ -106,7 +114,7 @@ def una_fuente(monkeypatch, tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_corrida_completa(entorno, mensajes, una_fuente, monkeypatch):
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
 
     assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 0
 
@@ -118,7 +126,7 @@ def test_corrida_completa(entorno, mensajes, una_fuente, monkeypatch):
 
 def test_no_se_avisa_dos_veces(entorno, mensajes, una_fuente, monkeypatch):
     """La corrida siguiente no repite lo ya avisado."""
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
 
     cli.correr(ArgsFalsos(fuentes=una_fuente))
     assert len(mensajes) == 1
@@ -134,7 +142,7 @@ def test_la_ficha_existe_antes_de_que_llegue_el_mensaje(entorno, mensajes,
     Escribir la ficha después de mandar el aviso garantiza un 404 en el
     momento exacto en que alguien hace click.
     """
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
     cli.correr(ArgsFalsos(fuentes=una_fuente))
 
     casos = list((entorno / "state").parent.glob("alertas/casos/*.md"))
@@ -149,7 +157,7 @@ def test_un_envio_fallido_no_se_marca_como_avisado(entorno, una_fuente,
     Si Telegram rechaza el mensaje y el radar lo marca como avisado igual,
     ese departamento no se vuelve a intentar nunca.
     """
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
 
     enviados: list[str] = []
 
@@ -179,14 +187,14 @@ def test_un_envio_fallido_no_se_marca_como_avisado(entorno, una_fuente,
 
 
 def test_dry_run_no_escribe_estado(entorno, mensajes, una_fuente, monkeypatch):
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
     cli.correr(ArgsFalsos(fuentes=una_fuente, dry_run=True))
 
     assert not (entorno / "state" / "vistos.json").exists()
 
 
 def test_el_tablero_se_escribe(entorno, mensajes, una_fuente, monkeypatch):
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
     cli.correr(ArgsFalsos(fuentes=una_fuente))
 
     tablero = entorno / "alertas" / "README.md"
@@ -197,7 +205,7 @@ def test_el_tablero_se_escribe(entorno, mensajes, una_fuente, monkeypatch):
 
 
 def test_la_bitacora_se_escribe(entorno, mensajes, una_fuente, monkeypatch):
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
     cli.correr(ArgsFalsos(fuentes=una_fuente))
 
     bitacora = entorno / "logs" / "ultima-corrida.md"
@@ -245,13 +253,14 @@ def test_el_mismo_departamento_en_dos_portales_avisa_una_vez(
             </article></body></html>""",
     }
 
-    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+               limite=None):
         return ResultadoFuente(
             fuente_id=fuente.id,
             hallazgos=extraer(paginas[fuente.id], fuente.urls[0], fuente),
             urls_ok=1)
 
-    monkeypatch.setattr(cli, "barrer", barrer)
+    monkeypatch.setattr(registry, "barrer", barrer)
     cli.correr(ArgsFalsos(fuentes=str(yml)))
 
     assert len(mensajes) == 1, "el mismo departamento alertó dos veces"
@@ -281,22 +290,24 @@ def test_una_fuente_caida_no_voltea_la_corrida(entorno, mensajes, tmp_path,
         "    urls: ['https://ejemplo.cl/arriendo']\n",
         encoding="utf-8")
 
-    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+               limite=None):
         if fuente.id == "rota":
             return ResultadoFuente(fuente_id=fuente.id, urls_fallidas=1,
                                    error="HTTP 403")
         return _fuente_falsa("portal_tarjetas.html")(fuente, fetcher, valor_uf=valor_uf)
 
-    monkeypatch.setattr(cli, "barrer", barrer)
+    monkeypatch.setattr(registry, "barrer", barrer)
     assert cli.correr(ArgsFalsos(fuentes=str(yml))) == 0
     assert len(mensajes) == 1
 
 
 def test_sin_resultados_no_revienta(entorno, mensajes, una_fuente, monkeypatch):
-    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+               limite=None):
         return ResultadoFuente(fuente_id=fuente.id, urls_ok=1)
 
-    monkeypatch.setattr(cli, "barrer", barrer)
+    monkeypatch.setattr(registry, "barrer", barrer)
     assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 0
     assert mensajes == []
 
@@ -314,13 +325,14 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
         <p>134 m² totales · 3 dormitorios · 3 baños</p></article>"""
         for n in range(20))
 
-    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+               limite=None):
         html = f"<html><body>{tarjetas}</body></html>"
         return ResultadoFuente(fuente_id=fuente.id,
                                hallazgos=extraer(html, fuente.urls[0], fuente),
                                urls_ok=1)
 
-    monkeypatch.setattr(cli, "barrer", barrer)
+    monkeypatch.setattr(registry, "barrer", barrer)
 
     perfil = tmp_path / "perfil.yml"
     original = Path("perfil.yml").read_text(encoding="utf-8")
@@ -342,11 +354,18 @@ def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
     Desde el lado del usuario, una corrida que se cayó a la mitad se ve
     exactamente igual que una que no encontró ningún departamento. Sin este
     camino se pueden pasar dos semanas sin radar sin que nadie lo note.
+
+    El fallo se simula en la deduplicación y no en el barrido a propósito: una
+    fuente que revienta ya NO voltea la corrida (la atrapa `barrer_todas`, ver
+    el test siguiente), así que para probar este camino hace falta reventar en
+    una parte del pipeline que sí es fatal.
     """
-    def barrer_roto(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+
+    def deduplicar_roto(avisos):
         raise RuntimeError("el navegador no arrancó")
 
-    monkeypatch.setattr(cli, "barrer", barrer_roto)
+    monkeypatch.setattr(cli, "deduplicar", deduplicar_roto)
 
     avisos: list[str] = []
 
@@ -372,6 +391,43 @@ def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
     # ...y dejó la bitácora, que es donde se lee el detalle.
     bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
     assert "La corrida falló" in bitacora
+    assert "el navegador no arrancó" in bitacora
+
+
+def test_una_fuente_que_revienta_no_voltea_la_corrida(entorno, mensajes,
+                                                      tmp_path, monkeypatch):
+    """Con 39 fuentes, que una se lleve las otras 38 es inaceptable.
+
+    `barrer` promete no levantar, pero esa promesa la cumple capturando por
+    dentro: una excepción en un lugar que no previó —Chromium que no arranca,
+    un bug en el extractor— se escapaba igual y volteaba la corrida completa.
+    Ahora la atrapa el barrido paralelo, la corrida sigue, y el bug queda
+    escrito aparte en la bitácora para que no se pierda entre las fuentes que
+    traen cero por tener la URL mala.
+    """
+    yml = tmp_path / "dos.yml"
+    yml.write_text(
+        "fuentes:\n"
+        "  - {id: rota, nombre: Fuente Rota, urls: ['https://rota.cl/']}\n"
+        "  - {id: portal, nombre: Portal de prueba, "
+        "urls: ['https://ejemplo.cl/arriendo']}\n",
+        encoding="utf-8")
+
+    sana = _fuente_falsa("portal_tarjetas.html")
+
+    def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None, limite=None):
+        if fuente.id == "rota":
+            raise RuntimeError("el navegador no arrancó")
+        return sana(fuente, fetcher)
+
+    monkeypatch.setattr(registry, "barrer", barrer)
+
+    assert cli.correr(ArgsFalsos(fuentes=str(yml))) == 0
+    assert len(mensajes) == 1, "la fuente sana tiene que haber avisado igual"
+
+    bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
+    assert "Fuentes que reventaron" in bitacora
+    assert "Fuente Rota" in bitacora
     assert "el navegador no arrancó" in bitacora
 
 
@@ -409,11 +465,12 @@ def test_la_corrida_se_corta_antes_de_que_actions_la_mate(entorno, mensajes,
 
     vistas: list[str] = []
 
-    def barrer_lento(fuente, fetcher, seguir_detalles=True, valor_uf=None):
+    def barrer_lento(fuente, fetcher, seguir_detalles=True, valor_uf=None,
+                     limite=None):
         vistas.append(fuente.id)
         return _fuente_falsa("portal_tarjetas.html")(fuente, fetcher)
 
-    monkeypatch.setattr(cli, "barrer", barrer_lento)
+    monkeypatch.setattr(registry, "barrer", barrer_lento)
     # El presupuesto ya vencido: se corta antes de la primera fuente.
     monkeypatch.setattr(cli, "_deadline", lambda t: datetime.utcnow())
 
@@ -426,7 +483,7 @@ def test_la_corrida_se_corta_antes_de_que_actions_la_mate(entorno, mensajes,
 
 
 def test_sin_tope_se_barren_todas(entorno, mensajes, una_fuente, monkeypatch):
-    monkeypatch.setattr(cli, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
     assert cli.correr(ArgsFalsos(fuentes=una_fuente, tope_minutos=0)) == 0
     assert len(mensajes) == 1
 

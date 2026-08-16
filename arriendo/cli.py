@@ -18,8 +18,8 @@ from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .models import Arriendo
 from .sources.base import Fetcher
-from .sources.registry import (FuentesInvalidas, barrer, cargar_fuentes,
-                               fuentes_activas)
+from .sources.registry import (FuentesInvalidas, barrer_todas,
+                               cargar_fuentes, fuentes_activas)
 from .store import Store, deduplicar, leer_tendencia
 
 log = logging.getLogger("arriendo")
@@ -107,7 +107,11 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         "fuentes_consultadas": len(fuentes),
         "fuentes_ok": 0,
         "por_fuente": {},
+        "segundos_fuente": {},
         "fuentes_caidas": [],
+        "fuentes_parciales": [],
+        "fuentes_reventadas": [],
+        "hilos": args.hilos,
     })
 
     # --- 1. barrer ---
@@ -125,28 +129,35 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     # Cortar nosotros es infinitamente mejor: se avisa lo que se alcanzó a
     # encontrar, se guarda el estado, y la bitácora dice qué quedó sin mirar
     # para que la corrida siguiente empiece por ahí.
+    # Y en paralelo, que es lo que hace que el presupuesto alcance: la corrida
+    # es casi toda espera de red, así que cuatro fuentes a la vez la bajan de
+    # unos 12 minutos a unos 4. El límite de velocidad sigue siendo por host,
+    # o sea que ningún portal recibe más carga que antes. Ver `barrer_todas`.
     limite = _deadline(args.tope_minutos)
-    crudos: list[Arriendo] = []
-    for i, fuente in enumerate(fuentes):
-        if limite and datetime.utcnow() >= limite:
-            pendientes = [f.nombre for f in fuentes[i:]]
-            log.warning("Presupuesto de %d min agotado: quedan %d fuentes sin "
-                        "mirar (%s)", args.tope_minutos, len(pendientes),
-                        ", ".join(pendientes[:5]) + ("…" if len(pendientes) > 5 else ""))
-            stats["corte_por_tiempo"] = pendientes
-            break
+    sin_mirar: list[str] = []
 
-        log.info("Barriendo %s (%s)…", fuente.nombre, fuente.id)
-        resultado = barrer(fuente, fetcher,
-                           seguir_detalles=not args.sin_detalles,
-                           valor_uf=uf)
-        crudos.extend(resultado.hallazgos)
+    def _anotar(fuente, resultado) -> None:
+        """Se llama al terminar cada fuente, ya serializado entre hilos."""
+        if not resultado.intentada:
+            sin_mirar.append(fuente.nombre)
+            return
+
         stats["por_fuente"][fuente.id] = len(resultado.hallazgos)
+        stats["segundos_fuente"][fuente.id] = round(resultado.segundos, 1)
         if resultado.ok:
             stats["fuentes_ok"] += 1
         if resultado.error:
             log.warning("  %s: %s", fuente.id, resultado.error)
-        log.info("  %s: %d avisos", fuente.id, len(resultado.hallazgos))
+        if resultado.reventada:
+            # Un bug nuestro, no un portal que no contesta. Va aparte porque
+            # entre 19 fuentes sin calibrar que traen cero, un error de código
+            # pasaría desapercibido para siempre.
+            stats["fuentes_reventadas"].append(
+                f"{fuente.nombre}: {resultado.error}")
+        if resultado.cortada_por_tiempo:
+            stats["fuentes_parciales"].append(fuente.nombre)
+        log.info("  %s: %d avisos en %.0fs", fuente.id,
+                 len(resultado.hallazgos), resultado.segundos)
 
         # Una fuente que venía entregando y hoy trae cero se rompió; una que
         # nunca entregó todavía no está calibrada. Son problemas distintos y
@@ -155,6 +166,26 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             if store.indice and any(e.get("source") == fuente.id
                                     for e in store.indice.values()):
                 stats["fuentes_caidas"].append(f"{fuente.nombre}: 0 avisos")
+
+    barridos = barrer_todas(fuentes, fetcher,
+                            hilos=args.hilos,
+                            seguir_detalles=not args.sin_detalles,
+                            valor_uf=uf,
+                            limite=limite,
+                            al_terminar=_anotar)
+
+    # Los hallazgos se juntan en el orden del catálogo, no en el de llegada:
+    # la deduplicación se queda con el primero de la lista y ese ganador no
+    # puede depender de qué portal respondió más rápido hoy.
+    crudos: list[Arriendo] = []
+    for _f, resultado in barridos:
+        crudos.extend(resultado.hallazgos)
+
+    if sin_mirar:
+        log.warning("Presupuesto de %s min agotado: quedan %d fuentes sin "
+                    "mirar (%s)", args.tope_minutos, len(sin_mirar),
+                    ", ".join(sin_mirar[:5]) + ("…" if len(sin_mirar) > 5 else ""))
+        stats["corte_por_tiempo"] = sin_mirar
 
     stats["total"] = len(crudos)
     log.info("Total crudo: %d avisos", len(crudos))
@@ -548,6 +579,10 @@ def construir_parser() -> argparse.ArgumentParser:
                         "que Actions mate el job. 0 = sin tope")
     c.add_argument("--timeout", type=int, default=20,
                    help="segundos de espera por petición")
+    c.add_argument("--hilos", type=int, default=4,
+                   help="cuántas fuentes barrer a la vez. El límite de "
+                        "velocidad sigue siendo por sitio, así que subirlo no "
+                        "carga más a ningún portal. 1 = en serie")
     c.set_defaults(func=correr)
 
     c = sub.add_parser("demo", parents=[comun], help="probar el filtrado con HTML local")

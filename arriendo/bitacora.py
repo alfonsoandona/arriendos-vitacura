@@ -81,13 +81,40 @@ def _resumen(stats: dict) -> str:
 
     por_fuente = stats.get("por_fuente") or {}
     if por_fuente:
+        # El tiempo por fuente es lo que se mira cuando la corrida se cortó:
+        # dice cuál se colgó, que es distinto de cuál no entregó.
+        segundos = stats.get("segundos_fuente") or {}
         L.append("## Qué entregó cada fuente")
         L.append("")
-        L.append("| Fuente | Avisos |")
-        L.append("|---|---|")
+        L.append("| Fuente | Avisos | Tiempo |")
+        L.append("|---|---|---|")
         for fid, n in sorted(por_fuente.items(), key=lambda kv: -kv[1]):
             marca = "" if n else " ⚠️"
-            L.append(f"| {fid}{marca} | {n} |")
+            t = segundos.get(fid)
+            L.append(f"| {fid}{marca} | {n} | {f'{t:.0f}s' if t is not None else '—'} |")
+        L.append("")
+
+    if (reventadas := stats.get("fuentes_reventadas")):
+        # Arriba de todo lo demás: es lo único de esta lista que es un bug y
+        # no una condición normal del mundo.
+        L.append("## 🐞 Fuentes que reventaron")
+        L.append("")
+        for r in reventadas:
+            L.append(f"- {r}")
+        L.append("")
+        L.append("Una excepción que el barrido no esperaba. No es el portal "
+                 "caído ni la URL mala: es un error de código, y la corrida "
+                 "siguió sin esa fuente en vez de voltearse entera.")
+        L.append("")
+
+    if (parciales := stats.get("fuentes_parciales")):
+        L.append("## ⏱ Fuentes que quedaron a medias")
+        L.append("")
+        L.append(", ".join(parciales))
+        L.append("")
+        L.append("Se alcanzaron a mirar, pero se les acabó el presupuesto de "
+                 "tiempo antes de terminar sus páginas: lo que trajeron es "
+                 "parcial.")
         L.append("")
 
     if (pendientes := stats.get("corte_por_tiempo")):
@@ -147,6 +174,8 @@ def _anotar_historial(stats: dict, ruta: Path) -> None:
         "avisados": stats.get("avisados", 0),
         "error": str(stats.get("error", ""))[:200] or None,
         "corte_por_tiempo": len(stats.get("corte_por_tiempo") or []) or None,
+        "reventadas": len(stats.get("fuentes_reventadas") or []) or None,
+        "hilos": stats.get("hilos"),
     }
     inicio, fin = stats.get("inicio"), stats.get("fin")
     if isinstance(inicio, datetime) and isinstance(fin, datetime):

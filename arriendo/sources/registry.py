@@ -3,6 +3,11 @@
 from __future__ import annotations
 
 import logging
+import threading
+import time
+from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -18,6 +23,21 @@ log = logging.getLogger(__name__)
 
 class FuentesInvalidas(ValueError):
     pass
+
+
+# Cuántos Chromium pueden estar abiertos a la vez.
+#
+# El paralelismo de fuentes está limitado por la red, pero el motor de
+# navegador está limitado por la MÁQUINA: cada Chromium se come unos 300 MB y
+# un núcleo, y el runner de GitHub Actions tiene dos núcleos y 7 GB. Sin este
+# tope, cuatro fuentes de navegador coincidiendo dejan al runner sin memoria y
+# la corrida muere entera —sin alertas, sin estado, sin bitácora— por un
+# problema que no tiene nada que ver con los portales.
+#
+# Solo 5 de las 41 fuentes usan navegador, así que dos a la vez no es el
+# cuello de botella de la corrida.
+TOPE_NAVEGADOR = 2
+_navegadores = threading.Semaphore(TOPE_NAVEGADOR)
 
 
 def cargar_fuentes(ruta: str | Path | None = None) -> list[FuenteConfig]:
@@ -97,7 +117,8 @@ def _bajar(fetcher: Fetcher, fuente: FuenteConfig, url: str) -> str | None:
 
     from .navegador import bajar_con_navegador
 
-    return bajar_con_navegador(url, fuente.acciones)
+    with _navegadores:
+        return bajar_con_navegador(url, fuente.acciones)
 
 
 def urls_paginadas(url: str, paginacion: dict) -> list[str]:
@@ -143,15 +164,22 @@ def urls_paginadas(url: str, paginacion: dict) -> list[str]:
 
 def barrer(fuente: FuenteConfig, fetcher: Fetcher,
            seguir_detalles: bool = True,
-           valor_uf: float | None = None) -> ResultadoFuente:
+           valor_uf: float | None = None,
+           limite: datetime | None = None) -> ResultadoFuente:
     """Consulta una fuente completa y devuelve lo que encontró.
 
     Nunca levanta: una fuente rota no puede voltear la corrida entera. El
     error se guarda en el resultado y la bitácora lo reporta, que es la única
     forma de que una fuente caída se note en vez de confundirse con "hoy no
     hay inventario".
+
+    `limite` es el instante en que hay que soltar todo. Se mira entre página y
+    página: una fuente con paginación y fichas puede demorar varios minutos
+    sola, y sin este chequeo una sola fuente lenta arrancando justo antes del
+    corte se lleva por delante el presupuesto de la corrida completa.
     """
     resultado = ResultadoFuente(fuente_id=fuente.id)
+    partida = time.monotonic()
 
     # El tope de fichas es de la FUENTE, no de cada página.
     #
@@ -167,6 +195,12 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
 
     for base in fuente.urls:
         for url in urls_paginadas(base, fuente.paginacion):
+            if limite and datetime.utcnow() >= limite:
+                resultado.cortada_por_tiempo = True
+                log.warning("[%s] se acabó el tiempo: queda parcial", fuente.id)
+                resultado.segundos = time.monotonic() - partida
+                return resultado
+
             try:
                 html = _bajar(fetcher, fuente, url)
             except Exception as e:                               # noqa: BLE001
@@ -200,7 +234,94 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
             if not encontrados:
                 break
 
+    resultado.segundos = time.monotonic() - partida
     return resultado
+
+
+def barrer_todas(fuentes: list[FuenteConfig], fetcher: Fetcher,
+                 hilos: int = 4,
+                 seguir_detalles: bool = True,
+                 valor_uf: float | None = None,
+                 limite: datetime | None = None,
+                 al_terminar: Callable[[FuenteConfig, ResultadoFuente], None] | None = None,
+                 ) -> list[tuple[FuenteConfig, ResultadoFuente]]:
+    """Barre todas las fuentes, varias a la vez, y devuelve los resultados.
+
+    Por qué en paralelo
+    -------------------
+    La corrida es casi toda espera: pedir una página y esperar a que un portal
+    responda. En serie, 39 fuentes tomaban unos 12 minutos en el caso normal, y
+    el peor caso —varias fuentes colgándose hasta su timeout— llegaba a 54,
+    contra un job de Actions que corta a los 30. Con cuatro hilos el caso
+    normal baja a unos 4 minutos y, más importante, el peor caso deja de
+    acercarse al techo: una fuente colgada ya no le come el turno a las otras
+    38, se cuelga en su hilo mientras el resto avanza.
+
+    Por qué no es descortés
+    -----------------------
+    El paralelismo es ENTRE fuentes, y el límite de velocidad del Fetcher es
+    POR HOST. Cada portal sigue recibiendo un request a la vez, espaciado por
+    `delay` segundos, exactamente igual que antes; lo único que cambia es que
+    mientras uno responde se le pregunta a otro. Y las fuentes de navegador
+    tienen su propio tope aparte (ver TOPE_NAVEGADOR), porque ahí el límite no
+    es el sitio sino la memoria del runner.
+
+    El orden importa
+    ----------------
+    Los resultados se devuelven en el ORDEN DEL CATÁLOGO, no en el orden en que
+    fueron llegando. No es cosmético: la deduplicación entre portales fusiona
+    los avisos repetidos y el que sobrevive es el primero de la lista, así que
+    con orden de llegada el aviso ganador dependería de cuál portal respondió
+    más rápido ese día. La misma corrida dos veces daría fichas distintas y una
+    carrera de red decidiría qué link aparece en el Telegram. Con el orden del
+    catálogo, `fuentes.yml` es la prioridad y es estable.
+    """
+    if not fuentes:
+        return []
+
+    hilos = max(1, min(int(hilos), len(fuentes)))
+    resultados: dict[str, ResultadoFuente] = {}
+    candado = threading.Lock()
+
+    def _una(fuente: FuenteConfig) -> None:
+        # El presupuesto se mira ANTES de empezar. Con el pool ya cargado de
+        # tareas, esto es lo que hace que el corte por tiempo no requiera
+        # cancelar nada: las que aún no partieron se saltan solas.
+        if limite and datetime.utcnow() >= limite:
+            r = ResultadoFuente(fuente_id=fuente.id, intentada=False)
+        else:
+            log.info("Barriendo %s (%s)…", fuente.nombre, fuente.id)
+            try:
+                r = barrer(fuente, fetcher, seguir_detalles=seguir_detalles,
+                           valor_uf=valor_uf, limite=limite)
+            except Exception as e:                               # noqa: BLE001
+                # `barrer` ya captura lo suyo; esto es la red de seguridad del
+                # hilo. Una excepción que escape acá quedaría guardada en el
+                # future y la fuente desaparecería del reporte sin explicación.
+                log.exception("[%s] excepción no controlada", fuente.id)
+                r = ResultadoFuente(fuente_id=fuente.id, reventada=True,
+                                    error=f"{type(e).__name__}: {e}"[:160])
+
+        with candado:
+            resultados[fuente.id] = r
+            if al_terminar:
+                # Bajo el candado a propósito: el callback escribe en las
+                # estadísticas de la corrida y loguea, y sin serializarlo las
+                # líneas de dos fuentes se entrelazan en el log de Actions.
+                al_terminar(fuente, r)
+
+    if hilos == 1:
+        for f in fuentes:
+            _una(f)
+    else:
+        with ThreadPoolExecutor(max_workers=hilos,
+                                thread_name_prefix="fuente") as pool:
+            # No hace falta recoger los futures: `_una` nunca levanta y el
+            # `with` espera a que terminen todos.
+            for f in fuentes:
+                pool.submit(_una, f)
+
+    return [(f, resultados[f.id]) for f in fuentes if f.id in resultados]
 
 
 def _seguir_fichas(fuente: FuenteConfig, fetcher: Fetcher, html: str,
