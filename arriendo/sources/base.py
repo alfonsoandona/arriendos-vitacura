@@ -66,6 +66,14 @@ class FuenteConfig:
     # revisando lo que está bien mientras lo que sí se rompió pasa
     # desapercibido.
     entrega_variable: bool = False
+    # Si la URL salió de ver el sitio (aunque sea por buscador) o es una
+    # suposición del patrón que usa el portal.
+    #
+    # No cambia el comportamiento: cambia qué dice el reporte de calibración.
+    # Una fuente confirmada que entrega cero está ROTA; una sin confirmar que
+    # entrega cero probablemente solo tiene la URL mal, y son dos problemas
+    # con arreglos distintos.
+    url_confirmada: bool = False
     notas: str = ""
 
 

@@ -331,3 +331,61 @@ def test_el_pipe_no_rompe_la_tabla(tmp_path, perfil):
     texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
     fila = next(l for l in texto.splitlines() if "Calle A" in l)
     assert fila.count("|") == 9      # 8 columnas + los bordes
+
+
+# ---------------------------------------------------------------------------
+# Independencia del bot de remates
+#
+# Decisión explícita: otro bot, otro token. Estos tests existen para que la
+# decisión no se deshaga sin querer en una refactorización.
+# ---------------------------------------------------------------------------
+
+def test_usa_secrets_propios(monkeypatch):
+    from arriendo.alerts.telegram import VAR_CHAT_ID, VAR_TOKEN
+
+    monkeypatch.setenv(VAR_TOKEN, "123:abc")
+    monkeypatch.setenv(VAR_CHAT_ID, "987")
+    assert Telegram().configurado is True
+
+
+def test_no_cae_al_token_del_radar_de_remates(monkeypatch):
+    """El fallo bueno es ruidoso; el malo se ve igual que funcionar bien.
+
+    Si este radar cayera al token genérico, los avisos de arriendo saldrían
+    por el bot de remates sin que nada lo dijera.
+    """
+    from arriendo.alerts.telegram import VAR_CHAT_ID, VAR_TOKEN
+
+    monkeypatch.delenv(VAR_TOKEN, raising=False)
+    monkeypatch.delenv(VAR_CHAT_ID, raising=False)
+    monkeypatch.setenv("TELEGRAM_TOKEN", "123:del-radar-de-remates")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "987")
+
+    t = Telegram()
+    assert t.configurado is False
+    assert t.token == ""
+    assert t.enviar("hola") is False
+
+
+def test_avisa_cuando_se_configuro_el_secret_equivocado(monkeypatch, caplog):
+    """Es el error más probable y el más difícil de ver solo."""
+    import logging
+
+    from arriendo.alerts.telegram import VAR_CHAT_ID, VAR_TOKEN
+
+    monkeypatch.delenv(VAR_TOKEN, raising=False)
+    monkeypatch.delenv(VAR_CHAT_ID, raising=False)
+    monkeypatch.setenv("TELEGRAM_TOKEN", "123:del-radar-de-remates")
+
+    with caplog.at_level(logging.WARNING):
+        Telegram().enviar("hola")
+
+    assert "NO la usa" in caplog.text
+    assert VAR_TOKEN in caplog.text
+
+
+def test_los_nombres_llevan_sufijo_propio():
+    from arriendo.alerts.telegram import VAR_CHAT_ID, VAR_TOKEN
+
+    assert VAR_TOKEN.endswith("_ARRIENDOS")
+    assert VAR_CHAT_ID.endswith("_ARRIENDOS")

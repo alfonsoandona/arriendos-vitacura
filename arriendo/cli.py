@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -255,12 +256,19 @@ def probar_aviso(args: argparse.Namespace) -> int:
     conseguir avisar: desde afuera se ve igual que no haber encontrado nada.
     Esto cierra el asunto en dos segundos en vez de esperar una corrida.
     """
+    from .alerts.telegram import VAR_CHAT_ID, VAR_GENERICA, VAR_TOKEN
+
     t = Telegram(dry_run=args.dry_run)
     if not t.configurado and not args.dry_run:
         print("✗ Telegram sin configurar.")
         print()
-        print("  Faltan los secrets TELEGRAM_TOKEN y TELEGRAM_CHAT_ID.")
+        print(f"  Faltan los secrets {VAR_TOKEN} y {VAR_CHAT_ID}.")
         print("  El paso a paso está en AVISOS.md y se hace desde el teléfono.")
+        if os.environ.get(VAR_GENERICA):
+            print()
+            print(f"  Ojo: tienes {VAR_GENERICA} configurada, pero es la del")
+            print("  radar de remates. Este radar usa un bot DISTINTO a")
+            print("  propósito, así que no la reutiliza.")
         return 1
 
     ok = t.enviar(
@@ -341,8 +349,16 @@ def calibrar(args: argparse.Namespace) -> int:
             estado = "⚠️ cero resultados" if fetcher.ultimo_motivo == "" else estado
             L.append(f"| {fuente.nombre} | {estado} | 0 | 0 | 0 |")
             sin_motivo = "la página respondió pero no se reconoció ningún aviso"
+            # Que la URL esté confirmada cambia el diagnóstico por completo, y
+            # sin decirlo los dos casos se ven idénticos en el reporte.
+            pista = (
+                "la URL está confirmada, así que lo más probable es que el "
+                "sitio arme la página con JavaScript o haya cambiado su HTML"
+                if fuente.url_confirmada else
+                "**la URL no está confirmada**: lo más probable es que esté "
+                "mala. Ábrela en el teléfono y copia la que funciona")
             detalle.append(f"- **{fuente.nombre}** (`{fuente.id}`): "
-                           f"{motivo or sin_motivo}")
+                           f"{motivo or sin_motivo}. {pista}.")
 
     L.append("")
     if detalle:

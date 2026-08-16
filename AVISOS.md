@@ -3,6 +3,29 @@
 Todo esto se hace desde el teléfono y toma unos cinco minutos. Hay que hacerlo
 **una sola vez**.
 
+> ### ⚠️ Este es un bot NUEVO, distinto del radar de remates
+>
+> Si ya configuraste Telegram para el **radar de remates** (repo
+> `claude-code`), **no reutilices ese bot ni ese token acá**. Se decidió a
+> propósito que fueran independientes: otro bot, otro token, otra
+> conversación.
+>
+> Por eso los secrets de este repo se llaman distinto:
+>
+> | Radar de remates | Radar de arriendos (este) |
+> |---|---|
+> | `TELEGRAM_TOKEN` | `TELEGRAM_TOKEN_ARRIENDOS` |
+> | `TELEGRAM_CHAT_ID` | `TELEGRAM_CHAT_ID_ARRIENDOS` |
+>
+> Y **no hay respaldo**: si configuras `TELEGRAM_TOKEN` por costumbre, este
+> radar no manda nada y te lo dice en el log. Es a propósito — el fallo
+> silencioso sería mandarte los arriendos por el bot de los remates, y eso se
+> ve igual que funcionar bien.
+>
+> Ventaja concreta de tenerlos separados: puedes silenciar uno de los dos
+> chats sin perderte el otro. Los remates tienen fecha fija y los arriendos se
+> mueven en días; no se leen con la misma urgencia.
+
 Sin estos dos pasos el radar funciona igual —busca, filtra, escribe las fichas
 y el tablero— pero no manda nada, y lo dice en el log de cada corrida.
 
@@ -14,6 +37,8 @@ y el tablero— pero no manda nada, y lo dice en el log de cada corrida.
 2. Mándale `/newbot`.
 3. Te va a pedir dos cosas:
    - **Un nombre**: lo que quieras. Por ejemplo `Radar Arriendos Vitacura`.
+     Ponle un nombre que se distinga del bot de remates: los vas a ver uno
+     al lado del otro en la lista de chats.
    - **Un usuario**: tiene que terminar en `bot`. Por ejemplo
      `arriendos_vitacura_bot`. Si está tomado, prueba con otro.
 4. BotFather te responde con un mensaje que incluye una línea así:
@@ -22,7 +47,8 @@ y el tablero— pero no manda nada, y lo dice en el log de cada corrida.
    123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
    ```
 
-   **Ese es el `TELEGRAM_TOKEN`.** Cópialo entero, con los dos puntos incluidos.
+   **Ese es el `TELEGRAM_TOKEN_ARRIENDOS`.** Cópialo entero, con los dos
+   puntos incluidos.
 
 > ⚠️ Ese token es la llave del bot. Cualquiera que lo tenga puede mandar
 > mensajes como él. No lo pegues en un chat ni en un issue: va como *secret*
@@ -49,7 +75,7 @@ El token dice **quién manda** el mensaje. El chat_id dice **a dónde llega**.
    Id: 987654321
    ```
 
-   **Ese es el `TELEGRAM_CHAT_ID`.**
+   **Ese es el `TELEGRAM_CHAT_ID_ARRIENDOS`.**
 
 <details>
 <summary>Si prefieres que los avisos lleguen a un grupo</summary>
@@ -85,10 +111,12 @@ pero que nadie puede volver a leer, ni tú.
 
    | Name | Secret |
    |---|---|
-   | `TELEGRAM_TOKEN` | el token del paso 1 |
-   | `TELEGRAM_CHAT_ID` | el id del paso 2 |
+   | `TELEGRAM_TOKEN_ARRIENDOS` | el token del paso 1 |
+   | `TELEGRAM_CHAT_ID_ARRIENDOS` | el id del paso 2 |
 
-   El nombre tiene que ir **exactamente así**, en mayúsculas y con guión bajo.
+   El nombre tiene que ir **exactamente así**, en mayúsculas, con guión bajo y
+   **con el sufijo `_ARRIENDOS`**. Sin el sufijo el radar no los lee: ver el
+   recuadro del principio.
 
 ---
 
@@ -116,7 +144,8 @@ pasan siempre:
 |---|---|---|
 | `chat not found` | No le escribiste al bot | Paso 2: ábrelo en Telegram y mándale un "hola" |
 | `Unauthorized` | El token está mal copiado | Vuelve a copiarlo de BotFather, entero y con los dos puntos |
-| `Telegram sin configurar` | Falta algún secret, o el nombre está mal escrito | Revisa que se llamen exactamente `TELEGRAM_TOKEN` y `TELEGRAM_CHAT_ID` |
+| `Telegram sin configurar` | Falta algún secret, o el nombre está mal escrito | Revisa que se llamen exactamente `TELEGRAM_TOKEN_ARRIENDOS` y `TELEGRAM_CHAT_ID_ARRIENDOS` |
+| `existe TELEGRAM_TOKEN pero este radar NO la usa` | Configuraste el secret del radar de remates | Crea un bot nuevo y guárdalo con el sufijo `_ARRIENDOS` |
 
 ---
 

@@ -491,3 +491,51 @@ def test_una_comuna_ajena_se_descarta_aunque_este_cerca(perfil):
     l = S.evaluar(depto(comuna="Providencia", lat=-33.3830, lon=-70.5640), perfil)
     assert l.descartado
     assert "fuera de la zona" in l.motivo_descarte
+
+
+# ---------------------------------------------------------------------------
+# Portales excluidos — la premisa del proyecto
+# ---------------------------------------------------------------------------
+
+def test_descarta_un_aviso_de_portal_inmobiliario(perfil):
+    """Los metabuscadores arrastran los avisos de Portal Inmobiliario.
+
+    Ya tienes alertas ahí; un aviso suyo reenviado por Trovit es exactamente
+    el mensaje duplicado que este proyecto existe para no mandarte.
+    """
+    l = S.evaluar(depto(url="https://www.portalinmobiliario.com/MLC-123"), perfil)
+    assert l.descartado
+    assert l.clase_descarte == "portal"
+
+
+def test_descarta_un_subdominio_del_portal_excluido(perfil):
+    l = S.evaluar(depto(url="https://casa.mercadolibre.cl/MLC-9"), perfil)
+    assert l.descartado
+
+
+def test_un_metabuscador_no_se_descarta(perfil):
+    """Trovit sí sirve: pesca corredoras chicas que no están en otra parte."""
+    l = S.evaluar(depto(url="https://casas.trovit.cl/aviso/44"), perfil)
+    assert not l.descartado
+
+
+def test_el_dominio_en_el_query_no_descarta(perfil):
+    """Un enlace de redirección todavía no es un aviso de ese portal.
+
+    Comparar "está contenido en la URL" perdería este aviso sin motivo; se
+    compara por sufijo de host.
+    """
+    l = S.evaluar(
+        depto(url="https://casas.trovit.cl/r?to=portalinmobiliario.com%2F123"),
+        perfil)
+    assert not l.descartado
+
+
+def test_un_dominio_parecido_no_calza(perfil):
+    """'inmobiliario.com' no es 'portalinmobiliario.com'."""
+    from arriendo.scoring import _dominio_excluido
+
+    assert _dominio_excluido("https://inmobiliario.com/x",
+                             ["portalinmobiliario.com"]) == ""
+    assert _dominio_excluido("https://www.portalinmobiliario.com/x",
+                             ["portalinmobiliario.com"]) == "portalinmobiliario.com"

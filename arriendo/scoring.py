@@ -258,6 +258,30 @@ def _distancia_al_ancla(l: Arriendo, perfil: dict) -> float | None:
     return round(haversine_km(l.lat, l.lon, ancla["lat"], ancla["lon"]), 2)
 
 
+def _dominio_excluido(url: str, dominios: list[str]) -> str:
+    """El dominio excluido al que apunta esta URL, o "" si no hay ninguno.
+
+    Compara por sufijo de host, no por "está contenido en la URL": un aviso
+    de `trovit.cl/redirect?to=portalinmobiliario.com/...` lleva el dominio
+    dentro del query y no es un aviso de Portal Inmobiliario, es un enlace de
+    Trovit que todavía no se ha seguido. Descartarlo por eso perdería el
+    aviso sin motivo.
+
+    El sufijo se compara con un punto delante para que `inmobiliario.com` no
+    calce con `portalinmobiliario.com`, que es otro sitio.
+    """
+    from urllib.parse import urlparse
+
+    host = (urlparse(url or "").hostname or "").lower()
+    if not host:
+        return ""
+    for d in dominios:
+        d = str(d).lower().strip().lstrip(".")
+        if host == d or host.endswith("." + d):
+            return d
+    return ""
+
+
 def _descarta_por_requisitos(l: Arriendo, perfil: dict) -> tuple[str, str]:
     """El primer requisito obligatorio que un dato CONOCIDO incumple.
 
@@ -266,8 +290,17 @@ def _descarta_por_requisitos(l: Arriendo, perfil: dict) -> tuple[str, str]:
     """
     req = _requisitos(perfil)
 
-    # --- operación: lo que no es un arriendo no se evalúa ---
     excluir = perfil.get("excluir") or {}
+
+    # --- portales excluidos ---
+    #
+    # Va primero de todo: si el aviso viene de un portal que no queremos, da
+    # lo mismo cuánto mida ni cuánto cueste. Es el filtro que permite usar
+    # metabuscadores sin traicionar la premisa del proyecto.
+    if (dominio := _dominio_excluido(l.url, excluir.get("dominios") or [])):
+        return f"viene de {dominio}, que ya tienes cubierto aparte", "portal"
+
+    # --- operación: lo que no es un arriendo no se evalúa ---
     if l.operacion == "venta" and excluir.get("ventas", True):
         return "es una publicación de venta, no de arriendo", "operacion"
     if l.operacion == "temporada" and excluir.get("temporada", True):

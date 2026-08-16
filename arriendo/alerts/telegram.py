@@ -12,10 +12,30 @@ hacer antes de ir a verlo— vive en la ficha, y la última línea es el link.
 
 Configuración, por variables de entorno (secrets del repositorio):
 
-    TELEGRAM_TOKEN     el que entrega @BotFather al crear el bot
-    TELEGRAM_CHAT_ID   a qué conversación mandar
+    TELEGRAM_TOKEN_ARRIENDOS     el que entrega @BotFather al crear el bot
+    TELEGRAM_CHAT_ID_ARRIENDOS   a qué conversación mandar
 
 Sin ninguna de las dos, el canal se apaga solo y lo dice en el log.
+
+Por qué los nombres llevan `_ARRIENDOS` y no son los genéricos
+------------------------------------------------------------
+
+Este radar es hermano del **radar de remates** (repo `claude-code`), que usa
+`TELEGRAM_TOKEN` y `TELEGRAM_CHAT_ID` a secas. Son dos productos distintos que
+avisan cosas distintas, y la decisión fue explícita: **otro bot, otro token.**
+
+Los secrets de GitHub son por repositorio, así que en el caso normal no habría
+choque. Los nombres distintos protegen los otros casos, que son los que
+muerden: un secret a nivel de organización, un `.env` local compartido, o
+copiar el workflow de un repo al otro. En cualquiera de esos, con el nombre
+genérico los avisos de arriendo saldrían por el bot de remates sin que nada
+avisara.
+
+Y **no hay fallback al nombre genérico**, a propósito. Si alguien configura
+`TELEGRAM_TOKEN` por costumbre, este radar no manda nada y lo dice en el log
+nombrando la variable correcta. Ese es el fallo bueno: ruidoso y con el
+arreglo escrito. El fallo malo sería mandar los arriendos por el bot
+equivocado, que se ve igual que funcionar bien.
 """
 
 from __future__ import annotations
@@ -35,6 +55,15 @@ log = logging.getLogger(__name__)
 
 API = "https://api.telegram.org"
 
+# Los nombres de los secrets. Van con sufijo propio para no cruzarse con los
+# del radar de remates: ver el docstring del módulo.
+VAR_TOKEN = "TELEGRAM_TOKEN_ARRIENDOS"
+VAR_CHAT_ID = "TELEGRAM_CHAT_ID_ARRIENDOS"
+
+# El nombre genérico que usa el radar de remates. No se lee nunca; solo sirve
+# para poder decirle a alguien que configuró el que no era.
+VAR_GENERICA = "TELEGRAM_TOKEN"
+
 # Telegram corta en 4096 caracteres y devuelve error si se pasa. Se recorta
 # antes con margen: perder el final de una descripción es aceptable, perder el
 # aviso entero no.
@@ -47,8 +76,8 @@ MIN_POR_KM = 12
 class Telegram:
     def __init__(self, token: str = "", chat_id: str = "", dry_run: bool = False,
                  caminable_km: float = 0.0, ancla: str = ""):
-        self.token = token or os.environ.get("TELEGRAM_TOKEN", "")
-        self.chat_id = chat_id or os.environ.get("TELEGRAM_CHAT_ID", "")
+        self.token = token or os.environ.get(VAR_TOKEN, "")
+        self.chat_id = chat_id or os.environ.get(VAR_CHAT_ID, "")
         self.dry_run = dry_run
         # Para poder decir "7 min caminando" en vez de "0,61 km", que es el
         # dato con el que se decide si vale la pena ir a verlo.
@@ -76,8 +105,18 @@ class Telegram:
             return True
 
         if not self.configurado:
-            log.info("Telegram sin configurar (faltan TELEGRAM_TOKEN o "
-                     "TELEGRAM_CHAT_ID): no se manda nada. Ver AVISOS.md")
+            log.info("Telegram sin configurar (faltan %s o %s): no se manda "
+                     "nada. El paso a paso está en AVISOS.md.",
+                     VAR_TOKEN, VAR_CHAT_ID)
+            if os.environ.get(VAR_GENERICA):
+                # El error más probable, y el más difícil de ver: se copió la
+                # configuración del radar de remates. Decirlo con nombre y
+                # apellido ahorra la media hora de revisar todo lo demás.
+                log.warning(
+                    "Ojo: existe %s pero este radar NO la usa. Es un bot "
+                    "distinto del radar de remates, a propósito. Crea un bot "
+                    "nuevo con @BotFather y guárdalo como %s.",
+                    VAR_GENERICA, VAR_TOKEN)
             return False
 
         try:

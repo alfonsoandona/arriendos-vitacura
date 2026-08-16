@@ -287,6 +287,27 @@ excluir:
   # Habitación suelta dentro de un departamento compartido.
   piezas: true
 
+  # Portales cuyo aviso NO queremos, aunque nos llegue por otra vía.
+  #
+  # Existe por los metabuscadores. Trovit, Nuroa, Mitula y Nestoria no tienen
+  # inventario propio: recopilan el de todos los demás, y eso los hace muy
+  # útiles —pescan corredoras chicas que no publican en ningún portal grande—
+  # pero también significa que arrastran los avisos de Portal Inmobiliario.
+  #
+  # Y ahí el radar rompería su propia premisa. Ya tienes alertas en Portal
+  # Inmobiliario; un aviso suyo reenviado por Trovit es exactamente el
+  # mensaje duplicado que este proyecto existe para no mandarte.
+  #
+  # La deduplicación por dirección no alcanza para esto: cruza los avisos que
+  # llegan a ESTE radar entre sí, no contra las alertas que ya tienes
+  # configuradas afuera.
+  #
+  # Se compara contra el dominio del enlace final del aviso.
+  dominios:
+    - portalinmobiliario.com
+    - mercadolibre.cl
+    - mercadolibre.com
+
 # ---------------------------------------------------------------------------
 # ALERTAS
 # ---------------------------------------------------------------------------

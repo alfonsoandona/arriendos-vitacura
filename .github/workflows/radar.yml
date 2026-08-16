@@ -78,8 +78,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           # Si no están configurados, el canal se apaga solo y queda avisado
           # en el log. El paso a paso para obtenerlos está en AVISOS.md.
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOKEN_ARRIENDOS: ${{ secrets.TELEGRAM_TOKEN_ARRIENDOS }}
+          TELEGRAM_CHAT_ID_ARRIENDOS: ${{ secrets.TELEGRAM_CHAT_ID_ARRIENDOS }}
           # Opcional: para convertir los avisos publicados en UF. Sin esto se
           # usa el valor por omisión del parser, que basta de sobra para
           # decidir si un arriendo está cerca de 1,6 millones.
