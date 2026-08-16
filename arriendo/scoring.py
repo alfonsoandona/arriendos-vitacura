@@ -57,17 +57,34 @@ RUBRO_COMPLETO = (PESO_UBICACION + PESO_ANTIGUEDAD + PESO_PRECIO
 # propiedad califica: dicen cuál preferir entre las que ya calificaron. Van
 # fuera del porcentaje porque metiéndolas adentro dos propiedades distintas
 # saturaban las dos en 100 y el desempate desaparecía.
-PESO_PREFERENCIAS = 12
+# El tope de las preferencias es ASIMÉTRICO, y es la corrección más
+# importante que tiene este módulo.
+#
+# El problema medido: un departamento de 8 años, 134 m² a $1.500.000 que
+# publicaba piso 12, orientación nororiente, dos estacionamientos y bodega le
+# ganaba a uno de 2 años, 150 m² a $1.250.000 que no publicaba nada de eso.
+# El segundo es mejor por donde se lo mire; simplemente su aviso decía menos.
+#
+# Es el mismo error que la normalización del rubro existe para evitar —cobrar
+# lo que no se pudo medir— entrando por la puerta de al lado. Un aviso que no
+# dice en qué piso está no es un primer piso: es un aviso que no lo dice.
+#
+# La asimetría es la respuesta: un DEFECTO conocido (primer piso, sin
+# estacionamiento, 20 m² por dormitorio) es información de decisión y pesa
+# fuerte; una VIRTUD conocida es un desempate y pesa poco. Así, no publicar
+# los extras cuesta poco, y publicar un defecto cuesta lo que corresponde.
+PESO_PREFERENCIAS = 6        # lo más que puede SUMAR
+PENALIZACION_MAXIMA = 12     # lo más que puede RESTAR
 
 # Cuánto del puntaje final se lleva el rubro, dejando el resto a las
-# preferencias. Los dos suman 100.
+# preferencias positivas. Los dos suman 100.
 #
 # La proporción existe para que el puntaje siga ordenando ARRIBA, que es
 # donde importa: con el rubro llevándose los 100 puntos completos, cualquier
 # departamento bueno con una preferencia a favor se iba a 100 y empataba con
 # todos los demás buenos. Y el tope de avisos por corrida hace que el orden
 # de los primeros ocho sea justamente lo que el usuario ve.
-ESCALA_RUBRO = 88
+ESCALA_RUBRO = 94
 
 
 @dataclass
@@ -610,7 +627,9 @@ def evaluar_preferencias(l: Arriendo, perfil: dict) -> tuple[int, list[str]]:
             puntos -= 2
             razones.append("último piso / penthouse")
         elif l.piso <= 1:
-            puntos -= 2
+            # Un primer piso en Vitacura es un defecto de verdad —seguridad,
+            # ruido, vista— y no un matiz. Pesa más que cualquier virtud.
+            puntos -= 3
             razones.append("primer piso")
 
     # -- orientación --
@@ -642,7 +661,10 @@ def evaluar_preferencias(l: Arriendo, perfil: dict) -> tuple[int, list[str]]:
             puntos += 2
             razones.append(f"{l.estacionamientos} estacionamientos")
         elif l.estacionamientos == 0:
-            puntos -= 2
+            # Un departamento de 134 m² y tres dormitorios en Vitacura sin
+            # estacionamiento obliga a arrendar uno aparte: son $80.000 al mes
+            # que no salen en el aviso.
+            puntos -= 3
             razones.append("sin estacionamiento")
 
     if l.bodega:
@@ -681,7 +703,7 @@ def evaluar_preferencias(l: Arriendo, perfil: dict) -> tuple[int, list[str]]:
         puntos += 1
         razones.append("trato directo, sin comisión")
 
-    return max(-PESO_PREFERENCIAS, min(PESO_PREFERENCIAS, puntos)), razones
+    return max(-PENALIZACION_MAXIMA, min(PESO_PREFERENCIAS, puntos)), razones
 
 
 # ---------------------------------------------------------------------------

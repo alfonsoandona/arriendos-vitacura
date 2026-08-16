@@ -168,10 +168,21 @@ es baja, el aviso entra como "dato faltante" y se revisa a mano.
 | **Superficie** | 16 | Más grande es mejor, con rendimientos decrecientes sobre 170 m² |
 | **Programa** | 14 | Dormitorios y baños: cómo están repartidos esos metros |
 
-Más hasta 12 puntos de **preferencias**, que no deciden si un departamento
-califica sino cuál preferir entre los que ya calificaron: piso alto (pero no el
-último), orientación nororiente, estacionamientos, holgura de m² por
-dormitorio, y palabras del aviso.
+Más las **preferencias**, que no deciden si un departamento califica sino cuál
+preferir entre los que ya calificaron: piso alto (pero no el último),
+orientación nororiente, estacionamientos, holgura de m² por dormitorio, y
+palabras del aviso.
+
+Y son **asimétricas**: suman hasta 6 puntos y restan hasta 12. La razón está
+medida: un departamento de 8 años y 134 m² a $1.500.000 que publicaba piso,
+orientación y estacionamientos le ganaba a uno de 2 años y 150 m² a
+$1.250.000 que no publicaba nada de eso. El segundo es mejor por donde se lo
+mire; su aviso simplemente decía menos.
+
+Un aviso que no dice en qué piso está no es un primer piso: es un aviso que no
+lo dice. Así que una **virtud** conocida es un desempate y pesa poco; un
+**defecto** conocido —primer piso, sin estacionamiento, 20 m² por
+dormitorio— es información de decisión y pesa fuerte.
 
 ### Tres decisiones de diseño que conviene conocer
 

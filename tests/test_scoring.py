@@ -539,3 +539,50 @@ def test_un_dominio_parecido_no_calza(perfil):
                              ["portalinmobiliario.com"]) == ""
     assert _dominio_excluido("https://www.portalinmobiliario.com/x",
                              ["portalinmobiliario.com"]) == "portalinmobiliario.com"
+
+
+# ---------------------------------------------------------------------------
+# Las preferencias desempatan, no dan vuelta el ranking
+# ---------------------------------------------------------------------------
+
+def test_no_publicar_los_extras_no_hunde_a_un_departamento_mejor(perfil):
+    """El caso medido que obligó a hacer asimétricas las preferencias.
+
+    Un departamento de 8 años y 134 m² a $1.500.000 que publicaba piso,
+    orientación, estacionamientos y bodega le ganaba a uno de 2 años y 150 m²
+    a $1.250.000 que no publicaba nada de eso. El segundo es mejor por donde
+    se lo mire; su aviso simplemente decía menos.
+
+    Es el mismo error que la normalización del rubro evita —cobrar lo que no
+    se pudo medir— entrando por la puerta de al lado.
+    """
+    mejor = S.evaluar(depto(antiguedad_anos=2, m2_totales=150.0,
+                            arriendo_clp=1_250_000), perfil)
+    con_extras = S.evaluar(depto(piso=12, orientacion="nororiente",
+                                 estacionamientos=2, bodega=True), perfil)
+    assert mejor.score >= con_extras.score, (
+        f"el mejor departamento puntuó {mejor.score} y el que publica más "
+        f"extras {con_extras.score}")
+
+
+def test_un_defecto_conocido_pesa_mas_que_una_virtud_conocida(perfil):
+    """Asimetría deliberada.
+
+    Un primer piso sin estacionamiento es información de decisión; un piso 12
+    con orientación nororiente es un desempate.
+    """
+    neutro = S.evaluar(depto(), perfil)
+    con_virtudes = S.evaluar(depto(piso=12, orientacion="nororiente"), perfil)
+    con_defectos = S.evaluar(depto(piso=1, estacionamientos=0), perfil)
+
+    gana = con_virtudes.score - neutro.score
+    pierde = neutro.score - con_defectos.score
+    assert pierde > gana, f"virtud +{gana}, defecto -{pierde}"
+
+
+def test_las_preferencias_no_pueden_saturar_el_puntaje(perfil):
+    l = S.evaluar(depto(antiguedad_anos=1, m2_totales=180.0,
+                        arriendo_clp=1_000_000, piso=12,
+                        orientacion="nororiente", estacionamientos=3,
+                        bodega=True), perfil)
+    assert l.score <= 100
