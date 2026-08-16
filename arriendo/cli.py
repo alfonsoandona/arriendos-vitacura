@@ -40,19 +40,50 @@ def _configurar_log(verbose: bool) -> None:
 # ---------------------------------------------------------------------------
 
 def correr(args: argparse.Namespace) -> int:
+    """Corrida completa. Nunca deja el fallo en silencio.
+
+    La carga del perfil y de las fuentes va FUERA del try: son errores de
+    configuración, tienen su propio mensaje en `main` y no son "el radar se
+    cayó" sino "el YAML está mal".
+
+    Todo lo demás va adentro, porque el modo de fallar más caro que tiene este
+    radar es reventar sin decir nada: desde el lado del usuario, una corrida
+    que se cayó a la mitad se ve exactamente igual que una que no encontró
+    ningún departamento.
+    """
     perfil = cargar_perfil(args.perfil)
     fuentes = fuentes_activas(cargar_fuentes(args.fuentes), args.fuente)
 
+    stats: dict = {"inicio": datetime.utcnow()}
+    try:
+        return _correr(args, perfil, fuentes, stats)
+    except Exception as e:                                       # noqa: BLE001
+        log.exception("La corrida falló")
+        stats["error"] = f"{type(e).__name__}: {e}"
+        stats["fin"] = datetime.utcnow()
+        escribir_bitacora(stats, dir_logs())
+        # El aviso de que el radar se cayó es lo único que no se puede perder:
+        # es lo que separa "no hay nada nuevo" de "llevas dos semanas sin
+        # radar y no te has dado cuenta".
+        try:
+            Telegram(dry_run=args.dry_run).resumen(stats, alertas=0,
+                                                   marca_dir=dir_estado())
+        except Exception:                                        # noqa: BLE001
+            log.error("Tampoco se pudo avisar que la corrida falló")
+        return 1
+
+
+def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
+            stats: dict) -> int:
     store = Store(dir_estado())
     fetcher = Fetcher(delay=args.delay)
 
-    stats: dict = {
-        "inicio": datetime.utcnow(),
+    stats.update({
         "fuentes_consultadas": len(fuentes),
         "fuentes_ok": 0,
         "por_fuente": {},
         "fuentes_caidas": [],
-    }
+    })
 
     # --- 1. barrer ---
     crudos: list[Arriendo] = []
@@ -366,17 +397,40 @@ def geocode(args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 
 def construir_parser() -> argparse.ArgumentParser:
+    # Las opciones comunes se aceptan a los DOS lados del subcomando: tanto
+    # `arriendo --fuentes f.yml run` como `arriendo run --fuentes f.yml`.
+    #
+    # Escribirlas después del subcomando es lo que sale natural, y con argparse
+    # eso falla con "unrecognized arguments" si solo están en el parser
+    # principal. `SUPPRESS` es lo que hace que convivan: sin él, la copia del
+    # subcomando pisaría con su default lo que se pasó antes del subcomando.
+    comun = argparse.ArgumentParser(add_help=False)
+    comun.add_argument("--perfil", default=argparse.SUPPRESS,
+                       help="ruta a perfil.yml")
+    comun.add_argument("--fuentes", default=argparse.SUPPRESS,
+                       help="ruta a fuentes.yml")
+    comun.add_argument("-v", "--verbose", action="store_true",
+                       default=argparse.SUPPRESS)
+
     p = argparse.ArgumentParser(
         prog="python -m arriendo",
+        parents=[comun],
         description="Radar de arriendos: Vitacura y el anillo del Sport Francés.",
     )
-    p.add_argument("--perfil", default=None, help="ruta a perfil.yml")
-    p.add_argument("--fuentes", default=None, help="ruta a fuentes.yml")
-    p.add_argument("-v", "--verbose", action="store_true")
-
+    # OJO: acá NO va `p.set_defaults(perfil=None, ...)`.
+    #
+    # `parents=` no copia las acciones, las COMPARTE, y `set_defaults` le pisa
+    # el default a la acción compartida. Con eso el SUPPRESS de `comun`
+    # desaparecía y el subcomando volvía a escribir `fuentes=None` encima de
+    # lo que se hubiera pasado antes del subcomando.
+    #
+    # El síntoma era feo y silencioso: `arriendo --fuentes f.yml run` ignoraba
+    # el archivo y corría contra el catálogo de verdad. Los defaults se
+    # aplican después de parsear, en `_con_defaults`.
     sub = p.add_subparsers(dest="comando", required=True)
 
-    c = sub.add_parser("run", help="corrida completa: barrer, filtrar y avisar")
+    c = sub.add_parser("run", parents=[comun],
+                       help="corrida completa: barrer, filtrar y avisar")
     c.add_argument("--dry-run", action="store_true",
                    help="imprime los avisos en vez de mandarlos")
     c.add_argument("--fuente", default="", help="limitar a una sola fuente")
@@ -387,13 +441,13 @@ def construir_parser() -> argparse.ArgumentParser:
                         "menos datos)")
     c.set_defaults(func=correr)
 
-    c = sub.add_parser("demo", help="probar el filtrado con HTML local")
+    c = sub.add_parser("demo", parents=[comun], help="probar el filtrado con HTML local")
     c.add_argument("archivo")
     c.add_argument("--url", default="https://ejemplo.cl/",
                    help="URL base para resolver los enlaces relativos")
     c.set_defaults(func=demo)
 
-    c = sub.add_parser("calibrar",
+    c = sub.add_parser("calibrar", parents=[comun],
                        help="descargar cada fuente y reportar qué entrega")
     c.add_argument("--fuente", default="", help="limitar a una sola fuente")
     c.add_argument("--reporte", default="calibracion.md")
@@ -401,18 +455,30 @@ def construir_parser() -> argparse.ArgumentParser:
     c.add_argument("--delay", type=float, default=2.0)
     c.set_defaults(func=calibrar)
 
-    c = sub.add_parser("probar-aviso", help="mandar un mensaje de prueba")
+    c = sub.add_parser("probar-aviso", parents=[comun], help="mandar un mensaje de prueba")
     c.add_argument("--dry-run", action="store_true")
     c.set_defaults(func=probar_aviso)
 
-    c = sub.add_parser("geocode", help="verificar las coordenadas del ancla")
+    c = sub.add_parser("geocode", parents=[comun], help="verificar las coordenadas del ancla")
     c.set_defaults(func=geocode)
 
     return p
 
 
+# Los defaults de las opciones comunes. Se aplican después de parsear porque
+# en el parser van con `SUPPRESS`: ver el comentario en `construir_parser`.
+_DEFAULTS_COMUNES = {"perfil": None, "fuentes": None, "verbose": False}
+
+
+def _con_defaults(args: argparse.Namespace) -> argparse.Namespace:
+    for campo, valor in _DEFAULTS_COMUNES.items():
+        if not hasattr(args, campo):
+            setattr(args, campo, valor)
+    return args
+
+
 def main(argv: list[str] | None = None) -> int:
-    args = construir_parser().parse_args(argv)
+    args = _con_defaults(construir_parser().parse_args(argv))
     _configurar_log(args.verbose)
 
     try:

@@ -326,3 +326,61 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
 
     cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(perfil)))
     assert len(mensajes) == 3
+
+
+# ---------------------------------------------------------------------------
+# Fallar sin quedarse callado
+# ---------------------------------------------------------------------------
+
+def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
+                                                      monkeypatch):
+    """El modo de fallar más caro que tiene este radar.
+
+    Desde el lado del usuario, una corrida que se cayó a la mitad se ve
+    exactamente igual que una que no encontró ningún departamento. Sin este
+    camino se pueden pasar dos semanas sin radar sin que nadie lo note.
+    """
+    def barrer_roto(fuente, fetcher, seguir_detalles=True):
+        raise RuntimeError("el navegador no arrancó")
+
+    monkeypatch.setattr(cli, "barrer", barrer_roto)
+
+    avisos: list[str] = []
+
+    class TelegramEspia:
+        def __init__(self, *a, **kw):
+            pass
+
+        def alertar(self, aviso, motivo=""):
+            return True
+
+        def resumen(self, stats, alertas, marca_dir=None):
+            if stats.get("error"):
+                avisos.append(stats["error"])
+
+    monkeypatch.setattr(cli, "Telegram", TelegramEspia)
+
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 1
+
+    # Avisó por Telegram...
+    assert len(avisos) == 1
+    assert "el navegador no arrancó" in avisos[0]
+
+    # ...y dejó la bitácora, que es donde se lee el detalle.
+    bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
+    assert "La corrida falló" in bitacora
+    assert "el navegador no arrancó" in bitacora
+
+
+def test_un_error_de_configuracion_no_se_reporta_como_caida(entorno, tmp_path):
+    """Un YAML mal escrito no es "el radar se cayó": es "arregla el YAML".
+
+    Se distinguen porque piden cosas distintas, y confundirlos manda a buscar
+    el problema al lado equivocado.
+    """
+    yml = tmp_path / "malo.yml"
+    yml.write_text("fuentes:\n  - nombre: sin id\n", encoding="utf-8")
+
+    assert cli.main(["run", "--fuentes", str(yml), "--dry-run"]) == 2
+    # Y da igual de qué lado del subcomando vaya la opción.
+    assert cli.main(["--fuentes", str(yml), "run", "--dry-run"]) == 2

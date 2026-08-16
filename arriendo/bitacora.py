@@ -56,7 +56,7 @@ def _resumen(stats: dict) -> str:
     L = [f"# Última corrida — {cuando:%d-%m-%Y %H:%M} UTC", ""]
 
     if stats.get("error"):
-        L.append(f"## ❌ La corrida falló")
+        L.append("## ❌ La corrida falló")
         L.append("")
         L.append("```")
         L.append(str(stats["error"])[:1500])

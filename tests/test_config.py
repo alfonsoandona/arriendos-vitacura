@@ -238,3 +238,40 @@ def test_catalogo_vacio(tmp_path):
     yml.write_text("fuentes: []\n", encoding="utf-8")
     with pytest.raises(FuentesInvalidas, match="ninguna fuente"):
         cargar_fuentes(yml)
+
+
+# ---------------------------------------------------------------------------
+# La línea de comandos
+# ---------------------------------------------------------------------------
+
+def test_las_opciones_comunes_van_a_los_dos_lados():
+    """`arriendo run --fuentes f.yml` es lo que sale natural escribir.
+
+    Con argparse, una opción declarada solo en el parser principal falla con
+    "unrecognized arguments" si se escribe después del subcomando.
+    """
+    from arriendo.cli import _con_defaults, construir_parser
+
+    p = construir_parser()
+    antes = _con_defaults(p.parse_args(["--fuentes", "f.yml", "run", "--dry-run"]))
+    despues = _con_defaults(p.parse_args(["run", "--fuentes", "f.yml", "--dry-run"]))
+
+    assert antes.fuentes == despues.fuentes == "f.yml"
+    assert antes.dry_run is despues.dry_run is True
+
+
+def test_las_opciones_comunes_tienen_default():
+    from arriendo.cli import _con_defaults, construir_parser
+
+    args = _con_defaults(construir_parser().parse_args(["run"]))
+    assert args.perfil is None
+    assert args.fuentes is None
+    assert args.verbose is False
+
+
+def test_verbose_a_los_dos_lados():
+    from arriendo.cli import _con_defaults, construir_parser
+
+    p = construir_parser()
+    assert _con_defaults(p.parse_args(["-v", "run"])).verbose is True
+    assert _con_defaults(p.parse_args(["run", "-v"])).verbose is True

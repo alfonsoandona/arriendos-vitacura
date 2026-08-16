@@ -249,9 +249,14 @@ def deduplicar(hallazgos: list[Arriendo]) -> list[Arriendo]:
     otro los gastos comunes— así que la copia fusionada sabe más que
     cualquiera de las originales.
 
-    Se conserva como principal la de mayor puntaje, y las otras quedan
-    anotadas en `extras["tambien_en"]` para poder abrirlas: a veces una trae
-    mejores fotos o el teléfono directo.
+    Entre las copias gana la que trae MÁS DATOS, no la de mejor puntaje: la
+    deduplicación corre antes de evaluar —hay que evaluar una vez, no cuatro—
+    así que en ese momento todas puntúan cero. El puntaje queda igual en el
+    criterio de desempate, para que la función siga siendo correcta si alguien
+    la llama después de evaluar.
+
+    Las copias que no ganaron quedan anotadas en `extras["tambien_en"]` para
+    poder abrirlas: a veces una trae mejores fotos o el teléfono directo.
     """
     por_fp: dict[str, list[Arriendo]] = {}
     for a in hallazgos:
