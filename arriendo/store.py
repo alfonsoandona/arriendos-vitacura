@@ -88,7 +88,16 @@ class Store:
 
         cfg = ((perfil or {}).get("alertas") or {}).get("reavisar") or {}
 
-        antes = prev.get("arriendo_clp")
+        # La comparación es contra el precio con el que se AVISÓ, no contra el
+        # de la corrida anterior. La diferencia importa: un canon que baja 2%
+        # por corrida durante tres corridas cayó 6% en total y nunca habría
+        # disparado el umbral del 4%, porque cada paso individual se queda
+        # corto. Contra el precio avisado, la baja se acumula y se detecta.
+        #
+        # Es además el número correcto desde el lado del usuario: lo que le
+        # interesa es cuánto bajó respecto de lo que él vio, no respecto de un
+        # precio intermedio que nunca le llegó.
+        antes = prev.get("precio_al_avisar") or prev.get("arriendo_clp")
         ahora = l.arriendo_clp
         umbral = float(cfg.get("baja_precio_pct", 4)) / 100
         if antes and ahora and ahora < antes * (1 - umbral):

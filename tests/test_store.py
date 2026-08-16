@@ -264,3 +264,24 @@ def test_purga_lo_viejo(store):
     store.indice[fp]["ultima_vez"] = "2020-01-01T00:00:00"
     assert store.purgar(dias=120) == 1
     assert fp not in store.indice
+
+
+def test_la_baja_se_mide_contra_el_precio_avisado(store, perfil_reaviso):
+    """Una baja gradual tiene que acumularse.
+
+    Un canon que baja 2% por corrida durante tres corridas cayó 6% en total y
+    nunca dispararía un umbral del 4% comparando contra la corrida anterior:
+    cada paso individual se queda corto. Contra el precio con el que se avisó,
+    la baja se acumula y se detecta.
+    """
+    store.registrar(aviso(arriendo_clp=1_600_000), avisado=True)
+
+    # Dos corridas de bajas chicas: ninguna sola alcanza el umbral.
+    for precio in (1_570_000, 1_540_000):
+        motivo = store.cambio_relevante(aviso(arriendo_clp=precio), perfil_reaviso)
+        store.registrar(aviso(arriendo_clp=precio), avisado=bool(motivo))
+
+    # Acumuladas son 6,25%, y eso sí se avisa.
+    motivo = store.cambio_relevante(aviso(arriendo_clp=1_500_000), perfil_reaviso)
+    assert "Bajó" in motivo
+    assert "1.600.000" in motivo, "la baja se mide desde el precio que el usuario vio"

@@ -52,6 +52,19 @@ radio_km:
   anillo: 1.2
   preferente: 0.9
 
+  # El radio que se usa cuando el aviso NO dice la comuna.
+  #
+  # Con la comuna en blanco no se sabe si el anillo aplica, porque el anillo
+  # existe para dejar entrar el borde de Las Condes y no para filtrar
+  # Vitacura. Aplicarlo igual descartaba departamentos de Vitacura cuya
+  # comuna no se alcanzó a leer —pasa cuando el aviso la nombra solo en la
+  # ficha de detalle—, y los descartaba en silencio.
+  #
+  # 4 km cubre Vitacura entera desde el Sport Francés con holgura. Lo que
+  # está más lejos que esto no cabe en ninguna comuna del perfil, así que se
+  # puede descartar sin saber cuál es.
+  sin_comuna: 4.0
+
 # Comunas. La lista no es un filtro por sí sola —el filtro es la regla de
 # arriba— pero sí decide cuánto vale estar en cada una.
 #

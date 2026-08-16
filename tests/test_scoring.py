@@ -423,3 +423,71 @@ def test_el_rubro_no_medido_dice_que_falta(perfil):
     precio = next(r for r in S.desglose(l) if r.nombre == "Precio")
     assert not precio.medido
     assert precio.falta
+
+
+# ---------------------------------------------------------------------------
+# Comuna desconocida — el descarte silencioso que hay que no cometer
+# ---------------------------------------------------------------------------
+
+def test_sin_comuna_el_anillo_no_descarta(perfil):
+    """El bug del tipo peor: silencioso.
+
+    Un departamento de Vitacura cuya comuna no se alcanzó a leer —pasa cuando
+    el aviso la nombra solo en la ficha de detalle— quedaba descartado por
+    estar a 2,9 km del club. Pero Vitacura entera es zona válida y se extiende
+    mucho más allá del anillo, así que ese descarte perdía departamentos
+    buenos sin dejar rastro.
+
+    Con la comuna en blanco no se sabe si el anillo aplica, así que no se usa.
+    """
+    l = S.evaluar(depto(comuna="", lat=-33.3560, lon=-70.5700), perfil)
+    assert not l.descartado
+    assert l.distancia_km > 1.2
+
+
+def test_sin_comuna_pero_lejisimos_si_se_descarta(perfil):
+    """Lo que no cabe en ninguna comuna del perfil sí se puede botar.
+
+    Viña del Mar está a 100 km: no hace falta saber la comuna para saber que
+    no es la zona.
+    """
+    l = S.evaluar(depto(comuna="", direccion="Libertad 500",
+                        title="Departamento en arriendo",
+                        lat=-33.0245, lon=-71.5518), perfil)
+    assert l.descartado
+    assert l.clase_descarte == "zona"
+
+
+def test_una_comuna_deducida_del_barrio_no_le_gana_a_las_coordenadas(perfil):
+    """Una insinuación no puede más que un dato.
+
+    "Alonso de Córdova" insinúa Vitacura, y hay una calle homónima en otras
+    ciudades. Si las coordenadas ponen la propiedad a 100 km, mandan ellas:
+    dejarla entrar como Vitacura sería meter al tablero un aviso cuyos
+    propios datos se contradicen.
+    """
+    l = S.evaluar(depto(comuna="", direccion="Alonso de Córdova 4200",
+                        lat=-33.0245, lon=-71.5518), perfil)
+    assert l.descartado
+    assert "desmienten" in l.motivo_descarte
+
+
+def test_la_comuna_deducida_sirve_cuando_no_hay_coordenadas(perfil):
+    """Sigue siendo mejor que nada: es la red de seguridad para el filtro."""
+    l = S.evaluar(depto(comuna="", direccion="Alonso de Córdova 4200",
+                        lat=None, lon=None), perfil)
+    assert not l.descartado
+    assert l.comuna == "Vitacura"
+
+
+def test_una_vecina_lejos_si_se_descarta_por_el_anillo(perfil):
+    """El anillo sigue siendo un límite duro para las comunas vecinas."""
+    l = S.evaluar(depto(comuna="Las Condes", lat=-33.4160, lon=-70.5980), perfil)
+    assert l.descartado
+
+
+def test_una_comuna_ajena_se_descarta_aunque_este_cerca(perfil):
+    """Providencia no está en el perfil, esté donde esté."""
+    l = S.evaluar(depto(comuna="Providencia", lat=-33.3830, lon=-70.5640), perfil)
+    assert l.descartado
+    assert "fuera de la zona" in l.motivo_descarte

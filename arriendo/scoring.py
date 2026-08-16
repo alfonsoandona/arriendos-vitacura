@@ -181,35 +181,74 @@ def evaluar_zona(l: Arriendo, perfil: dict) -> tuple[bool, str, float | None]:
 
     distancia = _distancia_al_ancla(l, perfil)
 
+    radios = perfil.get("radio_km") or {}
+    anillo = float(radios.get("anillo") or 0)
+    sin_comuna = float(radios.get("sin_comuna") or 0)
+
+    # Una comuna DEDUCIDA del barrio no es lo mismo que una leída del aviso.
+    # "Alonso de Córdova" insinúa Vitacura, pero es una insinuación: si las
+    # coordenadas ponen la propiedad a 100 km, mandan las coordenadas.
+    #
+    # Sin esta distinción, un aviso de Viña del Mar en una calle homónima
+    # entraba como Vitacura con coordenadas y todo, que es peor que un
+    # descarte: entra al tablero con datos que se contradicen entre sí.
+    deducida = bool(l.extras.get("comuna_origen"))
+
+    def _demasiado_lejos() -> bool:
+        return (distancia is not None and sin_comuna and distancia > sin_comuna)
+
+    if deducida and _demasiado_lejos():
+        return (False,
+                f"a {distancia:.0f} km del ancla: la comuna se dedujo del "
+                f"barrio y las coordenadas la desmienten", distancia)
+
     # 1. La comuna núcleo entra entera, sin mirar distancia.
     if comuna and comuna in nucleo:
         return True, "", distancia
 
-    # 2. Fuera del núcleo, manda el anillo.
-    anillo = float((perfil.get("radio_km") or {}).get("anillo") or 0)
-    if distancia is not None and anillo:
+    # 2. Una comuna conocida que no es del núcleo ni vecina está fuera y punto.
+    if comuna and comuna not in vecinas:
+        return False, f"comuna fuera de la zona: {l.comuna}", distancia
+
+    # 3. Comuna VECINA: acá sí manda el anillo, y descarta.
+    #
+    # Es el único caso donde la distancia puede botar algo, y tiene que serlo:
+    # el anillo existe para dejar entrar el borde de Las Condes que queda
+    # pegado al club, no para filtrar Vitacura.
+    if comuna and comuna in vecinas:
+        if distancia is None:
+            # Una vecina sin coordenadas es un "quizás": Las Condes tiene
+            # 99 km² y solo un borde cae dentro del anillo. Entra —descartar
+            # por dato faltante es el error caro— y el scoring le cobra la
+            # incertidumbre con el multiplicador de comuna.
+            return True, "", None
         if distancia <= anillo:
             return True, "", distancia
         return (False,
-                f"a {distancia:.1f} km del ancla, fuera del anillo de {anillo:g} km",
-                distancia)
+                f"{l.comuna} a {distancia:.1f} km, fuera del anillo de "
+                f"{anillo:g} km", distancia)
 
-    # 3. Sin coordenadas, la comuna es la red de seguridad.
-    if comuna and comuna in vecinas:
-        # Una vecina sin coordenadas es "quizás": Las Condes tiene 99 km² y
-        # solo un borde cae dentro del anillo. Entra —descartar por dato
-        # faltante es el error caro— y el scoring le cobra la incertidumbre.
-        return True, "", None
-
-    if comuna:
-        conocidas = set(nucleo) | set(vecinas)
-        if comuna not in conocidas:
-            return False, f"comuna fuera de la zona: {l.comuna}", None
+    # 4. Comuna DESCONOCIDA. Acá el anillo no se puede aplicar.
+    #
+    # Aplicarlo era un bug real y del tipo peor: silencioso. Un departamento
+    # de Vitacura cuya comuna no se alcanzó a leer —pasa cuando el aviso la
+    # nombra solo en la ficha de detalle— quedaba descartado por estar a 2,9
+    # km del club, cuando Vitacura entera es zona válida y se extiende mucho
+    # más allá del anillo.
+    #
+    # Con la comuna en blanco no se sabe si el anillo aplica, así que no se
+    # usa. Lo que sí se puede descartar es lo que está tan lejos que no cabe
+    # en ninguna de las comunas del perfil: para eso está `sin_comuna`, un
+    # radio generoso que cubre Vitacura completa y nada más.
+    if _demasiado_lejos():
+        return (False,
+                f"a {distancia:.1f} km del ancla, demasiado lejos para estar "
+                f"en la zona (y el aviso no dice la comuna)", distancia)
 
     # Sin comuna y sin coordenadas no se puede ubicar. Entra igual: la fuente
     # ya venía filtrada por comuna en su URL, y descartar acá botaría todo lo
     # que publique la dirección solo en la ficha de detalle.
-    return True, "", None
+    return True, "", distancia
 
 
 def _distancia_al_ancla(l: Arriendo, perfil: dict) -> float | None:
