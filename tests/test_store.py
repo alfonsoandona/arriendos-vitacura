@@ -398,3 +398,92 @@ def test_sin_precio_no_se_puede_desambiguar():
         aviso(source="c", url="https://c.cl/3", arriendo_clp=None),
     ]
     assert len(deduplicar(copias)) == 3
+
+
+# ---------------------------------------------------------------------------
+# Historial de precios: la diferencia entre "bajó" y "lleva bajando"
+# ---------------------------------------------------------------------------
+
+def test_el_historial_solo_anota_cuando_el_precio_cambia(store):
+    """Uno por corrida serían 730 entradas al año para decir lo mismo."""
+    for _ in range(5):
+        store.registrar(aviso(arriendo_clp=1_500_000))
+    assert len(store.historial_precio(aviso())) == 1
+
+    store.registrar(aviso(arriendo_clp=1_400_000))
+    assert len(store.historial_precio(aviso())) == 2
+
+
+def test_el_historial_se_acota(store):
+    for n in range(20):
+        store.registrar(aviso(arriendo_clp=1_500_000 - n * 10_000))
+    assert len(store.historial_precio(aviso())) == store.MAX_HISTORIAL_PRECIO
+
+
+def test_sin_precio_no_se_anota_nada(store):
+    store.registrar(aviso(arriendo_clp=None))
+    assert store.historial_precio(aviso()) == []
+
+
+def test_la_tendencia_cuenta_las_bajas():
+    """Es lo que la baja suelta no puede decir.
+
+    Un aviso que bajó una vez puede ser un ajuste; uno que bajó tres veces en
+    dos meses es un propietario que no está logrando arrendar.
+    """
+    from arriendo.store import leer_tendencia
+
+    hoy = date.today()
+    historial = [
+        {"clp": 1_650_000, "cuando": (hoy - timedelta(days=62)).isoformat()},
+        {"clp": 1_580_000, "cuando": (hoy - timedelta(days=40)).isoformat()},
+        {"clp": 1_490_000, "cuando": (hoy - timedelta(days=12)).isoformat()},
+    ]
+    tendencia = leer_tendencia(historial)
+    assert "2 bajas" in tendencia
+    assert "-10%" in tendencia
+    assert "1.650.000" in tendencia
+
+
+def test_una_sola_baja_se_dice_en_singular():
+    from arriendo.store import leer_tendencia
+
+    hoy = date.today()
+    tendencia = leer_tendencia([
+        {"clp": 1_600_000, "cuando": (hoy - timedelta(days=20)).isoformat()},
+        {"clp": 1_500_000, "cuando": hoy.isoformat()},
+    ])
+    assert "1 baja" in tendencia
+
+
+def test_sin_dos_precios_no_hay_tendencia():
+    """Escribir "sin cambios" en cada ficha entrena a saltarse la línea."""
+    from arriendo.store import leer_tendencia
+
+    assert leer_tendencia([]) == ""
+    assert leer_tendencia([{"clp": 1_500_000, "cuando": "2026-08-01"}]) == ""
+
+
+def test_un_precio_que_no_se_movio_no_es_tendencia():
+    from arriendo.store import leer_tendencia
+
+    assert leer_tendencia([
+        {"clp": 1_500_000, "cuando": "2026-06-01"},
+        {"clp": 1_500_000, "cuando": "2026-08-01"},
+    ]) == ""
+
+
+def test_tambien_detecta_que_subio():
+    from arriendo.store import leer_tendencia
+
+    assert "subió" in leer_tendencia([
+        {"clp": 1_400_000, "cuando": "2026-06-01"},
+        {"clp": 1_500_000, "cuando": "2026-08-01"},
+    ])
+
+
+def test_un_historial_corrupto_no_revienta():
+    from arriendo.store import leer_tendencia
+
+    assert leer_tendencia([{"clp": 1}, {"clp": 2}]) != ""          # sin fecha
+    assert leer_tendencia([{"cuando": "x"}, {"cuando": "y"}]) == ""  # sin precio

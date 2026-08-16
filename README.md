@@ -289,8 +289,24 @@ Un departamento se avisa **una sola vez**… salvo que cambie algo que importa:
 - **El canon baja 4% o más.** Es la mejor señal del mercado de arriendo: un
   aviso que baja de precio lleva semanas sin arrendarse, así que sigue
   disponible *y* hay margen para negociar. Perdérselo sería perder el mejor
-  momento para llamar.
+  momento para llamar. La baja se mide contra el precio **con el que se
+  avisó**, no contra el de la corrida anterior: si no, tres bajas de 2% no
+  suman nunca.
 - **Cruza los 45 días publicado.** Se avisa una sola vez, no todos los días.
+
+### Y además guarda la tendencia
+
+Cada precio distinto queda anotado, así que el aviso no dice solo que bajó
+sino **que lleva bajando**:
+
+```
+💰 $1.490.000 + GC $180.000 = $1.670.000
+📉 2 bajas: -10% desde $1.650.000
+```
+
+Es una diferencia práctica: una baja puede ser un ajuste, tres bajas en dos
+meses es un propietario que no está logrando arrendar — y eso cambia con qué
+número conviene llamar. La ficha trae la tabla completa con fechas.
 
 ---
 
@@ -350,12 +366,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              340 tests.
+tests/              352 tests.
 ```
 
 ### Sobre los tests
 
-340 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+352 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación

@@ -326,6 +326,12 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
         # "cerca de 1,6 millones" y $1.690.000 se negocia— pero tiene que
         # decirlo. Sin esta línea se ve idéntico a uno que sí cabe en el
         # presupuesto, y el usuario se entera recién al abrirlo.
+        # La tendencia va justo debajo del precio, que es donde se lee. "2
+        # bajas en 62 días: -10%" dice algo que el precio de hoy no puede
+        # decir solo: que el propietario no está logrando arrendar.
+        if (tendencia := a.extras.get("tendencia_precio")):
+            lineas.append(f"📉 {_escapar(str(tendencia))}")
+
         if tope_arriendo and a.arriendo_clp > tope_arriendo:
             sobre = a.arriendo_clp - tope_arriendo
             lineas.append(

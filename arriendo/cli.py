@@ -20,7 +20,7 @@ from .models import Arriendo
 from .sources.base import Fetcher
 from .sources.registry import (FuentesInvalidas, barrer, cargar_fuentes,
                                fuentes_activas)
-from .store import Store, deduplicar
+from .store import Store, deduplicar, leer_tendencia
 
 log = logging.getLogger("arriendo")
 
@@ -173,6 +173,13 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
 
     # --- 4. evaluar ---
     for a in unicos:
+        # La tendencia de precio se adjunta ANTES de evaluar: es lo que
+        # convierte "bajó una vez" en "lleva bajando", y eso decide con qué
+        # número se llama a negociar.
+        if (historial := store.historial_precio(a)):
+            a.extras["historial_precio"] = historial
+            if (tendencia := leer_tendencia(historial)):
+                a.extras["tendencia_precio"] = tendencia
         S.evaluar(a, perfil)
 
     candidatos = [a for a in unicos if not a.descartado]

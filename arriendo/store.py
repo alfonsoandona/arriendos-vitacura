@@ -73,6 +73,38 @@ class Store:
     def ya_avisado(self, l: Arriendo) -> bool:
         return bool(self.indice.get(l.fingerprint, {}).get("avisado"))
 
+    # Cuántos precios distintos recordar por departamento. Doce alcanza para
+    # seis meses de corridas con cambios y no infla el JSON versionado: solo
+    # se anota cuando el precio CAMBIA, no en cada corrida.
+    MAX_HISTORIAL_PRECIO = 12
+
+    def _anotar_precio(self, entrada: dict, l: Arriendo) -> list[dict]:
+        """El historial de precios de este departamento, con el de hoy dentro.
+
+        Solo se anota cuando el precio cambia. Guardar uno por corrida serían
+        730 entradas al año por departamento para decir siempre lo mismo.
+
+        Sirve para algo que la baja suelta no puede decir: la TENDENCIA. Un
+        aviso que bajó una vez puede ser un ajuste; uno que bajó tres veces en
+        dos meses es un propietario que no está logrando arrendar, y eso
+        cambia por completo con qué número se llama a negociar.
+        """
+        historial = list(entrada.get("historial_precio") or [])
+        if l.arriendo_clp is None:
+            return historial
+        if historial and historial[-1].get("clp") == l.arriendo_clp:
+            return historial
+        historial.append({"clp": l.arriendo_clp,
+                          "cuando": date.today().isoformat()})
+        return historial[-self.MAX_HISTORIAL_PRECIO:]
+
+    def historial_precio(self, l: Arriendo) -> list[dict]:
+        """Lo que se sabe de cómo se movió el precio de este departamento."""
+        prev = (self.indice.get(l.fingerprint)
+                or self._por_direccion(l)
+                or self._por_url(l))
+        return list((prev or {}).get("historial_precio") or [])
+
     def cambio_relevante(self, l: Arriendo, perfil: dict | None = None) -> str:
         """Detecta cambios que justifican volver a avisar algo ya visto.
 
@@ -202,6 +234,7 @@ class Store:
             # precio que el usuario ya vio y no contra el de ayer.
             "precio_al_avisar": (
                 l.arriendo_clp if avisado else prev.get("precio_al_avisar")),
+            "historial_precio": self._anotar_precio(prev, l),
             **{c: getattr(l, c) for c in _APRENDIDOS
                if getattr(l, c) not in (None, "")},
         }
@@ -234,6 +267,39 @@ class Store:
         for fp in a_borrar:
             del self.indice[fp]
         return len(a_borrar)
+
+
+def leer_tendencia(historial: list[dict]) -> str:
+    """Qué dice el historial de precios, en una frase.
+
+    Devuelve "" cuando no dice nada: con un solo precio no hay tendencia, y
+    escribir "sin cambios" en cada ficha entrena a saltarse la línea.
+
+    Es la diferencia entre saber que un aviso bajó y saber que lleva bajando.
+    Lo segundo es lo que dice con qué número llamar.
+    """
+    puntos = [h for h in (historial or []) if h.get("clp")]
+    if len(puntos) < 2:
+        return ""
+
+    primero, ultimo = puntos[0]["clp"], puntos[-1]["clp"]
+    if primero == ultimo:
+        return ""
+
+    pct = round(100 * (ultimo - primero) / primero)
+    bajas = sum(1 for a, b in zip(puntos, puntos[1:]) if b["clp"] < a["clp"])
+
+    try:
+        desde = date.fromisoformat(puntos[0]["cuando"])
+        dias = (date.today() - desde).days
+        lapso = f" en {dias} días" if dias else ""
+    except (KeyError, ValueError):
+        lapso = ""
+
+    if ultimo < primero:
+        cuantas = f"{bajas} bajas" if bajas > 1 else "1 baja"
+        return f"{cuantas}{lapso}: {pct}% desde ${primero:,.0f}".replace(",", ".")
+    return f"subió {pct}%{lapso}, desde ${primero:,.0f}".replace(",", ".")
 
 
 def deduplicar(hallazgos: list[Arriendo]) -> list[Arriendo]:

@@ -472,3 +472,35 @@ def test_la_direccion_le_gana_al_titulo():
                  title="Departamento por CLP 1600000.00",
                  direccion="Luis Carrera 1200, Vitacura", comuna="Vitacura")
     assert titulo_corto(a) == "Luis Carrera 1200"
+
+
+def test_la_tendencia_va_pegada_al_precio(perfil):
+    """"2 bajas en 62 días" dice algo que el precio de hoy no puede decir."""
+    a = S.evaluar(depto(extras={"tendencia_precio":
+                                "2 bajas en 62 días: -10% desde $1.650.000"}),
+                  perfil)
+    texto = _mensaje(a, "", 0.9, "Sport Francés", 1_600_000)
+    lineas = texto.split("\n")
+    i_precio = next(n for n, l in enumerate(lineas) if l.startswith("💰"))
+    assert lineas[i_precio + 1].startswith("📉")
+    assert "2 bajas" in lineas[i_precio + 1]
+
+
+def test_la_ficha_muestra_el_historial(tmp_path, perfil):
+    a = S.evaluar(depto(extras={
+        "historial_precio": [
+            {"clp": 1_650_000, "cuando": "2026-06-15"},
+            {"clp": 1_500_000, "cuando": "2026-08-10"}],
+        "tendencia_precio": "1 baja en 56 días: -9% desde $1.650.000"}), perfil)
+    texto = escribir_ficha(a, tmp_path, perfil).read_text(encoding="utf-8")
+
+    assert "Cómo se movió el precio" in texto
+    assert "2026-06-15" in texto
+    assert "$1.650.000" in texto
+    assert "(-9%)" in texto
+
+
+def test_sin_historial_la_ficha_no_muestra_la_seccion(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_ficha(a, tmp_path, perfil).read_text(encoding="utf-8")
+    assert "Cómo se movió el precio" not in texto

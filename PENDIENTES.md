@@ -286,13 +286,11 @@ que se pueden consultar varios portales a la vez sin ser descortés.
 
 - [ ] Hazlo
 
-### 3. Historial de precios por departamento 🟡
+### ~~3. Historial de precios por departamento~~ ✅ HECHO
 
-Hoy detecto la baja contra el precio con el que te avisé. Con el historial
-completo se podría decir "lleva 3 bajas en 2 meses, van -12%", que es una
-señal mucho más fuerte para negociar — y ver la curva en la ficha.
-
-- [ ] Hazlo
+El aviso ahora dice "2 bajas: -10% desde $1.650.000" bajo la línea del
+precio, y la ficha trae la tabla con fechas. Solo se anota cuando el precio
+cambia, así que el estado no se infla.
 
 ### 4. Polígono de Vitacura en vez del nombre de la comuna 🟡
 
@@ -346,7 +344,7 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 340 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 352 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |

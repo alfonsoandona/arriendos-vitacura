@@ -195,6 +195,29 @@ def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
         L.append(f"| Por m² | {_pesos(a.arriendo_clp / m2)} / m² |")
     L.append("")
 
+    if (historial := a.extras.get("historial_precio")):
+        L.append("")
+        L.append("### Cómo se movió el precio")
+        L.append("")
+        L.append("| Cuándo | Arriendo |")
+        L.append("|---|---|")
+        anterior = None
+        for punto in historial:
+            delta = ""
+            if anterior and punto.get("clp"):
+                pct = round(100 * (punto["clp"] - anterior) / anterior)
+                if pct:
+                    delta = f" ({pct:+d}%)"
+            L.append(f"| {punto.get('cuando', '—')} | "
+                     f"{_pesos(punto.get('clp'))}{delta} |")
+            anterior = punto.get("clp") or anterior
+        L.append("")
+        if (tendencia := a.extras.get("tendencia_precio")):
+            L.append(f"**{tendencia}.** Un aviso que lleva bajando es un "
+                     "propietario que no está logrando arrendar, y eso cambia "
+                     "con qué número conviene llamar.")
+            L.append("")
+
     # -- la propiedad --
     L.append("## Qué es")
     L.append("")
