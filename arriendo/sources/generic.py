@@ -559,9 +559,20 @@ _CHROME_DE_TARJETA = re.compile(
     r"^(?:a[ñn]adir\s+a\s+favoritos|agregar\s+a\s+favoritos|guardar|"
     r"destacado|nuevo|exclusivo)\s*[:·-]?\s*", re.I)
 
+# La fecha y la ruta de categorías con que chilepropiedades encabeza sus
+# tarjetas. "15/08/2026 Arriendo Mensual / Departamento / Vitacura" fue un
+# título REAL en el teléfono (captura del 17-08): dice cuándo se publicó y
+# dónde está el listado, pero nada del departamento. Quitándolo, el título
+# cae a la dirección, que es lo que sirve.
+_FECHA_Y_CATEGORIA = re.compile(
+    r"^(?:\d{1,2}[-/]\d{1,2}[-/]\d{2,4}\s*)?"
+    r"(?:arriendo\s+mensual|arriendo|venta)?\s*"
+    r"(?:/\s*departamento\s*(?:/\s*[\wáéíóúñ ]+)?)\s*", re.I)
+
 
 def _titulo_desde(texto: str) -> str:
     texto = _CHROME_DE_TARJETA.sub("", (texto or "").strip())
+    texto = _FECHA_Y_CATEGORIA.sub("", texto).strip()
     for trozo in _CORTE_TITULO.split(texto or ""):
         limpio = trozo.strip()
         if len(limpio) >= 12:

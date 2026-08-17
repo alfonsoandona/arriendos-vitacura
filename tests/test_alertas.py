@@ -597,7 +597,8 @@ def test_sin_historial_no_se_inventa_la_comparacion():
 
 def test_dice_en_que_criterios_destaca_y_en_cuales_flojea():
     """El puntaje dice cuánto; esto dice en qué."""
-    malo = _completo(antiguedad_anos=45, arriendo_clp=1_880_000)
+    # 28 años: flojea en antigüedad sin cruzar el máximo duro de 30.
+    malo = _completo(antiguedad_anos=28, arriendo_clp=1_880_000)
     texto = _mensaje(malo, "", 0.9, "")
     assert "Flojo en" in texto
 

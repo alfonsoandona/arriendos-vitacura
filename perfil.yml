@@ -31,6 +31,7 @@
 # porque el radio se pidió medido desde el club.
 #
 # Coordenadas tomadas a mano desde Google Maps, no estimadas.
+# Ubicación CONFIRMADA por el usuario el 17-08 mirando el mapa.
 ancla:
   nombre: "Sport Francés"
   direccion: "Club Deportivo Sport Francés, Vitacura, Región Metropolitana, Chile"
@@ -119,6 +120,13 @@ requisitos:
   dormitorios:
     min: 3
 
+  # "Sí o sí menos de 30 años" (respuesta del 17-08). Descarta SOLO cuando la
+  # edad se conoce: un aviso que no publica el año entra igual, con la línea
+  # "Preguntar: antigüedad" en el mensaje — que ahora es la pregunta más
+  # importante antes de ir a ver cualquiera.
+  antiguedad_anos:
+    max: 30
+
   # El presupuesto. Son DOS números y hacen cosas distintas:
   #
   #   max          el tope de referencia. Hasta acá el precio no resta puntos.
@@ -202,12 +210,12 @@ requisitos:
 # El dato canónico es la ANTIGÜEDAD EN AÑOS, no el año de construcción: así
 # el perfil no se pudre solo con el paso del tiempo. El año se deriva.
 antiguedad:
-  ideal_max: 10            # 0-10 años: puntaje completo
-  bueno_max: 20            # 10-20 años: baja parejo
-  aceptable_max: 35        # 20-35 años: baja fuerte
-  # Sobre `aceptable_max` puntúa el mínimo, pero NO descarta: un edificio de
-  # 1985 de 140 m² bien mantenido en Vitacura sigue siendo un arriendo
-  # razonable, y descartarlo por el año sería decidir por el usuario.
+  # Respuesta del 17-08: "quiero más nuevos, ojalá menos de 20, pero SÍ O SÍ
+  # menos de 30 años". El "ojalá" vive en esta curva; el "sí o sí" es un
+  # requisito duro y vive en requisitos.antiguedad_anos.
+  ideal_max: 10            # 0-10 años: lo más nuevo, puntaje casi completo
+  bueno_max: 20            # 10-20 años: el "ojalá", baja parejo
+  aceptable_max: 30        # 20-30 años: baja fuerte; sobre 30 descarta
 
 # ---------------------------------------------------------------------------
 # PREFERENCIAS — los desempates
@@ -242,7 +250,7 @@ preferencias:
   # Estacionamiento y bodega. En arriendo se cobran aparte con frecuencia, así
   # que "incluye" es un dato económico y no un lujo.
   estacionamientos:
-    minimo_deseable: 2
+    minimo_deseable: 1     # respuesta del 17-08: con uno basta
 
   # Gastos comunes, como fracción del canon. Sobre 20% el departamento es más
   # caro de lo que dice su aviso.
@@ -253,7 +261,9 @@ preferencias:
   # Amoblado. Por omisión no se prefiere ninguna de las dos: en un arriendo
   # largo lo amoblado encarece, en uno corto salva. Dejar en "" desactiva el
   # criterio; los valores válidos son "amoblado" y "sin amoblar".
-  amoblado_preferido: ""
+  # Respuesta del 17-08: sin muebles. Un aviso amoblado pierde puntos, no se
+  # descarta: amoblado a veces se negocia a que retiren los muebles.
+  amoblado_preferido: "sin amoblar"
 
   # Palabras que suben el puntaje cuando aparecen en el aviso. No inventan
   # datos: solo desempatan.
@@ -266,6 +276,8 @@ preferencias:
     - "losa radiante"
     - "aire acondicionado"
     - "remodelado"
+    - "renovado"
+    - "refaccionado"
     - "impecable"
     - "family room"
     - "sala de estar"

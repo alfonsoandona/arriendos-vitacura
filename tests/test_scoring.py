@@ -295,11 +295,43 @@ def test_mas_nuevo_puntua_mas(perfil):
     assert puntajes == sorted(puntajes, reverse=True), puntajes
 
 
-def test_antiguo_no_se_descarta(perfil):
-    """Un edificio de los ochenta puntúa poco, pero es una decisión del usuario."""
+def test_mas_de_30_anos_conocidos_descarta(perfil):
+    """"Sí o sí menos de 30 años" — respuesta explícita del usuario (17-08).
+
+    Antes acá se afirmaba lo contrario ("descartarlo por el año sería decidir
+    por el usuario"). El usuario ya decidió, y este test protege SU decisión.
+    """
     l = S.evaluar(depto(antiguedad_anos=45), perfil)
+    assert l.descartado
+    assert "45" in l.motivo_descarte and "30" in l.motivo_descarte
+    assert l.clase_descarte == "antiguedad"
+
+
+def test_sin_ano_publicado_no_se_descarta_por_antiguedad(perfil):
+    """Regla nº1 intacta: el dato AUSENTE nunca descarta.
+
+    Un aviso sin año entra igual, y el mensaje pide preguntar la antigüedad —
+    que con el filtro duro pasó a ser LA pregunta antes de ir a ver cualquiera.
+    """
+    l = S.evaluar(depto(antiguedad_anos=None), perfil)
     assert not l.descartado
-    assert l.score > 0
+
+
+def test_el_techo_declarado_sobre_30_tampoco_descarta(perfil):
+    """"A lo más 35 años" no afirma la edad: la acota por arriba.
+
+    El edificio puede tener 12. Descartar por el techo sería descartar por un
+    dato que no se tiene.
+    """
+    l = depto(antiguedad_anos=None)
+    l.extras["antiguedad_techo"] = 35
+    S.evaluar(l, perfil)
+    assert not l.descartado
+
+
+def test_29_anos_pasa_el_filtro_duro(perfil):
+    l = S.evaluar(depto(antiguedad_anos=29), perfil)
+    assert not l.descartado
 
 
 def test_a_estrenar_puntua_sin_publicar_el_ano(perfil):

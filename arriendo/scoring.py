@@ -468,6 +468,20 @@ def _descarta_por_requisitos(l: Arriendo, perfil: dict) -> tuple[str, str]:
             return (f"{l.dormitorios} dormitorios, bajo el mínimo de {minimo:g}",
                     "dormitorios")
 
+    # --- antigüedad ---
+    #
+    # "Sí o sí menos de 30 años" (respuesta del 17-08). Descarta SOLO con el
+    # dato conocido — regla nº1: un aviso que no publica el año entra igual,
+    # y el mensaje pide preguntar la antigüedad. El techo declarado ("a lo
+    # más N años") tampoco descarta cuando N supera el máximo: acota por
+    # arriba, no afirma la edad.
+    maximo = (req.get("antiguedad_anos") or {}).get("max")
+    if maximo is not None and l.antiguedad_anos is not None:
+        if l.antiguedad_anos > float(maximo):
+            ano = f" (construido en {l.ano_construccion})" if l.ano_construccion else ""
+            return (f"{l.antiguedad_anos:g} años{ano}, sobre el máximo de "
+                    f"{maximo:g}", "antiguedad")
+
     # --- precio ---
     _, techo = tope_arriendo(perfil)
     monto = monto_comparable(l, perfil)

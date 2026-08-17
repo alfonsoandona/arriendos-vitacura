@@ -2,12 +2,14 @@ name: Radar de Arriendos
 
 on:
   schedule:
-    # 08:00 y 19:00 en Chile continental (UTC-4). En horario de verano
-    # (UTC-3) corre a las 09:00 y 20:00; la diferencia no es relevante.
+    # 08:00, 13:00 y 19:00 en Chile continental (UTC-4). En horario de
+    # verano (UTC-3) corre una hora después; la diferencia no es relevante.
     #
-    # Dos veces al día y no más: el mercado de arriendo se mueve en días, no
-    # en horas, y una corrida cada hora solo agrega ruido y minutos de Actions.
+    # Tres veces al día a pedido del usuario (17-08): mañana, almuerzo y
+    # tarde. No más que eso: el mercado de arriendo se mueve en días, no en
+    # horas, y una corrida cada hora solo agrega ruido.
     - cron: "0 12 * * *"
+    - cron: "0 17 * * *"
     - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
