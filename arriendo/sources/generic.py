@@ -551,7 +551,17 @@ def _desde_tarjetas(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
 _CORTE_TITULO = re.compile(r"\s+[·|•]\s+|\s{2,}|\n")
 
 
+# Botones de la tarjeta que se pegan al principio del texto. "Añadir a
+# favoritos Leticia Caceres Vitacura Departamento…" fue un título REAL enviado
+# por Telegram en la corrida del 17-08: el corazón de guardar y el nombre de
+# la corredora, leídos como si fueran el nombre del departamento.
+_CHROME_DE_TARJETA = re.compile(
+    r"^(?:a[ñn]adir\s+a\s+favoritos|agregar\s+a\s+favoritos|guardar|"
+    r"destacado|nuevo|exclusivo)\s*[:·-]?\s*", re.I)
+
+
 def _titulo_desde(texto: str) -> str:
+    texto = _CHROME_DE_TARJETA.sub("", (texto or "").strip())
     for trozo in _CORTE_TITULO.split(texto or ""):
         limpio = trozo.strip()
         if len(limpio) >= 12:
@@ -734,6 +744,15 @@ def _quitar_comuna_inicial(palabras: list[str]) -> list[str]:
     return palabras
 
 
+# Palabras de programa que no son calles. "Baños: 3" salió como DIRECCIÓN en
+# un aviso real —y por lo tanto como llave de deduplicación y como título del
+# mensaje—: el extractor tomó "Baños" como nombre de calle y el 3 como
+# numeración.
+_NO_ES_CALLE = re.compile(
+    r"^(?:ba[ñn]os?|dormitorios?|piezas?|estacionamientos?|bodegas?"
+    r"|pisos?|m2|mts?2?|uf)[\s:]*\d*$", re.I)
+
+
 def _direccion_desde(texto: str, comuna: str) -> str:
     """La dirección del aviso, si el texto trae una.
 
@@ -791,6 +810,8 @@ def _direccion_desde(texto: str, comuna: str) -> str:
             continue
 
         calle = " ".join(palabras + [altura.group(1)])
+        if _NO_ES_CALLE.match(calle):
+            return ""
         return f"{calle}, {comuna}" if comuna else calle
 
     return ""

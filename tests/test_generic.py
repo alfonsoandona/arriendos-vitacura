@@ -331,3 +331,21 @@ def test_una_cifra_de_programa_nunca_es_una_direccion(texto):
 def test_la_altura_de_verdad_sobrevive_a_la_palabra_piso():
     """En "Luis Carrera 1200 piso 5" el 1200 sí es la altura."""
     assert _direccion_desde("Luis Carrera 1200 piso 5", "") == "Luis Carrera 1200"
+
+
+def test_anadir_a_favoritos_no_es_parte_del_titulo():
+    """"Añadir a favoritos Leticia Caceres Vitacura Departamento…" fue un
+    título REAL enviado por Telegram: el botón de la tarjeta leído como si
+    fuera el nombre del departamento."""
+    from arriendo.sources.generic import _titulo_desde
+    t = _titulo_desde("Añadir a favoritos Leticia Caceres Vitacura "
+                      "Departamento en arriendo de 4 dorm. en Vitacura")
+    assert not t.lower().startswith("añadir")
+
+
+def test_banos_3_no_es_una_direccion():
+    """"Baños: 3" salió como dirección real — y por lo tanto como llave de
+    deduplicación y título del mensaje."""
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde("Departamento con Baños: 3 y cocina equipada",
+                            "Vitacura") in ("", "Vitacura")

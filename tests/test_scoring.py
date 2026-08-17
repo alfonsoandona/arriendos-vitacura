@@ -658,3 +658,32 @@ def test_con_precio_no_se_topea(perfil):
     assert a.score > S.TOPE_SIN_PRECIO
     assert not a.extras.get("sin_precio")
 
+
+
+def test_un_canon_imposible_por_m2_se_degrada_a_dato_dudoso(perfil):
+    """El penthouse de 270 m² "a $650.000" que salió AVISADO con 90 puntos.
+
+    $2.400/m² cuando la mediana real ronda los $12.000/m²: ese monto era otra
+    cosa del aviso (del orden de las contribuciones) leída como canon. No se
+    corrige —no se sabe el canon real—: se degrada a dato dudoso, el aviso
+    queda sin precio y el mensaje dice "hay que preguntar".
+    """
+    a = Arriendo(source="x", url="https://x.cl/1", title="Penthouse",
+                 direccion="Candelaria Goyenechea 4400", comuna="Vitacura",
+                 m2_totales=270, dormitorios=3, arriendo_clp=650_000,
+                 gastos_comunes_clp=550_000)
+    S.evaluar(a, perfil)
+
+    assert a.arriendo_clp is None
+    assert a.extras["monto_dudoso"] == 650_000
+    assert not a.descartado, "dudoso no es descartado: puede ser el bueno"
+    assert a.score <= S.TOPE_SIN_PRECIO
+
+
+def test_un_canon_barato_pero_posible_no_se_toca(perfil):
+    """$850.000 por 100 m² es ganga, no error: $8.500/m² es plausible."""
+    a = Arriendo(source="x", url="https://x.cl/2", title="Depto",
+                 direccion="Las Nieves 3400", comuna="Vitacura",
+                 m2_totales=100, dormitorios=3, arriendo_clp=850_000)
+    S.evaluar(a, perfil)
+    assert a.arriendo_clp == 850_000

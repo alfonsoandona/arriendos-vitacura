@@ -841,6 +841,24 @@ def evaluar_preferencias(l: Arriendo, perfil: dict) -> tuple[int, list[str]]:
 # Orquestación
 # ---------------------------------------------------------------------------
 
+# Bajo esto, el "canon" por metro cuadrado no es un arriendo: es otro monto
+# del aviso leído como si lo fuera. La mediana real de Vitacura ronda los
+# $12.000/m²; el arriendo grande más barato imaginable no baja de ~$6.000/m².
+# $4.000 deja margen de sobra para lo legítimo.
+#
+# El caso que lo motivó salió AVISADO en la corrida real del 17-08: un
+# penthouse de 270 m² con piscina propia "a $650.000" — $2.400/m². Eran otros
+# montos del aviso (del orden de las contribuciones de esa propiedad) que el
+# parser no logró etiquetar, y la regla de "el mayor suelto es el canon" hizo
+# el resto. Con 90 puntos, primero del tablero, mensaje enviado.
+#
+# La respuesta no es corregir el número —no se sabe cuál es el canon real—
+# sino degradarlo a lo que es: dato dudoso. El aviso queda SIN precio, con el
+# techo de puntaje de los sin precio, y el mensaje dice "hay que preguntar".
+# Eso es exactamente lo que corresponde hacer con este departamento.
+_PISO_CANON_POR_M2 = 4_000
+
+
 def _completar(l: Arriendo) -> None:
     """Rellena lo que se puede deducir del texto que ya se tiene.
 
@@ -865,6 +883,13 @@ def _completar(l: Arriendo) -> None:
         if (comuna := P.comuna_por_barrio(texto)):
             l.comuna = comuna
             l.extras["comuna_origen"] = "deducida del barrio"
+
+    # El candado de plausibilidad: ver _PISO_CANON_POR_M2.
+    if (l.arriendo_clp and l.m2_referencia
+            and l.arriendo_clp / l.m2_referencia < _PISO_CANON_POR_M2):
+        l.extras["monto_dudoso"] = l.arriendo_clp
+        l.arriendo_clp = None
+        l.gastos_comunes_clp = None    # salió del mismo parseo dudoso
 
 
 def evaluar(l: Arriendo, perfil: dict) -> Arriendo:
