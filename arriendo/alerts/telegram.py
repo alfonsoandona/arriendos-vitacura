@@ -337,7 +337,10 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
     L.append(cabecera)
 
     # ---- 2. qué es y dónde ---------------------------------------------
-    L.append(f"🏠 <b>{_escapar(titulo_corto(a))}</b>")
+    # El código va junto al título, en <code> para copiarlo con un toque.
+    # Es cómo se nombra un departamento entre corridas y entre portales: si
+    # dos mensajes muestran el mismo código, son el mismo departamento.
+    L.append(f"🏠 <b>{_escapar(titulo_corto(a))}</b> · <code>#{a.codigo}</code>")
     L.append(f"📍 {_ubicacion(a, caminable_km, ancla)}")
     L.append("")
 
@@ -424,7 +427,14 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
 
     # ---- 7. dónde verlo -------------------------------------------------
     L.append("")
-    L.append(f"🔗 <a href=\"{_escapar(a.url)}\">Ver en {_escapar(_portal(a))}</a>")
+    if a.extras.get("sin_link_directo"):
+        # El portal no dio link al aviso: decirlo evita el chasco de tocar
+        # "Ver en Mitula" y caer en 2.277 resultados.
+        L.append(f"🔗 <a href=\"{_escapar(a.url)}\">Buscarlo en "
+                 f"{_escapar(_portal(a))}</a> <i>(sin link directo — búscalo "
+                 f"por la dirección)</i>")
+    else:
+        L.append(f"🔗 <a href=\"{_escapar(a.url)}\">Ver en {_escapar(_portal(a))}</a>")
 
     # Los otros portales van como links de verdad, no como un conteo. "También
     # en 2 portal(es) más" obligaba a ir a buscarlos; además, que un
@@ -716,7 +726,8 @@ def mensaje_sobrantes(avisos: list) -> str:
         emoji, _ = S.banda(a.score)
         pr = _pesos(a.arriendo_clp) if a.arriendo_clp else "s/precio"
         L.append(f"{emoji} {a.score} · {pr} · "
-                 f"{_escapar((a.direccion or a.title)[:44])}")
+                 f"{_escapar((a.direccion or a.title)[:40])} "
+                 f"<code>#{a.codigo}</code>")
     if len(avisos) > 10:
         L.append(f"… y {len(avisos) - 10} más en el tablero")
     return "\n".join(L)

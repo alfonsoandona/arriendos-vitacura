@@ -703,3 +703,34 @@ def test_los_gc_publicados_nunca_se_reemplazan_por_la_estimacion():
     texto = _mensaje(a, "", 0.9, "", 0, 0, gc_tipico=lambda m2: 999_999)
     assert "$180.000" in texto and "típico" not in texto
 
+
+
+def test_el_codigo_identifica_al_departamento_entre_portales():
+    """"Me gustó el K9D2M" en vez de "el tercero de ayer"."""
+    a = _completo()
+    b = _completo(source="yapo", url="https://yapo.cl/otro")   # misma dirección
+    c = _completo(direccion="Otra Calle 123")
+    assert a.codigo == b.codigo, "misma dirección → mismo código"
+    assert a.codigo != c.codigo
+    assert len(a.codigo) == 5
+    assert f"#{a.codigo}" in _mensaje(a, "", 0.9, "")
+
+
+def test_sin_link_directo_el_mensaje_lo_dice():
+    """Tocar "Ver en Mitula" y caer en 2.277 resultados fue real (captura
+    del 17-08). Si el link va al listado, el mensaje tiene que decirlo."""
+    a = _completo()
+    a.extras["sin_link_directo"] = True
+    texto = _mensaje(a, "", 0.9, "")
+    assert "Buscarlo en" in texto and "sin link directo" in texto
+
+
+def test_la_ficha_apunta_a_la_rama_real(monkeypatch):
+    """El link 404 que el usuario descubrió en su teléfono: url_ficha
+    suponía "main" (herencia del radar de remates, donde la default SÍ es
+    main). Acá la default es la rama de trabajo."""
+    from arriendo.fichas import url_ficha
+    monkeypatch.setenv("GITHUB_REPOSITORY", "alfonsoandona/arriendos-vitacura")
+    monkeypatch.setenv("GITHUB_REF_NAME", "claude/telegram-vitacura-rentals-alert-48wnuy")
+    url = url_ficha(_completo())
+    assert "/blob/claude/telegram-vitacura-rentals-alert-48wnuy/" in url

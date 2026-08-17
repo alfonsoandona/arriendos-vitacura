@@ -61,9 +61,18 @@ def nombre_archivo(a: Arriendo) -> str:
     return f"{limpio[:90]}.md"
 
 
-def url_ficha(a: Arriendo, repo: str = "", rama: str = "main") -> str:
-    """El link a la ficha en GitHub, para meterlo en el mensaje de Telegram."""
+def url_ficha(a: Arriendo, repo: str = "", rama: str = "") -> str:
+    """El link a la ficha en GitHub, para meterlo en el mensaje de Telegram.
+
+    La rama se lee de GITHUB_REF_NAME —Actions la expone siempre— y NO se
+    supone "main". La suposición vino del radar de remates, donde la rama
+    default sí es main; acá la default es la rama de trabajo, así que cada
+    link de ficha apuntaba a una rama inexistente y GitHub respondía 404.
+    El usuario lo descubrió tocando el link en su teléfono, que es la peor
+    forma de descubrirlo: el mensaje promete una ficha que no abre.
+    """
     repo = repo or os.environ.get("GITHUB_REPOSITORY", "")
+    rama = rama or os.environ.get("GITHUB_REF_NAME", "") or "main"
     if not repo:
         return ""
     return (f"https://github.com/{repo}/blob/{rama}/alertas/casos/"

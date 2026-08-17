@@ -641,6 +641,15 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     if fuente.nombre:
         a.extras["portal"] = fuente.nombre
 
+    # ¿El link lleva AL AVISO o al listado completo? Los metabuscadores como
+    # Mitula a veces no dan href por tarjeta, y el aviso queda apuntando a la
+    # página de búsqueda. El usuario lo descubrió tocando "Ver en Mitula" en
+    # su teléfono y cayendo en los 2.277 resultados de Vitacura. La marca
+    # permite dos cosas: que la deduplicación prefiera la copia con link
+    # directo, y que el mensaje sea honesto cuando no lo hay.
+    if not url or url == base_url:
+        a.extras["sin_link_directo"] = True
+
     # La comuna del listado, si el aviso no la dijo.
     #
     # Va acá y no en el constructor porque tiene que correr DESPUÉS de las

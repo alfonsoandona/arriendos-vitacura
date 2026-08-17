@@ -487,3 +487,20 @@ def test_un_historial_corrupto_no_revienta():
 
     assert leer_tendencia([{"clp": 1}, {"clp": 2}]) != ""          # sin fecha
     assert leer_tendencia([{"cuando": "x"}, {"cuando": "y"}]) == ""  # sin precio
+
+
+def test_la_deduplicacion_prefiere_la_copia_con_link_directo():
+    """Un link al listado del portal obliga a buscar el aviso a mano."""
+    from arriendo.store import deduplicar
+
+    generica = Arriendo(source="mitula", url="https://mitula.cl/listado",
+                        title="Depto", direccion="Espoz 2620", comuna="Vitacura",
+                        arriendo_clp=1_500_000)
+    generica.extras["sin_link_directo"] = True
+    directa = Arriendo(source="yapo", url="https://yapo.cl/aviso/9",
+                       title="Depto", direccion="Espoz 2620", comuna="Vitacura",
+                       arriendo_clp=1_500_000)
+
+    unico = deduplicar([generica, directa])
+    assert len(unico) == 1
+    assert unico[0].url == "https://yapo.cl/aviso/9"

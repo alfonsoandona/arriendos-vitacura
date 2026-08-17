@@ -343,7 +343,12 @@ def _colapsar(copias: list[Arriendo]) -> Arriendo:
     if len(copias) == 1:
         return copias[0]
 
-    principal = max(copias, key=lambda a: (a.score, _riqueza(a)))
+    # Entre copias del mismo puntaje gana la que tiene LINK DIRECTO al aviso:
+    # un mensaje cuyo link cae al listado completo del portal obliga a buscar
+    # el departamento a mano entre miles.
+    principal = max(copias, key=lambda a: (a.score,
+                                           not a.extras.get("sin_link_directo"),
+                                           _riqueza(a)))
     for otra in copias:
         if otra is not principal:
             _fusionar(principal, otra)

@@ -177,6 +177,29 @@ class Arriendo:
             fecha = fecha.date()
         return (ahora_utc().date() - fecha).days
 
+    # Alfabeto sin caracteres ambiguos (sin 0/O, 1/I/L): el código se dicta
+    # por teléfono y se escribe a mano.
+    _ALFABETO_CODIGO = "23456789ABCDEFGHJKMNPQRSTUVWXYZ"
+
+    @property
+    def codigo(self) -> str:
+        """Código corto y estable del departamento, p. ej. "#K9D2M".
+
+        Existe porque el mismo departamento aparece en varios portales y en
+        varias corridas, y hacía falta una forma de NOMBRARLO: "me gustó el
+        K9D2M" en vez de "el tercero de ayer, el de la Leticia no sé cuánto".
+        Deriva del fingerprint, así que las copias que la deduplicación logra
+        juntar comparten código — y si dos mensajes distintos muestran el
+        mismo código, son el mismo departamento aunque el radar no haya
+        podido fusionarlos a tiempo.
+        """
+        n = int(self.fingerprint[:12], 16)
+        letras = []
+        for _ in range(5):
+            letras.append(self._ALFABETO_CODIGO[n % 31])
+            n //= 31
+        return "".join(letras)
+
     @property
     def fingerprint(self) -> str:
         """Identidad estable para deduplicar entre portales y entre corridas.
