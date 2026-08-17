@@ -1,33 +1,4 @@
 {
-  "005d674d9a5560b5": {
-    "arriendo_clp": 1250000.0,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 5,
-    "clave_direccion": "mensual 30",
-    "comuna": "Vitacura",
-    "direccion": "Mensual 30, Vitacura",
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 86420.0,
-    "historial_precio": [
-      {
-        "clp": 1250000.0,
-        "cuando": "2026-08-17"
-      }
-    ],
-    "m2_terraza": 103.0,
-    "orientacion": "nororiente",
-    "precio_al_avisar": 1250000.0,
-    "primera_vez": "2026-08-17T21:10:02",
-    "score": 78,
-    "source": "remax",
-    "tipo": "departamento",
-    "titulo": "1/28 1.250.000 $ Mensual 30,60 UF 2 2 5 103 Departamento Vitacura, Santiago, Metropolitana De Santiago, Chile Usada",
-    "ultima_vez": "2026-08-17T21:10:02",
-    "url": "https://www.remax.cl/es-cl/propiedades/departamento/arriendo/vitacura/1028102083-885",
-    "veces_visto": 1
-  },
   "01026d516f9563a4": {
     "arriendo_clp": 397842.0,
     "avisado": false,
@@ -1147,27 +1118,6 @@
     "titulo": "14/08/2026 Arriendo Mensual / Departamento / Vitacura $ 3.000.000 Vitacura, Moderno Depto con entrega 1 de octubre (1787",
     "ultima_vez": "2026-08-17T13:44:50",
     "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/moderno-depto-con-entrega-1-de-octubre-178738/129417494",
-    "veces_visto": 1
-  },
-  "1b4558123fc399a0": {
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 7,
-    "clave_direccion": "",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura",
-    "dormitorios": 6,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-17T21:10:03",
-    "score": 59,
-    "source": "goplaceit",
-    "tipo": "departamento",
-    "titulo": "Departamento en Arriendo en En Condominio: Vía Aurora, Lo Curro: 2.400 m2 de terreno",
-    "ultima_vez": "2026-08-17T21:10:03",
-    "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12848517-departamento-en-arriendo-en-en-condominio-via-aurora",
     "veces_visto": 1
   },
   "1bd61c87ed359bcf": {
@@ -3973,27 +3923,6 @@
     "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12332860-se-arrienda-dpto-vespucio-norte",
     "veces_visto": 1
   },
-  "62934c1207f76ffd": {
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 5,
-    "clave_direccion": "",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-17T21:10:03",
-    "score": 57,
-    "source": "goplaceit",
-    "tipo": "departamento",
-    "titulo": "Departamento en arriendo en Vitacura",
-    "ultima_vez": "2026-08-17T21:10:03",
-    "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/11862019-departamento-en-arriendo-en-vitacura",
-    "veces_visto": 1
-  },
   "63308ceeee560041": {
     "arriendo_clp": null,
     "avisado": false,
@@ -6598,27 +6527,6 @@
     "url": "https://www.magnoliaproperty.cl/8810",
     "veces_visto": 1
   },
-  "a30ed84bdc091098": {
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 5,
-    "clave_direccion": "",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-17T21:10:03",
-    "score": 57,
-    "source": "goplaceit",
-    "tipo": "departamento",
-    "titulo": "ARRIENDO DPTO SECTOR EXCLUSIVO VITACURA",
-    "ultima_vez": "2026-08-17T21:10:03",
-    "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12054265-arriendo-dpto-sector-exclusivo-vitacura",
-    "veces_visto": 1
-  },
   "a445d2ad329adbd1": {
     "arriendo_clp": 9396726.0,
     "avisado": false,
@@ -8588,35 +8496,6 @@
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/oficina/203397842",
     "veces_visto": 3
   },
-  "d5117894c8c56f51": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 900451,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 4,
-    "clave_direccion": "metro tobalaba arriendo uf 22",
-    "comuna": "Las Condes",
-    "direccion": "Metro Tobalaba Arriendo: UF 22, Las Condes",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "historial_precio": [
-      {
-        "clp": 900451,
-        "cuando": "2026-08-17"
-      }
-    ],
-    "orientacion": "sur",
-    "precio_al_avisar": 900451,
-    "primera_vez": "2026-08-17T21:10:02",
-    "score": 71,
-    "source": "propiedades_cl",
-    "tipo": "departamento",
-    "titulo": "Propiedades Destacadas Listado de propiedades COD: 50.444 Departamento en Santiago Tarapacá / Eleuterio Ramírez Venta: U",
-    "ultima_vez": "2026-08-17T21:10:02",
-    "url": "https://www.propiedades.cl/Todos_los_tipos/Venta_y_Arriendo/Todas_las_comunas",
-    "veces_visto": 1
-  },
   "d52835124fe57430": {
     "arriendo_clp": 6945406.0,
     "ausencias": 1,
@@ -9785,26 +9664,6 @@
     "ultima_vez": "2026-08-17T21:10:04",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
     "veces_visto": 3
-  },
-  "f056b1622d3d48cc": {
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 4,
-    "clave_direccion": "",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-17T21:10:04",
-    "score": 57,
-    "source": "goplaceit",
-    "titulo": "Arrienda Penhouse Vista Panorámica Canchas De Golf Club De Polo",
-    "ultima_vez": "2026-08-17T21:10:04",
-    "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12199848-arrienda-penhouse-vista-panoramica-canchas-de-golf-club-de-polo",
-    "veces_visto": 1
   },
   "f11554c076f04eff": {
     "arriendo_clp": 390000.0,

@@ -63,7 +63,11 @@ _SENAL_NUMERICA = re.compile(
 _CHROME_DEL_SITIO = re.compile(
     r"\b(iniciar sesi[oó]n|reg[ií]strate|registrarse|mi cuenta|cerrar sesi[oó]n"
     r"|publica tu propiedad|publicar aviso|descarga la app|todos los derechos"
-    r"|pol[ií]tica de privacidad|valor uf hoy)\b",
+    r"|pol[ií]tica de privacidad|valor uf hoy"
+    # Encabezados de sección, no de aviso: un bloque que los CONTIENE se tragó
+    # el widget entero (ver _CODIGO_EN_TARJETA, que atrapa al mismo culpable
+    # por otro costado).
+    r"|propiedades destacadas|listado de propiedades)\b",
     re.I,
 )
 
@@ -78,6 +82,21 @@ _RANGO_DE_FILTRO = re.compile(
     r"\bde\s+\$?\s*[\d.,]+\s*(?:mt2|m2|m²|uf)?\s*a\s+\$?\s*[\d.,]+", re.I)
 _MIN_RANGOS_PARA_SER_FILTRO = 3
 
+# El widget de "Propiedades Destacadas", leído como si fuera una tarjeta.
+#
+# Caso real (propiedades.cl, corrida del 17-08): un bloque lateral que mezcla
+# TRES propiedades —un departamento en VENTA en Santiago, una OFICINA en Las
+# Condes y una casa en Ñuñoa— pasó como aviso. El extractor tomó la dirección
+# de una, el canon de otra (¡el arriendo de la oficina, UF 22!) y el programa
+# de la mezcla, y esa quimera alertó en el teléfono con puntaje 71.
+#
+# Lo delata lo mismo que delata al panel de filtros: la ENUMERACIÓN. Un aviso
+# tiene UN código de publicación; un bloque con dos o más es una lista de
+# avisos, y leerla como si fuera uno solo produce campos de propiedades
+# distintas cosidos entre sí.
+_CODIGO_EN_TARJETA = re.compile(r"\bcod\.?\s*:?\s*-?\s*[\d.]{2,}", re.I)
+_MAX_CODIGOS_POR_TARJETA = 1
+
 # Enlaces que nunca son un aviso.
 #
 # Las rutas de filtro son el caso importante en portales de arriendo: cada
@@ -91,7 +110,11 @@ _HREF_IGNORAR = re.compile(
     r"|applied_filter_id|applied_value_id"
     r"|_(?:price\*?range|covered\*?area|total\*?area|land\*?area)_"
     r"|/(?:sin-dormitorios|\d+-dormitorios?|mas-de-\d+-dormitorios?)(/|$)"
-    r"|/(?:venta|comprar)(/|$)",
+    r"|/(?:venta|comprar)(/|$)"
+    # El catálogo completo de propiedades.cl, que era el "link al aviso" de la
+    # quimera del widget: un enlace que muestra todo, de todas las comunas, no
+    # apunta a ningún departamento.
+    r"|/(?:todos_los_tipos|venta_y_arriendo|todas_las_comunas)(/|$)",
     re.I,
 )
 
@@ -109,6 +132,8 @@ def _tiene_senal(texto: str) -> bool:
     if _CHROME_DEL_SITIO.search(texto):
         return False
     if _es_panel_de_filtros(texto):
+        return False
+    if len(_CODIGO_EN_TARJETA.findall(texto)) > _MAX_CODIGOS_POR_TARJETA:
         return False
     return bool(_SENAL_NUMERICA.search(texto))
 
@@ -207,9 +232,17 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
         direccion, comuna = "", ""
         addr = n.get("address")
         if isinstance(addr, dict):
-            partes = [str(addr.get(k, "")) for k in
-                      ("streetAddress", "addressLocality", "addressRegion")]
-            direccion = ", ".join(p for p in partes if p)
+            # Sin repetir lo ya dicho: los metabuscadores mandan un
+            # streetAddress que ya trae comuna, región y hasta el país ("Los
+            # Acantos, Lo Castillo, Vitacura, …, Chile"), y pegarle
+            # addressLocality y addressRegion atrás producía direcciones con
+            # "Vitacura" dos veces — así salió una en el teléfono el 17-08.
+            partes: list[str] = []
+            for k in ("streetAddress", "addressLocality", "addressRegion"):
+                p = str(addr.get(k) or "").strip()
+                if p and P.norm(p) not in P.norm(", ".join(partes)):
+                    partes.append(p)
+            direccion = ", ".join(partes)
             comuna = P.parse_comuna(str(addr.get("addressLocality") or "")) or ""
         elif isinstance(addr, str):
             direccion = addr
@@ -569,10 +602,26 @@ _FECHA_Y_CATEGORIA = re.compile(
     r"(?:arriendo\s+mensual|arriendo|venta)?\s*"
     r"(?:/\s*departamento\s*(?:/\s*[\wáéíóúñ ]+)?)\s*", re.I)
 
+# El lastre numérico con que algunas tarjetas encabezan su texto. "1/28
+# 1.250.000 $ Mensual 30,60 UF 2 2 5 103 Departamento Vitacura…" fue un
+# título REAL de RE/MAX en el teléfono: el paginador del carrusel de fotos,
+# el precio en pesos y en UF y la fila de iconos, todo ANTES de la primera
+# palabra con sustancia. Cada token del lastre es un número (con sus puntos,
+# comas y barras), un signo peso o una de las palabritas que los rotulan; el
+# título de verdad empieza donde esa racha se corta.
+_LASTRE_DE_TITULO = re.compile(
+    r"^(?:(?:[\d$][\d$./,]*|uf|clp|m2|m²|mensual|usada?|destacado|nuevo"
+    r"|exclusivo)\s+)+", re.I)
+
 
 def _titulo_desde(texto: str) -> str:
     texto = _CHROME_DE_TARJETA.sub("", (texto or "").strip())
     texto = _FECHA_Y_CATEGORIA.sub("", texto).strip()
+    # Solo si después del recorte queda con qué titular: un aviso que ES puro
+    # número ("$1.500.000 depto") prefiere el texto completo antes que nada.
+    sin_lastre = _LASTRE_DE_TITULO.sub("", texto).strip()
+    if len(sin_lastre) >= 12:
+        texto = sin_lastre
     for trozo in _CORTE_TITULO.split(texto or ""):
         limpio = trozo.strip()
         if len(limpio) >= 12:
@@ -728,7 +777,10 @@ _UNIDAD_TRAS_NUMERO = re.compile(
     r"|estacionamientos?|bodegas?|d\b|b\b)", re.I)
 
 _TOKEN = re.compile(r"[^\s,;·•|]+")
-_ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?(\d{1,5})$", re.I)
+# Sin cero inicial: ninguna numeración chilena parte en 0, pero los decimales
+# partidos por la coma sí — "UF38,00" se tokeniza como "UF38" y "00", y ese
+# "00" pasaba por altura. Salió en el teléfono como dirección "UF38 00".
+_ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?([1-9]\d{0,4})$", re.I)
 
 # Cuántas palabras hacia atrás puede tener el nombre de una calle. Cuatro
 # alcanza para "Avenida Santa María de Manquehue" y corta antes de tragarse
@@ -768,9 +820,16 @@ def _quitar_comuna_inicial(palabras: list[str]) -> list[str]:
 # un aviso real —y por lo tanto como llave de deduplicación y como título del
 # mensaje—: el extractor tomó "Baños" como nombre de calle y el 3 como
 # numeración.
+#
+# La lista creció con la corrida del 17-08: "Mensual 30, Vitacura" fue la
+# dirección REAL de un aviso de RE/MAX ("1.250.000 $ Mensual 30,60 UF": el
+# rótulo del precio como calle y la parte entera de la UF como altura), y
+# "UF38 00" la de otro de Yapo. Ninguna de esas palabras encabeza una calle
+# chilena; todas encabezan un precio, un código o un dato del programa.
 _NO_ES_CALLE = re.compile(
     r"^(?:ba[ñn]os?|dormitorios?|piezas?|estacionamientos?|bodegas?"
-    r"|pisos?|m2|mts?2?|uf)[\s:]*\d*$", re.I)
+    r"|pisos?|m2|mts?2?|uf\s*\d*|clp|cod\.?|c[oó]digo|mensual"
+    r"|arriendo|venta)\b[\s:.,]*[\d\s.,]*$", re.I)
 
 
 def _direccion_desde(texto: str, comuna: str) -> str:
@@ -785,6 +844,13 @@ def _direccion_desde(texto: str, comuna: str) -> str:
     for i, (token, _, fin) in enumerate(tokens):
         altura = _ES_ALTURA.match(token)
         if not altura:
+            continue
+        # "30,60 UF" partido por la coma deja un "30" con toda la pinta de
+        # altura. Si lo que sigue pegado al número es ",dígito", el token es
+        # la parte entera de un decimal — un precio o una medida, nunca una
+        # numeración. Así "$ Mensual 30,60 UF" dejó de producir la dirección
+        # "Mensual 30" que llegó al teléfono el 17-08.
+        if re.match(r",\d", t[fin:fin + 2]):
             continue
         # "134 m²" tiene forma de altura y es una superficie.
         #
@@ -831,7 +897,9 @@ def _direccion_desde(texto: str, comuna: str) -> str:
 
         calle = " ".join(palabras + [altura.group(1)])
         if _NO_ES_CALLE.match(calle):
-            return ""
+            # Se sigue buscando en vez de rendirse: "Baños: 3" al principio
+            # del texto no impide que más adelante venga la dirección real.
+            continue
         return f"{calle}, {comuna}" if comuna else calle
 
     return ""

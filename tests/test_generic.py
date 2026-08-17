@@ -343,6 +343,107 @@ def test_anadir_a_favoritos_no_es_parte_del_titulo():
     assert not t.lower().startswith("añadir")
 
 
+# ---------------------------------------------------------------------------
+# Los fallos de la corrida del 17-08 21:07, aviso por aviso
+#
+# Cada texto de esta sección es LITERAL: es lo que un portal entregó y lo que
+# llegó (mal) al teléfono. Si uno de estos tests se rompe, se rompió algo que
+# ya estuvo roto a la vista del usuario.
+# ---------------------------------------------------------------------------
+
+# El widget de "Propiedades Destacadas" de propiedades.cl: TRES propiedades en
+# un solo bloque. Alertó como un aviso con la dirección de la oficina, el
+# canon de la oficina (UF 22) y dormitorios de la mezcla.
+_WIDGET_DESTACADAS = (
+    "Propiedades Destacadas Listado de propiedades "
+    "COD: 50.444 Departamento en Santiago Tarapacá / Eleuterio Ramírez "
+    "Venta: UF 1.700 1 Dorm. 1 baño Detalles "
+    "COD: 50.888 Oficina en Las Condes MUT / Metro Tobalaba "
+    "Arriendo: UF 22,04 2 baños 70 m 2 Superficies Detalles "
+    "COD: 51.193 Casa en Ñuñoa Prof. Juan Gómez Millas "
+    "Arriendo: $ 850.000 3 Dorm. 2 baños Detalles")
+
+
+def test_el_widget_de_destacadas_no_es_una_tarjeta(fuente):
+    doc = (f'<html><body><div class="lateral"><a href="/aviso/1">'
+           f'{_WIDGET_DESTACADAS}</a></div></body></html>')
+    assert extraer(doc, "https://ejemplo.cl/arriendo", fuente) == []
+
+
+def test_varios_codigos_de_publicacion_no_son_un_aviso():
+    """La enumeración delata al widget aunque cambie el encabezado."""
+    from arriendo.sources.generic import _tiene_senal
+    assert not _tiene_senal("COD: 50.444 Depto Venta: UF 1.700 "
+                            "COD: 50.888 Oficina Arriendo: UF 22,04")
+    # Un solo código es un aviso normal: chilepropiedades los pone en todos.
+    assert _tiene_senal("Cod. 109.892 Departamento 4 dormitorios $1.000.000")
+
+
+def test_el_catalogo_completo_no_es_el_link_del_aviso(fuente):
+    """El "link al aviso" de la quimera era el catálogo entero del portal."""
+    doc = ('<html><body><div>'
+           '<a href="/Todos_los_tipos/Venta_y_Arriendo/Todas_las_comunas">'
+           'Departamento en Vitacura $1.000.000 3 dormitorios 2 baños'
+           '</a></div></body></html>')
+    assert extraer(doc, "https://ejemplo.cl/arriendo", fuente) == []
+
+
+def test_el_lastre_numerico_de_remax_no_es_el_titulo():
+    """"1/28 1.250.000 $ Mensual 30,60 UF 2 2 5 103 Departamento…": el
+    paginador del carrusel, el precio dos veces y la fila de iconos, todo
+    antes de la primera palabra con sustancia."""
+    from arriendo.sources.generic import _titulo_desde
+    t = _titulo_desde("1/28 1.250.000 $ Mensual 30,60 UF 2 2 5 103 "
+                      "Departamento Vitacura, Santiago, Metropolitana De "
+                      "Santiago, Chile Usada")
+    assert t.startswith("Departamento Vitacura")
+
+
+def test_un_titulo_que_es_puro_numero_queda_como_estaba():
+    """El recorte del lastre no puede dejar el título vacío."""
+    from arriendo.sources.generic import _titulo_desde
+    assert _titulo_desde("$1.500.000 UF 38") == "$1.500.000 UF 38"
+
+
+@pytest.mark.parametrize("texto", [
+    # "Mensual 30, Vitacura": el rótulo del precio como calle y la parte
+    # entera de "30,60 UF" como altura.
+    "1/28 1.250.000 $ Mensual 30,60 UF 2 2 5 103 Departamento Vitacura",
+    # "UF29 38, Vitacura": la UF con decimales, partida por la coma.
+    "DPTO AMOBLADO EXCELENTE UBICACION ... UF29,38 3 2 2 Compara",
+    # "UF38 00": lo mismo, con la parte decimal "00" como altura.
+    "140m2 Vitacura Departamento ... UF38,00 -5% 4 1 3 Compara",
+])
+def test_un_precio_partido_por_la_coma_no_es_direccion(texto):
+    assert _direccion_desde(texto, "") == ""
+
+
+def test_la_basura_inicial_no_esconde_la_direccion_real():
+    """Descartar "Baños: 3" como calle no puede rendirse: la dirección de
+    verdad puede venir después en el mismo texto."""
+    assert _direccion_desde(
+        "Baños: 3 Departamento en Avenida Santa María 6800", "") == \
+        "Avenida Santa María 6800"
+
+
+def test_direccion_jsonld_sin_comuna_repetida(fuente):
+    """El streetAddress de un metabuscador ya trae comuna, región y país;
+    pegarle addressLocality y addressRegion producía "Vitacura" dos veces."""
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Departamento 4D en Lo Castillo",
+            "url": "https://ejemplo.cl/aviso/77",
+            "address": {
+                "streetAddress": "Los Acantos 1234, Lo Castillo, Vitacura, "
+                                 "Región Metropolitana de Santiago, Chile",
+                "addressLocality": "Vitacura",
+                "addressRegion": "Metropolitana de Santiago"}}
+    doc = ('<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert a.direccion.lower().count("vitacura") == 1
+    assert a.comuna == "Vitacura"
+
+
 def test_banos_3_no_es_una_direccion():
     """"Baños: 3" salió como dirección real — y por lo tanto como llave de
     deduplicación y título del mensaje."""

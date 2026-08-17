@@ -127,6 +127,34 @@ def test_un_parentesis_que_aclara_tampoco():
     assert "arriendo_clp" not in m
 
 
+# El código de la publicación escrito con puntos de miles. Los dos textos son
+# literales de la corrida del 17-08: el número cae justo en la banda de los
+# gastos comunes y, sin otro rótulo cerca, la regla 3 lo anotaba como GC.
+# $109.892 de gastos comunes que no existen, sumados al costo mensual.
+
+def test_el_codigo_del_aviso_no_es_un_gasto_comun():
+    m = P.parse_montos(
+        "$ 1.000.000 Vitacura, Juan xxii / vitacura Habitaciones: 4 "
+        "Cod. 109.892 Departamento de 4 dormitorios y 3 baños")
+    assert m.get("arriendo_clp") == 1_000_000
+    assert "gastos_comunes_clp" not in m
+
+
+def test_el_codigo_entre_corchetes_tampoco():
+    m = P.parse_montos(
+        "$ 1.700.000 Vitacura, Las Hualtatas {[COD-110.607-VD]} "
+        "[DISPONIBILIDAD INMEDIATA] Cómodo y luminoso departamento")
+    assert m.get("arriendo_clp") == 1_700_000
+    assert "gastos_comunes_clp" not in m
+
+
+def test_los_gastos_comunes_de_verdad_sobreviven_al_codigo():
+    """Borrar el código no puede llevarse el GC rotulado que viene al lado."""
+    m = P.parse_montos("Cod. 178.492 arriendo $1.450.000 + G.C. $180.000")
+    assert m.get("arriendo_clp") == 1_450_000
+    assert m.get("gastos_comunes_clp") == 180_000
+
+
 def test_el_guion_con_espacios_sigue_separando_dos_conceptos():
     """La corrección no puede tragarse el caso opuesto.
 

@@ -239,6 +239,17 @@ BANDA_GASTOS_COMUNES = (15_000, 1_500_000)
 PISO_PRECIO_VENTA = 50_000_000
 
 
+# El código de la publicación, escrito con puntos de miles como si fuera un
+# monto. "Cod. 109.892" y "{[COD-110.607-VD]}" son avisos REALES de la corrida
+# del 17-08: el número cae justo en la banda de los gastos comunes y, como no
+# tenía otro rótulo cerca, la regla 3 lo anotaba como GC — $109.892 de gastos
+# comunes que no existen, sumados al costo mensual con que se comparan los
+# departamentos. Se borra ANTES de ubicar montos, reemplazando por espacios
+# para que las posiciones del resto del texto no se muevan.
+_CODIGO_DE_AVISO = re.compile(
+    r"\bc[oó]d(?:igo)?\b\.?\s*[:#°-]?\s*[\d.]+(?:-\w+)?", re.I)
+
+
 def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
     """Todos los montos en pesos del texto, con su etiqueta y su posición.
 
@@ -250,7 +261,7 @@ def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
     Se deduplica por posición porque los patrones se pisan: "$1.550.000" lo
     encuentra el patrón del signo peso y también el del número pelado.
     """
-    t = texto or ""
+    t = _CODIGO_DE_AVISO.sub(lambda m: " " * len(m.group(0)), texto or "")
 
     # Fase 1: ubicar. Se guarda el tramo COMPLETO del match (con el "$" o el
     # "millones"), que es el que hay que saltarse al mirar los alrededores.

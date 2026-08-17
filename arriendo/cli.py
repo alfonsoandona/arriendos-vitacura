@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import logging
 import os
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -134,6 +135,48 @@ def escribir_historial(destino: Path) -> None:
         log.warning("No se pudo escribir alertas/historial.md: %s", e)
 
 
+def _sin_adornos(url: str) -> str:
+    """La URL reducida a lo que identifica al aviso, para poder compararlas."""
+    u = (url or "").split("#")[0].split("?")[0].rstrip("/").lower()
+    u = re.sub(r"^https?://", "", u)
+    return u.removeprefix("www.")
+
+
+def _no_contradice(a, c) -> bool:
+    """¿Lo que dice el candidato es compatible con lo que el aviso ya sabe?"""
+    if a.comuna and c.comuna and P.norm(a.comuna) != P.norm(c.comuna):
+        return False
+    for campo in ("dormitorios", "banos"):
+        mio, suyo = getattr(a, campo), getattr(c, campo)
+        if mio is not None and suyo is not None and mio != suyo:
+            return False
+    return True
+
+
+def _candidatos_propios(a, candidatos: list) -> list:
+    """Los candidatos extraídos de la ficha que describen AL aviso.
+
+    Una ficha no trae solo su propiedad: trae el widget de "propiedades
+    similares", y cada similar sale del extractor como un candidato más. La
+    versión anterior los fusionaba TODOS, y así fue como un departamento de
+    goplaceit cuya tarjeta solo decía el título alertó con los dormitorios y
+    baños de un vecino del widget — dato inventado en el campo que más pesa.
+
+    La regla: es propio lo que apunta a la MISMA URL del aviso. Si nada
+    apunta y la ficha entregó UN solo candidato, se toma como la propiedad
+    misma —el caso típico de un JSON-LD sin URL—, pero solo si no contradice
+    nada de lo que el aviso ya sabe. Ante la duda, NADA: el aviso escueto ya
+    era alertable, y engordarlo con datos ajenos es peor que dejarlo así.
+    """
+    propios = [c for c in candidatos
+               if _sin_adornos(c.url) and _sin_adornos(c.url) == _sin_adornos(a.url)]
+    if propios:
+        return propios
+    if len(candidatos) == 1 and _no_contradice(a, candidatos[0]):
+        return candidatos
+    return []
+
+
 def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                           uf: float, perfil: dict, store) -> list:
     """Completa cada alerta con los datos de su propia ficha. Ver paso 6b.
@@ -165,7 +208,15 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             salida.append((a, motivo))
             continue
 
-        for candidato in extraer(html, a.url, fuente, uf):
+        propios = _candidatos_propios(a, extraer(html, a.url, fuente, uf))
+        if not propios:
+            # La ficha no se reconoció a sí misma (o era en verdad un
+            # listado). El aviso sigue tal cual: escueto pero honesto.
+            log.debug("Ficha de %s sin candidato propio; no se fusiona",
+                      a.codigo)
+            salida.append((a, motivo))
+            continue
+        for candidato in propios:
             _fusionar(a, candidato)
         a.extras["enriquecido_de_ficha"] = True
         S.evaluar(a, perfil)

@@ -648,3 +648,108 @@ def test_si_la_ficha_revela_mas_de_30_anos_no_se_alerta(monkeypatch):
                                      40_854, perfil, StoreFalso())
     assert salida == [], "la ficha reveló 40 años: no llega al teléfono"
     assert registrados and registrados[0].clase_descarte == "antiguedad"
+
+
+def test_los_similares_de_la_ficha_no_engordan_el_aviso(monkeypatch):
+    """El programa fantasma de la corrida del 17-08: un goplaceit cuya
+    tarjeta solo decía el título alertó con 4 dormitorios y 5 baños. Salían
+    del widget de "propiedades similares" de su propia ficha: el
+    enriquecimiento fusionaba TODOS los candidatos de la página, vecinos
+    incluidos. Un dato inventado en el campo que más pesa."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5",
+                 title="Arriendo dpto sector exclusivo Vitacura",
+                 comuna="Vitacura", arriendo_clp=1_500_000)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    # La ficha solo entregó el widget de similares: dos vecinos, ninguno es
+    # este aviso.
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body>
+      <article><a href="/aviso/101">Departamento Kennedy 4801, 4 dormitorios,
+      5 baños, $2.500.000</a></article>
+      <article><a href="/aviso/102">Departamento Padre Hurtado 1200, 3
+      dormitorios, 2 baños, $1.900.000</a></article>
+      </body></html>""")
+
+    class StoreFalso:
+        def registrar(self, *x, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    assert len(salida) == 1, "el aviso sigue alertable, escueto pero honesto"
+    listo = salida[0][0]
+    assert listo.dormitorios is None and listo.banos is None
+    assert not listo.extras.get("enriquecido_de_ficha")
+
+
+def test_de_la_ficha_se_fusiona_la_propiedad_y_no_el_vecino(monkeypatch):
+    """Cuando la ficha trae a la propiedad Y al widget, se fusiona solo lo
+    que apunta a la URL del aviso."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5", title="Depto",
+                 comuna="Vitacura", arriendo_clp=1_500_000)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body>
+      <article><a href="/aviso/5">Departamento Espoz 2620, 3 dormitorios, 2
+      baños, 134 m2 totales, $1.500.000</a></article>
+      <article><a href="/aviso/101">Departamento Kennedy 4801, 6 dormitorios,
+      7 baños, $2.500.000</a></article>
+      </body></html>""")
+
+    class StoreFalso:
+        def registrar(self, *x, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    listo = salida[0][0]
+    assert (listo.dormitorios, listo.banos) == (3, 2), \
+        "los 6D/7B del vecino no son de este departamento"
+    assert listo.extras.get("enriquecido_de_ficha")
+
+
+def test_candidatos_propios_ignora_www_y_parametros():
+    from arriendo.cli import _candidatos_propios
+    from arriendo.models import Arriendo
+
+    a = Arriendo(source="s", url="https://www.goplaceit.com/cl/propiedad/12054265-dpto")
+    propio = Arriendo(source="s",
+                      url="https://goplaceit.com/cl/propiedad/12054265-dpto?utm_source=x")
+    vecino = Arriendo(source="s", url="https://www.goplaceit.com/cl/propiedad/99-otro")
+    assert _candidatos_propios(a, [vecino, propio]) == [propio]
+
+
+def test_un_candidato_unico_coherente_es_la_propiedad():
+    """El JSON-LD de una ficha a veces no declara URL: si es lo único que la
+    página entregó y no contradice nada, es la propiedad misma."""
+    from arriendo.cli import _candidatos_propios
+    from arriendo.models import Arriendo
+
+    a = Arriendo(source="s", url="https://f1.cl/a", comuna="Vitacura")
+    c = Arriendo(source="s", url="", dormitorios=4, comuna="Vitacura")
+    assert _candidatos_propios(a, [c]) == [c]
+
+
+def test_un_candidato_unico_que_contradice_no_es_la_propiedad():
+    from arriendo.cli import _candidatos_propios
+    from arriendo.models import Arriendo
+
+    a = Arriendo(source="s", url="https://f1.cl/a", dormitorios=3)
+    c = Arriendo(source="s", url="https://f1.cl/otro", dormitorios=4)
+    assert _candidatos_propios(a, [c]) == []
