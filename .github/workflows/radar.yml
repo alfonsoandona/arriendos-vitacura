@@ -193,13 +193,19 @@ jobs:
           TOKEN: ${{ secrets.TELEGRAM_TOKEN_ARRIENDOS }}
           CHAT: ${{ secrets.TELEGRAM_CHAT_ID_ARRIENDOS }}
         run: |
+          # OJO con este bloque: la primera versión escribió el mensaje con
+          # líneas sin indentar dentro del `run: |`, lo que INVALIDÓ el YAML
+          # completo — y un workflow inválido pierde TODOS sus triggers, cron
+          # incluido. El radar entero apagado por el paso que existía para
+          # avisar que el radar se apagó. El mensaje se arma ahora con
+          # printf, que mantiene cada línea dentro del bloque.
           [[ -z "$TOKEN" || -z "$CHAT" ]] && exit 0
+          MSG="$(printf '%s\n\n%s\n\n%s' \
+            '🚨 <b>Radar de Arriendos: el job se cayó</b>' \
+            'La corrida de hoy no terminó. No es "no hay departamentos": es que el radar no corrió.' \
+            '🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
           curl -sS --max-time 20 "https://api.telegram.org/bot${TOKEN}/sendMessage" \
             -d chat_id="$CHAT" \
             -d parse_mode=HTML \
-            --data-urlencode text="🚨 <b>Radar de Arriendos: el job se cayó</b>
-
-La corrida de hoy no terminó. No es \"no hay departamentos\": es que el radar no corrió.
-
-🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --data-urlencode text="$MSG" \
             > /dev/null || true
