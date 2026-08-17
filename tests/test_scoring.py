@@ -586,3 +586,75 @@ def test_las_preferencias_no_pueden_saturar_el_puntaje(perfil):
                         orientacion="nororiente", estacionamientos=3,
                         bodega=True), perfil)
     assert l.score <= 100
+
+# ---------------------------------------------------------------------------
+# El aviso que no publica el precio
+# ---------------------------------------------------------------------------
+
+def test_sin_precio_no_puede_ganarle_a_uno_verificado(perfil):
+    """El error que la primera corrida real dejó a la vista.
+
+    39 de los 68 candidatos no publicaban precio y se quedaron con los seis
+    primeros lugares del tablero: departamentos de 226 y 325 m² puntuando 90
+    sin que nadie supiera si costaban $1,4 millones o $4,5. Esos habrían sido
+    los primeros seis mensajes de Telegram, empujando fuera del tope de la
+    corrida a los que sí cumplían el presupuesto verificado.
+
+    Normalizar sobre lo medible es correcto para todo lo demás. Con el precio
+    no, porque el precio no es un criterio más: es el requisito con el que
+    empieza el pedido.
+    """
+    sin_precio = Arriendo(
+        source="x", url="https://x.cl/1", title="Depto",
+        direccion="Las Fresas 1200", comuna="Vitacura",
+        m2_totales=226, dormitorios=5, banos=4, antiguedad_anos=6)
+    verificado = Arriendo(
+        source="x", url="https://x.cl/2", title="Depto",
+        direccion="Alonso de Córdova 4200", comuna="Vitacura",
+        m2_totales=134, dormitorios=3, banos=3, antiguedad_anos=8,
+        arriendo_clp=1_450_000)
+
+    S.evaluar(sin_precio, perfil)
+    S.evaluar(verificado, perfil)
+
+    assert sin_precio.score < verificado.score
+    assert sin_precio.score <= S.TOPE_SIN_PRECIO
+
+
+def test_sin_precio_igual_alerta(perfil):
+    """El techo no es un descarte.
+
+    Un 5D de 226 m² en Vitacura sin precio publicado puede ser justo el que se
+    busca. Lo que no puede es pasar por delante de uno verificado.
+    """
+    a = Arriendo(source="x", url="https://x.cl/1", title="Depto",
+                 direccion="Las Fresas 1200", comuna="Vitacura",
+                 m2_totales=226, dormitorios=5, antiguedad_anos=6)
+    S.evaluar(a, perfil)
+
+    assert not a.descartado
+    assert a.score >= int(perfil["alertas"]["score_minimo"])
+    assert S.debe_alertar(a, perfil)
+
+
+def test_sin_precio_queda_marcado_para_que_el_aviso_lo_diga(perfil):
+    """Sin la marca, el mensaje sale sin línea de precio y parece un olvido."""
+    a = Arriendo(source="x", url="https://x.cl/1", title="Depto",
+                 direccion="Las Fresas 1200", comuna="Vitacura",
+                 m2_totales=226, dormitorios=5)
+    S.evaluar(a, perfil)
+
+    assert a.extras.get("sin_precio") is True
+    assert any("sin precio publicado" in r for r in a.razones)
+
+
+def test_con_precio_no_se_topea(perfil):
+    a = Arriendo(source="x", url="https://x.cl/1", title="Depto",
+                 direccion="Alonso de Córdova 4200", comuna="Vitacura",
+                 m2_totales=150, dormitorios=4, banos=3, antiguedad_anos=3,
+                 arriendo_clp=1_200_000, gastos_comunes_clp=140_000)
+    S.evaluar(a, perfil)
+
+    assert a.score > S.TOPE_SIN_PRECIO
+    assert not a.extras.get("sin_precio")
+

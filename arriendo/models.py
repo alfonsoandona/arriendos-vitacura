@@ -155,10 +155,26 @@ class Arriendo:
 
     @property
     def dias_publicado(self) -> int | None:
-        """Cuántos días lleva publicado. Es la palanca de negociación."""
-        if not self.publicado_el:
+        """Cuántos días lleva publicado. Es la palanca de negociación.
+
+        Acepta la fecha como texto además de como `date`, y no es cosmético:
+        al guardarse en JSON la fecha se vuelve un string, así que cualquier
+        `Arriendo` reconstruido desde el estado —o desde el historial— llegaba
+        acá con un `str` y reventaba con un TypeError. Y reventaba en medio de
+        `evaluar`, o sea que se llevaba la corrida entera por un dato que
+        además es opcional.
+        """
+        fecha = self.publicado_el
+        if not fecha:
             return None
-        return (datetime.utcnow().date() - self.publicado_el).days
+        if isinstance(fecha, str):
+            try:
+                fecha = date.fromisoformat(fecha[:10])
+            except ValueError:
+                return None
+        if isinstance(fecha, datetime):
+            fecha = fecha.date()
+        return (datetime.utcnow().date() - fecha).days
 
     @property
     def fingerprint(self) -> str:

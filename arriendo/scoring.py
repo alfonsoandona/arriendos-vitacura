@@ -86,6 +86,14 @@ PENALIZACION_MAXIMA = 12     # lo más que puede RESTAR
 # de los primeros ocho sea justamente lo que el usuario ve.
 ESCALA_RUBRO = 94
 
+# Lo más que puede puntuar un aviso que no publica el arriendo.
+#
+# El número tiene que cumplir dos condiciones a la vez y por eso es este: por
+# arriba, quedar bajo cualquier match verificado decente (los buenos puntúan
+# 70-90), y por abajo, quedar cómodamente sobre el umbral de alerta (35), para
+# que un departamento sin precio siga avisando en vez de perderse.
+TOPE_SIN_PRECIO = 60
+
 
 @dataclass
 class Rubro:
@@ -117,6 +125,9 @@ class Evaluacion:
     # Cuántos puntos del rubro se pudieron evaluar de verdad.
     medibles: int = 0
     preferencias: int = 0
+    # El aviso no publica el arriendo. No descarta, pero topea el puntaje:
+    # ver el comentario en `evaluar`.
+    sin_precio: bool = False
 
 
 # Debajo de esto, normalizar sería una opinión sacada de dos datos. Ubicación
@@ -771,6 +782,32 @@ def evaluar(l: Arriendo, perfil: dict) -> Arriendo:
     ev.razones = [f"{r.nombre}: {r.detalle}" for r in ev.rubros if r.medido]
     ev.razones += razones_pref
 
+    # El precio no es un criterio más: es EL requisito.
+    #
+    # Normalizar sobre lo medible es lo correcto para todo lo demás —un aviso
+    # que no publica el año no debería hundirse por eso— pero con el precio
+    # produce lo contrario de lo que se pidió. En la primera corrida real, 39
+    # de los 68 candidatos no publicaban precio y se quedaron con los seis
+    # primeros lugares del tablero: departamentos de 226 y 325 m² puntuando 90
+    # sin que nadie supiera si costaban $1,4 millones o $4,5.
+    #
+    # Y esos habrían sido los primeros seis mensajes de Telegram, empujando
+    # fuera del tope de la corrida a los que sí cumplían el presupuesto
+    # verificado. El pedido empieza con "no más de 1,6 millones"; un aviso sin
+    # precio no se puede verificar contra eso.
+    #
+    # Se resuelve con un techo, no con un descarte. Un 5D de 226 m² en
+    # Vitacura sin precio publicado sigue valiendo la pena mirarlo —puede ser
+    # justo el que se busca— así que se queda en el tablero y sigue pudiendo
+    # avisar. Lo que no puede es pasar por delante de uno verificado.
+    if not next((r.medido for r in ev.rubros if r.nombre == "Precio"), True):
+        ev.sin_precio = True
+        if ev.score > TOPE_SIN_PRECIO:
+            ev.score = TOPE_SIN_PRECIO
+        ev.razones.append(
+            "sin precio publicado: no se puede verificar contra el tope, "
+            "así que no compite con los que sí lo publican")
+
     return _aplicar(l, ev)
 
 
@@ -791,6 +828,10 @@ def _aplicar(l: Arriendo, ev: Evaluacion,
         for r in ev.rubros
     ]
     l.extras["preferencias"] = ev.preferencias
+    # Lo lee la alerta, para decirlo en vez de mostrar un mensaje sin precio y
+    # que parezca que se olvidó.
+    if ev.sin_precio:
+        l.extras["sin_precio"] = True
     return l
 
 

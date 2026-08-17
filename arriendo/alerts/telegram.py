@@ -344,6 +344,15 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
             lineas.append(
                 f"⚠️ {_pesos(sobre)} sobre tu tope de {_pesos(tope_arriendo)}"
                 " — hay que negociar")
+    else:
+        # Sin esta rama el mensaje simplemente NO trae línea de precio, y un
+        # aviso sin precio se ve igual que uno que se olvidó de ponerlo.
+        #
+        # Decirlo importa porque cambia qué hacer con el mensaje: acá no hay
+        # nada que comparar contra el presupuesto, hay que preguntar. En la
+        # primera corrida real fueron 39 de 68 candidatos, así que no es un
+        # caso raro: es la mitad del tablero.
+        lineas.append("💰 <b>Sin precio publicado</b> — hay que preguntar")
 
     medidas = []
     if a.m2_totales:

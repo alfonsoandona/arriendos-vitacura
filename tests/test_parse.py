@@ -92,6 +92,66 @@ def test_no_confunde_gastos_comunes_con_el_canon():
     assert m["gastos_comunes_clp"] == 220_000
 
 
+# --- Rangos: una etiqueta que gobierna DOS montos ---------------------------
+#
+# Los cuatro textos de acá abajo son literales de la primera corrida real.
+# Todos tienen la misma forma: los gastos comunes escritos como un par o un
+# rango, con una sola etiqueta al principio. El segundo monto quedaba sin
+# rotular, y de ahí pasaba a canon por ser el mayor de los sueltos.
+#
+# El resultado se veía bien y era falso: un departamento de 227 m² y 3
+# dormitorios en Vitacura publicado a $490.000, primero del tablero. No existe
+# ese arriendo — era el gasto común de invierno.
+
+def test_un_par_de_gastos_comunes_no_inventa_un_canon():
+    """"$400.000 en verano y $490.000 en invierno" son los dos el mismo gasto."""
+    m = P.parse_montos(
+        "*Gastos comunes: $400.000 en verano y $490.000 en invierno con "
+        "calefacción aproximados")
+    assert m.get("gastos_comunes_clp") == 400_000
+    assert "arriendo_clp" not in m
+
+
+def test_un_rango_con_guion_pegado_tampoco():
+    m = P.parse_montos(
+        "2 estacionamiento y 1 bodega Gastos comunes aprox. "
+        "$250.000-$300.000.- por confirmar Calefacción central")
+    assert m.get("gastos_comunes_clp") == 250_000
+    assert "arriendo_clp" not in m
+
+
+def test_un_parentesis_que_aclara_tampoco():
+    m = P.parse_montos(
+        "- 1 bodega - Gasto común: $280.000 (sube a $320.000 con calefacción)")
+    assert m.get("gastos_comunes_clp") == 280_000
+    assert "arriendo_clp" not in m
+
+
+def test_el_guion_con_espacios_sigue_separando_dos_conceptos():
+    """La corrección no puede tragarse el caso opuesto.
+
+    Entre dos montos y sin nada más en medio, un guión es un rango. Con
+    espacios alrededor es un separador de items, y ahí cada monto tiene su
+    propia etiqueta. Los dos existen en los avisos reales.
+    """
+    m = P.parse_montos("Arriendo $1.500.000 - GC $200.000")
+    assert m["arriendo_clp"] == 1_500_000
+    assert m["gastos_comunes_clp"] == 200_000
+
+
+def test_el_mas_sigue_separando_canon_de_gastos_comunes():
+    """El caso más común de todos, que la herencia no puede romper."""
+    m = P.parse_montos("Valor $1.450.000 + G.C. $180.000")
+    assert m["arriendo_clp"] == 1_450_000
+    assert m["gastos_comunes_clp"] == 180_000
+
+
+def test_un_rango_de_arriendo_hereda_la_etiqueta_de_arriendo():
+    """La herencia sirve para los dos lados: un edificio con varias unidades."""
+    m = P.parse_montos("Arriendo desde $1.200.000 a $1.800.000")
+    assert m["arriendo_clp"] == 1_200_000
+
+
 def test_punto_separa_frases_y_corta_la_etiqueta():
     """'gastos comunes bajos. Arriendo $1.550.000' no es un gasto común.
 
@@ -396,6 +456,77 @@ def test_pieza_se_detecta_antes_que_arriendo():
 def test_temporada_se_detecta_antes_que_arriendo():
     assert P.parse_operacion("Arriendo por días, amoblado ejecutivo") == "temporada"
     assert P.parse_operacion("Arriendo de temporada en Vitacura") == "temporada"
+
+
+# --- Falsos positivos que sacaron 51 departamentos reales de Vitacura -------
+#
+# Todos estos textos salieron de la primera corrida de verdad contra los
+# portales: 328 avisos únicos, de los cuales 51 —el 16% del inventario— se
+# descartaron con el motivo "es arriendo por temporada" sin serlo.
+#
+# El modo de fallar es el peor que tiene este radar: no revienta, no avisa, y
+# deja un motivo que suena razonable. Nadie va a ir a revisar un descarte que
+# dice algo creíble.
+
+def test_comedor_de_diario_no_es_arriendo_por_dias():
+    """El error que se llevó a los mejores departamentos del listado.
+
+    En Chile el "comedor de diario" es el comedor chico de la cocina, y es una
+    característica estándar de un departamento bueno. La regla original tenía
+    `diario` como palabra suelta, así que descartaba justo los penthouses de
+    Lo Gallo y Paul Claudel por describirse bien.
+    """
+    assert P.parse_operacion(
+        "Living comedor con salida a gran terraza, cocina con comedor diario "
+        "y gran logia. Departamento amplio de muy buena distribución") == "arriendo"
+    assert P.parse_operacion(
+        "Cocina independiente con comedor de diario. Loggia cerrada de gran "
+        "tamaño") == "arriendo"
+
+
+def test_el_pie_de_economicos_no_es_arriendo_por_dias():
+    """`economicos.cl` es el clasificado de El Mercurio.
+
+    Cada aviso suyo termina en "Diario: El Mercurio", así que la palabra
+    suelta se llevaba la fuente entera — y es una de las que más entrega.
+    """
+    assert P.parse_operacion(
+        "$ 1.350.000 Departamento en Arriendo en Vitacura 3 dormitorios "
+        "Región: Metropolitana de Santiago Publicado el: 2026-08-16 00:18:00 "
+        "Diario: El Mercurio") == "arriendo"
+
+
+def test_un_arriendo_por_dias_de_verdad_si_se_detecta():
+    """La corrección no puede dejar entrar lo que sí es por temporada."""
+    for texto in ("Arriendo diario, departamento amoblado",
+                  "Valor por día $85.000, mínimo 3 noches",
+                  "Tarifa diaria desde $90.000",
+                  "$120.000 diarios, aseo incluido",
+                  "Arriendo por días, amoblado ejecutivo",
+                  "Departamento vacacional, corta estadía"):
+        assert P.parse_operacion(texto) == "temporada", texto
+
+
+def test_un_bano_compartido_no_es_el_arriendo_de_una_pieza():
+    """Otro caso real, con el mismo error de forma.
+
+    "Dos dormitorios de servicio con baño compartido" describe un
+    departamento grande, no una oferta de pieza. La palabra suelta descartaba
+    departamentos de cuatro dormitorios en Vitacura.
+    """
+    assert P.parse_operacion(
+        "- 2 Dormitorios de servicio con baño compartido. - Entrada de "
+        "servicio independiente") == "arriendo"
+    assert P.parse_operacion(
+        "Segundo baño completo compartido con 2 habitaciones") == "arriendo"
+
+
+def test_una_pieza_de_verdad_si_se_detecta():
+    for texto in ("Arriendo de pieza en departamento compartido",
+                  "Pieza en arriendo, Vitacura",
+                  "Depto compartido, se busca compañera",
+                  "Coliving en Nueva Costanera"):
+        assert P.parse_operacion(texto) == "pieza", texto
 
 
 def test_arriendo_gana_cuando_el_aviso_ofrece_las_dos():

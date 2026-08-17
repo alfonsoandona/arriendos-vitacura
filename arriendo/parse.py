@@ -277,9 +277,65 @@ def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
         valor, span_ini, span_fin = crudos[inicio]
         desde = crudos[orden[j - 1]][2] if j else 0
         hasta = crudos[orden[j + 1]][1] if j + 1 < len(orden) else None
-        salida.append(
-            (valor, _etiqueta_de(t, span_ini, span_fin, desde, hasta), inicio))
+        etiqueta = _etiqueta_de(t, span_ini, span_fin, desde, hasta)
+
+        # Fase 3: heredar la etiqueta del monto de al lado cuando los dos son
+        # el mismo concepto escrito como par o como rango.
+        #
+        # El caso real que lo motivó, de un penthouse de Lo Curro:
+        #
+        #     "*Gastos comunes: $400.000 en verano y $490.000 en invierno"
+        #
+        # El primero queda rotulado; el segundo no tiene ninguna etiqueta
+        # cerca, así que caía a "sin rotular" y de ahí a canon por ser el mayor
+        # de los sueltos. Resultado: un departamento de 227 m² y 3 dormitorios
+        # en Vitacura publicado a $490.000, primero en el tablero. No existe
+        # ese arriendo; era el gasto común de invierno.
+        #
+        # La condición es estricta a propósito: el hueco entre los dos montos
+        # tiene que ser corto, no puede tener un fin de frase —eso incluye el
+        # "+" y el "más", que es como se escribe "canon MÁS gastos comunes" y
+        # justamente NO es una continuación— y tiene que traer una conjunción
+        # o un guión de rango. Con eso, "$1.450.000 + G.C. $180.000" sigue
+        # rotulando cada monto por su cuenta.
+        if not etiqueta and j and salida[-1][1]:
+            hueco = t[crudos[orden[j - 1]][2]:span_ini]
+            if _es_continuacion(hueco):
+                etiqueta = salida[-1][1]
+
+        salida.append((valor, etiqueta, inicio))
     return salida
+
+
+# Un hueco de hasta 40 caracteres: "en verano y", "(sube a", "o", "hasta", y
+# el guión pegado de un rango escrito a la chilena: "$250.000-$300.000". Más
+# largo que eso ya es otra frase aunque tenga una "y" adentro.
+#
+# El guión va SIN espacios alrededor a propósito. Con espacios —"$1.500.000 -
+# GC $200.000"— es un separador de items y no un rango, y `_FIN_DE_FRASE` ya
+# lo trata como fin de frase; heredar ahí sería exactamente el error que este
+# módulo existe para no cometer.
+_MAX_HUECO_CONTINUACION = 40
+_CONECTOR = re.compile(r"\s(?:y|o|u|a|hasta)\s|/|\ba\s+\$", re.I)
+# El rango escrito pegado: "$250.000-$300.000". El hueco entre los dos montos
+# es el guión solo, sin nada más.
+_RANGO_PEGADO = re.compile(r"^\s*[-–—]\s*$")
+
+
+def _es_continuacion(hueco: str) -> bool:
+    """¿Los dos montos que rodean este hueco son el mismo concepto?"""
+    if len(hueco) > _MAX_HUECO_CONTINUACION:
+        return False
+    if _RANGO_PEGADO.match(hueco):
+        # Se chequea antes que el fin de frase porque `_FIN_DE_FRASE` trata
+        # " - " como separador de items, y con razón: "$1.500.000 - GC
+        # $200.000" son dos conceptos. Pero entre dos montos y sin nada más en
+        # medio, un guión es un rango. Los dos casos existen en los avisos
+        # reales y se distinguen por lo que hay alrededor, no por el guión.
+        return True
+    if _FIN_DE_FRASE.search(hueco):
+        return False
+    return bool(_CONECTOR.search(hueco))
 
 
 def parse_montos(texto: str, valor_uf: float | None = None) -> dict:
@@ -970,13 +1026,47 @@ _ES_VENTA = re.compile(
 _ES_ARRIENDO = re.compile(
     r"\barriendo\b|\bse\s+arrienda\b|\barriendan?\b|\ben\s+arriendo\b"
     r"|\barrendar\b|\bcanon\b", re.I)
+# Arriendo por temporada.
+#
+# OJO con las palabras sueltas. La primera versión de esta regla incluía
+# `\bdiario\b`, y contra 328 avisos reales de Vitacura acertó CERO veces: las
+# 57 apariciones de "diario" eran una de estas dos cosas.
+#
+#   "cocina con comedor de diario"    → el comedor chico de la cocina. En
+#                                       Chile es una característica estándar de
+#                                       un departamento bueno, así que la regla
+#                                       descartaba justo los mejores: los
+#                                       penthouses de Lo Gallo y Paul Claudel.
+#   "Diario: El Mercurio"             → el pie de cada aviso de economicos.cl,
+#                                       que es el clasificado de El Mercurio.
+#                                       Se llevaba la fuente entera.
+#
+# Y el modo de fallar era el peor de todos: el aviso se descartaba en silencio,
+# con un motivo que sonaba razonable —"es arriendo por temporada"— así que
+# nadie iba a ir a revisarlo.
+#
+# La regla ahora exige que "diario" venga pegado a algo que hable de plata o de
+# arriendo. Un aviso por días lo dice de esa forma; una cocina, no.
 _ES_TEMPORADA = re.compile(
-    r"\btemporada\b|\bpor\s+d[ií]as?\b|\bpor\s+semanas?\b|\bdiario\b"
+    r"\btemporada\b|\bpor\s+d[ií]as?\b|\bpor\s+semanas?\b"
+    r"|\barriendos?\s+diari[oa]s?\b"
+    r"|\b(?:valor|precio|tarifa|canon|arriendo)\s+(?:por\s+)?d[ií]a(?:ri[oa])?s?\b"
+    r"|\$\s*[\d.,]+\s*(?:diarios?|por\s+d[ií]a)\b"
     r"|\bairbnb\b|\bamoblado\s+ejecutivo\b|\bcorta\s+estad[ií]a\b"
     r"|\bvacacional\b|\bpor\s+noche\b", re.I)
+
+# Arriendo de una pieza, no del departamento.
+#
+# Mismo error y misma corrección que arriba: `\bcompartid[oa]\b` a secas se
+# comió departamentos de cuatro dormitorios en Vitacura porque el aviso decía
+# "dos dormitorios de servicio con baño compartido". Un baño compartido entre
+# dos piezas de servicio es una descripción normal de un departamento grande,
+# no una oferta de pieza. Ahora lo compartido tiene que ser la vivienda.
 _ES_PIEZA = re.compile(
     r"\barriendo\s+(?:de\s+)?(?:pieza|habitaci[oó]n)\b|\bpieza\s+en\s+arriendo\b"
-    r"|\bcompartid[oa]\b|\bcowork(?:ing)?\b|\bcoliving\b", re.I)
+    r"|\b(?:depto|dpto|departamento|casa|piso|vivienda)\s+compartid[oa]\b"
+    r"|\bcompartir\s+(?:depto|dpto|departamento|casa|piso)\b"
+    r"|\bcowork(?:ing)?\b|\bcoliving\b", re.I)
 
 
 def parse_operacion(texto: str, kind_default: str = "arriendo") -> str:
