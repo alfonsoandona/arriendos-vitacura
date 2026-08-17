@@ -620,6 +620,28 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     if fuente.nombre:
         a.extras["portal"] = fuente.nombre
 
+    # La comuna del listado, si el aviso no la dijo.
+    #
+    # Va acá y no en el constructor porque tiene que correr DESPUÉS de las
+    # pasadas de JSON-LD y estado embebido, que saben mejor: si alguna de
+    # ellas encontró la comuna de verdad, esta no toca nada.
+    #
+    # Por qué hace falta: una tarjeta de un listado ya filtrado no repite lo
+    # que el usuario acaba de elegir. En la corrida real quedaron 62 avisos de
+    # 328 sin comuna, y aunque solo 3 vinieran de listados filtrados por
+    # comuna, esos 3 se puntuaban como si no se supiera dónde están — que en
+    # un radar cuya primera regla es "prioriza Vitacura comuna entera" es
+    # mandarlos al fondo del tablero.
+    #
+    # Queda marcado como DEDUCIDO, no como publicado. No es un tecnicismo: un
+    # listado filtrado por comuna igual trae avisos colados de Las Condes, y
+    # `evaluar_zona` usa esa marca para dejar que las coordenadas desmientan a
+    # la comuna cuando se contradicen. Un dato deducido presentado como
+    # publicado es peor que uno ausente.
+    if not a.comuna and fuente.comuna_default:
+        a.comuna = fuente.comuna_default
+        a.extras["comuna_origen"] = "del listado, que ya venía filtrado por comuna"
+
     a.direccion = _direccion_desde(texto, a.comuna)
     return a
 

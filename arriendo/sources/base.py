@@ -39,6 +39,24 @@ class FuenteConfig:
     # Qué publica esta fuente cuando el aviso no lo dice. Un listado ya
     # filtrado a arriendo no repite la palabra en cada tarjeta.
     operacion_default: str = "arriendo"
+    # De qué comuna es el listado, cuando la URL ya la trae.
+    #
+    # Mismo razonamiento que `operacion_default`: una tarjeta de un listado ya
+    # filtrado no repite lo que el usuario acaba de elegir. Un aviso dentro de
+    # `/departamento/arriendo/comuna/306-vitacura` no necesita decir
+    # "Vitacura", y sin embargo sin ese dato pierde el multiplicador que hace
+    # cumplir "prioriza Vitacura comuna entera".
+    #
+    # En la corrida real fueron pocos avisos —economicos y chilepropiedades
+    # tenían 3 sin comuna entre los 328 únicos— pero el costo de perderlos es
+    # alto y el de rellenarlos es cero: se puntúan como si no se supiera dónde
+    # están, que en un radar cuya primera regla es la comuna los manda al
+    # fondo.
+    #
+    # Solo rellena cuando el aviso NO dice comuna: si la dice, manda el aviso.
+    # Un listado de Vitacura igual trae avisos de Las Condes colados, y
+    # pisarles la comuna sería inventar datos.
+    comuna_default: str = ""
     # "requests" (un GET simple) o "navegador" (Chromium ejecutando el JS).
     # El navegador es mucho más caro: solo donde el sitio lo exige.
     motor: str = "requests"

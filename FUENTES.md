@@ -137,6 +137,77 @@ Con los tres arreglados, el mismo corpus pasa de 68 a **91 candidatos**, y
 ninguno de los primeros lugares es un aviso sin precio ni un gasto común mal
 leído.
 
+
+---
+
+## Lo que averigüé de las dudosas, buscando sitio por sitio
+
+No puedo abrir los portales: el proxy de este entorno responde 403 a todos, y
+lo verifiqué de nuevo antes de escribir esto. Lo que sí funciona es la
+búsqueda web, así que fui portal por portal buscando su URL real de arriendo +
+departamento + Vitacura. Esto es lo que salió.
+
+### ❗ Property Partners estaba en el dominio equivocado
+
+`propertypartners.cl` **no es su sitio**. Property Partners vive en
+`ppartnersgroup.com`, y ahí tienen la búsqueda filtrada con inventario real:
+
+```
+https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/
+```
+
+Por eso entregaba cero. Ya está corregida y marcada como confirmada. Incluso
+tienen rutas por barrio, que es aún más fino que la comuna:
+`.../vitacura/nueva-costanera/` y `.../vitacura/las-nieves/`.
+
+### ✅ Cuatro URLs estaban BIEN — lo que falta es el navegador
+
+Estas cuatro entregaron cero pero su URL es exactamente la correcta, y la
+búsqueda muestra que tienen inventario de Vitacura. El problema es que arman
+la página con JavaScript, así que un GET simple recibe un esqueleto vacío:
+
+| Portal | URL (correcta) | Qué se ve |
+|---|---|---|
+| Zoom Inmobiliario | `zoominmobiliario.com/arriendo/departamento/vitacura` | **179 arriendos en Vitacura** |
+| AssetPlan | `assetplan.cl/arriendo/departamento/vitacura` | inventario multifamily |
+| RE/MAX | `remax.cl/es-cl/busqueda/.../vitacura/residencial-departamento/arriendo/` | listados residenciales |
+| GoPlaceIt | `goplaceit.com/cl/departamento/arriendo/comuna/306-vitacura` | ya entregaba 90 |
+
+Las tres primeras quedaron marcadas `motor: navegador`. Es un cambio barato y
+debería recuperar bastante inventario — Zoom solo ya declara 179 avisos.
+
+### 🔎 Century 21 tiene inventario, pero no encontré su buscador
+
+Aparecen fichas sueltas suyas de Vitacura
+(`century21.cl/listingDetails/9002068-284`, un 2D en arriendo), así que el
+inventario existe. Lo que no logré ubicar es la URL del listado filtrado: su
+buscador parece armarse por POST o por id de oficina. **Esta es una de las que
+te conviene resolver a ti en dos minutos**: entras, filtras arriendo +
+departamento + Vitacura, y me pasas la URL de la barra.
+
+### 📋 Las demás
+
+| Portal | Qué encontré |
+|---|---|
+| Enlace Inmobiliario | Tiene arriendos en Vitacura (`/propiedadesusadas/vitacura/departamento/…`) pero su catálogo es sobre todo **venta**. Valor bajo. |
+| Propiedades.cl | El buscador es `propiedades_listado.aspx` con parámetros numéricos (`co=`, `tp=`, `op=`). No se puede adivinar el id de Vitacura. |
+| Arriendos.cl | Inventario chico y de otras comunas (La Cisterna, etc.). Valor bajo. |
+| Hey! Homes | Confirmado que tienen arriendos en Vitacura (uno a UF 29,4 cerca del Parque Bicentenario). Su URL `/arriendo/` es correcta y ya entrega 9 avisos. |
+| Colliers, Zenta, Inciti, MaxRenta, Arriendo Asegurado, Capitalizarme, Contempora, Sotheby's | No aparece inventario suyo de arriendo residencial en Vitacura indexado. Varias son de oficinas o de multifamily. Se quedan registradas pero probablemente no aporten. |
+
+### Y un arreglo que salió de mirar esto
+
+Un aviso dentro de una URL como `/comuna/306-vitacura` no dice "Vitacura" en
+ninguna parte — para qué repetirlo, si el usuario ya filtró por comuna. Pero
+sin ese dato el aviso pierde el multiplicador que hace cumplir *"prioriza
+Vitacura comuna entera"* y se va al fondo del tablero.
+
+Ahora las 13 fuentes cuya URL filtra por comuna se la ponen a sus avisos, y
+queda marcada como **deducida**: si el aviso trae su propia comuna, manda el
+aviso, y si las coordenadas la desmienten, ganan las coordenadas. Un dato
+deducido presentado como publicado es peor que uno ausente.
+
+
 ---
 
 _Generado desde `state/arriendos.json` y `logs/ultima-corrida.md` de la

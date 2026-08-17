@@ -79,6 +79,7 @@ fuentes:
 
   - id: toctoc
     nombre: TocToc
+    comuna_default: Vitacura
     # Ya filtradas por dormitorios: el portal expone /3-dormitorios y
     # /4-dormitorios como rutas propias, así que el filtro duro del perfil se
     # aplica en el origen y llega mucho menos ruido.
@@ -98,6 +99,7 @@ fuentes:
 
   - id: chilepropiedades
     nombre: Chilepropiedades
+    comuna_default: Vitacura
     # OJO: la ruta es "arriendo-mensual", no "arriendo". Con "arriendo" se
     # mezcla el arriendo por día, que el perfil descarta igual pero después
     # de haberlo bajado.
@@ -111,6 +113,7 @@ fuentes:
 
   - id: goplaceit
     nombre: GoPlaceIt
+    comuna_default: Vitacura
     # El 306 es el id de comuna de Vitacura en su ruta canónica.
     urls: ["https://www.goplaceit.com/cl/departamento/arriendo/comuna/306-vitacura"]
     motor: navegador
@@ -124,6 +127,7 @@ fuentes:
 
   - id: yapo
     nombre: Yapo
+    comuna_default: Vitacura
     urls: ["https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura"]
     paginacion: {paginas: 3, parametro: o}
     url_confirmada: true
@@ -135,6 +139,7 @@ fuentes:
 
   - id: emol_propiedades
     nombre: Emol Propiedades
+    comuna_default: Vitacura
     urls: ["https://www.propiedades.emol.com/propiedades/buscar?o=Arriendo&tp=Departamento&c=Vitacura"]
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
@@ -144,6 +149,7 @@ fuentes:
 
   - id: economicos
     nombre: Economicos (El Mercurio)
+    comuna_default: Vitacura
     urls: ["https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0"]
     paginacion: {paginas: 3, plantilla: "{url}/{n}"}
     url_confirmada: true
@@ -155,6 +161,7 @@ fuentes:
 
   - id: icasas
     nombre: iCasas
+    comuna_default: Vitacura
     urls: ["https://www.icasas.cl/arriendo/departamentos/santiago/vitacura"]
     paginacion: {paginas: 2, parametro: pagina}
     url_confirmada: true
@@ -162,18 +169,22 @@ fuentes:
 
   - id: doomos
     nombre: Doomos
+    comuna_default: Vitacura
     urls: ["https://www.doomos.cl/departamentos-vitacura-arriendo"]
     url_confirmada: true
     notas: "Unos 67 avisos, de corredoras chicas. Antiguo pero sigue vivo."
 
   - id: zoominmobiliario
     nombre: Zoom Inmobiliario
+    motor: navegador
+    comuna_default: Vitacura
     urls: ["https://www.zoominmobiliario.com/arriendo/departamento/vitacura"]
     url_confirmada: true
     notas: "Foco en proyectos nuevos, que es justo lo que el perfil prefiere."
 
   - id: toppropiedades
     nombre: Top Propiedades
+    comuna_default: Vitacura
     urls: ["https://www.toppropiedades.cl/propiedades/arriendo/departamento/metropolitana/vitacura"]
     detalle: {patron: "/propiedad/\\d+", max: 8}
     url_confirmada: true
@@ -202,6 +213,7 @@ fuentes:
 
   - id: nuroa
     nombre: Nuroa
+    comuna_default: Vitacura
     urls: ["https://www.nuroa.cl/arriendos/departamento-santiago-vitacura"]
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
@@ -250,6 +262,8 @@ fuentes:
 
   - id: assetplan
     nombre: AssetPlan
+    motor: navegador
+    comuna_default: Vitacura
     urls: ["https://www.assetplan.cl/arriendo/departamento/vitacura"]
     url_confirmada: true
     notas: >-
@@ -278,6 +292,8 @@ fuentes:
 
   - id: remax
     nombre: RE/MAX Chile
+    motor: navegador
+    comuna_default: Vitacura
     urls: ["https://www.remax.cl/es-cl/busqueda/metropolitana-de-santiago/santiago/vitacura/residencial-departamento/arriendo/"]
     motor: navegador
     paginacion: {paginas: 2, parametro: page}
@@ -353,11 +369,14 @@ fuentes:
 
   - id: propertypartners
     nombre: Property Partners
-    urls: ["https://www.propertypartners.cl/"]
-    url_confirmada: false
+    urls: ["https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/"]
+    comuna_default: Vitacura
+    url_confirmada: true
     notas: >-
-      Corredora del sector oriente. Pedida explícitamente. Dominio verificado
-      por DNS; falta la ruta del buscador filtrado a arriendo + Vitacura.
+      Corredora del sector oriente, pedida explícitamente. El dominio que
+      usábamos —propertypartners.cl— NO es el suyo: su sitio vive en
+      ppartnersgroup.com, y por eso entregaba cero. La ruta de acá está
+      filtrada a arriendo + departamento + Vitacura y tiene inventario.
 
   - id: magnoliaproperty
     nombre: Magnolia Property
