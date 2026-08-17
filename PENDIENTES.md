@@ -294,7 +294,8 @@ y alerta en la corrida siguiente.
 - [ ] De acuerdo
 - [ ] Cambiar a: ______
 
-**Corre 2 veces al día, 8:00 y 19:00 de Chile.**
+**Corre 3 veces al día, 8:00, 13:00 y 19:00 de Chile** (la del almuerzo la
+pediste el 17-08).
 
 - [ ] De acuerdo
 - [ ] Cambiar a: ______________________
@@ -407,7 +408,8 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 433 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 513 tests, todos sin red |
+| Extractores auditados contra las páginas reales | ✅ diagnóstico del 17-08 (`Actions → Diagnóstico de cobertura`) |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ✅ 15 fuentes entregando Vitacura ([FUENTES.md](FUENTES.md)) |
 | Telegram | ✅ **funcionando**, prueba de envío OK |
