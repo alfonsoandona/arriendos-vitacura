@@ -344,6 +344,15 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
         clave = sin_cola
     clave = _sin_via_inicial(clave)
 
+    # Una "dirección" que es SOLO el nombre de la comuna no identifica nada, y
+    # usarla de llave es catastrófico: en la corrida real del 17-08, 37 avisos
+    # DISTINTOS de GoPlaceIt y Top Propiedades cuya dirección quedó como
+    # "Vitacura" a secas se fusionaron en un solo registro — 37 departamentos
+    # que no tienen nada que ver, colapsados en uno, con un solo mensaje y
+    # 36 perdidos. Peor que no deduplicar, por mucho.
+    if _normalize_key(comuna) and clave.strip() == _normalize_key(comuna).strip():
+        return ""
+
     c = _normalize_key(comuna)
     if c:
         # La comuna al FINAL es igual de prescindible que la región: sobra en

@@ -582,3 +582,69 @@ def test_lo_visto_sin_avisar_no_realerta_sin_cambio(entorno, mensajes,
     # Segunda corrida con el perfil normal: lo visto sin cambio NO alerta.
     cli.correr(ArgsFalsos(fuentes=una_fuente))
     assert mensajes == [], "visto sin avisar y sin cambio = noticia vieja"
+
+
+def test_la_ficha_propia_completa_el_aviso_antes_de_mandarlo(monkeypatch):
+    """15 de las 16 alertas reales salieron sin antigüedad —el criterio
+    sí-o-sí— teniendo 14 de ellas ficha propia donde el dato vive. El radar
+    mandaba el link con la respuesta adentro sin leerla."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/9", title="Depto",
+                 direccion="Espoz 2620", comuna="Vitacura",
+                 m2_totales=None, dormitorios=3, arriendo_clp=1_500_000)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+    assert a.antiguedad_anos is None
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body><article><a href="/aviso/9">Departamento Espoz 2620,
+      3 dormitorios, 134 m2 totales, construido en 2018, gastos comunes
+      $180.000, arriendo $1.500.000</a></article></body></html>""")
+
+    class StoreFalso:
+        def registrar(self, *a, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    assert len(salida) == 1
+    listo = salida[0][0]
+    assert listo.m2_totales == 134
+    assert listo.antiguedad_anos is not None
+    assert listo.gastos_comunes_clp == 180_000
+    assert listo.extras.get("enriquecido_de_ficha")
+
+
+def test_si_la_ficha_revela_mas_de_30_anos_no_se_alerta(monkeypatch):
+    """El enriquecimiento haciendo su mejor trabajo: la alerta que NO llegó."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/7", title="Depto",
+                 direccion="Espoz 2620", comuna="Vitacura",
+                 m2_totales=120, dormitorios=3, arriendo_clp=1_400_000)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body><article><a href="/aviso/7">Departamento Espoz 2620, 3
+      dormitorios, 120 m2, construido en 1985, $1.400.000</a></article>
+      </body></html>""")
+
+    registrados = []
+    class StoreFalso:
+        def registrar(self, x, **k): registrados.append(x)
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    assert salida == [], "la ficha reveló 40 años: no llega al teléfono"
+    assert registrados and registrados[0].clase_descarte == "antiguedad"

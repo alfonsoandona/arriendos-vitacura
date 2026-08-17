@@ -134,6 +134,54 @@ def escribir_historial(destino: Path) -> None:
         log.warning("No se pudo escribir alertas/historial.md: %s", e)
 
 
+def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
+                          uf: float, perfil: dict, store) -> list:
+    """Completa cada alerta con los datos de su propia ficha. Ver paso 6b.
+
+    Nunca levanta: una ficha caída deja el aviso como estaba, que ya era
+    alertable. Y el precio NO se toca —_fusionar lo excluye a propósito—: el
+    del listado es el vigente, y el de una ficha puede estar desactualizado.
+    """
+    from .sources.generic import extraer
+    from .sources.registry import _bajar
+    from .store import _fusionar
+
+    por_id = {f.id: f for f in fuentes}
+    salida = []
+    for a, motivo in a_avisar:
+        fuente = por_id.get(a.source)
+        faltan = (a.antiguedad_anos is None or a.gastos_comunes_clp is None
+                  or a.m2_totales is None or a.piso is None)
+        if not (fuente and faltan) or a.extras.get("sin_link_directo"):
+            salida.append((a, motivo))
+            continue
+
+        try:
+            html = _bajar(fetcher, fuente, a.url)
+        except Exception:                                        # noqa: BLE001
+            html = None
+        if not html:
+            salida.append((a, motivo))
+            continue
+
+        for candidato in extraer(html, a.url, fuente, uf):
+            _fusionar(a, candidato)
+        a.extras["enriquecido_de_ficha"] = True
+        S.evaluar(a, perfil)
+
+        if a.descartado:
+            # La ficha reveló un incumplimiento —"construido en 1985", 95 m²
+            # de verdad— que la tarjeta del listado escondía. Esto es el
+            # enriquecimiento haciendo SU mejor trabajo: la alerta que no
+            # llegó. Queda registrado y en la bitácora, no en el teléfono.
+            log.info("Enriquecido y descartado: %s (%s)", a.codigo,
+                     a.motivo_descarte)
+            store.registrar(a)
+            continue
+        salida.append((a, motivo))
+    return salida
+
+
 def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             stats: dict) -> int:
     store = Store(dir_estado())
@@ -354,6 +402,20 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
                  len(a_avisar), tope, len(a_avisar) - tope)
         sobrantes = [a for a, _m in a_avisar[tope:]]
         a_avisar = a_avisar[:tope]
+
+    # --- 6b. enriquecer desde la ficha propia, ANTES de avisar ---
+    #
+    # La auditoría de las 16 alertas reales (18-08) midió el problema: 15 no
+    # traían antigüedad —el criterio sí-o-sí del usuario—, la mayoría tampoco
+    # GC ni m² totales… y 14 tenían ficha propia donde esos datos VIVEN. El
+    # radar mandaba el link con la respuesta adentro sin leerla.
+    #
+    # Son a lo más `tope` fetches (8) por corrida, solo de los que van a
+    # alertar: el costo es un minuto y el beneficio es doble. La alerta sale
+    # completa, y el filtro duro trabaja con datos: si la ficha revela 40
+    # años, el aviso se descarta acá en vez de llegar al teléfono.
+    a_avisar = _enriquecer_por_ficha(a_avisar, fuentes, fetcher, uf,
+                                     perfil, store)
 
     # --- 7. avisar ---
     # La mediana del mercado sale del historial de búsquedas y se le pasa al

@@ -504,3 +504,22 @@ def test_la_deduplicacion_prefiere_la_copia_con_link_directo():
     unico = deduplicar([generica, directa])
     assert len(unico) == 1
     assert unico[0].url == "https://yapo.cl/aviso/9"
+
+
+def test_la_comuna_a_secas_no_es_llave_de_deduplicacion():
+    """El sobre-merge de la corrida real: 37 avisos DISTINTOS fusionados.
+
+    GoPlaceIt dejó decenas de avisos cuya "dirección" quedó como "Vitacura" a
+    secas, y esa llave los colapsó a todos en un registro: un mensaje y 36
+    departamentos perdidos. Peor que no deduplicar, por mucho.
+    """
+    from arriendo.models import clave_direccion
+    from arriendo.store import deduplicar
+
+    assert clave_direccion("Vitacura", "Vitacura") == ""
+
+    avisos = [Arriendo(source="goplaceit", url=f"https://gp.cl/{i}",
+                       title=f"Depto {i}", direccion="Vitacura",
+                       comuna="Vitacura", arriendo_clp=1_000_000 + i)
+              for i in range(5)]
+    assert len(deduplicar(avisos)) == 5, "cinco deptos distintos siguen siendo cinco"
