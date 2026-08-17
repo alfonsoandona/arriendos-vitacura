@@ -138,18 +138,24 @@ def test_sin_state_dir_igual_funciona():
 def test_la_uf_decide_si_un_aviso_de_yapo_pasa_el_tope(tmp_path):
     """El caso concreto que motivó todo el módulo.
 
-    UF 39 con la constante entra al presupuesto; con la UF real de $41.500 se
-    pasa. El mismo departamento, dos veredictos.
+    Un mismo aviso publicado en UF puede entrar o quedar fuera según con qué
+    valor de UF se convierta. Acá se compara contra el TECHO negociable, que
+    es el número que de verdad descarta.
+
+    Los montos están elegidos para quedar uno a cada lado del techo con el
+    presupuesto vigente ($1.700.000 + 12% = $1.904.000). Si el tope se mueve,
+    este test hay que reajustarlo — y que haya que reajustarlo es la gracia:
+    obliga a mirar si el cambio de presupuesto dejó bien la conversión de UF.
     """
     from arriendo import scoring as S
     from arriendo.config import cargar_perfil
     from arriendo.parse import parse_montos
 
     perfil = cargar_perfil()
-    tope, _ = S.tope_arriendo(perfil)
+    _, techo = S.tope_arriendo(perfil)
 
-    con_constante = parse_montos("CLF 39.00", valor_uf=40_800)["arriendo_clp"]
-    con_real = parse_montos("CLF 39.00", valor_uf=41_500)["arriendo_clp"]
+    con_constante = parse_montos("CLF 46.00", valor_uf=40_800)["arriendo_clp"]
+    con_real = parse_montos("CLF 46.00", valor_uf=41_500)["arriendo_clp"]
 
-    assert con_constante <= tope
-    assert con_real > tope
+    assert con_constante <= techo, f"{con_constante} debería entrar"
+    assert con_real > techo, f"{con_real} debería quedar fuera"

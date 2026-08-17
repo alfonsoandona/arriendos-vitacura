@@ -35,7 +35,14 @@ def test_el_perfil_dice_lo_que_se_pidio():
     assert req["m2_totales"]["min"] == 100
     assert req["m2_totales"]["estricto"] is True
     assert req["dormitorios"]["min"] == 3
-    assert req["arriendo_clp"]["max"] == 1_600_000
+    # Subido de 1,6 a 1,7 millones el 17-08-2026, a pedido. El test se
+    # actualiza junto con el perfil a propósito: si el tope cambia sin querer
+    # —un dedo en el YAML— esto lo dice antes de que empiece a llegar ruido.
+    assert req["arriendo_clp"]["max"] == 1_700_000
+    assert req["arriendo_clp"]["holgura_pct"] == 12
+    # Y el techo negociable, que es el número que de verdad descarta.
+    from arriendo import scoring as S
+    assert round(S.tope_arriendo(cargar_perfil())[1]) == 1_904_000
 
 
 def test_la_zona_es_la_pedida():

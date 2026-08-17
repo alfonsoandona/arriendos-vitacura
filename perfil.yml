@@ -119,17 +119,27 @@ requisitos:
   dormitorios:
     min: 3
 
-  # "Cerca de 1.6 millones máximo". El "cerca de" es parte del pedido y está
-  # implementado: el tope duro no son 1,6 millones exactos sino 1,6 millones
-  # más la holgura de abajo. Entre el tope y el tope+holgura la propiedad
-  # entra pero pierde puntos, que es lo que "cerca de" quiere decir.
+  # El presupuesto. Son DOS números y hacen cosas distintas:
   #
-  # Un arriendo de 1.650.000 que cumple todo lo demás no se puede tirar en
-  # silencio: se negocia. Uno de 2.200.000 sí, porque no hay negociación que
-  # lo baje 600 mil.
+  #   max          el tope de referencia. Hasta acá el precio no resta puntos.
+  #   holgura_pct  cuánto más arriba sigue entrando, penalizado en el puntaje.
+  #
+  # El "cerca de" del pedido vive en la holgura: un arriendo que se pasa un
+  # poco y cumple todo lo demás no se puede tirar en silencio, porque se
+  # negocia. Uno que se pasa mucho sí, porque no hay negociación que lo baje
+  # medio millón.
+  #
+  # Subido de 1,6 a 1,7 millones el 17-08-2026, a pedido.
+  #
+  # Lo que eso significa contra el mercado que el radar ya midió: el canon
+  # mediano de un departamento en Vitacura anda en $1,5 millones, así que 1,7
+  # deja de ser el borde del rango y pasa a ser cómodo. Con la holgura del 12%
+  # entra hasta $1.904.000, que ya es bastante por encima de la mediana — si
+  # empieza a llegar ruido caro, lo primero que conviene bajar es la holgura,
+  # no el tope.
   arriendo_clp:
-    max: 1600000
-    holgura_pct: 12        # hasta $1.792.000 entra, penalizado
+    max: 1700000
+    holgura_pct: 12        # hasta $1.904.000 entra, penalizado
 
   # Qué se compara contra el tope de arriba.
   #

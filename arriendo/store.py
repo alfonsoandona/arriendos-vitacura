@@ -244,7 +244,7 @@ class Store:
         if hallazgos is not None:
             self._escribir(
                 self.ruta_hallazgos,
-                [a.to_dict() for a in sorted(hallazgos, key=lambda x: -x.score)],
+                [a.to_dict() for a in sorted(hallazgos, key=_orden, reverse=True)],
             )
 
     # -- mantenimiento ----------------------------------------------------
@@ -267,6 +267,11 @@ class Store:
         for fp in a_borrar:
             del self.indice[fp]
         return len(a_borrar)
+
+
+def _orden(a: Arriendo) -> tuple:
+    """(puntaje, confianza), igual que el tablero. Ver `scoring.orden`."""
+    return (a.score, a.extras.get("confianza", 0))
 
 
 def leer_tendencia(historial: list[dict]) -> str:

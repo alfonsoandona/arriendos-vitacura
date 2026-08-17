@@ -76,23 +76,108 @@ RUBRO_COMPLETO = (PESO_UBICACION + PESO_ANTIGUEDAD + PESO_PRECIO
 PESO_PREFERENCIAS = 6        # lo más que puede SUMAR
 PENALIZACION_MAXIMA = 12     # lo más que puede RESTAR
 
-# Cuánto del puntaje final se lleva el rubro, dejando el resto a las
-# preferencias positivas. Los dos suman 100.
+# ---------------------------------------------------------------------------
+# Qué significa el número
 #
-# La proporción existe para que el puntaje siga ordenando ARRIBA, que es
-# donde importa: con el rubro llevándose los 100 puntos completos, cualquier
-# departamento bueno con una preferencia a favor se iba a 100 y empataba con
-# todos los demás buenos. Y el tope de avisos por corrida hace que el orden
-# de los primeros ocho sea justamente lo que el usuario ve.
-ESCALA_RUBRO = 94
+# Un puntaje de 0 a 100 solo sirve si el mismo número quiere decir lo mismo
+# siempre. La primera versión no cumplía eso, y se vio apenas hubo datos
+# reales: de 91 candidatos, CINCUENTA quedaron entre 60 y 69. El puntaje no
+# ordenaba nada justo donde había que decidir.
+#
+# La causa no era la fórmula sino qué se estaba metiendo dentro de ella. El
+# número mezclaba dos preguntas distintas:
+#
+#     ¿QUÉ TAN BUENO ES?     lo que se quiere saber.
+#     ¿CUÁNTO SABEMOS DE ÉL? lo que estaba escondido adentro.
+#
+# En la corrida real, NINGÚN aviso de los 91 pudo medir los cinco criterios.
+# 22 midieron uno solo. Un 65 sacado de un dato se veía idéntico a un 65
+# sacado de cuatro, y el tablero ordenaba mal por eso: un departamento
+# mediocre bien documentado quedaba debajo de uno apenas conocido.
+#
+# La solución es separarlas y publicar las dos.
+# ---------------------------------------------------------------------------
+
+# El puntaje de un aviso del que no se sabe nada.
+#
+# No es 0. Un 0 dice "es malo", y de un aviso sin datos no se sabe eso: se
+# sabe que no se sabe. 50 es la forma numérica de "ni idea", y es el ancla
+# hacia la que se encoge un puntaje sacado de poca evidencia.
+PUNTAJE_NEUTRO = 50
+
+# Las bandas. Existen para que el número signifique algo sin tener que
+# comparar contra otro: "83" no dice nada solo, "83, muy bueno" sí.
+#
+# Los cortes no son redondos por gusto. 85 es el piso de "anda a verlo hoy" y
+# está puesto donde, con los datos reales, quedan los que cumplen todo y
+# además son nuevos o baratos. 55 es el piso de "sirve" y coincide con el
+# techo de un aviso sin precio: por definición no puede subir de ahí.
+BANDAS = (
+    (85, "🔥", "Anda a verlo"),
+    (70, "⭐", "Muy bueno"),
+    (55, "👍", "Sirve"),
+    (40, "🤔", "Dudoso"),
+    (0,  "▫️", "Al fondo"),
+)
 
 # Lo más que puede puntuar un aviso que no publica el arriendo.
 #
-# El número tiene que cumplir dos condiciones a la vez y por eso es este: por
-# arriba, quedar bajo cualquier match verificado decente (los buenos puntúan
-# 70-90), y por abajo, quedar cómodamente sobre el umbral de alerta (35), para
-# que un departamento sin precio siga avisando en vez de perderse.
-TOPE_SIN_PRECIO = 60
+# El precio no es un criterio más: es el requisito con el que empieza el
+# pedido. Un aviso sin precio no se puede verificar contra el presupuesto, así
+# que puede ser bueno pero nunca "muy bueno" — 69 es el techo de la banda
+# "Sirve" y es exactamente lo que se quiere decir de él.
+#
+# Es un techo y no un descarte: un 5D de 226 m² en Vitacura sin precio
+# publicado puede ser justo el que se busca. Lo que no puede es pasar por
+# delante de uno verificado.
+#
+# Y se aplica COMPRIMIENDO el puntaje a esa escala, no recortándolo: ver
+# `evaluar`. Recortar dejaba a los 39 avisos sin precio empatados en el mismo
+# número, o sea media tabla sin orden.
+TOPE_SIN_PRECIO = 69
+
+
+def banda(score: int) -> tuple[str, str]:
+    """(emoji, nombre) de la banda de un puntaje."""
+    for piso, emoji, nombre in BANDAS:
+        if score >= piso:
+            return emoji, nombre
+    return BANDAS[-1][1], BANDAS[-1][2]
+
+
+def orden(l: Arriendo) -> tuple:
+    """Con qué se ordena el tablero y la cola de avisos.
+
+    Es (puntaje, confianza), y el segundo término es la parte nueva.
+
+    Hace falta porque el puntaje solo no alcanza para ordenar: por diseño no
+    castiga al aviso escueto —ver la regla nº2 arriba— así que dos avisos con
+    el mismo puntaje pueden estar sostenidos por cinco criterios o por uno. Y
+    cuando hay que elegir cuál de los dos mirar primero, el que sabemos que es
+    bueno le gana al que parece bueno.
+
+    Va acá y no adentro del puntaje a propósito. Meterlo adentro sería
+    exactamente lo que la regla nº2 prohíbe: bajarle el puntaje a un
+    departamento porque su portal escribe poco. El aviso escueto de un
+    particular en Yapo suele ser el mejor negocio justamente porque nadie lo
+    maquilló; lo que corresponde es mirarlo después, no descontarle puntos.
+    """
+    return (l.score, l.extras.get("confianza", 0))
+
+
+def _intentar_encoger_no_va(*_a, **_k):  # pragma: no cover - marcador histórico
+    """Acá vivió un encogimiento del puntaje hacia 50 según la confianza.
+
+    Se probó y se sacó: la idea era que un puntaje sostenido por poca
+    evidencia no afirmara tanto, pero en la práctica le bajaba el puntaje a
+    todo aviso que publicara poco, que es literalmente lo que la regla nº2 de
+    este módulo existe para no hacer. Dos tests lo atraparon en el acto.
+
+    La misma información se publica ahora como un segundo número —la
+    confianza— y se usa para ORDENAR, no para puntuar. Queda anotado para que
+    a nadie se le ocurra de nuevo.
+    """
+    raise NotImplementedError
 
 
 @dataclass
@@ -125,6 +210,9 @@ class Evaluacion:
     # Cuántos puntos del rubro se pudieron evaluar de verdad.
     medibles: int = 0
     preferencias: int = 0
+    # Qué parte del rubro se pudo medir, de 0 a 100. Va publicada junto al
+    # puntaje: ver el bloque "Qué significa el número".
+    confianza: int = 0
     # El aviso no publica el arriendo. No descarta, pero topea el puntaje:
     # ver el comentario en `evaluar`.
     sin_precio: bool = False
@@ -142,9 +230,13 @@ def _normalizar(bruto: int, medibles: int) -> int:
     cobrarla como 0 hace que un departamento perfecto de Vitacura puntúe 55 y
     quede debajo de uno peor que sí publicó el año.
 
-    Con pocos criterios medidos NO se normaliza: un 100% sacado de un solo
-    dato es peor que un número bajo y honesto.
+    Con muy pocos criterios medidos NO se normaliza, y ese umbral se queda: un
+    100% sacado de un solo dato es una afirmación que ese dato no sostiene.
+    Debajo del mínimo el puntaje se deja crudo —sale bajo, y es honesto que
+    salga bajo— y la confianza publicada dice por qué.
     """
+    if medibles <= 0:
+        return 0
     if medibles < _MINIMO_PARA_NORMALIZAR or medibles >= RUBRO_COMPLETO:
         return max(0, min(100, bruto))
     return max(0, min(100, round(100 * bruto / medibles)))
@@ -471,10 +563,25 @@ def _rubro_antiguedad(l: Arriendo, perfil: dict) -> Rubro:
         return Rubro("Antigüedad", PESO_ANTIGUEDAD, 0, False,
                      "el aviso no publica el año", falta="el año de construcción")
 
+    # La curva baja DESDE EL AÑO CERO, sin meseta arriba.
+    #
+    # Antes el tramo ideal era plano: cualquier edificio de 10 años o menos
+    # sacaba el mismo puntaje, así que uno de 2 años y uno de 10 empataban en
+    # el rubro que existe para separarlos. "Ideal más nuevo, entonces vamos
+    # poniendo puntaje" pide justamente lo contrario, y la meseta lo anulaba
+    # en el tramo donde está la mayoría del inventario nuevo de Vitacura.
+    #
+    # Lo mismo pasaba abajo con el precio, y entre las dos mesetas el puntaje
+    # dejaba de ordenar: dos departamentos bien distintos quedaban a 3 puntos
+    # uno del otro y una preferencia de +6 daba vuelta la comparación.
+    #
+    # Ahora la pendiente del tramo ideal es suave —de 1,00 a 0,85 en diez
+    # años— para que separar sin exagerar: dos años de diferencia valen algo,
+    # pero no tanto como veinte.
     if antig <= ideal:
-        factor = 1.0
+        factor = 1.0 - 0.15 * antig / max(ideal, 1)
     elif antig <= bueno:
-        factor = 1.0 - 0.35 * (antig - ideal) / max(bueno - ideal, 1)
+        factor = 0.85 - 0.20 * (antig - ideal) / max(bueno - ideal, 1)
     elif antig <= aceptable:
         factor = 0.65 - 0.40 * (antig - bueno) / max(aceptable - bueno, 1)
     else:
@@ -508,14 +615,22 @@ def _rubro_precio(l: Arriendo, perfil: dict) -> Rubro:
         return Rubro("Precio", PESO_PRECIO, 0, False,
                      "el aviso no publica el valor", falta="el arriendo mensual")
 
-    # Bajo el tope: puntaje completo al 80% del presupuesto o menos, y cae
-    # suave hasta el tope. No premia lo muy barato sin límite —un arriendo de
-    # $600.000 para 100 m² en Vitacura es un error de dato o un problema— pero
-    # sí premia el margen.
-    if monto <= tope * 0.80:
+    # Bajo el tope, el puntaje baja de forma continua desde el 55% del
+    # presupuesto: ahí está el piso donde un arriendo más barato ya no es
+    # mejor negocio sino un dato sospechoso —$900.000 por 130 m² en Vitacura
+    # es un error de parseo o un problema del departamento—. De ahí al tope
+    # cae parejo, sin meseta.
+    #
+    # La meseta anterior llegaba hasta el 80% del tope, o sea que con el
+    # presupuesto en $1.700.000 todo lo que costara menos de $1.360.000
+    # puntuaba idéntico. Un arriendo de $1.250.000 y uno de $1.350.000 no son
+    # lo mismo, y este es el rubro donde esa diferencia tiene que aparecer.
+    PISO_SOSPECHOSO = 0.55
+    if monto <= tope * PISO_SOSPECHOSO:
         factor = 1.0
     elif monto <= tope:
-        factor = 1.0 - 0.25 * (monto - tope * 0.80) / (tope * 0.20)
+        tramo = (monto - tope * PISO_SOSPECHOSO) / (tope * (1 - PISO_SOSPECHOSO))
+        factor = 1.0 - 0.25 * tramo
     else:
         # Entre el tope y el techo negociable: entra, pero se le cobra. Es el
         # "cerca de 1.6 millones" del pedido convertido en puntos.
@@ -774,11 +889,21 @@ def evaluar(l: Arriendo, perfil: dict) -> Arriendo:
     ev.medibles = sum(r.peso for r in ev.rubros if r.medido)
     ev.preferencias, razones_pref = evaluar_preferencias(l, perfil)
 
-    # El rubro se escala a 88 y las preferencias aportan los otros 12. Ver
-    # ESCALA_RUBRO: es lo que evita que todos los departamentos buenos
-    # empaten en 100 y el puntaje deje de ordenar justo arriba.
-    rubro = round(_normalizar(bruto, ev.medibles) * ESCALA_RUBRO / 100)
-    ev.score = max(0, min(100, rubro + ev.preferencias))
+    # La confianza: qué parte del rubro se pudo medir de verdad. Es la segunda
+    # mitad de la respuesta y va publicada junto al puntaje, no escondida
+    # adentro de él. Un 83 con 80% de confianza y un 83 con 20% son dos cosas
+    # muy distintas y hay que poder distinguirlas de un vistazo.
+    ev.confianza = round(100 * ev.medibles / RUBRO_COMPLETO)
+
+    # El puntaje: el rubro sobre lo medible, más las preferencias.
+    #
+    # Ya no se escala por 0,94 como antes. Ese factor existía para dejarle
+    # espacio arriba a las preferencias positivas, pero le robaba seis puntos
+    # a todo el mundo y hacía que un departamento perfecto nunca pudiera
+    # llegar a 100. Con las preferencias topeadas en +6 y el clamp final, el
+    # espacio ya está garantizado sin deformar la escala: ahora un 100 es
+    # alcanzable y quiere decir "cumple todo lo medible y además tiene extras".
+    ev.score = max(0, min(100, _normalizar(bruto, ev.medibles) + ev.preferencias))
     ev.razones = [f"{r.nombre}: {r.detalle}" for r in ev.rubros if r.medido]
     ev.razones += razones_pref
 
@@ -802,11 +927,21 @@ def evaluar(l: Arriendo, perfil: dict) -> Arriendo:
     # avisar. Lo que no puede es pasar por delante de uno verificado.
     if not next((r.medido for r in ev.rubros if r.nombre == "Precio"), True):
         ev.sin_precio = True
-        if ev.score > TOPE_SIN_PRECIO:
-            ev.score = TOPE_SIN_PRECIO
+        # Se COMPRIME hacia el techo, no se recorta contra él.
+        #
+        # La primera versión hacía `min(score, TOPE)`, y eso produjo el peor
+        # síntoma que tuvo este puntaje: los 39 avisos sin precio quedaron
+        # todos clavados en el mismo número. La mitad del tablero empatada,
+        # sin forma de saber cuál mirar primero — que es exactamente lo que un
+        # puntaje existe para resolver.
+        #
+        # Multiplicar en vez de cortar respeta el techo igual y conserva el
+        # orden entre ellos: un 5D de 226 m² recién construido sigue quedando
+        # por encima de un 3D viejo, los dos bajo el techo.
+        ev.score = round(ev.score * TOPE_SIN_PRECIO / 100)
         ev.razones.append(
-            "sin precio publicado: no se puede verificar contra el tope, "
-            "así que no compite con los que sí lo publican")
+            "sin precio publicado: no se puede verificar contra el "
+            "presupuesto, así que no compite con los que sí lo publican")
 
     return _aplicar(l, ev)
 
@@ -828,6 +963,7 @@ def _aplicar(l: Arriendo, ev: Evaluacion,
         for r in ev.rubros
     ]
     l.extras["preferencias"] = ev.preferencias
+    l.extras["confianza"] = ev.confianza
     # Lo lee la alerta, para decirlo en vez de mostrar un mensaje sin precio y
     # que parezca que se olvidó.
     if ev.sin_precio:
@@ -851,10 +987,15 @@ def techo_alcanzable(l: Arriendo) -> int:
         return l.score
     logrado = sum(r.obtenido for r in rubros)
     por_medir = sum(r.peso for r in rubros if not r.medido)
-    # Se escala igual que el puntaje real: si no, el techo se compararía
-    # contra otra regla y podría quedar por debajo del puntaje que ya tiene.
-    rubro = round((logrado + por_medir) * ESCALA_RUBRO / 100)
-    return max(0, min(100, rubro + l.extras.get("preferencias", 0)))
+
+    # El techo se calcula con la MISMA fórmula que el puntaje real pero
+    # suponiendo dos cosas: que los datos que faltan aparecen, y que cuando
+    # aparecen son buenos. Por eso los rubros sin medir suman su peso completo
+    # y la confianza pasa a 100 — sin lo segundo, el techo saldría encogido
+    # hacia el neutro y podría quedar por DEBAJO del puntaje que ya tiene, que
+    # es justo lo que esta función existe para no hacer.
+    return max(0, min(100, _normalizar(logrado + por_medir, RUBRO_COMPLETO)
+                      + l.extras.get("preferencias", 0)))
 
 
 def debe_alertar(l: Arriendo, perfil: dict) -> bool:

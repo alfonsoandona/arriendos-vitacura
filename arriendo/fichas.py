@@ -17,6 +17,7 @@ import re
 from datetime import date
 from pathlib import Path
 
+from . import scoring as S
 from .models import Arriendo
 from .parse import strip_accents
 from .scoring import RUBRO_COMPLETO, desglose, techo_alcanzable
@@ -362,7 +363,7 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
     ruta = directorio / "README.md"
 
     vivos = sorted([a for a in hallazgos if not a.descartado],
-                   key=lambda x: -x.score)
+                   key=S.orden, reverse=True)
     descartados = [a for a in hallazgos if a.descartado]
 
     L = ["# Tablero de arriendos", ""]

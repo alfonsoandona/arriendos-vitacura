@@ -295,7 +295,10 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
 
     # --- 6. decidir a quién avisar ---
     a_avisar: list[tuple[Arriendo, str]] = []
-    for a in sorted(candidatos, key=lambda x: -x.score):
+    # Orden = (puntaje, confianza). El desempate por confianza es lo que
+    # decide cuál de dos avisos igual de buenos se mira primero: el que
+    # SABEMOS que es bueno le gana al que PARECE bueno. Ver `scoring.orden`.
+    for a in sorted(candidatos, key=S.orden, reverse=True):
         if not S.debe_alertar(a, perfil):
             continue
         if store.ya_avisado(a):
