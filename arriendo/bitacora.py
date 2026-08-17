@@ -72,6 +72,12 @@ def _resumen(stats: dict) -> str:
     L.append(f"| Después de deduplicar | {stats.get('unicos', 0)} |")
     L.append(f"| Pasaron los filtros | {stats.get('candidatos', 0)} |")
     L.append(f"| Avisados por Telegram | {stats.get('avisados', 0)} |")
+    if stats.get("nuevos") is not None:
+        # El movimiento del mercado, que es distinto de lo que se avisó: un día
+        # con 6 altas y 0 avisos significa que salió inventario y no calificó,
+        # y eso se lee muy distinto de un día sin inventario nuevo.
+        L.append(f"| Aparecieron | {stats.get('nuevos', 0)} |")
+        L.append(f"| Dejaron de publicarse | {stats.get('se_fueron', 0)} |")
     if stats.get("valor_uf"):
         # De dónde salió la UF explica por qué un aviso publicado en UF quedó
         # justo a un lado u otro del tope de presupuesto.

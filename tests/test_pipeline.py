@@ -18,6 +18,7 @@ import pytest
 from arriendo import cli
 from arriendo.sources import registry
 from arriendo.sources.base import ResultadoFuente
+from arriendo.historial import leer as leer_historial
 from arriendo.sources.generic import extraer
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -496,3 +497,58 @@ def test_el_corte_por_tiempo_se_avisa_por_telegram():
                             "corte_por_tiempo": [f"F{n}" for n in range(19)]})
     assert "cortó por tiempo" in texto
     assert "19 fuentes" in texto
+
+# ---------------------------------------------------------------------------
+# Historial de búsquedas
+# ---------------------------------------------------------------------------
+
+def test_la_corrida_deja_el_historial_de_busquedas(entorno, mensajes,
+                                                   una_fuente, monkeypatch):
+    """Lo que el estado olvida a los 120 días, el historial lo conserva."""
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+
+    eventos = leer_historial(entorno / "state")
+    assert eventos, "la primera corrida tiene que anotar altas"
+    assert all(e["evento"] == "alta" for e in eventos)
+
+    # Y la página que se lee desde el teléfono.
+    pagina = (entorno / "alertas" / "historial.md").read_text(encoding="utf-8")
+    assert "Historial de búsquedas" in pagina
+
+
+def test_el_historial_no_cuenta_lo_que_no_es_de_este_mercado(entorno, mensajes,
+                                                             una_fuente,
+                                                             monkeypatch):
+    """Las ventas y lo de otras comunas moverían las medianas sin ser el mercado.
+
+    El fixture trae cinco avisos: uno pasa todos los filtros, y de los otros
+    cuatro hay una venta y un arriendo por temporada que no son parte del
+    mercado que se está midiendo.
+    """
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+
+    eventos = leer_historial(entorno / "state")
+    assert 0 < len(eventos) < 5
+
+
+def test_la_segunda_corrida_no_repite_las_altas(entorno, mensajes, una_fuente,
+                                                monkeypatch):
+    """Si repitiera, el historial diría que salen el doble de departamentos."""
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    primera = len(leer_historial(entorno / "state"))
+
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert len(leer_historial(entorno / "state")) == primera
+
+
+def test_una_corrida_en_seco_no_deja_historial(entorno, mensajes, una_fuente,
+                                               monkeypatch):
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente, dry_run=True))
+
+    assert leer_historial(entorno / "state") == []
+    assert not (entorno / "alertas" / "historial.md").exists()
+

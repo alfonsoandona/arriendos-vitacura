@@ -147,6 +147,17 @@ Por eso el radar se corta solo a los **18 minutos** (`--tope-minutos`): avisa
 lo que alcanzó a encontrar, guarda el estado, y deja anotado en la bitácora
 qué fuentes quedaron sin mirar.
 
+Y por eso también barre **cuatro fuentes a la vez** (`--hilos`). La corrida es
+casi toda espera de red, así que el caso normal baja de unos 12 minutos a unos
+4, y el peor caso deja de acercarse al techo: una fuente colgada ya no le come
+el turno a las otras 38.
+
+> **No es cargarle la mano a los portales.** El límite de velocidad es *por
+> sitio*: cada portal sigue recibiendo un request a la vez, espaciado por los
+> mismos 2 segundos de antes. El paralelismo es entre portales distintos. Las
+> fuentes que necesitan Chromium tienen su propio tope de dos a la vez, porque
+> ahí el límite no es el sitio sino la memoria del runner.
+
 ### La UF del día
 
 No es un detalle. **Yapo publica buena parte de su inventario de Vitacura en
@@ -310,6 +321,52 @@ número conviene llamar. La ficha trae la tabla completa con fechas.
 
 ---
 
+## El historial de búsquedas
+
+El estado contesta una sola pregunta —*¿ya avisé esto?*— y para no crecer sin
+fin olvida todo lo que lleva 120 días sin aparecer. O sea que justo lo más
+valioso se borraba: el departamento que estuvo publicado dos meses, bajó el
+precio tres veces y después desapareció.
+
+`state/inventario.jsonl` guarda ese rastro como un log de eventos —**alta**,
+**precio**, **baja**— y de ahí sale `alertas/historial.md`, que responde tres
+cosas que ninguna corrida suelta puede contestar:
+
+```
+| Departamentos nuevos          | 6         |
+| Dejaron de publicarse         | 4         |
+| Cambios de precio             | 4 (4 a la baja) |
+| Canon mediano                 | $1.505.000 |
+| Canon mediano por m²          | $12.210   |
+| Días publicado antes de irse  | 30        |
+| Rebaja mediana                | 8%        |
+```
+
+1. **¿Cuánto vale de verdad un 3D de 120 m² en Vitacura?** La mediana la dice
+   lo que efectivamente se publicó, no lo que pide un corredor.
+2. **¿Cuánto se demora en arrendarse?** Lo que desaparece de todos los
+   portales se arrendó. Saber que la mediana son 30 días —y a qué precio—
+   cambia cuánto se puede negociar y cuánto se puede esperar.
+3. **¿Este ya lo vi?** Un aviso que vuelve tres meses después, por otro portal
+   y más barato, es la misma oferta que no se arrendó. La alerta lo dice:
+   `🔁 Ya estuvo publicado hace 4 mes(es), a $1.750.000 (-11%)`.
+
+**La regla que evita mentir con esto:** un departamento que no aparece hoy no
+se da de baja. Hace falta que falte en **tres corridas seguidas** *y* que el
+portal que lo publicaba sí haya entregado en esas corridas. Sin la segunda
+condición, un martes con TocToc caído daría por arrendados a sus cuarenta
+departamentos, y esos cuarenta entrarían a la mediana con un número inventado.
+
+Las medianas sobre menos de cuatro avisos no se muestran: una mediana de tres
+es peor que ninguna, porque se ve igual que una de cuarenta y sobre ella se
+decide cuánto ofrecer.
+
+```bash
+python -m arriendo historial --dias 90 --comuna Vitacura
+```
+
+---
+
 ## Uso local
 
 No hace falta para operar el radar, pero sirve para probar cosas.
@@ -329,6 +386,12 @@ python -m arriendo run --fuente toctoc --dry-run
 
 # Ver qué fuentes entregan
 python -m arriendo calibrar --reporte calibracion.md
+
+# Qué dice el historial sobre el mercado
+python -m arriendo historial --dias 90 --comuna Vitacura
+
+# Barrer en serie, si algún portal se pone difícil con el paralelismo
+python -m arriendo run --hilos 1 --dry-run
 
 # Verificar las coordenadas del ancla contra el mapa
 python -m arriendo geocode
@@ -353,25 +416,26 @@ arriendo/
   store.py          Memoria entre corridas y fusión entre portales.
   fichas.py         Las fichas en Markdown y el tablero.
   bitacora.py       Qué pasó en cada corrida.
+  historial.py      La memoria del mercado: qué salió, qué bajó, qué se fue.
   uf.py             El valor de la UF, con respaldo en cascada.
   cli.py            Orquestación y línea de comandos.
   sources/
     base.py         HTTP educado: reintentos, rate limit, robots.txt.
     generic.py      Las tres pasadas de extracción.
     navegador.py    Chromium, para los portales que arman la página con JS.
-    registry.py     Carga de fuentes.yml, paginación y barrido.
+    registry.py     Carga de fuentes.yml, paginación y barrido en paralelo.
   alerts/
     telegram.py     El mensaje de ocho líneas.
 
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              352 tests.
+tests/              404 tests.
 ```
 
 ### Sobre los tests
 
-352 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+404 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación

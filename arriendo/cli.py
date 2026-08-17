@@ -16,6 +16,9 @@ from .config import (ALERTAS_DIR, LOGS_DIR, STATE_DIR, PerfilInvalido,
                      cargar_perfil, dir_alertas, dir_estado, dir_logs)
 from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
+from .historial import (a_markdown as historial_markdown,
+                        anotar as anotar_historial, eventos_de_corrida,
+                        leer as leer_historial, ya_visto)
 from .models import Arriendo
 from .sources.base import Fetcher
 from .sources.registry import (FuentesInvalidas, barrer_todas,
@@ -89,6 +92,43 @@ def correr(args: argparse.Namespace) -> int:
         except Exception:                                        # noqa: BLE001
             log.error("Tampoco se pudo avisar que la corrida falló")
         return 1
+
+
+# Motivos de descarte que sacan al aviso del mercado que se está midiendo.
+#
+# El historial existe para poder decir "un 3D de 120 m² en Vitacura se arrienda
+# en $1.5M". Para que ese número signifique algo, tiene que calcularse sobre
+# departamentos en arriendo de la zona y nada más: una casa en venta en Maipú
+# que apareció en un metabuscador movería la mediana sin ser parte del mercado
+# que se está mirando.
+#
+# Los descartes por precio, superficie o dormitorios NO están en esta lista, y
+# es a propósito: esos avisos sí son parte del mercado, solo que no de esta
+# búsqueda. Un 3D de 95 m² a $1.7M en Vitacura es exactamente lo que hay que
+# contar para saber si el presupuesto es realista.
+_FUERA_DEL_MERCADO = {"portal", "operacion", "tipo", "zona"}
+
+
+def _es_del_mercado(a: Arriendo) -> bool:
+    return a.clase_descarte not in _FUERA_DEL_MERCADO
+
+
+def escribir_historial(destino: Path) -> None:
+    """Rearma `alertas/historial.md` desde el log de eventos. Nunca levanta.
+
+    Es una página aparte del tablero porque contesta otra pregunta: el tablero
+    dice qué hay HOY, el historial dice cómo viene el mercado. Se abren en
+    momentos distintos.
+    """
+    try:
+        eventos = leer_historial(dir_estado())
+        if not eventos:
+            return
+        destino.mkdir(parents=True, exist_ok=True)
+        (destino / "historial.md").write_text(historial_markdown(eventos),
+                                              encoding="utf-8")
+    except OSError as e:
+        log.warning("No se pudo escribir alertas/historial.md: %s", e)
 
 
 def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
@@ -217,7 +257,36 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     stats["candidatos"] = len(candidatos)
     log.info("Pasaron los filtros: %d", len(candidatos))
 
-    # --- 5. decidir a quién avisar ---
+    # --- 5. anotar el historial de búsquedas ---
+    #
+    # Va ANTES de registrar en el estado, y ese orden es todo: los eventos se
+    # calculan comparando lo de hoy contra lo que el estado recuerda, y una
+    # vez registrado ya no hay contra qué comparar —todo se vería como si
+    # siempre hubiera estado ahí—.
+    #
+    # El historial guarda lo que el estado olvida: el estado purga a los 120
+    # días para no crecer sin fin, y justo lo más valioso —el departamento que
+    # estuvo dos meses, bajó tres veces y desapareció— se iba sin dejar rastro.
+    # Ver arriendo/historial.py.
+    del_mercado = [a for a in unicos if _es_del_mercado(a)]
+    eventos = eventos_de_corrida(
+        del_mercado, store,
+        {fid for fid, n in stats["por_fuente"].items() if n},
+        todos=unicos)
+    stats["eventos_historial"] = len(eventos)
+    stats["nuevos"] = sum(1 for e in eventos if e["evento"] == "alta")
+    stats["se_fueron"] = sum(1 for e in eventos if e["evento"] == "baja")
+
+    # Y de vuelta al aviso: un departamento que ya estuvo publicado y volvió no
+    # es una novedad, es una oferta que no se arrendó. Si además volvió más
+    # barato, es la mejor señal de negociación que da este mercado, y el estado
+    # no puede verla porque para entonces ya la olvidó.
+    previos = leer_historial(dir_estado())
+    for a in candidatos:
+        if (antes := ya_visto(previos, a)):
+            a.extras["ya_estuvo"] = antes
+
+    # --- 6. decidir a quién avisar ---
     a_avisar: list[tuple[Arriendo, str]] = []
     for a in sorted(candidatos, key=lambda x: -x.score):
         if not S.debe_alertar(a, perfil):
@@ -240,7 +309,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
                  len(a_avisar), tope, len(a_avisar) - tope)
         a_avisar = a_avisar[:tope]
 
-    # --- 6. avisar ---
+    # --- 7. avisar ---
     telegram = Telegram(
         dry_run=args.dry_run,
         caminable_km=float((perfil.get("radio_km") or {}).get("preferente") or 0),
@@ -274,8 +343,17 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     stats["avisados"] = enviados
     telegram.resumen(stats, enviados, marca_dir=dir_estado())
 
-    # --- 7. guardar ---
+    # --- 8. guardar ---
+    #
+    # El historial se escribe acá y no en el paso 5 por la misma razón que el
+    # resto: una corrida en seco no puede dejar rastro. Los eventos ya estaban
+    # calculados; lo único que se posterga es escribirlos.
     if not args.dry_run:
+        anotar_historial(eventos, dir_estado())
+        # El resumen del mercado se rearma sobre TODO el historial, no solo
+        # sobre los eventos de hoy: es lo que convierte seis meses de corridas
+        # en "el canon mediano de un 3D en Vitacura son $1.48M".
+        escribir_historial(dir_alertas())
         store.purgar()
         store.guardar(unicos)
         escribir_tablero(unicos, dir_alertas(), perfil)
@@ -377,6 +455,50 @@ def probar_aviso(args: argparse.Namespace) -> int:
     )
     print("✓ Mensaje entregado" if ok else "✗ Telegram no confirmó la entrega")
     return 0 if ok else 1
+
+
+def historial(args: argparse.Namespace) -> int:
+    """Qué dice el historial de búsquedas sobre el mercado.
+
+    Existe como comando aparte porque la pregunta "¿cuánto vale de verdad un
+    3D en Vitacura?" no se hace en el mismo momento que "¿qué salió hoy?", y
+    porque la respuesta no depende de correr nada: sale de lo ya guardado.
+    """
+    from .historial import contar_por_mes, resumen_mercado
+
+    eventos = leer_historial(dir_estado())
+    if not eventos:
+        print("Todavía no hay historial. Se llena solo con las corridas.")
+        return 0
+
+    r = resumen_mercado(eventos, dias=args.dias, comuna=args.comuna)
+    donde = f" en {args.comuna}" if args.comuna else ""
+    print(f"\nEl mercado{donde}, últimos {args.dias} días")
+    print(f"  {len(eventos)} eventos guardados en total\n")
+    print(f"  Departamentos nuevos      {r['nuevos']}")
+    print(f"  Dejaron de publicarse     {r['se_fueron']}")
+    print(f"  Cambios de precio         {r['cambios_de_precio']} "
+          f"({r['rebajas']} a la baja)")
+
+    # Los None se imprimen como un guión y no se omiten: que falte el dato es
+    # información —significa que todavía no hay suficientes avisos— y ocultar
+    # la línea haría pensar que el radar no lo mide.
+    def _linea(etiqueta: str, valor, formato=str):
+        print(f"  {etiqueta:<25} {formato(valor) if valor else '— (pocos datos)'}")
+
+    _linea("Canon mediano", r["precio_mediano"],
+           lambda v: f"${v:,.0f}".replace(",", "."))
+    _linea("Canon mediano por m²", r["precio_m2_mediano"],
+           lambda v: f"${v:,.0f}".replace(",", "."))
+    _linea("Días antes de irse", r["dias_hasta_arrendarse"], lambda v: f"{v}")
+    _linea("Rebaja mediana", r["rebaja_mediana_pct"], lambda v: f"{v}%")
+
+    if (por_mes := contar_por_mes(eventos)):
+        print("\n  Avisos nuevos por mes")
+        for mes, n in list(por_mes.items())[-12:]:
+            print(f"    {mes}  {'▪' * min(n, 40)} {n}")
+    print()
+    return 0
 
 
 def calibrar(args: argparse.Namespace) -> int:
@@ -599,6 +721,14 @@ def construir_parser() -> argparse.ArgumentParser:
     c.add_argument("--delay", type=float, default=2.0)
     c.add_argument("--timeout", type=int, default=20)
     c.set_defaults(func=calibrar)
+
+    c = sub.add_parser("historial", parents=[comun],
+                       help="qué dice el historial sobre el mercado")
+    c.add_argument("--dias", type=int, default=90,
+                   help="ventana a resumir")
+    c.add_argument("--comuna", default="",
+                   help="acotar a una comuna, p. ej. Vitacura")
+    c.set_defaults(func=historial)
 
     c = sub.add_parser("probar-aviso", parents=[comun], help="mandar un mensaje de prueba")
     c.add_argument("--dry-run", action="store_true")

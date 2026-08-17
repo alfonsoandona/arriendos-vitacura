@@ -332,6 +332,13 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
         if (tendencia := a.extras.get("tendencia_precio")):
             lineas.append(f"📉 {_escapar(str(tendencia))}")
 
+        # Un departamento que ya estuvo publicado y volvió no es una novedad:
+        # es una oferta que no se arrendó. Y si volvió más barato, es la mejor
+        # señal de negociación que da este mercado. El estado no puede verlo
+        # —purga a los 120 días—, el historial de búsquedas sí.
+        if (vuelta := _volvio(a)):
+            lineas.append(f"🔁 {_escapar(vuelta)}")
+
         if tope_arriendo and a.arriendo_clp > tope_arriendo:
             sobre = a.arriendo_clp - tope_arriendo
             lineas.append(
@@ -513,13 +520,54 @@ def _que_se_rompio(stats: dict) -> str:
     return ""
 
 
+def _volvio(a: Any) -> str:
+    """"Ya estuvo publicado", en una línea, si el historial lo vio antes.
+
+    Devuelve "" cuando no aporta: sin fecha no se puede decir hace cuánto, y
+    "ya estuvo" a secas no le sirve a nadie para decidir.
+    """
+    antes = a.extras.get("ya_estuvo")
+    if not isinstance(antes, dict) or not antes.get("cuando"):
+        return ""
+
+    from datetime import date
+
+    try:
+        dias = (date.today() - date.fromisoformat(str(antes["cuando"]))).days
+    except ValueError:
+        return ""
+    if dias < 30:
+        # Menos de un mes no es "volvió": es el mismo aviso republicado, y
+        # decirlo sería ruido en el mensaje.
+        return ""
+
+    texto = f"Ya estuvo publicado hace {dias // 30} mes(es)"
+    viejo, nuevo = antes.get("clp"), a.arriendo_clp
+    if viejo and nuevo and viejo != nuevo:
+        pct = round(100 * (nuevo - viejo) / viejo)
+        texto += f", a {_pesos(viejo)} ({pct:+d}%)"
+    return texto
+
+
 def _latido(stats: dict) -> str:
     """El "sigo acá" semanal, con los números que lo hacen creíble."""
+    # El movimiento del mercado va en el latido porque es lo único que
+    # distingue "el radar funciona y no hay nada" de "el radar funciona y hay
+    # harto, pero nada te sirve". Sin esta línea, una semana con 14
+    # departamentos nuevos que no calificaron se lee igual que una semana
+    # muerta, y son dos situaciones que piden decisiones opuestas: la primera
+    # dice que hay que revisar el presupuesto, la segunda que hay que esperar.
+    movimiento = ""
+    if stats.get("nuevos") or stats.get("se_fueron"):
+        movimiento = (f"En el mercado: {stats.get('nuevos', 0)} nuevos, "
+                      f"{stats.get('se_fueron', 0)} se dejaron de publicar\n")
+
     return (
         "🔎 <b>Sin novedades</b>\n\n"
         f"Avisos revisados: {stats.get('total', 0)}\n"
         f"Pasaron los filtros: {stats.get('candidatos', 0)}\n"
-        f"Fuentes entregando: {stats.get('fuentes_ok', 0)}\n\n"
+        f"Fuentes entregando: {stats.get('fuentes_ok', 0)}\n"
+        f"{movimiento}\n"
         "Ningún departamento nuevo desde el último aviso. El radar corre dos "
         f"veces al día; este resumen sale cada {DIAS_ENTRE_LATIDOS} días si "
         "no hay nada que mostrar."

@@ -135,31 +135,36 @@ se lee del teléfono) y yo ajusto lo que haga falta. Lo que espero encontrar:
 
 ---
 
-## 🟡 4. El presupuesto: ¿1,6 millones incluyen gastos comunes?
+## ~~🟡 4. El presupuesto: ¿1,6 millones incluyen gastos comunes?~~ ✅ RESUELTO
 
-Es la decisión que más cambia qué te llega, y la dejé en el valor que dice
-literalmente tu pedido.
+Lo respondiste: **"solo de arriendo, no incluye ggcc"**. O sea que el tope se
+compara contra el **canon solo**, que es como ya estaba configurado. No hubo
+que cambiar nada.
 
-**Ahora mismo:** el tope de $1.600.000 se compara contra el **canon solo**. Un
-departamento de $1.550.000 + $380.000 de gastos comunes entra, aunque en la
-práctica cueste $1.930.000 al mes.
+```yaml
+requisitos:
+  comparar: arriendo          # el tope mira el canon, no canon + gastos comunes
+```
 
-El costo total igual se calcula, se muestra en la alerta y puntúa —un
-departamento con gastos comunes bajos gana puntos contra uno igual con gastos
-altos— pero no descarta.
+Un departamento de $1.550.000 + $380.000 de gastos comunes **entra**, aunque en
+la práctica cueste $1.930.000 al mes. Los gastos comunes igual se calculan, se
+muestran en la alerta y puntúan —entre dos departamentos iguales gana el de
+gastos comunes bajos— pero no descartan.
 
-**Elige una:**
+**Y el tope mismo**, también confirmado: *"que el tope sea 1.6 millones pero si
+es 1.65 entra porque es cercano"*. Eso ya estaba implementado como una banda de
+holgura del 12%:
 
-- [ ] **Dejarlo así.** El tope es sobre el canon. Es lo que dice el pedido.
-- [ ] **Cambiarlo al costo total.** El tope de $1.600.000 aplica sobre canon +
-      gastos comunes. Va a llegar bastante menos, y todo lo que llegue va a
-      caber de verdad en el presupuesto.
+```
+Tope duro:        $1.600.000   → puntaje completo en precio
+Con holgura:      hasta $1.792.000 → entra, con el puntaje penalizado
+                                     y la alerta diciendo cuánto se pasa
+```
 
-> Es un cambio de una línea (`requisitos.comparar: total` en `perfil.yml`) y
-> ya está probado en los dos modos. Dime cuál y lo dejo.
+Tu ejemplo, $1.650.000, entra y llega con la línea
+*"⚠️ $50.000 sobre tu tope de $1.600.000 — hay que negociar"*.
 
-**Y el tope mismo:** ahora acepta hasta 12% sobre $1.600.000 —o sea
-$1.792.000— penalizando el puntaje, con la lógica de que eso se negocia.
+Si algún día quieres mover cualquiera de los dos números:
 
 ```
 Tope duro:        $1.600.000   (cámbialo si quieres: ____________)
@@ -277,14 +282,16 @@ aviso quede justo a un lado u otro del tope.
 Con 39 fuentes el peor caso eran 54 minutos contra un job de 30. Ahora se
 corta sola a los 18 y avisa qué quedó sin mirar.
 
-### 2b. Paralelizar las fuentes 🟡
+### ~~2b. Paralelizar las fuentes~~ ✅ HECHO
 
-Sigue valiendo la pena, aunque ya no sea urgente: con el corte por tiempo lo
-que antes era "se pierde la corrida" ahora es "se miran menos fuentes".
-Paralelizar recupera esas fuentes. El límite de velocidad ya es por sitio, así
-que se pueden consultar varios portales a la vez sin ser descortés.
+Cuatro fuentes a la vez. El caso normal baja de unos 12 minutos a unos 4, y el
+peor caso deja de acercarse al techo del job: una fuente colgada ya no le come
+el turno a las otras 38.
 
-- [ ] Hazlo
+Cada portal sigue recibiendo un request a la vez y espaciado igual que antes
+—el límite de velocidad es por sitio— así que no se le carga más la mano a
+nadie. Se puede volver al modo serie con `--hilos 1` si algún portal se pone
+difícil.
 
 ### ~~3. Historial de precios por departamento~~ ✅ HECHO
 
@@ -308,10 +315,16 @@ uno con la tabla y los 3 mejores en detalle.
 
 - [ ] Hazlo
 
-### 6. Aviso de "se fue del mercado" ⚪
+### 6. Aviso de "se fue del mercado" 🟡 (medio hecho)
 
-Cuando un aviso que venías siguiendo desaparece de todos los portales,
-decirlo: cierra el ciclo y te muestra a qué velocidad se mueve tu rango.
+Ya se **detecta y se guarda**: el historial de búsquedas anota una baja cuando
+un aviso falta tres corridas seguidas y su portal sí entregó en esas corridas
+(esa segunda condición es la que evita dar por arrendados a cuarenta
+departamentos cada vez que un sitio se cae una tarde). De ahí sale la línea
+"días publicado antes de irse" del historial.
+
+Lo que falta es **avisarlo por Telegram** cuando el que se fue es uno que te
+habíamos mandado. Cierra el ciclo.
 
 - [ ] Hazlo
 
@@ -344,10 +357,12 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 352 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 404 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |
 | Las 3 corredoras apagadas | ⚠️ **falta la URL** (bloque 2) |
+| Barrido en paralelo y presupuesto de tiempo | ✅ probado con hilos de verdad |
+| Historial de búsquedas | ✅ funciona, pero se llena solo con las corridas |
 
 Todo lo demás corre solo.
