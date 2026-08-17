@@ -155,6 +155,33 @@ def test_los_gastos_comunes_de_verdad_sobreviven_al_codigo():
     assert m.get("gastos_comunes_clp") == 180_000
 
 
+# Los códigos con sigla de corredora. "AT397.842*" es un aviso REAL de
+# Fuenzalida: el número cae en la banda de un arriendo y el canon verdadero
+# ($36 millones, comercial) queda fuera, así que una propiedad industrial
+# entraba al tablero "a $397.842" — bajo el tope, compitiendo con los
+# departamentos de verdad.
+
+@pytest.mark.parametrize("texto", [
+    'ARRIENDO 1093 "AT397.842* -Gran Propiedad Comercial de 2 pisos '
+    '$ 36.769.797.- UF 900.-',
+    '*MPB*411.605. Luis Thayer Ojeda- Carmen Sylva. Hotel-hostal',
+    'RS* 412.741 Local Comercial a la calle, ubicada en pleno centro',
+    'Código: LA397.988* Arriendo local comercial en Av. Libertad',
+    '(Código Fuenzalida 410.599) Fuenzalida Propiedades El Golf',
+])
+def test_el_codigo_con_sigla_de_corredora_no_es_el_canon(texto):
+    assert P.parse_montos(texto).get("arriendo_clp") is None
+
+
+def test_la_sigla_no_se_come_un_precio_real():
+    """El patrón de la sigla no puede tragarse "EN 850.000" de un aviso en
+    mayúsculas ni un canon escrito normal."""
+    m = P.parse_montos("*MPB*411.605. Depto 3D, canon $ 1.450.000 mensual")
+    assert m.get("arriendo_clp") == 1_450_000
+    m2 = P.parse_montos("ARRIENDO DPTO EN 850.000 VITACURA")
+    assert m2.get("arriendo_clp") == 850_000
+
+
 def test_el_guion_con_espacios_sigue_separando_dos_conceptos():
     """La corrección no puede tragarse el caso opuesto.
 

@@ -247,7 +247,22 @@ PISO_PRECIO_VENTA = 50_000_000
 # departamentos. Se borra ANTES de ubicar montos, reemplazando por espacios
 # para que las posiciones del resto del texto no se muevan.
 _CODIGO_DE_AVISO = re.compile(
-    r"\bc[oó]d(?:igo)?\b\.?\s*[:#°-]?\s*[\d.]+(?:-\w+)?", re.I)
+    r"\bc[oó]d(?:igo)?\b\.?\s*[:#°-]?\s*(?:fuenzalida\s+)?"
+    r"(?:[A-Z]{1,5}\*?\s?)?[\d.]+(?:-\w+)?", re.I)
+
+# El código SIN la palabra "cod": la corredora lo escribe con su sigla pegada
+# al número — "AT397.842*", "*MPB*411.605", "RS* 412.741" son avisos REALES
+# de Fuenzalida. El número cae justo en la banda de un arriendo y el canon
+# verdadero ($36 millones, comercial) queda fuera de banda, así que una
+# propiedad industrial de Rancagua entraba al tablero "a $397.842" — bajo el
+# tope y compitiendo con los departamentos de verdad.
+#
+# SIN re.IGNORECASE a propósito: en minúscula, "por 850.000" calzaría con la
+# forma sigla+espacio y borraría un precio real. La sigla en mayúsculas y el
+# espacio solo después del asterisco acotan el patrón a lo que es un código.
+_CODIGO_CON_SIGLA = re.compile(
+    r"(?<![\w.,])(?:(?!UF|CLP|CLF)[A-ZÁÉÍÓÚÑ]{2,5}\*?"
+    r"|[A-ZÁÉÍÓÚÑ]{2,5}\*\s)\d{3}\.\d{3}(?![\d.])")
 
 
 def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
@@ -262,6 +277,7 @@ def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
     encuentra el patrón del signo peso y también el del número pelado.
     """
     t = _CODIGO_DE_AVISO.sub(lambda m: " " * len(m.group(0)), texto or "")
+    t = _CODIGO_CON_SIGLA.sub(lambda m: " " * len(m.group(0)), t)
 
     # Fase 1: ubicar. Se guarda el tramo COMPLETO del match (con el "$" o el
     # "millones"), que es el que hay que saltarse al mirar los alrededores.
