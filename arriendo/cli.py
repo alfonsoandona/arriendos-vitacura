@@ -151,7 +151,8 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
     for a, motivo in a_avisar:
         fuente = por_id.get(a.source)
         faltan = (a.antiguedad_anos is None or a.gastos_comunes_clp is None
-                  or a.m2_totales is None or a.piso is None)
+                  or a.m2_totales is None or a.piso is None
+                  or a.dormitorios is None or a.banos is None)
         if not (fuente and faltan) or a.extras.get("sin_link_directo"):
             salida.append((a, motivo))
             continue

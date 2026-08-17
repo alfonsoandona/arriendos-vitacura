@@ -278,11 +278,15 @@ def _ubicacion(a: Arriendo, caminable_km: float, ancla: str) -> str:
 
 
 # Los campos con los que se decide, en el orden en que se echan de menos.
+# Los dormitorios van PRIMERO: son un requisito duro (mínimo 3), así que un
+# aviso que no los publica no está verificado contra el criterio más básico.
+# El usuario lo sintió antes de que lo midiéramos: "faltan piezas, baños".
 _DECISIVOS = (
+    ("dormitorios", "dormitorios"),
+    ("banos", "baños"),
     ("m2_totales", "superficie total"),
     ("antiguedad_anos", "antigüedad"),
     ("gastos_comunes_clp", "gastos comunes"),
-    ("banos", "baños"),
 )
 
 
@@ -294,7 +298,7 @@ def _falta(a: Arriendo) -> str:
     """
     faltan = [nombre for campo, nombre in _DECISIVOS
               if getattr(a, campo, None) is None]
-    return ", ".join(faltan[:3])
+    return ", ".join(faltan[:4])
 
 
 def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
