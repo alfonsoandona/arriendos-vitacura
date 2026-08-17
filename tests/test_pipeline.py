@@ -724,6 +724,96 @@ def test_de_la_ficha_se_fusiona_la_propiedad_y_no_el_vecino(monkeypatch):
     assert listo.extras.get("enriquecido_de_ficha")
 
 
+def test_el_precio_de_la_ficha_rescata_al_aviso_sin_precio(monkeypatch):
+    """goplaceit publica sus tarjetas sin precio —el 100% del tablero real—
+    y el aviso quedaba comprimido bajo el techo de los sin-precio teniendo
+    el dato a un click, en su propia ficha."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5", title="Depto",
+                 comuna="Vitacura", dormitorios=3, banos=2, m2_totales=120)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+    assert a.extras.get("sin_precio")
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body><article><a href="/aviso/5">Departamento Espoz 2620, 3
+      dormitorios, 2 baños, 120 m2, arriendo $1.500.000, gastos comunes
+      $180.000</a></article></body></html>""")
+
+    class StoreFalso:
+        def registrar(self, *x, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    listo = salida[0][0]
+    assert listo.arriendo_clp == 1_500_000
+    assert not listo.extras.get("sin_precio"), \
+        "con el precio puesto, el marcador tiene que desaparecer"
+
+
+def test_el_precio_del_listado_no_se_pisa_con_el_de_la_ficha(monkeypatch):
+    """Cuando el listado SÍ publica precio, ese manda: el de una ficha puede
+    estar desactualizado."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5", title="Depto",
+                 comuna="Vitacura", dormitorios=3, arriendo_clp=1_500_000)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body><article><a href="/aviso/5">Departamento Espoz 2620, 3
+      dormitorios, 2 baños, arriendo $1.400.000</a></article></body>
+      </html>""")
+
+    class StoreFalso:
+        def registrar(self, *x, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    assert salida[0][0].arriendo_clp == 1_500_000
+
+
+def test_si_la_ficha_revela_un_precio_sobre_el_tope_no_se_alerta(monkeypatch):
+    """La otra cara del rescate: el precio recién sabido también filtra."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5", title="Depto",
+                 comuna="Vitacura", dormitorios=3, banos=2, m2_totales=120)
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body><article><a href="/aviso/5">Departamento Espoz 2620, 3
+      dormitorios, 2 baños, 120 m2, arriendo $4.500.000</a></article>
+      </body></html>""")
+
+    registrados = []
+    class StoreFalso:
+        def registrar(self, x, **k): registrados.append(x)
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    assert salida == [], "$4,5 millones no es un aviso para este perfil"
+    assert registrados and registrados[0].descartado
+
+
 def test_candidatos_propios_ignora_www_y_parametros():
     from arriendo.cli import _candidatos_propios
     from arriendo.models import Arriendo

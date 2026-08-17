@@ -1009,9 +1009,13 @@ def _aplicar(l: Arriendo, ev: Evaluacion,
     l.extras["preferencias"] = ev.preferencias
     l.extras["confianza"] = ev.confianza
     # Lo lee la alerta, para decirlo en vez de mostrar un mensaje sin precio y
-    # que parezca que se olvidó.
+    # que parezca que se olvidó. Y se LIMPIA cuando ya no aplica: el
+    # enriquecimiento puede traer el precio desde la ficha, y un aviso con
+    # precio anunciándose como "sin precio" es peor que no marcar nada.
     if ev.sin_precio:
         l.extras["sin_precio"] = True
+    else:
+        l.extras.pop("sin_precio", None)
     return l
 
 

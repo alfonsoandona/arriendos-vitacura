@@ -195,7 +195,8 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         fuente = por_id.get(a.source)
         faltan = (a.antiguedad_anos is None or a.gastos_comunes_clp is None
                   or a.m2_totales is None or a.piso is None
-                  or a.dormitorios is None or a.banos is None)
+                  or a.dormitorios is None or a.banos is None
+                  or (a.arriendo_clp is None and a.arriendo_uf is None))
         if not (fuente and faltan) or a.extras.get("sin_link_directo"):
             salida.append((a, motivo))
             continue
@@ -218,6 +219,19 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             continue
         for candidato in propios:
             _fusionar(a, candidato)
+        # El precio es la excepción de la excepción. `_fusionar` no lo toca
+        # porque el del listado es más fresco que el de una ficha… cuando
+        # existe. Pero goplaceit publica sus tarjetas SIN precio —el 100% en
+        # el tablero real— y ahí el de la ficha no compite con nadie: es la
+        # única manera de aplicar el filtro de presupuesto y de que el aviso
+        # salga del techo de los sin-precio. Si el precio revelado excede el
+        # tope, `evaluar` lo descarta acá mismo y no llega al teléfono.
+        if a.arriendo_clp is None and a.arriendo_uf is None:
+            con_precio = next((c for c in propios
+                               if c.arriendo_clp or c.arriendo_uf), None)
+            if con_precio:
+                a.arriendo_clp = con_precio.arriendo_clp
+                a.arriendo_uf = con_precio.arriendo_uf
         a.extras["enriquecido_de_ficha"] = True
         S.evaluar(a, perfil)
 
