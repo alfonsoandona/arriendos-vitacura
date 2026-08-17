@@ -139,7 +139,8 @@ def _preguntas(a: Arriendo) -> list[str]:
 
     preguntas.append(
         "**¿Está disponible para visitar esta semana?** En Vitacura, un "
-        "departamento de más de 100 m² con 3 dormitorios bajo $1.600.000 se "
+        "departamento de más de 100 m² con 3 dormitorios dentro de tu "
+        "presupuesto se "
         "toma en días.")
 
     return preguntas

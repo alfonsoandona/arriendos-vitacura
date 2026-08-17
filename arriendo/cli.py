@@ -445,6 +445,17 @@ def _corto_m2(a: Arriendo) -> str:
     return "—" if m2 is None else f"{m2:g} m²"
 
 
+def _pesos_tope() -> str:
+    """El tope del perfil, en texto. Se lee del YAML y no se escribe a mano:
+    un número hardcodeado en un mensaje de usuario se queda viejo en silencio
+    la primera vez que alguien cambia el presupuesto."""
+    try:
+        tope = S.tope_arriendo(cargar_perfil())[0] or 0
+    except Exception:                                            # noqa: BLE001
+        return "tu tope"
+    return f"${tope:,.0f}".replace(",", ".")
+
+
 def probar_aviso(args: argparse.Namespace) -> int:
     """Manda un mensaje de prueba por Telegram y dice si llegó.
 
@@ -472,7 +483,7 @@ def probar_aviso(args: argparse.Namespace) -> int:
         "Prueba de conexión. Si estás leyendo esto, las alertas van a llegar "
         "a esta conversación.\n\n"
         "Busca: departamentos en Vitacura o a 1,2 km del Sport Francés, más "
-        "de 100 m² totales, 3+ dormitorios, hasta $1.600.000."
+        f"de 100 m² totales, 3+ dormitorios, hasta {_pesos_tope()}."
     )
     print("✓ Mensaje entregado" if ok else "✗ Telegram no confirmó la entrega")
     return 0 if ok else 1

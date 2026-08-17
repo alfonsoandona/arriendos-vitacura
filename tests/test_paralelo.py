@@ -253,10 +253,20 @@ def test_cada_hilo_tiene_su_sesion():
     parseado como si fuera de otro.
     """
     fetcher = Fetcher(delay=0)
+    # Se guardan las SESIONES, no sus `id()`.
+    #
+    # Con los ids el test era flaky y tardó en delatarse: cuando un hilo
+    # termina, su sesión queda sin referencias y el recolector la libera, y
+    # entonces CPython puede reutilizar esa misma dirección de memoria para la
+    # sesión del hilo siguiente. Dos hilos distintos con el mismo id() y un
+    # fallo aleatorio una vez cada tantas corridas. Guardar el objeto lo
+    # mantiene vivo y la comparación pasa a ser por identidad de verdad.
     sesiones = []
+    candado = threading.Lock()
 
     def anotar():
-        sesiones.append(id(fetcher.session))
+        with candado:
+            sesiones.append(fetcher.session)
 
     hilos = [threading.Thread(target=anotar) for _ in range(4)]
     for h in hilos:
@@ -264,10 +274,10 @@ def test_cada_hilo_tiene_su_sesion():
     for h in hilos:
         h.join()
 
-    assert len(set(sesiones)) == 4
+    assert len({id(s) for s in sesiones}) == 4
     # Y dentro de un mismo hilo es siempre la misma: si no, se perderían las
     # cookies y el pool de conexiones entre páginas de un mismo portal.
-    assert id(fetcher.session) == id(fetcher.session)
+    assert fetcher.session is fetcher.session
 
 
 def test_el_motivo_del_fallo_no_se_cruza_entre_hilos():

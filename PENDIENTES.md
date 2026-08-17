@@ -15,13 +15,18 @@ Solo el paso 1 es obligatorio. Los demás mejoran lo que llega.
 
 | # | Qué | Dónde | Cuánto demora | Sin esto… |
 |---|---|---|---|---|
-| **1** | **Crear el bot de Telegram y guardar los 2 secrets** | Teléfono + GitHub | 5 min | **No te llega ningún aviso.** El radar corre y encuentra, pero no puede avisarte. |
-| **2** | Correr `Actions → Probar aviso de Telegram` | GitHub | 30 seg | No sabes si el paso 1 quedó bien. |
-| 3 | Pegar las URLs de 14 corredoras que apuntan a su portada | Navegador | 2 min c/u | Esas 14 traen lo que muestre su home, no arriendos de Vitacura. |
-| 4 | Decirme si el Sport Francés está bien ubicado | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
-| 5 | Contestar los bloques 5 y 6 (piso, mascotas, estacionamiento…) | Acá mismo | 5 min | El puntaje ordena con suposiciones mías. |
+| ~~1~~ | ~~Crear el bot de Telegram~~ | — | — | ✅ **Listo.** La prueba de envío pasó. |
+| **1** | Pegar la URL de Century 21 y de las corredoras que apuntan a su portada — la lista está en [`LINKS.md`](LINKS.md) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
+| 2 | Decirme si el Sport Francés está bien ubicado | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
+| 3 | Contestar los bloques 5 y 6 (piso, mascotas, estacionamiento…) | Acá mismo | 5 min | El puntaje ordena con suposiciones mías. |
 
-### Paso 1, en detalle — es el único que bloquea
+### Cómo pegar una URL de portal (el paso 1)
+
+Entras al sitio, filtras **arriendo + departamento + Vitacura**, y me pasas la
+URL que queda en la barra de direcciones. Eso es todo. Cada una que pegues
+suma inventario que hoy no se está mirando.
+
+<details><summary>El paso a paso del bot de Telegram, por si hay que rehacerlo</summary>
 
 1. En el teléfono, abre Telegram y busca **@BotFather**.
 2. Mándale `/newbot`. Te va a pedir dos cosas:
@@ -46,10 +51,13 @@ Solo el paso 1 es obligatorio. Los demás mejoran lo que llega.
 > nombre genérico si faltan: prefiere fallar con un mensaje claro antes que
 > mandarle tus arriendos al chat equivocado.
 
+</details>
+
 ### Lo que YA no tienes que hacer
 
 Dos cosas que estaban en esta lista y se resolvieron solas:
 
+- ~~Crear el bot de Telegram~~ ✅ **Listo**, y la prueba de envío pasó.
 - ~~Correr la calibración~~ ✅ **Ya corrió.** El radar se ejecutó contra los 39
   portales el 16 de agosto: 633 avisos, 328 únicos, 91 candidatos. El detalle
   fuente por fuente, con cuáles tienen resultados de Vitacura y cuáles no,
@@ -68,36 +76,24 @@ Dos cosas que estaban en esta lista y se resolvieron solas:
 
 ---
 
-## 🔴 1. Telegram — el bot nuevo
+## ~~🔴 1. Telegram~~ ✅ FUNCIONANDO
 
-Es lo único que impide que te lleguen los avisos. Toma 5 minutos desde el
-teléfono y el paso a paso completo está en [`AVISOS.md`](AVISOS.md).
-
-> ⚠️ **Bot NUEVO, distinto del radar de remates.** No reutilices el token de
-> `claude-code`. Los secrets acá se llaman con sufijo `_ARRIENDOS` justamente
-> para que no se crucen, y no hay respaldo al nombre genérico.
-
-Estos dos van como **secrets del repositorio**, no acá (no pegues el token en
-un archivo que se commitea):
+Los dos secrets están guardados y **la prueba de envío pasó**
+(`Actions → Probar aviso de Telegram`, 17-08-2026). El radar ya puede avisarte.
 
 ```
-Settings → Secrets and variables → Actions → New repository secret
-
-  TELEGRAM_TOKEN_ARRIENDOS    = ______________________________
-  TELEGRAM_CHAT_ID_ARRIENDOS  = ______________________________
+TELEGRAM_TOKEN_ARRIENDOS    ✅ configurado
+TELEGRAM_CHAT_ID_ARRIENDOS  ✅ configurado
 ```
 
-Cuando estén, corre **Actions → Probar aviso de Telegram** y avísame si llegó.
+Si alguna vez dejan de llegar avisos, el orden para revisar es:
 
-- [ ] Bot creado con @BotFather
-- [ ] Le mandé un "hola" al bot (sin esto falla con `chat not found`)
-- [ ] Los dos secrets guardados
-- [ ] La prueba llegó
-
-**¿A dónde quieres que lleguen?**
-
-- [ ] A mi chat personal
-- [ ] A un grupo (dime quiénes y lo dejo documentado)
+1. `Actions → Probar aviso de Telegram`. Si llega, el canal está bien y el
+   problema es que no hay inventario nuevo — mira `logs/ultima-corrida.md`.
+2. Si no llega, mira el log del job: el radar imprime el motivo exacto que
+   devuelve Telegram ("chat not found", "bot was blocked by the user"), que es
+   la diferencia entre arreglarlo y adivinar.
+3. Si bloqueaste el bot sin querer, basta con volver a escribirle.
 
 ---
 
@@ -186,39 +182,43 @@ Para volver a correrla cuando quieras: **Actions → Calibrar fuentes**.
 
 ---
 
-## ~~🟡 4. El presupuesto: ¿1,6 millones incluyen gastos comunes?~~ ✅ RESUELTO
+## ~~🟡 4. El presupuesto~~ ✅ RESUELTO Y ACTUALIZADO
 
-Lo respondiste: **"solo de arriendo, no incluye ggcc"**. O sea que el tope se
-compara contra el **canon solo**, que es como ya estaba configurado. No hubo
-que cambiar nada.
+**Tope: $1.700.000** (subido de 1,6 el 17-08-2026, a pedido tuyo).
+
+**Sobre el canon solo, sin gastos comunes**, como dijiste: *"solo de arriendo,
+no incluye ggcc"*.
 
 ```yaml
 requisitos:
+  arriendo_clp: {max: 1700000, holgura_pct: 12}
   comparar: arriendo          # el tope mira el canon, no canon + gastos comunes
 ```
 
-Un departamento de $1.550.000 + $380.000 de gastos comunes **entra**, aunque en
-la práctica cueste $1.930.000 al mes. Los gastos comunes igual se calculan, se
+Cómo funcionan los dos números juntos:
+
+```
+Hasta $1.700.000    puntaje completo en el rubro precio
+Hasta $1.904.000    entra igual, con el puntaje penalizado y la alerta
+                    diciendo cuánto se pasa
+Sobre $1.904.000    se descarta
+```
+
+Un departamento de $1.650.000 + $380.000 de gastos comunes **entra**, aunque en
+la práctica cueste $2.030.000 al mes. Los gastos comunes igual se calculan, se
 muestran en la alerta y puntúan —entre dos departamentos iguales gana el de
 gastos comunes bajos— pero no descartan.
 
-**Y el tope mismo**, también confirmado: *"que el tope sea 1.6 millones pero si
-es 1.65 entra porque es cercano"*. Eso ya estaba implementado como una banda de
-holgura del 12%:
+**Para calibrar esto tienes un dato nuevo que antes no existía:** el canon
+mediano de lo que el radar ha visto en Vitacura. Sale de `alertas/historial.md`
+y ahora también aparece en cada aviso ("12% bajo la mediana del mercado"). Con
+la mediana cerca de $1,5 millones, un tope de 1,7 es cómodo; si empieza a
+llegar ruido caro, lo primero que conviene bajar es la holgura, no el tope.
+
+Si quieres moverlos:
 
 ```
-Tope duro:        $1.600.000   → puntaje completo en precio
-Con holgura:      hasta $1.792.000 → entra, con el puntaje penalizado
-                                     y la alerta diciendo cuánto se pasa
-```
-
-Tu ejemplo, $1.650.000, entra y llega con la línea
-*"⚠️ $50.000 sobre tu tope de $1.600.000 — hay que negociar"*.
-
-Si algún día quieres mover cualquiera de los dos números:
-
-```
-Tope duro:        $1.600.000   (cámbialo si quieres: ____________)
+Tope duro:        $1.700.000   (cámbialo si quieres: ____________)
 Holgura:          12%          (cámbiala si quieres: ____________)
 ```
 
@@ -408,10 +408,10 @@ ______________________________________________
 
 | Pieza | Estado |
 |---|---|
-| Parser, scoring, deduplicación, alertas, fichas | ✅ 404 tests, todos sin red |
+| Parser, scoring, deduplicación, alertas, fichas | ✅ 433 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
 | Que el extractor entienda cada portal | ✅ 15 fuentes entregando Vitacura ([FUENTES.md](FUENTES.md)) |
-| Telegram | ⚠️ **falta el bot** (bloque 1) |
+| Telegram | ✅ **funcionando**, prueba de envío OK |
 | Las 3 corredoras apagadas | ⚠️ **falta la URL** (bloque 2) |
 | Calibración contra los portales reales | ✅ corrió: 633 avisos, 91 candidatos |
 | Barrido en paralelo y presupuesto de tiempo | ✅ probado con hilos de verdad |

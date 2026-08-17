@@ -324,11 +324,19 @@ excluir:
 alertas:
   # Puntaje mínimo (0-100) para que un hallazgo genere aviso.
   #
+  # 40 es el piso de la banda "🤔 Dudoso", o sea que alerta todo lo que no sea
+  # "▫️ Al fondo". El número está pegado a un corte de banda a propósito: así
+  # se puede decir en una frase qué alerta y qué no, en vez de tener un umbral
+  # suelto que nadie sabe de dónde salió.
+  #
   # Bajo a propósito. Los filtros duros ya hicieron el trabajo pesado: lo que
   # llega hasta acá es un departamento de Vitacura o del anillo, de más de
   # 100 m², con tres piezas y dentro del presupuesto. Entre esos, preferimos
   # un aviso de más que enterarnos de que se arrendó.
-  score_minimo: 35
+  #
+  # Y el orden importa más que el umbral: con el tope de 8 avisos por corrida,
+  # lo que decide qué llega es el ranking (puntaje, confianza), no este piso.
+  score_minimo: 40
 
   # Un arriendo que cumple los filtros duros alerta aunque le falten datos
   # (antigüedad, gastos comunes, piso). El mercado de arriendo se mueve en

@@ -50,7 +50,6 @@ import requests
 
 from .. import scoring as S
 from ..models import Arriendo
-from ..scoring import RUBRO_COMPLETO
 
 log = logging.getLogger(__name__)
 
@@ -290,20 +289,6 @@ def _falta(a: Arriendo) -> str:
     faltan = [nombre for campo, nombre in _DECISIVOS
               if getattr(a, campo, None) is None]
     return ", ".join(faltan[:3])
-
-
-def _veredicto(a: Arriendo) -> str:
-    """El puntaje, con sobre cuánto se midió.
-
-    "⭐ 62/100" a secas se lee más seguro de lo que es: el puntaje es bajo
-    cuando faltan datos, no solo cuando el departamento es malo, y esas dos
-    cosas piden acciones distintas.
-    """
-    sobre = ""
-    medibles = a.extras.get("medibles")
-    if isinstance(medibles, int) and medibles < RUBRO_COMPLETO:
-        sobre = f" · medido sobre {medibles} de {RUBRO_COMPLETO}"
-    return f"⭐ {a.score}/100{sobre}"
 
 
 def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,

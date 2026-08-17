@@ -6,7 +6,7 @@ perfil de búsqueda; y avisa por Telegram cuando aparece algo que calza, con el
 link a la ficha completa.
 
 **Qué busca:** departamentos de **más de 100 m² totales**, **3 dormitorios
-mínimo**, hasta **$1.600.000** al mes, en **Vitacura (la comuna entera)** o a
+mínimo**, hasta **$1.700.000** al mes, en **Vitacura (la comuna entera)** o a
 **1,2 km o menos del Sport Francés**. Entre los que califican, prefiere los más
 nuevos.
 
@@ -56,7 +56,8 @@ público los minutos son ilimitados.
 
 Ya no es una suposición: el radar corrió contra los 39 el 16-08-2026 y trajo
 **633 avisos, 328 únicos, 91 candidatos**. El detalle portal por portal está
-en **[`FUENTES.md`](FUENTES.md)** — cuáles entregan Vitacura, cuáles entregan
+en **[`FUENTES.md`](FUENTES.md)** — y la lista completa de los 42 links,
+uno por uno para revisar, en **[`LINKS.md`](LINKS.md)** — cuáles entregan Vitacura, cuáles entregan
 pero de otras comunas, y cuáles no entregaron nada y por qué.
 
 Resumen: **15 entregan Vitacura**, 7 entregan sin Vitacura (URL o filtro mal),
@@ -214,7 +215,7 @@ puntúa pero no descarta.
 | **Zona** | Vitacura (comuna entera) **o** ≤ 1,2 km del Sport Francés |
 | **Superficie** | **Más de** 100 m² totales |
 | **Dormitorios** | 3 o más |
-| **Precio** | Hasta $1.600.000, con 12% de holgura negociable |
+| **Precio** | Hasta $1.700.000, con 12% de holgura negociable (entra hasta $1.904.000) |
 | **Qué es** | Departamento en arriendo — no venta, no temporada, no pieza |
 
 Hay dos decisiones dentro de esto que conviene conocer.
@@ -272,7 +273,7 @@ el perfil y desmentido por el tablero.
 puntos y los portales de arriendo la publican poco. Cobrarla como 0 dejaría a
 un departamento perfecto en 55 puntos, debajo de uno peor que sí publicó el
 año, y el puntaje perdería su única función: ordenar. Por eso la alerta dice
-"medido sobre 76 de 100" cuando corresponde, y la ficha dice hasta cuánto
+"(76% de los datos)" cuando corresponde, y la ficha dice hasta cuánto
 podría llegar si se consiguieran los datos que faltan.
 
 **3. El número que importa es el costo mensual, no el canon.** En departamentos
@@ -448,12 +449,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              404 tests.
+tests/              433 tests.
 ```
 
 ### Sobre los tests
 
-404 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+433 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
