@@ -51,6 +51,7 @@ from statistics import median
 from typing import Any, Iterable
 
 from .models import Arriendo
+from .tiempo import ahora_utc
 
 log = logging.getLogger(__name__)
 
@@ -340,7 +341,7 @@ def a_markdown(eventos: list[dict], dias: int = 90) -> str:
     """
     r = resumen_mercado(eventos, dias)
     L = ["# Historial de búsquedas", "",
-         f"_Actualizado {datetime.utcnow():%d-%m-%Y %H:%M} UTC · "
+         f"_Actualizado {ahora_utc():%d-%m-%Y %H:%M} UTC · "
          f"{len(eventos)} eventos guardados_", "",
          f"## El mercado, últimos {dias} días", "",
          "| | |", "|---|---|",

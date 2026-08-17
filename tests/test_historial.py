@@ -18,6 +18,7 @@ from datetime import date, datetime, timedelta
 from arriendo import historial as H
 from arriendo.models import Arriendo
 from arriendo.store import Store
+from arriendo.tiempo import ahora_utc
 
 
 def _aviso(**kw) -> Arriendo:
@@ -157,7 +158,7 @@ def test_la_baja_dice_cuantos_dias_estuvo(tmp_path):
     store = Store(tmp_path)
     store.registrar(_aviso())
     entrada = store.indice[_aviso().fingerprint]
-    entrada["primera_vez"] = (datetime.utcnow() - timedelta(days=47)).isoformat()
+    entrada["primera_vez"] = (ahora_utc() - timedelta(days=47)).isoformat()
 
     for _ in range(H.AUSENCIAS_PARA_BAJA - 1):
         H.eventos_de_corrida([], store, {"toctoc"})

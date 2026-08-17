@@ -22,6 +22,7 @@ import re
 from dataclasses import dataclass, field, asdict
 from datetime import date, datetime
 from typing import Any
+from .tiempo import ahora_utc
 
 
 @dataclass
@@ -95,7 +96,7 @@ class Arriendo:
 
     # --- trazabilidad ---
     raw_text: str = ""               # texto crudo del que se extrajo todo
-    scraped_at: datetime = field(default_factory=datetime.utcnow)
+    scraped_at: datetime = field(default_factory=ahora_utc)
     extras: dict[str, Any] = field(default_factory=dict)
 
     # --- resultado del scoring (lo llena scoring.py) ---
@@ -174,7 +175,7 @@ class Arriendo:
                 return None
         if isinstance(fecha, datetime):
             fecha = fecha.date()
-        return (datetime.utcnow().date() - fecha).days
+        return (ahora_utc().date() - fecha).days
 
     @property
     def fingerprint(self) -> str:

@@ -20,10 +20,11 @@ import re
 import unicodedata
 from datetime import date
 from datetime import datetime as _dt
+from .tiempo import ahora_utc
 
 
 def hoy() -> date:
-    return _dt.utcnow().date()
+    return ahora_utc().date()
 
 
 # ---------------------------------------------------------------------------
@@ -1120,6 +1121,28 @@ _TIPO_NO_VIVIENDA = (
 _ACCESORIO = re.compile(
     r"\b(?:con|y|e|mas|incluye[n]?|ademas\s+de|junto\s+a|\+)\s+$")
 
+# Señales de que el aviso describe una VIVIENDA, diga o no la palabra.
+#
+# Es el candado que le falta a la guarda de accesorios. El clasificado
+# chileno es telegráfico: "1.500.000 Agustín del Castillo. 4 dormitorios, 3
+# baños, servicio, estacionamiento, bodega" — nunca dice "departamento", y la
+# coma no es un conector, así que la guarda de "con/y/más" no aplicaba y el
+# aviso quedaba clasificado como ESTACIONAMIENTO y descartado.
+#
+# Medido en la corrida real: siete departamentos de Vitacura de economicos.cl
+# —Kennedy/Tabancura, Bicentenario, Lo Castillo, 240 m² piso alto— botados
+# como "es estacionamiento, no departamento". El mismo modo de fallar del
+# resto de esta auditoría: en silencio y con un motivo que suena razonable.
+#
+# La regla es de sentido común y por eso es robusta: un aviso que declara
+# dormitorios está arrendando algo donde se duerme. Un estacionamiento, una
+# bodega o una oficina no tienen dormitorios.
+_ES_VIVIENDA = re.compile(
+    r"\d+\s*dormitorios?\b|\bdormitorio\s+en\s+suite\b"
+    r"|\b\d+\s*d\s*/?\s*\d+\s*b\b|\bwalk[- ]?in\s+closet\b",
+    re.I,
+)
+
 
 def parse_tipo(texto: str) -> str:
     t = norm(texto)
@@ -1129,6 +1152,14 @@ def parse_tipo(texto: str) -> str:
         return "departamento"
     if any(re.search(rf"\b{re.escape(k)}", t) for k in _TIPO_CASA):
         return "casa"
+
+    # Con dormitorios declarados es una vivienda: no se sabe si departamento o
+    # casa, pero SÍ se sabe que no es un estacionamiento ni una oficina. Se
+    # devuelve "" —tipo desconocido— y el filtro de tipo no descarta por dato
+    # ausente, que es exactamente el comportamiento correcto acá.
+    if _ES_VIVIENDA.search(texto or ""):
+        return ""
+
     for canonico, patron in _TIPO_NO_VIVIENDA:
         for m in re.finditer(rf"\b(?:{patron})\b", t):
             if not _ACCESORIO.search(t[max(0, m.start() - 24):m.start()]):
@@ -1187,14 +1218,41 @@ COMUNAS_FUERA_RM = [
 COMUNAS_CONOCIDAS = COMUNAS_RM + COMUNAS_FUERA_RM
 
 
+# "Santiago" dentro de estas frases NO es la comuna Santiago: es la región, la
+# provincia o el nombre de la ciudad completa. Se borran del texto ANTES de
+# buscar comunas.
+#
+# El error que esto corrige se midió en la primera corrida real y es de los
+# caros: economicos.cl remata cada aviso con "Región: Metropolitana de
+# Santiago", así que un departamento de Vitacura cuya tarjeta no repetía la
+# comuna quedaba con comuna "Santiago" — y Santiago es una comuna CONOCIDA que
+# no es vecina, así que el filtro de zona lo descartaba con toda seguridad y
+# en silencio. Trece departamentos de Vitacura reales —Lo Castillo, Juan
+# XXIII, Bicentenario, Agustín del Castillo— botados por el pie de página.
+#
+# El descarte silencioso con motivo razonable es el peor modo de fallar que
+# tiene este radar: nadie va a ir a revisar "comuna fuera de la zona".
+_NO_ES_LA_COMUNA_SANTIAGO = re.compile(
+    r"regi[oó]n\s*:?\s*metropolitana(?:\s+de\s+santiago)?"
+    r"|metropolitana\s+de\s+santiago"
+    r"|provincia\s+de\s+santiago"
+    r"|santiago\s+de\s+chile"
+    r"|gran\s+santiago",
+    re.I,
+)
+
+
 def parse_comuna(texto: str, candidatas: list[str] | None = None) -> str:
     """Detecta la comuna. Devuelve el nombre canónico, con tildes.
 
     Entre varias que calcen gana la más LARGA, no la primera de la lista:
     "Isla de Maipo" contiene "Maipo", y preferir la más larga elige la más
     específica, que es la que de verdad identifica el lugar.
+
+    "Santiago" solo cuenta cuando aparece FUERA de las frases de región y
+    provincia: ver _NO_ES_LA_COMUNA_SANTIAGO.
     """
-    t = norm(texto)
+    t = norm(_NO_ES_LA_COMUNA_SANTIAGO.sub(" ", texto or ""))
     mejor = ""
     for c in (candidatas or COMUNAS_RM):
         if re.search(rf"\b{re.escape(norm(c))}\b", t) and len(c) > len(mejor):

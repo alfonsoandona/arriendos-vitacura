@@ -21,6 +21,7 @@ from pathlib import Path
 from typing import Any
 
 from .models import Arriendo, clave_direccion, _normalize_key
+from .tiempo import ahora_utc
 
 INDICE = "vistos.json"
 HALLAZGOS = "arriendos.json"
@@ -208,7 +209,7 @@ class Store:
                   motivo: str = "") -> None:
         fp = l.fingerprint
         prev = self.indice.get(fp, {})
-        ahora = datetime.utcnow().isoformat(timespec="seconds")
+        ahora = ahora_utc().isoformat(timespec="seconds")
 
         self.indice[fp] = {
             "url": l.url,
@@ -256,7 +257,7 @@ class Store:
         aparecer ya se arrendó. Si reaparece, avisar de nuevo es correcto —es
         inventario que volvió al mercado—.
         """
-        corte = datetime.utcnow().timestamp() - dias * 86400
+        corte = ahora_utc().timestamp() - dias * 86400
         a_borrar = []
         for fp, e in self.indice.items():
             try:

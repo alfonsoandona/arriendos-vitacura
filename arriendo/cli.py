@@ -25,6 +25,7 @@ from .sources.base import Fetcher
 from .sources.registry import (FuentesInvalidas, barrer_todas,
                                cargar_fuentes, fuentes_activas)
 from .store import Store, deduplicar, leer_tendencia
+from .tiempo import ahora_utc
 
 log = logging.getLogger("arriendo")
 
@@ -43,7 +44,7 @@ def _deadline(tope_minutos: float):
 
     if not tope_minutos or tope_minutos <= 0:
         return None
-    return datetime.utcnow() + timedelta(minutes=float(tope_minutos))
+    return ahora_utc() + timedelta(minutes=float(tope_minutos))
 
 
 def _configurar_log(verbose: bool) -> None:
@@ -76,13 +77,13 @@ def correr(args: argparse.Namespace) -> int:
     perfil = cargar_perfil(args.perfil)
     fuentes = fuentes_activas(cargar_fuentes(args.fuentes), args.fuente)
 
-    stats: dict = {"inicio": datetime.utcnow()}
+    stats: dict = {"inicio": ahora_utc()}
     try:
         return _correr(args, perfil, fuentes, stats)
     except Exception as e:                                       # noqa: BLE001
         log.exception("La corrida falló")
         stats["error"] = f"{type(e).__name__}: {e}"
-        stats["fin"] = datetime.utcnow()
+        stats["fin"] = ahora_utc()
         escribir_bitacora(stats, dir_logs())
         # El aviso de que el radar se cayó es lo único que no se puede perder:
         # es lo que separa "no hay nada nuevo" de "llevas dos semanas sin
@@ -379,7 +380,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         store.guardar(unicos)
         escribir_tablero(unicos, dir_alertas(), perfil)
 
-    stats["fin"] = datetime.utcnow()
+    stats["fin"] = ahora_utc()
     escribir_bitacora(stats, dir_logs())
 
     log.info("Listo: %d avisados de %d candidatos", enviados, len(candidatos))
@@ -557,7 +558,7 @@ def calibrar(args: argparse.Namespace) -> int:
 
     nucleo = {c.lower() for c in (perfil.get("comunas") or {}).get("nucleo") or []}
     L: list[str] = ["# Calibración de fuentes", "",
-                    f"Corrida: {datetime.utcnow():%d-%m-%Y %H:%M} UTC", "",
+                    f"Corrida: {ahora_utc():%d-%m-%Y %H:%M} UTC", "",
                     "| Fuente | URL | Estado | Avisos | En zona | Pasan filtros |",
                     "|---|---|---|---|---|---|"]
     detalle: list[str] = []

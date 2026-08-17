@@ -15,6 +15,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
+from .tiempo import ahora_utc
 
 log = logging.getLogger(__name__)
 
@@ -51,7 +52,7 @@ def _duracion(stats: dict) -> str:
 
 def _resumen(stats: dict) -> str:
     cuando = stats.get("inicio")
-    cuando = cuando if isinstance(cuando, datetime) else datetime.utcnow()
+    cuando = cuando if isinstance(cuando, datetime) else ahora_utc()
 
     L = [f"# Última corrida — {cuando:%d-%m-%Y %H:%M} UTC", ""]
 
@@ -175,7 +176,7 @@ def _resumen(stats: dict) -> str:
 def _anotar_historial(stats: dict, ruta: Path) -> None:
     """Una línea JSON por corrida. Sirve para ver tendencias sin parsear prosa."""
     entrada = {
-        "cuando": (stats.get("inicio") or datetime.utcnow()).isoformat(
+        "cuando": (stats.get("inicio") or ahora_utc()).isoformat(
             timespec="seconds"),
         "duracion_s": None,
         "fuentes_ok": stats.get("fuentes_ok", 0),

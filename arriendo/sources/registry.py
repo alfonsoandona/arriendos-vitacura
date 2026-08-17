@@ -17,6 +17,7 @@ from ..config import FUENTES_DEFAULT
 from ..models import Arriendo
 from .base import Fetcher, FuenteConfig, ResultadoFuente
 from .generic import extraer, enlaces_de_detalle
+from ..tiempo import ahora_utc
 
 log = logging.getLogger(__name__)
 
@@ -195,7 +196,7 @@ def barrer(fuente: FuenteConfig, fetcher: Fetcher,
 
     for base in fuente.urls:
         for url in urls_paginadas(base, fuente.paginacion):
-            if limite and datetime.utcnow() >= limite:
+            if limite and ahora_utc() >= limite:
                 resultado.cortada_por_tiempo = True
                 log.warning("[%s] se acabó el tiempo: queda parcial", fuente.id)
                 resultado.segundos = time.monotonic() - partida
@@ -287,7 +288,7 @@ def barrer_todas(fuentes: list[FuenteConfig], fetcher: Fetcher,
         # El presupuesto se mira ANTES de empezar. Con el pool ya cargado de
         # tareas, esto es lo que hace que el corte por tiempo no requiera
         # cancelar nada: las que aún no partieron se saltan solas.
-        if limite and datetime.utcnow() >= limite:
+        if limite and ahora_utc() >= limite:
             r = ResultadoFuente(fuente_id=fuente.id, intentada=False)
         else:
             log.info("Barriendo %s (%s)…", fuente.nombre, fuente.id)

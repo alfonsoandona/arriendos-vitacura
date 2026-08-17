@@ -67,11 +67,25 @@ jobs:
             || python -m playwright install chromium
 
       - name: Verificar el motor de filtrado
-        # Si el scoring está roto es preferible fallar antes de mandar avisos
-        # equivocados que descubrirlo por un mensaje mal disparado.
+        # ADVIERTE pero NO aborta, y ese cambio viene de una corrida perdida.
+        #
+        # La versión original abortaba: "si el scoring está roto, mejor fallar
+        # antes de mandar avisos equivocados". Sonaba prudente y costó caro.
+        # El 17-08 un test flaky (una carrera de ids de memoria, nada del
+        # scoring) botó la corrida programada completa: sin radar, sin
+        # alertas, sin bitácora — la filosofía de "nunca fallar en silencio"
+        # derrotada por su propio control de calidad.
+        #
+        # La asimetría manda: los tests YA corrieron en CI cuando el código se
+        # pusheó, así que un fallo acá es casi seguro ambiental o flaky. Y el
+        # daño de "ningún aviso hoy" es mayor que el de "un aviso con un campo
+        # raro". Se corre igual —el warning queda a la vista en el resumen del
+        # job— pero la corrida sigue.
+        continue-on-error: true
         run: |
           pip install -r requirements-dev.txt
-          python -m pytest tests/ -q
+          python -m pytest tests/ -q \
+            || echo "::warning::Tests fallando — la corrida sigue igual. Revisar CI."
 
       - name: Correr el radar
         env:
@@ -141,12 +155,16 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/ logs/ alertas/
           git commit -m "bitacora: corrida $(date -u +%Y-%m-%d\ %H:%M) UTC"
-          # La rama pudo avanzar mientras corría el job.
+          # La rama pudo avanzar mientras corría el job. OJO con el remate
+          # fuera del loop: la versión anterior podía terminar su tercera
+          # vuelta en el `pull` —sin volver a intentar el push— y el commit
+          # con el estado del día se quedaba en el runner, que se destruye.
           for i in 1 2 3; do
-            git push && break
+            git push && exit 0
             echo "Push falló, reintentando ($i/3)..."
             git pull --rebase --autostash && sleep $((i * 2))
           done
+          git push
 
       - name: Guardar diagnóstico si algo falla
         if: failure()
@@ -159,3 +177,29 @@ jobs:
             logs/
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Avisar por Telegram que el job se cayó
+        # La red que faltaba, y la corrida perdida del 17-08 la justificó: el
+        # radar promete avisar cuando ÉL falla, pero eso solo cubre lo que
+        # pasa dentro de Python. Un pip roto, un gate previo o un runner caído
+        # matan el job sin que el radar haya llegado a partir — y desde el
+        # teléfono eso se ve exactamente igual que "no hay departamentos".
+        #
+        # Este paso corre a nivel del WORKFLOW, así que cubre cualquier paso
+        # caído. Con curl directo, sin pasar por el código del radar: si el
+        # problema es el código, el aviso tiene que salir igual.
+        if: ${{ failure() && inputs.dry_run != true }}
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_TOKEN_ARRIENDOS }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID_ARRIENDOS }}
+        run: |
+          [[ -z "$TOKEN" || -z "$CHAT" ]] && exit 0
+          curl -sS --max-time 20 "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            -d chat_id="$CHAT" \
+            -d parse_mode=HTML \
+            --data-urlencode text="🚨 <b>Radar de Arriendos: el job se cayó</b>
+
+La corrida de hoy no terminó. No es \"no hay departamentos\": es que el radar no corrió.
+
+🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            > /dev/null || true

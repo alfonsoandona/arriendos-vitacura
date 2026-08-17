@@ -638,3 +638,64 @@ def test_clf_bajo_no_se_lee_como_pesos():
     """46 en CLF son 46 UF, no 46 pesos."""
     m = P.parse_montos("por CLF 33.00", valor_uf=40_000)
     assert m["arriendo_clp"] == 1_320_000
+
+# ---------------------------------------------------------------------------
+# Los dos asesinos silenciosos que encontró la auditoría contra datos reales
+#
+# Ambos con la misma forma: un motivo de descarte que suena razonable, así que
+# nadie iba a ir a revisarlo. Entre los dos se llevaron 20 departamentos de
+# Vitacura reales en la primera corrida.
+# ---------------------------------------------------------------------------
+
+def test_la_region_metropolitana_no_es_la_comuna_santiago():
+    """economicos.cl remata cada aviso con "Región: Metropolitana de Santiago".
+
+    Un departamento de Vitacura cuya tarjeta no repetía la comuna quedaba con
+    comuna "Santiago" —que es una comuna conocida y no vecina— y el filtro de
+    zona lo botaba con toda seguridad. Trece departamentos reales: Lo
+    Castillo, Juan XXIII, Bicentenario, Agustín del Castillo.
+    """
+    assert P.parse_comuna(
+        "4 dormitorios, 3 baños Región: Metropolitana de Santiago "
+        "Publicado el: 2026-08-16 Diario: El Mercurio") == ""
+    assert P.parse_comuna("Depto en Provincia de Santiago, Chile") == ""
+    assert P.parse_comuna("Departamento en Santiago de Chile") == ""
+
+
+def test_la_comuna_santiago_de_verdad_si_se_detecta():
+    """La corrección no puede borrar a la comuna Santiago del mapa."""
+    assert P.parse_comuna("Arriendo en Santiago Centro, Barrio Brasil") == "Santiago"
+    assert P.parse_comuna("Gran Avenida, Santiago") == "Santiago"
+
+
+def test_vitacura_le_gana_a_la_region_cuando_estan_las_dos():
+    assert P.parse_comuna(
+        "Depto en Vitacura, Región Metropolitana de Santiago") == "Vitacura"
+
+
+def test_un_aviso_con_dormitorios_no_es_un_estacionamiento():
+    """El clasificado chileno es telegráfico y no dice "departamento".
+
+    "1.500.000 Agustín del Castillo. 4 dormitorios, 3 baños, servicio,
+    estacionamiento, bodega" quedaba clasificado como ESTACIONAMIENTO: la
+    palabra aparece tras una coma, que no es un conector, así que la guarda de
+    accesorios no aplicaba. Siete departamentos reales de Vitacura botados.
+
+    La regla es de sentido común: lo que declara dormitorios no es un
+    estacionamiento, una bodega ni una oficina.
+    """
+    texto = ("1.500.000 Agustín del Castillo - Costanera. 4 dormitorios, "
+             "3 baños, servicio, estacionamiento, bodega. 976543210")
+    assert P.parse_tipo(texto) == ""          # vivienda de tipo desconocido
+
+    assert P.parse_tipo(
+        "UF 26 Kennedy/Tabancura, 3 dormitorios, 3 baños, cocina grande, "
+        "logia, bodega y estacionamiento") == ""
+
+
+def test_un_estacionamiento_de_verdad_si_se_detecta():
+    assert P.parse_tipo(
+        "Arriendo estacionamiento subterráneo, edificio Alonso de Córdova, "
+        "$120.000 mensuales") == "estacionamiento"
+    assert P.parse_tipo("Se arrienda bodega 12 m² en Vitacura") == "bodega"
+

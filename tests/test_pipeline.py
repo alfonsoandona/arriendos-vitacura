@@ -20,6 +20,7 @@ from arriendo.sources import registry
 from arriendo.sources.base import ResultadoFuente
 from arriendo.historial import leer as leer_historial
 from arriendo.sources.generic import extraer
+from arriendo.tiempo import ahora_utc
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -473,7 +474,7 @@ def test_la_corrida_se_corta_antes_de_que_actions_la_mate(entorno, mensajes,
 
     monkeypatch.setattr(registry, "barrer", barrer_lento)
     # El presupuesto ya vencido: se corta antes de la primera fuente.
-    monkeypatch.setattr(cli, "_deadline", lambda t: datetime.utcnow())
+    monkeypatch.setattr(cli, "_deadline", lambda t: ahora_utc())
 
     assert cli.correr(ArgsFalsos(fuentes=str(yml), tope_minutos=18)) == 0
     assert vistas == [], "no debería haber barrido ninguna con el tope vencido"

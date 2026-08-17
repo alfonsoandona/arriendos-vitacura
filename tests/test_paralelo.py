@@ -28,6 +28,7 @@ import pytest
 from arriendo.models import Arriendo
 from arriendo.sources import registry
 from arriendo.sources.base import Fetcher, FuenteConfig, ResultadoFuente
+from arriendo.tiempo import ahora_utc
 
 
 def _fuentes(n: int) -> list[FuenteConfig]:
@@ -316,7 +317,7 @@ def test_con_el_presupuesto_vencido_no_se_mira_ninguna(monkeypatch):
     monkeypatch.setattr(registry, "barrer", nunca)
 
     salida = registry.barrer_todas(_fuentes(6), Fetcher(delay=0), hilos=4,
-                                   limite=datetime.utcnow())
+                                   limite=ahora_utc())
     assert all(not r.intentada for _f, r in salida)
 
 
@@ -326,7 +327,7 @@ def test_las_que_no_se_alcanzaron_a_mirar_se_distinguen_de_las_vacias(monkeypatc
     La primera no es una fuente caída y no puede contarse como tal: mañana
     hay que volver a mirarla, no hay que arreglarla.
     """
-    limite = datetime.utcnow() + timedelta(seconds=0.15)
+    limite = ahora_utc() + timedelta(seconds=0.15)
 
     def lento(fuente, fetcher, seguir_detalles=True, valor_uf=None, limite=None):
         time.sleep(0.1)
@@ -354,7 +355,7 @@ def test_barrer_corta_entre_paginas_con_el_presupuesto_vencido(monkeypatch):
                           urls=["https://lenta.cl/a"],
                           paginacion={"paginas": 5, "parametro": "page"})
 
-    r = registry.barrer(fuente, Fetcher(delay=0), limite=datetime.utcnow())
+    r = registry.barrer(fuente, Fetcher(delay=0), limite=ahora_utc())
     assert r.cortada_por_tiempo
     assert r.urls_ok == 0
 
