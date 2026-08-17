@@ -3,3 +3,4 @@
 {"cuando": "2026-08-17T13:09:26", "duracion_s": 203, "fuentes_ok": 28, "fuentes_consultadas": 39, "total": 586, "unicos": 288, "candidatos": 95, "avisados": 8, "error": null, "corte_por_tiempo": null, "reventadas": null, "hilos": 4}
 {"cuando": "2026-08-17T13:41:00", "duracion_s": 231, "fuentes_ok": 35, "fuentes_consultadas": 42, "total": 605, "unicos": 305, "candidatos": 102, "avisados": 8, "error": null, "corte_por_tiempo": null, "reventadas": null, "hilos": 4}
 {"cuando": "2026-08-17T17:16:32", "duracion_s": 218, "fuentes_ok": 34, "fuentes_consultadas": 42, "total": 605, "unicos": 310, "candidatos": 102, "avisados": 8, "error": null, "corte_por_tiempo": null, "reventadas": null, "hilos": 4}
+{"cuando": "2026-08-17T21:07:14", "duracion_s": 170, "fuentes_ok": 35, "fuentes_consultadas": 42, "total": 611, "unicos": 355, "candidatos": 118, "avisados": 8, "error": null, "corte_por_tiempo": null, "reventadas": null, "hilos": 4}
