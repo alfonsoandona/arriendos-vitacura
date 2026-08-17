@@ -7,6 +7,56 @@ No hace falta que lo llenes entero ni en orden. Cada bloque es independiente y
 todos tienen un valor por omisión que ya funciona: lo que está pendiente
 mejora el resultado, no lo desbloquea.
 
+---
+
+## ⚡ Lo que tienes que hacer tú, en orden
+
+Solo el paso 1 es obligatorio. Los demás mejoran lo que llega.
+
+| # | Qué | Dónde | Cuánto demora | Sin esto… |
+|---|---|---|---|---|
+| **1** | **Crear el bot de Telegram y guardar los 2 secrets** | Teléfono + GitHub | 5 min | **No te llega ningún aviso.** El radar corre y encuentra, pero no puede avisarte. |
+| **2** | Correr `Actions → Probar aviso de Telegram` | GitHub | 30 seg | No sabes si el paso 1 quedó bien. |
+| 3 | Pegar las URLs de 14 corredoras que apuntan a su portada | Navegador | 2 min c/u | Esas 14 traen lo que muestre su home, no arriendos de Vitacura. |
+| 4 | Decirme si el Sport Francés está bien ubicado | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
+| 5 | Contestar los bloques 5 y 6 (piso, mascotas, estacionamiento…) | Acá mismo | 5 min | El puntaje ordena con suposiciones mías. |
+
+### Paso 1, en detalle — es el único que bloquea
+
+1. En el teléfono, abre Telegram y busca **@BotFather**.
+2. Mándale `/newbot`. Te va a pedir dos cosas:
+   - un **nombre** (lo que se ve): por ejemplo `Radar Arriendos Vitacura`
+   - un **usuario** que termine en `bot`: por ejemplo `arriendos_vitacura_bot`
+3. Te responde con un **token** largo, con esta forma:
+   `8123456789:AAH8x...`. Ese es `TELEGRAM_TOKEN_ARRIENDOS`.
+4. **Búscalo por su usuario y mándale un "hola".** Este paso se salta siempre
+   y es obligatorio: un bot no puede escribirle primero a nadie en Telegram,
+   así que sin tu mensaje el envío falla con `chat not found`.
+5. Para el chat id, abre en el navegador del teléfono:
+   `https://api.telegram.org/bot<TU_TOKEN>/getUpdates`
+   y busca `"chat":{"id":123456789`. Ese número es
+   `TELEGRAM_CHAT_ID_ARRIENDOS`.
+6. En GitHub: **Settings → Secrets and variables → Actions → New repository
+   secret**, y guarda los dos con esos nombres exactos.
+7. **Actions → Probar aviso de Telegram → Run workflow.** Si llega el mensaje,
+   listo.
+
+> ⚠️ **Bot NUEVO, distinto del de remates.** Los secrets llevan sufijo
+> `_ARRIENDOS` justamente para que no se crucen, y el código **no** cae al
+> nombre genérico si faltan: prefiere fallar con un mensaje claro antes que
+> mandarle tus arriendos al chat equivocado.
+
+### Lo que YA no tienes que hacer
+
+Dos cosas que estaban en esta lista y se resolvieron solas:
+
+- ~~Correr la calibración~~ ✅ **Ya corrió.** El radar se ejecutó contra los 39
+  portales el 16 de agosto: 633 avisos, 328 únicos, 91 candidatos. El detalle
+  fuente por fuente, con cuáles tienen resultados de Vitacura y cuáles no,
+  está en **[`FUENTES.md`](FUENTES.md)**.
+- ~~Decidir si el tope incluye gastos comunes~~ ✅ **Ya lo contestaste**
+  ("solo de arriendo, no incluye ggcc"). Ver el bloque 4.
+
 **Cómo leer las marcas:**
 
 | | |
@@ -51,7 +101,7 @@ Cuando estén, corre **Actions → Probar aviso de Telegram** y avísame si lleg
 
 ---
 
-## 🟠 2. Las 19 fuentes "por calibrar"
+## 🟠 2. Las corredoras que apuntan a su portada
 
 El catálogo tiene ahora **41 portales, 39 activos**. Se dividen en dos grupos
 y la diferencia importa:
@@ -112,26 +162,27 @@ ______________________________________________
 
 ---
 
-## 🟠 3. Calibración — el paso que solo se puede hacer con internet
+## ~~🟠 3. Calibración~~ ✅ YA CORRIÓ
 
-**Actions → Calibrar fuentes → Run workflow.**
+El radar se ejecutó contra los 39 portales el 16-08-2026 y entregó: **633
+avisos leídos, 328 únicos después de deduplicar, 91 que pasan tus filtros.**
 
-El entorno donde escribí esto tiene la red bloqueada hacia todos los portales,
-así que **pude confirmar que las URLs existen pero no que el extractor las
-entienda**. Son dos cosas distintas y esta es la que falta.
+El resultado fuente por fuente —cuáles tienen resultados de Vitacura, cuántos,
+y por qué las que no— está en **[`FUENTES.md`](FUENTES.md)**. En resumen:
 
-Cuando corras la calibración, pásame el reporte (sale en el resumen del run,
-se lee del teléfono) y yo ajusto lo que haga falta. Lo que espero encontrar:
+| | |
+|---|---|
+| ✅ Entregan Vitacura | 15 portales |
+| ⚠️ Entregan, pero nada de Vitacura | 7 (la URL o el filtro está mal) |
+| ❌ No entregaron nada | 17 (14 son las corredoras del bloque 2) |
 
-| Lo que puede salir | Qué significa | Qué hago yo |
-|---|---|---|
-| `✅ entrega` | Funciona | Nada |
-| `⚠️ cero resultados` | La página cargó pero no reconocí los avisos | Le escribo el `selector_card`, o le pongo `motor: navegador` |
-| `❌ HTTP 403` | El sitio bloquea clientes que no son navegador | `motor: navegador` |
-| `❌ DNS` | La URL cambió | La corrijo |
+Revisar esos 633 avisos reales encontró tres errores que ningún test escrito a
+mano iba a mostrar —51 departamentos descartados en silencio, los avisos sin
+precio quedándose con los primeros lugares, y gastos comunes leídos como
+arriendo— y los tres ya están corregidos. El mismo corpus pasa de 68 a 91
+candidatos.
 
-- [ ] Corrí la calibración
-- [ ] Te pasé el reporte
+Para volver a correrla cuando quieras: **Actions → Calibrar fuentes**.
 
 ---
 
@@ -359,9 +410,10 @@ ______________________________________________
 |---|---|
 | Parser, scoring, deduplicación, alertas, fichas | ✅ 404 tests, todos sin red |
 | URLs de los 20 portales activos | ✅ confirmadas una por una |
-| Que el extractor entienda cada portal | ⚠️ **falta calibrar** (bloque 3) |
+| Que el extractor entienda cada portal | ✅ 15 fuentes entregando Vitacura ([FUENTES.md](FUENTES.md)) |
 | Telegram | ⚠️ **falta el bot** (bloque 1) |
 | Las 3 corredoras apagadas | ⚠️ **falta la URL** (bloque 2) |
+| Calibración contra los portales reales | ✅ corrió: 633 avisos, 91 candidatos |
 | Barrido en paralelo y presupuesto de tiempo | ✅ probado con hilos de verdad |
 | Historial de búsquedas | ✅ funciona, pero se llena solo con las corridas |
 

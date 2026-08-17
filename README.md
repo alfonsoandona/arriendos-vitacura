@@ -52,6 +52,24 @@ público los minutos son ilimitados.
 
 ---
 
+## ¿Qué portales tienen resultados en Vitacura?
+
+Ya no es una suposición: el radar corrió contra los 39 el 16-08-2026 y trajo
+**633 avisos, 328 únicos, 91 candidatos**. El detalle portal por portal está
+en **[`FUENTES.md`](FUENTES.md)** — cuáles entregan Vitacura, cuáles entregan
+pero de otras comunas, y cuáles no entregaron nada y por qué.
+
+Resumen: **15 entregan Vitacura**, 7 entregan sin Vitacura (URL o filtro mal),
+17 no entregaron nada (14 son corredoras cuya URL apunta a la portada).
+
+Lo que más sorprende: los metabuscadores (Trovit 47, Mitula 46, Nestoria 13)
+entregan más Vitacura que los portales grandes. Tiene sentido —agregan el
+inventario de las corredoras chicas, que es justo lo que Portal Inmobiliario
+no muestra— y por eso el radar los mantiene, filtrándoles por dominio los
+avisos que vienen de Portal Inmobiliario.
+
+---
+
 ## ⚠️ Lo primero que hay que hacer: calibrar
 
 **Actions → Calibrar fuentes → Run workflow.**

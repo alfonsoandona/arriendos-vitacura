@@ -148,6 +148,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         "fuentes_ok": 0,
         "por_fuente": {},
         "segundos_fuente": {},
+        "errores_fuente": {},
         "fuentes_caidas": [],
         "fuentes_parciales": [],
         "fuentes_reventadas": [],
@@ -187,6 +188,12 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         if resultado.ok:
             stats["fuentes_ok"] += 1
         if resultado.error:
+            # El motivo se guarda, no solo se loguea. Sin esto la bitácora
+            # dice "17 fuentes en cero" y no dice cuáles murieron en un 403,
+            # cuáles no resuelven el dominio y cuáles respondieron bien pero
+            # con un HTML que el extractor no reconoció — que son tres
+            # problemas con tres arreglos distintos.
+            stats["errores_fuente"][fuente.id] = resultado.error
             log.warning("  %s: %s", fuente.id, resultado.error)
         if resultado.reventada:
             # Un bug nuestro, no un portal que no contesta. Va aparte porque

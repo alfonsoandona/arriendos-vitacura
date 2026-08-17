@@ -90,14 +90,20 @@ def _resumen(stats: dict) -> str:
         # El tiempo por fuente es lo que se mira cuando la corrida se cortó:
         # dice cuál se colgó, que es distinto de cuál no entregó.
         segundos = stats.get("segundos_fuente") or {}
+        errores = stats.get("errores_fuente") or {}
         L.append("## Qué entregó cada fuente")
         L.append("")
-        L.append("| Fuente | Avisos | Tiempo |")
-        L.append("|---|---|---|")
+        L.append("| Fuente | Avisos | Tiempo | Qué pasó |")
+        L.append("|---|---|---|---|")
         for fid, n in sorted(por_fuente.items(), key=lambda kv: -kv[1]):
             marca = "" if n else " ⚠️"
             t = segundos.get(fid)
-            L.append(f"| {fid}{marca} | {n} | {f'{t:.0f}s' if t is not None else '—'} |")
+            # El motivo del cero es lo único accionable de esta tabla: separa
+            # "el sitio no contesta" de "contestó y no entendimos su HTML".
+            que = errores.get(fid) or ("" if n else
+                                       "respondió, pero no se reconoció ningún aviso")
+            L.append(f"| {fid}{marca} | {n} | {f'{t:.0f}s' if t is not None else '—'} "
+                     f"| {que} |")
         L.append("")
 
     if (reventadas := stats.get("fuentes_reventadas")):
