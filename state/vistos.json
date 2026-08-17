@@ -17,9 +17,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 1295 \"AT397.842* -Gran Propiedad Comercial de 2 pisos ,uso In... \"Portugal - Manuel Antonio Matta\" $ 36.769.797",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/localcomercial/205397842",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "013e03941d596805": {
     "amoblado": "amoblado",
@@ -38,9 +38,9 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "Oficina en Arriendo Francisco De Aguirre/Av. Vitacura, Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "01b04767ffd8df84": {
     "arriendo_clp": 10213832,
@@ -65,9 +65,9 @@
     "source": "heyhomes",
     "tipo": "casa",
     "titulo": "17 VENTA – Orrego Luco – Providencia UF 48.000 VENTA – Orrego Luco – Providencia UF 48.000 HEY! EN VENTA Y ARRIENDO PROP",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/venta-orrego-luco-providencia/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "01f2a9b3e7a98c7c": {
     "amoblado": "amoblado",
@@ -91,22 +91,22 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Arriendo gran dpto 93m2 Huechuraba",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "023baee63f62a95a": {
     "amoblado": "amoblado",
     "ano_construccion": 2022,
     "antiguedad_anos": 4,
-    "arriendo_clp": 2507000.0,
+    "arriendo_clp": null,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
     "clave_direccion": "vitacura",
     "comuna": "Vitacura",
-    "direccion": "Vitacura, Región Metropolitana",
-    "dormitorios": 3,
+    "direccion": "Vitacura",
+    "dormitorios": 4,
     "estacionamientos": 3,
     "gastos_comunes_clp": 450000.0,
     "historial_precio": [
@@ -117,22 +117,23 @@
     ],
     "m2_terraza": 25.0,
     "m2_totales": 160.0,
-    "m2_utiles": 140.0,
-    "orientacion": "nororiente",
+    "m2_utiles": 127.0,
+    "orientacion": "oriente",
     "piso": 4,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 0,
-    "source": "toppropiedades",
+    "score": 65,
+    "source": "goplaceit",
     "tipo": "departamento",
-    "titulo": "Exclusivo Amoblado las Hualtatas Tabancura, Vitacura, Rm",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://www.toppropiedades.cl/propiedad/173095",
-    "veces_visto": 1
+    "titulo": "Departamento en Arriendo en Tabancura - 4D/3B/Oriente/Vista - 4 habitaciones - 127 m2",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/11242195-departamento-en-arriendo-en-tabancura-4d3borientevista-4-habitaciones-127-m2",
+    "veces_visto": 2
   },
   "033402d25218f256": {
     "amoblado": "sin amoblar",
     "arriendo_clp": 2451320,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -152,6 +153,29 @@
     "titulo": "UF 60 Departamento en Vitacura, Provincia De Santiago Magnolia Property presenta este exclusivo departamento en arriendo",
     "ultima_vez": "2026-08-17T13:44:50",
     "url": "https://www.icasas.cl/propiedad/534c-8ff4-d9aa65ae-d53e0a6dea5-4958",
+    "veces_visto": 1
+  },
+  "03711153ea7ed1d2": {
+    "arriendo_clp": 1879345,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1879345,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 67,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 46 Departamento en Vitacura, Provincia De Santiago DISPONIBILIDAD INMEDIATA Departamento NUEVO, recién entregado por ",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/38b-abb8-435080bc-f7bc33423691-4729",
     "veces_visto": 1
   },
   "038262de844e2223": {
@@ -176,9 +200,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Corredora Ruta Inmobiliaria Vitacura Departamento en arriendo de 2 dorm. en Vitacura DISPONIBILIDAD INMEDIATASE ARRIENDA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-de-2-dorm-en-vitacura/32733520",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0440a1acfcbbe1cb": {
     "amoblado": "amoblado",
@@ -202,12 +226,13 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "FERNANDO DE ARGUELLO / PADRE HURTADO",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "04c1bf2023df6210": {
     "arriendo_clp": 13727391.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 364",
@@ -228,6 +253,33 @@
     "titulo": "ARRIENDO 364 \"¡No pierdas la oportunidad de arrendar esta increíble ofic... \"Plaza Oeste\" $ 13.727.391.- UF 336.- 820 mt",
     "ultima_vez": "2026-08-17T13:44:50",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/cerrillos/oficina/203414842",
+    "veces_visto": 1
+  },
+  "04f6f9cc2d0013c9": {
+    "arriendo_clp": 1389081,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "estacionamientos": 1,
+    "historial_precio": [
+      {
+        "clp": 1389081,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "orientacion": "oriente",
+    "piso": 7,
+    "precio_al_avisar": 1389081,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 74,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", Asencio Zavala 2d, 2b +1E y 1B, Vista Despejada (178984) Habitaciones: 2 Baños: 2 Terreno: 83 m² Estacionamientos: 1 E",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/asencio-zavala-2d-2b-1e-y-1b-vista-despejada-178984/129513360",
     "veces_visto": 1
   },
   "0569bf340f78f06c": {
@@ -252,35 +304,35 @@
     "source": "heyhomes",
     "tipo": "departamento",
     "titulo": "19 ARRIENDO – Metro Mirador – La Florida UF 15 ARRIENDO – Metro Mirador – La Florida UF 15 HEY! DEPARTAMENTO EN ARRIENDO",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-metro-mirador-la-florida/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "05ca8cd62e854abd": {
     "amoblado": "amoblado",
     "arriendo_clp": null,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
-    "banos": 2,
+    "banos": 1,
     "clave_direccion": "vitacura lo castillo vitacura",
     "comuna": "Vitacura",
-    "direccion": "Avenida Vitacura, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630391, Chile, Vitacura, Metropolitana de Santiago",
-    "dormitorios": 3,
-    "estacionamientos": 1,
+    "direccion": "Avenida Vitacura, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630249, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 1,
+    "estacionamientos": 2,
     "historial_precio": [],
     "m2_terraza": 16.0,
-    "m2_totales": 154.0,
+    "m2_totales": 100.0,
     "m2_utiles": 138.0,
     "orientacion": "poniente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 59,
+    "score": 0,
     "source": "mitula",
     "tipo": "departamento",
-    "titulo": "Departamento AMOBLADO en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "titulo": "Estiloso departamento con equipamiento y amoblado de gran nivel.",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0691612e745b2ac9": {
     "arriendo_clp": 8252777.0,
@@ -301,12 +353,13 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 567 \"Se arrienda amplia oficina a pasos de La Moneda, comuna de... \"La Moneda\" $ 8.252.777.- UF 202.- 1.317 mt2",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410788",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "06ce079c2e676a1d": {
     "arriendo_clp": 6945406,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo uf 170",
@@ -340,9 +393,9 @@
     "score": 0,
     "source": "houm",
     "titulo": "Avenida Simón Bolívar Ñuñoa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/174379",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "08a90041a5b54d78": {
     "amoblado": "amoblado",
@@ -364,12 +417,13 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Jacqueline Apud Sabag Vitacura Museo Ralí. Fino Amoblado, clásico (145743) Departamento precioso, iluminado, clásico y f",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/museo-rali-fino-amoblado-clasico-145743/31976283",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "091ba5e6770cd739": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "maule chile 4",
@@ -387,9 +441,60 @@
     "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123352-casa-condominios-de-lircay-talca",
     "veces_visto": 1
   },
+  "09b1d8fa85ea425f": {
+    "arriendo_clp": 3023294,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 3023294,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 74 Departamento en Vitacura, Provincia De Santiago Amplio, cómodo e impecable departamento en Arriendo ubicado en exc",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/6a18-be28-1a20f0f5-e3cd4d4d9db6-479b",
+    "veces_visto": 1
+  },
+  "09fdcbd902c3a9bf": {
+    "arriendo_clp": 3676980,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 5,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "dormitorios": 5,
+    "estacionamientos": 3,
+    "historial_precio": [
+      {
+        "clp": 3676980,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 37.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", Dpto 5d y 5b c jardin cerca paseo el tamarugo (178834) Habitaciones: 5 Baños: 5 Terreno: 240 m² Estacionamientos: 3 Ex",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/dpto-5d-y-5b-c-jardin-cerca-paseo-el-tamarugo-178834/129513290",
+    "veces_visto": 1
+  },
   "0a06fb946d8ec56d": {
     "amoblado": "amoblado",
     "arriendo_clp": 4698363,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -427,9 +532,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0c18cdc8dd32dd62": {
     "arriendo_clp": 1943897,
@@ -453,9 +558,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 366M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0c96479967565212": {
     "arriendo_clp": 1250000.0,
@@ -479,12 +584,13 @@
     "source": "heyhomes",
     "tipo": "departamento",
     "titulo": "11 ARRIENDO – Cristóbal Colón – Las Condes UF 31 ARRIENDO – Cristóbal Colón – Las Condes UF 31 HEY! DEPARTAMENTO EN ARRI",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/venta-cristobal-colon-las-condes/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0d2b225b6fbe8a16": {
     "arriendo_clp": 1000000.0,
+    "ausencias": 1,
     "avisado": true,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -528,9 +634,9 @@
     "source": "nestoria",
     "tipo": "estacionamiento",
     "titulo": "KENNEDY 9798 ESQUINA LA AURORA ALTO LAS CONDES/PLENO KENNEDY FRENTE MALL ALTO LAS CONDES AREA DESING, Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0de8c5c4c426bcc5": {
     "arriendo_clp": 11316926.0,
@@ -550,9 +656,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 625 \"EXCELENTE PROPIEDAD INDUSTRIAL, que corresponde a 2 Roles ... \"Barrio Industrial, Puerto Montt\" $ 11.316.9",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/sitiohabitacional/204396157",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0e0c132e13d5011d": {
     "amoblado": "amoblado",
@@ -575,9 +681,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Espectacular dpto amoblado 3 dorm + sala estar en San Damián",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0e4f3ce8d91e7574": {
     "amoblado": "semi amoblado",
@@ -592,13 +698,13 @@
     "m2_totales": 240.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 54,
+    "score": 52,
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0f9f2aa4aec8b12a": {
     "arriendo_clp": null,
@@ -615,9 +721,9 @@
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "LOCAL COMERCIAL 30M / VITACURA /  NVA COSTANERA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "0fa1b3715ccc4be1": {
     "arriendo_clp": null,
@@ -637,9 +743,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Gran departamento cercano a Costanera",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "138d5ef8381bec83": {
     "arriendo_clp": 2000000.0,
@@ -660,9 +766,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Carmen Gloria Ovalle Vitacura Escrivá de balaguer 4d+3b+2e y bodega Excelenta Departamento en Vitacura, ubicado en Aveni",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/escriva-de-balaguer-4d-3b-2e-y-bodega/32325331",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "15d4a2aff52939d6": {
     "arriendo_clp": null,
@@ -680,9 +786,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "15d6f65851cdc1c0": {
     "amoblado": "semi amoblado",
@@ -701,12 +807,36 @@
     "orientacion": "norponiente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 63,
+    "score": 62,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Penthouse-Duplex en arriendo. 3D-4B+2E+Piscina Privada",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 2
+  },
+  "16030052d40bd141": {
+    "arriendo_clp": 9396726.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 831",
+    "comuna": "Vitacura",
+    "direccion": "ARRIENDO 831, Vitacura",
+    "historial_precio": [
+      {
+        "clp": 9396726.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 462.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "oficina",
+    "titulo": "ARRIENDO 831 \"Oficina en Venta y Arriendo, 14 privados, Av. Vitacura, Lu... \"Jardin del Este\" $ 9.396.726.- UF 230.- 462",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/oficina/203378709",
     "veces_visto": 1
   },
   "18bab0aa8eaecd92": {
@@ -718,23 +848,24 @@
     "clave_direccion": "las nieves 3405 vitacura santiago metropolitana de santiago 7630571 chl vitacura metropolitana de santiago",
     "comuna": "Vitacura",
     "direccion": "Calle Las Nieves 3405, Vitacura, Santiago, Metropolitana de Santiago, 7630571, CHL, Vitacura, Metropolitana de Santiago",
-    "dormitorios": 5,
+    "dormitorios": 3,
     "estacionamientos": 2,
     "historial_precio": [],
     "m2_utiles": 304.0,
-    "orientacion": "norte",
+    "orientacion": "nororiente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 66,
+    "score": 63,
     "source": "mitula",
     "tipo": "departamento",
-    "titulo": "Oportunidad Depto 3D + Sala de star + 2 Servicios, Amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "titulo": "Arriendo Penthouse 4 D 3 B 1 E 1 B Las Nieves, Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "1a9e671e068769bd": {
     "arriendo_clp": 3000000.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -771,12 +902,39 @@
     "score": 6,
     "source": "houm",
     "titulo": "Cerro La Parva Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173143",
+    "veces_visto": 2
+  },
+  "1e02ca9a96f5419d": {
+    "arriendo_clp": 4902640,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "montana norte arriendo uf 120",
+    "comuna": "La Florida",
+    "direccion": "Montaña Norte Arriendo: UF 120, La Florida",
+    "dormitorios": 6,
+    "historial_precio": [
+      {
+        "clp": 4902640,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "propiedades_cl",
+    "tipo": "departamento",
+    "titulo": "Propiedades Destacadas Listado de propiedades COD: 49.166 Casa en La Florida Estación de Metro Los Quillayes / Villa Los",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.propiedades.cl/Todos_los_tipos/Venta_y_Arriendo/Todas_las_comunas",
     "veces_visto": 1
   },
   "1e93e23f17fa0893": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "alternativa estacionamientos uf 3",
@@ -814,8 +972,32 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 1 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
+    "veces_visto": 2
+  },
+  "1faea6dda17fea40": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "region metropolitana de santiago provincia de santiago",
+    "comuna": "Padre Hurtado",
+    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
+    "dormitorios": 2,
+    "estacionamientos": 2,
+    "historial_precio": [],
+    "m2_totales": 100.0,
+    "m2_utiles": 89.0,
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "nuroa",
+    "tipo": "departamento",
+    "titulo": "Departamento Moderno impecable con una luminosidad donde destaca los materiales de calidad y finas terminaciones dando u",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
     "veces_visto": 1
   },
   "2013cd1fd06a9682": {
@@ -831,12 +1013,13 @@
     "score": 6,
     "source": "houm",
     "titulo": "Avenida Las Condes Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/177842",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "20f202d4354d7287": {
     "arriendo_clp": 14299366.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 340",
@@ -875,12 +1058,13 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Depto 1 dormitorio en suite,linda vista,estacionamiento,bode",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "24a70143e0f20390": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -900,8 +1084,34 @@
     "url": "https://www.propiedades.cl/Todos_los_tipos/Venta_y_Arriendo/Todas_las_comunas",
     "veces_visto": 1
   },
+  "24a99e195a337ee9": {
+    "arriendo_clp": 12000000.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 439",
+    "comuna": "",
+    "direccion": "ARRIENDO 439",
+    "historial_precio": [
+      {
+        "clp": 12000000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_totales": 650.0,
+    "m2_utiles": 650.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "local comercial",
+    "titulo": "ARRIENDO 439 \"Se arrienda amplio local comercial en el corazón de Concep... \"Galería Frente a Plaza de Armas\" $ 12.000.0",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/concepcion/concepcion/localcomercial/205411321",
+    "veces_visto": 1
+  },
   "24c364146f520ad5": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 5,
@@ -931,26 +1141,26 @@
     "arriendo_clp": null,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
-    "banos": 4,
+    "banos": 3,
     "clave_direccion": "americo vespucio norte vitacura",
     "comuna": "Vitacura",
     "direccion": "Avenida Américo Vespucio Norte, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630249, Chile, Vitacura, Metropolitana de Santiago",
-    "dormitorios": 4,
+    "dormitorios": 3,
     "estacionamientos": 2,
     "gastos_comunes_clp": 290000.0,
     "historial_precio": [],
-    "m2_totales": 190.0,
-    "m2_utiles": 190.0,
-    "orientacion": "norte",
+    "m2_totales": 140.0,
+    "m2_utiles": 167.0,
+    "orientacion": "nororiente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 62,
+    "score": 59,
     "source": "mitula",
     "tipo": "departamento",
-    "titulo": "Departamento Lo castillo ID: 169986r",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "titulo": "Departamento en Arriendo en alonso sotomayor",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "286a383c675a2a55": {
     "arriendo_clp": 2859873,
@@ -974,9 +1184,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 535M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2935c39672975338": {
     "amoblado": "amoblado",
@@ -985,28 +1195,28 @@
     "arriendo_clp": null,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
-    "banos": 2,
+    "banos": 3,
     "clave_direccion": "region metropolitana de santiago provincia de santiago",
     "comuna": "Vitacura",
     "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 2,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 310000.0,
+    "dormitorios": 3,
+    "estacionamientos": 2,
+    "gastos_comunes_clp": 280000.0,
     "historial_precio": [],
-    "m2_terraza": 21.31,
-    "m2_totales": 103.0,
-    "m2_utiles": 84.0,
-    "orientacion": "nororiente",
+    "m2_terraza": 16.0,
+    "m2_totales": 127.0,
+    "m2_utiles": 111.0,
+    "orientacion": "oriente",
     "piso": 2,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "nuroa",
     "tipo": "departamento",
-    "titulo": "REMAX OFRECE EN EXCLUSIVA ARRIENDO DE DEPARTAMENTO ubicado en la exclusiva calle Los Acantos con Las Nieves, de 2 dormit",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "titulo": "MAGNOLIA PROPERTY ARRIENDA LUMINOSO DEPARTAMENTO AÑO 2021 EN SECTOR LO CASTAÑO, VITACURA.<br />Edificio de solo 6 pisos ",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2a4f9651329e5622": {
     "arriendo_clp": null,
@@ -1028,19 +1238,19 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Penthouse en arriendo 3 dorm. 3 baños más servicios Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2c07172585b91bfb": {
     "arriendo_clp": 2247043,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
-    "banos": 2,
+    "banos": 4,
     "clave_direccion": "uf55 00",
     "comuna": "Vitacura",
     "direccion": "UF55 00, Vitacura",
-    "dormitorios": 3,
+    "dormitorios": 4,
     "historial_precio": [
       {
         "clp": 2247043,
@@ -1054,10 +1264,10 @@
     "score": 0,
     "source": "yapo",
     "tipo": "departamento",
-    "titulo": "Bárbara Hayes Vitacura Departamento 3d/2b+serv en la llavería Departamento ubicado en el sector de La Llavería, en un en",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-3d-2b-serv-en-la-llaveria/32811167",
-    "veces_visto": 1
+    "titulo": "Amelia Propiedades Vitacura Departamento en arriendo de 4dorm/3B/E/B en Vitacura Se vende este amplio departamento en Vi",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-de-4dorm-3b-e-b-en-vitacura/32521279",
+    "veces_visto": 2
   },
   "2c1f1cf73236e0e7": {
     "arriendo_clp": 1552503,
@@ -1083,9 +1293,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Property E2 Kay Vitacura 2 estacionamientos 140m2 Vitacura Departamento en arriendo, con entrega inmediata, a pasos de N",
-    "ultima_vez": "2026-08-17T13:44:49",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/2-estacionamientos-140m2-vitacura/32820020",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2c243c540dc96ad7": {
     "arriendo_clp": 1750000.0,
@@ -1107,8 +1317,34 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Ximena Gloria Bonet Guerricabeitia Vitacura Moderno Depto con Vista Panorámica (178161) Descubre la joya de Vitacura en ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/moderno-depto-con-vista-panoramica-178161/32801035",
+    "veces_visto": 2
+  },
+  "2ca6d9a8c0f8a663": {
+    "arriendo_clp": 1879345,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "dormitorios": 2,
+    "estacionamientos": 1,
+    "historial_precio": [
+      {
+        "clp": 1879345,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", Clínica Alemana Habitaciones: 2 Baños: 2 Terreno: 86 m² Estacionamientos: 1 DISPONIBILIDAD INMEDIATA Departamento NUEV",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/clinica-alemana/129168073",
     "veces_visto": 1
   },
   "2da78164bba0081a": {
@@ -1134,8 +1370,27 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Penthouse Amoblado de 2dorm en arriendo en San Damian",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 2
+  },
+  "2e0da67f3810d7d9": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "maule chile 6",
+    "comuna": "Talca",
+    "direccion": "Maule Chile 6, Talca",
+    "historial_precio": [],
+    "m2_utiles": 110.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "bienesonline",
+    "tipo": "casa",
+    "titulo": "Casa 6D+2B Villa Don Sebastian - Talca CLP 420.000 Talca, Maule, Chile 6 2 110 m² Ver Detalles",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123733-casa-6d2b-villa-don-sebastian-talca",
     "veces_visto": 1
   },
   "2eacbc18df9ebee6": {
@@ -1153,13 +1408,13 @@
     "m2_utiles": 200.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 63,
+    "score": 64,
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Arriendo en AMPLIO DEPARTAMENTO CERCANO A CLUB DE GOLF LOS LEONES, VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2eec9bbc3b9e90af": {
     "arriendo_clp": null,
@@ -1183,9 +1438,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "2f3b853c3f3eec65": {
     "arriendo_clp": 411150.0,
@@ -1205,8 +1460,56 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 659 \"cod: 411.150 CdePA Matucana- Atacama- Chacabuco 3000 edifi... \"Matucana- Atacama - Chacabuco\" $ 20.019.112",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205411150",
+    "veces_visto": 2
+  },
+  "2f6e33ff6b5dc3b9": {
+    "arriendo_clp": 1300017,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1300017,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 65.0,
+    "precio_al_avisar": 1300017,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 69,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 31,82 destacado Departamento en Vitacura, Provincia De Santiago Nativo propiedades arrienda este estupendo departamen",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/cd5c-937d-19f91f8-aeb26285ecbe-7699",
+    "veces_visto": 1
+  },
+  "2fbaa981c9b89001": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "linea 7",
+    "comuna": "Padre Hurtado",
+    "direccion": "Línea 7, Padre Hurtado",
+    "dormitorios": 2,
+    "estacionamientos": 2,
+    "historial_precio": [],
+    "m2_totales": 100.0,
+    "m2_utiles": 89.0,
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "trovit",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 2 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
     "veces_visto": 1
   },
   "3002d0f1de6e3036": {
@@ -1226,9 +1529,9 @@
     "source": "nestoria",
     "tipo": "casa",
     "titulo": "Casa en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "307290a975b0e0ee": {
     "amoblado": "amoblado",
@@ -1249,9 +1552,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Escrivá de Balaguer / Amoblado / 4D+3B+2E y bodega",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "30a81fc362e2cde2": {
     "arriendo_clp": 1943897,
@@ -1275,12 +1578,12 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 366M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "31801b39887d337b": {
-    "arriendo_clp": 3000000.0,
+    "arriendo_clp": 2900000.0,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -1290,6 +1593,10 @@
       {
         "clp": 3000000.0,
         "cuando": "2026-08-17"
+      },
+      {
+        "clp": 2900000.0,
+        "cuando": "2026-08-17"
       }
     ],
     "precio_al_avisar": null,
@@ -1298,9 +1605,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Valesca Reyes Vitacura Moderno Depto con entrega 1 de octubre (178738) Descubre el hogar de tus sueños en la prestigiosa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/moderno-depto-con-entrega-1-de-octubre-178738/32827303",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "340a4d845b57dc68": {
     "arriendo_clp": 2859873,
@@ -1324,9 +1631,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 535M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "352eb6973dd5ab68": {
     "arriendo_clp": null,
@@ -1345,12 +1652,35 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 142.585.102 UF 3.490,00 JOSE PEDRO ALESSANDRI, LAS ENCINAS, ÑUÑOA, 2D 2B... VENTA. Nativo Propiedades vende lindo e im",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1594",
+    "veces_visto": 2
+  },
+  "37da141285201af1": {
+    "arriendo_clp": 1800000.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1800000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 7,
+    "source": "magnoliaproperty",
+    "titulo": "Cod.: 8.743 Venta UF 10.000 Arriendo $ 1.800.000",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/8743",
     "veces_visto": 1
   },
   "38ccbe17ed19664a": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 7,
@@ -1387,9 +1717,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 754 \"cod 410.493 CdePA Propiedad para fines educacionales 1456 ... \"metro Republica\" $ 15.448.217.- UF 378,12.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205410493",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3b8dbd7b05516fb5": {
     "arriendo_clp": 412061.0,
@@ -1409,9 +1739,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 862 \"cod: 412.061*CdePA Centro de Rancagua: Astorga - O Carrol ... \"Astorga - Ocarrol\" $ 51.069.162.- UF 1.250.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/otros/219412061",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3c4c3669e5ee5056": {
     "arriendo_clp": null,
@@ -1430,9 +1760,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3ca7b84fc24bef69": {
     "amoblado": "amoblado",
@@ -1455,9 +1785,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "FERNANDO DE ARGUELLO / PADRE HURTADO",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3cb4345d7270e1e9": {
     "arriendo_clp": 17976345.0,
@@ -1478,9 +1808,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 540 \"Tenemos disponible en arriendo esta propiedad industrial p... \"Cdad de Los valles\" $ 17.976.345.- UF 440.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/pudahuel/industrial/208410746",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3e1497326971a6e0": {
     "arriendo_clp": 1225660,
@@ -1504,9 +1834,9 @@
     "source": "heyhomes",
     "tipo": "local comercial",
     "titulo": "8 ARRIENDO – Mirador Casona – La Florida UF 30 ARRIENDO – Mirador Casona – La Florida UF 30 HEY! LOCAL COMERCIAL EN ARRI",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-mirador-casona-la-florida-2/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "3e16f4009cdf6bd6": {
     "amoblado": "amoblado",
@@ -1528,8 +1858,30 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SAN PATRICIO / VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
+    "veces_visto": 2
+  },
+  "3f3901b4f961811c": {
+    "arriendo_clp": 8171066.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 35",
+    "comuna": "La Serena",
+    "direccion": "ARRIENDO 35, La Serena",
+    "historial_precio": [
+      {
+        "clp": 8171066.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "titulo": "ARRIENDO 35 \"Comercial en Arriendo – Centro Histórico de La Serena <... \"Regimiento Coquimbo 979\" $ 8.171.066.- UF 200.-",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/la-serena/la-serena/oficina/203416344",
     "veces_visto": 1
   },
   "3fd152a3d9e15c35": {
@@ -1548,9 +1900,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "413dc3050f10e67a": {
     "arriendo_clp": null,
@@ -1569,9 +1921,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "415d569844852931": {
     "arriendo_clp": null,
@@ -1592,12 +1944,13 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SAN PATRICIO / VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "43d86a864a0ff7c8": {
     "arriendo_clp": 12000000.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 438",
@@ -1623,6 +1976,7 @@
   },
   "4400a0ca63bbd4f9": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "alternativa estacionamientos uf 3",
@@ -1661,9 +2015,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 874 \"Te presentamos esta amplia y luminosa oficina en arriendo ... \"Av. Bilbao\" $ 10.132.122.- UF 248.- $ 9.396",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/oficina/203389661",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "446d31eb41a4a8ba": {
     "arriendo_clp": 7500000.0,
@@ -1685,12 +2039,13 @@
     "source": "fuenzalida",
     "tipo": "terreno",
     "titulo": "ARRIENDO 690 \"¡Gran oportunidad de arriendo! Parcela en la comun... \"Santa Rosa\" $ 7.500.000.- UF 183,57.- $ 6.800.000.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-pintana/parceladeagrado/214406451",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "449b5b9230f163b2": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -1727,12 +2082,37 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 821 \"cod: 412.061*CdePA Centro de Rancagua: Astorga - O Carrol ... \"Astorga - Ocarrol\" $ 51.069.162.- UF 1.250.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/oficina/203412061",
+    "veces_visto": 2
+  },
+  "44d3f010e0238c00": {
+    "arriendo_clp": 13727391.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 366",
+    "comuna": "",
+    "direccion": "ARRIENDO 366",
+    "historial_precio": [
+      {
+        "clp": 13727391.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_totales": 820.0,
+    "m2_utiles": 820.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "titulo": "ARRIENDO 366 \"¡No pierdas la oportunidad de arrendar esta increíble ofic... \"Plaza Oeste\" $ 13.727.391.- UF 336.- 820 mt",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/cerrillos/oficina/203414842",
     "veces_visto": 1
   },
   "458e067d4407ac5d": {
     "arriendo_clp": 8783896.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 1430",
@@ -1775,9 +2155,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "AMOBLADO  y Vista despejada al oriente- Bicentenario",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "46ec003856ad003a": {
     "arriendo_clp": 2859873,
@@ -1801,8 +2181,35 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 535M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
+    "veces_visto": 2
+  },
+  "46fefde52a269ef7": {
+    "amoblado": "amoblado",
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "el nogal vitacura",
+    "comuna": "Vitacura",
+    "direccion": "El Nogal, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7640509, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 3,
+    "estacionamientos": 2,
+    "gastos_comunes_clp": 280000.0,
+    "historial_precio": [],
+    "m2_terraza": 16.0,
+    "m2_totales": 127.0,
+    "m2_utiles": 111.0,
+    "orientacion": "oriente",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 59,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
     "veces_visto": 1
   },
   "49ddd5f322ef3937": {
@@ -1826,9 +2233,9 @@
     "source": "fuenzalida",
     "tipo": "casa",
     "titulo": "ARRIENDO 432 \"Espectacular terreno en Pintué, 7.3 ha. 4 casas. Piscina d... \"Paine- Laguna Aculeo\" $ 9.274.160.- UF 227.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/paine/paine/parceladeagrado/214414062",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4b6c8d864d8e9339": {
     "arriendo_clp": null,
@@ -1852,9 +2259,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "3 dorm. 3 baños. 2 estac. Piso bajo. Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4c5134679b34ba2c": {
     "arriendo_clp": null,
@@ -1872,9 +2279,9 @@
     "source": "nestoria",
     "tipo": "casa",
     "titulo": "Gran casa 4d/3d + servicios, gran ubicación, las condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4caa4c56ad9e929d": {
     "arriendo_clp": null,
@@ -1889,12 +2296,13 @@
     "score": 0,
     "source": "houm",
     "titulo": "Román Díaz Providencia",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/172624",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4d0c49002419b5a5": {
     "arriendo_clp": 14707919.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 47",
@@ -1937,13 +2345,13 @@
     "orientacion": "norte",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 55,
+    "score": 0,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento Las nieves ID: 150762r",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4da6303f13abd9a9": {
     "arriendo_clp": 411150.0,
@@ -1963,12 +2371,13 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 606 \"cod: 411.150 CdePA Matucana- Atacama- Chacabuco 3000 edifi... \"Matucana- Atacama - Chacabuco\" $ 20.019.112",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/industrial/208411150",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "4e4b04f0767088f7": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -1993,27 +2402,27 @@
     "arriendo_clp": null,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
-    "banos": 2,
+    "banos": 5,
     "clave_direccion": "region metropolitana de santiago provincia de santiago",
     "comuna": "Las Condes",
     "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 3,
+    "dormitorios": 4,
     "estacionamientos": 2,
     "gastos_comunes_clp": 290000.0,
     "historial_precio": [],
     "m2_terraza": 20.0,
-    "m2_totales": 115.0,
-    "m2_utiles": 95.0,
+    "m2_totales": 264.0,
+    "m2_utiles": 324.0,
     "orientacion": "norte",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 35,
+    "score": 0,
     "source": "nuroa",
     "tipo": "departamento",
-    "titulo": "Condominio en Vitacura – Camino El Parque 100",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "titulo": "Departamento Premium en Venta",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "51b75959b55c379c": {
     "arriendo_clp": 14707919.0,
@@ -2034,8 +2443,39 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 45 \"Planta industrial en arriendo, terreno de 9.300 m2, sector... \"Panamericana 5 Sur km 42, Callejón 6 Ponient",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/paine/paine/industrial/208418344",
+    "veces_visto": 2
+  },
+  "52683736b1fc14a9": {
+    "arriendo_clp": 1500000.0,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 4,
+    "clave_direccion": "los acantos lo castillo vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Los Acantos, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630391, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 4,
+    "estacionamientos": 2,
+    "gastos_comunes_clp": 300000.0,
+    "historial_precio": [
+      {
+        "clp": 1500000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_terraza": 30.0,
+    "m2_totales": 155.0,
+    "m2_utiles": 140.0,
+    "orientacion": "nororiente",
+    "precio_al_avisar": 1500000.0,
+    "primera_vez": "2026-08-17T17:20:07",
+    "score": 90,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "ARRIENDO DEPARTAMENTO 4HAB 4BA VITACURA",
+    "ultima_vez": "2026-08-17T17:20:07",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
     "veces_visto": 1
   },
   "52c385e5e81ed4bf": {
@@ -2058,9 +2498,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Mariela Contreras Vitacura Departamento en arriendo de 3 dorm. en Vitacura Exclusivo departamento de generosos espacios,",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-de-3-dorm-en-vitacura/32671223",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "53119d18bf012add": {
     "arriendo_clp": null,
@@ -2078,9 +2518,9 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "en VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "56a6b105d7248a11": {
     "arriendo_clp": 9192449.0,
@@ -2103,9 +2543,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 387 \"¡Oportunidad única! Este amplio local comercial en arriend... \"Condell\" $ 9.192.449.- UF 225.- 310 mt2 apr",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/valparaiso/valparaiso/localcomercial/205400029",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "57282b969512af7f": {
     "arriendo_clp": 1021383,
@@ -2127,8 +2567,31 @@
     "source": "bienesonline",
     "tipo": "departamento",
     "titulo": "Arriendo Departamento Hacienda Esmeralda - Talca UF 25 Talca, Maule, Chile 3 2 110 m² Ver Detalles",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123402-arriendo-departamento-hacienda-esmeralda-talca",
+    "veces_visto": 2
+  },
+  "57b1dad58caa2643": {
+    "arriendo_clp": 14707919.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 49",
+    "comuna": "",
+    "direccion": "ARRIENDO 49",
+    "historial_precio": [
+      {
+        "clp": 14707919.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "orientacion": "poniente",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "titulo": "ARRIENDO 49 \"Planta industrial en arriendo, terreno de 9.300 m2, sector... \"Panamericana 5 Sur km 42, Callejón 6 Ponient",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/paine/paine/bodega/217418344",
     "veces_visto": 1
   },
   "594f493b2d346ec2": {
@@ -2149,12 +2612,36 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 848 \"cod: 412.061*CdePA Centro de Rancagua: Astorga - O Carrol ... \"Astorga - Ocarrol\" $ 51.069.162.- UF 1.250.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/localcomercial/205412061",
+    "veces_visto": 2
+  },
+  "595322b7a05f0daa": {
+    "arriendo_clp": 1800086,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1800086,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 59,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 44,06 Departamento en Vitacura, Provincia De Santiago MAGNOLIA PROPERTY ARRIENDA LUMINOSO DEPARTAMENTO AÑO 2021 EN SE",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/5cbb-a5b8-49a39239-e4bc924a4192-489e",
     "veces_visto": 1
   },
   "5a053a8e7738fcd2": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 2,
@@ -2190,9 +2677,9 @@
     "source": "doomos",
     "tipo": "departamento",
     "titulo": "Departamentos vitacura arriendo",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.doomos.cl/departamentos-vitacura-arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "5a8637d30a07309b": {
     "amoblado": "amoblado",
@@ -2218,9 +2705,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Arriendo Departamento amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "5aa834601374ee50": {
     "arriendo_clp": null,
@@ -2240,8 +2727,32 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "Oficina en Arriendo en Vespucio Norte / Santa María",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
+    "veces_visto": 2
+  },
+  "5ac65711dd69b5b5": {
+    "amoblado": "amoblado",
+    "arriendo_clp": 1307371,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1307371,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": 1307371,
+    "primera_vez": "2026-08-17T17:20:08",
+    "score": 80,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 32 Departamento en Vitacura, Provincia De Santiago DISPONIBILIDAD INMEDIATA SE ARRIENDA AMOBLADO MINIMO UN AÑO Estupe",
+    "ultima_vez": "2026-08-17T17:20:08",
+    "url": "https://www.icasas.cl/propiedad/8207-a75d-635c33d2-88ab9ebd8fab-4b08",
     "veces_visto": 1
   },
   "5b5ce9ce20a47470": {
@@ -2258,8 +2769,33 @@
     "score": 15,
     "source": "propertypartners",
     "titulo": "Norte de Chile",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/",
+    "veces_visto": 2
+  },
+  "5bae4373b5da5211": {
+    "arriendo_clp": 3000000.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 4,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "estacionamientos": 2,
+    "historial_precio": [
+      {
+        "clp": 3000000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": "$ 3.000.000 Vitacura, Moderno Depto con entrega 1 de octubre (178738) Habitaciones: 4 Baños: 4 Terreno: 290 m² Estaciona",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/moderno-depto-con-entrega-1-de-octubre-178738/129417494",
     "veces_visto": 1
   },
   "5bf91f421416bfa9": {
@@ -2280,9 +2816,9 @@
     "source": "nestoria",
     "tipo": "casa",
     "titulo": "en VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "5cf8cd8f5841f18f": {
     "arriendo_clp": null,
@@ -2305,12 +2841,13 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "5d5b5203fe49765a": {
     "arriendo_clp": 2247043,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -2349,9 +2886,9 @@
     "source": "houm",
     "tipo": "departamento",
     "titulo": "Houm Arriendo de departamentos en Region Metropolitana Vitacura 3 Dormitorios",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "5de34ef919e7e8a8": {
     "arriendo_clp": 2696452,
@@ -2372,8 +2909,58 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 66 Departamento en Vitacura, Provincia De Santiago Se Arrienda ¡¡Oportunidad única en Vitacura! Moderno departamento ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/a1cd-8700-5b9ef0a2-28456aa6d73a-45c5",
+    "veces_visto": 2
+  },
+  "5e0037482b1d2f62": {
+    "arriendo_clp": 1920201,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1920201,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", Padre Damián de Veuster/ Av padre Hurtadol Habitaciones: 3 Baños: 4 Terreno: 140 m² Estacionamientos: 60 Precioso e im",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/padre-damian-de-veuster-av-padre-hurtadol/129400658",
+    "veces_visto": 1
+  },
+  "5f2a05bd2a1c26ed": {
+    "ano_construccion": 2019,
+    "antiguedad_anos": 7,
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 5,
+    "clave_direccion": "las cuijas vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Las Cuijas, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 4,
+    "estacionamientos": 3,
+    "historial_precio": [],
+    "m2_totales": 207.0,
+    "m2_utiles": 207.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "\"Depto. de Lujo y gran terraza privada 360\"",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
     "veces_visto": 1
   },
   "601466cfb7e3326b": {
@@ -2393,9 +2980,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SE ARRIENDA OF RECIÉN REMODELADA EN VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "60d74ac0ea4f597a": {
     "arriendo_clp": null,
@@ -2414,12 +3001,13 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "Oficina disponible Alonso de Córdova, Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6110ae6337e1ad00": {
     "arriendo_clp": 9396726.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 830",
@@ -2464,9 +3052,9 @@
     "source": "heyhomes",
     "tipo": "departamento",
     "titulo": "23 ARRIENDO – Eliodoro Yáñez – Providencia UF 45 ARRIENDO – Eliodoro Yáñez – Providencia UF 45 HEY! DEPARTAMENTO EN ARRI",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-eliodoro-yanez-providencia/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6161e4da8e11c6d7": {
     "arriendo_clp": 1250000.0,
@@ -2487,8 +3075,35 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Carolina Troncoso Vitacura Arrienda Depto 2D2B1E1B Vitacura Parque Arauco (178408) Si buscas un arriendo de departamento",
-    "ultima_vez": "2026-08-17T13:44:49",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arrienda-depto-2d2b1e1b-vitacura-parque-arauco-178408/32808960",
+    "veces_visto": 2
+  },
+  "634a2ada518d1454": {
+    "amoblado": "amoblado",
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "region metropolitana de santiago provincia de santiago",
+    "comuna": "San Miguel",
+    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
+    "dormitorios": 3,
+    "estacionamientos": 1,
+    "gastos_comunes_clp": 80000.0,
+    "historial_precio": [],
+    "m2_totales": 60.0,
+    "m2_utiles": 60.0,
+    "orientacion": "poniente",
+    "piso": 12,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "nuroa",
+    "tipo": "departamento",
+    "titulo": "Espectacular departamento en venta en San Miguel – listo para habitar",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
     "veces_visto": 1
   },
   "63b61ae3c7bc1ec4": {
@@ -2504,9 +3119,9 @@
     "score": 0,
     "source": "magnoliaproperty",
     "titulo": "17/08/2026 UF 40.855,33 USD 913,15",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.facebook.com/100573331607224/posts/100584888272735/?substory_index=0",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "66a2e37aca66a8d5": {
     "arriendo_clp": 3472703,
@@ -2529,9 +3144,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "AFS SpA Vitacura Penthouse en arriendo 3 dorm. 3 baños más servicios Vitacura Penthouse de Lujo con Terraza Panorámica E",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/penthouse-en-arriendo-3-dorm-3-banos-mas-servicios-vitacura/32330701",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "679e9d8ef2a1eade": {
     "arriendo_clp": 397842.0,
@@ -2551,9 +3166,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 1039 \"AT397.842* -Gran Propiedad Comercial de 2 pisos ,uso In... \"Portugal - Manuel Antonio Matta\" $ 36.769.797",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/otros/219397842",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "687f58264aa431f9": {
     "arriendo_clp": 3000000.0,
@@ -2580,9 +3195,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo  en VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "68cf2471bcca6a0f": {
     "arriendo_clp": null,
@@ -2602,9 +3217,9 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "Oficina en Arriendo en Vitacura / Nueva Costanera",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "69b939f471b919c1": {
     "arriendo_clp": 550000.0,
@@ -2629,9 +3244,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina con vista espectacular  1E/1B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6a7ffb9233c3a863": {
     "arriendo_clp": null,
@@ -2646,9 +3261,9 @@
     "score": 6,
     "source": "houm",
     "titulo": "Avenida Presidente Kennedy Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/170742",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6b60211b3e877c53": {
     "arriendo_clp": null,
@@ -2671,9 +3286,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en Arriendo en Viía Aurora",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6bf6dff0f754079e": {
     "arriendo_clp": 8171066.0,
@@ -2695,9 +3310,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 159 \"¡Gran oportunidad de inversión! Este amplio local comercia... \"Pampa\" $ 8.171.066.- UF 200.- $ 7.149.683.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/la-serena/la-serena/localcomercial/205416959",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6c716bf00d9fa679": {
     "arriendo_clp": null,
@@ -2712,9 +3327,9 @@
     "score": 14,
     "source": "chilepropiedades",
     "titulo": "Indicadores UF: $ 40.853 USD: $ 913 Simulador crédito hipotecario Apariencia Cambiar modo",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://chilepropiedades.cl/simulador-credito-hipotecario",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6d6a87eb658f00e5": {
     "arriendo_clp": null,
@@ -2733,9 +3348,9 @@
     "source": "nestoria",
     "tipo": "casa",
     "titulo": "Casa en Arriendo en Vitacura 4 dormitorios 2 baños",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6d9da1359c826b85": {
     "arriendo_clp": null,
@@ -2750,12 +3365,13 @@
     "score": 14,
     "source": "propertypartners",
     "titulo": "Litoral Central",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6e1d53e3dd74aced": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 559",
@@ -2774,6 +3390,7 @@
   },
   "6e30872887e18c1e": {
     "arriendo_clp": 6945406.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 1767",
@@ -2815,12 +3432,13 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 59 Departamento en Vitacura, Provincia De Santiago Se arrienda departamento en la comuna de Vitacura. Tiene excelente",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/16e6-b824-a5ae76fd-6def73691356-448f",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6e90ce042be8d836": {
     "arriendo_clp": 5106916,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -2863,9 +3481,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "KENNEDY, GERONIMO DE ALDERETE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6f15535cec24f9ee": {
     "arriendo_clp": null,
@@ -2882,9 +3500,9 @@
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "LOCAL COMERCIAL 30M / VITACURA /  NVA COSTANERA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6f1afc51ee546f87": {
     "arriendo_clp": 6000000.0,
@@ -2906,9 +3524,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 566 \"*MPB*411.605. Luis Thayer Ojeda- Carmen Sylva. Hotel-hosta... \"Luis Thayer Ojeda- Carmen Sylva\" $ 6.000.00",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/localcomercial/205411605",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6fafbf4810654bfd": {
     "arriendo_clp": 1350000.0,
@@ -2929,9 +3547,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Houm Vitacura Departamento en Tabancura [ARR] ID HOUM: 171225 En Houm no te pedimos garantía ni aval*. Entérate de todos",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-tabancura/32531067",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6fc3b1952f8a192f": {
     "arriendo_clp": null,
@@ -2953,12 +3571,13 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Penthouse en arriendo de 4 dorm. en Vitacura/CAlemana",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "6fce0e8db60ebad2": {
     "arriendo_clp": 8171066.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 34",
@@ -2997,12 +3616,12 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 1093 \"AT397.842* -Gran Propiedad Comercial de 2 pisos ,uso In... \"Portugal - Manuel Antonio Matta\" $ 36.769.797",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/bodega/217397842",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "72fa33d1598cd818": {
-    "arriendo_clp": 300000.0,
+    "arriendo_clp": 360000.0,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "maule chile 2",
@@ -3012,19 +3631,23 @@
       {
         "clp": 300000.0,
         "cuando": "2026-08-17"
+      },
+      {
+        "clp": 360000.0,
+        "cuando": "2026-08-17"
       }
     ],
-    "m2_utiles": 30.0,
+    "m2_utiles": 50.0,
     "orientacion": "poniente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "bienesonline",
-    "tipo": "oficina",
-    "titulo": "Céntrica Oficina Edificio Plaza Poniente - Talca CLP 300.000 Talca, Maule, Chile 2 2 30 m² Ver Detalles",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123470-centrica-oficina-edificio-plaza-poniente-talca",
-    "veces_visto": 1
+    "tipo": "casa",
+    "titulo": "Casa Villa Doña Antonia 2D+1B - Talca CLP 360.000 Talca, Maule, Chile 2 1 50 m² Ver Detalles",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123736-casa-villa-dona-antonia-2d1b-talca",
+    "veces_visto": 2
   },
   "736d9ff8fc610392": {
     "arriendo_clp": 6000000.0,
@@ -3047,9 +3670,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 286 \"Atención comerciantes, gran local comercial tipo galpón, c... \"Letras- Biaut\" $ 6.000.000.- UF 146,86.- 57",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-cisterna/bodega/217414957",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "73c1c2adbab503d8": {
     "arriendo_clp": 1500000.0,
@@ -3074,9 +3697,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 4 dorm. en Lo Barnechea",
-    "ultima_vez": "2026-08-17T13:44:49",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "748062e652caf03f": {
     "amoblado": "amoblado",
@@ -3096,13 +3719,13 @@
     ],
     "precio_al_avisar": 1200330,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 80,
+    "score": 78,
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Soledad Reyes Vitacura DPTO AMOBLADO EXCELENTE UBICACION 3D+2B (178492) DEPARTAMENTO AMOBLADO OPCION SIN MUEBLES (MISMO ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/dpto-amoblado-excelente-ubicacion-3d-2b-178492/32813436",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "751e994e59cc7826": {
     "arriendo_clp": null,
@@ -3119,12 +3742,13 @@
     "score": 11,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 562 \"cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 800 mts 2 Pro... \"Dieciocho- Padre Miguel de Olivares\" $ 6.35",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410639",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "752baba2c9bafd7a": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -3165,9 +3789,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "76df2b2b8787243e": {
     "arriendo_clp": null,
@@ -3191,8 +3815,34 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
+    "veces_visto": 2
+  },
+  "7771fc4e981342ef": {
+    "arriendo_clp": 1000000.0,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 4,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "dormitorios": 4,
+    "gastos_comunes_clp": 109892.0,
+    "historial_precio": [
+      {
+        "clp": 1000000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": 1000000.0,
+    "primera_vez": "2026-08-17T17:20:07",
+    "score": 88,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": "$ 1.000.000 Vitacura, Juan xxii / vitacura Habitaciones: 4 Baños: 3 Terreno: 120 m² Cod. 109.892 Departamento de 4 dormi",
+    "ultima_vez": "2026-08-17T17:20:07",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/juan-xxii-vitacura/116463210",
     "veces_visto": 1
   },
   "77d3be13fbde382c": {
@@ -3215,9 +3865,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Katherine Hernandez Vitacura Amplio Espacio y Luz Natural Asegurada (178368) Departamento en arriendo – Vitacura Descubr",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/amplio-espacio-y-luz-natural-asegurada-178368/32808375",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "78f889e80b7f669f": {
     "amoblado": "amoblado",
@@ -3235,13 +3885,13 @@
     "orientacion": "nororiente",
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 59,
+    "score": 58,
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "VITACURA, KENNEDY, PAUL CLAUDEL, PENTHOUSE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "79a6f94edad7c7de": {
     "arriendo_clp": 1021383,
@@ -3263,9 +3913,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Katherine Hernandez Vitacura Arriendo/Parque Arauco/Las Condes. (178224) Vive en el corazón de Las Condes, a pasos de Pa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-parque-arauco-las-condes-178224/32803223",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "7adda1b9cece6cc8": {
     "amoblado": "amoblado",
@@ -3285,13 +3935,13 @@
     "m2_utiles": 380.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 53,
+    "score": 0,
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento Las nieves ID: 150762r",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "7c881f616d5ebe91": {
     "arriendo_clp": null,
@@ -3312,9 +3962,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 2 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "7d40c454ec6e6d3f": {
     "arriendo_clp": null,
@@ -3334,9 +3984,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Increíble vista despejada - amplia terraza y actualizado- PARQUE BICENTENARIO",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "7d79831a33adf2ea": {
     "arriendo_clp": null,
@@ -3352,9 +4002,9 @@
     "score": 0,
     "source": "propiedades_cl",
     "titulo": "Av. El Bosque Sur 175 (+562) 2232 2828 info@propiedades.cl 17/08/2026 UF $ 40.855,33 USD $ 913,15",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://maps.app.goo.gl/zEHQXzR63t6xBFqQA",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "7dcadf7111de143d": {
     "arriendo_clp": null,
@@ -3374,9 +4024,9 @@
     "source": "nestoria",
     "tipo": "oficina",
     "titulo": "Arriendo de Oficina Luis Carrera/Las Hualtatas, Vitacura 9 habitaciones 2 baños 209 m2",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "80197d977645cedc": {
     "arriendo_clp": 360000.0,
@@ -3398,9 +4048,9 @@
     "source": "bienesonline",
     "tipo": "departamento",
     "titulo": "Renovado Departamento Parque La Florida (GGCC Incluidos) - Talca CLP 360.000 Talca, Maule, Chile 3 1 60 m² Ver Detalles",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123417-renovado-departamento-parque-la-florida-ggcc-incluidos-talca",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8113575728cd42ce": {
     "arriendo_clp": null,
@@ -3418,9 +4068,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "se arrienda oficina en Kennedy",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8151aeb50f58347d": {
     "arriendo_clp": null,
@@ -3440,9 +4090,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Exclusivo Dúplex con Rooftop Privado, Jacuzzi y Quincho en el Corazón de Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "822067b093697cf3": {
     "amoblado": "amoblado",
@@ -3460,9 +4110,9 @@
     "source": "houm",
     "tipo": "departamento",
     "titulo": "Arriendo departamento en Santiago Arriendo departamento en Ñuñoa Arriendo casa en Santiago Arriendo departamento en La F",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamentos-region-metropolitana",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "823aa1a34300c4d5": {
     "ano_construccion": 1993,
@@ -3482,13 +4132,13 @@
     "piso": 4,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 52,
+    "score": 0,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 4 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "835cff78a0587fe3": {
     "arriendo_clp": null,
@@ -3507,9 +4157,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8374f1241b2cb4ac": {
     "arriendo_clp": null,
@@ -3525,13 +4175,13 @@
     "m2_totales": 140.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 61,
+    "score": 62,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Escrivá de Balaguer 4D+3B+2E y bodega",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "83932eb50342213c": {
     "arriendo_clp": null,
@@ -3549,9 +4199,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Comparto depto. en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "85254cf378ea246d": {
     "arriendo_clp": null,
@@ -3570,9 +4220,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "85c53b89cbbf2fe9": {
     "arriendo_clp": null,
@@ -3591,12 +4241,13 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "85dc712d1471b603": {
     "arriendo_clp": 1920201,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -3639,12 +4290,13 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "2 dormitorios a estrenar - A pasos de Bicentenario",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8721233252c4946d": {
     "arriendo_clp": 3268426,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -3685,9 +4337,9 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 73,43 Departamento en Vitacura, Provincia De Santiago Exclusivo departamento en arriendo en Vitacura, a pasos del Par",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/1004f-8c75-741def78-1a3e9e4b301c-4fb6",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "87bc57ed11539230": {
     "amoblado": "amoblado",
@@ -3710,9 +4362,9 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 80 destacado Departamento en Vitacura, Provincia De Santiago Nativo Propiedades arrienda elegante y amplio departamen",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/5511-bbe7-19f91f8-8e70fd5b61b5-7fa2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8838547c430ef9d6": {
     "arriendo_clp": null,
@@ -3733,9 +4385,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "KENNEDY, GERONIMO DE ALDERETE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "889e2be209643233": {
     "amoblado": "amoblado",
@@ -3758,9 +4410,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Propiedades Viel SpA Vitacura Departamento arriendo AMOBLADO de 3 dorm. en Vitacura Luminoso departamento en excelente e",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-arriendo-amoblado-de-3-dorm-en-vitacura/32761835",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "88c69aa82a728b4d": {
     "arriendo_clp": null,
@@ -3783,9 +4435,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "88d4c60b5ce865fc": {
     "amoblado": "amoblado",
@@ -3804,12 +4456,13 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Oficina en Amoblada, frente al Parque Arauco, Excelente",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "895fed692ff9094c": {
     "arriendo_clp": 4499806,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -3844,9 +4497,9 @@
     "score": 14,
     "source": "propertypartners",
     "titulo": "Región Metropolitana",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8a9e56c7ee3d79cf": {
     "arriendo_clp": 405473.0,
@@ -3866,9 +4519,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 900 \"cod: 405.473 CdePA Salvador Gutiérrez - Rada. La propiedad... \"Salvador Gutiérrez - Salta\" $ 20.427.665.- ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/industrial/208405473",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8b88544ab128e3a9": {
     "arriendo_clp": 410493.0,
@@ -3888,9 +4541,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 639 \"cod 410.493 CdePA Propiedad para fines educacionales 1456 ... \"metro Republica\" $ 15.448.217.- UF 378,12.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410493",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8bb86784dd2d99e8": {
     "amoblado": "amoblado",
@@ -3909,9 +4562,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Oficina en Amoblada, frente al Parque Arauco, Excelente",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8bf68e1a16d5a79c": {
     "arriendo_clp": null,
@@ -3928,9 +4581,9 @@
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "LOCAL COMERCIAL 30M / VITACURA /  NVA COSTANERA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8c89f3a43baf2286": {
     "arriendo_clp": null,
@@ -3948,9 +4601,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "se arrienda oficina en Kennedy",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8d9b36230578dfae": {
     "arriendo_clp": 405473.0,
@@ -3970,9 +4623,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 934 \"cod: 405.473 CdePA Salvador Gutiérrez - Rada. La propiedad... \"Salvador Gutiérrez - Salta\" $ 20.427.665.- ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/terrenoconstructora/216405473",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "8dd345509f1a3f2c": {
     "arriendo_clp": null,
@@ -3989,8 +4642,57 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 285.578.757 UF 6.990,00 LUIS PEREIRA, SIMON BOLIVAR, ECHEÑIQUE... VENTA. Nativo propiedades vende Lindo y luminoso dep",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1569",
+    "veces_visto": 2
+  },
+  "8f80b6a9c976fa78": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "hualtatas vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Pasaje Hualtatas, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 2,
+    "estacionamientos": 2,
+    "historial_precio": [],
+    "m2_totales": 100.0,
+    "m2_utiles": 89.0,
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 2 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 1
+  },
+  "8ff7c10bf75b8fc3": {
+    "amoblado": "amoblado",
+    "arriendo_clp": 3200198,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 3200198,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "piso": 10,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 78,33 Departamento en Vitacura, Provincia De Santiago Moderno y amplio Penthouse en piso 10, disponible para ARRIENDO",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/4f12-91d2-deb9f1aa-19041743e468-47a8",
     "veces_visto": 1
   },
   "910cd0063ced4595": {
@@ -4013,9 +4715,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 1265 \"Amplio local comercial a la calle, en pleno centro de Maip... \"Maipú Centro\" $ 8.783.896.- UF 215.- 435 m",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/maipu/oficina/203379580",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "911736a26bf56281": {
     "arriendo_clp": 10132122.0,
@@ -4037,12 +4739,13 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 552 \"Te presentamos esta amplia y luminosa oficina en arriendo ... \"Av. Bilbao\" $ 10.132.122.- UF 248.- $ 9.396",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/terrenoconstructora/216389661",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "91212cac9baa14b0": {
     "arriendo_clp": 9805279.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 310",
@@ -4087,9 +4790,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo 3 dorm + serv. Lo Curro Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "952cc06e13a19352": {
     "amoblado": "amoblado",
@@ -4112,9 +4815,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "VITACURA, KENNEDY, PAUL CLAUDEL, PENTHOUSE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "95c4fbfa56063398": {
     "arriendo_clp": 6530316.0,
@@ -4137,9 +4840,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 840 \"Oficina en arriendo, 11 privados, Av. El Bosque Norte, met... \"Metro Tobalaba\" $ 6.530.316.- UF 159,84.- 3",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203231824",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "969135d95bf75b6f": {
     "arriendo_clp": null,
@@ -4158,9 +4861,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SE ARRIENDA OF RECIÉN REMODELADA EN VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "97677cf6400bf09a": {
     "arriendo_clp": null,
@@ -4181,9 +4884,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Cómodo Depto. 3D/2B/Est/Bod, 75m2 Paul Harris/Colon, Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "98f6b5942a284971": {
     "arriendo_clp": 450000.0,
@@ -4211,9 +4914,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Arriendo Oficina en Av. Kennedy - 2 despachos + Estacionamiento",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "9914015a0d682837": {
     "amoblado": "amoblado",
@@ -4234,13 +4937,13 @@
     "piso": 1,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 59,
+    "score": 58,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Lujoso Departamento en sector residencial. Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
+    "veces_visto": 2
   },
   "99cd8ec795fbfd7d": {
     "amoblado": "amoblado",
@@ -4260,13 +4963,13 @@
     "m2_utiles": 380.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 53,
+    "score": 0,
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento Las nieves ID: 150762r",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "99feca4e42944c80": {
     "arriendo_clp": 3431848,
@@ -4287,8 +4990,31 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "AFS SpA Vitacura DEPARTAMENTO Aurelio Gonzalez Entre árboles, luz natural y un interiorismo impecable… aparece este depa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-aurelio-gonzalez/32458574",
+    "veces_visto": 2
+  },
+  "9b0120da17ecedb3": {
+    "arriendo_clp": 1511647,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 1511647,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": 1511647,
+    "primera_vez": "2026-08-17T17:20:08",
+    "score": 79,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 37 Departamento en Vitacura, Provincia De Santiago Departamento Moderno impecable con una luminosidad donde destaca l",
+    "ultima_vez": "2026-08-17T17:20:08",
+    "url": "https://www.icasas.cl/propiedad/c228-87fd-bc0b59a4-4844f5e11fda-4a42",
     "veces_visto": 1
   },
   "9b904381d761509d": {
@@ -4314,9 +5040,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Arriendo Departamento amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "9ce8760f7230ee90": {
     "amoblado": "amoblado",
@@ -4342,12 +5068,13 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 2 dorm. en Club de Polo",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "9e0eaa0c993b0f4d": {
     "arriendo_clp": 3472703,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -4388,9 +5115,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "9f38fb509afbeb47": {
     "arriendo_clp": 550000.0,
@@ -4415,7 +5142,34 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina con vista espectacular  1E/1B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
+    "veces_visto": 2
+  },
+  "9fd0c68dc4ee6342": {
+    "amoblado": "amoblado",
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "ano 2021",
+    "comuna": "Vitacura",
+    "direccion": "AÑO 2021, Vitacura",
+    "dormitorios": 3,
+    "estacionamientos": 2,
+    "gastos_comunes_clp": 280000.0,
+    "historial_precio": [],
+    "m2_terraza": 16.0,
+    "m2_totales": 127.0,
+    "m2_utiles": 111.0,
+    "orientacion": "oriente",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 59,
+    "source": "trovit",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
     "veces_visto": 1
   },
@@ -4435,9 +5189,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 427 \"RS* 412.741 Local Comercial a la calle, ubicada en plen... \"Viana - Agua Santa Viña del Mar\" $ 8.988.173.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/vina-del-mar/vina-del-mar/localcomercial/205412741",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "a4eae52972fe46f8": {
     "arriendo_clp": 390000.0,
@@ -4461,9 +5215,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "ARRIENDO, AVENIDA PRESIDENTE KENNEDY",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "a514831f189799a5": {
     "arriendo_clp": null,
@@ -4480,8 +5234,29 @@
     "source": "toctoc",
     "tipo": "departamento",
     "titulo": "ARRIENDO DE DEPARTAMENTO CON 3 DORMITORIOS EN VITACURA Encontrar arriendo de departamento con 3 dormitorios en Vitacura ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.toctoc.com/propiedades/compranuevo/departamento/vitacura/edificio-el-nogal/1533969",
+    "veces_visto": 2
+  },
+  "a59ee5eeee463028": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "alternativa estacionamientos uf 3",
+    "comuna": "Las Condes",
+    "direccion": "Alternativa: Estacionamientos UF 3, Las Condes",
+    "historial_precio": [],
+    "m2_terraza": 470.0,
+    "m2_totales": 980.0,
+    "m2_utiles": 510.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "trovit",
+    "tipo": "oficina",
+    "titulo": "ARRIENDO OFICINA LAS CONDES / SAN DAMIAN",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
     "veces_visto": 1
   },
   "a6560b2f8226cb5c": {
@@ -4505,9 +5280,9 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 49 Departamento en Fernando De Arguello 6699, Vitacura, Chile Grupo Enlace Arrienda Lujoso departamento full amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/bca2-a6c2-19b04d0-abd28a81d856-7e50",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "a6724f7eaddfe0e6": {
     "amoblado": "amoblado",
@@ -4528,9 +5303,9 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 917.202.158 UF 22.450,00 SAN CARLOS DE APOQUINDO, CAMINO LAS FLORES... VENTA. Nativo Propiedades vende linda e impecab",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1695",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "a702032cb6f0d506": {
     "arriendo_clp": 1920201,
@@ -4552,8 +5327,53 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Maria Angelica Carrazana Vitacura Vitacura, se arrienda 4 dorm Si buscas amplitud, luz natural y una distribución pensad",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/vitacura-se-arrienda-4-dorm/32805795",
+    "veces_visto": 2
+  },
+  "a70e415d7f7d5a92": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "maule chile 5",
+    "comuna": "Talca",
+    "direccion": "Maule Chile 5, Talca",
+    "historial_precio": [],
+    "m2_utiles": 120.0,
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "bienesonline",
+    "tipo": "casa",
+    "titulo": "Casa 5D+2B Santa Teresita de Colín - Talca (Maule Norte) CLP 450.000 Talca, Maule, Chile 5 2 120 m² Ver Detalles",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123716-casa-5d2b-santa-teresita-de-colin-talca-maule-norte",
+    "veces_visto": 1
+  },
+  "a76c904e3f7309b9": {
+    "arriendo_clp": 857962,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 1,
+    "clave_direccion": "arriendo uf 21",
+    "comuna": "Las Condes",
+    "direccion": "Arriendo UF 21, Las Condes",
+    "dormitorios": 1,
+    "historial_precio": [
+      {
+        "clp": 857962,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "departamento",
+    "titulo": "Cod.: 8.729 Arriendo UF 21 Departamento en Las Condes Isidora Goyenechea / El Golf 1 Dorm. 1 Baño 45 m 2 Magnolia Proper",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/8729",
     "veces_visto": 1
   },
   "a8fd1762fb18ab89": {
@@ -4573,8 +5393,33 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
+    "veces_visto": 2
+  },
+  "a941300aceb1e990": {
+    "amoblado": "amoblado",
+    "arriendo_clp": 2533030,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 2533030,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "orientacion": "norte",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 62 Departamento en Vitacura, Provincia De Santiago Moderno y luminoso departamento amoblado en tranquila calle reside",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/16f7-9c3d-7ccf12a6-82f6b34de901-4b74",
     "veces_visto": 1
   },
   "a9f3ae895edf7def": {
@@ -4589,16 +5434,16 @@
     "direccion": "",
     "estacionamientos": 1,
     "historial_precio": [],
-    "m2_totales": 109.2,
+    "m2_totales": 132.6,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "Local Comercial en arriendo ubicado en San Damián",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "aa7343bef0f9c1be": {
     "amoblado": "sin amoblar",
@@ -4628,9 +5473,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Arriendo cómodo departamento vista despejada, Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "aac30da4ccb96d1d": {
     "ano_construccion": 2021,
@@ -4655,12 +5500,13 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Lorena Sanmartín Vitacura Arriendo, DEPARTAMENTO, VITACURA. 3D/3B Exclusivo Departamento con Jardín en VitacuraBienvenid",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-departamento-vitacura-3d-3b/32731797",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ab2042120145b307": {
     "arriendo_clp": 3676980,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -4699,9 +5545,9 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 89.677.449 UF 2.195,00 PARQUE FORESTAL, METRO, MONJITAS... VENTA. Estupendo departamento amoblado y equipado, cercano ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1621",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "af64d843698aa8c9": {
     "arriendo_clp": 12665152.0,
@@ -4724,9 +5570,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 1032 \"Espectacular local comercial. Instalaciones modern... \"AC Colegio Verbo Divino\" $ 12.665.152.- UF 310.- 7",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/localcomercial/205391511",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b060447d6d2815e7": {
     "arriendo_clp": 410493.0,
@@ -4746,12 +5592,13 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 741 \"cod 410.493 CdePA Propiedad para fines educacionales 1456 ... \"metro Republica\" $ 15.448.217.- UF 378,12.-",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410493",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b1eb12cc827a1c74": {
     "arriendo_clp": 1700000.0,
+    "ausencias": 1,
     "avisado": true,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -4797,9 +5644,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Duplex con rooftop NUEVO! vista increíble, pleno Jardín Del Este",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b317ab5d0184b60b": {
     "arriendo_clp": 390000.0,
@@ -4823,13 +5670,13 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "ARRIENDO, AVENIDA PRESIDENTE KENNEDY",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b370e738bfe39fab": {
     "amoblado": "amoblado",
-    "arriendo_clp": 500000.0,
+    "arriendo_clp": 600000.0,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "maule chile 3",
@@ -4839,18 +5686,22 @@
       {
         "clp": 500000.0,
         "cuando": "2026-08-17"
+      },
+      {
+        "clp": 600000.0,
+        "cuando": "2026-08-17"
       }
     ],
-    "m2_utiles": 80.0,
+    "m2_utiles": 65.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "bienesonline",
     "tipo": "departamento",
-    "titulo": "Departamento amoblado Edificio Altos de Lircay - Talca CLP 500.000 Talca, Maule, Chile 3 2 80 m² Ver Detalles",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123398-departamento-amoblado-edificio-altos-de-lircay-talca",
-    "veces_visto": 1
+    "titulo": "Céntrico Departamento Amoblado Edificio AMALFI 3D+2B - Talca CLP 600.000 Talca, Maule, Chile 3 2 65 m² Ver Detalles",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.bienesonline.cl/es/chile/talca/propiedad/123743-centrico-departamento-amoblado-edificio-amalfi-3d2b-talca",
+    "veces_visto": 2
   },
   "b37c232ad80ca36a": {
     "arriendo_clp": null,
@@ -4870,9 +5721,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b58eb3df58f3ddf1": {
     "arriendo_clp": 3472703,
@@ -4893,8 +5744,32 @@
     "source": "icasas",
     "tipo": "departamento",
     "titulo": "UF 85 Departamento en Vitacura, Provincia De Santiago Penthouse de Lujo con Terraza Panorámica El Matico / Alonso de Cór",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.icasas.cl/propiedad/5c39-9b9b-8d39831b-5d0390eae2d-4c52",
+    "veces_visto": 2
+  },
+  "b5d64365ff255963": {
+    "arriendo_clp": 3227571,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "historial_precio": [
+      {
+        "clp": 3227571,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 160.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "icasas",
+    "tipo": "departamento",
+    "titulo": "UF 79 destacado Departamento en Vitacura, Provincia De Santiago Nativo Propiedades arrienda este exclusivo departamento ",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.icasas.cl/propiedad/7377-8ef5-19ebb63-363048632183-7e33",
     "veces_visto": 1
   },
   "b673661bc95456c2": {
@@ -4914,9 +5789,9 @@
     "source": "nestoria",
     "tipo": "casa",
     "titulo": "Casa en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b6ef8c507fa1cdf7": {
     "arriendo_clp": 7453238.0,
@@ -4939,9 +5814,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 551 \"Se arrienda amplio local comercial en Portada de Vitacura,... \"Portada de Vitacura\" $ 7.453.238.- UF 182,4",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/localcomercial/205410739",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b70ed3fe984f0b5a": {
     "ano_construccion": 2016,
@@ -4955,15 +5830,35 @@
     "direccion": "",
     "estacionamientos": 1,
     "historial_precio": [],
-    "m2_totales": 109.2,
+    "m2_totales": 132.6,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "Local Comercial en arriendo ubicado en San Damián",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
+    "veces_visto": 2
+  },
+  "b7314d332a2fb1c0": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 5,
+    "clave_direccion": "",
+    "comuna": "Colina",
+    "direccion": "",
+    "dormitorios": 5,
+    "historial_precio": [],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "casa",
+    "titulo": "Cod.: 7.172 Venta UF 41.990 Casa en Colina Hacienda de Chicureo 5 Dorm. 5 Baños 550 / 3.800 m 2 Magnolia Property Ficha",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/7172",
     "veces_visto": 1
   },
   "b91c3f7c4cb741ce": {
@@ -4983,9 +5878,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Espectacular departamento a estrenar",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "b9e00dba51ffa249": {
     "arriendo_clp": null,
@@ -5000,9 +5895,9 @@
     "score": 14,
     "source": "engelvoelkers",
     "titulo": "Apartments for rent in Vitacura, Santiago | Engel & Völkers",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.engelvoelkers.com/cl/en/properties/res/rent/apartment/santiago-metropolitan-region/vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ba354d4d5f7fe869": {
     "arriendo_clp": 10949228.0,
@@ -5025,9 +5920,9 @@
     "source": "fuenzalida",
     "tipo": "terreno",
     "titulo": "ARRIENDO 37 \"Excelente Propiedad industrial en la comuna de Puerto Mont... \"Ruta 05 Sur Km 1014, Lote 104\" $ 10.949.228.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/industrial/208418409",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bad131c35c496d4a": {
     "arriendo_clp": null,
@@ -5048,9 +5943,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "KENNEDY, GERONIMO DE ALDERETE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bb1f86d629cac9f7": {
     "arriendo_clp": null,
@@ -5065,8 +5960,55 @@
     "score": 0,
     "source": "houm",
     "titulo": "Carlos Wilson Providencia",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/175432",
+    "veces_visto": 2
+  },
+  "bb7aae95bc589dd5": {
+    "arriendo_clp": 1700000.0,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "dormitorios": 3,
+    "estacionamientos": 2,
+    "gastos_comunes_clp": 110607.0,
+    "historial_precio": [
+      {
+        "clp": 1700000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": 1700000.0,
+    "primera_vez": "2026-08-17T17:20:08",
+    "score": 80,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": "$ 1.700.000 Vitacura, Las Hualtatas Habitaciones: 3 Baños: 3 Terreno: 120 m² Estacionamientos: 2 {[COD-110.607-VD]} [DIS",
+    "ultima_vez": "2026-08-17T17:20:08",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/las-hualtatas/129633543",
+    "veces_visto": 1
+  },
+  "bbfe23051342476d": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "",
+    "comuna": "Machalí",
+    "direccion": "",
+    "dormitorios": 5,
+    "historial_precio": [],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "casa",
+    "titulo": "Cod.: 8.292 Venta UF 14.500 Casa en Machalí Condominio Mirador de Nogales 5 Dorm. 3 Baños 395 / 1.002 m 2 Magnolia Prope",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/8292",
     "veces_visto": 1
   },
   "bc29b245420faa56": {
@@ -5092,9 +6034,9 @@
     "source": "heyhomes",
     "tipo": "casa",
     "titulo": "16 ARRIENDO – Tomás Moro – Las Condes UF 75 ARRIENDO – Tomás Moro – Las Condes UF 75 HEY! CASA COMERCIAL EN ARRIENDO! UF",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-tomas-moro-las-condes/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bc50d4f11e798107": {
     "arriendo_clp": 1000000.0,
@@ -5118,9 +6060,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Leticia Caceres Vitacura Departamento en arriendo de 4 dorm. en Vitacura Cod. 109.892Departamento de 4 dormitorios y 3 b",
-    "ultima_vez": "2026-08-17T13:44:48",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-de-4-dorm-en-vitacura/32323366",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bdb63571de6752bd": {
     "amoblado": "amoblado",
@@ -5140,9 +6082,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bdbccb62ce44e661": {
     "arriendo_clp": 5924023.0,
@@ -5165,9 +6107,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 697 \"Fuenzalida Propiedades El Golf (Código Fuenzalida 410.599)... \"Los Militares\" $ 5.924.023.- UF 145.- 197 m",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/localcomercial/205410599",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bdcec28ea8a9bd2e": {
     "arriendo_clp": null,
@@ -5186,9 +6128,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "Departamento en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "be7340ca215f9e4b": {
     "arriendo_clp": null,
@@ -5207,9 +6149,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "bf91a785d06c0f8a": {
     "amoblado": "amoblado",
@@ -5231,13 +6173,14 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Claudia Álvarez Barrera Vitacura Arriendo vitacura disponible dicembbre 2026 EXCLUSIVO DEPARTAMENTO CON AMPLIO JARDÍN PR",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-vitacura-disponible-dicembbre-2026/32676164",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c04fa7d1152aa177": {
     "amoblado": "amoblado",
     "arriendo_clp": 4499806,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -5282,9 +6225,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Arriendo Departamento amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c0f6f3656759d045": {
     "ano_construccion": 2016,
@@ -5298,20 +6241,21 @@
     "direccion": "",
     "estacionamientos": 1,
     "historial_precio": [],
-    "m2_totales": 109.2,
+    "m2_totales": 132.6,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
     "score": 0,
     "source": "trovit",
     "tipo": "local comercial",
     "titulo": "Local Comercial en arriendo ubicado en San Damián",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c147b361315ad57b": {
     "amoblado": "sin amoblar",
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -5358,9 +6302,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Arriendo Departamento amoblado",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c1f26090190a54d0": {
     "arriendo_clp": null,
@@ -5378,9 +6322,9 @@
     "source": "nestoria",
     "tipo": "departamento",
     "titulo": "IGLESIA EL GOL PLAZA LORETO",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c2095ae18d9a9dd6": {
     "arriendo_clp": null,
@@ -5395,9 +6339,9 @@
     "score": 0,
     "source": "magnoliaproperty",
     "titulo": "17/08/2026 UF 40.855,33 USD 913,15",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.magnoliaproperty.cl/index.aspx",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c23ff02731bcec07": {
     "arriendo_clp": 3064150,
@@ -5418,9 +6362,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "MGPartners Vitacura Departamento Remodelado en condominio con amplios Lujoso penthouse recién remodelado en exclusivo co",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-remodelado-en-condominio-con-amplios/28123597",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c2b59485de5f882b": {
     "arriendo_clp": null,
@@ -5439,9 +6383,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Depto. en arriendo de 3 dorm 3 baños y servicios en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c39468d67c00f0eb": {
     "arriendo_clp": null,
@@ -5458,12 +6402,13 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 674.112.945 UF 16.500,00 PRESIDENTE RIESCO, EL GOLF, CERRO SAN LUIS... VENTA. Nativo Propiedades vende exclusivo depar",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1628",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c3a311433e2493be": {
     "arriendo_clp": 1190000.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -5506,9 +6451,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SAN PATRICIO / VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c61a1d42a20fa0c1": {
     "arriendo_clp": null,
@@ -5529,9 +6474,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "c8f6d4b92aa0fcc5": {
     "arriendo_clp": 411150.0,
@@ -5551,9 +6496,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 684 \"cod: 411.150 CdePA Matucana- Atacama- Chacabuco 3000 edifi... \"Matucana- Atacama - Chacabuco\" $ 20.019.112",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203411150",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cac4730d47736f8b": {
     "amoblado": "amoblado",
@@ -5571,13 +6516,13 @@
     ],
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 59,
+    "score": 57,
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Coldwell Banker Chile Vitacura Departamento Vitacura Amoblado Excelente departamento completamente amoblado y listo para",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-vitacura-amoblado/32813875",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cc24eac0bcabba27": {
     "arriendo_clp": 6128300.0,
@@ -5599,9 +6544,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 321 \"¡Atención inversionistas! Se vende y-o arrienda amplio loc... \"Centro Coquimbo Paseo Aldunate\" $ 6.128.300",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/coquimbo/coquimbo/localcomercial/205411805",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cc2f11cd15338004": {
     "arriendo_clp": 11848046.0,
@@ -5624,9 +6569,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 827 \"Arriendo de oficina, 1.000 m2. 8 privados, Huérfanos, Sant... \"Mall Vivo\" $ 11.848.046.- UF 290.- 1.000 mt",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203378274",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cd220328d928ec87": {
     "arriendo_clp": null,
@@ -5641,9 +6586,9 @@
     "score": 0,
     "source": "houm",
     "titulo": "Avenida Eliecer Parada Ñuñoa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/176912",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cd383181a95fe579": {
     "arriendo_clp": 1400000.0,
@@ -5663,9 +6608,9 @@
     "score": 17,
     "source": "rentas_cl",
     "titulo": "rentas.cl",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.rentas.cl/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ce0b9937907146a5": {
     "arriendo_clp": null,
@@ -5683,9 +6628,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "se arrienda oficina en Kennedy",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ce142ab60c957b52": {
     "amoblado": "amoblado",
@@ -5708,12 +6653,13 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "ALMAVI SPA Vitacura Departamento AMOBLADO en arriendo de 2 dorm. en Vitacura Se arrienda hermoso departamento COMPLETAME",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-amoblado-en-arriendo-de-2-dorm-en-vitacura/32541938",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "cf16ef5342f58c95": {
     "arriendo_clp": 3064150,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "",
@@ -5737,6 +6683,7 @@
   },
   "d0315505f005e956": {
     "arriendo_clp": 1879345,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 2,
@@ -5783,8 +6730,26 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "LOCAL COMERCIAL 366M2 VITACURA SECTOR PLAZA RAUL DEVES",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
+    "veces_visto": 2
+  },
+  "d12fae28e6b7ff2c": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 560",
+    "comuna": "",
+    "direccion": "ARRIENDO 560",
+    "historial_precio": [],
+    "m2_utiles": 500.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 11,
+    "source": "fuenzalida",
+    "titulo": "ARRIENDO 560 \"cod: 411.591 CdePA Barrio Brasil. 1.530 mts2. Casona y edi... \"Agustinas - Cienfuegos\" $ 11.848.046.- UF 2",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203411591",
     "veces_visto": 1
   },
   "d15a860f5b4495ad": {
@@ -5806,9 +6771,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SAN PATRICIO / VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "d2057eddeb51eff8": {
     "amoblado": "sin amoblar",
@@ -5836,8 +6801,54 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Penthouse Dúplex amoblado con hot tub y terraza privada",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 2
+  },
+  "d407ef5e28aa5d7d": {
+    "arriendo_clp": 8783896.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 1431",
+    "comuna": "Maipú",
+    "direccion": "ARRIENDO 1431, Maipú",
+    "historial_precio": [
+      {
+        "clp": 8783896.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 435.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "local comercial",
+    "titulo": "ARRIENDO 1431 \"Amplio local comercial a la calle, en pleno centro de Maip... \"Maipú Centro\" $ 8.783.896.- UF 215.- 435 m",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/maipu/localcomercial/205379580",
+    "veces_visto": 1
+  },
+  "d40ce5a3cbbab072": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "parque san damian de 13",
+    "comuna": "Las Condes",
+    "direccion": "Parque San Damián de 13, Las Condes",
+    "estacionamientos": 3,
+    "historial_precio": [],
+    "m2_totales": 188.61,
+    "m2_utiles": 188.61,
+    "piso": 6,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "trovit",
+    "tipo": "oficina",
+    "titulo": "Oficina en arriendo en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
     "veces_visto": 1
   },
   "d492b8a13c5e4796": {
@@ -5858,8 +6869,53 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 1199 \"AT397.842* -Gran Propiedad Comercial de 2 pisos ,uso In... \"Portugal - Manuel Antonio Matta\" $ 36.769.797",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/oficina/203397842",
+    "veces_visto": 2
+  },
+  "d52835124fe57430": {
+    "arriendo_clp": 6945406.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 1768",
+    "comuna": "Vitacura",
+    "direccion": "ARRIENDO 1768, Vitacura",
+    "historial_precio": [
+      {
+        "clp": 6945406.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 590.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "casa",
+    "titulo": "ARRIENDO 1768 \"Venta de casa en Vitacura.- Casa en venta y-o Arrie... \"Gran Vía\" $ 7.762.513.- UF 190.- $ 6.945.406.- UF",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/casa/201414246",
+    "veces_visto": 1
+  },
+  "d5c53314b2600e88": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 5,
+    "clave_direccion": "",
+    "comuna": "Colina",
+    "direccion": "",
+    "dormitorios": 6,
+    "estacionamientos": 8,
+    "historial_precio": [],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "casa",
+    "titulo": "Cod.: 7.304 Venta UF 21.300 Casa en Colina CASA CON INCREIBLE QUINCHO, 8 ESTACIONAMIENTOS, A PASOS DEL COLEGIO ALEMAN DE",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/7304",
     "veces_visto": 1
   },
   "d755ceeba39f9842": {
@@ -5877,9 +6933,9 @@
     "source": "nativopropiedades",
     "tipo": "casa",
     "titulo": "$ 673.704.392 UF 16.490,00 ALVARO CASANOVA, LA REINA ALTA, CONDOMINIO... VENTA. Nativo Propiedades vende esta hermosa ca",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1666",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "d8832e64493f76e9": {
     "arriendo_clp": 10132122.0,
@@ -5902,9 +6958,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 711 \"Te presentamos esta amplia y luminosa oficina en arriendo ... \"Av. Bilbao\" $ 10.132.122.- UF 248.- $ 9.396",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/localcomercial/205389661",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "d898804ea731c612": {
     "arriendo_clp": null,
@@ -5921,9 +6977,9 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 1175 \"Local comercial en arriendo, 1.100 m2. construidos, Alamed... \"Metro República\" $ 24.513.198.- UF 600.- 1",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205376469",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "dac0d594dcae30fb": {
     "arriendo_clp": 245132,
@@ -5947,12 +7003,13 @@
     "source": "heyhomes",
     "tipo": "departamento",
     "titulo": "16 ARRIENDO – Barrio Brasil – Santiago Centro UF 6 ARRIENDO – Barrio Brasil – Santiago Centro UF 6 HEY! DEPARTAMENTO EN ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-barrio-brasil-santiago-centro/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "db3f62b13a4da8f9": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "alternativa estacionamientos uf 3",
@@ -5972,6 +7029,7 @@
   },
   "db423c03a8f1c792": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -5998,6 +7056,7 @@
   },
   "db4c9654c6bb9379": {
     "arriendo_clp": 2124477,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 4,
@@ -6024,6 +7083,34 @@
     "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/avda-bicentenario-avda-alonso-cordoba/128655152",
     "veces_visto": 1
   },
+  "dc4ac5b16545a718": {
+    "arriendo_clp": 2124477,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 4,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "dormitorios": 4,
+    "estacionamientos": 2,
+    "historial_precio": [
+      {
+        "clp": 2124477,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 175.0,
+    "piso": 1,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", Avda bicentenario / avda alonso cordoba Habitaciones: 4 Baños: 4 Terreno: 170 m² Estacionamientos: 2 Fabuloso depto. 1",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/avda-bicentenario-avda-alonso-cordoba/128655152",
+    "veces_visto": 1
+  },
   "dcf6b26e2417dbfe": {
     "arriendo_clp": null,
     "avisado": false,
@@ -6045,9 +7132,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "dd33f90527772e32": {
     "arriendo_clp": 7577438.0,
@@ -6070,9 +7157,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 865 \"Oficina en arriendo, 9 privados, Av. El Bosque Norte, metr... \"Metro Tobalaba\" $ 7.577.438.- UF 185,47.- 1",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203231823",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "de116e5486161316": {
     "amoblado": "semi amoblado",
@@ -6095,9 +7182,9 @@
     "source": "nuroa",
     "tipo": "departamento",
     "titulo": "Penthouse Dúplex Amoblado con Piscina Privada y Vista 360°<br />Sector Alonso de Córdova &#8211; Nueva Costanera<br /><b",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "de91e011ec092d92": {
     "arriendo_clp": null,
@@ -6114,8 +7201,33 @@
     "score": 11,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 589 \"cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 800 mts 2 Pro... \"Dieciocho- Padre Miguel de Olivares\" $ 6.35",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205410639",
+    "veces_visto": 2
+  },
+  "ded4cd7bd7119e1c": {
+    "arriendo_clp": 3472703,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 4,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "estacionamientos": 3,
+    "historial_precio": [
+      {
+        "clp": 3472703,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": ", El Matico con Alonso de Cordova Habitaciones: 4 Baños: 3 Terreno: 205 m² Estacionamientos: 3 Penthouse de Lujo con Ter",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/el-matico-con-alonso-de-cordova/116658871",
     "veces_visto": 1
   },
   "df3b4145940ca7c6": {
@@ -6139,8 +7251,28 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo de 5 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 2
+  },
+  "df6c6af5f58fdfb2": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 5,
+    "clave_direccion": "",
+    "comuna": "Machalí",
+    "direccion": "",
+    "dormitorios": 5,
+    "historial_precio": [],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "casa",
+    "titulo": "Casa en Machalí Condominio Alpino 5 Dorm. 5 Baños 234 / 1.022 m 2 Magnolia Property Ficha",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/8743",
     "veces_visto": 1
   },
   "e05f91a5cde8b350": {
@@ -6164,9 +7296,9 @@
     "source": "heyhomes",
     "tipo": "departamento",
     "titulo": "10 ARRIENDO – Los Industriales – Macul UF 10 ARRIENDO – Los Industriales – Macul UF 10 HEY! DEPARTAMENTO EN ARRIENDO! $4",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-los-industriales-macul/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e09ccf7005d76050": {
     "arriendo_clp": null,
@@ -6184,12 +7316,13 @@
     "source": "fuenzalida",
     "tipo": "local comercial",
     "titulo": "ARRIENDO 583 \"Código: LA397.988* Arriendo local comercial en Av. ... \"Av. Libertad\" $ 12.256.599.- UF 300.- 658 mt2 apro",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/vina-del-mar/vina-del-mar/localcomercial/205397988",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e0e7d10c530664f9": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 5,
@@ -6208,6 +7341,32 @@
     "url": "https://www.magnoliaproperty.cl/7932",
     "veces_visto": 1
   },
+  "e0f69e592390f15a": {
+    "amoblado": "amoblado",
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "presidente kennedy lateral vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Avenida Presidente Kennedy Lateral, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7560995, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 2,
+    "estacionamientos": 1,
+    "gastos_comunes_clp": 180000.0,
+    "historial_precio": [],
+    "m2_totales": 98.0,
+    "orientacion": "oriente",
+    "piso": 9,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 2 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
+    "veces_visto": 1
+  },
   "e206d2bbebac5a6b": {
     "arriendo_clp": null,
     "avisado": false,
@@ -6224,9 +7383,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina en arriendo en Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e23404601e6e1673": {
     "amoblado": "sin amoblar",
@@ -6249,12 +7408,13 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Depto 3 dorm 3 baños mas serv en Alonso de Cordova Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e2a716c16da2c6e1": {
     "arriendo_clp": 1389081,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 2,
@@ -6298,13 +7458,13 @@
     "m2_utiles": 380.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 53,
+    "score": 0,
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Departamento Las nieves ID: 150762r",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e3eb21fa38d56263": {
     "amoblado": "amoblado",
@@ -6322,12 +7482,13 @@
     "source": "nativopropiedades",
     "tipo": "departamento",
     "titulo": "$ 153.207.488 UF 3.750,00 ALGARROBO CENTRO, CERCANO A PLAYA, FULL AMOBLADO... VENTA. Nativo Propiedades vende lindo depa",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.nativopropiedades.cl/property.asp?idPro=1651",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e4e90167c3f584f5": {
     "arriendo_clp": 3676980,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 5,
@@ -6373,9 +7534,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 498 \"*MPB*411.605. Luis Thayer Ojeda- Carmen Sylva. Hotel-hosta... \"Luis Thayer Ojeda- Carmen Sylva\" $ 6.000.00",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/otros/219411605",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e7232d8e8330d8e9": {
     "arriendo_clp": null,
@@ -6392,9 +7553,9 @@
     "score": 11,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 501 \"cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 800 mts 2 Pro... \"Dieciocho- Padre Miguel de Olivares\" $ 6.35",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410639",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "e7d456ebd7aaa6d8": {
     "arriendo_clp": null,
@@ -6412,12 +7573,37 @@
     "source": "portillapropiedades",
     "tipo": "casa",
     "titulo": "Propiedades Destacadas Todos Casas UF 6.850,00 Venta - Casa GASPAR DE LA BARRERA /SANTIAGO... Portilla Propiedades VENDE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.portillapropiedades.cl/property.asp?idPro=231",
+    "veces_visto": 2
+  },
+  "e87d76f3f8ed67ab": {
+    "arriendo_clp": null,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 2,
+    "clave_direccion": "vitacura vitacura",
+    "comuna": "Vitacura",
+    "direccion": "Avenida Vitacura, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7640639, Chile, Vitacura, Metropolitana de Santiago",
+    "dormitorios": 2,
+    "estacionamientos": 1,
+    "gastos_comunes_clp": 230000.0,
+    "historial_precio": [],
+    "orientacion": "suroriente",
+    "piso": 7,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "mitula",
+    "tipo": "departamento",
+    "titulo": "Departamento en arriendo de 2 dorm. en Vitacura",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
     "veces_visto": 1
   },
   "e9afb603c3af6c3a": {
     "arriendo_clp": null,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 5,
@@ -6449,8 +7635,31 @@
     "score": 6,
     "source": "houm",
     "titulo": "Martín de Zamora Las Condes",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/175757",
+    "veces_visto": 2
+  },
+  "ea5c46bdb03a7f72": {
+    "arriendo_clp": 10050411,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo uf 246",
+    "comuna": "Las Condes",
+    "direccion": "Arriendo UF 246, Las Condes",
+    "historial_precio": [
+      {
+        "clp": 10050411,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "magnoliaproperty",
+    "tipo": "oficina",
+    "titulo": "Cod.: 9.019 Arriendo UF 246 Oficina en Las Condes A pasos del Metro Tobalaba, MUT 362 m 2 Magnolia Property Ficha",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.magnoliaproperty.cl/9019",
     "veces_visto": 1
   },
   "ead921b3f9ae36c8": {
@@ -6466,9 +7675,9 @@
     "score": 0,
     "source": "enlaceinmobiliario",
     "titulo": "Asesoría completamente gratuita como factor diferenciador.",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.enlaceinmobiliario.cl/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "eb8ceaae72a57f53": {
     "arriendo_clp": null,
@@ -6486,9 +7695,9 @@
     "source": "bienesonline",
     "tipo": "casa",
     "titulo": "Vendo casa 300 m2 Pichilemu CLP 300.000.000 Pichilemu, Libertador General Bernardo O'Higgins, Chile 4 2 360 m² Ver Detal",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.bienesonline.cl/es/chile/pichilemu/propiedad/123457-vendo-casa-300-m2-pichilemu",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ec41e1a066a2e538": {
     "arriendo_clp": 500000.0,
@@ -6513,9 +7722,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "PENTHOUSE en arriendo en exclusivo sector Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "ecbeabf9e8fcdf47": {
     "arriendo_clp": 3881256,
@@ -6536,8 +7745,58 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "María Cristina Medina Vitacura Departamento en arriendo en Vitacura (COD. 102.499)Estupendo departamento con vista panor",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-en-vitacura/32182432",
+    "veces_visto": 2
+  },
+  "ece6b27026b62e78": {
+    "arriendo_clp": 14299366.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 962",
+    "comuna": "",
+    "direccion": "ARRIENDO 962",
+    "historial_precio": [
+      {
+        "clp": 14299366.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_totales": 930.0,
+    "m2_utiles": 930.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "oficina",
+    "titulo": "ARRIENDO 962 \"Oficina en venta y-o arriendo, 3 pisos, 6 privados, a paso... \"AC Alcántara cercano a calle Presidente Err",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203375847",
+    "veces_visto": 1
+  },
+  "efb1589a594f721a": {
+    "arriendo_clp": 9805279.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 311",
+    "comuna": "Lo Barnechea",
+    "direccion": "ARRIENDO 311, Lo Barnechea",
+    "historial_precio": [
+      {
+        "clp": 9805279.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 593.0,
+    "orientacion": "sur",
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "tipo": "casa",
+    "titulo": "ARRIENDO 311 \"Excelente oportunidad en Lo Barnechea de casa familiar de ... \"Panoramica Sur 10000\" $ 9.805.279.- UF 240.",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/lo-barnechea-la-dehesa/casa/201417810",
     "veces_visto": 1
   },
   "f03f22683ed0c946": {
@@ -6557,13 +7816,13 @@
     "piso": 2,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 66,
+    "score": 65,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "ARRIENDO VITACURA DISPONIBLE DICEMBBRE 2026",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f11554c076f04eff": {
     "arriendo_clp": 390000.0,
@@ -6587,9 +7846,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "ARRIENDO, AVENIDA PRESIDENTE KENNEDY",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f1d6abb7a630df9d": {
     "arriendo_clp": 1797635,
@@ -6612,9 +7871,9 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Marta Lopez Astrada Vitacura Excelente Vista Depto en arriendo de 2 dorm. en Vitacura Moderno departamento con preciosa ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/excelente-vista-depto-en-arriendo-de-2-dorm-en-vitacura/32822554",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f1e6ca7475bfdc50": {
     "arriendo_clp": 11316926.0,
@@ -6635,9 +7894,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 457 \"EXCELENTE PROPIEDAD INDUSTRIAL, que corresponde a 2 Roles ... \"Barrio Industrial, Puerto Montt\" $ 11.316.9",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/industrial/208396157",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f27f9f7ecbd9fac3": {
     "arriendo_clp": null,
@@ -6656,9 +7915,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "SE ARRIENDA OF RECIÉN REMODELADA EN VITACURA",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f3158f4764a5708e": {
     "arriendo_clp": 550000.0,
@@ -6683,9 +7942,9 @@
     "source": "trovit",
     "tipo": "oficina",
     "titulo": "Oficina con vista espectacular  1E/1B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f3325f3fb4cdacd0": {
     "arriendo_clp": null,
@@ -6700,9 +7959,9 @@
     "score": 14,
     "source": "propertypartners",
     "titulo": "VI a XI Región",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://ppartnersgroup.com/es-cl/search/arriendo/departamento/region-metropolitana/vitacura/",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f3a5d7793c1f529f": {
     "amoblado": "amoblado",
@@ -6720,12 +7979,13 @@
     "source": "houm",
     "tipo": "departamento",
     "titulo": "Arriendo departamento amueblados en Santiago Arriendo departamento Santiago que aceptan mascotas Departamento en Arriend",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://houm.com/cl/arriendo-departamentos-region-metropolitana/amueblado",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f46141f32f119c66": {
     "arriendo_clp": 14000000.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "ano 2015",
@@ -6764,9 +8024,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "Oficina en Amoblada, frente al Parque Arauco, Excelente",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f540fd88155fe941": {
     "arriendo_clp": null,
@@ -6790,9 +8050,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f6dd919c877eeee5": {
     "amoblado": "amoblado",
@@ -6814,9 +8074,9 @@
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento en arriendo AMOBLADO de 2 dorm. en Vitacura",
-    "ultima_vez": "2026-08-17T13:44:50",
-    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura",
-    "veces_visto": 1
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
+    "veces_visto": 2
   },
   "f73d9b26b9a51861": {
     "arriendo_clp": 2042766,
@@ -6837,8 +8097,31 @@
     "source": "yapo",
     "tipo": "departamento",
     "titulo": "Alejandra Domínguez Vitacura Luminoso Hogar Ideal para Inversión (171249) Descubre el hogar de tus sueños en el corazón ",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/luminoso-hogar-ideal-para-inversion-171249/32592348",
+    "veces_visto": 2
+  },
+  "f894f65aba63c947": {
+    "arriendo_clp": 16000000.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "ano 2019",
+    "comuna": "Quilicura",
+    "direccion": "Año 2019, Quilicura",
+    "historial_precio": [
+      {
+        "clp": 16000000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "clasificados_cl",
+    "tipo": "casa",
+    "titulo": "Legales y Públicos Banco Chile - avisos nulos por hurto (1) Banco Chile - avisos nulos por robo (14) Banco Chile - aviso",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
     "veces_visto": 1
   },
   "f961fa4fe4015733": {
@@ -6859,9 +8142,9 @@
     "score": 20,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 621 \"cod: 411.150 CdePA Matucana- Atacama- Chacabuco 3000 edifi... \"Matucana- Atacama - Chacabuco\" $ 20.019.112",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219411150",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f9baed6998dbffe5": {
     "arriendo_clp": 6128300.0,
@@ -6882,9 +8165,9 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 146 \"Terreno de 8327 m2 con edificaciones destinadas a oficinas... \"Ruta V-505 km7\" $ 6.128.300.- UF 150.- 8.32",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-varas/puerto-varas/oficina/203411557",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "f9efafc8bcf5d8b0": {
     "arriendo_clp": 11807190.0,
@@ -6907,12 +8190,13 @@
     "source": "fuenzalida",
     "tipo": "oficina",
     "titulo": "ARRIENDO 809 \"Se vende o arrienda oficina en el sector de Plaza de Armas... \"cercano a plaza de armas\" $ 11.807.190.- UF",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203401852",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "fb132b4d4fe4d266": {
     "arriendo_clp": 3472703,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "banos": 3,
@@ -6961,8 +8245,33 @@
     "source": "heyhomes",
     "tipo": "local comercial",
     "titulo": "13 ARRIENDO – Av. Vicuña Mackenna Oriente – La Florida UF 90 ARRIENDO – Av. Vicuña Mackenna Oriente – La Florida UF 90 H",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://heyhomes.cl/propiedad/arriendo-b-av-vicuna-mackenna-oriente-la-florida/",
+    "veces_visto": 2
+  },
+  "fb8d99211e561726": {
+    "arriendo_clp": 1190000.0,
+    "avisado": true,
+    "aviso_antiguedad_publicacion": false,
+    "banos": 3,
+    "clave_direccion": "",
+    "comuna": "Vitacura",
+    "direccion": "",
+    "estacionamientos": 1,
+    "historial_precio": [
+      {
+        "clp": 1190000.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "precio_al_avisar": 1190000.0,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 75,
+    "source": "chilepropiedades",
+    "tipo": "departamento",
+    "titulo": "$ 1.190.000 Vitacura, Tupungato Habitaciones: 3 Baños: 2 Terreno: 98 m² Estacionamientos: 1 Se arrienda departamento en ",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/tupungato/129775755",
     "veces_visto": 1
   },
   "fc56c4b4341045ec": {
@@ -6983,9 +8292,9 @@
     "score": 0,
     "source": "fuenzalida",
     "titulo": "ARRIENDO 1150 \"cod: 412.061*CdePA Centro de Rancagua: Astorga - O Carrol ... \"Astorga - Ocarrol\" $ 51.069.162.- UF 1.250",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/industrial/208412061",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "fcdcdc17ccc05719": {
     "arriendo_clp": null,
@@ -7006,9 +8315,9 @@
     "source": "trovit",
     "tipo": "departamento",
     "titulo": "KENNEDY, GERONIMO DE ALDERETE",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "fe0a5911dc48678e": {
     "amoblado": "amoblado",
@@ -7025,16 +8334,17 @@
     "m2_totales": 320.0,
     "precio_al_avisar": null,
     "primera_vez": "2026-08-17T13:44:50",
-    "score": 61,
+    "score": 60,
     "source": "mitula",
     "tipo": "departamento",
     "titulo": "Departamento de lujo completamente amoblado, con espectacular vista",
-    "ultima_vez": "2026-08-17T13:44:50",
+    "ultima_vez": "2026-08-17T17:20:09",
     "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 1
+    "veces_visto": 2
   },
   "fe79a8d5b47e67a4": {
     "arriendo_clp": 14299366.0,
+    "ausencias": 1,
     "avisado": false,
     "aviso_antiguedad_publicacion": false,
     "clave_direccion": "arriendo 961",
@@ -7056,6 +8366,29 @@
     "titulo": "ARRIENDO 961 \"Oficina en venta y-o arriendo, 3 pisos, 6 privados, a paso... \"AC Alcántara cercano a calle Presidente Err",
     "ultima_vez": "2026-08-17T13:44:50",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203375847",
+    "veces_visto": 1
+  },
+  "ff172db859bb21bd": {
+    "arriendo_clp": 14299366.0,
+    "avisado": false,
+    "aviso_antiguedad_publicacion": false,
+    "clave_direccion": "arriendo 341",
+    "comuna": "",
+    "direccion": "ARRIENDO 341",
+    "historial_precio": [
+      {
+        "clp": 14299366.0,
+        "cuando": "2026-08-17"
+      }
+    ],
+    "m2_utiles": 1040.0,
+    "precio_al_avisar": null,
+    "primera_vez": "2026-08-17T17:20:09",
+    "score": 0,
+    "source": "fuenzalida",
+    "titulo": "ARRIENDO 341 \"Espectacular propiedad industrial en sector privilegiado a... \"Juan elias 1600\" $ 14.299.366.- UF 350.- 3.",
+    "ultima_vez": "2026-08-17T17:20:09",
+    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/recoleta/industrial/208414514",
     "veces_visto": 1
   }
 }
