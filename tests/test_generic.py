@@ -413,6 +413,10 @@ def test_un_titulo_que_es_puro_numero_queda_como_estaba():
     "DPTO AMOBLADO EXCELENTE UBICACION ... UF29,38 3 2 2 Compara",
     # "UF38 00": lo mismo, con la parte decimal "00" como altura.
     "140m2 Vitacura Departamento ... UF38,00 -5% 4 1 3 Compara",
+    # Direcciones REALES del diagnóstico: el título tragado como calle, con
+    # la UF de altura. La palabra de precio EN MEDIO delata al nombre entero.
+    "HEY! CASA COMERCIAL EN ARRIENDO! UF 75",
+    "Local San Sebastián Arriendo: UF 90 Providencia",
 ])
 def test_un_precio_partido_por_la_coma_no_es_direccion(texto):
     assert _direccion_desde(texto, "") == ""
@@ -474,6 +478,93 @@ def test_sin_fila_configurada_no_se_adivina(fuente):
            'Vitacura $1.500.000 2 1 2</a></article></body></html>')
     a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
     assert a.dormitorios is None and a.banos is None
+
+
+# El patrón de los metabuscadores, medido contra sus páginas reales: el
+# JSON-LD trae todo menos el precio (nuroa: 100% dormitorios, 88% m², 12%
+# precio), y el precio vive solo en la tarjeta visible. Como la pasada
+# JSON-LD gana, la tarjeta se descartaba entera.
+
+def test_el_precio_de_la_tarjeta_completa_al_jsonld(fuente):
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Departamento 3D en Vitacura",
+            "url": "https://ejemplo.cl/aviso/9",
+            "numberOfBedrooms": 3, "numberOfBathroomsTotal": 2,
+            "floorSize": {"@type": "QuantitativeValue", "value": 120},
+            "address": {"streetAddress": "Espoz 3400",
+                        "addressLocality": "Vitacura"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script>'
+           f'<article><a href="/aviso/9">Departamento 3D en Vitacura '
+           f'$1.550.000 3 dormitorios</a></article></body></html>')
+    avisos = extraer(doc, "https://ejemplo.cl/arriendo", fuente)
+    assert len(avisos) == 1, "completar no puede duplicar el aviso"
+    a = avisos[0]
+    assert a.extras["via"] == "json-ld"
+    assert a.dormitorios == 3 and a.m2_totales == 120
+    assert a.arriendo_clp == 1_550_000, "el precio vivía solo en la tarjeta"
+
+
+def test_la_tarjeta_de_otro_aviso_no_completa_nada(fuente):
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Departamento 3D en Vitacura",
+            "url": "https://ejemplo.cl/aviso/9", "numberOfBedrooms": 3,
+            "address": {"streetAddress": "Espoz 3400",
+                        "addressLocality": "Vitacura"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script>'
+           f'<article><a href="/aviso/77">Otro departamento $2.990.000 '
+           f'2 dormitorios</a></article></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert a.arriendo_clp is None, "sin calce de URL no se cree nada"
+
+
+# El candidato de texto de ficha: goplaceit e iCasas no ponen JSON-LD de la
+# propiedad en su ficha (las tres pasadas extraen CERO) y el texto visible lo
+# dice todo. Las líneas del fixture son las REALES del diagnóstico del 17-08.
+
+_FICHA_ICASAS = """<html><body>
+  <header>iCasas — Habitacionales en Venta · Habitacionales en Arriendo</header>
+  <h1>Arriendo Departamento amoblado</h1>
+  <div>Departamento en arriendo Fernando De Arguello 6699, Vitacura, Chile</div>
+  <ul><li>UF 49</li><li>140m2</li><li>2 Dormitorios</li><li>3 Baños</li></ul>
+  <div>Gastos comunes: UF 15,78</div>
+  <div>Año de construcción: 2.018</div>
+  <section>Propiedades similares: Departamento en arriendo de 5 dorm. en
+  Vitacura $3.200.000 · Departamento 6 dormitorios 7 baños</section>
+</body></html>"""
+
+
+def test_candidato_de_texto_lee_la_ficha_de_icasas(fuente):
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_ICASAS, "https://icasas.cl/prop/1", fuente,
+                           valor_uf=40_854,
+                           titulo="Arriendo Departamento amoblado")
+    assert c is not None and c.extras["texto_anclado"]
+    assert c.dormitorios == 2 and c.banos == 3
+    assert c.gastos_comunes_clp == round(15.78 * 40_854)
+    assert c.ano_construccion == 2018
+    assert c.direccion == "" and c.comuna == "", \
+        "la identidad nunca se toma del texto suelto"
+
+
+def test_candidato_de_texto_sin_ancla_queda_marcado(fuente):
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_ICASAS, "https://icasas.cl/prop/1", fuente,
+                           titulo="Un título que no aparece en la página")
+    assert c is not None and not c.extras["texto_anclado"]
+
+
+def test_candidato_de_texto_no_toma_numeros_sueltos_como_canon(fuente):
+    """"UF $ 40.855,33" (el valor UF del día) y los promedios del sector
+    andan sueltos por la ficha; sin rótulo no son el canon."""
+    from arriendo.sources.generic import candidato_de_texto
+    doc = """<html><body><h1>Departamento en arriendo en Vitacura</h1>
+      <div>UF $ 40.855,33</div><div>promedio del sector $ 2.400.000</div>
+      <div>Precio convertido: $1.817.308</div></body></html>"""
+    c = candidato_de_texto(doc, "https://x.cl/1", fuente,
+                           titulo="Departamento en arriendo en Vitacura")
+    assert c.arriendo_clp == 1_817_308
 
 
 def test_direccion_jsonld_sin_comuna_repetida(fuente):

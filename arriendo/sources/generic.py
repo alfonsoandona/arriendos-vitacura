@@ -114,7 +114,13 @@ _HREF_IGNORAR = re.compile(
     # El catálogo completo de propiedades.cl, que era el "link al aviso" de la
     # quimera del widget: un enlace que muestra todo, de todas las comunas, no
     # apunta a ningún departamento.
-    r"|/(?:todos_los_tipos|venta_y_arriendo|todas_las_comunas)(/|$)",
+    r"|/(?:todos_los_tipos|venta_y_arriendo|todas_las_comunas)(/|$)"
+    # Proyectos EN VENTA colados en el listado de arriendo (toctoc), y los
+    # servicios externos que algún portal mete como link de la tarjeta: en el
+    # diagnóstico real una "ficha" terminó siendo maps.app.goo.gl.
+    r"|/compranuevo(/|$)"
+    r"|maps\.app\.goo\.gl|google\.[a-z.]+/maps|goo\.gl/maps"
+    r"|wa\.me/|api\.whatsapp\.com|facebook\.com|instagram\.com|youtube\.com",
     re.I,
 )
 
@@ -155,6 +161,10 @@ def _num(v: Any) -> float | None:
         return P.parse_numero(v.strip()) or None
     if isinstance(v, dict):  # QuantitativeValue
         return _num(v.get("value"))
+    if isinstance(v, list):
+        # TocToc publica los campos como rangos del edificio entero:
+        # "superficie": [140] o [80, 124]. El primero es la unidad publicada.
+        return _num(v[0]) if v else None
     return None
 
 
@@ -323,7 +333,7 @@ _LLAVES = {
     "gastos": ("gastosComunes", "gastos_comunes", "commonExpenses",
                "expensas", "gc"),
     "m2_totales": ("totalArea", "superficieTotal", "superficie_total",
-                   "mtsTotales", "m2Totales"),
+                   "mtsTotales", "m2Totales", "superficie"),
     "m2_utiles": ("coveredArea", "superficieUtil", "superficie_util",
                   "mtsUtiles", "m2Utiles", "builtArea"),
     "dormitorios": ("bedrooms", "dormitorios", "rooms", "habitaciones",
@@ -885,6 +895,13 @@ _NO_ES_CALLE = re.compile(
     r"|pisos?|m2|mts?2?|uf\s*\d*|clp|cod\.?|c[oó]digo|mensual"
     r"|arriendo|venta)\b[\s:.,]*[\d\s.,]*$", re.I)
 
+# Una palabra de precio EN MEDIO del nombre lo delata entero: "COMERCIAL EN
+# ARRIENDO! UF 75" y "San Sebastián Arriendo: UF 90" fueron direcciones
+# reales del diagnóstico — el título del aviso tragado como calle, con la UF
+# de altura. Ninguna calle chilena se llama UF, CLP ni Arriendo.
+_PALABRA_DE_PRECIO = re.compile(
+    r"^(?:uf|clp|clf|\$+|arriendos?|ventas?|cod\.?|c[oó]digo)[:!.,]*$", re.I)
+
 
 def _direccion_desde(texto: str, comuna: str) -> str:
     """La dirección del aviso, si el texto trae una.
@@ -949,6 +966,8 @@ def _direccion_desde(texto: str, comuna: str) -> str:
         if not palabras:
             continue
 
+        if any(_PALABRA_DE_PRECIO.match(p) for p in palabras):
+            continue
         calle = " ".join(palabras + [altura.group(1)])
         if _NO_ES_CALLE.match(calle):
             # Se sigue buscando en vez de rendirse: "Baños: 3" al principio
@@ -963,6 +982,50 @@ def _direccion_desde(texto: str, comuna: str) -> str:
 # Entrada del módulo
 # ---------------------------------------------------------------------------
 
+def _clave_url(url: str) -> str:
+    """La URL reducida a lo que identifica al aviso, para poder calzarlas."""
+    u = (url or "").split("#")[0].split("?")[0].rstrip("/").lower()
+    u = re.sub(r"^https?://", "", u)
+    return u.removeprefix("www.")
+
+
+def _completar_con_tarjetas(avisos: list[Arriendo], soup: BeautifulSoup,
+                            base_url: str, fuente: FuenteConfig,
+                            valor_uf: float | None) -> None:
+    """Rellena los huecos del JSON-LD con la tarjeta visible del MISMO aviso.
+
+    El diagnóstico contra páginas reales mostró el patrón en todos los
+    metabuscadores: el JSON-LD trae dormitorios, baños, superficie y hasta la
+    dirección — y NO trae el precio, que vive solo en la tarjeta visible
+    (nuroa: 100% dormitorios, 88% m², 12% precio). Como la pasada JSON-LD
+    gana, la tarjeta se descartaba entera y el aviso quedaba sin canon: sin
+    filtro de presupuesto y comprimido bajo el techo de los sin-precio.
+
+    Se calza POR URL —la tarjeta enlaza al mismo aviso que declara el
+    JSON-LD— y solo se rellenan huecos: nada de lo que el JSON-LD ya dijo se
+    toca. Sin calce, no se toca nada.
+    """
+    from ..store import _fusionar
+
+    tarjetas = _desde_tarjetas(soup, base_url, fuente, valor_uf)
+    if not tarjetas:
+        return
+    por_url: dict[str, Arriendo] = {}
+    for t in tarjetas:
+        clave = _clave_url(t.url)
+        if clave and clave != _clave_url(base_url):
+            por_url.setdefault(clave, t)
+
+    for a in avisos:
+        t = por_url.get(_clave_url(a.url))
+        if t is None:
+            continue
+        if a.arriendo_clp is None and a.arriendo_uf is None:
+            a.arriendo_clp = t.arriendo_clp
+            a.arriendo_uf = t.arriendo_uf
+        _fusionar(a, t)
+
+
 def extraer(html: str, base_url: str, fuente: FuenteConfig,
             valor_uf: float | None = None) -> list[Arriendo]:
     """Extrae los avisos de una página, con las tres pasadas en orden.
@@ -971,6 +1034,10 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
     produciría el mismo aviso dos veces con distinta calidad de datos, y aunque
     la deduplicación lo arreglaría después, la copia peor podría ganar el
     desempate y perderíamos los datos buenos.
+
+    La única mezcla permitida calza por URL: lo que la tarjeta visible sabe
+    del MISMO aviso rellena los huecos del JSON-LD (ver
+    `_completar_con_tarjetas`). Eso no duplica nada.
     """
     if not html:
         return []
@@ -986,9 +1053,80 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
         resultado = pasada()
         if resultado:
             log.debug("[%s] %d avisos vía %s", fuente.id, len(resultado), nombre)
+            if nombre == "json-ld":
+                _completar_con_tarjetas(resultado, soup, base_url, fuente,
+                                        valor_uf)
             return resultado
 
     return []
+
+
+# Campos que NO se aceptan del texto suelto de una ficha. La página completa
+# trae la dirección de la corredora en el pie, el menú del sitio ("Arriendos
+# Amueblados") y los avisos del widget de similares: cualquiera de estos
+# campos leído de ahí tiene tantas chances de ser de la página como del
+# departamento. Los medibles rotulados (dormitorios, m², GC, año, piso) sí
+# se aceptan, porque un rótulo pegado a su número es del aviso.
+_NO_DEL_TEXTO_DE_FICHA = ("direccion", "comuna", "lat", "lon", "tipo",
+                          "amoblado", "mascotas", "disponible_desde",
+                          "publicado_el", "corredora")
+
+
+def candidato_de_texto(html: str, url: str, fuente: FuenteConfig,
+                       valor_uf: float | None = None,
+                       titulo: str = "", direccion: str = "") -> Arriendo | None:
+    """Un candidato armado del TEXTO VISIBLE de una ficha, solo lo rotulado.
+
+    Existe porque el diagnóstico contra fichas reales mostró páginas donde
+    las tres pasadas extraen CERO —goplaceit e iCasas no ponen JSON-LD de la
+    propiedad en su ficha— mientras el texto visible dice todo: "4
+    Habitaciones / 3 Baños", "Superficie 142 m2 totales", "Gastos comunes:
+    UF 15,15", "Año de construcción: 1.978", "Orientación: Sur-Oriente".
+
+    Dos reglas lo hacen seguro. De una página completa solo se cree lo
+    ROTULADO: los montos pasan por `montos_rotulados` (los números sueltos
+    de una ficha son los promedios del sector y los avisos vecinos), y los
+    campos de identidad —dirección, comuna, tipo— no se toman de acá. Y si
+    el título o la dirección del aviso aparecen en la página, el texto se
+    corta DESDE ahí: la sección de la propiedad empieza en su título; lo que
+    va antes es el sitio y lo que reconoce el ancla queda marcado
+    (`texto_anclado`), para que quien fusiona sepa cuánta fe tenerle.
+    """
+    if not html:
+        return None
+    soup = BeautifulSoup(html, "lxml")
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+    texto = re.sub(r"\s+", " ", soup.get_text(" ")).strip()
+    if len(texto) < 40:
+        return None
+
+    anclado = False
+    for ancla in (titulo, (direccion or "").split(",")[0]):
+        corto = re.sub(r"\s+", " ", ancla or "").strip()[:40]
+        if len(corto) < 12:
+            continue
+        m = re.search(re.escape(corto), texto, re.I)
+        if m:
+            texto = texto[m.start():]
+            anclado = True
+            break
+    # El tope de largo corta el fondo de la página, que es donde viven los
+    # similares y el pie del sitio; la propiedad se describe arriba.
+    texto = texto[:20_000]
+
+    a = _armar(texto, url, fuente, "", valor_uf)
+    rotulados = P.montos_rotulados(texto, valor_uf)
+    a.arriendo_clp = rotulados.get("arriendo_clp")
+    a.arriendo_uf = None
+    a.gastos_comunes_clp = rotulados.get("gastos_comunes_clp")
+    a.garantia_meses = None
+    for campo in _NO_DEL_TEXTO_DE_FICHA:
+        vacio = "" if isinstance(getattr(a, campo), str) else None
+        setattr(a, campo, vacio)
+    a.extras["de_texto_de_ficha"] = True
+    a.extras["texto_anclado"] = anclado
+    return a
 
 
 def enlaces_de_detalle(html: str, base_url: str, patron: str,

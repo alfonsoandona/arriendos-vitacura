@@ -185,7 +185,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
     alertable. Y el precio NO se toca —_fusionar lo excluye a propósito—: el
     del listado es el vigente, y el de una ficha puede estar desactualizado.
     """
-    from .sources.generic import extraer
+    from .sources.generic import candidato_de_texto, extraer
     from .sources.registry import _bajar
     from .store import _fusionar
 
@@ -210,7 +210,21 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             continue
 
         propios = _candidatos_propios(a, extraer(html, a.url, fuente, uf))
-        if not propios:
+        # El plan B, del diagnóstico contra fichas reales: goplaceit e iCasas
+        # no ponen JSON-LD de la propiedad en su ficha —las tres pasadas
+        # extraen CERO— pero el texto visible lo dice todo. De ese texto solo
+        # se cree lo rotulado, y nunca la identidad (dirección, comuna, tipo).
+        del_texto = candidato_de_texto(html, a.url, fuente, uf,
+                                       titulo=a.title, direccion=a.direccion)
+        if del_texto is not None and not _no_contradice(a, del_texto):
+            del_texto = None
+        # Sin candidato propio Y sin ancla, nada garantiza que el texto hable
+        # de ESTE aviso — pudo ser puro widget de similares. La lección del
+        # 17-08 (dormitorios de un vecino en la alerta) no se repite.
+        if not propios and del_texto is not None \
+                and not del_texto.extras.get("texto_anclado"):
+            del_texto = None
+        if not propios and del_texto is None:
             # La ficha no se reconoció a sí misma (o era en verdad un
             # listado). El aviso sigue tal cual: escueto pero honesto.
             log.debug("Ficha de %s sin candidato propio; no se fusiona",
@@ -219,6 +233,8 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             continue
         for candidato in propios:
             _fusionar(a, candidato)
+        if del_texto is not None:
+            _fusionar(a, del_texto)
         # El precio es la excepción de la excepción. `_fusionar` no lo toca
         # porque el del listado es más fresco que el de una ficha… cuando
         # existe. Pero goplaceit publica sus tarjetas SIN precio —el 100% en
@@ -227,8 +243,9 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         # salga del techo de los sin-precio. Si el precio revelado excede el
         # tope, `evaluar` lo descarta acá mismo y no llega al teléfono.
         if a.arriendo_clp is None and a.arriendo_uf is None:
-            con_precio = next((c for c in propios
-                               if c.arriendo_clp or c.arriendo_uf), None)
+            con_precio = next(
+                (c for c in propios + ([del_texto] if del_texto else [])
+                 if c.arriendo_clp or c.arriendo_uf), None)
             if con_precio:
                 a.arriendo_clp = con_precio.arriendo_clp
                 a.arriendo_uf = con_precio.arriendo_uf

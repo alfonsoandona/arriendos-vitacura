@@ -182,6 +182,38 @@ def test_la_sigla_no_se_come_un_precio_real():
     assert m2.get("arriendo_clp") == 850_000
 
 
+def test_gastos_comunes_en_uf():
+    """"Gastos comunes: UF 15,15" es una ficha REAL de iCasas."""
+    m = P.parse_montos("Arriendo $1.500.000 Gastos comunes: UF 15,15",
+                       valor_uf=40_854)
+    assert m["gastos_comunes_clp"] == round(15.15 * 40_854)
+
+
+def test_el_gc_en_pesos_le_gana_al_de_uf():
+    m = P.parse_montos("G.C. $180.000 (UF 4,4 aprox) arriendo $1.500.000",
+                       valor_uf=40_854)
+    assert m["gastos_comunes_clp"] == 180_000
+
+
+def test_montos_rotulados_ignora_los_numeros_sueltos():
+    """El modo ficha: en una página completa, los números sin rótulo son los
+    promedios del sector y los avisos vecinos, no esta propiedad."""
+    texto = ("Precio convertido: $1.817.308 ... arriendo promedio del sector "
+             "$2.400.000 es un 30% ... otra propiedad $1.990.000 ... "
+             "+250.000CLP de gastos comunes")
+    m = P.montos_rotulados(texto, valor_uf=40_854)
+    assert m.get("arriendo_clp") == 1_817_308, \
+        "el rotulado 'Precio convertido' manda"
+    assert m.get("gastos_comunes_clp") == 250_000
+
+
+def test_el_ano_con_punto_de_miles():
+    """"Año de construcción: 1.978" es una ficha REAL de iCasas — y justo el
+    dato del requisito duro de <30 años."""
+    assert P.parse_antiguedad("Año de construcción: 1.978")[0] == 1978
+    assert P.parse_antiguedad("construido en 2.018")[0] == 2018
+
+
 def test_el_guion_con_espacios_sigue_separando_dos_conceptos():
     """La corrección no puede tragarse el caso opuesto.
 

@@ -347,7 +347,6 @@ fuentes:
     motor: navegador
     comuna_default: Vitacura
     urls: ["https://www.remax.cl/es-cl/busqueda/metropolitana-de-santiago/santiago/vitacura/residencial-departamento/arriendo/"]
-    motor: navegador
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
     notas: "Red de corredores independientes; mucho aviso exclusivo."

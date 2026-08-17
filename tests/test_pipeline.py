@@ -814,6 +814,50 @@ def test_si_la_ficha_revela_un_precio_sobre_el_tope_no_se_alerta(monkeypatch):
     assert registrados and registrados[0].descartado
 
 
+def test_la_ficha_sin_candidatos_pero_con_texto_enriquece_igual(monkeypatch):
+    """El caso goplaceit del diagnóstico: la ficha no trae JSON-LD de la
+    propiedad (cero candidatos) y el texto visible lo dice todo. Se cree lo
+    rotulado, anclado al título del aviso."""
+    from arriendo.config import cargar_perfil
+    from arriendo.sources import registry
+    from arriendo.sources.base import Fetcher, FuenteConfig
+    from arriendo.models import Arriendo
+    from arriendo import cli as C, scoring as S
+
+    a = Arriendo(source="f1", url="https://f1.cl/aviso/5",
+                 title="Departamento en Arriendo en Tabancura - 4D/3B",
+                 comuna="Vitacura")
+    perfil = cargar_perfil()
+    S.evaluar(a, perfil)
+
+    # Sin <a> por ninguna parte: las tres pasadas extraen cero, como en la
+    # ficha real. Las líneas son las del diagnóstico del 17-08.
+    monkeypatch.setattr(registry, "_bajar", lambda f, fu, u: """
+      <html><body>
+      <h1>Departamento en Arriendo en Tabancura - 4D/3B</h1>
+      <div>Precio convertido: $1.817.308</div>
+      <div>4 Habitaciones / 3 Baños / 127M² útiles</div>
+      <div>Superficie 142 m2 totales / 127 m2 útiles</div>
+      <div>2 Estacionamientos</div>
+      <div>Orientación: Sur-Oriente</div>
+      <div>+250.000CLP de gastos comunes</div>
+      </body></html>""")
+
+    class StoreFalso:
+        def registrar(self, *x, **k): pass
+
+    fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
+    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+                                     40_854, perfil, StoreFalso())
+    listo = salida[0][0]
+    assert (listo.dormitorios, listo.banos) == (4, 3)
+    assert listo.m2_totales == 142
+    assert listo.gastos_comunes_clp == 250_000
+    assert listo.arriendo_clp == 1_817_308, \
+        "el 'Precio convertido' rotulado es el canon"
+    assert listo.orientacion
+
+
 def test_candidatos_propios_ignora_www_y_parametros():
     from arriendo.cli import _candidatos_propios
     from arriendo.models import Arriendo

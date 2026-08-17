@@ -164,7 +164,9 @@ _ETIQUETAS = [
     ("arriendo", re.compile(
         r"arriendo|arrienda|canon|renta\s*mensual|valor\s*mensual|"
         r"precio\s*mensual|\bmensual(?:idad)?\b|\bal\s*mes\b|/\s*mes\b|"
-        r"\bmes\b", re.I)),
+        # "Precio convertido: $1.817.308" es como goplaceit muestra el canon
+        # en pesos cuando el aviso está publicado en UF.
+        r"\bmes\b|precio\s*convertido", re.I)),
 ]
 
 # Cuánto texto mirar a cada lado del monto para encontrar su etiqueta.
@@ -194,6 +196,15 @@ _VENTANA_DESPUES = 26
 _FIN_DE_FRASE = re.compile(
     r"[.;]\s+(?=[A-ZÁÉÍÓÚÑ¡¿])|[;|\n·•]|\s[-–]\s|\+|\s+m[aá]s\s+")
 
+# Una palabra con mayúscula seguida de dos puntos es el rótulo de lo que
+# VIENE, nunca de lo que quedó atrás. Sin este corte, en "promedio del sector
+# $2.400.000 Precio convertido: $1.817.308" el rótulo del segundo monto caía
+# en la ventana DESPUÉS del primero, y el promedio del sector quedaba
+# rotulado como canon. La forma invertida legítima —"$220.000 de gastos
+# comunes"— viene en minúscula y sin dos puntos, y no se toca.
+_ROTULO_DE_LO_QUE_VIENE = re.compile(
+    r"\s(?=[A-ZÁÉÍÓÚÑ][\wáéíóúñ]*(?:\s+[\wáéíóúñ.]+){0,2}\s*:)")
+
 
 def _etiqueta_de(texto: str, inicio: int, fin: int,
                  desde: int = 0, hasta: int | None = None) -> str:
@@ -215,6 +226,7 @@ def _etiqueta_de(texto: str, inicio: int, fin: int,
 
     antes = _FIN_DE_FRASE.split(antes)[-1]
     despues = _FIN_DE_FRASE.split(despues)[0]
+    despues = _ROTULO_DE_LO_QUE_VIENE.split(despues)[0]
 
     for nombre, patron in _ETIQUETAS:
         if patron.search(antes):
@@ -366,6 +378,46 @@ def _es_continuacion(hueco: str) -> bool:
     return bool(_CONECTOR.search(hueco))
 
 
+# Los gastos comunes publicados en UF: "Gastos comunes: UF 15,15" es una
+# ficha REAL de iCasas. La banda en UF es angosta porque un GC de tres
+# cifras en UF sería un canon.
+_GC_EN_UF = re.compile(
+    r"gastos?\s*com(?:un(?:es)?)?\.?\s*:?\s*(?:de\s+)?"
+    r"u\.?\s?f\.?\s*\$?\s*([\d.,]+)", re.I)
+_BANDA_GC_UF = (0.3, 40)
+
+
+def _gc_en_uf(texto: str, valor_uf: float | None) -> float | None:
+    m = _GC_EN_UF.search(texto or "")
+    if not m:
+        return None
+    v = parse_numero(m.group(1))
+    if v and _en(v, _BANDA_GC_UF):
+        return round(v * (valor_uf or VALOR_UF_DEFECTO))
+    return None
+
+
+def montos_rotulados(texto: str, valor_uf: float | None = None) -> dict:
+    """Solo los montos que están ROTULADOS, sin ninguna de las heurísticas.
+
+    Es el modo para leer una FICHA entera: ahí los números sueltos son los
+    promedios del sector, el valor UF del día y los avisos del widget de
+    similares, y las reglas 2 y 3 de `parse_montos` —pensadas para el texto
+    corto de una tarjeta— los tomarían por el canon o los gastos comunes.
+    En una página completa, lo que no tiene rótulo no es de esta propiedad.
+    """
+    out: dict = {}
+    for valor, etiqueta, _ in _montos_etiquetados(texto or ""):
+        if etiqueta == "arriendo" and _en(valor, BANDA_ARRIENDO):
+            out.setdefault("arriendo_clp", valor)
+        elif etiqueta == "gastos_comunes" and _en(valor, BANDA_GASTOS_COMUNES):
+            out.setdefault("gastos_comunes_clp", valor)
+    if "gastos_comunes_clp" not in out:
+        if (gc := _gc_en_uf(texto or "", valor_uf)) is not None:
+            out["gastos_comunes_clp"] = gc
+    return out
+
+
 def parse_montos(texto: str, valor_uf: float | None = None) -> dict:
     """Separa canon, gastos comunes y garantía de un aviso de arriendo.
 
@@ -437,6 +489,11 @@ def parse_montos(texto: str, valor_uf: float | None = None) -> dict:
                       and _en(v, BANDA_GASTOS_COMUNES)]
         if len(candidatos) == 1:
             out["gastos_comunes_clp"] = candidatos[0]
+
+    # El GC en UF entra recién acá: si hubiera uno en pesos, ese manda.
+    if "gastos_comunes_clp" not in out:
+        if (gc := _gc_en_uf(t, valor_uf)) is not None:
+            out["gastos_comunes_clp"] = gc
 
     if (venta := rotulados.get("venta")):
         out["precio_venta_clp"] = venta
@@ -685,14 +742,17 @@ def _completar_superficies(out: dict[str, float], sin_calificar: list[float]) ->
 # Antigüedad
 # ---------------------------------------------------------------------------
 
+# El año acepta el punto de miles porque los portales lo escriben así:
+# "Año de construcción: 1.978" es una ficha REAL de iCasas — y justo la clase
+# de dato que decide el requisito duro de <30 años.
 _ANO_CONSTRUCCION = re.compile(
     r"(?:ano|año)\s*(?:de\s*)?(?:construccion|construcción|edificacion|edificación)"
-    r"\s*[:\-]?\s*(\d{4})",
+    r"\s*[:\-]?\s*(\d\.?\d{3})",
     re.I,
 )
 _CONSTRUIDO_EN = re.compile(
     r"(?:construid[oa]|edificad[oa]|entregad[oa]|recepcionad[oa])"
-    r"\s*(?:en|el|el\s*ano|el\s*año)?\s*(\d{4})",
+    r"\s*(?:en|el|el\s*ano|el\s*año)?\s*(\d\.?\d{3})",
     re.I,
 )
 _ANTIGUEDAD = re.compile(
@@ -729,7 +789,7 @@ def parse_antiguedad(texto: str, ref: date | None = None) -> tuple[int | None, i
     for pat in (_ANO_CONSTRUCCION, _CONSTRUIDO_EN):
         m = pat.search(t)
         if m:
-            candidato = int(m.group(1))
+            candidato = int(m.group(1).replace(".", ""))
             if 1900 <= candidato <= ref.year + 2:
                 ano = candidato
                 break
