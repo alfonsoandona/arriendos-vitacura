@@ -48,6 +48,7 @@ from typing import Any
 
 import requests
 
+from .. import scoring as S
 from ..models import Arriendo
 from ..scoring import RUBRO_COMPLETO
 
@@ -76,7 +77,7 @@ MIN_POR_KM = 12
 class Telegram:
     def __init__(self, token: str = "", chat_id: str = "", dry_run: bool = False,
                  caminable_km: float = 0.0, ancla: str = "",
-                 tope_arriendo: float = 0.0):
+                 tope_arriendo: float = 0.0, mediana_mercado: float = 0.0):
         self.token = token or os.environ.get(VAR_TOKEN, "")
         self.chat_id = chat_id or os.environ.get(VAR_CHAT_ID, "")
         self.dry_run = dry_run
@@ -88,6 +89,10 @@ class Telegram:
         # un arriendo de $1.690.000 se ve igual que uno de $1.450.000 y el
         # usuario descubre que se pasó del presupuesto recién al abrirlo.
         self.tope_arriendo = tope_arriendo
+        # El canon mediano de lo que el radar ha visto en la zona, para poder
+        # decir "12% bajo la mediana" en vez de solo el precio. Sale del
+        # historial de búsquedas; en 0 la línea simplemente no se escribe.
+        self.mediana_mercado = mediana_mercado
         self.s = requests.Session()
 
     @property
@@ -149,7 +154,7 @@ class Telegram:
     # ------------------------------------------------------------------
     def alertar(self, a: Arriendo, motivo: str = "") -> bool:
         return self.enviar(_mensaje(a, motivo, self.caminable_km, self.ancla,
-                                    self.tope_arriendo))
+                                    self.tope_arriendo, self.mediana_mercado))
 
     def resumen(self, stats: dict[str, Any], alertas: int,
                 marca_dir: Any = None) -> None:
@@ -302,134 +307,268 @@ def _veredicto(a: Arriendo) -> str:
 
 
 def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
-             ancla: str = "", tope_arriendo: float = 0.0) -> str:
-    """El aviso, pensado para leerse en la pantalla de bloqueo."""
-    lineas = [f"🏠 <b>{_escapar(titulo_corto(a))}</b>"]
-    lineas.append(f"📍 {_ubicacion(a, caminable_km, ancla)}")
+             ancla: str = "", tope_arriendo: float = 0.0,
+             mediana_mercado: float = 0.0) -> str:
+    """El aviso, escrito para decidir en tres segundos.
 
-    # --- la línea del dinero ---
+    El orden de las líneas es el diseño, y está pensado para cómo se lee de
+    verdad un Telegram: la notificación muestra las dos o tres primeras líneas
+    en la pantalla de bloqueo, y con eso ya se decide si vale la pena abrirlo.
+
+    Antes el veredicto iba ABAJO, después de siete líneas de datos. O sea que
+    lo único que resume todo lo demás quedaba justo fuera de lo que se alcanza
+    a ver. Ahora el mensaje va de la conclusión al detalle:
+
+        1. El veredicto     🔥 88 · Anda a verlo
+        2. Qué es y dónde   Alonso de Córdova 4200 · Vitacura
+        3. Cuánto           con el total y la comparación con el mercado
+        4. Cómo es          superficie, programa, edad
+        5. Cuándo           disponibilidad y cuánto lleva publicado
+        6. Por qué este     lo mejor y lo que hay que preguntar
+        7. Dónde verlo      el link, y los otros portales que lo publican
+
+    Cada bloque se salta entero si no hay nada que decir: un mensaje con
+    huecos rellenos de guiones enseña a no leerlo.
+    """
+    L: list[str] = []
+
+    # ---- 1. el veredicto, arriba de todo -------------------------------
     #
-    # Va primero de las de datos porque es la que decide, y lleva el costo
-    # TOTAL al lado del canon: el aviso publica $1.500.000 y lo que se paga
-    # son $1.720.000. Sin los dos números juntos, comparar dos departamentos
-    # obliga a abrir los dos.
-    if a.arriendo_clp:
-        plata = _pesos(a.arriendo_clp)
-        if a.gastos_comunes_clp:
-            total = _pesos(a.costo_mensual)
-            plata += f" + GC {_pesos(a.gastos_comunes_clp)} = <b>{total}</b>"
-        else:
-            plata += " · GC no publicados"
-        lineas.append(f"💰 {plata}")
+    # La banda hace el trabajo que el número solo no puede: "88" no significa
+    # nada sin otro con qué compararlo, "88 · Anda a verlo" sí. Y la confianza
+    # va al lado porque un 88 sostenido por dos criterios y uno sostenido por
+    # cinco piden cosas distintas — el primero, preguntar antes de ir.
+    emoji, nombre = S.banda(a.score)
+    confianza = a.extras.get("confianza")
+    cabecera = f"{emoji} <b>{a.score}</b> · {nombre}"
+    if isinstance(confianza, int) and confianza < 100:
+        cabecera += f"  <i>({confianza}% de los datos)</i>"
+    L.append(cabecera)
 
-        # El aviso que se pasa del tope entra a propósito —el pedido dice
-        # "cerca de 1,6 millones" y $1.690.000 se negocia— pero tiene que
-        # decirlo. Sin esta línea se ve idéntico a uno que sí cabe en el
-        # presupuesto, y el usuario se entera recién al abrirlo.
-        # La tendencia va justo debajo del precio, que es donde se lee. "2
-        # bajas en 62 días: -10%" dice algo que el precio de hoy no puede
-        # decir solo: que el propietario no está logrando arrendar.
+    # ---- 2. qué es y dónde ---------------------------------------------
+    L.append(f"🏠 <b>{_escapar(titulo_corto(a))}</b>")
+    L.append(f"📍 {_ubicacion(a, caminable_km, ancla)}")
+    L.append("")
+
+    # ---- 3. la plata ----------------------------------------------------
+    #
+    # Lleva el costo TOTAL al lado del canon: el aviso publica $1.490.000 y lo
+    # que se paga son $1.670.000. Sin los dos números juntos, comparar dos
+    # departamentos obliga a abrir los dos.
+    if a.arriendo_clp:
+        plata = f"💰 <b>{_pesos(a.arriendo_clp)}</b>"
+        if a.gastos_comunes_clp:
+            plata += (f" + GC {_pesos(a.gastos_comunes_clp)}"
+                      f" = <b>{_pesos(a.costo_mensual)}</b>")
+        else:
+            plata += "  <i>· GC no publicados</i>"
+        L.append(plata)
+
+        # Contra el mercado, no solo contra el presupuesto. Es la línea que el
+        # radar recién puede escribir desde que guarda historial: saber que
+        # algo cuesta $1.490.000 no dice si es caro, saber que está 12% bajo
+        # la mediana de lo que se publica en Vitacura sí.
+        if (vs := _vs_mercado(a, mediana_mercado)):
+            L.append(f"   {vs}")
+
+        # "2 bajas en 62 días" dice algo que el precio de hoy no puede decir
+        # solo: que el propietario no está logrando arrendar.
         if (tendencia := a.extras.get("tendencia_precio")):
-            lineas.append(f"📉 {_escapar(str(tendencia))}")
+            L.append(f"   📉 {_escapar(str(tendencia))}")
 
         # Un departamento que ya estuvo publicado y volvió no es una novedad:
-        # es una oferta que no se arrendó. Y si volvió más barato, es la mejor
-        # señal de negociación que da este mercado. El estado no puede verlo
-        # —purga a los 120 días—, el historial de búsquedas sí.
+        # es una oferta que no se arrendó.
         if (vuelta := _volvio(a)):
-            lineas.append(f"🔁 {_escapar(vuelta)}")
+            L.append(f"   🔁 {_escapar(vuelta)}")
 
+        # El que se pasa del tope entra a propósito —"cerca de" es parte del
+        # pedido— pero tiene que decirlo, o se ve idéntico a uno que cabe.
         if tope_arriendo and a.arriendo_clp > tope_arriendo:
             sobre = a.arriendo_clp - tope_arriendo
-            lineas.append(
-                f"⚠️ {_pesos(sobre)} sobre tu tope de {_pesos(tope_arriendo)}"
-                " — hay que negociar")
+            L.append(f"   ⚠️ {_pesos(sobre)} sobre tu tope "
+                     f"({_pesos(tope_arriendo)}) — hay que negociar")
     else:
-        # Sin esta rama el mensaje simplemente NO trae línea de precio, y un
-        # aviso sin precio se ve igual que uno que se olvidó de ponerlo.
-        #
-        # Decirlo importa porque cambia qué hacer con el mensaje: acá no hay
-        # nada que comparar contra el presupuesto, hay que preguntar. En la
-        # primera corrida real fueron 39 de 68 candidatos, así que no es un
-        # caso raro: es la mitad del tablero.
-        lineas.append("💰 <b>Sin precio publicado</b> — hay que preguntar")
+        # Sin esta rama el mensaje no trae línea de precio y se ve como un
+        # olvido. Decirlo cambia qué hacer con el aviso: acá no hay nada que
+        # comparar contra el presupuesto, hay que preguntar.
+        L.append("💰 <b>Sin precio publicado</b> — hay que preguntar")
 
-    medidas = []
+    # ---- 4. cómo es -----------------------------------------------------
+    if (medidas := _medidas(a)):
+        L.append(f"📐 {medidas}")
+    if (detalles := _detalles(a)):
+        L.append(f"🏗 {detalles}")
+
+    # ---- 5. cuándo ------------------------------------------------------
+    if (estado := _estado(a)):
+        L.append(f"📅 {estado}")
+
+    # ---- 6. por qué este ------------------------------------------------
+    #
+    # Dos líneas como máximo, y son las que convierten un puntaje en una
+    # decisión. "88" dice cuánto; "lo mejor: nuevo y con margen de precio"
+    # dice por qué, que es lo que se necesita para elegir entre dos.
+    bueno, ojo = _lo_mejor_y_lo_peor(a)
+    if bueno or ojo:
+        L.append("")
+    if bueno:
+        L.append(f"✅ {_escapar(bueno)}")
+    if ojo:
+        L.append(f"⚠️ {_escapar(ojo)}")
+    if (falta := _falta(a)):
+        L.append(f"❓ Preguntar: {_escapar(falta)}")
+
+    # Por qué se está reavisando algo ya avisado. Sin esto, el segundo mensaje
+    # del mismo departamento se lee como un error del radar.
+    if motivo:
+        L.append(f"♻️ <b>{_escapar(motivo)}</b>")
+
+    # ---- 7. dónde verlo -------------------------------------------------
+    L.append("")
+    L.append(f"🔗 <a href=\"{_escapar(a.url)}\">Ver en {_escapar(_portal(a))}</a>")
+
+    # Los otros portales van como links de verdad, no como un conteo. "También
+    # en 2 portal(es) más" obligaba a ir a buscarlos; además, que un
+    # departamento esté en cuatro portales es señal de que lleva rato dando
+    # vueltas, y eso se lee mejor con los nombres a la vista.
+    if (otros := _otros_portales(a)):
+        L.append(f"   <i>También en {otros}</i>")
+    if (ficha := a.extras.get("ficha_url")):
+        L.append(f"   <a href=\"{_escapar(str(ficha))}\">Ficha completa</a>")
+
+    return "\n".join(L)
+
+
+def _portal(a: Arriendo) -> str:
+    """Cómo se llama el portal, para el texto del link.
+
+    "Ver en TocToc" es una decisión distinta de "Ver en toctoc": el nombre
+    dice qué esperar del aviso, y el id es de la configuración.
+    """
+    return str(a.extras.get("portal") or a.source or "el portal")
+
+
+def _otros_portales(a: Arriendo) -> str:
+    """Los otros portales que publican el mismo departamento, como links."""
+    entradas = a.extras.get("tambien_en") or []
+    partes = []
+    for e in list(entradas)[:3]:
+        fuente, _, url = str(e).partition("|")
+        nombre = _escapar(fuente.replace("_", " ").title())
+        partes.append(f"<a href=\"{_escapar(url)}\">{nombre}</a>" if url else nombre)
+    if len(entradas) > 3:
+        partes.append(f"y {len(entradas) - 3} más")
+    return " · ".join(partes)
+
+
+def _medidas(a: Arriendo) -> str:
+    partes = []
     if a.m2_totales:
-        medidas.append(f"{_numero(a.m2_totales)} m² tot")
+        partes.append(f"<b>{_numero(a.m2_totales)} m²</b>")
     elif a.m2_utiles:
-        medidas.append(f"{_numero(a.m2_utiles)} m² útiles")
+        partes.append(f"<b>{_numero(a.m2_utiles)} m²</b> útiles")
     if a.dormitorios:
-        medidas.append(f"{a.dormitorios}D")
+        partes.append(f"{a.dormitorios}D")
     if a.banos:
-        medidas.append(f"{a.banos}B")
+        partes.append(f"{a.banos}B")
     if a.estacionamientos:
-        medidas.append(f"{a.estacionamientos}E")
+        partes.append(f"{a.estacionamientos}E")
     if a.bodega:
-        medidas.append("bodega")
-    if medidas:
-        lineas.append("📐 " + " · ".join(medidas))
+        partes.append("bodega")
+    return " · ".join(partes)
 
-    detalles = []
+
+def _detalles(a: Arriendo) -> str:
+    partes = []
     if a.antiguedad_anos is not None:
-        detalles.append(f"{a.antiguedad_anos} años")
+        partes.append(f"{a.antiguedad_anos:g} años")
     elif (techo := a.extras.get("antiguedad_techo")) is not None:
-        detalles.append(f"≤{techo} años")
+        partes.append(f"≤{techo:g} años")
     if a.piso is not None:
         # De dónde salió el piso cambia cuánto vale: el número del
         # departamento es una convención, no un dato publicado.
         aprox = " aprox." if a.extras.get("piso_origen") else ""
-        detalles.append(f"piso {a.piso}{aprox}")
+        partes.append(f"piso {a.piso}{aprox}")
     if a.orientacion:
-        detalles.append(_escapar(a.orientacion))
+        partes.append(_escapar(a.orientacion))
     if a.amoblado:
-        detalles.append(_escapar(a.amoblado))
-    if detalles:
-        lineas.append("🏗 " + " · ".join(detalles))
+        partes.append(_escapar(a.amoblado))
+    return " · ".join(partes)
 
-    # Disponibilidad y antigüedad de la publicación: las dos cambian qué
-    # hacer hoy, no solo qué pensar del departamento.
-    estado = []
+
+def _estado(a: Arriendo) -> str:
+    """Lo que cambia qué hacer HOY, no qué pensar del departamento."""
+    partes = []
     if a.disponible_desde:
         if a.disponible_desde <= date.today():
-            estado.append("disponible ya")
+            partes.append("disponible ya")
         else:
-            estado.append(f"disponible {a.disponible_desde.strftime('%d-%m')}")
+            partes.append(f"disponible {a.disponible_desde.strftime('%d-%m')}")
     dias = a.dias_publicado
     if dias is not None and dias >= 30:
-        estado.append(f"publicado hace {dias} días — se negocia")
+        partes.append(f"{dias} días publicado — se negocia")
     if a.mascotas == "no acepta":
-        estado.append("no acepta mascotas")
-    if estado:
-        lineas.append("📅 " + " · ".join(estado))
+        partes.append("no acepta mascotas")
+    return " · ".join(partes)
 
-    if (falta := _falta(a)):
-        lineas.append(f"❓ Falta: {falta}")
 
-    lineas.append(_veredicto(a))
+def _vs_mercado(a: Arriendo, mediana: float) -> str:
+    """Cuánto se aparta del canon mediano de lo que el radar ha visto.
 
-    if motivo:
-        lineas.append(f"♻️ {_escapar(motivo)}")
+    Es la línea que convierte un precio en un juicio. $1.490.000 no dice si es
+    caro; "12% bajo la mediana de Vitacura" sí, y es un número propio —sale de
+    los avisos que este radar efectivamente vio— no de un índice publicado.
 
-    # Cuántos portales lo publican. Es una señal por sí sola: un departamento
-    # en cuatro portales lleva rato dando vueltas.
-    if (otros := a.extras.get("tambien_en")):
-        lineas.append(f"🔁 También en {len(otros)} portal(es) más")
+    Bajo el 4% de diferencia no se dice nada: "1% sobre la mediana" es ruido
+    con aspecto de dato, y una línea que no aporta enseña a saltarse las que
+    sí aportan.
+    """
+    if not mediana or not a.arriendo_clp:
+        return ""
+    pct = round(100 * (a.arriendo_clp - mediana) / mediana)
+    if abs(pct) < 4:
+        return "📊 en la mediana del mercado"
+    if pct < 0:
+        return f"📊 <b>{abs(pct)}% bajo</b> la mediana del mercado"
+    return f"📊 {pct}% sobre la mediana del mercado"
 
-    lineas.append("")
-    # El nombre del portal va en el link. Importa para decidir si abrirlo: un
-    # aviso de Houm trae plano y disponibilidad real, y uno de Yapo puede ser
-    # de hace tres meses.
-    portal = _escapar(str(a.extras.get("portal") or a.source))
-    if (ficha := a.extras.get("ficha_url")):
-        lineas.append(f'📄 <a href="{_escapar(str(ficha))}">Ficha completa</a>')
-        lineas.append(f'🔗 <a href="{_escapar(a.url)}">Ver en {portal}</a>')
-    else:
-        # Sin ficha va el aviso original: un mensaje sin ningún link no se
-        # puede seguir.
-        lineas.append(f'🔗 <a href="{_escapar(a.url)}">Ver en {portal}</a>')
 
-    return "\n".join(lineas)
+# Cuántas razones mostrar de cada lado. Una sola se lee de un vistazo; tres
+# ya es una lista y obliga a leer en vez de mirar.
+_MAX_RAZONES = 2
+
+
+def _lo_mejor_y_lo_peor(a: Arriendo) -> tuple[str, str]:
+    """En qué criterios destaca y en cuáles flojea, por NOMBRE.
+
+    El puntaje dice cuánto; esto dice en qué, que es lo que hace falta para
+    elegir entre dos departamentos parecidos.
+
+    Se nombran los criterios y no sus detalles, y ahí está la gracia: el
+    detalle ya está en el mensaje. "Lo mejor: Vitacura · a 0,2 km · 8 años"
+    repetía palabra por palabra las líneas 📍 y 🏗 que van justo arriba, y una
+    línea que repite lo de arriba enseña a saltarse el bloque entero.
+
+    Lo que falta en un mensaje de datos es la capa de juicio: cuál de los
+    cinco criterios se está llevando el puntaje y cuál lo está frenando. Eso
+    no se ve mirando los números, hay que compararlos contra sus pesos.
+
+    El lado flojo importa más que el fuerte: es lo que uno descubriría después
+    de manejar hasta allá.
+    """
+    rubros = [r for r in S.desglose(a) if r.medido and r.peso]
+    if not rubros:
+        return "", ""
+
+    ordenados = sorted(rubros, key=lambda r: r.obtenido / r.peso, reverse=True)
+    fuertes = [r.nombre.lower() for r in ordenados
+               if r.obtenido / r.peso >= 0.85][:_MAX_RAZONES]
+    flojos = [r.nombre.lower() for r in reversed(ordenados)
+              if r.obtenido / r.peso <= 0.45][:_MAX_RAZONES]
+
+    bueno = f"Fuerte en {' y '.join(fuertes)}" if fuertes else ""
+    ojo = f"Flojo en {' y '.join(flojos)}" if flojos else ""
+    return bueno, ojo
 
 
 # ---------------------------------------------------------------------------

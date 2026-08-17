@@ -483,6 +483,11 @@ def _descarta_por_requisitos(l: Arriendo, perfil: dict) -> tuple[str, str]:
 # Los cinco rubros
 # ---------------------------------------------------------------------------
 
+def _km(distancia: float) -> str:
+    """Distancia a la chilena: coma decimal, no punto."""
+    return f"{distancia:.1f} km".replace(".", ",")
+
+
 def _rubro_ubicacion(l: Arriendo, perfil: dict, distancia: float | None) -> Rubro:
     """Dónde queda, con Vitacura pesando más que la distancia.
 
@@ -520,17 +525,17 @@ def _rubro_ubicacion(l: Arriendo, perfil: dict, distancia: float | None) -> Rubr
 
     if preferente and distancia <= preferente:
         factor = 1.0
-        como = f"a {distancia:g} km — zona caminable"
+        como = f"a {_km(distancia)} — zona caminable"
     elif anillo and distancia <= anillo:
         # Cae linealmente entre el borde de lo caminable y el del anillo.
         tramo = max(anillo - preferente, 0.01)
         factor = 1.0 - 0.35 * (distancia - preferente) / tramo
-        como = f"a {distancia:g} km del Sport Francés"
+        como = f"a {_km(distancia)} del ancla"
     else:
         # Más lejos que el anillo y aun así presente: es Vitacura, que entra
         # entera. Se puntúa por la comuna y la distancia solo modula un poco.
         factor = max(0.45, 1.0 - 0.12 * (distancia - anillo))
-        como = f"a {distancia:g} km — Vitacura, fuera del anillo"
+        como = f"a {_km(distancia)} — fuera del anillo"
 
     obtenido = round(PESO_UBICACION * peso_comuna * factor)
     detalle = f"{l.comuna or 'sin comuna'} · {como}"

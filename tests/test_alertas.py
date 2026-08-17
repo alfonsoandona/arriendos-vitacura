@@ -109,18 +109,18 @@ def test_dice_que_falta(perfil):
     falta = _falta(a)
     assert "antigüedad" in falta
     assert "gastos comunes" in falta
-    assert "Falta:" in _mensaje(a, "", 0.9, "")
+    assert "Preguntar:" in _mensaje(a, "", 0.9, "")
 
 
 def test_el_veredicto_dice_sobre_cuanto_se_midio(perfil):
     """Un puntaje bajo por falta de datos no es lo mismo que uno bajo por malo."""
     a = S.evaluar(depto(antiguedad_anos=None), perfil)
-    assert "medido sobre" in _mensaje(a, "", 0.9, "")
+    assert "% de los datos" in _mensaje(a, "", 0.9, "")
 
 
 def test_el_veredicto_no_aclara_nada_cuando_se_midio_todo(perfil):
     a = S.evaluar(depto(), perfil)
-    assert "medido sobre" not in _mensaje(a, "", 0.9, "")
+    assert "% de los datos" not in _mensaje(a, "", 0.9, "")
 
 
 def test_el_motivo_de_reaviso_aparece(perfil):
@@ -131,7 +131,11 @@ def test_el_motivo_de_reaviso_aparece(perfil):
 def test_avisa_cuando_esta_en_varios_portales(perfil):
     """Un departamento en cuatro portales lleva rato dando vueltas."""
     a = S.evaluar(depto(extras={"tambien_en": ["yapo|u1", "goplaceit|u2"]}), perfil)
-    assert "También en 2 portal" in _mensaje(a, "", 0.9, "")
+    texto = _mensaje(a, "", 0.9, "")
+    # Los otros portales van como links con nombre, no como un conteo:
+    # "También en 2 portal(es) más" obligaba a ir a buscarlos a mano.
+    assert "También en" in texto
+    assert "Yapo" in texto and "Goplaceit" in texto
 
 
 def test_el_html_se_escapa(perfil):
@@ -482,7 +486,7 @@ def test_la_tendencia_va_pegada_al_precio(perfil):
     texto = _mensaje(a, "", 0.9, "Sport Francés", 1_600_000)
     lineas = texto.split("\n")
     i_precio = next(n for n, l in enumerate(lineas) if l.startswith("💰"))
-    assert lineas[i_precio + 1].startswith("📉")
+    assert lineas[i_precio + 1].strip().startswith("📉")
     assert "2 bajas" in lineas[i_precio + 1]
 
 
@@ -504,3 +508,129 @@ def test_sin_historial_la_ficha_no_muestra_la_seccion(tmp_path, perfil):
     a = S.evaluar(depto(), perfil)
     texto = escribir_ficha(a, tmp_path, perfil).read_text(encoding="utf-8")
     assert "Cómo se movió el precio" not in texto
+
+
+# ---------------------------------------------------------------------------
+# El orden del mensaje
+#
+# No es cosmético: la notificación de Telegram muestra las dos o tres primeras
+# líneas en la pantalla de bloqueo, y con eso se decide si abrirlo.
+# ---------------------------------------------------------------------------
+
+def _completo(**kw):
+    base = dict(source="toctoc", url="https://toctoc.com/aviso/1",
+                title="Departamento", direccion="Alonso de Córdova 4200",
+                comuna="Vitacura", m2_totales=134, dormitorios=3, banos=3,
+                antiguedad_anos=8, arriendo_clp=1_490_000,
+                gastos_comunes_clp=180_000)
+    base.update(kw)
+    a = Arriendo(**base)
+    S.evaluar(a, cargar_perfil())
+    return a
+
+
+def test_el_veredicto_va_en_la_primera_linea():
+    """Antes iba abajo, después de siete líneas de datos.
+
+    O sea que lo único que resume todo lo demás quedaba justo fuera de lo que
+    se alcanza a ver en la notificación.
+    """
+    primera = _mensaje(_completo(), "", 0.9, "").splitlines()[0]
+    assert "Anda a verlo" in primera or "Muy bueno" in primera
+    assert "<b>" in primera, "el puntaje va destacado"
+
+
+def test_la_banda_le_da_significado_al_numero():
+    """"88" no dice nada sin otro con qué compararlo; "88 · Muy bueno" sí."""
+    assert S.banda(95)[1] == "Anda a verlo"
+    assert S.banda(85)[1] == "Anda a verlo"
+    assert S.banda(84)[1] == "Muy bueno"
+    assert S.banda(70)[1] == "Muy bueno"
+    assert S.banda(55)[1] == "Sirve"
+    assert S.banda(40)[1] == "Dudoso"
+    assert S.banda(0)[1] == "Al fondo"
+
+
+def test_la_confianza_se_muestra_solo_cuando_falta_algo():
+    """Decir "(100% de los datos)" en cada mensaje es ruido."""
+    completo = _completo(piso=5, orientacion="norte", estacionamientos=1)
+    assert "% de los datos" not in _mensaje(completo, "", 0.9, "")
+
+    incompleto = _completo(antiguedad_anos=None)
+    assert "% de los datos" in _mensaje(incompleto, "", 0.9, "")
+
+
+# ---------------------------------------------------------------------------
+# La comparación con el mercado
+# ---------------------------------------------------------------------------
+
+def test_el_precio_se_compara_contra_la_mediana():
+    """Es lo que convierte un dato en un juicio.
+
+    $1.490.000 no dice si es caro. Comparado contra lo que efectivamente se
+    publica en la zona, sí — y es un número propio, sacado de los avisos que
+    este radar vio, no de un índice publicado.
+    """
+    texto = _mensaje(_completo(), "", 0.9, "", 0, mediana_mercado=1_690_000)
+    assert "12% bajo" in texto
+
+    caro = _mensaje(_completo(arriendo_clp=1_850_000), "", 0.9, "", 0,
+                    mediana_mercado=1_690_000)
+    assert "9% sobre" in caro
+
+
+def test_una_diferencia_chica_con_la_mediana_no_se_reporta_como_dato():
+    """"1% sobre la mediana" es ruido con aspecto de dato."""
+    texto = _mensaje(_completo(arriendo_clp=1_700_000), "", 0.9, "", 0,
+                     mediana_mercado=1_690_000)
+    assert "en la mediana" in texto
+
+
+def test_sin_historial_no_se_inventa_la_comparacion():
+    assert "mediana" not in _mensaje(_completo(), "", 0.9, "", 0,
+                                     mediana_mercado=0)
+
+
+# ---------------------------------------------------------------------------
+# Por qué este
+# ---------------------------------------------------------------------------
+
+def test_dice_en_que_criterios_destaca_y_en_cuales_flojea():
+    """El puntaje dice cuánto; esto dice en qué."""
+    malo = _completo(antiguedad_anos=45, arriendo_clp=1_880_000)
+    texto = _mensaje(malo, "", 0.9, "")
+    assert "Flojo en" in texto
+
+
+def test_no_repite_lo_que_ya_esta_arriba():
+    """La primera versión decía "Lo mejor: Vitacura · a 0,2 km · 8 años".
+
+    Palabra por palabra las líneas 📍 y 🏗 que van justo encima. Una línea que
+    repite lo de arriba enseña a saltarse el bloque entero, así que ahora se
+    nombran los criterios y no sus detalles.
+    """
+    texto = _mensaje(_completo(), "", 0.9, "")
+    resumen = [l for l in texto.splitlines() if l.startswith(("✅", "⚠️ Flojo"))]
+    for linea in resumen:
+        assert "km" not in linea and "años" not in linea
+
+
+# ---------------------------------------------------------------------------
+# Los otros portales
+# ---------------------------------------------------------------------------
+
+def test_los_otros_portales_van_como_links():
+    """"También en 2 portal(es) más" obligaba a ir a buscarlos a mano."""
+    a = _completo()
+    a.extras["tambien_en"] = ["yapo|https://yapo.cl/1",
+                              "chilepropiedades|https://cp.cl/2"]
+    texto = _mensaje(a, "", 0.9, "")
+    assert 'href="https://yapo.cl/1"' in texto
+    assert "Chilepropiedades" in texto
+
+
+def test_con_muchos_portales_se_resumen():
+    a = _completo()
+    a.extras["tambien_en"] = [f"p{i}|https://p{i}.cl" for i in range(6)]
+    texto = _mensaje(a, "", 0.9, "")
+    assert "y 3 más" in texto

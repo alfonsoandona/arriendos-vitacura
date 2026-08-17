@@ -18,7 +18,8 @@ from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .historial import (a_markdown as historial_markdown,
                         anotar as anotar_historial, eventos_de_corrida,
-                        leer as leer_historial, ya_visto)
+                        leer as leer_historial, resumen_mercado,
+                        ya_visto)
 from .models import Arriendo
 from .sources.base import Fetcher
 from .sources.registry import (FuentesInvalidas, barrer_todas,
@@ -320,11 +321,21 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         a_avisar = a_avisar[:tope]
 
     # --- 7. avisar ---
+    # La mediana del mercado sale del historial de búsquedas y se le pasa al
+    # canal para que el aviso pueda decir "12% bajo la mediana" y no solo el
+    # precio. Es la diferencia entre un dato y un juicio: $1.490.000 no dice
+    # si es caro; comparado contra lo que efectivamente se publica en la zona,
+    # sí. Acotada a la comuna núcleo, que es donde el número significa algo.
+    nucleo = ((perfil.get("comunas") or {}).get("nucleo") or [""])[0]
+    mediana = resumen_mercado(previos, comuna=nucleo).get("precio_mediano") or 0
+    stats["mediana_mercado"] = mediana
+
     telegram = Telegram(
         dry_run=args.dry_run,
         caminable_km=float((perfil.get("radio_km") or {}).get("preferente") or 0),
         ancla=(perfil.get("ancla") or {}).get("nombre", ""),
         tope_arriendo=S.tope_arriendo(perfil)[0] or 0.0,
+        mediana_mercado=float(mediana),
     )
 
     enviados = 0
