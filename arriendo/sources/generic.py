@@ -629,6 +629,52 @@ def _titulo_desde(texto: str) -> str:
     return (texto or "").strip()[:150]
 
 
+# Un número pelado de la fila de iconos: sin moneda, sin decimales, sin
+# porcentaje pegado. "$1.250.000" y "UF38,00" no calzan; el "2" de "2 1 2" sí.
+_ICONO = re.compile(r"(?<![\w.,/%$°–-])(\d{1,2})(?![\w.,/%°–-])")
+
+_CAMPOS_DE_ICONO = {"d": "dormitorios", "b": "banos",
+                    "e": "estacionamientos"}
+
+
+def _programa_de_iconos(texto: str, orden: str) -> dict[str, int]:
+    """El programa que la tarjeta muestra como fila de iconos sin rotular.
+
+    Yapo cierra cada tarjeta en "$1.250.000 2 1 2 Compara este anuncio": el
+    2-1-2 son dormitorios, estacionamientos y baños junto a un iconito que el
+    texto plano no trae. Era el 77% de los yapo sin dormitorios en el tablero
+    real, con el dato a la vista en la tarjeta.
+
+    Solo se lee la ÚLTIMA racha de números pelados del texto, y solo si
+    alcanza para el orden configurado: una racha corta al final ("hace 3
+    días") no calza y no inventa nada. De la racha se toman los últimos N,
+    porque el "m 2" de la superficie ("75 m 2 2 1 2") se pega por delante.
+    """
+    campos = orden.split()
+    rachas: list[list[int]] = []
+    actual: list[int] = []
+    fin_anterior: int | None = None
+    for m in _ICONO.finditer(texto):
+        if fin_anterior is not None and texto[fin_anterior:m.start()].strip():
+            if actual:
+                rachas.append(actual)
+            actual = []
+        actual.append(int(m.group(1)))
+        fin_anterior = m.end()
+    if actual:
+        rachas.append(actual)
+
+    if not rachas or len(rachas[-1]) < len(campos):
+        return {}
+    numeros = rachas[-1][-len(campos):]
+    salida = {}
+    for letra, n in zip(campos, numeros):
+        campo = _CAMPOS_DE_ICONO.get(letra)
+        if campo and 0 < n <= 15:
+            salida[campo] = n
+    return salida
+
+
 def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
            valor_uf: float | None = None) -> Arriendo:
     """Convierte texto libre en un `Arriendo`, aplicando todo el parser.
@@ -674,6 +720,14 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     a.bodega = programa.get("bodega")
     if programa.get("pieza_servicio"):
         a.extras["pieza_servicio"] = True
+
+    # La fila de iconos del portal, SOLO para rellenar lo que el texto
+    # rotulado no dijo: un "3 dormitorios" escrito le gana siempre al icono.
+    if fuente.fila_iconos and (a.dormitorios is None or a.banos is None
+                               or a.estacionamientos is None):
+        for campo, v in _programa_de_iconos(texto, fuente.fila_iconos).items():
+            if getattr(a, campo) is None:
+                setattr(a, campo, v)
 
     a.ano_construccion, a.antiguedad_anos = P.parse_antiguedad(texto)
     if (techo := P.techo_antiguedad(texto)) is not None:

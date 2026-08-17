@@ -131,6 +131,9 @@ fuentes:
     urls: ["https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura"]
     paginacion: {paginas: 3, parametro: o}
     url_confirmada: true
+    # Calibrado contra 4 tarjetas reales del 17-08 cuyo texto confirma el
+    # orden: "Arrienda Depto 2D2B1E ... $1.250.000 2 1 2" (d=2, e=1, b=2).
+    fila_iconos: "d e b"
     notas: >-
       Clasificados generales, y donde publica el dueño que no quiere pagar
       corretaje. Dato importante: publica varios cánones en UF ("CLF 46"), así
@@ -210,6 +213,8 @@ fuentes:
     urls: ["https://www.icasas.cl/arriendo/departamentos/santiago/vitacura"]
     paginacion: {paginas: 2, parametro: pagina}
     url_confirmada: true
+    # Tarjeta real del 17-08: "...zona... 65m2 2 2" — dormitorios y baños.
+    fila_iconos: "d b"
     notas: "Unos 180 avisos. Agregador con presencia fuerte en Chile."
 
   - id: doomos

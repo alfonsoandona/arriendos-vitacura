@@ -426,6 +426,56 @@ def test_la_basura_inicial_no_esconde_la_direccion_real():
         "Avenida Santa María 6800"
 
 
+# La fila de iconos: los números pelados con que Yapo cierra cada tarjeta.
+# El 77% de sus avisos quedaba sin dormitorios teniendo el dato a la vista.
+
+from arriendo.sources.generic import _programa_de_iconos  # noqa: E402
+
+
+@pytest.mark.parametrize("texto,esperado", [
+    # Texto real: "Arrienda Depto 2D2B1E1B" confirma d=2, e=1, b=2.
+    ("Si buscas un arriendo de departamento en Vitacura ... $1.250.000 2 1 2",
+     {"dormitorios": 2, "estacionamientos": 1, "banos": 2}),
+    # Texto real houm: el "m 2" de la superficie pegado por delante.
+    ("Entérate de todos los beneficios ... $1.350.000 75 m 2 2 1 2",
+     {"dormitorios": 2, "estacionamientos": 1, "banos": 2}),
+    # Texto real: "4 dormitorios y 3 baños" confirma d=4, b=3.
+    ("Con una ubicación inmejorable ... $1.000.000 120 m 2 4 1 3",
+     {"dormitorios": 4, "estacionamientos": 1, "banos": 3}),
+    # La racha final es corta ("hace 3 días"): no alcanza y no inventa.
+    ("Departamento $1.500.000 publicado hace 3", {}),
+])
+def test_fila_de_iconos_yapo(texto, esperado):
+    assert _programa_de_iconos(texto, "d e b") == esperado
+
+
+def test_fila_de_iconos_icasas():
+    """Texto real: "...exclusiva zona... 65m2 2 2" — 2D 2B."""
+    assert _programa_de_iconos(
+        "modernas y elegantes terminaciones ... 65m2 2 2", "d b") == \
+        {"dormitorios": 2, "banos": 2}
+
+
+def test_los_iconos_no_pisan_el_programa_rotulado(fuente):
+    """"3 dormitorios" escrito le gana al icono, siempre."""
+    from dataclasses import replace
+    f = replace(fuente, fila_iconos="d e b")
+    doc = ('<html><body><article><a href="/aviso/9">Departamento 3 '
+           'dormitorios en Vitacura $1.500.000 9 9 9</a></article>'
+           '</body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", f)[0]
+    assert a.dormitorios == 3, "el texto rotulado manda"
+    assert a.estacionamientos == 9 and a.banos == 9, \
+        "los huecos sí se rellenan con el icono"
+
+
+def test_sin_fila_configurada_no_se_adivina(fuente):
+    doc = ('<html><body><article><a href="/aviso/9">Departamento en '
+           'Vitacura $1.500.000 2 1 2</a></article></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert a.dormitorios is None and a.banos is None
+
+
 def test_direccion_jsonld_sin_comuna_repetida(fuente):
     """El streetAddress de un metabuscador ya trae comuna, región y país;
     pegarle addressLocality y addressRegion producía "Vitacura" dos veces."""

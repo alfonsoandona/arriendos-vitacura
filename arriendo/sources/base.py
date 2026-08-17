@@ -93,6 +93,14 @@ class FuenteConfig:
     # entrega cero probablemente solo tiene la URL mal, y son dos problemas
     # con arreglos distintos.
     url_confirmada: bool = False
+    # El orden de la fila de iconos SIN rotular con que la tarjeta cierra.
+    # Yapo termina cada tarjeta en "$1.250.000 2 1 2 Compara este anuncio":
+    # dormitorios, estacionamientos y baños como números pelados junto a un
+    # iconito que el texto no trae. Letras separadas por espacio (d=dorm,
+    # e=estacionamientos, b=baños); vacío = no intentar. Se calibra POR
+    # PORTAL contra tarjetas cuyo texto confirma el orden — adivinarlo es
+    # inventar dormitorios, que es el campo que más pesa.
+    fila_iconos: str = ""
     notas: str = ""
 
 
