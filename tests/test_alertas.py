@@ -634,3 +634,71 @@ def test_con_muchos_portales_se_resumen():
     a.extras["tambien_en"] = [f"p{i}|https://p{i}.cl" for i in range(6)]
     texto = _mensaje(a, "", 0.9, "")
     assert "y 3 más" in texto
+
+# ---------------------------------------------------------------------------
+# El cierre del ciclo y el recorte que dejó de ser invisible
+# ---------------------------------------------------------------------------
+
+def test_las_despedidas_dicen_cuanto_duro_publicado():
+    """Con unas cuantas se aprende a qué velocidad se mueve el rango."""
+    from arriendo.alerts.telegram import mensaje_bajas
+    texto = mensaje_bajas([
+        {"direccion": "Alonso de Córdova 4200", "clp": 1_490_000,
+         "dias": 23, "avisado": True},
+        {"direccion": "Espoz 2620", "clp": 1_600_000, "dias": 41,
+         "avisado": True},
+    ])
+    assert "Se fueron del mercado" in texto
+    assert "23 días publicado" in texto
+    assert "$1.490.000" in texto
+
+
+def test_muchas_despedidas_se_resumen():
+    from arriendo.alerts.telegram import mensaje_bajas
+    texto = mensaje_bajas([{"direccion": f"Calle {i}", "clp": 1_000_000,
+                            "dias": 10} for i in range(9)])
+    assert "y 3 más" in texto
+
+
+def test_sin_bajas_no_hay_mensaje():
+    from arriendo.alerts.telegram import mensaje_bajas
+    assert mensaje_bajas([]) == ""
+
+
+def test_el_indice_de_sobrantes_es_un_indice_no_un_aviso():
+    """Una línea por departamento: es un índice, y el aviso completo llega
+    en la corrida siguiente porque el resumen no los marca como avisados."""
+    from arriendo.alerts.telegram import mensaje_sobrantes
+    avisos = []
+    for i in range(12):
+        a = Arriendo(source="x", url=f"https://x.cl/{i}", title="Depto",
+                     direccion=f"Calle {i} 100", comuna="Vitacura",
+                     m2_totales=120, dormitorios=3, arriendo_clp=1_400_000)
+        S.evaluar(a, cargar_perfil())
+        avisos.append(a)
+    texto = mensaje_sobrantes(avisos)
+    assert "calificaron 12 más" in texto
+    assert "y 2 más en el tablero" in texto
+    assert texto.count("\n") < 16, "es un índice, no doce avisos completos"
+
+
+def test_los_gc_estimados_van_marcados_como_estimacion():
+    """Un dato deducido presentado como publicado es peor que uno ausente."""
+    a = _completo(gastos_comunes_clp=None)
+    texto = _mensaje(a, "", 0.9, "", 0, 0, gc_tipico=lambda m2: 180_000)
+    assert "típico en la zona" in texto
+    assert "≈$180.000" in texto
+
+
+def test_sin_estimador_los_gc_dicen_no_publicados():
+    a = _completo(gastos_comunes_clp=None)
+    texto = _mensaje(a, "", 0.9, "", 0, 0, gc_tipico=None)
+    assert "GC no publicados" in texto
+    assert "típico" not in texto
+
+
+def test_los_gc_publicados_nunca_se_reemplazan_por_la_estimacion():
+    a = _completo()          # trae GC publicados
+    texto = _mensaje(a, "", 0.9, "", 0, 0, gc_tipico=lambda m2: 999_999)
+    assert "$180.000" in texto and "típico" not in texto
+

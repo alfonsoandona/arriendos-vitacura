@@ -105,9 +105,38 @@ def fuentes_activas(fuentes: list[FuenteConfig],
 
 
 def _bajar(fetcher: Fetcher, fuente: FuenteConfig, url: str) -> str | None:
-    """Baja una página con el motor que pida la fuente."""
+    """Baja una página con el motor que pida la fuente.
+
+    Con un rescate: si el GET simple rebota en un 401/403 —el sitio rechaza
+    clientes que no son un navegador— se intenta UNA vez con Chromium antes de
+    rendirse. No es teórico: economicos.cl entregó 51 avisos el 16-08 y al día
+    siguiente respondió 403 a todo; sin el rescate, una de las fuentes más
+    productivas del catálogo queda muerta hasta que alguien la mire a mano.
+
+    Solo para el 401/403. Un timeout o un DNS muerto fallan igual con
+    navegador y cobrarían el costo de levantar Chromium para nada.
+    """
     if fuente.motor != "navegador":
-        return fetcher.get(url, ignorar_robots=fuente.ignorar_robots)
+        html = fetcher.get(url, ignorar_robots=fuente.ignorar_robots)
+        if html is not None:
+            return html
+        if "rechaza clientes" not in (fetcher.ultimo_motivo or ""):
+            return None
+        log.info("[%s] %s rebotó al GET; se reintenta con navegador",
+                 fuente.id, url)
+        try:
+            from .navegador import bajar_con_navegador
+
+            with _navegadores:
+                rescatado = bajar_con_navegador(url, fuente.acciones)
+        except Exception as e:                                   # noqa: BLE001
+            # Chromium ausente o caído: se informa el motivo ORIGINAL (el
+            # 403), que es el accionable. El rescate es mejor esfuerzo.
+            log.debug("[%s] rescate con navegador falló: %s", fuente.id, e)
+            return None
+        if rescatado:
+            fetcher.ultimo_motivo = ""
+        return rescatado
 
     if not fetcher.puede_fetch(url, fuente.ignorar_robots):
         # El navegador no pasa por el camino HTTP, así que sin este chequeo

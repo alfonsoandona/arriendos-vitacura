@@ -76,7 +76,8 @@ MIN_POR_KM = 12
 class Telegram:
     def __init__(self, token: str = "", chat_id: str = "", dry_run: bool = False,
                  caminable_km: float = 0.0, ancla: str = "",
-                 tope_arriendo: float = 0.0, mediana_mercado: float = 0.0):
+                 tope_arriendo: float = 0.0, mediana_mercado: float = 0.0,
+                 gc_tipico=None):
         self.token = token or os.environ.get(VAR_TOKEN, "")
         self.chat_id = chat_id or os.environ.get(VAR_CHAT_ID, "")
         self.dry_run = dry_run
@@ -92,6 +93,10 @@ class Telegram:
         # decir "12% bajo la mediana" en vez de solo el precio. Sale del
         # historial de búsquedas; en 0 la línea simplemente no se escribe.
         self.mediana_mercado = mediana_mercado
+        # Estimador de gastos comunes: recibe los m² y devuelve un monto
+        # típico de la zona, o None. Sale del historial de búsquedas; sin
+        # datos suficientes queda en None y el mensaje dice lo de siempre.
+        self.gc_tipico = gc_tipico
         self.s = requests.Session()
 
     @property
@@ -153,7 +158,8 @@ class Telegram:
     # ------------------------------------------------------------------
     def alertar(self, a: Arriendo, motivo: str = "") -> bool:
         return self.enviar(_mensaje(a, motivo, self.caminable_km, self.ancla,
-                                    self.tope_arriendo, self.mediana_mercado))
+                                    self.tope_arriendo, self.mediana_mercado,
+                                    self.gc_tipico))
 
     def resumen(self, stats: dict[str, Any], alertas: int,
                 marca_dir: Any = None) -> None:
@@ -293,7 +299,7 @@ def _falta(a: Arriendo) -> str:
 
 def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
              ancla: str = "", tope_arriendo: float = 0.0,
-             mediana_mercado: float = 0.0) -> str:
+             mediana_mercado: float = 0.0, gc_tipico=None) -> str:
     """El aviso, escrito para decidir en tres segundos.
 
     El orden de las líneas es el diseño, y está pensado para cómo se lee de
@@ -346,7 +352,15 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
             plata += (f" + GC {_pesos(a.gastos_comunes_clp)}"
                       f" = <b>{_pesos(a.costo_mensual)}</b>")
         else:
-            plata += "  <i>· GC no publicados</i>"
+            # La estimación va marcada con ≈ y la palabra "típico": es un
+            # dato del mercado, no de este departamento. Sin estimación
+            # disponible se dice "no publicados" a secas, que es lo honesto.
+            est = gc_tipico(a.m2_totales or a.m2_utiles) if gc_tipico else None
+            if est:
+                plata += (f"  <i>· GC no publicados, típico en la zona "
+                          f"≈{_pesos(est)}</i>")
+            else:
+                plata += "  <i>· GC no publicados</i>"
         L.append(plata)
 
         # Contra el mercado, no solo contra el presupuesto. Es la línea que el
@@ -651,6 +665,61 @@ def _que_se_rompio(stats: dict) -> str:
             "no haya inventario nuevo, o que el sitio haya cambiado."
         )
     return ""
+
+
+def mensaje_bajas(bajas: list[dict]) -> str:
+    """"Se arrendó": el cierre del ciclo de un aviso que se mandó.
+
+    Solo para los que se AVISARON: de los demás nadie está esperando noticias.
+    Y en un solo mensaje, no uno por departamento — la noticia de que algo ya
+    no está disponible no amerita interrumpir tres veces.
+
+    El dato que lo hace útil es "estuvo N días publicado": con unas cuantas de
+    estas se aprende a qué velocidad se mueve el rango que se busca, que es lo
+    que dice cuánto se puede esperar antes de decidir.
+    """
+    if not bajas:
+        return ""
+    L = ["📤 <b>Se fueron del mercado</b>", ""]
+    for b in bajas[:6]:
+        linea = f"· {_escapar(str(b.get('direccion') or '—')[:52])}"
+        if b.get("clp"):
+            linea += f" — {_pesos(b['clp'])}"
+        if b.get("dias"):
+            linea += f" · {b['dias']} días publicado"
+        L.append(linea)
+    if len(bajas) > 6:
+        L.append(f"· y {len(bajas) - 6} más")
+    L.append("")
+    L.append("<i>Dejaron de aparecer en todos los portales: lo más probable "
+             "es que se hayan arrendado.</i>")
+    return "\n".join(L)
+
+
+def mensaje_sobrantes(avisos: list) -> str:
+    """El resumen de los que calificaron pero no cupieron en el tope.
+
+    Sin esto, el tope de avisos por corrida era un recorte SILENCIOSO: ocho
+    mensajes completos y los demás quedaban en el tablero sin que nada dijera
+    que existían. Si el noveno era interesante, la única forma de enterarse
+    era abrir el tablero por iniciativa propia.
+
+    Una línea por departamento, no el mensaje completo: es un índice, y los
+    que lo ameriten van a llegar con su aviso completo en la corrida
+    siguiente — el resumen no los marca como avisados a propósito.
+    """
+    if not avisos:
+        return ""
+    L = [f"📋 <b>Además calificaron {len(avisos)} más</b> "
+         "(llegan en detalle en las próximas corridas):", ""]
+    for a in avisos[:10]:
+        emoji, _ = S.banda(a.score)
+        pr = _pesos(a.arriendo_clp) if a.arriendo_clp else "s/precio"
+        L.append(f"{emoji} {a.score} · {pr} · "
+                 f"{_escapar((a.direccion or a.title)[:44])}")
+    if len(avisos) > 10:
+        L.append(f"… y {len(avisos) - 10} más en el tablero")
+    return "\n".join(L)
 
 
 def _volvio(a: Any) -> str:

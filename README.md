@@ -324,6 +324,21 @@ Un departamento se avisa **una sola vez**… salvo que cambie algo que importa:
   suman nunca.
 - **Cruza los 45 días publicado.** Se avisa una sola vez, no todos los días.
 
+### Los otros tres mensajes del canal
+
+Además del aviso por departamento, el canal manda tres mensajes más, cada uno
+con una condición estricta para no volverse ruido:
+
+- **📋 "Además calificaron N más"** — cuando califican más departamentos que
+  el tope por corrida, los que no cupieron llegan como índice de una línea.
+  El tope dejó de ser un recorte silencioso.
+- **📤 "Se fueron del mercado"** — cuando un departamento AVISADO deja de
+  aparecer en todos los portales. Con "estuvo N días publicado", que con unas
+  cuantas enseña a qué velocidad se mueve el rango que buscas.
+- **🚨 "El job se cayó"** — desde el workflow mismo, con curl directo: cubre
+  los fallos donde el radar ni siquiera alcanzó a partir, que desde el
+  teléfono se ven idénticos a "no hay departamentos".
+
 ### Y además guarda la tendencia
 
 Cada precio distinto queda anotado, así que el aviso no dice solo que bajó

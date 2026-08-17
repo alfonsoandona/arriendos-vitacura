@@ -359,3 +359,33 @@ def test_el_markdown_dice_cuando_no_hay_datos_suficientes():
 
 def test_el_markdown_con_historial_vacio_no_revienta():
     assert "Historial de búsquedas" in H.a_markdown([])
+
+# ---------------------------------------------------------------------------
+# Los gastos comunes típicos
+# ---------------------------------------------------------------------------
+
+def _altas_con_gc(n=5, gc=180_000, m2=120):
+    return [{"cuando": _hace(10), "evento": "alta", "fp": str(i),
+             "comuna": "Vitacura", "clp": 1_500_000, "gc": gc, "m2": m2}
+            for i in range(n)]
+
+
+def test_gc_tipico_por_m2():
+    """$1.500/m² sobre 120 m² del historial → ≈$150.000 para uno de 100 m²."""
+    assert H.gc_tipico(_altas_con_gc(gc=180_000, m2=120), m2=100) == 150_000
+
+
+def test_gc_tipico_sin_superficie_usa_la_mediana_a_secas():
+    assert H.gc_tipico(_altas_con_gc(gc=180_000), m2=None) == 180_000
+
+
+def test_gc_tipico_con_pocos_datos_no_inventa():
+    """Una estimación sacada de dos avisos parece un dato y no lo es."""
+    assert H.gc_tipico(_altas_con_gc(n=3), m2=100) is None
+
+
+def test_gc_tipico_se_redondea_a_diez_mil():
+    """Precisión de pesos exactos en una estimación es mentira tipográfica."""
+    eventos = _altas_con_gc(gc=183_456, m2=120)
+    assert H.gc_tipico(eventos, m2=120) % 10_000 == 0
+

@@ -71,3 +71,74 @@ def test_sin_comuna_default_no_se_inventa_nada():
       </article></body></html>"""
 
     assert not extraer(html, "https://x.cl/", fuente)[0].comuna
+
+
+# ---------------------------------------------------------------------------
+# El rescate anti-bot
+# ---------------------------------------------------------------------------
+
+def test_un_403_se_reintenta_con_navegador(monkeypatch):
+    """economicos.cl entregó 51 avisos un día y respondió 403 al siguiente.
+
+    Sin el rescate, una de las fuentes más productivas queda muerta hasta que
+    alguien la mire a mano. El 401/403 significa "no me gustan los clientes
+    que no son un navegador" — así que se le manda un navegador.
+    """
+    from arriendo.sources import registry
+
+    class FetcherFalso:
+        ultimo_motivo = ""
+        def get(self, url, reintentos=3, ignorar_robots=False):
+            self.ultimo_motivo = ("HTTP 403 — el sitio rechaza clientes "
+                                  "que no son un navegador")
+            return None
+
+    import arriendo.sources.navegador as nav
+    monkeypatch.setattr(nav, "bajar_con_navegador",
+                        lambda url, acciones=None, timeout_ms=None: "<html>ok</html>")
+
+    fuente = FuenteConfig(id="x", nombre="X", urls=["https://x.cl/"])
+    f = FetcherFalso()
+    assert registry._bajar(f, fuente, "https://x.cl/") == "<html>ok</html>"
+    assert f.ultimo_motivo == "", "el rescate limpió el motivo del fallo"
+
+
+def test_un_timeout_no_gasta_chromium(monkeypatch):
+    """Un sitio que no responde tampoco va a responder con navegador."""
+    from arriendo.sources import registry
+
+    class FetcherFalso:
+        ultimo_motivo = ""
+        def get(self, url, reintentos=3, ignorar_robots=False):
+            self.ultimo_motivo = "el sitio no respondió a tiempo"
+            return None
+
+    import arriendo.sources.navegador as nav
+    def nunca(*a, **k):
+        raise AssertionError("no debería haberse levantado Chromium")
+    monkeypatch.setattr(nav, "bajar_con_navegador", nunca)
+
+    fuente = FuenteConfig(id="x", nombre="X", urls=["https://x.cl/"])
+    assert registry._bajar(FetcherFalso(), fuente, "https://x.cl/") is None
+
+
+def test_si_el_rescate_tambien_falla_queda_el_motivo_original(monkeypatch):
+    """El 403 es el dato accionable; el fallo del rescate es secundario."""
+    from arriendo.sources import registry
+
+    class FetcherFalso:
+        ultimo_motivo = ""
+        def get(self, url, reintentos=3, ignorar_robots=False):
+            self.ultimo_motivo = ("HTTP 403 — el sitio rechaza clientes "
+                                  "que no son un navegador")
+            return None
+
+    import arriendo.sources.navegador as nav
+    def revienta(*a, **k):
+        raise RuntimeError("Chromium no está")
+    monkeypatch.setattr(nav, "bajar_con_navegador", revienta)
+
+    fuente = FuenteConfig(id="x", nombre="X", urls=["https://x.cl/"])
+    f = FetcherFalso()
+    assert registry._bajar(f, fuente, "https://x.cl/") is None
+    assert "rechaza clientes" in f.ultimo_motivo

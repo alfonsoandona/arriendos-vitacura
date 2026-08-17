@@ -288,6 +288,42 @@ def resumen_mercado(eventos: list[dict], dias: int = 90,
     }
 
 
+def gc_tipico(eventos: list[dict], m2: float | None = None,
+              dias: int = 180) -> int | None:
+    """Los gastos comunes típicos de la zona, según lo que el radar ha visto.
+
+    Es la respuesta al aviso que no publica los GC, que en la corrida real fue
+    la MAYORÍA. Hoy el mensaje dice "GC no publicados" y el costo mensual
+    queda incompleto — honesto, pero deja la comparación coja: no se puede
+    poner al lado de uno que sí los publica.
+
+    Con historial se puede estimar sin inventar: la mediana de $/m² de los
+    avisos que SÍ publicaron gastos comunes y superficie. Con la superficie
+    del aviso se convierte a pesos; sin ella, la mediana de GC a secas.
+
+    Devuelve None con menos de cuatro datos — el mismo umbral de todas las
+    medianas del módulo: una estimación sacada de dos avisos parece un dato y
+    no lo es. Y quien la muestre tiene que decir que es estimación: un dato
+    deducido presentado como publicado es peor que uno ausente.
+    """
+    corte = _hace(dias)
+    altas = [e for e in eventos
+             if e.get("evento") == "alta" and _cuando(e) >= corte and e.get("gc")]
+
+    if m2:
+        por_m2 = [e["gc"] / e["m2"] for e in altas
+                  if e.get("m2") and e["m2"] > 0]
+        if len(por_m2) >= 4:
+            # Redondeado a los $10.000: la precisión de pesos exactos en una
+            # estimación es una mentira tipográfica.
+            return int(round(median(por_m2) * m2, -4))
+
+    absolutos = [e["gc"] for e in altas]
+    if len(absolutos) >= 4:
+        return int(round(median(absolutos), -4))
+    return None
+
+
 def contar_por_mes(eventos: list[dict], evento: str = "alta") -> dict[str, int]:
     """Cuántos avisos por mes. Sirve para ver la estacionalidad.
 

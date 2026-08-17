@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 from . import scoring as S
-from .alerts.telegram import Telegram
+from .alerts.telegram import Telegram, mensaje_bajas, mensaje_sobrantes
 from .bitacora import escribir_bitacora
 from .config import (ALERTAS_DIR, LOGS_DIR, STATE_DIR, PerfilInvalido,
                      cargar_perfil, dir_alertas, dir_estado, dir_logs)
@@ -18,7 +18,7 @@ from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .historial import (a_markdown as historial_markdown,
                         anotar as anotar_historial, eventos_de_corrida,
-                        leer as leer_historial, resumen_mercado,
+                        gc_tipico, leer as leer_historial, resumen_mercado,
                         ya_visto)
 from .models import Arriendo
 from .sources.base import Fetcher
@@ -312,13 +312,19 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         a_avisar.append((a, motivo))
 
     tope = int((perfil.get("alertas") or {}).get("max_por_corrida", 8))
+    sobrantes: list[Arriendo] = []
     if len(a_avisar) > tope:
         # Las de mayor puntaje primero; el resto queda en el tablero y alerta
         # en la corrida siguiente. Sin tope, la primera corrida contra
         # portales de arriendo manda cuarenta mensajes seguidos, porque trae
         # inventario acumulado y no novedades del día.
+        #
+        # Pero el recorte ya no es silencioso: los que no cupieron van en UN
+        # mensaje índice (ver el paso 7). Si el noveno era justo el bueno, la
+        # única forma de saberlo era abrir el tablero por iniciativa propia.
         log.info("%d avisos por mandar, tope %d: se posponen %d",
                  len(a_avisar), tope, len(a_avisar) - tope)
+        sobrantes = [a for a, _m in a_avisar[tope:]]
         a_avisar = a_avisar[:tope]
 
     # --- 7. avisar ---
@@ -337,6 +343,10 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         ancla=(perfil.get("ancla") or {}).get("nombre", ""),
         tope_arriendo=S.tope_arriendo(perfil)[0] or 0.0,
         mediana_mercado=float(mediana),
+        # El estimador de GC cierra sobre el historial ya leído: para cada
+        # aviso sin gastos comunes, el mensaje puede decir el típico de la
+        # zona según su superficie. Ver historial.gc_tipico.
+        gc_tipico=lambda m2: gc_tipico(previos, m2),
     )
 
     enviados = 0
@@ -363,6 +373,21 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             store.registrar(a)
 
     stats["avisados"] = enviados
+
+    # El índice de los que calificaron y no cupieron. No los marca como
+    # avisados a propósito: su aviso completo llega en las corridas
+    # siguientes; esto solo evita que el tope sea un recorte invisible.
+    if enviados and sobrantes:
+        telegram.enviar(mensaje_sobrantes(sobrantes))
+
+    # El cierre del ciclo: los departamentos AVISADOS que dejaron de
+    # aparecer en todos los portales. De los que nunca se avisaron nadie
+    # está esperando noticias, así que no se molesta por ellos.
+    despedidas = [e for e in eventos
+                  if e.get("evento") == "baja" and e.get("avisado")]
+    if despedidas:
+        telegram.enviar(mensaje_bajas(despedidas))
+
     telegram.resumen(stats, enviados, marca_dir=dir_estado())
 
     # --- 8. guardar ---

@@ -137,6 +137,51 @@ fuentes:
       que acá el valor de la UF sí cambia el resultado — ver la variable
       VALOR_UF en el README.
 
+  - id: busconido
+    nombre: BuscoNido
+    comuna_default: Vitacura
+    # El único portal chileno 100% de arriendo — ni venta ni proyectos — y
+    # declara 797 propiedades en Vitacura, el número más grande visto en
+    # cualquier fuente de este catálogo. Salió de la auditoría de fuentes
+    # del 17-08: no estaba en ninguna lista previa.
+    #
+    # A la raíz, siguiendo la regla del catálogo: una ruta inventada da 404,
+    # que en el reporte de calibración se ve igual que un sitio caído. La
+    # candidata —sacada del patrón confirmado de sus fichas,
+    # /departamentos/<comuna>/<id>/<slug>— queda anotada para probarla:
+    # https://www.busconido.cl/departamentos/vitacura
+    urls: ["https://www.busconido.cl/"]
+    url_confirmada: false
+    entrega_variable: true
+    notas: >-
+      Agregador 100% de arriendo, 797 propiedades declaradas en Vitacura.
+      Ruta candidata: /departamentos/vitacura — probarla desde el navegador
+      y pegarla acá.
+
+  - id: comunavitacura
+    nombre: ComunaVitacura.cl
+    comuna_default: Vitacura
+    # Un sitio dedicado exclusivamente a propiedades de la comuna, con la
+    # sección de arriendo de departamentos como ruta propia. URL confirmada
+    # por búsqueda (17-08).
+    urls: ["https://comunavitacura.cl/arriendo-departamentos/"]
+    url_confirmada: true
+    entrega_variable: true
+    notas: >-
+      Nicho puro: todo lo que publique es de la comuna que se busca. El
+      inventario puede ser chico y variable, por eso entrega_variable.
+
+  - id: bienesonline
+    nombre: BienesOnline
+    # Portal gratuito de particulares y corredoras. URL a la portada: falta
+    # la ruta del buscador filtrado (formulario POST).
+    urls: ["https://www.bienesonline.cl/"]
+    url_confirmada: false
+    entrega_variable: true
+    notas: >-
+      Portal clasificado gratuito. Si trae cero, abrir el sitio, filtrar
+      arriendo + departamento + Vitacura y pegar la URL.
+
   - id: emol_propiedades
     nombre: Emol Propiedades
     comuna_default: Vitacura
@@ -178,7 +223,9 @@ fuentes:
     nombre: Zoom Inmobiliario
     motor: navegador
     comuna_default: Vitacura
-    urls: ["https://www.zoominmobiliario.com/arriendo/departamento/vitacura"]
+    # Sin "www": la corrida real del 17-08 mostró que www.zoominmobiliario.com
+    # no resuelve en DNS desde el runner; el dominio pelado sí existe.
+    urls: ["https://zoominmobiliario.com/arriendo/departamento/vitacura"]
     url_confirmada: true
     notas: "Foco en proyectos nuevos, que es justo lo que el perfil prefiere."
 

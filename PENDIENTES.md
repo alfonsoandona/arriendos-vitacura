@@ -359,14 +359,14 @@ Quita toda una clase de errores.
 
 - [ ] Hazlo
 
-### 5. Un resumen cuando hay muchas alertas 🟡
+### ~~5. Un resumen cuando hay muchas alertas~~ ✅ HECHO
 
-Si califican 8 departamentos, hoy llegan 8 mensajes seguidos. Podría llegar
-uno con la tabla y los 3 mejores en detalle.
+Los 8 mejores llegan en detalle y el resto en UN mensaje índice ("📋 Además
+calificaron N más"), una línea por departamento. Antes el tope era un recorte
+silencioso: si el noveno era justo el bueno, la única forma de saberlo era
+abrir el tablero por iniciativa propia.
 
-- [ ] Hazlo
-
-### 6. Aviso de "se fue del mercado" 🟡 (medio hecho)
+### ~~6. Aviso de "se fue del mercado"~~ ✅ HECHO
 
 Ya se **detecta y se guarda**: el historial de búsquedas anota una baja cuando
 un aviso falta tres corridas seguidas y su portal sí entregó en esas corridas
@@ -374,18 +374,17 @@ un aviso falta tres corridas seguidas y su portal sí entregó en esas corridas
 departamentos cada vez que un sitio se cae una tarde). De ahí sale la línea
 "días publicado antes de irse" del historial.
 
-Lo que falta es **avisarlo por Telegram** cuando el que se fue es uno que te
-habíamos mandado. Cierra el ciclo.
+Y ahora también **se avisa por Telegram**: cuando un departamento que te
+habíamos mandado deja de aparecer, llega un mensaje "📤 Se fueron del mercado"
+con cuántos días estuvo publicado y a qué precio. Solo para los avisados: de
+los demás nadie está esperando noticias.
 
-- [ ] Hazlo
+### ~~7. Estimar los gastos comunes cuando no se publican~~ ✅ HECHO
 
-### 7. Estimar los gastos comunes cuando no se publican ⚪
-
-A partir del promedio de los que sí se publican en edificios parecidos. Hoy
-digo "no publicados" y el costo mensual queda incompleto — que es honesto,
-pero un rango estimado sería más útil que nada.
-
-- [ ] Hazlo
+Con la mediana de $/m² de los avisos del historial que SÍ los publican:
+"GC no publicados, típico en la zona ≈$180.000". Marcado como estimación con
+≈ — un dato deducido presentado como publicado es peor que uno ausente — y
+solo con 4+ datos, como todas las medianas del radar.
 
 ### 8. Un segundo punto de referencia ⚪
 
@@ -414,7 +413,8 @@ ______________________________________________
 | Telegram | ✅ **funcionando**, prueba de envío OK |
 | Las 3 corredoras apagadas | ⚠️ **falta la URL** (bloque 2) |
 | Calibración contra los portales reales | ✅ corrió: 633 avisos, 91 candidatos |
-| Barrido en paralelo y presupuesto de tiempo | ✅ probado con hilos de verdad |
+| Barrido en paralelo y presupuesto de tiempo | ✅ **probado en producción: 203s vs 536s en serie** |
+| Primeros avisos por Telegram | ✅ **8 enviados en la corrida del 17-08** |
 | Historial de búsquedas | ✅ funciona, pero se llena solo con las corridas |
 
 Todo lo demás corre solo.
