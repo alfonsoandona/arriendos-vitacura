@@ -98,6 +98,57 @@ def _rutas_de_json(nodo, ruta="", salida=None, tope=60):
     return salida
 
 
+# Tipos de nodo JSON-LD que vale la pena volcar enteros: son los que traen
+# la propiedad, y el resumen de rutas no alcanza para escribir el mapeo.
+_TIPOS_PARA_VOLCAR = {
+    "apartmentcomplex", "rentaction", "apartment", "house", "product",
+    "singlefamilyresidence", "realestatelisting", "place",
+}
+
+
+def _primer_nodo_por_tipo(nodos_ld) -> list[tuple[str, str]]:
+    """El primer nodo completo de cada tipo interesante, para leer su forma."""
+    vistos: set[str] = set()
+    out: list[tuple[str, str]] = []
+
+    def _walk(n):
+        if isinstance(n, list):
+            for x in n:
+                _walk(x)
+        elif isinstance(n, dict):
+            t = str(n.get("@type", "")).lower()
+            if t in _TIPOS_PARA_VOLCAR and t not in vistos:
+                vistos.add(t)
+                out.append((t, json.dumps(n, ensure_ascii=False)[:900]))
+            for v in n.values():
+                _walk(v)
+
+    _walk(nodos_ld)
+    return out
+
+
+def _listas_de_avisos(data, ruta="", out=None) -> list[tuple[str, str]]:
+    """Listas de ≥3 dicts con llaves útiles: el inventario de la SPA.
+
+    Se vuelca el PRIMER elemento entero, que es lo que hace falta para
+    escribir el mapeo de llaves en el extractor.
+    """
+    if out is None:
+        out = []
+    if len(out) >= 6:
+        return out
+    if isinstance(data, dict):
+        for k, v in data.items():
+            _listas_de_avisos(v, f"{ruta}.{k}" if ruta else str(k), out)
+    elif isinstance(data, list):
+        if len(data) >= 3 and all(isinstance(x, dict) for x in data[:3]) \
+                and any(_LLAVE_UTIL.search(k) for k in data[0]):
+            out.append((ruta, json.dumps(data[0], ensure_ascii=False)[:900]))
+        elif data:
+            _listas_de_avisos(data[0], ruta + "[]", out)
+    return out
+
+
 def _blobs_embebidos(html: str) -> list[str]:
     """Qué JSON estructurado trae la página, y qué hay adentro."""
     hallazgos: list[str] = []
@@ -128,7 +179,10 @@ def _blobs_embebidos(html: str) -> list[str]:
         hallazgos.append(f"ld+json: {dict(tipos)}")
         for ruta in _rutas_de_json(nodos_ld, "ld", tope=25):
             hallazgos.append(f"  {ruta}")
+        for tipo, volcado in _primer_nodo_por_tipo(nodos_ld):
+            hallazgos.append(f"  NODO {tipo}: {volcado}")
 
+    estados: list[tuple[str, str]] = []
     for nombre, patron in [
         ("NEXT_DATA", r'id="__NEXT_DATA__"[^>]*>(.*?)</script>'),
         ("NUXT", r"window\.__NUXT__\s*=\s*(\{.*?\})\s*;?\s*</script>"),
@@ -136,26 +190,31 @@ def _blobs_embebidos(html: str) -> list[str]:
          r"window\.__INITIAL_STATE__\s*=\s*(\{.*?\})\s*;?\s*</script>"),
     ]:
         m = re.search(patron, html, re.S)
-        if not m:
-            continue
-        hallazgos.append(f"{nombre}: presente ({len(m.group(1)):,} bytes)")
-        try:
-            data = json.loads(m.group(1))
-        except json.JSONDecodeError:
-            hallazgos.append("  (no parsea como JSON)")
-            continue
-        for ruta in _rutas_de_json(data, nombre, tope=40):
-            hallazgos.append(f"  {ruta}")
+        if m:
+            estados.append((nombre, m.group(1)))
 
-    # Otros <script> con JSON grande que no calzan con los patrones de
-    # arriba: el estado de la SPA con otro nombre.
+    # Otros <script> con JSON grande: el estado de la SPA con otro nombre.
     for tag in soup.find_all("script"):
         contenido = (tag.string or "").strip()
         if len(contenido) > 5_000 and contenido[:1] in "{[" and \
                 not tag.get("type", "").endswith("ld+json"):
-            hallazgos.append(
-                f"script JSON sin nombre: {len(contenido):,} bytes, "
-                f"empieza: {contenido[:100]!r}")
+            estados.append(("script-sin-nombre", contenido))
+
+    ya_visto: set[int] = set()
+    for nombre, crudo in estados:
+        if len(crudo) in ya_visto:  # NEXT_DATA suele aparecer dos veces
+            continue
+        ya_visto.add(len(crudo))
+        hallazgos.append(f"{nombre}: presente ({len(crudo):,} bytes)")
+        try:
+            data = json.loads(crudo)
+        except json.JSONDecodeError:
+            hallazgos.append("  (no parsea como JSON)")
+            continue
+        for ruta in _rutas_de_json(data, nombre, tope=30):
+            hallazgos.append(f"  {ruta}")
+        for ruta, volcado in _listas_de_avisos(data, nombre):
+            hallazgos.append(f"  LISTA {ruta}[0]: {volcado}")
     return hallazgos
 
 
@@ -248,13 +307,17 @@ def _diagnosticar_fuente(fuente, fetcher, uf, fichas_por_fuente: int) -> None:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--fuente", default="",
-                    help="diagnosticar solo esta fuente (id de fuentes.yml)")
+                    help="solo estas fuentes (ids de fuentes.yml, con comas)")
     ap.add_argument("--fichas", type=int, default=2,
                     help="fichas de detalle a bajar por fuente")
     ap.add_argument("--delay", type=float, default=1.0)
     args = ap.parse_args(argv)
 
-    fuentes = fuentes_activas(cargar_fuentes(), args.fuente)
+    if args.fuente:
+        fuentes = [f for solo in args.fuente.split(",")
+                   for f in fuentes_activas(cargar_fuentes(), solo.strip())]
+    else:
+        fuentes = fuentes_activas(cargar_fuentes())
     fetcher = Fetcher(delay=args.delay, timeout=30)
     uf = P.VALOR_UF_DEFECTO
 
