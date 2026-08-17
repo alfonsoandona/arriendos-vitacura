@@ -442,6 +442,12 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
     # vueltas, y eso se lee mejor con los nombres a la vista.
     if (otros := _otros_portales(a)):
         L.append(f"   <i>También en {otros}</i>")
+    if (gemelos := a.extras.get("gemelos")):
+        # Mismo canon exacto, programa y comuna que otro candidato: casi
+        # seguro el mismo inmueble publicado sin dirección en un portal. El
+        # código es el distintivo para mirarlos como uno.
+        cods = " ".join(f"<code>#{c}</code>" for c in gemelos[:3])
+        L.append(f"   <i>👯 Posiblemente el mismo que {cods}</i>")
     if (ficha := a.extras.get("ficha_url")):
         L.append(f"   <a href=\"{_escapar(str(ficha))}\">Ficha completa</a>")
 
@@ -721,7 +727,7 @@ def mensaje_sobrantes(avisos: list) -> str:
     if not avisos:
         return ""
     L = [f"📋 <b>Además calificaron {len(avisos)} más</b> "
-         "(llegan en detalle en las próximas corridas):", ""]
+         "(quedan en el tablero; avisan de nuevo solo si cambian):", ""]
     for a in avisos[:10]:
         emoji, _ = S.banda(a.score)
         pr = _pesos(a.arriendo_clp) if a.arriendo_clp else "s/precio"

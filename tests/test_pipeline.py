@@ -553,3 +553,32 @@ def test_una_corrida_en_seco_no_deja_historial(entorno, mensajes, una_fuente,
     assert leer_historial(entorno / "state") == []
     assert not (entorno / "alertas" / "historial.md").exists()
 
+
+
+
+def test_lo_visto_sin_avisar_no_realerta_sin_cambio(entorno, mensajes,
+                                                    una_fuente, tmp_path,
+                                                    monkeypatch):
+    """"La corrida de todos los días que sea solo de nuevos o modificaciones."
+
+    Antes, lo visto-pero-no-avisado seguía en cola y cada corrida mandaba los
+    8 siguientes del acumulado: días de avisos viejos disfrazados de novedad.
+    Ahora lo ya visto solo alerta si CAMBIÓ. El envío fallido es la excepción
+    —es una entrega pendiente, no noticia vieja— y conserva su propio test.
+    """
+    import yaml
+    from arriendo.config import cargar_perfil
+
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+
+    # Primera corrida con tope 0: todo queda VISTO, nada avisado.
+    perfil = cargar_perfil()
+    perfil["alertas"]["max_por_corrida"] = 0
+    p0 = tmp_path / "tope-cero.yml"
+    p0.write_text(yaml.safe_dump(perfil, allow_unicode=True), encoding="utf-8")
+    cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(p0)))
+    assert mensajes == []
+
+    # Segunda corrida con el perfil normal: lo visto sin cambio NO alerta.
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert mensajes == [], "visto sin avisar y sin cambio = noticia vieja"

@@ -205,8 +205,17 @@ class Store:
         return recuperados
 
     # -- escritura --------------------------------------------------------
+    def envio_pendiente(self, l: Arriendo) -> bool:
+        """¿Quedó un aviso decidido pero no entregado? Eso SÍ se reintenta.
+
+        Es distinto de "visto y nunca avisado": lo segundo es noticia vieja y
+        no alerta salvo cambio; lo primero es una entrega que falló —Telegram
+        caído, red— y perderla sería perder el departamento en silencio.
+        """
+        return bool(self.indice.get(l.fingerprint, {}).get("envio_pendiente"))
+
     def registrar(self, l: Arriendo, avisado: bool = False,
-                  motivo: str = "") -> None:
+                  motivo: str = "", fallido: bool = False) -> None:
         fp = l.fingerprint
         prev = self.indice.get(fp, {})
         ahora = ahora_utc().isoformat(timespec="seconds")
@@ -225,6 +234,10 @@ class Store:
             "primera_vez": prev.get("primera_vez", ahora),
             "ultima_vez": ahora,
             "avisado": prev.get("avisado", False) or avisado,
+            # La marca de reintento: la puso un envío fallido y la borra el
+            # envío que sí llega.
+            "envio_pendiente": (fallido or prev.get("envio_pendiente", False))
+                               and not (avisado or prev.get("avisado", False)),
             "veces_visto": prev.get("veces_visto", 0) + 1,
             # Marca de una sola vez: el aviso de "lleva mucho publicado" no se
             # repite en cada corrida.

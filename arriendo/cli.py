@@ -9,6 +9,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from . import parse as P
 from . import scoring as S
 from .alerts.telegram import Telegram, mensaje_bajas, mensaje_sobrantes
 from .bitacora import escribir_bitacora
@@ -295,6 +296,22 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         if (antes := ya_visto(previos, a)):
             a.extras["ya_estuvo"] = antes
 
+    # Gemelos: dos candidatos con el MISMO canon exacto, dormitorios, baños y
+    # comuna que la deduplicación no logró juntar (uno sin dirección, por
+    # ejemplo) son probablemente el mismo inmueble. No se fusionan —dos
+    # unidades gemelas de la misma torre al mismo precio existen— pero se
+    # ETIQUETAN con el código del otro, que es el distintivo que pidió el
+    # usuario: si dos mensajes dicen "posible mismo que #X", se miran juntos.
+    por_firma: dict[tuple, list[Arriendo]] = {}
+    for a in candidatos:
+        if a.arriendo_clp and a.dormitorios:
+            firma = (P.norm(a.comuna), a.arriendo_clp, a.dormitorios, a.banos)
+            por_firma.setdefault(firma, []).append(a)
+    for grupo in por_firma.values():
+        if len(grupo) > 1:
+            for a in grupo:
+                a.extras["gemelos"] = [x.codigo for x in grupo if x is not a]
+
     # --- 6. decidir a quién avisar ---
     a_avisar: list[tuple[Arriendo, str]] = []
     # Orden = (puntaje, confianza). El desempate por confianza es lo que
@@ -303,12 +320,23 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     for a in sorted(candidatos, key=S.orden, reverse=True):
         if not S.debe_alertar(a, perfil):
             continue
-        if store.ya_avisado(a):
+        if store.es_nuevo(a) or store.envio_pendiente(a):
+            # Nunca visto es LA noticia; y un envío que falló ayer es una
+            # entrega pendiente, no noticia vieja: se reintenta.
+            motivo = ""
+        else:
+            # Ya visto —avisado o no—: solo alerta si CAMBIÓ (baja de canon,
+            # umbral de días publicado). Pedido del 18-08: "la corrida de
+            # todos los días que sea solo de nuevos o modificaciones".
+            #
+            # Antes, lo visto-pero-no-avisado seguía en cola y cada corrida
+            # mandaba los 8 siguientes del acumulado: cuatro días de avisos
+            # viejos disfrazados de novedad. Un aviso que el radar conoce
+            # hace tres corridas no es una novedad por no haber cabido en el
+            # tope; si amerita mirarse, está en el tablero con su puntaje.
             motivo = store.cambio_relevante(a, perfil)
             if not motivo:
                 continue
-        else:
-            motivo = ""
         a_avisar.append((a, motivo))
 
     tope = int((perfil.get("alertas") or {}).get("max_por_corrida", 8))
@@ -366,7 +394,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             # perder el departamento en silencio, que es la peor forma de
             # fallar que tiene este radar.
             log.error("No se pudo avisar %s", a.url)
-            store.registrar(a, avisado=False)
+            store.registrar(a, avisado=False, fallido=True)
 
     for a in unicos:
         if not any(a is x for x, _ in a_avisar):
