@@ -232,6 +232,12 @@ fuentes:
     # no resuelve en DNS desde el runner; el dominio pelado sí existe.
     urls: ["https://zoominmobiliario.com/arriendo/departamento/vitacura"]
     url_confirmada: true
+    # Apagada 17-08: el diagnóstico contra red real confirmó que TAMPOCO el
+    # dominio pelado resuelve desde el runner (ERR_NAME_NOT_RESOLVED con
+    # navegador). Levantar Chromium para un DNS muerto le cobra tiempo del
+    # presupuesto a las fuentes que sí entregan. Reactivar si el usuario
+    # confirma que el sitio abre desde su navegador y con qué dominio.
+    activa: false
     notas: "Foco en proyectos nuevos, que es justo lo que el perfil prefiere."
 
   - id: toppropiedades
