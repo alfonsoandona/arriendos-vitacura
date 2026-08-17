@@ -1,0 +1,63 @@
+name: Diagnóstico de cobertura
+
+# Lupa, no corrida: baja el listado y fichas reales de cada fuente y reporta
+# en el log qué publica cada página versus qué extrae el radar. No toca el
+# estado ni manda avisos. Existe porque el desarrollo corre detrás de un
+# proxy que bloquea los portales: la única mano con red es este runner.
+on:
+  workflow_dispatch:
+    inputs:
+      fuente:
+        description: "Limitar a una sola fuente (id de fuentes.yml)"
+        type: string
+        default: ""
+      fichas:
+        description: "Fichas de detalle a bajar por fuente"
+        type: string
+        default: "2"
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostico:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Instalar Chromium
+        # Mismo tope y mismo fallback que el radar (ver radar.yml).
+        timeout-minutes: 5
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          python -m playwright install --with-deps chromium \
+            || python -m playwright install chromium
+
+      - name: Diagnosticar
+        run: |
+          python -m arriendo.diagnostico \
+            ${{ inputs.fuente && format('--fuente {0}', inputs.fuente) || '' }} \
+            --fichas "${{ inputs.fichas || '2' }}" \
+            2>&1 | tee diagnostico.log
+
+      - name: Guardar las páginas crudas y el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostico
+          path: |
+            diagnostico/
+            diagnostico.log
+          if-no-files-found: ignore
+          retention-days: 7
