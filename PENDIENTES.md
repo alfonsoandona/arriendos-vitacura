@@ -16,8 +16,9 @@ que llega.
 
 | # | Qué | Dónde | Cuánto demora | Sin esto… |
 |---|---|---|---|---|
-| **1** | **Probar [`gestion.yml`](gestion.yml)** con el primer aviso que mires: su código `#ABC12` + `estado: visita` o `descartado` | Lápiz ✏️ en GitHub | 2 min | Los que ya viste siguen compitiendo por tu atención en el tablero. |
-| 2 | Pegar la URL de las corredoras que apuntan a su portada — lista con su estado real más abajo (bloque 2) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
+| **1** | **Activar GitHub Pages** para ver el dashboard: Settings → Pages → Build and deployment → Source: **GitHub Actions**. Es lo ÚNICO que el radar no puede hacer solo (el token de Actions no puede crear el sitio). | Navegador (no la app) | 30 seg | El dashboard existe pero no hay cómo VERLO: GitHub muestra el HTML como código. |
+| **2** | **Probar [`gestion.yml`](gestion.yml)** con el primer aviso que mires: su código `#ABC12` + `estado: visita` o `descartado` | Lápiz ✏️ en GitHub | 2 min | Los que ya viste siguen compitiendo por tu atención en el tablero. |
+| 3 | Pegar la URL de las corredoras que apuntan a su portada — lista con su estado real más abajo (bloque 2) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
 | ~~3~~ | ~~El Sport Francés~~ | — | — | ✅ Confirmado por ti: es ese punto. |
 | ~~4~~ | ~~Fecha de entrada y segundo punto~~ | — | — | ✅ Contestado: fecha indiferente, sin segundo punto por ahora. |
 
