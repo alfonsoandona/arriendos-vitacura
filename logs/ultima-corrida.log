@@ -1,197 +1,186 @@
-04:51:46 INFO    UF = $40.856.64 (API del día)
-04:51:46 INFO    Barriendo TocToc (toctoc)…
-04:51:46 INFO    Barriendo Chilepropiedades (chilepropiedades)…
-04:51:46 INFO    Barriendo GoPlaceIt (goplaceit)…
-04:51:46 INFO    Barriendo Yapo (yapo)…
-04:51:47 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
-04:51:49 DEBUG   [yapo] 30 avisos vía tarjetas
-04:51:49 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
-04:51:50 DEBUG   [goplaceit] 30 avisos vía json-ld
-04:51:50 DEBUG   [yapo] 30 avisos vía tarjetas
-04:51:51 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:51:51 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
-04:51:51 INFO      chilepropiedades: 33 avisos en 5s
-04:51:51 INFO    Barriendo BuscoNido (busconido)…
-04:51:53 DEBUG   [yapo] 30 avisos vía tarjetas
-04:51:53 INFO      yapo: 90 avisos en 6s
-04:51:53 INFO    Barriendo ComunaVitacura.cl (comunavitacura)…
-04:51:53 INFO      busconido: 0 avisos en 2s
-04:51:53 INFO    Barriendo BienesOnline (bienesonline)…
-04:51:54 DEBUG   [bienesonline] 16 avisos vía tarjetas
-04:51:54 INFO      bienesonline: 16 avisos en 1s
-04:51:54 INFO    Barriendo Emol Propiedades (emol_propiedades)…
-04:51:54 INFO      comunavitacura: 0 avisos en 2s
-04:51:54 INFO    Barriendo Economicos (El Mercurio) (economicos)…
-04:51:54 WARNING https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0 respondió 403
-04:51:54 INFO    [economicos] https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0 rebotó al GET; se reintenta con navegador
-04:51:55 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:51:56 INFO      economicos: 0 avisos en 1s
-04:51:56 INFO    Barriendo iCasas (icasas)…
-04:51:56 WARNING robots.txt no permite https://www.propiedades.emol.com/propiedades/buscar?o=Arriendo&tp=Departamento&c=Vitacura — se omite
-04:51:56 WARNING   emol_propiedades: robots.txt del sitio no permite este acceso
-04:51:56 INFO      emol_propiedades: 0 avisos en 2s
-04:51:56 INFO    Barriendo Doomos (doomos)…
-04:51:57 DEBUG   [icasas] 15 avisos vía tarjetas
-04:51:58 DEBUG   [doomos] 33 avisos vía tarjetas
-04:51:58 INFO      doomos: 33 avisos en 2s
-04:51:58 INFO    Barriendo Top Propiedades (toppropiedades)…
-04:51:59 DEBUG   [icasas] 15 avisos vía tarjetas
-04:51:59 INFO      icasas: 30 avisos en 3s
-04:51:59 INFO    Barriendo Trovit (trovit)…
-04:51:59 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:52:00 DEBUG   [trovit] 30 avisos vía json-ld
-04:52:02 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:02 DEBUG   [trovit] 30 avisos vía json-ld
-04:52:03 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:52:04 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:04 DEBUG   [trovit] 30 avisos vía json-ld
-04:52:05 INFO      trovit: 90 avisos en 6s
-04:52:05 INFO    Barriendo Nuroa (nuroa)…
-04:52:05 DEBUG   Encoding detection: ascii is most likely the one.
-04:52:06 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:06 DEBUG   [nuroa] 25 avisos vía json-ld
-04:52:07 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:52:08 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:09 DEBUG   [nuroa] 25 avisos vía json-ld
-04:52:09 INFO      nuroa: 50 avisos en 4s
-04:52:09 INFO    Barriendo Mitula (mitula)…
-04:52:10 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:11 DEBUG   [mitula] 30 avisos vía json-ld
-04:52:11 DEBUG   [toctoc] 40 avisos vía estado-embebido
-04:52:11 INFO      toctoc: 240 avisos en 25s
-04:52:11 INFO    Barriendo Nestoria (nestoria)…
-04:52:12 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:13 DEBUG   [mitula] 30 avisos vía json-ld
-04:52:13 INFO      mitula: 60 avisos en 4s
-04:52:13 INFO    Barriendo Houm (houm)…
-04:52:13 DEBUG   [nestoria] 25 avisos vía json-ld
-04:52:13 INFO      nestoria: 25 avisos en 2s
-04:52:13 INFO    Barriendo Hey! Homes (heyhomes)…
-04:52:14 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:16 DEBUG   [heyhomes] 9 avisos vía tarjetas
-04:52:16 INFO      heyhomes: 9 avisos en 3s
-04:52:16 INFO    Barriendo AssetPlan (assetplan)…
-04:52:16 DEBUG   [toppropiedades] 1 avisos vía json-ld
-04:52:16 INFO      toppropiedades: 8 avisos en 18s
-04:52:16 INFO    Barriendo Engel & Völkers (engelvoelkers)…
-04:52:20 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamentos-region-metropolitana/vitacura/3-dormitorios; se lee igual
-04:52:20 DEBUG   [houm] 28 avisos vía json-ld
-04:52:23 INFO      assetplan: 0 avisos en 7s
-04:52:23 INFO    Barriendo RE/MAX Chile (remax)…
-04:52:25 DEBUG   [engelvoelkers] 18 avisos vía tarjetas
-04:52:25 INFO      engelvoelkers: 18 avisos en 9s
-04:52:25 INFO    Barriendo Fuenzalida Propiedades (fuenzalida)…
-04:52:26 DEBUG   [goplaceit] 30 avisos vía json-ld
-04:52:28 DEBUG   [fuenzalida] 20 avisos vía tarjetas
-04:52:30 INFO      remax: 0 avisos en 6s
-04:52:30 INFO    Barriendo Century 21 Chile (century21)…
-04:52:31 INFO      century21: 0 avisos en 2s
-04:52:31 INFO    Barriendo Chile Sotheby's Realty (sothebys)…
-04:52:31 DEBUG   [fuenzalida] 20 avisos vía tarjetas
-04:52:31 WARNING https://chile.sothebysrealty.com/ respondió 403
-04:52:31 INFO    [sothebys] https://chile.sothebysrealty.com/ rebotó al GET; se reintenta con navegador
-04:52:32 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/170742; se lee igual
-04:52:32 DEBUG   [houm] 1 avisos vía estado-embebido
-04:52:34 INFO      sothebys: 0 avisos en 2s
-04:52:34 INFO    Barriendo Contempora Propiedades (contempora)…
-04:52:35 DEBUG   [fuenzalida] 20 avisos vía tarjetas
-04:52:35 INFO      fuenzalida: 60 avisos en 10s
-04:52:35 INFO    Barriendo Property Partners (propertypartners)…
-04:52:35 DEBUG   [propertypartners] 1 avisos vía tarjetas
-04:52:35 INFO      propertypartners: 1 avisos en 0s
-04:52:35 INFO    Barriendo Magnolia Property (magnoliaproperty)…
-04:52:36 DEBUG   [magnoliaproperty] 8 avisos vía tarjetas
-04:52:36 INFO      magnoliaproperty: 8 avisos en 1s
-04:52:36 INFO    Barriendo Portilla Propiedades (portillapropiedades)…
-04:52:36 DEBUG   [portillapropiedades] 2 avisos vía tarjetas
-04:52:36 INFO      portillapropiedades: 2 avisos en 1s
-04:52:36 INFO    Barriendo Nativo Propiedades (nativopropiedades)…
-04:52:37 DEBUG   [nativopropiedades] 8 avisos vía tarjetas
-04:52:37 INFO      nativopropiedades: 8 avisos en 1s
-04:52:37 INFO    Barriendo MaxRenta (maxrenta)…
-04:52:41 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173143; se lee igual
-04:52:41 DEBUG   [houm] 1 avisos vía estado-embebido
-04:52:48 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173170; se lee igual
-04:52:48 DEBUG   [houm] 1 avisos vía estado-embebido
-04:52:56 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/175757; se lee igual
-04:52:56 DEBUG   [houm] 1 avisos vía estado-embebido
-04:52:59 DEBUG   [goplaceit] 30 avisos vía json-ld
-04:53:04 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/176912; se lee igual
-04:53:04 DEBUG   [houm] 1 avisos vía estado-embebido
-04:53:04 WARNING Error en https://www.contempora.cl/ (intento 1/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f4fbfaf5160>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
-04:53:08 WARNING Error en https://www.maxrenta.cl/ (intento 1/3): HTTPSConnectionPool(host='www.maxrenta.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.maxrenta.cl', port=443) at 0x7f4fbf40ac30>, 'Connection to www.maxrenta.cl timed out. (connect timeout=20)'))
-04:53:11 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/172624; se lee igual
-04:53:11 DEBUG   [houm] 1 avisos vía estado-embebido
-04:53:19 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/174379; se lee igual
-04:53:19 DEBUG   [houm] 1 avisos vía estado-embebido
-04:53:23 INFO      goplaceit: 90 avisos en 97s
-04:53:23 INFO    Barriendo Colliers Chile (colliers)…
-04:53:24 WARNING Error en https://www.colliers.cl/ (intento 1/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
-04:53:26 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/175432; se lee igual
-04:53:26 DEBUG   [houm] 1 avisos vía estado-embebido
-04:53:26 INFO      houm: 36 avisos en 74s
-04:53:26 INFO    Barriendo Zenta Group (zentagroup)…
-04:53:26 WARNING Error en https://www.colliers.cl/ (intento 2/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
-04:53:26 WARNING Error en https://www.contempora.cl/ (intento 2/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f4fbf310f20>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
-04:53:27 INFO      zentagroup: 0 avisos en 0s
-04:53:27 INFO    Barriendo Inciti (inciti)…
-04:53:27 INFO      inciti: 0 avisos en 0s
-04:53:27 INFO    Barriendo Enlace Inmobiliario (enlaceinmobiliario)…
-04:53:27 WARNING https://www.enlaceinmobiliario.cl/ respondió 403
-04:53:27 INFO    [enlaceinmobiliario] https://www.enlaceinmobiliario.cl/ rebotó al GET; se reintenta con navegador
-04:53:29 INFO      enlaceinmobiliario: 0 avisos en 2s
-04:53:29 INFO    Barriendo Arriendo Asegurado (arriendoasegurado)…
-04:53:30 WARNING Error en https://www.maxrenta.cl/ (intento 2/3): HTTPSConnectionPool(host='www.maxrenta.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.maxrenta.cl', port=443) at 0x7f4fbfc0ea80>, 'Connection to www.maxrenta.cl timed out. (connect timeout=20)'))
-04:53:31 WARNING Error en https://www.colliers.cl/ (intento 3/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
-04:53:31 WARNING   colliers: problema de certificado TLS
-04:53:31 INFO      colliers: 0 avisos en 7s
-04:53:31 INFO    Barriendo Rentas.cl (rentas_cl)…
-04:53:33 DEBUG   [rentas_cl] 1 avisos vía json-ld
-04:53:33 INFO      rentas_cl: 1 avisos en 2s
-04:53:33 INFO    Barriendo Arriendos.cl (arriendos_cl)…
-04:53:34 INFO      arriendos_cl: 0 avisos en 1s
-04:53:34 INFO    Barriendo Propiedades.cl (propiedades_cl)…
-04:53:35 DEBUG   [propiedades_cl] 6 avisos vía tarjetas
-04:53:35 INFO      propiedades_cl: 6 avisos en 1s
-04:53:35 INFO    Barriendo Inmuebles.cl (inmuebles_cl)…
-04:53:35 WARNING robots.txt no permite https://www.inmuebles.cl/ — se omite
-04:53:35 WARNING   inmuebles_cl: robots.txt del sitio no permite este acceso
-04:53:35 INFO      inmuebles_cl: 0 avisos en 1s
-04:53:35 INFO    Barriendo Clasificados.cl (clasificados_cl)…
-04:53:38 DEBUG   [clasificados_cl] 1 avisos vía tarjetas
-04:53:38 INFO      clasificados_cl: 1 avisos en 2s
-04:53:38 INFO    Barriendo Capitalizarme (capitalizarme)…
-04:53:38 WARNING robots.txt no permite https://www.capitalizarme.com/ — se omite
-04:53:38 WARNING   capitalizarme: robots.txt del sitio no permite este acceso
-04:53:38 INFO      capitalizarme: 0 avisos en 0s
-04:53:51 WARNING Error en https://www.contempora.cl/ (intento 3/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f4fbf2e4a10>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
-04:53:51 WARNING   contempora: el sitio no respondió a tiempo
-04:53:51 INFO      contempora: 0 avisos en 77s
-04:53:54 WARNING Error en https://www.maxrenta.cl/ (intento 3/3): HTTPSConnectionPool(host='www.maxrenta.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.maxrenta.cl', port=443) at 0x7f4fbf257e90>, 'Connection to www.maxrenta.cl timed out. (connect timeout=20)'))
-04:53:54 WARNING   maxrenta: el sitio no respondió a tiempo
-04:53:54 INFO      maxrenta: 0 avisos en 77s
-04:54:09 WARNING Error en https://www.arriendoasegurado.cl/ (intento 1/3): HTTPSConnectionPool(host='www.arriendoasegurado.cl', port=443): Read timed out. (read timeout=20)
-04:54:45 WARNING Error en https://www.arriendoasegurado.cl/ (intento 2/3): ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
-04:55:49 WARNING Error en https://www.arriendoasegurado.cl/ (intento 3/3): HTTPSConnectionPool(host='www.arriendoasegurado.cl', port=443): Read timed out. (read timeout=20)
-04:55:49 WARNING   arriendoasegurado: el sitio no respondió a tiempo
-04:55:49 INFO      arriendoasegurado: 0 avisos en 140s
-04:55:49 INFO    Total crudo: 915 avisos
-04:55:49 INFO    Después de deduplicar: 437
-04:55:49 INFO    Pasaron los filtros: 97
-04:55:51 INFO    10 avisos por mandar, tope 8: se posponen 2
-04:55:51 DEBUG   [chilepropiedades] 2 avisos vía json-ld
-04:55:52 DEBUG   [doomos] 24 avisos vía tarjetas
-04:55:52 DEBUG   Ficha de YVT22 sin candidato propio; no se fusiona
-04:55:52 DEBUG   [yapo] 2 avisos vía tarjetas
-04:55:52 DEBUG   Ficha de XSY82 sin candidato propio; no se fusiona
-04:55:53 DEBUG   [chilepropiedades] 2 avisos vía json-ld
-04:55:53 INFO    Enriquecido y descartado: 9Q7F5 (100 m² totales, no llega a más de 100 m²)
-04:55:54 DEBUG   [doomos] 32 avisos vía tarjetas
-04:55:54 DEBUG   Ficha de U44VT sin candidato propio; no se fusiona
-04:55:57 DEBUG   [doomos] 33 avisos vía tarjetas
-04:55:57 DEBUG   Ficha de KNAE9 sin candidato propio; no se fusiona
-04:55:58 DEBUG   [doomos] 33 avisos vía tarjetas
-04:55:58 DEBUG   Ficha de Q5K62 sin candidato propio; no se fusiona
-04:56:00 DEBUG   [doomos] 33 avisos vía tarjetas
-04:56:00 DEBUG   Ficha de ZWNAN sin candidato propio; no se fusiona
-04:56:03 INFO    Listo: 7 avisados de 97 candidatos
+12:25:49 INFO    UF = $40.856.64 (API del día)
+12:25:49 INFO    Barriendo TocToc (toctoc)…
+12:25:49 INFO    Barriendo Chilepropiedades (chilepropiedades)…
+12:25:49 INFO    Barriendo GoPlaceIt (goplaceit)…
+12:25:49 INFO    Barriendo Yapo (yapo)…
+12:25:50 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
+12:25:52 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
+12:25:54 DEBUG   [goplaceit] 30 avisos vía json-ld
+12:25:54 DEBUG   [chilepropiedades] 11 avisos vía tarjetas
+12:25:54 INFO      chilepropiedades: 33 avisos en 4s
+12:25:54 INFO    Barriendo BuscoNido (busconido)…
+12:25:55 INFO      busconido: 0 avisos en 2s
+12:25:55 INFO    Barriendo ComunaVitacura.cl (comunavitacura)…
+12:25:57 INFO      comunavitacura: 0 avisos en 2s
+12:25:57 INFO    Barriendo BienesOnline (bienesonline)…
+12:25:58 DEBUG   [bienesonline] 16 avisos vía tarjetas
+12:25:58 INFO      bienesonline: 16 avisos en 1s
+12:25:58 INFO    Barriendo Emol Propiedades (emol_propiedades)…
+12:25:59 DEBUG   [toctoc] 75 avisos vía json-ld
+12:26:00 WARNING robots.txt no permite https://www.propiedades.emol.com/propiedades/buscar?o=Arriendo&tp=Departamento&c=Vitacura — se omite
+12:26:00 WARNING   emol_propiedades: robots.txt del sitio no permite este acceso
+12:26:00 INFO      emol_propiedades: 0 avisos en 2s
+12:26:00 INFO    Barriendo Economicos (El Mercurio) (economicos)…
+12:26:00 WARNING https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0 respondió 403
+12:26:00 INFO    [economicos] https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0 rebotó al GET; se reintenta con navegador
+12:26:03 DEBUG   [yapo] 30 avisos vía tarjetas
+12:26:03 INFO      economicos: 0 avisos en 3s
+12:26:03 INFO    Barriendo iCasas (icasas)…
+12:26:04 DEBUG   [icasas] 15 avisos vía tarjetas
+12:26:06 DEBUG   [yapo] 30 avisos vía tarjetas
+12:26:06 DEBUG   [icasas] 15 avisos vía tarjetas
+12:26:06 INFO      icasas: 30 avisos en 3s
+12:26:06 INFO    Barriendo Doomos (doomos)…
+12:26:06 DEBUG   [toctoc] 75 avisos vía json-ld
+12:26:08 DEBUG   [doomos] 33 avisos vía tarjetas
+12:26:08 INFO      doomos: 33 avisos en 2s
+12:26:08 INFO    Barriendo Top Propiedades (toppropiedades)…
+12:26:09 DEBUG   [yapo] 30 avisos vía tarjetas
+12:26:09 INFO      yapo: 90 avisos en 19s
+12:26:09 INFO    Barriendo Trovit (trovit)…
+12:26:09 DEBUG   [toctoc] 75 avisos vía json-ld
+12:26:10 DEBUG   [trovit] 30 avisos vía json-ld
+12:26:12 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:12 DEBUG   [trovit] 30 avisos vía json-ld
+12:26:14 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:14 DEBUG   [trovit] 30 avisos vía json-ld
+12:26:15 INFO      trovit: 90 avisos en 7s
+12:26:15 INFO    Barriendo Nuroa (nuroa)…
+12:26:16 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:16 DEBUG   Encoding detection: ascii is most likely the one.
+12:26:17 DEBUG   [nuroa] 25 avisos vía json-ld
+12:26:18 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:19 DEBUG   [toctoc] 106 avisos vía estado-embebido
+12:26:19 DEBUG   [nuroa] 25 avisos vía json-ld
+12:26:19 INFO      nuroa: 50 avisos en 4s
+12:26:19 INFO    Barriendo Mitula (mitula)…
+12:26:20 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:21 DEBUG   [mitula] 30 avisos vía json-ld
+12:26:22 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:24 DEBUG   [mitula] 30 avisos vía json-ld
+12:26:24 INFO      mitula: 60 avisos en 4s
+12:26:24 INFO    Barriendo Nestoria (nestoria)…
+12:26:24 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:24 DEBUG   [goplaceit] 30 avisos vía json-ld
+12:26:25 DEBUG   [nestoria] 25 avisos vía json-ld
+12:26:25 INFO      nestoria: 25 avisos en 2s
+12:26:25 INFO    Barriendo Houm (houm)…
+12:26:26 DEBUG   [toppropiedades] 1 avisos vía json-ld
+12:26:26 INFO      toppropiedades: 8 avisos en 18s
+12:26:26 INFO    Barriendo Hey! Homes (heyhomes)…
+12:26:27 DEBUG   [toctoc] 106 avisos vía estado-embebido
+12:26:29 DEBUG   [heyhomes] 9 avisos vía tarjetas
+12:26:29 INFO      heyhomes: 9 avisos en 3s
+12:26:29 INFO    Barriendo AssetPlan (assetplan)…
+12:26:34 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamentos-region-metropolitana/vitacura/3-dormitorios; se lee igual
+12:26:34 DEBUG   [houm] 28 avisos vía json-ld
+12:26:39 DEBUG   [toctoc] 106 avisos vía estado-embebido
+12:26:39 INFO      toctoc: 543 avisos en 50s
+12:26:39 INFO    Barriendo Engel & Völkers (engelvoelkers)…
+12:26:40 INFO      assetplan: 0 avisos en 11s
+12:26:40 INFO    Barriendo RE/MAX Chile (remax)…
+12:26:46 DEBUG   [engelvoelkers] 18 avisos vía tarjetas
+12:26:46 INFO      engelvoelkers: 18 avisos en 7s
+12:26:46 INFO    Barriendo Fuenzalida Propiedades (fuenzalida)…
+12:26:47 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/170742; se lee igual
+12:26:47 DEBUG   [houm] 1 avisos vía estado-embebido
+12:26:50 INFO      remax: 0 avisos en 10s
+12:26:50 INFO    Barriendo Century 21 Chile (century21)…
+12:26:50 DEBUG   [fuenzalida] 20 avisos vía tarjetas
+12:26:51 INFO      century21: 0 avisos en 1s
+12:26:51 INFO    Barriendo Chile Sotheby's Realty (sothebys)…
+12:26:51 WARNING https://chile.sothebysrealty.com/ respondió 403
+12:26:51 INFO    [sothebys] https://chile.sothebysrealty.com/ rebotó al GET; se reintenta con navegador
+12:26:54 DEBUG   [fuenzalida] 20 avisos vía tarjetas
+12:26:57 INFO      sothebys: 0 avisos en 6s
+12:26:57 INFO    Barriendo Contempora Propiedades (contempora)…
+12:26:57 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173143; se lee igual
+12:26:57 DEBUG   [houm] 1 avisos vía estado-embebido
+12:26:59 DEBUG   [fuenzalida] 20 avisos vía tarjetas
+12:26:59 INFO      fuenzalida: 60 avisos en 13s
+12:26:59 INFO    Barriendo Property Partners (propertypartners)…
+12:26:59 DEBUG   [propertypartners] 1 avisos vía tarjetas
+12:26:59 INFO      propertypartners: 1 avisos en 0s
+12:26:59 INFO    Barriendo Magnolia Property (magnoliaproperty)…
+12:27:00 DEBUG   [magnoliaproperty] 9 avisos vía tarjetas
+12:27:00 INFO      magnoliaproperty: 9 avisos en 1s
+12:27:00 INFO    Barriendo Portilla Propiedades (portillapropiedades)…
+12:27:01 DEBUG   [portillapropiedades] 2 avisos vía tarjetas
+12:27:01 INFO      portillapropiedades: 2 avisos en 1s
+12:27:01 INFO    Barriendo Nativo Propiedades (nativopropiedades)…
+12:27:01 DEBUG   [nativopropiedades] 8 avisos vía tarjetas
+12:27:01 INFO      nativopropiedades: 8 avisos en 1s
+12:27:01 INFO    Barriendo MaxRenta (maxrenta)…
+12:27:02 INFO      maxrenta: 0 avisos en 1s
+12:27:02 INFO    Barriendo Colliers Chile (colliers)…
+12:27:03 WARNING Error en https://www.colliers.cl/ (intento 1/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
+12:27:05 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173170; se lee igual
+12:27:05 WARNING Error en https://www.colliers.cl/ (intento 2/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
+12:27:05 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:09 DEBUG   [goplaceit] 30 avisos vía json-ld
+12:27:09 WARNING Error en https://www.colliers.cl/ (intento 3/3): HTTPSConnectionPool(host='www.colliers.cl', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.colliers.cl'. (_ssl.c:1010)")))
+12:27:09 WARNING   colliers: problema de certificado TLS
+12:27:09 INFO      colliers: 0 avisos en 7s
+12:27:09 INFO    Barriendo Zenta Group (zentagroup)…
+12:27:10 INFO      zentagroup: 0 avisos en 1s
+12:27:10 INFO    Barriendo Inciti (inciti)…
+12:27:11 INFO      inciti: 0 avisos en 1s
+12:27:11 INFO    Barriendo Enlace Inmobiliario (enlaceinmobiliario)…
+12:27:11 WARNING https://www.enlaceinmobiliario.cl/ respondió 403
+12:27:11 INFO    [enlaceinmobiliario] https://www.enlaceinmobiliario.cl/ rebotó al GET; se reintenta con navegador
+12:27:13 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/175757; se lee igual
+12:27:13 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:18 INFO      enlaceinmobiliario: 0 avisos en 7s
+12:27:18 INFO    Barriendo Arriendo Asegurado (arriendoasegurado)…
+12:27:25 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/176912; se lee igual
+12:27:25 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:28 WARNING Error en https://www.contempora.cl/ (intento 1/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f6d7818bef0>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
+12:27:33 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/172624; se lee igual
+12:27:33 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:35 INFO      goplaceit: 90 avisos en 105s
+12:27:35 INFO    Barriendo Rentas.cl (rentas_cl)…
+12:27:37 DEBUG   [rentas_cl] 1 avisos vía json-ld
+12:27:37 INFO      rentas_cl: 1 avisos en 2s
+12:27:37 INFO    Barriendo Arriendos.cl (arriendos_cl)…
+12:27:38 INFO      arriendos_cl: 0 avisos en 1s
+12:27:38 INFO    Barriendo Propiedades.cl (propiedades_cl)…
+12:27:39 DEBUG   [propiedades_cl] 6 avisos vía tarjetas
+12:27:39 INFO      propiedades_cl: 6 avisos en 1s
+12:27:39 INFO    Barriendo Inmuebles.cl (inmuebles_cl)…
+12:27:39 WARNING robots.txt no permite https://www.inmuebles.cl/ — se omite
+12:27:39 WARNING   inmuebles_cl: robots.txt del sitio no permite este acceso
+12:27:39 INFO      inmuebles_cl: 0 avisos en 1s
+12:27:39 INFO    Barriendo Clasificados.cl (clasificados_cl)…
+12:27:40 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/174379; se lee igual
+12:27:41 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:42 DEBUG   [clasificados_cl] 1 avisos vía tarjetas
+12:27:42 INFO      clasificados_cl: 1 avisos en 3s
+12:27:42 INFO    Barriendo Capitalizarme (capitalizarme)…
+12:27:42 WARNING robots.txt no permite https://www.capitalizarme.com/ — se omite
+12:27:42 WARNING   capitalizarme: robots.txt del sitio no permite este acceso
+12:27:42 INFO      capitalizarme: 0 avisos en 0s
+12:27:48 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/providencia/175432; se lee igual
+12:27:48 DEBUG   [houm] 1 avisos vía estado-embebido
+12:27:48 INFO      houm: 36 avisos en 83s
+12:27:50 WARNING Error en https://www.contempora.cl/ (intento 2/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f6d705ba630>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
+12:28:14 WARNING Error en https://www.contempora.cl/ (intento 3/3): HTTPSConnectionPool(host='www.contempora.cl', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.contempora.cl', port=443) at 0x7f6d78404b00>, 'Connection to www.contempora.cl timed out. (connect timeout=20)'))
+12:28:14 WARNING   contempora: el sitio no respondió a tiempo
+12:28:14 INFO      contempora: 0 avisos en 77s
+12:28:28 WARNING Error en https://www.arriendoasegurado.cl/ (intento 1/3): HTTPSConnectionPool(host='www.arriendoasegurado.cl', port=443): Read timed out. (read timeout=20)
+12:29:10 WARNING Error en https://www.arriendoasegurado.cl/ (intento 2/3): HTTPSConnectionPool(host='www.arriendoasegurado.cl', port=443): Read timed out. (read timeout=20)
+12:29:34 WARNING Error en https://www.arriendoasegurado.cl/ (intento 3/3): HTTPSConnectionPool(host='www.arriendoasegurado.cl', port=443): Read timed out. (read timeout=20)
+12:29:34 WARNING   arriendoasegurado: el sitio no respondió a tiempo
+12:29:34 INFO      arriendoasegurado: 0 avisos en 137s
+12:29:34 INFO    Total crudo: 1219 avisos
+12:29:35 INFO    Después de deduplicar: 439
+12:29:35 INFO    Pasaron los filtros: 102
+12:29:36 INFO    17 avisos por mandar, tope 8: se posponen 9
+12:29:42 DEBUG   [toctoc] 1 avisos vía estado-embebido
+12:29:48 DEBUG   [toctoc] 1 avisos vía estado-embebido
+12:29:48 DEBUG   [chilepropiedades] 2 avisos vía json-ld
+12:29:54 DEBUG   [toctoc] 1 avisos vía estado-embebido
+12:29:58 DEBUG   [toctoc] 1 avisos vía estado-embebido
+12:30:04 DEBUG   [toctoc] 1 avisos vía estado-embebido
+12:30:04 DEBUG   [chilepropiedades] 2 avisos vía json-ld
+12:30:04 INFO    Enriquecido y descartado: 9Q7F5 (100 m² totales, no llega a más de 100 m²)
+12:30:07 INFO    Listo: 7 avisados de 102 candidatos

@@ -85,6 +85,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 15/08/2026 Arriendo Mensual / Departamento / Vitacura $ 1.000.000 Vitacura, Juan xxii / vitacura Habitaciones: 4 Baños: 3 Terreno: 120 m² Cod. 109.892 Departamento de 4 dormitorios y 3 baños en el sector de Juan XXIII en Vitacura, está a la venta por UF 8500. Con una ubicación inmejorabl... Publicado: 15/08/2026 Cód: 116463210 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 18-08-2026 04:51 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 18-08-2026 12:25 UTC.
 
 </details>
