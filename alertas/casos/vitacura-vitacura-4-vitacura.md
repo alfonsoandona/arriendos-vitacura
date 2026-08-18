@@ -1,5 +1,7 @@
 # Vitacura 4, Vitacura
 
+> ♻️ **Lleva 1096 días publicado — se negocia**
+
 **69/100** · `#Q5K62` · Vitacura · a 1,21 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Vitacura+4%2C+Vitacura%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
@@ -24,6 +26,7 @@
 | Antigüedad | — |
 | Piso | 3 |
 | Publicado | hace 1096 días |
+| Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
 
@@ -90,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Estupendo depto, excelente ubicación vitacura... Estupendo depto, excelente ubicación vitacura... Departamento - Región Metropolitana - Vitacura 4 Hab. 4 Baños 140.00 m² Estupendo departamento de 3 dormitorios, uno de ellos en suite, mas dormitorio y baño de servicio. cocina con comedor de diario, amplia loggia, terraza en living-comedor y todos los dormitorios. amplio... Publicado el 18/08/2023
 ```
 
-Leído de `doomos` vía `tarjeta` el 18-08-2026 14:18 UTC.
+Leído de `doomos` vía `tarjeta` el 18-08-2026 23:24 UTC.
 
 </details>

@@ -1,27 +1,71 @@
 # Historial de búsquedas
 
-_Actualizado 18-08-2026 17:23 UTC · 381 eventos guardados_
+_Actualizado 18-08-2026 23:28 UTC · 425 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 379 |
-| Dejaron de publicarse | 0 |
+| Departamentos nuevos | 400 |
+| Dejaron de publicarse | 23 |
 | Cambios de precio | 2 (2 a la baja) |
-| Canon mediano | $2.451.398 |
-| Canon mediano por m² | $14.511 |
+| Canon mediano | $2.410.542 |
+| Canon mediano por m² | $14.687 |
 
 ## Avisos nuevos por mes
 
 | Mes | Nuevos |
 |---|---|
-| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 379 |
+| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 400 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE UBICACIÓN VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | Casa en Machalí Condominio Alpino 5 Dorm. 5 Baños 23 · Machalí | — |
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE SECTOR VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE UBICACIÓN VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | Cod.: 8.211 Venta UF 69.000 Casa en Lo Barnechea San · Lo Barnechea | — |
+| 2026-08-18 | 📤 | COD: 48.367 Departamento en Estación Central Estació · Estación Central | — |
+| 2026-08-18 | 📤 | Vía Azul, Vitacura, Provincia de Santiago, Región Me · Lo Barnechea | $7.967.045 |
+| 2026-08-18 | 📤 | COD: 48.792 Departamento en Independencia Nueva Andr · Independencia | — |
+| 2026-08-18 | 📤 | Cod.: 7.677 Venta UF 37.500 Local Comercial en Vitac · Vitacura | — |
+| 2026-08-18 | 📤 | COD: 49.908 Departamento en Ñuñoa Pedro de Valdivia  · Valdivia | — |
+| 2026-08-18 | 📤 | COD: 50.436 Oficina en Santiago Estación de Metro Pa · Santiago | — |
+| 2026-08-18 | 📤 | Cod.: 7.928 Venta UF 15.800 Casa en Colina Jose Raba · Colina | — |
+| 2026-08-18 | 📤 | GRAN oficina en arriendo en Vitacura con Alonso de C · Vitacura | — |
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE SECTOR VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | GRAN oficina en arriendo en Vitacura con Alonso de C · Vitacura | — |
+| 2026-08-18 | 📤 | GRAN oficina en arriendo en Vitacura con Alonso de C · Vitacura | — |
+| 2026-08-18 | 📤 | Dorm. 240, Los Andes · Los Andes | — |
+| 2026-08-18 | 📤 | Cod.: 8.743 Venta UF 10.000 Arriendo $ 1.800.000 | $1.800.000 |
+| 2026-08-18 | 📤 | Conserjería 24, Vitacura · Vitacura | — |
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE SECTOR VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | SE ARRIENDA OFICINA EXCELENTE UBICACIÓN VITACURA · Vitacura | — |
+| 2026-08-18 | 📤 | Kennedy Interior, Vitacura, Provincia de Santiago, R · Vitacura | — |
+| 2026-08-18 | 📤 | Año 1998, Viña del Mar · Viña del Mar | $8.490.000 |
+| 2026-08-18 | 🆕 | Alonso de Córdova, Lo Castillo, Vitacura, Provincia  · Vitacura | — |
+| 2026-08-18 | 🆕 | Calle El Pangue 4262, Vitacura, Santiago, Metropolit · Vitacura | — |
+| 2026-08-18 | 🆕 | Espoz, Lo Castillo, Vitacura, Provincia de Santiago, · Vitacura | — |
+| 2026-08-18 | 🆕 | El Ciruelillo, Lo Castillo, Vitacura, Provincia de S · Vitacura | — |
+| 2026-08-18 | 🆕 | Los Acantos, Lo Castillo, Vitacura, Provincia de San · Vitacura | $1.500.000 |
+| 2026-08-18 | 🆕 | Avenida Presidente Kennedy Lateral, Vitacura, Provin · Vitacura | $400.000 |
+| 2026-08-18 | 🆕 | Calle Vía Aurora 9260, Vitacura, Santiago, Metropoli · Vitacura | — |
+| 2026-08-18 | 🆕 | Avenida Juan XXIII 6699, Vitacura, Santiago, Metropo · Vitacura | — |
+| 2026-08-18 | 🆕 | Alonso de Sotomayor, Vitacura, Provincia de Santiago · Vitacura | — |
+| 2026-08-18 | 🆕 | Cod.: 8.971 Arriendo UF 55 Departamento en Vitacura  · Vitacura | $2.247.115 |
+| 2026-08-18 | 🆕 | ARRIENDO 699 "Fuenzalida Propiedades El Golf (Código · Las Condes | $5.924.213 |
+| 2026-08-18 | 🆕 | Amplio Departamento en arriendo de 3 dorm. en Vitacu · Vitacura | — |
+| 2026-08-18 | 🆕 | Amplio Departamento en arriendo de 3 dorm. en Vitacu · Vitacura | — |
+| 2026-08-18 | 🆕 | Amplio Departamento en arriendo de 3 dorm. en Vitacu · Vitacura | — |
+| 2026-08-18 | 🆕 | Departamento en Vitacura, Provincia De Santiago Desc · Vitacura | $3.677.098 |
+| 2026-08-18 | 🆕 | Departamento en Vitacura, Provincia De Santiago Espe · Vitacura | $2.165.402 |
+| 2026-08-18 | 🆕 | , Nueva costanera Habitaciones: 4 Baños: 3 Terreno:  · Vitacura | $1.552.552 |
+| 2026-08-18 | 🆕 | NUEVA COSTANERA/FRANCISCO DE AGUIRRE/ PLAZA DEL HO · Vitacura | $1.500.256 |
+| 2026-08-18 | 🆕 | Amplio Departamento en arriendo de 3 dorm. en Vitacu · Vitacura | $2.165.402 |
+| 2026-08-18 | 🆕 | MUSEO RALLI / PLAZA TURQUIA / CANDELARIA GOYENECHEA · Vitacura | $2.165.402 |
+| 2026-08-18 | 🆕 | 3 dorm. 3 baños. 2 estac. Piso bajo. Vitacura · Vitacura | $1.700.000 |
 | 2026-08-18 | 🆕 | Las Tranqueras, Vitacura, Provincia de Santiago, Reg · Vitacura | — |
 | 2026-08-18 | 🆕 | Avenida Vitacura, Vitacura, Santiago, Metropolitana  · Vitacura | — |
 | 2026-08-18 | 🆕 | Avenida Vitacura 7490, Vitacura, Santiago, Metropoli · Vitacura | $3.472.814 |
@@ -38,47 +82,3 @@ _Actualizado 18-08-2026 17:23 UTC · 381 eventos guardados_
 | 2026-08-18 | 🆕 | Bedrooms 5, Vitacura · Vitacura | $3.186.818 |
 | 2026-08-18 | 🆕 | Bedrooms 3, Vitacura · Vitacura | $3.064.248 |
 | 2026-08-18 | 🆕 | Bedrooms 4, Vitacura · Vitacura | $2.655.682 |
-| 2026-08-18 | 🆕 | Bedrooms 2, Vitacura · Vitacura | $4.902.797 |
-| 2026-08-18 | 🆕 | Rosario Norte · Las Condes | $939.711 |
-| 2026-08-18 | 🆕 | Martín de Zamora, Region Metropolitana · Las Condes | $1.000.000 |
-| 2026-08-18 | 🆕 | Avenida Presidente Kennedy, Region Metropolitana · Las Condes | $2.200.000 |
-| 2026-08-18 | 🆕 | Espoz 2620, 763 0249 Vitacura, Chile, Parque Carolin · Vitacura | — |
-| 2026-08-18 | 🆕 | AMPLIO DEPARTAMENTO CERCANO A CLUB DE GOLF LOS LEONE · Vitacura | — |
-| 2026-08-18 | 🆕 | EL CLONQUI Sin número, El Clonqui, Vitacura · Vitacura | — |
-| 2026-08-18 | 🆕 | Rotonda Irene Frei, 764 0639 Vitacura, Chile, Plaza  · Las Condes | — |
-| 2026-08-18 | 🆕 | LOS MILITARES CON ALONSO DE CORDOVA 0, Avenida Alons · Las Condes | — |
-| 2026-08-18 | 🆕 | Los Militares 1 - 300, Plaza Manuel Rodríguez, Barri · Las Condes | — |
-| 2026-08-18 | 🆕 | Camino El Parque 100 111, Parque Carolina Rabat · Vitacura | — |
-| 2026-08-18 | 🆕 | Paul Harris, 760 0427 Provincia de Santiago, Chile,  · Las Condes | — |
-| 2026-08-18 | 🆕 | Calle La Aurora 2097, Vitacura, Santiago, Metropolit · Vitacura | — |
-| 2026-08-18 | 🆕 | Alejandro Serani, Vitacura, Provincia de Santiago, R · Vitacura | — |
-| 2026-08-18 | 🆕 | Vía Azul, Vitacura, Provincia de Santiago, Región Me · Lo Barnechea | $7.967.045 |
-| 2026-08-18 | 🆕 | Rodrigo de Quiroga, Vitacura, Provincia de Santiago, · Vitacura | — |
-| 2026-08-18 | 🆕 | Francisco de Aguirre, Vitacura, Provincia de Santiag · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Raimundo Larrain, Lo Barnechea, Santiago, Metr · Lo Barnechea | — |
-| 2026-08-18 | 🆕 | Espoz, Vitacura, Provincia de Santiago, Región Metro · Vitacura | — |
-| 2026-08-18 | 🆕 | Luis Carrera, Jardín del Este, Vitacura, Provincia d · Vitacura | — |
-| 2026-08-18 | 🆕 | Carmen Fariña, Vitacura, Provincia de Santiago, Regi · Vitacura | — |
-| 2026-08-18 | 🆕 | Jardines Nueva Costanera, Vitacura, Provincia de San · Vitacura | — |
-| 2026-08-18 | 🆕 | Lo Curro, Vitacura, Santiago, Metropolitana de Santi · Vitacura | — |
-| 2026-08-18 | 🆕 | Las Fresas, Vitacura, Provincia de Santiago, Región  · Vitacura | — |
-| 2026-08-18 | 🆕 | Kennedy Interior, Vitacura, Provincia de Santiago, R · Vitacura | — |
-| 2026-08-18 | 🆕 | Avenida Presidente Kennedy 10290, Vitacura, Santiago · Vitacura | — |
-| 2026-08-18 | 🆕 | Avenida Américo Vespucio Norte, Vitacura, Provincia  · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle El Coigüe 3859, Vitacura, Santiago, Metropolit · Vitacura | $500.000 |
-| 2026-08-18 | 🆕 | Pasaje Hualtatas, Vitacura, Provincia de Santiago, R · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Vía Verde 3847, Vitacura, Santiago, Metropolit · Vitacura | $1.500.000 |
-| 2026-08-18 | 🆕 | Calle Paul Claudel 1114, Vitacura, Santiago, Metropo · Vitacura | — |
-| 2026-08-18 | 🆕 | 764, Vitacura, Metropolitana de Santiago, CHL · Vitacura | $500.000 |
-| 2026-08-18 | 🆕 | Teresa Concha, Vitacura, Provincia de Santiago, Regi · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Luis Carrera 1131, Vitacura, Santiago, Metropo · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Candelaria Goyenechea 4998, Vitacura, Santiago · Vitacura | — |
-| 2026-08-18 | 🆕 | El Clonqui, Vitacura, Provincia de Santiago, Región  · Vitacura | — |
-| 2026-08-18 | 🆕 | Chapultepec, Jardín del Este, Vitacura, Provincia de · Vitacura | — |
-| 2026-08-18 | 🆕 | Candelaria Goyenechea, Lo Castillo, Vitacura, Provin · Vitacura | — |
-| 2026-08-18 | 🆕 | El Tamarugo, Vitacura, Provincia de Santiago, Región · Vitacura | $2.819.108 |
-| 2026-08-18 | 🆕 | El Arcángel, Vitacura, Provincia de Santiago, Región · Vitacura | $4.000.000 |
-| 2026-08-18 | 🆕 | El Nogal, Vitacura, Provincia de Santiago, Región Me · Vitacura | — |
-| 2026-08-18 | 🆕 | Avenida Nueva Costanera 3698, Vitacura, Santiago, Me · Vitacura | — |
-| 2026-08-18 | 🆕 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Las Nieves 3405, Vitacura, Santiago, Metropoli · Vitacura | — |
