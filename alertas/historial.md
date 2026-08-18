@@ -1,27 +1,33 @@
 # Historial de búsquedas
 
-_Actualizado 18-08-2026 14:22 UTC · 375 eventos guardados_
+_Actualizado 18-08-2026 17:23 UTC · 381 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 373 |
+| Departamentos nuevos | 379 |
 | Dejaron de publicarse | 0 |
 | Cambios de precio | 2 (2 a la baja) |
 | Canon mediano | $2.451.398 |
-| Canon mediano por m² | $14.355 |
+| Canon mediano por m² | $14.511 |
 
 ## Avisos nuevos por mes
 
 | Mes | Nuevos |
 |---|---|
-| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 373 |
+| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 379 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
+| 2026-08-18 | 🆕 | Las Tranqueras, Vitacura, Provincia de Santiago, Reg · Vitacura | — |
+| 2026-08-18 | 🆕 | Avenida Vitacura, Vitacura, Santiago, Metropolitana  · Vitacura | — |
+| 2026-08-18 | 🆕 | Avenida Vitacura 7490, Vitacura, Santiago, Metropoli · Vitacura | $3.472.814 |
+| 2026-08-18 | 🆕 | COD: 45.994 Departamento en Las Condes Parque Arauco · Las Condes | $1.756.836 |
+| 2026-08-18 | 🆕 | Departamento Vitacura, Santiago, Metropolitana De Sa · Vitacura | $1.250.000 |
+| 2026-08-18 | 🆕 | , Nueva costanera Habitaciones: 4 Baños: 3 Terreno:  · Vitacura | $1.552.552 |
 | 2026-08-18 | 📉 | Bedrooms 2, Vitacura — antes $4.902.797 | $2.410.542 |
 | 2026-08-18 | 🆕 | Avenida Vitacura, Vitacura, Provincia de Santiago, R · Vitacura | $7.000.000 |
 | 2026-08-18 | 🆕 | Andrés de Vera, Vitacura, Provincia de Santiago, Reg · Vitacura | $1.750.000 |
@@ -76,9 +82,3 @@ _Actualizado 18-08-2026 14:22 UTC · 375 eventos guardados_
 | 2026-08-18 | 🆕 | Avenida Nueva Costanera 3698, Vitacura, Santiago, Me · Vitacura | — |
 | 2026-08-18 | 🆕 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura | — |
 | 2026-08-18 | 🆕 | Calle Las Nieves 3405, Vitacura, Santiago, Metropoli · Vitacura | — |
-| 2026-08-18 | 🆕 | Camino Santa Teresa de Los Andes, Vitacura, Provinci · Vitacura | — |
-| 2026-08-18 | 🆕 | Costanera Sur San Josemaría Escrivá de Balaguer, Vit · Vitacura | — |
-| 2026-08-18 | 🆕 | Vía Aurora, Vitacura, Provincia de Santiago, Región  · Vitacura | — |
-| 2026-08-18 | 🆕 | Camino El Parque, Vitacura, Provincia de Santiago, R · Vitacura | — |
-| 2026-08-18 | 🆕 | Aurelio González, Vitacura, Provincia de Santiago, R · Vitacura | — |
-| 2026-08-18 | 🆕 | Miguel Comas, Vitacura, Provincia de Santiago, Regió · Vitacura | — |
