@@ -15,7 +15,8 @@ from . import scoring as S
 from .alerts.telegram import Telegram, mensaje_bajas, mensaje_sobrantes
 from .bitacora import escribir_bitacora
 from .config import (ALERTAS_DIR, LOGS_DIR, STATE_DIR, PerfilInvalido,
-                     cargar_perfil, dir_alertas, dir_estado, dir_logs)
+                     cargar_perfil, dir_alertas, dir_docs, dir_estado,
+                     dir_logs)
 from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .historial import (a_markdown as historial_markdown,
@@ -274,6 +275,72 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
     return salida
 
 
+TOPE_GEOCODE_POR_CORRIDA = 25
+
+# Un resultado a más de esto del ancla no es la propiedad: es una calle
+# homónima en otra ciudad. Peor que no tener coordenadas es tener las de otro
+# lugar — el rubro Ubicación castigaría un departamento que sí está en
+# Vitacura por culpa del geocodificador.
+_MAX_KM_PLAUSIBLE = 40.0
+
+
+def _geocodificar(candidatos: list, perfil: dict, stats: dict) -> None:
+    """Coordenadas para los candidatos con dirección. Nunca levanta."""
+    from .geo import consultas_geocode, geocode, haversine_km
+    from .geocache import Cache
+
+    ancla = perfil.get("ancla") or {}
+    ancla_lat, ancla_lon = ancla.get("lat"), ancla.get("lon")
+
+    cache = Cache(dir_estado())
+    preguntas = 0
+    ubicados = 0
+    try:
+        for a in candidatos:
+            if a.lat is not None or not a.direccion:
+                continue
+            formas = consultas_geocode(a.direccion, a.comuna)
+            coords = None
+            for forma in formas:
+                if (c := cache.coords(forma)):
+                    coords = c
+                    break
+            if coords is None:
+                for forma in formas:
+                    if preguntas >= TOPE_GEOCODE_POR_CORRIDA:
+                        break
+                    if not cache.hay_que_preguntar(forma):
+                        continue
+                    preguntas += 1
+                    c = geocode(forma)
+                    cache.anotar(forma, c)
+                    if c:
+                        coords = c
+                        break
+            if not coords:
+                continue
+            if ancla_lat is not None and haversine_km(
+                    coords[0], coords[1], ancla_lat, ancla_lon) > _MAX_KM_PLAUSIBLE:
+                continue
+            a.lat, a.lon = coords
+            a.extras["geo_origen"] = "geocodificada de la dirección"
+            # Con coordenadas cambia el rubro Ubicación (y puede descartar,
+            # si desmienten una comuna deducida): se recalcula.
+            S.evaluar(a, perfil)
+            ubicados += 1
+    except Exception as e:                                       # noqa: BLE001
+        # El geocoding es un lujo, no una pierna: si Nominatim se cae, la
+        # corrida sigue con lo que haya.
+        log.warning("Geocoding interrumpido: %s", e)
+    cache.purgar()
+    cache.guardar()
+    stats["geocodificados"] = ubicados
+    stats["geocode_requests"] = preguntas
+    if ubicados:
+        log.info("Ubicados en el mapa: %d (con %d consultas nuevas)",
+                 ubicados, preguntas)
+
+
 def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             stats: dict) -> int:
     store = Store(dir_estado())
@@ -422,6 +489,17 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     candidatos = [a for a in unicos if not a.descartado]
     stats["candidatos"] = len(candidatos)
     log.info("Pasaron los filtros: %d", len(candidatos))
+
+    # --- 4c. ubicar en el mapa a los que tienen dirección ---
+    #
+    # Los portales de arriendo no publican coordenadas (0% del tablero real),
+    # así que se geocodifica la dirección, con la caché y la disciplina del
+    # radar de remates: un request por segundo, tope por corrida, y cada
+    # dirección —resuelta o imposible— se paga UNA vez en la vida del radar.
+    # Con coordenadas, el rubro Ubicación deja de puntuar a ciegas y el
+    # dashboard tiene mapa. Ver arriendo/geocache.py.
+    _geocodificar(candidatos, perfil, stats)
+    candidatos = [a for a in candidatos if not a.descartado]
 
     # La frescura, para el tablero: qué es nuevo en ESTA corrida y desde
     # cuándo se conoce cada uno. Se anota antes de registrar, porque después
@@ -610,6 +688,11 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         store.purgar()
         store.guardar(unicos)
         escribir_tablero(unicos, dir_alertas(), perfil)
+        # Los dos dashboards del usuario: docs/index.html (todo el mercado)
+        # y docs/hoy.html (últimas 24 h). Se PISAN en cada corrida; la
+        # historia vive en el estado y en alertas/historial.md.
+        from .dashboard import escribir_dashboards
+        escribir_dashboards(unicos, dir_docs(), perfil)
 
     stats["fin"] = ahora_utc()
     escribir_bitacora(stats, dir_logs())

@@ -152,6 +152,11 @@ _UA = "radar-arriendos/1.0 (uso personal, busqueda de arriendo)"
 # Nominatim exige máximo 1 request por segundo.
 _ULTIMA_LLAMADA = 0.0
 
+# Indirección para que los tests apaguen SOLO esta espera: parchear
+# time.sleep a secas apaga también los sleeps de los que sí miden tiempo
+# (los tests del barrido paralelo se cayeron así).
+_dormir = time.sleep
+
 
 def geocode(direccion: str, session: Any = None,
             timeout: int = 20) -> tuple[float, float] | None:
@@ -165,7 +170,7 @@ def geocode(direccion: str, session: Any = None,
 
     espera = 1.0 - (time.time() - _ULTIMA_LLAMADA)
     if espera > 0:
-        time.sleep(espera)
+        _dormir(espera)
     _ULTIMA_LLAMADA = time.time()
 
     s = session or requests

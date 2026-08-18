@@ -155,16 +155,17 @@ jobs:
             tail -n 400 logs/ultima-corrida.log > logs/.tmp \
               && mv logs/.tmp logs/ultima-corrida.log
           fi
+          # docs/ son los dos dashboards, que se pisan en cada corrida.
           # alertas/ va junto con el estado y no aparte: el mensaje de
           # Telegram lleva el link a alertas/casos/<ficha>.md adentro, así que
           # si el push se hace sin las fichas el aviso llega con un 404.
-          if [[ -z "$(git status --porcelain state/ logs/ alertas/)" ]]; then
+          if [[ -z "$(git status --porcelain state/ logs/ alertas/ docs/)" ]]; then
             echo "Sin cambios que guardar."
             exit 0
           fi
           git config user.name  "radar-arriendos[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/ logs/ alertas/
+          git add state/ logs/ alertas/ docs/
           git commit -m "bitacora: corrida $(date -u +%Y-%m-%d\ %H:%M) UTC"
           # La rama pudo avanzar mientras corría el job. OJO con el remate
           # fuera del loop: la versión anterior podía terminar su tercera

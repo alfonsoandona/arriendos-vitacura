@@ -45,3 +45,19 @@ def sin_red(monkeypatch):
     monkeypatch.setattr(socket, "create_connection", prohibido)
     monkeypatch.setattr(socket.socket, "connect", prohibido)
     monkeypatch.setattr(socket.socket, "connect_ex", prohibido)
+
+
+@pytest.fixture(autouse=True)
+def sin_geocode(monkeypatch):
+    """Salta el segundo de cortesía de Nominatim en los tests.
+
+    La red ya está cortada (sin_red), así que ningún geocode resuelve; pero
+    `geo.geocode` espera 1 segundo ENTRE llamadas por respeto al servicio, y
+    esa espera corre aunque la llamada vaya a fallar. Con el tope de 25 por
+    corrida, cada test del pipeline pagaba ~25 segundos de sleep por nada:
+    la suite entera pasó de 5 a 89 segundos el día que entró el geocoding.
+
+    Los tests del propio geocoding parchan `geo.geocode` con un doble.
+    """
+    from arriendo import geo
+    monkeypatch.setattr(geo, "_dormir", lambda s: None)

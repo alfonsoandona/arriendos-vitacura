@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Radar de Arriendos · Vitacura</title><style>
+:root { color-scheme: light dark;
+  --sup:#fcfcfb; --sup2:#f3f2ef; --tinta:#0b0b0b; --tinta2:#52514e;
+  --borde:#e3e2de; --azul:#2a78d6; --gris:#8b8a85; --rojo:#c62f2f;
+  --verde:#1d7a33; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --sup:#1a1a19; --sup2:#242423; --tinta:#f4f4f2; --tinta2:#c3c2b7;
+  --borde:#3a3937; --azul:#3987e5; --gris:#8b8a85; --rojo:#e66767;
+  --verde:#4fae63; } }
+:root[data-theme="dark"] {
+  --sup:#1a1a19; --sup2:#242423; --tinta:#f4f4f2; --tinta2:#c3c2b7;
+  --borde:#3a3937; --azul:#3987e5; --gris:#8b8a85; --rojo:#e66767;
+  --verde:#4fae63; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--sup); color:var(--tinta);
+  font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+main { max-width:820px; margin:0 auto; padding:12px 14px 48px; }
+header.top { display:flex; flex-wrap:wrap; gap:8px 14px; align-items:baseline;
+  padding:14px 2px 4px; }
+header.top h1 { font-size:1.25rem; margin:0; }
+nav a { text-decoration:none; color:var(--azul); font-weight:600;
+  padding:4px 10px; border-radius:999px; }
+nav a.activo { background:var(--azul); color:#fff; }
+.sello { color:var(--tinta2); font-size:.85rem; width:100%; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:10px; margin:10px 0; }
+.kpi { background:var(--sup2); border:1px solid var(--borde);
+  border-radius:12px; padding:10px 12px; }
+.kpi b { display:block; font-size:1.5rem; line-height:1.1; }
+.kpi span { color:var(--tinta2); font-size:.8rem; }
+.card { background:var(--sup2); border:1px solid var(--borde);
+  border-radius:14px; padding:14px 14px 10px; margin:14px 0; }
+.card h2 { font-size:1.02rem; margin:0 0 8px; }
+.pie { color:var(--tinta2); font-size:.8rem; margin:8px 0 2px; }
+.leyenda { display:flex; gap:14px; font-size:.82rem; color:var(--tinta2);
+  margin-bottom:6px; }
+.dot { display:inline-block; width:10px; height:10px; border-radius:50%;
+  background:var(--gris); margin-right:4px; }
+.dot.nuevo { background:var(--azul); }
+.mapa svg, .histo svg { width:100%; height:auto; display:block; }
+.anillo { fill:none; stroke:var(--borde); stroke-width:2;
+  stroke-dasharray:6 6; }
+.anillo-txt, .eje-txt, .marca-txt, .ancla-txt { fill:var(--tinta2);
+  font-size:13px; }
+.ancla circle { fill:var(--tinta); }
+.punto { fill:var(--gris); fill-opacity:.85; stroke:var(--sup);
+  stroke-width:2; }
+.punto.nuevo { fill:var(--azul); }
+.punto:hover { fill-opacity:1; }
+.barra { fill:var(--azul); }
+.eje { stroke:var(--borde); stroke-width:2; }
+.tope { stroke:var(--rojo); stroke-width:2; }
+.mediana { stroke:var(--tinta2); stroke-width:2; stroke-dasharray:4 4; }
+.tope-txt { fill:var(--rojo); }
+#filtro { width:100%; padding:8px 12px; margin-bottom:8px; font:inherit;
+  border:1px solid var(--borde); border-radius:10px; background:var(--sup);
+  color:var(--tinta); }
+.scroll { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; font-size:.86rem;
+  min-width:640px; }
+th { text-align:left; cursor:pointer; position:sticky; top:0;
+  background:var(--sup2); border-bottom:2px solid var(--borde);
+  padding:6px 8px; white-space:nowrap; user-select:none; }
+td { border-bottom:1px solid var(--borde); padding:6px 8px;
+  vertical-align:top; }
+td.dir { min-width:200px; }
+.links { font-size:.78rem; } .links a { color:var(--azul); }
+.chip { font-size:.8rem; margin-left:2px; }
+code { background:var(--sup); padding:1px 5px; border-radius:6px;
+  font-size:.8rem; }
+.vacio { text-align:center; padding:40px 10px; color:var(--tinta2); }
+.vacio b { font-size:1.1rem; color:var(--tinta); }
+footer { color:var(--tinta2); font-size:.8rem; margin-top:18px; }
+footer a { color:var(--azul); }
+</style></head>
+<body><main>
+<header class="top"><h1>📡 Radar de Arriendos · Vitacura</h1><nav><a href="index.html" class=activo>Todos</a><a href="hoy.html">Últimas 24 h</a></nav>
+<span class="sello">Actualizado: 18-08-2026 13:20 UTC · se pisa en cada corrida</span>
+</header>
+<div class="kpis"><div class=kpi><b>1</b><span>candidatos vivos</span></div><div class=kpi><b>1</b><span>nuevos en 24 h</span></div><div class=kpi><b>0</b><span>bajando de precio</span></div><div class=kpi><b>$1.480.000</b><span>canon mediano</span></div><div class=kpi><b>0</b><span>ubicados en el mapa</span></div></div><section class="card"><h2>📍 El barrio</h2><p class="vacio"><b>El mapa se está llenando.</b><br>Las direcciones se ubican de a 25 por corrida (cortesía con OpenStreetMap); en un par de corridas los puntos aparecen solos acá.</p></section><section class="card"><h2>📋 Todos, para comparar</h2><input id="filtro" type="search" placeholder="Filtrar por calle, código, portal…" aria-label="Filtrar la tabla"><div class="scroll"><table id="tabla"><thead><tr><th data-col="0" data-num="1">⭐</th><th data-col="1" data-num="0">Código</th><th data-col="2" data-num="0">Dirección</th><th data-col="3" data-num="1">$/mes</th><th data-col="4" data-num="1">GC</th><th data-col="5" data-num="1">m²</th><th data-col="6" data-num="0">D/B</th><th data-col="7" data-num="0">Piso</th><th data-col="8" data-num="0">Años</th><th data-col="9" data-num="1">Días</th></tr></thead><tbody><tr><td data-v="88"><b>88</b></td><td><code>#GHSMS</code></td><td class="dir">Avenida Santa María 6800 <span class=chip>🆕</span><br><span class="links"><a href="../alertas/casos/vitacura-avenida-santa-maria-6800-depto-1102.md">ficha</a> · <a href="https://ejemplo.cl/aviso/12001" target="_blank" rel="noopener">aviso</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Avenida+Santa+Mar%C3%ADa+6800%2C+Vitacura%2C+Chile" target="_blank" rel="noopener">📍</a></span></td><td data-v="1675000.0">$1.675.000</td><td data-v="195000.0">$195.000</td><td data-v="134.0">134</td><td>3/3</td><td>11</td><td>10</td><td data-v="0">0</td></tr></tbody></table></div><p class="pie">`*` = costo sin gastos comunes (el aviso no los publica). Tocar una columna la ordena.</p></section>
+<footer>El detalle de cada uno vive en su ficha. ¿Viste o llamaste por
+alguno? Anótalo en <a
+href="https://github.com/alfonsoandona/arriendos-vitacura/edit/claude/telegram-vitacura-rentals-alert-48wnuy/gestion.yml">gestion.yml</a>
+con su código — un <code>descartado</code> no vuelve a sonar.</footer>
+</main><script>
+document.querySelectorAll('#tabla th').forEach(th => th.onclick = () => {
+  const t = th.closest('table'), tb = t.tBodies[0];
+  const i = +th.dataset.col, num = th.dataset.num === '1';
+  const asc = th.dataset.asc !== '1';
+  t.querySelectorAll('th').forEach(o => delete o.dataset.asc);
+  th.dataset.asc = asc ? '1' : '0';
+  Array.from(tb.rows).sort((a, b) => {
+    const ca = a.cells[i], cb = b.cells[i];
+    const va = num ? +(ca.dataset.v ?? ca.textContent) : ca.textContent.trim();
+    const vb = num ? +(cb.dataset.v ?? cb.textContent) : cb.textContent.trim();
+    return (va > vb ? 1 : va < vb ? -1 : 0) * (asc ? 1 : -1);
+  }).forEach(r => tb.appendChild(r));
+});
+const f = document.getElementById('filtro');
+if (f) f.oninput = () => {
+  const q = f.value.toLowerCase();
+  document.querySelectorAll('#tabla tbody tr').forEach(r =>
+    r.style.display = r.textContent.toLowerCase().includes(q) ? '' : 'none');
+};
+</script></body></html>

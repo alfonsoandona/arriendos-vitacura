@@ -41,6 +41,16 @@ def dir_alertas(entorno: dict[str, str] | None = None) -> Path:
     return Path(env.get("ARRIENDO_ALERTAS_DIR") or RAIZ / "alertas")
 
 
+def dir_docs(entorno: dict[str, str] | None = None) -> Path:
+    """Dónde se escriben los dashboards HTML, según ARRIENDO_DOCS_DIR.
+
+    `docs/` y no otro nombre porque es la única carpeta que GitHub Pages
+    puede servir directamente sin workflow de deploy.
+    """
+    env = os.environ if entorno is None else entorno
+    return Path(env.get("ARRIENDO_DOCS_DIR") or RAIZ / "docs")
+
+
 STATE_DIR = dir_estado()
 LOGS_DIR = dir_logs()
 ALERTAS_DIR = dir_alertas()

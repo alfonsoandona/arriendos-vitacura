@@ -27,6 +27,7 @@ basta el navegador de un celular o la app de GitHub.
 | Qué necesitas hacer | Cómo, desde el teléfono |
 |---|---|
 | **Recibir alertas** | Nada. Llegan solas por Telegram. Configuración: [`AVISOS.md`](AVISOS.md) |
+| **Ver el dashboard** | `docs/index.html` (todo el mercado, con mapa) y `docs/hoy.html` (últimas 24 h) — con GitHub Pages activado quedan en `alfonsoandona.github.io/arriendos-vitacura` |
 | **Ver todo lo vigente** | [`alertas/`](alertas/) — tablero: nuevos del día, bajas de precio, tu lista corta |
 | **Ver el detalle de uno** | El link del aviso, o `alertas/casos/` |
 | **Anotar uno que viste o llamaste** | [`gestion.yml`](gestion.yml) → su código `#ABC12` + estado/datos. `descartado` no vuelve a sonar |
