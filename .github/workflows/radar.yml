@@ -59,13 +59,22 @@ jobs:
         #
         # Sin timeout este paso puede colgarse: --with-deps corre apt-get, que
         # a veces queda esperando un lock del runner y se lleva los 30 minutos
-        # del job. Con tope falla rápido, y el fallback instala solo el
-        # navegador — la imagen ubuntu-latest ya trae casi todas sus librerías.
-        timeout-minutes: 5
+        # del job. PERO el tope va ADENTRO del comando y no en timeout-minutes:
+        # la corrida perdida del 17-08 23:23 enseñó que timeout-minutes mata el
+        # PASO completo — el fallback del `||` nunca corre y el job entero se
+        # cae por un mirror de apt a 2 KB/s bajando fuentes de letra. Con
+        # `timeout` adentro, el fallback (solo el navegador, sin apt, desde el
+        # CDN de Playwright) sí alcanza a correr.
+        #
+        # Y continue-on-error porque un radar sin Chromium pierde 5 fuentes de
+        # 41 — un radar cuyo job murió pierde el día entero. Misma asimetría
+        # que el paso de tests.
+        timeout-minutes: 10
+        continue-on-error: true
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          python -m playwright install --with-deps chromium \
+          timeout 240 python -m playwright install --with-deps chromium \
             || python -m playwright install chromium
 
       - name: Verificar el motor de filtrado

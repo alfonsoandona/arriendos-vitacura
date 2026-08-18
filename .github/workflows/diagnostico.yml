@@ -36,12 +36,14 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Instalar Chromium
-        # Mismo tope y mismo fallback que el radar (ver radar.yml).
-        timeout-minutes: 5
+        # Mismo tope y mismo fallback que el radar (ver radar.yml): el tope va
+        # ADENTRO con `timeout` para que el fallback alcance a correr.
+        timeout-minutes: 10
+        continue-on-error: true
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          python -m playwright install --with-deps chromium \
+          timeout 240 python -m playwright install --with-deps chromium \
             || python -m playwright install chromium
 
       - name: Diagnosticar
