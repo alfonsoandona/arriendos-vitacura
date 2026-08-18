@@ -221,3 +221,41 @@ jobs:
             -d parse_mode=HTML \
             --data-urlencode text="$MSG" \
             > /dev/null || true
+
+  # GitHub Pages es la única forma de VER los dashboards: la app y la web de
+  # GitHub muestran un HTML del repo como código fuente. Y tiene que ser un
+  # job de ESTE workflow: el push de la bitácora usa GITHUB_TOKEN, y un push
+  # con ese token jamás gatilla otros workflows (guardia anti-recursión de
+  # GitHub) — pages.yml aparte nunca se enteraría de la corrida.
+  publicar-dashboard:
+    needs: radar
+    if: ${{ always() && !inputs.dry_run && !inputs.sin_historial }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # La RAMA, no el commit que gatilló: el job radar acaba de pushear
+          # los docs nuevos y son esos los que hay que servir.
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
