@@ -214,6 +214,23 @@ def test_el_ano_con_punto_de_miles():
     assert P.parse_antiguedad("construido en 2.018")[0] == 2018
 
 
+# Un fundo del Maule entró al tablero real de Vitacura: sin comuna
+# reconocible, nada lo botaba — pero la región SÍ estaba escrita.
+
+def test_un_fundo_es_terreno_no_vivienda():
+    assert P.parse_tipo("Fundo 750 hectáreas, Región del Maule") == "terreno"
+
+
+@pytest.mark.parametrize("texto,esperada", [
+    ("Región del Maule. Fundo 750", "Maule"),
+    ("Hermosa parcela en la Región de Los Lagos", "Los Lagos"),
+    ("Región Metropolitana de Santiago", ""),
+    ("Departamento en Vitacura", ""),
+])
+def test_region_ajena_declarada(texto, esperada):
+    assert P.region_ajena(texto) == esperada
+
+
 def test_el_guion_con_espacios_sigue_separando_dos_conceptos():
     """La corrección no puede tragarse el caso opuesto.
 

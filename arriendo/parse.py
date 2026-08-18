@@ -1200,7 +1200,11 @@ _TIPO_NO_VIVIENDA = (
     ("local comercial", r"locales?\s+comerciales?|local\s+comercial"),
     ("estacionamiento", r"estacionamientos?"),
     ("bodega", r"bodegas?"),
-    ("terreno", r"parcelas?|predios?|loteos?|lotes?|sitios?\s+eriazos?"),
+    # "fundos?" entró por un aviso REAL colado al tablero: "Región del Maule.
+    # Fundo 750" como candidato de arriendo en Vitacura. "campo" queda fuera
+    # a propósito: "Club de Campo" es nombre de condominio en Santiago.
+    ("terreno", r"parcelas?|predios?|loteos?|lotes?|sitios?\s+eriazos?"
+                r"|fundos?|haciendas?"),
 )
 
 # La misma palabra, cuando cuelga de un "con", un "y" o un "más", describe un
@@ -1345,6 +1349,24 @@ def parse_comuna(texto: str, candidatas: list[str] | None = None) -> str:
         if re.search(rf"\b{re.escape(norm(c))}\b", t) and len(c) > len(mejor):
             mejor = c
     return mejor
+
+
+# Las regiones de Chile que NO son la Metropolitana. Que el aviso nombre una
+# es un DATO publicado, no una ausencia: la regla nº1 ("un dato ausente nunca
+# descarta") no lo protege. Existe por un aviso real: "Región del Maule.
+# Fundo 750" entró al tablero de Vitacura porque su comuna era desconocida.
+_REGIONES_AJENAS = re.compile(
+    r"\bregi[oó]n\s+(?:de\s+|del\s+)?"
+    r"(maule|valpara[ií]so|biob[ií]o|bio\s*bio|coquimbo|atacama"
+    r"|antofagasta|tarapac[aá]|arica|ays[eé]n|magallanes|[nñ]uble"
+    r"|araucan[ií]a|los\s+lagos|los\s+r[ií]os|o'?higgins"
+    r"|libertador[^.,;]{0,30})", re.I)
+
+
+def region_ajena(texto: str) -> str:
+    """La región NO metropolitana que el aviso declara, si declara una."""
+    m = _REGIONES_AJENAS.search(texto or "")
+    return m.group(1).strip().title() if m else ""
 
 
 def parse_comuna_de_url(url: str) -> str:

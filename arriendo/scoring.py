@@ -322,6 +322,15 @@ def evaluar_zona(l: Arriendo, perfil: dict) -> tuple[bool, str, float | None]:
                 f"a {distancia:.0f} km del ancla: la comuna se dedujo del "
                 f"barrio y las coordenadas la desmienten", distancia)
 
+    # Una región ajena DECLARADA descarta aunque la comuna sea desconocida.
+    # No viola la regla nº1 —"un dato ausente nunca descarta"— porque acá el
+    # dato no está ausente: el aviso lo dice. "Región del Maule. Fundo 750"
+    # entró al tablero real de Vitacura justamente por esta rendija: sin
+    # comuna reconocible, nada lo botaba.
+    if not comuna and (region := P.region_ajena(l.raw_text)):
+        return (False, f"publicado en la Región de {region}, "
+                "no en la Metropolitana", distancia)
+
     # 1. La comuna núcleo entra entera, sin mirar distancia.
     if comuna and comuna in nucleo:
         return True, "", distancia
