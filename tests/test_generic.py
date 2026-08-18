@@ -577,6 +577,81 @@ def test_la_tarjeta_de_otro_aviso_no_completa_nada(fuente):
     assert a.arriendo_clp is None, "sin calce de URL no se cree nada"
 
 
+# La tercera vía: calce por ORDEN con anclas. El caso real de mitula del
+# 18-08: 40 de 49 avisos sin precio porque media página se titula
+# "Departamento en arriendo en VITACURA" y el calce por título único se
+# rinde — con el precio a la vista en cada tarjeta ("90 UF").
+
+def _pagina_mitula(orden_tarjetas):
+    import json as _json
+    nodos = [
+        {"@type": "Apartment", "name": "PENTHOUSE LO CURRO ESPECIAL",
+         "address": {"streetAddress": "Vía Aurora 9260",
+                     "addressLocality": "Vitacura"}},
+        {"@type": "Apartment", "name": "Departamento en arriendo en VITACURA",
+         "description": "Avenida Juan XXIII 6699",
+         "address": {"streetAddress": "Avenida Juan XXIII 6699",
+                     "addressLocality": "Vitacura"}},
+        {"@type": "Apartment", "name": "Departamento en arriendo en VITACURA",
+         "address": {"streetAddress": "Mar Jónico 5900",
+                     "addressLocality": "Vitacura"}},
+        {"@type": "Apartment", "name": "FERNANDO DE ARGUELLO / PADRE HURTADO",
+         "address": {"streetAddress": "Fernando de Arguello 8399",
+                     "addressLocality": "Vitacura"}},
+    ]
+    tarjetas = {
+        "A": ('<article>PENTHOUSE LO CURRO ESPECIAL $2.500.000 '
+              '3 dormitorios <a href="#">v</a></article>'),
+        "B": ('<article>Departamento en arriendo en VITACURA 90 UF '
+              '3 dormitorios 270 m2 <a href="#">v</a></article>'),
+        "C": ('<article>Departamento en arriendo en VITACURA $1.650.000 '
+              '3 dormitorios 93 m2 <a href="#">v</a></article>'),
+        "D": ('<article>FERNANDO DE ARGUELLO / PADRE HURTADO $1.800.000 '
+              '3 dormitorios <a href="#">v</a></article>'),
+    }
+    cuerpo = "".join(tarjetas[k] for k in orden_tarjetas)
+    return (f'<html><body><script type="application/ld+json">'
+            f'{_json.dumps(nodos, ensure_ascii=False)}</script>'
+            f"{cuerpo}</body></html>")
+
+
+def test_titulos_repetidos_calzan_por_orden_con_anclas(fuente):
+    doc = _pagina_mitula("ABCD")
+    avisos = extraer(doc, "https://casas.mitula.cl/arriendo-vitacura",
+                     fuente, valor_uf=40_000.0)
+    assert len(avisos) == 4
+    por_dir = {(a.direccion or "").split(",")[0]: a for a in avisos}
+    juan = por_dir["Avenida Juan XXIII 6699"]
+    assert juan.arriendo_uf == 90, "el 90 UF de la tarjeta es SU precio"
+    assert juan.arriendo_clp == 90 * 40_000
+    assert por_dir["Mar Jónico 5900"].arriendo_clp == 1_650_000
+
+
+def test_orden_roto_ninguna_ancla_miente(fuente):
+    """Si una ancla no está en SU tarjeta, el orden no es el que creemos:
+    un precio del vecino es peor que ningún precio."""
+    doc = _pagina_mitula("ADBC")   # FERNANDO quedó en la posición de Juan
+    avisos = extraer(doc, "https://casas.mitula.cl/arriendo-vitacura",
+                     fuente, valor_uf=40_000.0)
+    por_dir = {(a.direccion or "").split(",")[0]: a for a in avisos}
+    assert por_dir["Avenida Juan XXIII 6699"].arriendo_clp is None
+    assert por_dir["Mar Jónico 5900"].arriendo_clp is None
+
+
+def test_con_tarjetas_de_mas_no_se_alinea(fuente):
+    """Una tarjeta extra (publicidad) corre todos los índices: sin el mismo
+    largo en ambas listas no hay hipótesis de orden que verificar."""
+    doc = _pagina_mitula("ABCD").replace(
+        "<article>PENTHOUSE",
+        '<article>Casa en venta en Chicureo $350.000.000 5 dormitorios '
+        '250 m2 <a href="#">v</a></article>'
+        "<article>PENTHOUSE")
+    avisos = extraer(doc, "https://casas.mitula.cl/arriendo-vitacura",
+                     fuente, valor_uf=40_000.0)
+    por_dir = {(a.direccion or "").split(",")[0]: a for a in avisos}
+    assert por_dir["Avenida Juan XXIII 6699"].arriendo_clp is None
+
+
 # El candidato de texto de ficha: goplaceit e iCasas no ponen JSON-LD de la
 # propiedad en su ficha (las tres pasadas extraen CERO) y el texto visible lo
 # dice todo. Las líneas del fixture son las REALES del diagnóstico del 17-08.

@@ -1137,18 +1137,59 @@ def _completar_con_tarjetas(avisos: list[Arriendo], soup: BeautifulSoup,
                   if a.arriendo_clp is None and a.arriendo_uf is None]
     if not sin_precio:
         return
-    tarjetas_crudas = [(P.norm(texto), texto)
-                       for card in _candidatos(soup, fuente)
-                       if (texto := _texto(card))]
+    # Con las posiciones INTACTAS (tarjetas vacías incluidas): la tercera
+    # vía alinea por índice, y filtrar acá correría todos los índices.
+    tarjetas_crudas = [(P.norm(texto), texto) for card in
+                       _candidatos(soup, fuente)
+                       for texto in [_texto(card) or ""]]
     for a in sin_precio:
         titulo = P.norm(a.title or "")[:80]
         if len(titulo) < 12:
             continue
         calzan = [texto for ntexto, texto in tarjetas_crudas
-                  if titulo in ntexto]
+                  if texto and titulo in ntexto]
         if len(calzan) != 1:
             continue
         t = _armar(calzan[0], "", fuente, base_url, valor_uf)
+        a.arriendo_clp = t.arriendo_clp
+        a.arriendo_uf = t.arriendo_uf
+        _fusionar(a, t)
+
+    # Tercera vía, por ORDEN con anclas de verificación. El caso que las
+    # dos anteriores no alcanzan es mitula con el título genérico repetido:
+    # media página se llama "Departamento en arriendo en VITACURA", así que
+    # el calce por título único se rinde — 40 de 49 avisos sin precio en la
+    # corrida del 18-08, con el precio A LA VISTA en cada tarjeta ("90 UF").
+    #
+    # La hipótesis es que la página es una lista pareja: la tarjeta i-ésima
+    # ES el aviso i-ésimo. Y no se cree gratis — se verifica con anclas:
+    # cada aviso cuyo título aparece en ALGUNA tarjeta tiene que aparecer
+    # exactamente en la SUYA. Una sola ancla fuera de lugar aborta todo,
+    # porque significa que el orden no es el que creemos, y un precio del
+    # vecino es peor que ningún precio. Con tres anclas confirmadas y el
+    # mismo largo en ambas listas, los repetidos heredan su tarjeta.
+    sin_precio = [a for a in avisos
+                  if a.arriendo_clp is None and a.arriendo_uf is None]
+    if not sin_precio or len(tarjetas_crudas) != len(avisos):
+        return
+    anclas = 0
+    for i, a in enumerate(avisos):
+        titulo = P.norm(a.title or "")[:80]
+        if len(titulo) < 12:
+            continue
+        if not any(titulo in ntexto for ntexto, _ in tarjetas_crudas):
+            continue
+        if titulo not in tarjetas_crudas[i][0]:
+            return
+        anclas += 1
+    if anclas < 3:
+        return
+    for i, a in enumerate(avisos):
+        if a.arriendo_clp is not None or a.arriendo_uf is not None:
+            continue
+        if not tarjetas_crudas[i][1]:
+            continue
+        t = _armar(tarjetas_crudas[i][1], "", fuente, base_url, valor_uf)
         a.arriendo_clp = t.arriendo_clp
         a.arriendo_uf = t.arriendo_uf
         _fusionar(a, t)
