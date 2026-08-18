@@ -1,63 +1,63 @@
-# Última corrida — 18-08-2026 12:25 UTC
+# Última corrida — 18-08-2026 13:25 UTC
 
 | | |
 |---|---|
-| Duración | 258s |
+| Duración | 252s |
 | Fuentes consultadas | 41 |
-| Fuentes que entregaron | 35 |
-| Avisos leídos | 1219 |
-| Después de deduplicar | 439 |
-| Pasaron los filtros | 102 |
-| Avisados por Telegram | 7 |
-| Aparecieron | 44 |
-| Dejaron de publicarse | 131 |
+| Fuentes que entregaron | 34 |
+| Avisos leídos | 1419 |
+| Después de deduplicar | 559 |
+| Pasaron los filtros | 120 |
+| Avisados por Telegram | 8 |
+| Aparecieron | 100 |
+| Dejaron de publicarse | 38 |
 | Valor UF usado | $40.856.64 · API del día |
 
 ## Qué entregó cada fuente
 
 | Fuente | Avisos | Tiempo | Qué pasó |
 |---|---|---|---|
-| toctoc | 543 | 50s |  |
-| yapo | 90 | 19s |  |
-| trovit | 90 | 7s |  |
-| goplaceit | 90 | 105s |  |
+| toctoc | 693 | 53s |  |
+| yapo | 90 | 6s |  |
+| trovit | 90 | 6s |  |
+| goplaceit | 90 | 101s |  |
 | mitula | 60 | 4s |  |
-| fuenzalida | 60 | 13s |  |
+| fuenzalida | 60 | 10s |  |
+| economicos | 51 | 4s |  |
 | nuroa | 50 | 4s |  |
-| houm | 36 | 83s |  |
-| chilepropiedades | 33 | 4s |  |
+| houm | 36 | 77s |  |
+| chilepropiedades | 33 | 5s |  |
 | doomos | 33 | 2s |  |
 | icasas | 30 | 3s |  |
-| nestoria | 25 | 2s |  |
-| engelvoelkers | 18 | 7s |  |
+| nestoria | 25 | 1s |  |
+| engelvoelkers | 18 | 6s |  |
 | bienesonline | 16 | 1s |  |
 | heyhomes | 9 | 3s |  |
-| magnoliaproperty | 9 | 1s |  |
 | toppropiedades | 8 | 18s |  |
+| magnoliaproperty | 8 | 1s |  |
 | nativopropiedades | 8 | 1s |  |
 | propiedades_cl | 6 | 1s |  |
-| portillapropiedades | 2 | 0s |  |
+| portillapropiedades | 2 | 1s |  |
 | propertypartners | 1 | 0s |  |
 | rentas_cl | 1 | 2s |  |
 | clasificados_cl | 1 | 3s |  |
 | busconido ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
-| comunavitacura ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
-| emol_propiedades ⚠️ | 0 | 2s | robots.txt del sitio no permite este acceso |
-| economicos ⚠️ | 0 | 3s | respondió, pero no se reconoció ningún aviso |
-| assetplan ⚠️ | 0 | 11s | respondió, pero no se reconoció ningún aviso |
-| remax ⚠️ | 0 | 10s | respondió, pero no se reconoció ningún aviso |
-| century21 ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| sothebys ⚠️ | 0 | 6s | respondió, pero no se reconoció ningún aviso |
+| emol_propiedades ⚠️ | 0 | 1s | robots.txt del sitio no permite este acceso |
+| assetplan ⚠️ | 0 | 8s | respondió, pero no se reconoció ningún aviso |
+| remax ⚠️ | 0 | 5s | respondió, pero no se reconoció ningún aviso |
+| century21 ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| sothebys ⚠️ | 0 | 4s | respondió, pero no se reconoció ningún aviso |
 | maxrenta ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
 | colliers ⚠️ | 0 | 7s | problema de certificado TLS |
-| zentagroup ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| inciti ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| enlaceinmobiliario ⚠️ | 0 | 7s | respondió, pero no se reconoció ningún aviso |
+| zentagroup ⚠️ | 0 | 0s | respondió, pero no se reconoció ningún aviso |
+| inciti ⚠️ | 0 | 0s | respondió, pero no se reconoció ningún aviso |
+| enlaceinmobiliario ⚠️ | 0 | 5s | respondió, pero no se reconoció ningún aviso |
 | arriendos_cl ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
 | inmuebles_cl ⚠️ | 0 | 0s | robots.txt del sitio no permite este acceso |
 | capitalizarme ⚠️ | 0 | 0s | robots.txt del sitio no permite este acceso |
+| comunavitacura ⚠️ | 0 | 146s | HTTPSConnectionPool(host='comunavitacura.cl', port=443): Max retries exceeded with url: /arriendo-departamentos/ (Caused |
 | contempora ⚠️ | 0 | 77s | el sitio no respondió a tiempo |
-| arriendoasegurado ⚠️ | 0 | 137s | el sitio no respondió a tiempo |
+| arriendoasegurado ⚠️ | 0 | 70s | el servidor cortó la conexión sin responder — suele ser bloqueo anti-bot |
 
 ## ⚠️ Fuentes que dejaron de entregar
 
