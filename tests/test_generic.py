@@ -505,6 +505,42 @@ def test_el_precio_de_la_tarjeta_completa_al_jsonld(fuente):
     assert a.arriendo_clp == 1_550_000, "el precio vivía solo en la tarjeta"
 
 
+def test_sin_urls_el_precio_calza_por_titulo_unico(fuente):
+    """El caso mitula, medido contra su nodo real: el JSON-LD no declara url
+    y la tarjeta no tiene href. El título exacto y único identifica igual."""
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "FERNANDO DE ARGUELLO / PADRE HURTADO",
+            "description": "IMPECABLE DUPLEX 3 dormitorios 3 baños",
+            "address": {"streetAddress": "Fernando de Arguello 8399",
+                        "addressLocality": "Vitacura"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script>'
+           f'<div><a href="#"><span>x</span></a>'
+           f'<article>FERNANDO DE ARGUELLO / PADRE HURTADO '
+           f'$1.650.000 3 dormitorios 120 m2 <a href="#">ver</a></article>'
+           f'</div></body></html>')
+    a = extraer(doc, "https://casas.mitula.cl/arriendo-vitacura", fuente)[0]
+    assert a.arriendo_clp == 1_650_000, \
+        "el precio vivía solo en la tarjeta sin link"
+
+
+def test_dos_tarjetas_del_mismo_titulo_no_completan_nada(fuente):
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Departamento en Vitacura centro",
+            "address": {"streetAddress": "Espoz 3400",
+                        "addressLocality": "Vitacura"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script>'
+           f'<article>Departamento en Vitacura centro $1.500.000 '
+           f'3 dormitorios <a href="#">v</a></article>'
+           f'<article>Departamento en Vitacura centro $2.900.000 '
+           f'2 dormitorios <a href="#">v</a></article>'
+           f'</body></html>')
+    a = extraer(doc, "https://casas.mitula.cl/arriendo-vitacura", fuente)[0]
+    assert a.arriendo_clp is None, \
+        "con título repetido, cualquiera de los dos precios sería inventado"
+
+
 def test_la_tarjeta_de_otro_aviso_no_completa_nada(fuente):
     import json as _json
     nodo = {"@type": "Apartment", "name": "Departamento 3D en Vitacura",

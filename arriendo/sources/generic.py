@@ -1083,11 +1083,11 @@ def _completar_con_tarjetas(avisos: list[Arriendo], soup: BeautifulSoup,
     """
     from ..store import _fusionar
 
-    tarjetas = _desde_tarjetas(soup, base_url, fuente, valor_uf)
-    if not tarjetas:
-        return
+    # Primera vía, por URL. Ojo con rendirse temprano: que no haya tarjetas
+    # CON link no significa que no haya tarjetas — mitula no pone href por
+    # tarjeta, y la segunda vía existe justamente para eso.
     por_url: dict[str, Arriendo] = {}
-    for t in tarjetas:
+    for t in _desde_tarjetas(soup, base_url, fuente, valor_uf):
         clave = _clave_url(t.url)
         if clave and clave != _clave_url(base_url):
             por_url.setdefault(clave, t)
@@ -1099,6 +1099,32 @@ def _completar_con_tarjetas(avisos: list[Arriendo], soup: BeautifulSoup,
         if a.arriendo_clp is None and a.arriendo_uf is None:
             a.arriendo_clp = t.arriendo_clp
             a.arriendo_uf = t.arriendo_uf
+        _fusionar(a, t)
+
+    # Segunda vía, por TÍTULO: mitula no pone href por tarjeta NI url en su
+    # JSON-LD (medido contra su nodo real), así que el calce por URL no
+    # existe ahí. El título exacto, normalizado y ÚNICO en la página,
+    # identifica igual de bien; con dos tarjetas del mismo título no se cree
+    # ninguna. Las tarjetas sin link no salen de `_desde_tarjetas` —exige
+    # URL— así que acá se leen los candidatos crudos.
+    sin_precio = [a for a in avisos
+                  if a.arriendo_clp is None and a.arriendo_uf is None]
+    if not sin_precio:
+        return
+    tarjetas_crudas = [(P.norm(texto), texto)
+                       for card in _candidatos(soup, fuente)
+                       if (texto := _texto(card))]
+    for a in sin_precio:
+        titulo = P.norm(a.title or "")[:80]
+        if len(titulo) < 12:
+            continue
+        calzan = [texto for ntexto, texto in tarjetas_crudas
+                  if titulo in ntexto]
+        if len(calzan) != 1:
+            continue
+        t = _armar(calzan[0], "", fuente, base_url, valor_uf)
+        a.arriendo_clp = t.arriendo_clp
+        a.arriendo_uf = t.arriendo_uf
         _fusionar(a, t)
 
 
