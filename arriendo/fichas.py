@@ -16,6 +16,7 @@ import os
 import re
 from datetime import date
 from pathlib import Path
+from urllib.parse import quote_plus
 
 from . import scoring as S
 from .models import Arriendo
@@ -179,10 +180,21 @@ def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
         L.append("")
 
     # -- el resumen de una línea, que es lo que se lee primero --
-    L.append(f"**{a.score}/100** · {a.comuna or 'comuna desconocida'}"
+    L.append(f"**{a.score}/100** · `#{a.codigo}` · "
+             f"{a.comuna or 'comuna desconocida'}"
              + (f" · a {_decimal(a.distancia_km, 2)} km del Sport Francés"
-                if a.distancia_km is not None else " · sin ubicar"))
+                if a.distancia_km is not None else " · sin ubicar")
+             + (f" · [📍 abrir en Google Maps]({_maps(a)})"
+                if _maps(a) else ""))
     L.append("")
+
+    # -- tu gestión, si la anotaste --
+    if (g := a.extras.get("gestion")) and g.get("estado"):
+        nombre = {"visita": "visita agendada 📅", "contactado": "contactado 📞",
+                  "visto": "visto 👁", "descartado": "descartado por ti"}
+        L.append(f"> 👤 **Lo marcaste como {nombre.get(g['estado'], g['estado'])}**"
+                 + (f" — {g['nota']}" if g.get("nota") else ""))
+        L.append("")
 
     # -- el dinero --
     L.append("## Cuánto cuesta")
@@ -270,7 +282,14 @@ def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
         L.append(f"| Disponible | {cuando} |")
     if (dias := a.dias_publicado) is not None:
         L.append(f"| Publicado | hace {dias} días |")
+    if (pv := str(a.extras.get("primera_vez") or "")[:10]):
+        L.append(f"| Visto por el radar | desde el {pv} |")
     L.append("")
+
+    if (tuyos := a.extras.get("datos_tuyos")):
+        L.append(f"> 👤 Datos completados por ti en `gestion.yml`: "
+                 f"{', '.join(tuyos)}. Le ganan a lo que diga el aviso.")
+        L.append("")
 
     # -- el puntaje, abierto --
     L.append("## De dónde sale el puntaje")
@@ -336,6 +355,26 @@ def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
                  "buena posición para negociar.")
         L.append("")
 
+    # -- anotar lo que se averigüe, con el código ya puesto --
+    L.append("## ✏️ ¿Lo viste o llamaste? Anótalo")
+    L.append("")
+    L.append("En [`gestion.yml`](../../gestion.yml), desde el teléfono. El "
+             "radar lo recuerda para siempre: un `descartado` no vuelve a "
+             "sonar, y lo que averigües entra al puntaje.")
+    L.append("")
+    L.append("```yaml")
+    L.append(f"  - codigo: {a.codigo}")
+    L.append("    estado: visita        # descartado | visto | contactado | visita")
+    if a.gastos_comunes_clp is None:
+        L.append("    # gastos_comunes_clp: 250000")
+    if a.antiguedad_anos is None:
+        L.append("    # ano_construccion: 2015")
+    if a.piso is None:
+        L.append("    # piso: 8")
+    L.append('    # nota: "lo que te dijeron"')
+    L.append("```")
+    L.append("")
+
     # -- la trazabilidad --
     L.append("---")
     L.append("")
@@ -358,58 +397,240 @@ def _si_no(v: bool | None) -> str:
     return "—" if v is None else ("sí" if v else "no")
 
 
+def _maps(a: Arriendo) -> str:
+    """El link a Google Maps por DIRECCIÓN, no por coordenadas.
+
+    La adaptación honesta del mapa del radar de remates: acá ningún aviso
+    publica coordenadas (0% en el tablero real), así que no hay mapa que
+    dibujar — pero el 72% publica dirección, y la pregunta del usuario
+    ("¿dónde queda esto?") la contesta igual un link que abre Maps con la
+    búsqueda armada.
+    """
+    if not a.direccion:
+        return ""
+    consulta = quote_plus(f"{a.direccion}, {a.comuna or 'Vitacura'}, Chile")
+    return f"https://www.google.com/maps/search/?api=1&query={consulta}"
+
+
 # ---------------------------------------------------------------------------
 # El tablero
 # ---------------------------------------------------------------------------
 
+def _fila(a: Arriendo, i: int | None = None, nucleo: str = "Vitacura") -> str:
+    """Una fila de tabla del tablero. Las columnas cuentan la decisión:
+    cuánto cuesta de verdad, qué es, hace cuánto se conoce, cuánto vale.
+
+    La comuna no tiene columna propia —el 97% de los candidatos reales son
+    de la comuna núcleo, y en un teléfono cada columna cuesta— pero una
+    comuna DISTINTA sí se dice, en la misma celda de la dirección.
+    """
+    nombre = _corto(a)
+    if a.comuna and a.comuna.strip().lower() != (nucleo or "").strip().lower():
+        nombre = f"{nombre} · {a.comuna}"
+    ficha = f"[{nombre}](casos/{nombre_archivo(a)})"
+    costo = _pesos(a.costo_mensual)
+    if a.gastos_comunes_clp is None and a.arriendo_clp:
+        costo += " *"
+    db = f"{a.dormitorios or '—'}/{a.banos or '—'}"
+    numero = f"| {i} " if i is not None else "| "
+    estado = (a.extras.get("gestion") or {}).get("estado", "")
+    marca = {"visita": "📅", "contactado": "📞", "visto": "👁"}.get(estado, "")
+    if a.extras.get("nuevo_en_corrida"):
+        marca = ("🆕 " + marca).strip()
+    return (f"{numero}| `#{a.codigo}` | {ficha} {marca} | {costo} "
+            f"| {_m2_tabla(a)} | {db} | {_dias_tabla(a)} | {a.score} |")
+
+
+_CABECERA_TABLA = ("| # | Código | Dirección | Costo mensual | m² | D/B "
+                   "| Días | ⭐ |\n|---|---|---|---|---|---|---|---|")
+
+
+def _dias_tabla(a: Arriendo) -> str:
+    """Hace cuántos días se conoce. La urgencia de un arriendo es esta: uno
+    bueno y nuevo se toma en días; uno que lleva un mes admite negociar."""
+    if (pv := a.extras.get("primera_vez")):
+        try:
+            dias = (date.today() - date.fromisoformat(str(pv)[:10])).days
+            return "hoy" if dias == 0 else str(dias)
+        except ValueError:
+            pass
+    if (d := a.dias_publicado) is not None:
+        return str(d)
+    return "—"
+
+
+def _sin_fichas_repetidas(avisos: list[Arriendo]) -> list[Arriendo]:
+    """Una fila por ficha. Dos registros del mismo departamento (el mismo
+    archivo) aparecían como dos filas compitiendo entre sí; gana el primero,
+    que viene ordenado por puntaje."""
+    vistas: set[str] = set()
+    salida = []
+    for a in avisos:
+        nombre = nombre_archivo(a)
+        if nombre in vistas:
+            continue
+        vistas.add(nombre)
+        salida.append(a)
+    return salida
+
+
+def _bajo_precio(a: Arriendo) -> tuple[float, float] | None:
+    """(precio inicial, precio actual) si el aviso ha bajado. None si no."""
+    historial = a.extras.get("historial_precio") or []
+    puntos = [p.get("clp") for p in historial if p.get("clp")]
+    if len(puntos) >= 2 and puntos[-1] < puntos[0]:
+        return puntos[0], puntos[-1]
+    return None
+
+
 def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
                      perfil: dict | None = None) -> Path:
-    """La tabla de todo lo vigente, ordenada por puntaje.
+    """El tablero, armado para decidir en cinco minutos.
 
-    Es la vista que responde "¿qué hay hoy?" sin abrir Telegram, y la que
-    permite comparar: el costo mensual real de todos, uno debajo del otro.
+    La estructura viene de mirar el tablero del radar de remates con ojos de
+    usuario: una cabecera que orienta de un vistazo, lo NUEVO separado del
+    stock (porque el tiempo alcanza para lo nuevo, no para releer todo), lo
+    que BAJÓ de precio (la señal de negociación), tu lista corta al tope, y
+    recién después la tabla completa. Allá la urgencia era la fecha del
+    remate; acá es la frescura.
     """
     directorio.mkdir(parents=True, exist_ok=True)
     ruta = directorio / "README.md"
+    perfil = perfil or {}
 
-    vivos = sorted([a for a in hallazgos if not a.descartado],
-                   key=S.orden, reverse=True)
+    nucleo = (((perfil.get("comunas") or {}).get("nucleo") or ["Vitacura"])
+              or ["Vitacura"])[0]
+    vivos = _sin_fichas_repetidas(
+        sorted([a for a in hallazgos if not a.descartado],
+               key=S.orden, reverse=True))
     descartados = [a for a in hallazgos if a.descartado]
+    por_ti = [a for a in descartados if a.clase_descarte == "gestion"]
+    del_filtro = [a for a in descartados if a.clase_descarte != "gestion"]
+
+    nuevos = [a for a in vivos if a.extras.get("nuevo_en_corrida")]
+    bajaron = [a for a in vivos if _bajo_precio(a)]
+    en_gestion = [a for a in vivos
+                  if (a.extras.get("gestion") or {}).get("estado")]
+    con_precio = sorted(a.arriendo_clp for a in vivos if a.arriendo_clp)
+    mediana = con_precio[len(con_precio) // 2] if con_precio else None
 
     L = ["# Tablero de arriendos", ""]
+    resumen = [f"**{len(vivos)} candidatos**"]
+    if nuevos:
+        resumen.append(f"🆕 **{len(nuevos)} nuevos** en esta corrida")
+    if bajaron:
+        resumen.append(f"📉 {len(bajaron)} con el precio bajando")
+    if mediana:
+        resumen.append(f"canon mediano {_pesos(mediana)}")
     L.append(f"Actualizado: {date.today().strftime('%d-%m-%Y')} · "
-             f"{len(vivos)} candidatos · {len(descartados)} descartados")
+             + " · ".join(resumen))
     L.append("")
 
     if not vivos:
         L.append("_Sin candidatos en la última corrida._")
         L.append("")
-    else:
-        L.append("| # | Dirección | Comuna | Costo mensual | m² | D/B | Años | Puntaje |")
-        L.append("|---|---|---|---|---|---|---|---|")
-        for i, a in enumerate(vivos, 1):
-            ficha = f"[{_corto(a)}](casos/{nombre_archivo(a)})"
-            costo = _pesos(a.costo_mensual)
-            if a.gastos_comunes_clp is None and a.arriendo_clp:
-                costo += " *"
-            m2 = _m2_tabla(a)
-            db = f"{a.dormitorios or '—'}/{a.banos or '—'}"
-            anos = (str(a.antiguedad_anos) if a.antiguedad_anos is not None
-                    else "—")
-            L.append(f"| {i} | {ficha} | {a.comuna or '—'} | {costo} | {m2} "
-                     f"| {db} | {anos} | {a.score} |")
+
+    if en_gestion:
+        L.append("## ⭐ Tu lista corta")
         L.append("")
-        L.append("`*` = costo sin gastos comunes, porque el aviso no los publica.")
-        L.append("`út.` = superficie útil; el aviso no publicó la total.")
+        L.append("Los que marcaste en [`gestion.yml`](../gestion.yml): "
+                 "📅 visita · 📞 contactado · 👁 visto.")
+        L.append("")
+        L.append(_CABECERA_TABLA)
+        for a in en_gestion:
+            L.append(_fila(a, nucleo=nucleo))
         L.append("")
 
-    if descartados:
-        L.append("<details><summary>Descartados y por qué "
-                 f"({len(descartados)})</summary>")
+    if nuevos:
+        L.append("## 🆕 Nuevos en esta corrida")
+        L.append("")
+        L.append("Si solo hay tiempo para una sección, es esta: lo demás ya "
+                 "estaba ayer.")
+        L.append("")
+        L.append(_CABECERA_TABLA)
+        for a in nuevos:
+            L.append(_fila(a, nucleo=nucleo))
+        L.append("")
+
+    if bajaron:
+        L.append("## 📉 Bajaron de precio")
+        L.append("")
+        L.append("Un canon que baja es un propietario que no está logrando "
+                 "arrendar — el mejor pie para negociar que da este mercado.")
+        L.append("")
+        L.append("| Código | Dirección | Antes | Ahora | |")
+        L.append("|---|---|---|---|---|")
+        for a in bajaron:
+            antes, ahora = _bajo_precio(a)
+            pct = round(100 * (ahora - antes) / antes)
+            L.append(f"| `#{a.codigo}` | [{_corto(a)}](casos/{nombre_archivo(a)}) "
+                     f"| {_pesos(antes)} | {_pesos(ahora)} | {pct}% |")
+        L.append("")
+
+    if vivos:
+        L.append("## Todos los candidatos")
+        L.append("")
+        L.append(_CABECERA_TABLA)
+        for i, a in enumerate(vivos, 1):
+            L.append(_fila(a, i, nucleo))
+        L.append("")
+        L.append("`*` = costo sin gastos comunes, porque el aviso no los "
+                 "publica. `út.` = superficie útil; el aviso no publicó la "
+                 "total. **Días** = hace cuántos días lo conoce el radar.")
+        L.append("")
+
+    # -- lo que se busca y cómo anotar, para no tener que recordarlo --
+    req = (perfil or {}).get("requisitos") or {}
+    tope = ((req.get("arriendo_clp") or {}).get("max"))
+    if tope:
+        L.append("## 🎯 Qué se está buscando")
+        L.append("")
+        L.append(f"Departamento en Vitacura · hasta {_pesos(tope)} · "
+                 f"más de {(req.get('m2_totales') or {}).get('min', 100)} m² "
+                 f"· {(req.get('dormitorios') or {}).get('min', 3)}+ "
+                 f"dormitorios · menos de "
+                 f"{(req.get('antiguedad_anos') or {}).get('max', 30)} años. "
+                 "El detalle vive en [`perfil.yml`](../perfil.yml).")
+        L.append("")
+
+    L.append("## ✏️ ¿Viste alguno? Anótalo")
+    L.append("")
+    L.append("Edita [`gestion.yml`](../gestion.yml) desde el teléfono (lápiz "
+             "✏️ → Commit). El radar lo recuerda para siempre: un "
+             "`descartado` no vuelve a sonar ni aunque baje de precio, y los "
+             "datos que averigües por teléfono entran al puntaje.")
+    L.append("")
+    L.append("```yaml")
+    L.append("departamentos:")
+    codigo_ejemplo = vivos[0].codigo if vivos else "ABC12"
+    L.append(f"  - codigo: {codigo_ejemplo}")
+    L.append("    estado: visita          # descartado | visto | contactado | visita")
+    L.append("    gastos_comunes_clp: 250000")
+    L.append("    ano_construccion: 2015")
+    L.append('    nota: "llamé: disponible desde el 1 de septiembre"')
+    L.append("```")
+    L.append("")
+
+    if por_ti:
+        L.append(f"<details><summary>Los que descartaste tú ({len(por_ti)})"
+                 "</summary>")
+        L.append("")
+        L.append("| Código | Aviso | Nota |")
+        L.append("|---|---|---|")
+        for a in por_ti:
+            nota = (a.extras.get("gestion") or {}).get("nota", "")
+            L.append(f"| `#{a.codigo}` | [{_corto(a)}]({a.url}) | {nota or '—'} |")
+        L.append("")
+        L.append("</details>")
+        L.append("")
+
+    if del_filtro:
+        L.append("<details><summary>Descartados por el filtro y por qué "
+                 f"({len(del_filtro)})</summary>")
         L.append("")
         L.append("| Aviso | Motivo |")
         L.append("|---|---|")
-        for a in sorted(descartados, key=lambda x: x.clase_descarte):
+        for a in sorted(del_filtro, key=lambda x: x.clase_descarte):
             L.append(f"| [{_corto(a)}]({a.url}) | {a.motivo_descarte} |")
         L.append("")
         L.append("</details>")

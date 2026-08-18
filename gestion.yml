@@ -1,0 +1,32 @@
+# Tu gestión de los departamentos. Se edita desde el teléfono: lápiz ✏️ →
+# editar → Commit changes. El radar la lee en cada corrida y la recuerda
+# para siempre.
+#
+# Cada entrada se identifica por el CÓDIGO del departamento — el #ABC12 que
+# llega en cada alerta de Telegram y aparece en el tablero y la ficha.
+#
+#   estado:
+#     descartado   no te interesa: sale del tablero y NUNCA vuelve a sonar,
+#                  ni aunque baje de precio
+#     visto        ya lo miraste (queda en tu lista corta del tablero)
+#     contactado   llamaste o escribiste
+#     visita       tienes visita agendada
+#
+#   datos que puedes completar (lo que averigües le GANA a lo que diga el
+#   aviso, y entra al puntaje): gastos_comunes_clp, ano_construccion,
+#   antiguedad_anos, piso, dormitorios, banos, estacionamientos,
+#   m2_totales, m2_utiles.
+#
+# Ejemplo — bórralo y pon los tuyos:
+#
+#   departamentos:
+#     - codigo: ABC12
+#       estado: visita
+#       gastos_comunes_clp: 250000
+#       ano_construccion: 2015
+#       nota: "llamé: disponible desde el 1 de septiembre"
+#     - codigo: XYZ89
+#       estado: descartado
+#       nota: "da al poniente, muy oscuro"
+
+departamentos: []

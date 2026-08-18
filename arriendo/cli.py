@@ -403,9 +403,33 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
                 a.extras["tendencia_precio"] = tendencia
         S.evaluar(a, perfil)
 
+    # --- 4b. tu gestión: lo que viste, llamaste o descartaste ---
+    #
+    # Va DESPUÉS de evaluar (los datos tuyos pisan y recalculan) y ANTES de
+    # elegir candidatos: un "descartado" tuyo tiene que salir de la lista
+    # igual que un descarte del filtro. Ver arriendo/gestion.py.
+    try:
+        from .gestion import GestionInvalida, aplicar as aplicar_gestion
+        from .gestion import cargar as cargar_gestion
+        stats["gestionados"] = aplicar_gestion(unicos, cargar_gestion(), perfil)
+    except GestionInvalida as e:
+        # Un gestion.yml roto no bota la corrida, pero tampoco pasa piola:
+        # queda en la bitácora, que es donde se va a mirar cuando "no tomó
+        # el cambio".
+        log.warning("gestion.yml inválido — se ignora: %s", e)
+        stats["gestion_error"] = str(e)
+
     candidatos = [a for a in unicos if not a.descartado]
     stats["candidatos"] = len(candidatos)
     log.info("Pasaron los filtros: %d", len(candidatos))
+
+    # La frescura, para el tablero: qué es nuevo en ESTA corrida y desde
+    # cuándo se conoce cada uno. Se anota antes de registrar, porque después
+    # todo figura como visto.
+    for a in candidatos:
+        a.extras["nuevo_en_corrida"] = store.es_nuevo(a)
+        if (visto := store.indice.get(a.fingerprint)):
+            a.extras["primera_vez"] = visto.get("primera_vez", "")
 
     # --- 5. anotar el historial de búsquedas ---
     #

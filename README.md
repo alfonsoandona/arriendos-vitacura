@@ -27,8 +27,9 @@ basta el navegador de un celular o la app de GitHub.
 | Qué necesitas hacer | Cómo, desde el teléfono |
 |---|---|
 | **Recibir alertas** | Nada. Llegan solas por Telegram. Configuración: [`AVISOS.md`](AVISOS.md) |
-| **Ver todo lo vigente** | [`alertas/`](alertas/) — tablero ordenado por puntaje |
+| **Ver todo lo vigente** | [`alertas/`](alertas/) — tablero: nuevos del día, bajas de precio, tu lista corta |
 | **Ver el detalle de uno** | El link del aviso, o `alertas/casos/` |
+| **Anotar uno que viste o llamaste** | [`gestion.yml`](gestion.yml) → su código `#ABC12` + estado/datos. `descartado` no vuelve a sonar |
 | **Cambiar la búsqueda** | Abres [`perfil.yml`](perfil.yml) → lápiz ✏️ → editas → *Commit changes* |
 | **Agregar un portal** | Igual, pero en [`fuentes.yml`](fuentes.yml) |
 | **Buscar ahora mismo** | Actions → *Radar de Arriendos* → *Run workflow* |

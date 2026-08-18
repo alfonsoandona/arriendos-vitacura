@@ -426,12 +426,116 @@ def test_sin_tope_configurado_no_inventa_la_advertencia(perfil):
 
 
 def test_el_tablero_no_repite_la_comuna(tmp_path, perfil):
-    """La comuna tiene su propia columna: repetida se come el ancho del móvil."""
+    """La comuna del núcleo no ocupa espacio (el 97% de los candidatos
+    reales son de Vitacura y en un teléfono cada columna cuesta); una comuna
+    DISTINTA sí se dice, en la celda de la dirección."""
     a = S.evaluar(depto(), perfil)
     texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
     fila = next(l for l in texto.splitlines() if "Alonso" in l)
     assert "[Alonso de Córdova 4200]" in fila
-    assert fila.count("Vitacura") == 1
+    assert "Vitacura" not in fila
+
+    b = S.evaluar(depto(url="https://x.cl/lc", comuna="Las Condes",
+                        direccion="Napoleón 3037, Las Condes"), perfil)
+    texto = escribir_tablero([a, b], tmp_path, perfil).read_text(encoding="utf-8")
+    fila_lc = next(l for l in texto.splitlines() if "Napole" in l)
+    assert "Las Condes" in fila_lc
+
+
+def test_el_tablero_separa_lo_nuevo_del_stock(tmp_path, perfil):
+    """El rediseño de triage: si solo hay tiempo para una sección, es la de
+    los nuevos — lo demás ya estaba ayer."""
+    nuevo = S.evaluar(depto(url="https://x.cl/n",
+                            direccion="Luis Carrera 1200, Vitacura"), perfil)
+    nuevo.extras["nuevo_en_corrida"] = True
+    viejo = S.evaluar(depto(url="https://x.cl/v"), perfil)
+    viejo.extras["nuevo_en_corrida"] = False
+    texto = escribir_tablero([viejo, nuevo], tmp_path, perfil).read_text(
+        encoding="utf-8")
+    assert "🆕 Nuevos en esta corrida" in texto
+    seccion = texto.split("🆕 Nuevos en esta corrida")[1].split("##")[0]
+    assert "Luis Carrera" in seccion
+    assert "Alonso" not in seccion
+    assert "1 nuevos" in texto or "**1 nuevos**" in texto
+
+
+def test_el_tablero_muestra_los_que_bajaron_de_precio(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    a.extras["historial_precio"] = [
+        {"cuando": "2026-08-01", "clp": 1_650_000},
+        {"cuando": "2026-08-15", "clp": 1_490_000},
+    ]
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    assert "📉 Bajaron de precio" in texto
+    assert "$1.650.000" in texto and "$1.490.000" in texto
+
+
+def test_el_tablero_pone_tu_lista_corta_primero(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    a.extras["gestion"] = {"estado": "visita", "nota": "martes"}
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    assert "⭐ Tu lista corta" in texto
+    assert texto.index("Tu lista corta") < texto.index("Todos los candidatos")
+
+
+def test_el_tablero_no_repite_la_misma_ficha(tmp_path, perfil):
+    """Dos registros del mismo departamento (misma ficha) aparecían como dos
+    filas compitiendo entre sí — pasó con toctoc en el tablero real."""
+    a = S.evaluar(depto(url="https://x.cl/1"), perfil)
+    b = S.evaluar(depto(url="https://x.cl/2", arriendo_clp=1_600_000.0), perfil)
+    texto = escribir_tablero([a, b], tmp_path, perfil).read_text(encoding="utf-8")
+    filas = [l for l in texto.splitlines()
+             if "[Alonso de Córdova 4200]" in l]
+    assert len(filas) == 1
+
+
+def test_el_tablero_separa_tus_descartes_de_los_del_filtro(tmp_path, perfil):
+    del_filtro = S.evaluar(depto(url="https://x.cl/f", m2_totales=60.0), perfil)
+    tuyo = S.evaluar(depto(url="https://x.cl/t",
+                           direccion="Espoz 2620, Vitacura"), perfil)
+    tuyo.descartado = True
+    tuyo.clase_descarte = "gestion"
+    tuyo.motivo_descarte = "lo descartaste tú: muy oscuro"
+    tuyo.extras["gestion"] = {"estado": "descartado", "nota": "muy oscuro"}
+    texto = escribir_tablero([del_filtro, tuyo], tmp_path, perfil).read_text(
+        encoding="utf-8")
+    assert "Los que descartaste tú (1)" in texto
+    assert "muy oscuro" in texto
+    assert "Descartados por el filtro" in texto
+
+
+def test_el_tablero_explica_como_anotar(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    assert "gestion.yml" in texto
+    assert f"codigo: {a.codigo}" in texto, \
+        "el ejemplo lleva un código real, listo para copiar"
+
+
+def test_la_ficha_lleva_codigo_y_google_maps(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    escribir_ficha(a, tmp_path, perfil)
+    texto = (tmp_path / nombre_archivo(a)).read_text(encoding="utf-8")
+    assert f"`#{a.codigo}`" in texto
+    assert "google.com/maps/search" in texto
+    assert f"codigo: {a.codigo}" in texto, "el bloque para anotar viene listo"
+
+
+def test_la_ficha_sin_direccion_no_inventa_mapa(tmp_path, perfil):
+    a = S.evaluar(depto(direccion=""), perfil)
+    escribir_ficha(a, tmp_path, perfil)
+    texto = (tmp_path / nombre_archivo(a)).read_text(encoding="utf-8")
+    assert "google.com/maps" not in texto
+
+
+def test_la_ficha_muestra_tu_gestion(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    a.extras["gestion"] = {"estado": "contactado", "nota": "sin mascotas"}
+    a.extras["datos_tuyos"] = ["gastos_comunes_clp"]
+    escribir_ficha(a, tmp_path, perfil)
+    texto = (tmp_path / nombre_archivo(a)).read_text(encoding="utf-8")
+    assert "contactado" in texto and "sin mascotas" in texto
+    assert "Datos completados por ti" in texto
 
 
 def test_el_tablero_marca_la_superficie_util(tmp_path, perfil):
