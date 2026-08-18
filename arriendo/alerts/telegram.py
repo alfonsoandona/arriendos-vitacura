@@ -748,30 +748,37 @@ def mensaje_bajas(bajas: list[dict]) -> str:
 
 
 def mensaje_sobrantes(avisos: list) -> str:
-    """El resumen de los que calificaron pero no cupieron en el tope.
+    """Un aviso corto de que hay más, con el link a la lista completa.
 
-    Sin esto, el tope de avisos por corrida era un recorte SILENCIOSO: ocho
-    mensajes completos y los demás quedaban en el tablero sin que nada dijera
-    que existían. Si el noveno era interesante, la única forma de enterarse
-    era abrir el tablero por iniciativa propia.
-
-    Una línea por departamento, no el mensaje completo: es un índice, y los
-    que lo ameriten van a llegar con su aviso completo en la corrida
-    siguiente — el resumen no los marca como avisados a propósito.
+    Sin esto, el tope de avisos por corrida era un recorte SILENCIOSO. La
+    primera versión era un índice de una línea por departamento, y el usuario
+    la retiró con razón (18-08): "no tienen nada de info — prefiero un 'para
+    más avisos haz click acá' que me lleve a la lista completa". Diez líneas
+    truncadas a 40 caracteres no dejaban decidir nada; la lista completa —el
+    tablero, con todas las columnas y ordenada— sí.
     """
     if not avisos:
         return ""
+    mejor = max((a.score for a in avisos), default=0)
     L = [f"📋 <b>Además calificaron {len(avisos)} más</b> "
-         "(quedan en el tablero; avisan de nuevo solo si cambian):", ""]
-    for a in avisos[:10]:
-        emoji, _ = S.banda(a.score)
-        pr = _pesos(a.arriendo_clp) if a.arriendo_clp else "s/precio"
-        L.append(f"{emoji} {a.score} · {pr} · "
-                 f"{_escapar((a.direccion or a.title)[:40])} "
-                 f"<code>#{a.codigo}</code>")
-    if len(avisos) > 10:
-        L.append(f"… y {len(avisos) - 10} más en el tablero")
+         f"(el mejor con ⭐{mejor})."]
+    if (tablero := _url_tablero()):
+        L.append(f'👉 <a href="{_escapar(tablero)}">Ver la lista completa</a>')
+    if (panel := _url_panel()):
+        L.append(f'📊 <a href="{_escapar(panel)}">O en el panel</a>, '
+                 "con mapa y filtros")
+    L.append("<i>Quedan en el tablero; avisan con mensaje propio "
+             "solo si cambian.</i>")
     return "\n".join(L)
+
+
+def _url_tablero() -> str:
+    """El tablero en GitHub, que se renderiza en la app y el navegador."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    rama = os.environ.get("GITHUB_REF_NAME", "") or "main"
+    if not repo:
+        return ""
+    return f"https://github.com/{repo}/blob/{rama}/alertas/README.md"
 
 
 def _volvio(a: Any) -> str:

@@ -811,10 +811,13 @@ def test_sin_bajas_no_hay_mensaje():
     assert mensaje_bajas([]) == ""
 
 
-def test_el_indice_de_sobrantes_es_un_indice_no_un_aviso():
-    """Una línea por departamento: es un índice, y el aviso completo llega
-    en la corrida siguiente porque el resumen no los marca como avisados."""
+def test_los_sobrantes_son_un_click_no_una_lista(monkeypatch):
+    """Pedido del 18-08: el índice de líneas truncadas "no tiene nada de
+    info" — mejor un 'para más avisos haz click acá' que lleve a la lista
+    completa en git."""
     from arriendo.alerts.telegram import mensaje_sobrantes
+    monkeypatch.setenv("GITHUB_REPOSITORY", "alfonsoandona/arriendos-vitacura")
+    monkeypatch.setenv("GITHUB_REF_NAME", "rama-x")
     avisos = []
     for i in range(12):
         a = Arriendo(source="x", url=f"https://x.cl/{i}", title="Depto",
@@ -824,8 +827,16 @@ def test_el_indice_de_sobrantes_es_un_indice_no_un_aviso():
         avisos.append(a)
     texto = mensaje_sobrantes(avisos)
     assert "calificaron 12 más" in texto
-    assert "y 2 más en el tablero" in texto
-    assert texto.count("\n") < 16, "es un índice, no doce avisos completos"
+    assert ("https://github.com/alfonsoandona/arriendos-vitacura/blob/"
+            "rama-x/alertas/README.md") in texto
+    assert "Ver la lista completa" in texto
+    assert "Calle 3 100" not in texto, "sin líneas de relleno"
+    assert texto.count("\n") <= 4, "es un click, no una lista"
+
+
+def test_sobrantes_vacios_no_mandan_nada():
+    from arriendo.alerts.telegram import mensaje_sobrantes
+    assert mensaje_sobrantes([]) == ""
 
 
 def test_los_gc_estimados_van_marcados_como_estimacion():
