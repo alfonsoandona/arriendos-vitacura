@@ -1347,6 +1347,29 @@ def parse_comuna(texto: str, candidatas: list[str] | None = None) -> str:
     return mejor
 
 
+def parse_comuna_de_url(url: str) -> str:
+    """La comuna escrita en la ruta del aviso ("…/las-condes/170742").
+
+    Existe por houm: su listado de Vitacura trae colados avisos de otras
+    comunas cuyo JSON-LD no dice comuna utilizable — y sin este dato la
+    comuna del listado se los apropiaba. La ruta del aviso sí la dice.
+
+    Gana la ÚLTIMA que aparezca, no la más larga: las rutas van de lo grande
+    a lo chico (región/provincia/comuna), así que en ".../santiago/vitacura/
+    id" la comuna es Vitacura aunque Santiago también sea una comuna.
+    """
+    t = (url or "").split("?")[0].replace("-", " ").replace("/", " ")
+    t = norm(_NO_ES_LA_COMUNA_SANTIAGO.sub(" ", t))
+    mejor, pos = "", -1
+    for c in COMUNAS_RM:
+        m = None
+        for m in re.finditer(rf"\b{re.escape(norm(c))}\b", t):
+            pass
+        if m is not None and m.start() > pos:
+            mejor, pos = c, m.start()
+    return mejor
+
+
 # Los barrios de Vitacura. Sirven cuando el aviso nombra el sector y no la
 # comuna, que en los portales de arriendo pasa seguido: "Santa María de
 # Manquehue", "Jardín del Este", "Lo Curro" identifican Vitacura tan bien

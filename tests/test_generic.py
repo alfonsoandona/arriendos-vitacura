@@ -567,6 +567,84 @@ def test_candidato_de_texto_no_toma_numeros_sueltos_como_canon(fuente):
     assert c.arriendo_clp == 1_817_308
 
 
+# Los mapeos que salieron de los volcados del diagnóstico v2: los nodos son
+# los REALES de cada portal, recortados.
+
+def test_toctoc_publica_el_precio_como_lista_de_monedas(fuente):
+    """TocToc entero daba CERO avisos con el inventario a la vista: su
+    NEXT_DATA usa `precios: [{prefix, value}]` y `urlFicha`."""
+    import json as _json
+    nodo = {"props": {"pageProps": {"propiedades": {"results": [{
+        "titulo": "Amplio depto Vitacura, muy iluminado, vista despejada",
+        "comuna": "Vitacura", "region": "Metropolitana",
+        "urlFicha": "https://www.toctoc.com/propiedades/arriendocorredorasr/"
+                    "departamento/vitacura/amplio-depto/57d38326",
+        "tipoPropiedad": "Departamento", "tipoOperacion": "Arriendo",
+        "precios": [{"order": 0, "prefix": "UF", "value": "49"},
+                    {"order": 1, "prefix": "$", "value": "2.001.911"}],
+        "superficie": ["140", "140"], "dormitorios": ["3"]}]}}}}
+    doc = (f'<html><body><script id="__NEXT_DATA__" type="application/json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script></body></html>')
+    avisos = extraer(doc, "https://www.toctoc.com/arriendo/departamento",
+                     fuente)
+    assert len(avisos) == 1
+    a = avisos[0]
+    assert a.url.endswith("57d38326")
+    assert a.arriendo_clp == 2_001_911 and a.arriendo_uf == 49
+    assert a.m2_totales == 140
+    assert a.dormitorios == 3
+    assert a.comuna == "Vitacura"
+
+
+def test_houm_publica_el_canon_dentro_de_potentialaction(fuente):
+    """El nodo real de houm: ApartmentComplex → RentAction →
+    PriceSpecification. Además el aviso es de LAS CONDES dentro del listado
+    de Vitacura: la comuna sale de la ruta, no del listado."""
+    import json as _json
+    from dataclasses import replace
+    nodo = {"@type": "ApartmentComplex", "name": "Avenida Presidente Kennedy",
+            "url": "https://www.houm.com/cl/arriendo-departamento-region-"
+                   "metropolitana/las-condes/170742",
+            "potentialAction": {"@type": "RentAction", "priceSpecification": {
+                "@type": "PriceSpecification", "price": 2200000,
+                "priceCurrency": "CLP"}},
+            "address": {"@type": "PostalAddress",
+                        "addressLocality": "Avenida Presidente Kennedy",
+                        "addressRegion": "Region Metropolitana"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script></body></html>')
+    f = replace(fuente, comuna_default="Vitacura")
+    a = extraer(doc, "https://houm.com/cl/arriendo-vitacura", f)[0]
+    assert a.arriendo_clp == 2_200_000
+    assert a.comuna == "Las Condes", \
+        "la ruta del aviso le gana a la comuna del listado"
+
+
+def test_un_nodo_con_puro_nombre_no_es_un_aviso(fuente):
+    """propertypartners producía cuatro "avisos" que eran Place
+    {name: "Región Metropolitana"}: cascarones sin un solo dato."""
+    doc = ('<html><body><script type="application/ld+json">'
+           '[{"@type": "Place", "name": "Región Metropolitana"},'
+           ' {"@type": "Place", "name": "Vitacura"}]'
+           '</script></body></html>')
+    assert extraer(doc, "https://ejemplo.cl/arriendo", fuente) == []
+
+
+@pytest.mark.parametrize("url,esperada", [
+    ("https://www.houm.com/cl/arriendo-departamento-region-metropolitana/"
+     "las-condes/170742", "Las Condes"),
+    # La ruta va de lo grande a lo chico: gana la última.
+    ("https://r.cl/metropolitana-de-santiago/santiago/vitacura/dep-123",
+     "Vitacura"),
+    ("https://www.goplaceit.com/cl/propiedad/arriendo/departamento/"
+     "vitacura/12054265-arriendo-dpto", "Vitacura"),
+    ("https://portal.cl/aviso/98765", ""),
+])
+def test_parse_comuna_de_url(url, esperada):
+    from arriendo import parse as P
+    assert P.parse_comuna_de_url(url) == esperada
+
+
 def test_direccion_jsonld_sin_comuna_repetida(fuente):
     """El streetAddress de un metabuscador ya trae comuna, región y país;
     pegarle addressLocality y addressRegion producía "Vitacura" dos veces."""

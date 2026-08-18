@@ -183,6 +183,9 @@ _TIPOS_LD = {
     "product", "offer", "residence", "apartment", "house", "place",
     "singlefamilyresidence", "realestatelisting", "accommodation",
     "rentaction", "rentalproperty",
+    # houm publica cada aviso como ApartmentComplex (medido contra su página
+    # real): nombre, url y el canon adentro de potentialAction.
+    "apartmentcomplex",
 }
 
 
@@ -223,6 +226,22 @@ def _precio_ld(nodo: dict) -> tuple[float | None, str]:
     return precio, str(offers.get("priceCurrency") or "").upper()
 
 
+def _precio_de_accion(nodo: dict) -> tuple[float | None, str]:
+    """El canon dentro de potentialAction, que es donde lo pone houm:
+    ApartmentComplex → RentAction → PriceSpecification."""
+    accion = nodo.get("potentialAction")
+    if isinstance(accion, list):
+        accion = accion[0] if accion else None
+    if not isinstance(accion, dict):
+        return None, ""
+    spec = accion.get("priceSpecification")
+    if isinstance(spec, list):
+        spec = spec[0] if spec else None
+    if not isinstance(spec, dict):
+        return None, ""
+    return _num(spec.get("price")), str(spec.get("priceCurrency") or "").upper()
+
+
 def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
                   valor_uf: float | None = None) -> list[Arriendo]:
     nodos: list[dict] = []
@@ -238,6 +257,16 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
         url = _absoluto(url, base_url) if url else base_url
         nombre = str(n.get("name") or "")
         desc = str(n.get("description") or "")
+
+        # Un nodo que SOLO tiene nombre no es un aviso: es el breadcrumb del
+        # sitio. En el diagnóstico real, propertypartners producía cuatro
+        # "avisos" que eran Place {name: "Región Metropolitana"} — cuatro
+        # cascarones sin un solo dato entrando al tablero.
+        if not (n.get("address") or n.get("geo") or n.get("offers")
+                or n.get("potentialAction") or n.get("floorSize")
+                or n.get("numberOfRooms") or n.get("numberOfBedrooms")
+                or n.get("numberOfBathroomsTotal")):
+            continue
 
         direccion, comuna = "", ""
         addr = n.get("address")
@@ -285,6 +314,8 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
             a.antiguedad_anos = P.hoy().year - int(v)
 
         precio, moneda = _precio_ld(n)
+        if precio is None:
+            precio, moneda = _precio_de_accion(n)
         if precio:
             if moneda == "CLF":            # CLF es el código ISO de la UF
                 a.arriendo_uf = precio
@@ -321,7 +352,8 @@ _ESTADO_EMBEBIDO = [
 # Cómo se llaman los campos en los payloads de los portales chilenos. Cada
 # lista va de la forma más específica a la más genérica.
 _LLAVES = {
-    "url": ("url", "link", "permalink", "href", "detailUrl", "urlDetalle"),
+    "url": ("url", "link", "permalink", "href", "detailUrl", "urlDetalle",
+            "urlFicha"),
     "titulo": ("title", "titulo", "name", "nombre", "descripcionCorta"),
     "descripcion": ("description", "descripcion", "detalle", "observaciones"),
     "direccion": ("address", "direccion", "streetAddress", "ubicacion",
@@ -353,6 +385,32 @@ def _busca(d: dict, llaves: tuple[str, ...]) -> Any:
     return None
 
 
+def _monto_de_payload(d: dict) -> tuple[float | None, float | None]:
+    """(clp, uf) cuando el payload trae el precio como lista de monedas.
+
+    Es la forma de TocToc, medida contra su página real: `precios:
+    [{prefix: "UF", value: "49"}, {prefix: "$", value: "2.001.911"}]` — el
+    mismo canon en las dos monedas. Sin leerla, TocToc entero daba CERO
+    avisos con el inventario a la vista en su NEXT_DATA.
+    """
+    precios = d.get("precios")
+    if not isinstance(precios, list):
+        return None, None
+    clp = uf = None
+    for p in precios:
+        if not isinstance(p, dict):
+            continue
+        v = _num(p.get("value"))
+        if v is None:
+            continue
+        prefijo = str(p.get("prefix") or "").upper()
+        if "UF" in prefijo:
+            uf = v
+        elif "$" in prefijo or "CLP" in prefijo:
+            clp = v
+    return clp, uf
+
+
 def _parece_aviso(d: Any) -> bool:
     """¿Este dict del payload es un aviso y no un nodo cualquiera del árbol?
 
@@ -362,7 +420,8 @@ def _parece_aviso(d: Any) -> bool:
     """
     if not isinstance(d, dict):
         return False
-    if _busca(d, _LLAVES["precio"]) is None:
+    if _busca(d, _LLAVES["precio"]) is None \
+            and _monto_de_payload(d) == (None, None):
         return False
     return any(_busca(d, _LLAVES[k]) is not None
                for k in ("direccion", "comuna", "m2_totales", "m2_utiles",
@@ -450,6 +509,14 @@ def _desde_estado_embebido(html: str, base_url: str, fuente: FuenteConfig,
                 a.arriendo_clp = round(precio * (valor_uf or P.VALOR_UF_DEFECTO))
             else:
                 a.arriendo_clp = precio
+        else:
+            # La forma lista de TocToc. Manda el valor en pesos, que es el
+            # que el portal calculó; la UF queda anotada igual.
+            clp_lista, uf_lista = _monto_de_payload(d)
+            if clp_lista or uf_lista:
+                a.arriendo_uf = uf_lista
+                a.arriendo_clp = clp_lista or round(
+                    (uf_lista or 0) * (valor_uf or P.VALOR_UF_DEFECTO))
 
         gastos = _num(_busca(d, _LLAVES["gastos"]))
         if gastos is not None and 15_000 <= gastos <= 1_500_000:
@@ -781,6 +848,15 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     # `evaluar_zona` usa esa marca para dejar que las coordenadas desmientan a
     # la comuna cuando se contradicen. Un dato deducido presentado como
     # publicado es peor que uno ausente.
+    # Antes que la comuna del listado, la que dice la RUTA del propio aviso:
+    # el listado de Vitacura de houm trae colados avisos de Las Condes con un
+    # JSON-LD que no dice comuna utilizable, y la del listado se los
+    # apropiaba. Igual queda como deducida: las coordenadas pueden
+    # desmentirla.
+    if not a.comuna and url and url != base_url:
+        if (c := P.parse_comuna_de_url(url)):
+            a.comuna = c
+            a.extras["comuna_origen"] = "de la URL del aviso"
     if not a.comuna and fuente.comuna_default:
         a.comuna = fuente.comuna_default
         a.extras["comuna_origen"] = "del listado, que ya venía filtrado por comuna"
