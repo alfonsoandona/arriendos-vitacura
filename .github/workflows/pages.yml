@@ -1,0 +1,51 @@
+name: Publicar el dashboard
+
+# Convierte docs/ en una página web de verdad, porque GitHub —app y web—
+# nunca renderiza un archivo HTML del repo: muestra el código fuente. El
+# usuario lo descubrió intentando abrir el dashboard desde la app.
+#
+# Con esto, los dos dashboards quedan en una URL fija que abre en cualquier
+# navegador (celular, PC, tablet) y se actualiza sola:
+#
+#   https://alfonsoandona.github.io/arriendos-vitacura/          (todos)
+#   https://alfonsoandona.github.io/arriendos-vitacura/hoy.html  (últimas 24 h)
+#
+# `enablement: true` ACTIVA GitHub Pages desde acá si no está activado, así
+# que no hay nada que tocar en Settings. Corre solo cuando una corrida del
+# radar commitea docs/ nuevos.
+on:
+  push:
+    branches: ["claude/telegram-vitacura-rentals-alert-48wnuy"]
+    paths: ["docs/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un deploy a la vez; si llega otro más nuevo, el viejo ya no importa.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

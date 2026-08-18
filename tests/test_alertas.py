@@ -518,6 +518,22 @@ def test_el_tablero_explica_como_anotar(tmp_path, perfil):
         "el ejemplo lleva un código real, listo para copiar"
 
 
+def test_el_mensaje_lleva_el_link_al_panel(perfil, monkeypatch):
+    """La app de GitHub muestra el HTML como código fuente: el único camino
+    al dashboard desde el teléfono es la URL de Pages."""
+    monkeypatch.setenv("GITHUB_REPOSITORY", "alfonsoandona/arriendos-vitacura")
+    a = S.evaluar(depto(), perfil)
+    texto = _mensaje(a, "", 0.9, "Sport Francés")
+    assert "https://alfonsoandona.github.io/arriendos-vitacura/" in texto
+    assert "📊 Panel" in texto
+
+
+def test_sin_repo_no_se_inventa_panel(perfil, monkeypatch):
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+    a = S.evaluar(depto(), perfil)
+    assert "github.io" not in _mensaje(a, "", 0.9, "Sport Francés")
+
+
 def test_el_mensaje_lleva_el_link_a_google_maps(perfil):
     a = S.evaluar(depto(), perfil)
     texto = _mensaje(a, "", 0.9, "Sport Francés")

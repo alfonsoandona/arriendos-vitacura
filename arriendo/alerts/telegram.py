@@ -461,10 +461,24 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
     # eso Google Maps contesta solo la pregunta que importa ("¿dónde queda?").
     if (maps := _google_maps(a)):
         extras_linea.append(f"<a href=\"{_escapar(maps)}\">📍 Maps</a>")
+    # El dashboard servido por GitHub Pages: la ÚNICA forma de ver un HTML
+    # del repo desde el teléfono — la app de GitHub muestra el código fuente,
+    # no la página. Este link abre en cualquier navegador.
+    if (panel := _url_panel()):
+        extras_linea.append(f"<a href=\"{_escapar(panel)}\">📊 Panel</a>")
     if extras_linea:
         L.append("   " + " · ".join(extras_linea))
 
     return "\n".join(L)
+
+
+def _url_panel() -> str:
+    """La URL pública del dashboard (GitHub Pages), si el repo se conoce."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    if "/" not in repo:
+        return ""
+    dueno, nombre = repo.split("/", 1)
+    return f"https://{dueno}.github.io/{nombre}/"
 
 
 def _google_maps(a: Arriendo) -> str:
