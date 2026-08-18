@@ -115,6 +115,97 @@ def test_una_ficha_no_sale_dos_veces(tmp_path, perfil):
 
 
 # ---------------------------------------------------------------------------
+# El mapa interactivo y la capa de UX (pedido del 18-08, segunda ronda:
+# "que el mapa sea interactivo, que si selecciono sepa qué inmueble es")
+# ---------------------------------------------------------------------------
+
+def _json_embebido(texto: str) -> list:
+    import json as J
+    cuerpo = texto.split('<script type="application/json" id="datos">')[1]
+    return J.loads(cuerpo.split("</script>")[0])
+
+
+def test_leaflet_va_vendored_no_de_un_cdn(tmp_path, perfil):
+    a = S.evaluar(depto(lat=-33.3830, lon=-70.5650), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    assert (tmp_path / "lib" / "leaflet.js").exists()
+    assert (tmp_path / "lib" / "leaflet.css").exists()
+    assert (tmp_path / "lib" / "LICENSE").exists(), "BSD-2 viaja con el código"
+    assert 'src="lib/leaflet.js"' in texto
+    assert 'href="lib/leaflet.css"' in texto
+    assert "unpkg.com" not in texto and "jsdelivr" not in texto
+
+
+def test_los_datos_viajan_como_json_embebido(tmp_path, perfil):
+    a = S.evaluar(depto(lat=-33.3830, lon=-70.5650), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    datos = _json_embebido(texto)
+    assert len(datos) == 1
+    d = datos[0]
+    assert d["cod"] == a.codigo
+    assert d["lat"] == pytest.approx(-33.3830)
+    assert "Alonso de Córdova" in d["dir"]
+    assert d["ptxt"].startswith("$")
+    assert d["maps"], "el popup del mapa lleva su link a Google Maps"
+
+
+def test_un_titulo_malicioso_no_cierra_el_script(tmp_path, perfil):
+    a = S.evaluar(depto(direccion=None,
+                        title="</script><script>alert(1)</script>"), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    crudo = texto.split('<script type="application/json" id="datos">')[1]
+    crudo = crudo.split('<script src="lib/leaflet.js">')[0]
+    assert crudo.count("</script>") == 1, \
+        "dentro del bloque de datos solo puede cerrar el bloque mismo"
+    datos = _json_embebido(texto)
+    assert "alert(1)" in datos[0]["dir"], "el texto sobrevive, el tag no"
+
+
+def test_el_mapa_leaflet_queda_cableado_con_respaldo(tmp_path, perfil):
+    a = S.evaluar(depto(lat=-33.3830, lon=-70.5650), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    assert 'id="mapa"' in texto and 'data-lat=' in texto
+    assert 'data-rpref' in texto, "los radios del perfil viajan al mapa"
+    assert 'id="mapa-svg"' in texto and "<svg" in texto, \
+        "sin Leaflet, el SVG geométrico sigue contando la historia"
+    assert "tile.openstreetmap.org" in texto
+    assert "openstreetmap.org/copyright" in texto, "atribución obligatoria"
+
+
+def test_la_barra_de_filtros_y_el_orden_estan(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    for modo in ("todos", "nuevos", "bajaron", "mapa", "gestion"):
+        assert f'data-modo="{modo}"' in texto
+    assert 'id="orden"' in texto and 'id="cuenta"' in texto
+    assert 'id="tema"' in texto, "el botón de tema claro/oscuro"
+    assert 'data-l="$/mes"' in texto, "las tarjetas del teléfono llevan rótulo"
+    assert f'id="r-{a.codigo}"' in texto, "cada fila es ancla del mapa"
+
+
+def test_el_kpi_es_un_filtro_tocable(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    assert 'data-modo="nuevos" role="button"' in texto
+
+
+def test_hoy_tambien_lleva_mapa_y_datos(tmp_path, perfil):
+    ahora = ahora_utc()
+    a = S.evaluar(depto(lat=-33.3830, lon=-70.5650), perfil)
+    a.extras["primera_vez"] = ahora.isoformat()
+    _, hoy = escribir_dashboards([a], tmp_path, perfil)
+    texto = hoy.read_text(encoding="utf-8")
+    assert 'id="mapa"' in texto
+    assert _json_embebido(texto)[0]["nuevo"] is True
+
+
+# ---------------------------------------------------------------------------
 # Geocoding por corrida
 # ---------------------------------------------------------------------------
 
