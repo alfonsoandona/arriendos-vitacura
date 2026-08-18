@@ -1,32 +1,28 @@
-# Vitacura
+# Sólo 3, Vitacura
 
-**89/100** · Vitacura · sin ubicar
+**81/100** · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.552.503 |
+| Arriendo | $1.300.000 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.552.503** ⚠️ sin gastos comunes |
-| Publicado en UF | UF 38 |
-| Por m² | $11.089 / m² |
+| **Costo mensual** | **$1.300.000** ⚠️ sin gastos comunes |
 
 ## Qué es
 
 | | |
 |---|---|
 | Tipo | departamento |
-| Superficie total | 140 m² |
-| Superficie útil | 140 m² |
-| Dormitorios | 4 |
-| Baños | 3 |
+| Superficie total | — |
+| Superficie útil | — |
+| Dormitorios | 3 |
+| Baños | 2 |
 | Estacionamientos | 2 |
 | Bodega | — |
 | Antigüedad | — |
-| Piso | 6 |
-| Orientación | oriente |
-| Disponible | ya |
+| Piso | 4 |
 
 ## De dónde sale el puntaje
 
@@ -34,25 +30,22 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.552.503 · GC no publicados |
-| Superficie | 14/16 | 140 m² totales |
-| Programa | 13/14 | 4D · 3B |
-| _Preferencias_ | +6 | desempate entre las que ya calificaron |
+| Precio | 18/20 | $1.300.000 · GC no publicados |
+| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Programa | 10/14 | 3D · 2B |
+| _Preferencias_ | +1 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **93/100**.
+> El puntaje se midió sobre **60 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **89/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.552.503 · GC no publicados
-- Superficie: 140 m² totales
-- Programa: 4D · 3B
-- piso 6
-- orientación oriente
-- 35 m² por dormitorio
+- Precio: $1.300.000 · GC no publicados
+- Programa: 3D · 2B
 - 2 estacionamientos
+- ojo: interior
 
 </details>
 
@@ -60,21 +53,22 @@
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.105.006 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.600.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Yapo](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/2-estacionamientos-140m2-vitacura/32858608)
+- [Yapo](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/comodo-dpto-3d-2b-2e-1b-gran-conectividad-179538/32858921)
 
 ---
 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Añadir a favoritos Property E2 Kay Vitacura 2 estacionamientos 140m2 Vitacura Departamento en arriendo, con entrega inmediata, a pasos de Nueva Costanera y Vespucio Norte, comuna de Vitacura.-140m2.- Piso 6.- Orientación Sur- Oriente. - Cocina tradicional ... UF38,00 4 1 3 Compara este anuncio Añadir a favoritos
+Añadir a favoritos Juan Nadal Vitacura Cómodo Dpto 3D 2B 2E 1B - Gran Conectividad! (179538) OPORTUNIDAD! ENTREGA PRIMERA SEMANA DE SEPTIEMBRE. Ubicado en un sector estratégico, en Kennedy Interior con Kennedy Lateral. Cuarto piso. Sólo 3 dptos por piso y 2 ascensores para ... $1.300.000 3 2 2 Compara este anuncio Añadir a favoritos
 ```
 
 Leído de `yapo` vía `tarjeta` el 18-08-2026 04:23 UTC.
