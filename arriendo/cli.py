@@ -209,13 +209,22 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             salida.append((a, motivo))
             continue
 
-        propios = _candidatos_propios(a, extraer(html, a.url, fuente, uf))
+        candidatos = extraer(html, a.url, fuente, uf)
+        propios = _candidatos_propios(a, candidatos)
         # El plan B, del diagnóstico contra fichas reales: goplaceit e iCasas
         # no ponen JSON-LD de la propiedad en su ficha —las tres pasadas
         # extraen CERO— pero el texto visible lo dice todo. De ese texto solo
         # se cree lo rotulado, y nunca la identidad (dirección, comuna, tipo).
-        del_texto = candidato_de_texto(html, a.url, fuente, uf,
-                                       titulo=a.title, direccion=a.direccion)
+        #
+        # Salvo cuando la "ficha" es en verdad un LISTADO: doomos y fuenzalida
+        # devuelven la página de búsqueda entera (20+ candidatos), y el texto
+        # de esa página habla de veinte propiedades, no de esta.
+        if len(candidatos) >= 5:
+            del_texto = None
+        else:
+            del_texto = candidato_de_texto(html, a.url, fuente, uf,
+                                           titulo=a.title,
+                                           direccion=a.direccion)
         if del_texto is not None and not _no_contradice(a, del_texto):
             del_texto = None
         # Sin candidato propio Y sin ancla, nada garantiza que el texto hable

@@ -388,6 +388,25 @@ def test_el_catalogo_completo_no_es_el_link_del_aviso(fuente):
     assert extraer(doc, "https://ejemplo.cl/arriendo", fuente) == []
 
 
+def test_el_titulo_hueco_cae_al_slug_de_la_url(fuente):
+    """"$ 770.000 Arriendo Ver más Contactar" ALERTÓ con 87 puntos: doomos
+    escribe sus tarjetas así, con la descripción real en el slug."""
+    doc = ('<html><body><article><a href='
+           '"/de/1465886_arriendo-departamento-en-av-kennedy-vitacura.html">'
+           '$ 770.000 Arriendo Ver más Contactar</a></article></body></html>')
+    a = extraer(doc, "https://www.doomos.cl/departamentos-vitacura", fuente)[0]
+    assert a.title == "Arriendo departamento en av kennedy vitacura"
+    assert a.arriendo_clp == 770_000
+
+
+def test_un_titulo_con_sustancia_no_se_toca(fuente):
+    doc = ('<html><body><article><a href="/de/99_otra-cosa.html">'
+           'Departamento Espoz 2620 $1.500.000 3 dormitorios</a>'
+           '</article></body></html>')
+    a = extraer(doc, "https://www.doomos.cl/departamentos-vitacura", fuente)[0]
+    assert a.title.startswith("Departamento Espoz")
+
+
 def test_el_lastre_numerico_de_remax_no_es_el_titulo():
     """"1/28 1.250.000 $ Mensual 30,60 UF 2 2 5 103 Departamento…": el
     paginador del carrusel, el precio dos veces y la fila de iconos, todo
@@ -417,6 +436,9 @@ def test_un_titulo_que_es_puro_numero_queda_como_estaba():
     # la UF de altura. La palabra de precio EN MEDIO delata al nombre entero.
     "HEY! CASA COMERCIAL EN ARRIENDO! UF 75",
     "Local San Sebastián Arriendo: UF 90 Providencia",
+    # "Sólo 3, Vitacura" ALERTÓ el 18-08: el marketing con el 3 de altura.
+    "Departamento nuevo Sólo 3 disponibles en Vitacura",
+    "Quedan 2 unidades con terraza",
 ])
 def test_un_precio_partido_por_la_coma_no_es_direccion(texto):
     assert _direccion_desde(texto, "") == ""

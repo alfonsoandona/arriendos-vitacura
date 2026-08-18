@@ -691,6 +691,26 @@ _LASTRE_DE_TITULO = re.compile(
     r"|exclusivo)\s+)+", re.I)
 
 
+# Un título sin sustancia: puro precio, chrome y botones. "$ 770.000
+# Arriendo Ver más Contactar" ALERTÓ con 87 puntos en la corrida del 18-08 —
+# doomos escribe sus tarjetas así, con la descripción real en el slug de la
+# URL ("1465886_arriendo-departamento-en-av-kennedy-vitacura.html").
+_TITULO_HUECO = re.compile(
+    r"^(?:[\s\d$.,/]|uf\.?|clp|arriendos?|ventas?|ver\s+m[aá]s|contactar"
+    r"|detalles?|mensual|desde)+$", re.I)
+
+
+def _titulo_de_slug(url: str) -> str:
+    """El título que el portal escribió en la RUTA del aviso."""
+    segmento = (url or "").split("?")[0].rstrip("/").rsplit("/", 1)[-1]
+    segmento = re.sub(r"\.[a-z]{2,5}$", "", segmento, flags=re.I)
+    segmento = re.sub(r"^\d+[_-]*", "", segmento)
+    texto = re.sub(r"[-_]+", " ", segmento).strip()
+    if len(texto) < 12 or not re.search(r"[a-záéíóúñ]{3}", texto, re.I):
+        return ""
+    return (texto[0].upper() + texto[1:])[:150]
+
+
 def _titulo_desde(texto: str) -> str:
     texto = _CHROME_DE_TARJETA.sub("", (texto or "").strip())
     texto = _FECHA_Y_CATEGORIA.sub("", texto).strip()
@@ -760,10 +780,13 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
     las tres pasadas producen objetos comparables entre sí. Cada pasada puede
     después pisar lo que sepa mejor.
     """
+    titulo = _titulo_desde(texto)
+    if _TITULO_HUECO.match(titulo or "") and url and url != base_url:
+        titulo = _titulo_de_slug(url) or titulo
     a = Arriendo(
         source=fuente.id,
         url=url or base_url,
-        title=_titulo_desde(texto),
+        title=titulo,
         raw_text=texto[:2000],
         operacion=P.parse_operacion(texto, fuente.operacion_default),
         tipo=P.parse_tipo(texto),
@@ -969,6 +992,9 @@ def _quitar_comuna_inicial(palabras: list[str]) -> list[str]:
 _NO_ES_CALLE = re.compile(
     r"^(?:ba[ñn]os?|dormitorios?|piezas?|estacionamientos?|bodegas?"
     r"|pisos?|m2|mts?2?|uf\s*\d*|clp|cod\.?|c[oó]digo|mensual"
+    # "Sólo 3, Vitacura" alertó en la corrida del 18-08: el "Sólo 3
+    # (disponibles)" del marketing, con el 3 de altura. Y sus parientes.
+    r"|s[oó]lo|quedan?|[uú]ltim[oa]s?|desde|hasta"
     r"|arriendo|venta)\b[\s:.,]*[\d\s.,]*$", re.I)
 
 # Una palabra de precio EN MEDIO del nombre lo delata entero: "COMERCIAL EN

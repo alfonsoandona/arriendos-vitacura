@@ -6663,34 +6663,6 @@
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=2",
     "veces_visto": 1
   },
-  "72eb1620d948a444": {
-    "arriendo_clp": 1300000.0,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "solo 3",
-    "comuna": "Vitacura",
-    "direccion": "Sólo 3, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "historial_precio": [
-      {
-        "clp": 1300000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "piso": 4,
-    "precio_al_avisar": 1300000.0,
-    "primera_vez": "2026-08-18T04:26:10",
-    "score": 81,
-    "source": "yapo",
-    "tipo": "departamento",
-    "titulo": "Juan Nadal Vitacura Cómodo Dpto 3D 2B 2E 1B - Gran Conectividad! (179538) OPORTUNIDAD! ENTREGA PRIMERA SEMANA DE SEPTIEM",
-    "ultima_vez": "2026-08-18T04:26:10",
-    "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/comodo-dpto-3d-2b-2e-1b-gran-conectividad-179538/32858921",
-    "veces_visto": 1
-  },
   "72fa33d1598cd818": {
     "arriendo_clp": 360000.0,
     "avisado": false,
