@@ -428,6 +428,8 @@ def _fila(a: Arriendo, i: int | None = None, nucleo: str = "Vitacura") -> str:
     if a.comuna and a.comuna.strip().lower() != (nucleo or "").strip().lower():
         nombre = f"{nombre} · {a.comuna}"
     ficha = f"[{nombre}](casos/{nombre_archivo(a)})"
+    if (maps := _maps(a)):
+        ficha += f" [📍]({maps})"
     costo = _pesos(a.costo_mensual)
     if a.gastos_comunes_clp is None and a.arriendo_clp:
         costo += " *"

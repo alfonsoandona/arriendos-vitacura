@@ -45,6 +45,7 @@ import os
 import re
 from datetime import date, timedelta
 from typing import Any
+from urllib.parse import quote_plus
 
 import requests
 
@@ -452,10 +453,26 @@ def _mensaje(a: Arriendo, motivo: str = "", caminable_km: float = 0.0,
         # código es el distintivo para mirarlos como uno.
         cods = " ".join(f"<code>#{c}</code>" for c in gemelos[:3])
         L.append(f"   <i>👯 Posiblemente el mismo que {cods}</i>")
+    extras_linea = []
     if (ficha := a.extras.get("ficha_url")):
-        L.append(f"   <a href=\"{_escapar(str(ficha))}\">Ficha completa</a>")
+        extras_linea.append(f"<a href=\"{_escapar(str(ficha))}\">Ficha completa</a>")
+    # El mapa, resuelto a la manera honesta de este mercado: los avisos de
+    # arriendo no publican coordenadas, pero el 72% publica dirección, y con
+    # eso Google Maps contesta solo la pregunta que importa ("¿dónde queda?").
+    if (maps := _google_maps(a)):
+        extras_linea.append(f"<a href=\"{_escapar(maps)}\">📍 Maps</a>")
+    if extras_linea:
+        L.append("   " + " · ".join(extras_linea))
 
     return "\n".join(L)
+
+
+def _google_maps(a: Arriendo) -> str:
+    """El link a Google Maps por DIRECCIÓN. Vacío si el aviso no trae una."""
+    if not a.direccion:
+        return ""
+    consulta = quote_plus(f"{a.direccion}, {a.comuna or 'Vitacura'}, Chile")
+    return f"https://www.google.com/maps/search/?api=1&query={consulta}"
 
 
 def _portal(a: Arriendo) -> str:

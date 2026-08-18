@@ -11,14 +11,15 @@ mejora el resultado, no lo desbloquea.
 
 ## ⚡ Lo que tienes que hacer tú, en orden
 
-Solo el paso 1 es obligatorio. Los demás mejoran lo que llega.
+Ninguno es obligatorio: el radar ya corre y avisa solo. Cada paso mejora lo
+que llega.
 
 | # | Qué | Dónde | Cuánto demora | Sin esto… |
 |---|---|---|---|---|
-| ~~1~~ | ~~Crear el bot de Telegram~~ | — | — | ✅ **Listo.** La prueba de envío pasó. |
-| **1** | Pegar la URL de Century 21 y de las corredoras que apuntan a su portada — la lista está en [`LINKS.md`](LINKS.md) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
-| 2 | Decirme si el Sport Francés está bien ubicado | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
-| 3 | Contestar los bloques 5 y 6 (piso, mascotas, estacionamiento…) | Acá mismo | 5 min | El puntaje ordena con suposiciones mías. |
+| **1** | **Probar [`gestion.yml`](gestion.yml)** con el primer aviso que mires: su código `#ABC12` + `estado: visita` o `descartado` | Lápiz ✏️ en GitHub | 2 min | Los que ya viste siguen compitiendo por tu atención en el tablero. |
+| 2 | Pegar la URL de las corredoras que apuntan a su portada — lista con su estado real más abajo (bloque 2) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
+| 3 | Decirme si el Sport Francés está bien ubicado (`-33.381591, -70.562037`) | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
+| 4 | ¿Desde cuándo necesitas entrar? ¿Hay un segundo punto de referencia (oficina, colegio)? | Acá mismo, bloques 5 y 7 | 2 min | No se usa la disponibilidad ni hay segundo ancla. |
 
 ### Cómo pegar una URL de portal (el paso 1)
 
@@ -117,34 +118,43 @@ publicando avisos reales de Vitacura en Economicos, Mitula y GoPlaceIt:
 Magnolia Property, Portilla Propiedades, Nativo Propiedades y MaxRenta.
 
 **Lo que necesito:** para las que te importen, abres el sitio, filtras a mano
-por *arriendo + departamento + Vitacura*, y copias la URL. Con eso pasan a
-confirmadas y dejan de generar ruido.
+por *arriendo + departamento + Vitacura*, y copias la URL.
+
+**El diagnóstico del 18-08 (bajó la página real de cada una desde el runner)
+ya midió cuáles vale la pena pedir y cuáles no.** Prioriza así:
+
+**Sí vale la pena pegar su URL** — el sitio responde, solo le falta la ruta:
 
 ```yaml
-propertypartners:    ______________________________________________
-magnoliaproperty:    ______________________________________________
-portillapropiedades: ______________________________________________
-nativopropiedades:   ______________________________________________
-maxrenta:            ______________________________________________
 century21:           ______________________________________________
-sothebys:            ______________________________________________
-contempora:          ______________________________________________
-colliers:            ______________________________________________
+magnoliaproperty:    ______________________________________________
 zentagroup:          ______________________________________________
-inciti:              ______________________________________________
+colliers:            ______________________________________________
 enlaceinmobiliario:  ______________________________________________
-arriendoasegurado:   ______________________________________________
 rentas_cl:           ______________________________________________
 arriendos_cl:        ______________________________________________
-propiedades_cl:      ______________________________________________
-inmuebles_cl:        ______________________________________________
 clasificados_cl:     ______________________________________________
-capitalizarme:       ______________________________________________
+busconido:           _____________________________ (¿/departamentos/vitacura?)
 ```
 
-No hace falta llenarlas todas: la calibración va a decir cuáles entregan algo
-y cuáles no valen la pena. Si alguna resulta que no hace arriendo
-residencial, dímelo y la saco.
+**Con URL y todo, algo ya entregan** (poco, pero real): propertypartners (4),
+propiedades_cl (6), nativopropiedades (8), portillapropiedades (2) — la ruta
+filtrada les multiplicaría el rendimiento.
+
+**No va a servir pegarles URL** — problema del sitio, no de la ruta:
+
+| Fuente | Qué pasa |
+|---|---|
+| contempora | no responde (timeout, también desde el runner) |
+| arriendoasegurado | corta la conexión: bloqueo anti-bot |
+| sothebys | responde 403 a todo |
+| inciti | responde una página de 2 KB (cascarón) |
+| maxrenta | no respondió a tiempo en el diagnóstico |
+| inmuebles_cl, capitalizarme, emol | su robots.txt no permite el acceso — se respeta |
+| zoominmobiliario | el dominio no resuelve en DNS: **apagada**. Si te abre a ti, dime con qué dominio |
+
+Si alguna de las muertas te importa mucho, dímelo: se puede probar con
+navegador o revisar si cambiaron de dominio.
 
 **¿Se te ocurre alguna otra corredora del sector?** Las que publican solo en
 su propio sitio son las que más valen — es la razón por la que este radar

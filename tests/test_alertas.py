@@ -5,6 +5,7 @@ sobre todo qué NO entra: cada línea de más empuja el link fuera de la pantall
 y convierte un aviso en un documento.
 """
 
+import re
 from datetime import date, timedelta
 
 import pytest
@@ -429,17 +430,22 @@ def test_el_tablero_no_repite_la_comuna(tmp_path, perfil):
     """La comuna del núcleo no ocupa espacio (el 97% de los candidatos
     reales son de Vitacura y en un teléfono cada columna cuesta); una comuna
     DISTINTA sí se dice, en la celda de la dirección."""
+    def _visible(fila: str) -> str:
+        # Las URLs (el link a Maps lleva la comuna adentro) no son texto
+        # visible: lo que se lee en el teléfono es lo que está fuera de ().
+        return re.sub(r"\((?:casos/|https?://)[^)]*\)", "", fila)
+
     a = S.evaluar(depto(), perfil)
     texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
     fila = next(l for l in texto.splitlines() if "Alonso" in l)
     assert "[Alonso de Córdova 4200]" in fila
-    assert "Vitacura" not in fila
+    assert "Vitacura" not in _visible(fila)
 
     b = S.evaluar(depto(url="https://x.cl/lc", comuna="Las Condes",
                         direccion="Napoleón 3037, Las Condes"), perfil)
     texto = escribir_tablero([a, b], tmp_path, perfil).read_text(encoding="utf-8")
     fila_lc = next(l for l in texto.splitlines() if "Napole" in l)
-    assert "Las Condes" in fila_lc
+    assert "Las Condes" in _visible(fila_lc)
 
 
 def test_el_tablero_separa_lo_nuevo_del_stock(tmp_path, perfil):
@@ -510,6 +516,25 @@ def test_el_tablero_explica_como_anotar(tmp_path, perfil):
     assert "gestion.yml" in texto
     assert f"codigo: {a.codigo}" in texto, \
         "el ejemplo lleva un código real, listo para copiar"
+
+
+def test_el_mensaje_lleva_el_link_a_google_maps(perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = _mensaje(a, "", 0.9, "Sport Francés")
+    assert "google.com/maps/search" in texto
+    assert "📍 Maps" in texto
+
+
+def test_sin_direccion_el_mensaje_no_lleva_maps(perfil):
+    a = S.evaluar(depto(direccion=""), perfil)
+    assert "google.com/maps" not in _mensaje(a, "", 0.9, "Sport Francés")
+
+
+def test_el_tablero_lleva_maps_por_fila(tmp_path, perfil):
+    a = S.evaluar(depto(), perfil)
+    texto = escribir_tablero([a], tmp_path, perfil).read_text(encoding="utf-8")
+    fila = next(l for l in texto.splitlines() if "Alonso" in l)
+    assert "google.com/maps/search" in fila
 
 
 def test_la_ficha_lleva_codigo_y_google_maps(tmp_path, perfil):
