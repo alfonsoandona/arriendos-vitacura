@@ -1,63 +1,63 @@
-# Última corrida — 18-08-2026 04:22 UTC
+# Última corrida — 18-08-2026 04:51 UTC
 
 | | |
 |---|---|
-| Duración | 193s |
+| Duración | 257s |
 | Fuentes consultadas | 41 |
 | Fuentes que entregaron | 34 |
-| Avisos leídos | 900 |
-| Después de deduplicar | 419 |
-| Pasaron los filtros | 101 |
+| Avisos leídos | 915 |
+| Después de deduplicar | 437 |
+| Pasaron los filtros | 97 |
 | Avisados por Telegram | 7 |
-| Aparecieron | 135 |
-| Dejaron de publicarse | 45 |
-| Valor UF usado | $40.855.33 · API del día |
+| Aparecieron | 24 |
+| Dejaron de publicarse | 28 |
+| Valor UF usado | $40.856.64 · API del día |
 
 ## Qué entregó cada fuente
 
 | Fuente | Avisos | Tiempo | Qué pasó |
 |---|---|---|---|
-| toctoc | 240 | 23s |  |
+| toctoc | 240 | 25s |  |
 | yapo | 90 | 6s |  |
 | trovit | 90 | 6s |  |
-| goplaceit | 90 | 91s |  |
+| goplaceit | 90 | 97s |  |
 | mitula | 60 | 4s |  |
 | fuenzalida | 60 | 10s |  |
 | nuroa | 50 | 4s |  |
-| houm | 36 | 72s |  |
+| houm | 36 | 74s |  |
 | chilepropiedades | 33 | 5s |  |
 | doomos | 33 | 2s |  |
-| icasas | 30 | 2s |  |
+| icasas | 30 | 3s |  |
 | nestoria | 25 | 2s |  |
-| engelvoelkers | 18 | 7s |  |
+| engelvoelkers | 18 | 9s |  |
+| bienesonline | 16 | 1s |  |
 | heyhomes | 9 | 3s |  |
-| magnoliaproperty | 9 | 1s |  |
 | toppropiedades | 8 | 18s |  |
+| magnoliaproperty | 8 | 1s |  |
 | nativopropiedades | 8 | 1s |  |
 | propiedades_cl | 6 | 1s |  |
-| portillapropiedades | 2 | 0s |  |
+| portillapropiedades | 2 | 1s |  |
 | propertypartners | 1 | 0s |  |
 | rentas_cl | 1 | 2s |  |
 | clasificados_cl | 1 | 2s |  |
-| busconido ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| bienesonline ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| emol_propiedades ⚠️ | 0 | 1s | robots.txt del sitio no permite este acceso |
-| economicos ⚠️ | 0 | 3s | respondió, pero no se reconoció ningún aviso |
-| comunavitacura ⚠️ | 0 | 31s | HTTP 504 |
-| assetplan ⚠️ | 0 | 6s | respondió, pero no se reconoció ningún aviso |
-| remax ⚠️ | 0 | 8s | respondió, pero no se reconoció ningún aviso |
-| century21 ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| sothebys ⚠️ | 0 | 4s | respondió, pero no se reconoció ningún aviso |
-| maxrenta ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| colliers ⚠️ | 0 | 7s | problema de certificado TLS |
-| zentagroup ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
+| busconido ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| comunavitacura ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| economicos ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
+| emol_propiedades ⚠️ | 0 | 2s | robots.txt del sitio no permite este acceso |
+| assetplan ⚠️ | 0 | 7s | respondió, pero no se reconoció ningún aviso |
+| remax ⚠️ | 0 | 6s | respondió, pero no se reconoció ningún aviso |
+| century21 ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| sothebys ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| zentagroup ⚠️ | 0 | 0s | respondió, pero no se reconoció ningún aviso |
 | inciti ⚠️ | 0 | 0s | respondió, pero no se reconoció ningún aviso |
-| enlaceinmobiliario ⚠️ | 0 | 6s | respondió, pero no se reconoció ningún aviso |
+| enlaceinmobiliario ⚠️ | 0 | 2s | respondió, pero no se reconoció ningún aviso |
+| colliers ⚠️ | 0 | 7s | problema de certificado TLS |
 | arriendos_cl ⚠️ | 0 | 1s | respondió, pero no se reconoció ningún aviso |
-| inmuebles_cl ⚠️ | 0 | 1s | robots.txt del sitio no permite este acceso |
+| inmuebles_cl ⚠️ | 0 | 0s | robots.txt del sitio no permite este acceso |
 | capitalizarme ⚠️ | 0 | 0s | robots.txt del sitio no permite este acceso |
-| contempora ⚠️ | 0 | 78s | el sitio no respondió a tiempo |
-| arriendoasegurado ⚠️ | 0 | 97s | el servidor cortó la conexión sin responder — suele ser bloqueo anti-bot |
+| contempora ⚠️ | 0 | 77s | el sitio no respondió a tiempo |
+| maxrenta ⚠️ | 0 | 77s | el sitio no respondió a tiempo |
+| arriendoasegurado ⚠️ | 0 | 140s | el sitio no respondió a tiempo |
 
 ## ⚠️ Fuentes que dejaron de entregar
 
