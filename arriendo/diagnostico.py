@@ -272,6 +272,32 @@ def _diagnosticar_fuente(fuente, fetcher, uf, fichas_por_fuente: int) -> None:
             for linea in _texto_visible(html)[:15]:
                 print(f"   | {linea}")
 
+        # Las tarjetas crudas, tal como las ve `_completar_con_tarjetas`, y
+        # el cruce con los avisos sin precio: cuántas tarjetas calzan con el
+        # título de cada uno. Es la evidencia para diseñar el calce — la
+        # regla "título único" se quedó corta en mitula, donde media página
+        # se titula "Departamento en arriendo en VITACURA".
+        from .sources.generic import _candidatos, _texto
+        soup_l = BeautifulSoup(html, "lxml")
+        tarjetas = []
+        for card in _candidatos(soup_l, fuente):
+            texto = re.sub(r"\s+", " ", _texto(card) or "").strip()
+            if texto:
+                tarjetas.append(texto)
+        print(f"\n-- tarjetas visibles del LISTADO ({len(tarjetas)}) --")
+        for i, texto in enumerate(tarjetas[:30], 1):
+            montos = P.parse_montos(texto, uf) or "sin montos"
+            print(f"   T{i:02d} {montos} | {texto[:240]}")
+        if sin_precio:
+            print("\n-- avisos sin precio vs tarjetas que los contienen --")
+            normalizadas = [P.norm(t) for t in tarjetas]
+            for a in sin_precio[:30]:
+                titulo = P.norm(a.title or "")[:80]
+                calces = sum(1 for nt in normalizadas if titulo and
+                             titulo in nt)
+                print(f"   {calces} calces | {(a.title or '')[:58]} | "
+                      f"dir={(a.direccion or '—')[:60]}")
+
     # Las fichas: la página del aviso, que es donde viven los datos que la
     # tarjeta no trae. Solo avisos con link propio.
     con_link = [a for a in avisos

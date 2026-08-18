@@ -136,7 +136,14 @@ _MONTOS_CLP = [
     # Un número grande y pelado, sin símbolo. Va último y es el más riesgoso:
     # se exige forma de monto chileno CON separadores de miles ("1.550.000")
     # para no leer el número de la calle ni un código de aviso.
-    re.compile(r"(?<![\d.,$])(\d{1,3}(?:\.\d{3}){1,2})(?![\d.,])"),
+    #
+    # El lookahead final veta lo que CONTINÚA el número (otro dígito, o
+    # punto/coma seguidos de dígito), pero NO el punto que cierra la frase:
+    # "gastos comunes 300.000. (EN INVIERNO SUBE A $400.000)" es un aviso
+    # real de mitula donde ese punto final hacía invisible al monto — el GC
+    # quedaba sin leer y el $400.000 del paréntesis, sin vecino del que
+    # heredar rótulo, terminaba como canon de un 4D/3B en Kennedy.
+    re.compile(r"(?<![\d.,$])(\d{1,3}(?:\.\d{3}){1,2})(?!\d)(?![.,]\d)"),
 ]
 
 _MONTOS_UF = [
@@ -155,7 +162,12 @@ _MONTOS_UF = [
 # "comunes" y "valor arriendo" también contiene "arriendo".
 _ETIQUETAS = [
     ("gastos_comunes", re.compile(
-        r"gastos?\s*com(?:un(?:es)?)?\.?|g\.?\s*c\.?(?![a-z])|"
+        # La sigla cubre G.C., GC, GGCC y GG.CC.: la forma doble ("gastos
+        # generales comunes") es como la escribe medio mitula, y sin ella
+        # "GGCC $500.000" quedaba sin rótulo — y de ahí, por ser el monto
+        # suelto más grande, pasaba a ser el canon. Dos departamentos reales
+        # de la corrida del 18-08 se avisaron "a $500.000" por esto.
+        r"gastos?\s*com(?:un(?:es)?)?\.?|(?<![a-z])g{1,2}[.\s]*c{1,2}\.?(?![a-z])|"
         r"gasto\s*com[uú]n|contribuci[oó]n(?:es)?\s*mensual", re.I)),
     ("garantia", re.compile(r"garant[ií]a|dep[oó]sito", re.I)),
     ("comision", re.compile(r"comisi[oó]n|corretaje|honorarios?", re.I)),
@@ -273,8 +285,12 @@ _CODIGO_DE_AVISO = re.compile(
 # forma sigla+espacio y borraría un precio real. La sigla en mayúsculas y el
 # espacio solo después del asterisco acotan el patrón a lo que es un código.
 _CODIGO_CON_SIGLA = re.compile(
+    # El lookahead final es EL MISMO que el del monto pelado, y tiene que
+    # seguir siéndolo: si el monto acepta "411.605." con punto de frase y el
+    # borrador de códigos no, "*MPB*411.605." deja de borrarse y vuelve a
+    # ser un canon fantasma.
     r"(?<![\w.,])(?:(?!UF|CLP|CLF)[A-ZÁÉÍÓÚÑ]{2,5}\*?"
-    r"|[A-ZÁÉÍÓÚÑ]{2,5}\*\s)\d{3}\.\d{3}(?![\d.])")
+    r"|[A-ZÁÉÍÓÚÑ]{2,5}\*\s)\d{3}\.\d{3}(?!\d)(?![.,]\d)")
 
 
 def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
