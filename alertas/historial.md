@@ -1,27 +1,34 @@
 # Historial de búsquedas
 
-_Actualizado 18-08-2026 13:52 UTC · 368 eventos guardados_
+_Actualizado 18-08-2026 14:22 UTC · 375 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 368 |
+| Departamentos nuevos | 373 |
 | Dejaron de publicarse | 0 |
-| Cambios de precio | 0 (0 a la baja) |
+| Cambios de precio | 2 (2 a la baja) |
 | Canon mediano | $2.451.398 |
-| Canon mediano por m² | $14.327 |
+| Canon mediano por m² | $14.355 |
 
 ## Avisos nuevos por mes
 
 | Mes | Nuevos |
 |---|---|
-| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 368 |
+| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 373 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
+| 2026-08-18 | 📉 | Bedrooms 2, Vitacura — antes $4.902.797 | $2.410.542 |
+| 2026-08-18 | 🆕 | Avenida Vitacura, Vitacura, Provincia de Santiago, R · Vitacura | $7.000.000 |
+| 2026-08-18 | 🆕 | Andrés de Vera, Vitacura, Provincia de Santiago, Reg · Vitacura | $1.750.000 |
+| 2026-08-18 | 🆕 | Vitacura 4, Vitacura · Vitacura | — |
+| 2026-08-18 | 📉 | Linea 7, Vitacura — antes $2.247.115 | $2.001.975 |
+| 2026-08-18 | 🆕 | Departamento en Vitacura TERESA CONCHA WALKER 3 Dorm · Vitacura | — |
+| 2026-08-18 | 🆕 | Cod.: 8.115 Venta UF 22.800 Arriendo UF 75 | $3.064.248 |
 | 2026-08-18 | 🆕 | Bedrooms 5, Vitacura · Vitacura | $3.186.818 |
 | 2026-08-18 | 🆕 | Bedrooms 3, Vitacura · Vitacura | $3.064.248 |
 | 2026-08-18 | 🆕 | Bedrooms 4, Vitacura · Vitacura | $2.655.682 |
@@ -75,10 +82,3 @@ _Actualizado 18-08-2026 13:52 UTC · 368 eventos guardados_
 | 2026-08-18 | 🆕 | Camino El Parque, Vitacura, Provincia de Santiago, R · Vitacura | — |
 | 2026-08-18 | 🆕 | Aurelio González, Vitacura, Provincia de Santiago, R · Vitacura | — |
 | 2026-08-18 | 🆕 | Miguel Comas, Vitacura, Provincia de Santiago, Regió · Vitacura | — |
-| 2026-08-18 | 🆕 | El Matico, Lo Castillo, Vitacura, Provincia de Santi · Vitacura | — |
-| 2026-08-18 | 🆕 | Fernando de Arguello 6699, Vitacura, Chile, Metropol · Vitacura | $2.001.975 |
-| 2026-08-18 | 🆕 | Avenida Nueva Costanera, Vitacura, Provincia de Sant · Vitacura | $3.100.000 |
-| 2026-08-18 | 🆕 | Las Nieves, Vitacura, Provincia de Santiago, Región  · Vitacura | — |
-| 2026-08-18 | 🆕 | Fernando de Argüello, El Dorado, Vitacura, Provincia · Vitacura | — |
-| 2026-08-18 | 🆕 | Calle Nilo Azul 1778, Vitacura, Santiago, Metropolit · Vitacura | — |
-| 2026-08-18 | 🆕 | Paul Claudel, Vitacura, Provincia de Santiago, Regió · Vitacura | — |

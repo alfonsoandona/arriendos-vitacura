@@ -159,6 +159,11 @@
     "lon": -70.599181,
     "visto": "2026-08-18"
   },
+  "juan xxii / vitacura región metropolitana de santiago (rm) vitacura chile": {
+    "lat": -33.3791928,
+    "lon": -70.5689416,
+    "visto": "2026-08-18"
+  },
   "la aurora 2097 vitacura santiago metropolitana de santiago chl vitacura chile": {
     "fallo": "2026-08-18",
     "intentos": 1,
@@ -184,6 +189,11 @@
     "intentos": 1,
     "visto": "2026-08-18"
   },
+  "martín de zamora region metropolitana las condes chile": {
+    "lat": -33.4164134,
+    "lon": -70.5708624,
+    "visto": "2026-08-18"
+  },
   "nilo azul 1778 vitacura santiago metropolitana de santiago 7640487 chl vitacura chile": {
     "fallo": "2026-08-18",
     "intentos": 1,
@@ -207,6 +217,11 @@
   "raimundo larrain lo barnechea santiago metropolitana de santiago 7660000 chl lo barnechea chile": {
     "fallo": "2026-08-18",
     "intentos": 1,
+    "visto": "2026-08-18"
+  },
+  "rosario norte las condes chile": {
+    "lat": -33.4057412,
+    "lon": -70.5723087,
     "visto": "2026-08-18"
   },
   "teresa concha vitacura provincia de santiago región metropolitana de santiago 7560360 chile vitacura chile": {
