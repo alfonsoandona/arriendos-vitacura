@@ -54,7 +54,12 @@ def entorno(tmp_path, monkeypatch):
     Sin esto un test escribiría en el state/ versionado del repo y le borraría
     al radar el recuerdo de lo que ya avisó.
     """
-    for nombre in ("ARRIENDO_STATE_DIR", "ARRIENDO_LOGS_DIR", "ARRIENDO_ALERTAS_DIR"):
+    # DOCS también: la fuga fue real — los tests del pipeline escribieron
+    # docs/index.html en el repo (con datos de fixture) y el commit del
+    # dashboard se los llevó. Exactamente la clase de accidente que esta
+    # fixture existe para impedir.
+    for nombre in ("ARRIENDO_STATE_DIR", "ARRIENDO_LOGS_DIR",
+                   "ARRIENDO_ALERTAS_DIR", "ARRIENDO_DOCS_DIR"):
         destino = tmp_path / nombre.split("_")[1].lower()
         destino.mkdir(parents=True, exist_ok=True)
         monkeypatch.setenv(nombre, str(destino))
