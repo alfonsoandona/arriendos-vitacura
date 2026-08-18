@@ -232,6 +232,12 @@ jobs:
     if: ${{ always() && !inputs.dry_run && !inputs.sin_historial }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # El token de Actions puede DESPLEGAR a Pages pero no CREAR el sitio
+    # ("Resource not accessible by integration", medido el 18-08): la
+    # activación es un paso único del dueño en Settings → Pages → Source:
+    # GitHub Actions. Hasta entonces este job falla — y no puede pintar de
+    # rojo la corrida entera, que ya hizo su trabajo.
+    continue-on-error: true
     permissions:
       contents: read
       pages: write
