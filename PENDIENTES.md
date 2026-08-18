@@ -18,8 +18,8 @@ que llega.
 |---|---|---|---|---|
 | **1** | **Probar [`gestion.yml`](gestion.yml)** con el primer aviso que mires: su código `#ABC12` + `estado: visita` o `descartado` | Lápiz ✏️ en GitHub | 2 min | Los que ya viste siguen compitiendo por tu atención en el tablero. |
 | 2 | Pegar la URL de las corredoras que apuntan a su portada — lista con su estado real más abajo (bloque 2) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
-| 3 | Decirme si el Sport Francés está bien ubicado (`-33.381591, -70.562037`) | Mirar un mapa | 1 min | El anillo de 1,2 km puede estar corrido. |
-| 4 | ¿Desde cuándo necesitas entrar? ¿Hay un segundo punto de referencia (oficina, colegio)? | Acá mismo, bloques 5 y 7 | 2 min | No se usa la disponibilidad ni hay segundo ancla. |
+| ~~3~~ | ~~El Sport Francés~~ | — | — | ✅ Confirmado por ti: es ese punto. |
+| ~~4~~ | ~~Fecha de entrada y segundo punto~~ | — | — | ✅ Contestado: fecha indiferente, sin segundo punto por ahora. |
 
 ### Cómo pegar una URL de portal (el paso 1)
 
@@ -238,20 +238,11 @@ Holgura:          12%          (cámbiala si quieres: ____________)
 
 Ninguno es obligatorio. Cada uno hace que el radar acierte más.
 
-**El Sport Francés.** Usé estas coordenadas, sacadas del perfil del radar de
-remates. Si el anillo de 1,2 km te está dejando fuera algo que sí te sirve,
-dime y lo muevo.
+**~~El Sport Francés~~** ✅ **Confirmado por ti el 18-08**: "el sport es ese
+punto". El ancla queda en `lat: -33.381591, lon: -70.562037`.
 
-```
-lat: -33.381591    lon: -70.562037     ¿correcto? [ ] sí  [ ] no: ________
-```
-
-**¿Desde cuándo lo necesitas?** No lo estoy usando y podría: un departamento
-disponible en marzo no sirve igual que uno disponible ya.
-
-```
-Fecha en que necesitas entrar: ____________________
-```
+**~~¿Desde cuándo lo necesitas?~~** ✅ **Contestado el 18-08**: "desde cuando
+sea la fecha" — la disponibilidad no filtra ni puntúa, cualquier fecha sirve.
 
 **Mascotas.** Lo detecto y lo muestro, pero no filtra ni puntúa.
 
@@ -397,14 +388,11 @@ Con la mediana de $/m² de los avisos del historial que SÍ los publican:
 ≈ — un dato deducido presentado como publicado es peor que uno ausente — y
 solo con 4+ datos, como todas las medianas del radar.
 
-### 8. Un segundo punto de referencia ⚪
+### ~~8. Un segundo punto de referencia~~ ✅ NO HAY, POR AHORA
 
-Si hay otro lugar que importe (oficina, colegio), lo sumo como criterio junto
-al Sport Francés.
-
-```
-Segundo punto: ______________________________________
-```
+Contestado el 18-08: "no hay otro punto de referencia aún". El Sport Francés
+queda como único ancla. Si algún día aparece uno (oficina, colegio), se suma
+como criterio en un rato — basta con decirlo.
 
 ```
 Otras ideas tuyas:
