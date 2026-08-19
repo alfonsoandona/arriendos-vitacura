@@ -15,6 +15,7 @@ Este módulo hace tres cosas y las tres son específicas del arriendo:
 
 from __future__ import annotations
 
+import hashlib
 import json
 from datetime import datetime, date
 from pathlib import Path
@@ -348,7 +349,37 @@ def deduplicar(hallazgos: list[Arriendo]) -> list[Arriendo]:
         por_fp.setdefault(a.fingerprint, []).append(a)
 
     salida = [_colapsar(copias) for copias in por_fp.values()]
-    return _colapsar_por_direccion(salida)
+    return _colapsar_por_titulo(_colapsar_por_direccion(salida))
+
+
+def _colapsar_por_titulo(hallazgos: list[Arriendo]) -> list[Arriendo]:
+    """Tercera pasada: el mismo aviso repetido entre PÁGINAS de un listado.
+
+    El caso medido (auditoría del 19-08): trovit entrega "VITACURA, LO
+    GALLO, MAR JONICO, PENTHOUSE" tres veces — una por página del listado,
+    cada una con su URL ?page=N — y como no trae dirección, ni el
+    fingerprint ni la pasada por dirección los juntan. Tres filas del mismo
+    departamento en el tablero y el dashboard.
+
+    La llave es el TEXTO COMPLETO normalizado (título + descripción), no el
+    título: dos avisos distintos pueden compartir el título genérico
+    ("Departamento en arriendo en Vitacura"), pero jamás comparten la
+    descripción entera palabra por palabra — y las copias entre páginas la
+    comparten exactamente, que es como se midió en las tres de trovit.
+    Solo dentro de la misma fuente y solo entre avisos sin dirección: los
+    cruces entre portales son trabajo de la pasada por dirección.
+    """
+    grupos: dict[tuple, list[Arriendo]] = {}
+    sueltos: list[Arriendo] = []
+    for a in hallazgos:
+        texto = _normalize_key(f"{a.title or ''} {a.raw_text or ''}")
+        if a.direccion or len(texto) < 80:
+            sueltos.append(a)
+            continue
+        llave = (a.source,
+                 hashlib.sha1(texto.encode()).hexdigest())
+        grupos.setdefault(llave, []).append(a)
+    return sueltos + [_colapsar(copias) for copias in grupos.values()]
 
 
 def _colapsar(copias: list[Arriendo]) -> Arriendo:
