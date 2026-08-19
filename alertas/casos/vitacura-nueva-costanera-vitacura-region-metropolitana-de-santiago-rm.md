@@ -27,7 +27,7 @@
 | Piso | 6 |
 | Orientación | norte |
 | Disponible | ya |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
 
 ## De dónde sale el puntaje
 
@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 18/08/2026 Arriendo Mensual / Departamento / Vitacura UF 38 Vitacura, Nueva costanera Habitaciones: 4 Baños: 3 Terreno: 150 m² Estacionamientos: 2 Departamento en arriendo, con entrega inmediata, a pasos de Nueva Costanera y Vespucio Norte, comuna de Vitacura. -140m2. - Piso 6. - Orientación Sur-... Publicado: 18/08/2026 Cód: 130253468 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 18-08-2026 23:24 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 18-08-2026 23:55 UTC.
 
 </details>
