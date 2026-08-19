@@ -132,7 +132,11 @@ _HREF_IGNORAR = re.compile(
 # eso no es una tarjeta.
 _PURO_INDICADOR = re.compile(
     r"^[\s\d/.:,·|-]*(?:(?:UF|USD|US\$|EUROS?|UTM|IPC|D[oó]lar(?:es)?)"
-    r"[\s\d/.:,·|%$-]*){1,4}$", re.I)
+    r"[\s\d/.:,·|%$-]*){1,4}"
+    # El botón de la tarjeta se pega al final del texto ("ver más"): hasta
+    # dos palabras cortas de residuo siguen siendo un ticker. Un aviso real
+    # trae dormitorios, dirección o descripción — mucho más que eso.
+    r"(?:[a-záéíóúñ]{1,8}(?:\s+[a-záéíóúñ]{1,8})?)?\s*$", re.I)
 
 # Un bloque más largo que esto ya no es una tarjeta, es la página entera.
 _MAX_TEXTO_CARD = 1800
