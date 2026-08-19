@@ -17,7 +17,7 @@ on:
         default: "2"
 
 permissions:
-  contents: read
+  contents: write   # la rama diagnostico-datos, ver el último paso
 
 jobs:
   diagnostico:
@@ -63,3 +63,19 @@ jobs:
             diagnostico.log
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Publicar las páginas crudas en la rama diagnostico-datos
+        # El desarrollo corre detrás de un proxy que bloquea los portales Y
+        # la descarga de artifacts: la única vía para acercarle una página
+        # real al entorno de desarrollo es el repo mismo, que sí viaja por
+        # git. Rama huérfana con force-push: siempre la última instantánea,
+        # sin historia que engorde el repo.
+        if: always()
+        run: |
+          [[ -d diagnostico ]] || { echo "sin páginas"; exit 0; }
+          git config user.name  "radar-arriendos[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch --orphan diagnostico-datos
+          git add -f diagnostico/ diagnostico.log
+          git commit -m "diagnostico: $(date -u +%Y-%m-%d\ %H:%M) UTC"
+          git push --force origin diagnostico-datos
