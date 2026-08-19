@@ -593,6 +593,8 @@ fuentes:
     # $1.904.000 (su link cortaba en 1,6M y perdía la banda de holgura).
     # Sin filtro de baños: eso lo puntúa el radar, no la fuente.
     urls: ["https://listado.mercadolibre.cl/inmuebles/departamentos/arriendo/rm-metropolitana/vitacura/_PriceRange_0CLP-1904000CLP_BEDROOMS_3-*_TOTAL*AREA_95m%C2%B2-*_NoIndex_True"]
+    # Con GET simple respondió vacío en 1s (anti-bot); con Chromium carga.
+    motor: navegador
     comuna_default: Vitacura
     url_confirmada: true
     notas: >-
