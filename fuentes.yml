@@ -435,6 +435,18 @@ fuentes:
       ppartnersgroup.com, y por eso entregaba cero. La ruta de acá está
       filtrada a arriendo + departamento + Vitacura y tiene inventario.
 
+  - id: accesoinmobiliario
+    nombre: Acceso Inmobiliario
+    urls: ["https://www.accesoinmobiliario.cl/"]
+    url_confirmada: false
+    notas: >-
+      Pedida por el usuario el 19-08 con una ficha de ejemplo
+      (/properties/P20268628N5W-A). Parte en la raíz mientras el
+      diagnóstico muestra la ruta real del listado filtrado a arriendo +
+      departamento + Vitacura; la forma /properties/<código> delata una
+      plataforma estándar de corredoras, así que la ficha debería salir
+      con el extractor genérico.
+
   - id: magnoliaproperty
     nombre: Magnolia Property
     urls: ["https://www.magnoliaproperty.cl/"]
