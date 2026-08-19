@@ -437,7 +437,7 @@ fuentes:
 
   - id: accesoinmobiliario
     nombre: Acceso Inmobiliario
-    urls: ["https://www.accesoinmobiliario.cl/properties?page=2"]
+    urls: ["https://www.accesoinmobiliario.cl/properties"]
     motor: navegador
     detalle: {patron: "/properties/P[A-Z0-9]+-A", max: 10}
     # Confirmada contra el HTML real del 19-08: /properties existe y es el
@@ -445,10 +445,13 @@ fuentes:
     url_confirmada: true
     notas: >-
       Pedida por el usuario el 19-08 con una ficha de ejemplo
-      (/properties/P20268628N5W-A). La portada es un formulario armado
-      con JavaScript (sin ruta de búsqueda en el HTML), así que se barre
-      /properties entero: el sufijo del código dice la operación (-A
-      arriendo, -V venta) y los filtros del radar hacen el resto.
+      (/properties/P20268628N5W-A). El sitio es un cascarón Astro: el
+      listado y la paginación se pintan con JavaScript y ?page=N se
+      ignora (medido: la página 2 devuelve byte a byte la página 1),
+      así que se barre la PÁGINA 1 de /properties — los recientes — y
+      las fichas -A completan el resto: contra el HTML real, la ficha
+      de ejemplo entregó canon, GC, 138 m², 4D/3B, año y
+      estacionamientos completos.
 
   - id: magnoliaproperty
     nombre: Magnolia Property
