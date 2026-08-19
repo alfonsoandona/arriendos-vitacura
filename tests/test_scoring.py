@@ -529,20 +529,31 @@ def test_una_comuna_ajena_se_descarta_aunque_este_cerca(perfil):
 # Portales excluidos — la premisa del proyecto
 # ---------------------------------------------------------------------------
 
-def test_descarta_un_aviso_de_portal_inmobiliario(perfil):
-    """Los metabuscadores arrastran los avisos de Portal Inmobiliario.
+def test_el_mecanismo_de_dominios_excluidos_descarta(perfil):
+    """El mecanismo sigue vivo aunque la lista esté vacía hoy.
 
-    Ya tienes alertas ahí; un aviso suyo reenviado por Trovit es exactamente
-    el mensaje duplicado que este proyecto existe para no mandarte.
+    (19-08) mercadolibre y portalinmobiliario SALIERON de la lista: el
+    usuario pidió la búsqueda de MercadoLibre dentro del radar. El
+    mecanismo se prueba con un dominio inyectado, no con la política.
     """
-    l = S.evaluar(depto(url="https://www.portalinmobiliario.com/MLC-123"), perfil)
+    import copy
+    p = copy.deepcopy(perfil)
+    p.setdefault("excluir", {})["dominios"] = ["portal-vetado.cl"]
+    l = S.evaluar(depto(url="https://www.portal-vetado.cl/MLC-123"), p)
     assert l.descartado
     assert l.clase_descarte == "portal"
+    sub = S.evaluar(depto(url="https://casa.portal-vetado.cl/MLC-9"), p)
+    assert sub.descartado
 
 
-def test_descarta_un_subdominio_del_portal_excluido(perfil):
+def test_mercadolibre_ya_no_se_descarta(perfil):
+    """La política del 19-08: la búsqueda de MercadoLibre corre DENTRO del
+    radar, así que descartar sus enlaces sería botar los hallazgos propios."""
     l = S.evaluar(depto(url="https://casa.mercadolibre.cl/MLC-9"), perfil)
-    assert l.descartado
+    assert not l.descartado
+    l2 = S.evaluar(depto(url="https://www.portalinmobiliario.com/MLC-123"),
+                   perfil)
+    assert not l2.descartado
 
 
 def test_un_metabuscador_no_se_descarta(perfil):

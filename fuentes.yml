@@ -586,10 +586,18 @@ fuentes:
 
   - id: mercadolibre
     nombre: MercadoLibre Inmuebles
-    urls: ["https://listado.mercadolibre.cl/arriendo-departamento-vitacura"]
-    activa: false
+    # La búsqueda del usuario (19-08), mejorada en dos cosas deliberadas:
+    # SIN el filtro "publicados hoy" — sus alertas de Portal Inmobiliario ya
+    # le mandan lo de hoy; lo que el radar aporta es el stock completo y las
+    # BAJAS de precio, invisibles con ese filtro — y con el tope en
+    # $1.904.000 (su link cortaba en 1,6M y perdía la banda de holgura).
+    # Sin filtro de baños: eso lo puntúa el radar, no la fuente.
+    urls: ["https://listado.mercadolibre.cl/inmuebles/departamentos/arriendo/rm-metropolitana/vitacura/_PriceRange_0CLP-1904000CLP_BEDROOMS_3-*_TOTAL*AREA_95m%C2%B2-*_NoIndex_True"]
+    comuna_default: Vitacura
     url_confirmada: true
     notas: >-
-      APAGADA: MercadoLibre es dueño de Portal Inmobiliario y su sección de
-      inmuebles es la misma bolsa de avisos, así que encenderla sería
-      duplicar lo que ya está cubierto.
+      Encendida a pedido del usuario el 19-08 (antes apagada por duplicar
+      Portal Inmobiliario, cuyas alertas él ya tiene — pero solo muestran
+      lo publicado HOY, y ese hueco es justo lo que esta fuente cierra).
+      Su dominio salió de excluir.dominios del perfil: si no, el radar
+      descartaría sus propios hallazgos.

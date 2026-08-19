@@ -325,10 +325,13 @@ excluir:
   # configuradas afuera.
   #
   # Se compara contra el dominio del enlace final del aviso.
-  dominios:
-    - portalinmobiliario.com
-    - mercadolibre.cl
-    - mercadolibre.com
+  # (19-08) mercadolibre y portalinmobiliario SALIERON de esta lista: el
+  # usuario pidió la búsqueda de MercadoLibre dentro del radar, y los avisos
+  # de esa fuente llevan enlace final de estos dominios — excluirlos sería
+  # descartar los hallazgos propios. El duplicado con sus alertas personales
+  # de Portal Inmobiliario es aceptado y conocido: esas solo muestran lo de
+  # hoy, el radar aporta el stock completo y las bajas.
+  dominios: []
 
 # ---------------------------------------------------------------------------
 # ALERTAS
