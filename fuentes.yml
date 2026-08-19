@@ -437,15 +437,14 @@ fuentes:
 
   - id: accesoinmobiliario
     nombre: Acceso Inmobiliario
-    urls: ["https://www.accesoinmobiliario.cl/"]
+    urls: ["https://www.accesoinmobiliario.cl/properties"]
     url_confirmada: false
     notas: >-
       Pedida por el usuario el 19-08 con una ficha de ejemplo
-      (/properties/P20268628N5W-A). Parte en la raíz mientras el
-      diagnóstico muestra la ruta real del listado filtrado a arriendo +
-      departamento + Vitacura; la forma /properties/<código> delata una
-      plataforma estándar de corredoras, así que la ficha debería salir
-      con el extractor genérico.
+      (/properties/P20268628N5W-A). La portada es un formulario armado
+      con JavaScript (sin ruta de búsqueda en el HTML), así que se barre
+      /properties entero: el sufijo del código dice la operación (-A
+      arriendo, -V venta) y los filtros del radar hacen el resto.
 
   - id: magnoliaproperty
     nombre: Magnolia Property
