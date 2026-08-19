@@ -714,6 +714,20 @@ def test_un_programa_discrepante_aborta_el_serp(fuente):
                for a in avisos)
 
 
+def test_el_ticker_de_indicadores_no_es_un_aviso(fuente):
+    """"19/08/2026 UF 40.856,64 USD 914,19" entró como aviso de Magnolia
+    en la corrida del 19-08, con ficha propia y todo."""
+    doc = ('<html><body>'
+           '<article>19/08/2026 UF 40.856,64 USD 914,19 '
+           '<a href="/index.aspx">v</a></article>'
+           '<article>Departamento en Espoz 3400, Vitacura $1.500.000 '
+           '3 dormitorios 120 m2 <a href="/aviso/1">ver</a></article>'
+           '</body></html>')
+    avisos = extraer(doc, "https://ejemplo.cl/arriendo", fuente)
+    assert len(avisos) == 1
+    assert "Espoz" in (avisos[0].direccion or avisos[0].title)
+
+
 # El candidato de texto de ficha: goplaceit e iCasas no ponen JSON-LD de la
 # propiedad en su ficha (las tres pasadas extraen CERO) y el texto visible lo
 # dice todo. Las líneas del fixture son las REALES del diagnóstico del 17-08.

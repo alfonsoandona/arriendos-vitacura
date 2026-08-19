@@ -120,9 +120,19 @@ _HREF_IGNORAR = re.compile(
     # diagnóstico real una "ficha" terminó siendo maps.app.goo.gl.
     r"|/compranuevo(/|$)"
     r"|maps\.app\.goo\.gl|google\.[a-z.]+/maps|goo\.gl/maps"
-    r"|wa\.me/|api\.whatsapp\.com|facebook\.com|instagram\.com|youtube\.com",
+    r"|wa\.me/|api\.whatsapp\.com|facebook\.com|instagram\.com|youtube\.com"
+    r"|linkedin\.com|twitter\.com|x\.com/",
     re.I,
 )
+
+# El ticker de indicadores que las corredoras ponen en su encabezado:
+# "19/08/2026 UF 40.856,64 USD 914,19" entró como "aviso" de Magnolia en la
+# corrida del 19-08, con ficha propia y todo — puros números y siglas de
+# moneda, sin una palabra de departamento. Un bloque cuyo texto COMPLETO es
+# eso no es una tarjeta.
+_PURO_INDICADOR = re.compile(
+    r"^[\s\d/.:,·|-]*(?:(?:UF|USD|US\$|EUROS?|UTM|IPC|D[oó]lar(?:es)?)"
+    r"[\s\d/.:,·|%$-]*){1,4}$", re.I)
 
 # Un bloque más largo que esto ya no es una tarjeta, es la página entera.
 _MAX_TEXTO_CARD = 1800
@@ -642,6 +652,8 @@ def _desde_tarjetas(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
     salida: list[Arriendo] = []
     for card in _candidatos(soup, fuente):
         texto = _texto(card)
+        if _PURO_INDICADOR.match((texto or "").strip()):
+            continue
         url = _enlace(card, base_url, fuente)
         if not url:
             continue
