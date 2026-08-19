@@ -1,26 +1,25 @@
-# Vitacura
+# Arriendo en Vitacura 4D / 3B Arriendo
 
-**59/100** · `#BEFX3` · Vitacura · sin ubicar · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Vitacura%2C+Vitacura%2C+Chile)
+**80/100** · `#W3E9R` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.750.000 |
+| Arriendo | $1.650.000 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.750.000** ⚠️ sin gastos comunes |
-| Por m² | $18.421 / m² |
+| **Costo mensual** | **$1.650.000** ⚠️ sin gastos comunes |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | departamento |
+| Tipo | — |
 | Superficie total | — |
-| Superficie útil | 95 m² |
-| Dormitorios | 3 |
-| Baños | 2 |
-| Estacionamientos | 1 |
+| Superficie útil | — |
+| Dormitorios | 4 |
+| Baños | 3 |
+| Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
 
@@ -30,23 +29,19 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 9/20 | $1.750.000 · GC no publicados · sobre el tope de $1.700.000 |
-| Superficie | 5/16 | 95 m² útiles (total no publicada) |
-| Programa | 10/14 | 3D · 2B |
-| _Preferencias_ | +1 | desempate entre las que ya calificaron |
+| Precio | 15/20 | $1.650.000 · GC no publicados |
+| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Programa | 13/14 | 4D · 3B |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **69/100**.
+> El puntaje se midió sobre **60 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **88/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.750.000 · GC no publicados · sobre el tope de $1.700.000
-- Superficie: 95 m² útiles (total no publicada)
-- Programa: 3D · 2B
-- solo 32 m² por dormitorio
-- 1 estacionamientos
+- Precio: $1.650.000 · GC no publicados
+- Programa: 4D · 3B
 
 </details>
 
@@ -55,21 +50,22 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.500.000 al firmar, además del primer mes y la comisión.
+- [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.300.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Yapo](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/moderno-depto-con-vista-panoramica-178161/32801035)
+- [Acceso Inmobiliario](https://www.accesoinmobiliario.cl/properties/P20268628N5W-A)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: BEFX3
+  - codigo: W3E9R
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -82,9 +78,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Añadir a favoritos Ximena Gloria Bonet Guerricabeitia Vitacura Moderno Depto con Vista Panorámica (178161) Descubre la joya de Vitacura en la Región Metropolitana, donde elegancia y comodidad se unen en un exclusivo departamento en arriendo. Imagina vivir en un espacioso dúplex de 95 m² ... $1.750.000 3 1 2 Compara este anuncio Añadir a favoritos
+$ 1.650.000 Arriendo en Vitacura 4D / 3B Arriendo
 ```
 
-Leído de `yapo` vía `tarjeta` el 19-08-2026 04:12 UTC.
+Leído de `accesoinmobiliario` vía `tarjeta` el 19-08-2026 04:13 UTC.
 
 </details>
