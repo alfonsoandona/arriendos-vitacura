@@ -652,6 +652,68 @@ def test_con_tarjetas_de_mas_no_se_alinea(fuente):
     assert por_dir["Avenida Juan XXIII 6699"].arriendo_clp is None
 
 
+# El estado de impresiones del buscador (mitula): medido contra la página
+# real del 19-08, el HTML del servidor no trae NINGUNA tarjeta con precio
+# —se pintan con JavaScript— y el precio viaja en
+# window.serpSectionImpressionData.listings, con posición, moneda (CLP o
+# CLF=UF), programa y el listingId del link directo.
+
+def _pagina_serp(dorm_blob=(3, 4)):
+    import json as _json
+    nodos = [
+        {"@type": "Apartment", "name": "Departamento en arriendo en VITACURA",
+         "numberOfBedrooms": 3, "numberOfBathroomsTotal": 2,
+         "address": {"streetAddress": "Avenida Juan XXIII 6699",
+                     "addressLocality": "Vitacura"}},
+        {"@type": "Apartment", "name": "Departamento en arriendo en VITACURA",
+         "numberOfBedrooms": 4, "numberOfBathroomsTotal": 3,
+         "address": {"streetAddress": "Mar Jónico 5900",
+                     "addressLocality": "Vitacura"}},
+    ]
+    serp = {"totalResults": 2316, "page": 1, "listings": [
+        {"listingId": "24301-256-7c5d-db3e427b7870-9818-19e6ebd-b6e8",
+         "position": 0, "numberOfBedrooms": dorm_blob[0],
+         "numberOfBathrooms": 2, "floorArea": 270,
+         "operations": [{"operationType": "RENT",
+                         "price": {"value": 90, "currency": "CLF"}}]},
+        {"listingId": "24301-256-aaaa-bbbbbbbbbbbb-cccc-1234567-dddd",
+         "position": 1, "numberOfBedrooms": dorm_blob[1],
+         "numberOfBathrooms": 3, "floorArea": 93,
+         "operations": [{"operationType": "RENT",
+                         "price": {"value": 1650000, "currency": "CLP"}}]},
+    ]}
+    return (f'<html><body><script type="application/ld+json">'
+            f'{_json.dumps(nodos, ensure_ascii=False)}</script>'
+            f"<script>window.serpSectionImpressionData = "
+            f"{_json.dumps(serp)}</script></body></html>")
+
+
+def test_el_serp_de_mitula_trae_precio_y_link_directo(fuente):
+    avisos = extraer(_pagina_serp(),
+                     "https://casas.mitula.cl/casas/arriendo-vitacura",
+                     fuente, valor_uf=40_800.0)
+    assert len(avisos) == 2
+    juan = next(a for a in avisos if "Juan XXIII" in (a.direccion or ""))
+    assert juan.arriendo_uf == 90, "el 90 UF que el usuario veía en la tarjeta"
+    assert juan.arriendo_clp == round(90 * 40_800)
+    assert juan.url == ("https://casas.mitula.cl/adform/"
+                        "24301-256-7c5d-db3e427b7870-9818-19e6ebd-b6e8"), \
+        "el listingId es el link directo al aviso"
+    assert "sin_link_directo" not in juan.extras
+    otro = next(a for a in avisos if "Mar Jónico" in (a.direccion or ""))
+    assert otro.arriendo_clp == 1_650_000
+
+
+def test_un_programa_discrepante_aborta_el_serp(fuente):
+    """Dormitorios del blob ≠ dormitorios del JSON-LD: el orden no es el que
+    creemos, y un precio del vecino es peor que ningún precio."""
+    avisos = extraer(_pagina_serp(dorm_blob=(4, 3)),
+                     "https://casas.mitula.cl/casas/arriendo-vitacura",
+                     fuente, valor_uf=40_800.0)
+    assert all(a.arriendo_clp is None and a.arriendo_uf is None
+               for a in avisos)
+
+
 # El candidato de texto de ficha: goplaceit e iCasas no ponen JSON-LD de la
 # propiedad en su ficha (las tres pasadas extraen CERO) y el texto visible lo
 # dice todo. Las líneas del fixture son las REALES del diagnóstico del 17-08.

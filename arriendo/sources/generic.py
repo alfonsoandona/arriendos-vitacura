@@ -1225,9 +1225,85 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
             if nombre == "json-ld":
                 _completar_con_tarjetas(resultado, soup, base_url, fuente,
                                         valor_uf)
+                _completar_con_serp(resultado, soup, base_url, valor_uf)
             return resultado
 
     return []
+
+
+def _completar_con_serp(avisos: list[Arriendo], soup: BeautifulSoup,
+                        base_url: str, valor_uf: float | None) -> None:
+    """El estado de impresiones del buscador de mitula, alineado por posición.
+
+    Medido contra la página real del 19-08: el HTML del servidor NO trae
+    ninguna tarjeta con precio —la tarjeta visible se pinta con JavaScript—
+    así que las tres vías de `_completar_con_tarjetas` no tienen de dónde
+    sacar el canon (40 de 49 avisos sin precio, con el "90 UF" a la vista
+    en el navegador del usuario). Lo que el servidor SÍ manda es
+    `window.serpSectionImpressionData.listings`: una entrada por aviso con
+    `position`, el precio (`CLP` en pesos, `CLF` en UF), dormitorios,
+    baños, m² y el `listingId` del link directo (/adform/<id>).
+
+    El calce es por posición y no se cree gratis: dormitorios y baños del
+    blob tienen que coincidir con los del JSON-LD en cada par donde ambos
+    existen — vienen de la misma base de datos, así que UNA discrepancia
+    significa que el orden no es el que creemos y se aborta entero.
+    """
+    datos = None
+    for tag in soup.find_all("script"):
+        contenido = tag.string or ""
+        if "serpSectionImpressionData" not in contenido or \
+                '"listings"' not in contenido:
+            continue
+        m = re.search(r"=\s*(\{.*\})\s*;?\s*$", contenido, re.S)
+        if not m:
+            continue
+        try:
+            datos = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            continue
+        break
+    if not isinstance(datos, dict):
+        return
+    listings = [x for x in (datos.get("listings") or [])
+                if isinstance(x, dict)]
+    if not listings or len(listings) != len(avisos):
+        return
+    listings.sort(key=lambda x: x.get("position") or 0)
+
+    anclas = 0
+    for a, l in zip(avisos, listings):
+        for mio, suyo in ((a.dormitorios, l.get("numberOfBedrooms")),
+                          (a.banos, l.get("numberOfBathrooms"))):
+            if mio is None or not suyo:
+                continue
+            if int(mio) != int(suyo):
+                return
+            anclas += 1
+    if anclas < 3:
+        return
+
+    for a, l in zip(avisos, listings):
+        precio = next((o.get("price") for o in (l.get("operations") or [])
+                       if isinstance(o, dict)
+                       and o.get("operationType") == "RENT"
+                       and isinstance(o.get("price"), dict)), None)
+        if precio and a.arriendo_clp is None and a.arriendo_uf is None:
+            valor = precio.get("value")
+            moneda = str(precio.get("currency") or "").upper()
+            if isinstance(valor, (int, float)) and valor > 0:
+                if moneda == "CLF" and 5 <= valor <= 500:
+                    a.arriendo_uf = float(valor)
+                    if valor_uf:
+                        a.arriendo_clp = round(valor * valor_uf)
+                elif moneda == "CLP" and \
+                        P.BANDA_ARRIENDO[0] <= valor <= P.BANDA_ARRIENDO[1]:
+                    a.arriendo_clp = float(valor)
+        lid = str(l.get("listingId") or "")
+        if lid and a.extras.get("sin_link_directo") and \
+                re.fullmatch(r"[\w-]{20,80}", lid):
+            a.url = urljoin(base_url, f"/adform/{lid}")
+            a.extras.pop("sin_link_directo", None)
 
 
 # Campos que NO se aceptan del texto suelto de una ficha. La página completa
