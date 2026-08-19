@@ -714,6 +714,36 @@ def test_un_programa_discrepante_aborta_el_serp(fuente):
                for a in avisos)
 
 
+def test_la_disponibilidad_no_es_una_direccion(fuente):
+    """Auditoría del 19-08: "CORAZÓN DE VITACURA DICIEMBRE 2026" llegó como
+    dirección — el año de disponibilidad tiene pinta de altura y el mes de
+    calle. Contaminaba fingerprint, link de Maps y tabla."""
+    doc = ('<html><body><article>CORAZÓN DE VITACURA DICIEMBRE 2026 '
+           'Departamento 3 dormitorios $1.500.000 <a href="/aviso/2">ver</a>'
+           '</article></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert not a.direccion, "una fecha de disponibilidad no ubica nada"
+
+
+def test_el_precio_llega_desde_el_bloque_que_enlaza(fuente):
+    """goplaceit real del 19-08: 30 avisos JSON-LD con URL y cero precio,
+    con el canon pintado al lado del link en un bloque sin forma de
+    tarjeta. El link del aviso identifica su bloque sin heurísticas."""
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Depto Tabancura 4D/3B",
+            "url": "https://ejemplo.cl/cl/propiedad/arriendo/11242195-depto",
+            "numberOfBedrooms": 4,
+            "address": {"streetAddress": "Tabancura 1200",
+                        "addressLocality": "Vitacura"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo)}</script>'
+           f'<div class="x"><p><span> $1.917.600CLP</span></p>'
+           f'<a href="/cl/propiedad/arriendo/11242195-depto">'
+           f'<h2>Depto Tabancura</h2></a></div></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert a.arriendo_clp == 1_917_600
+
+
 def test_el_ticker_de_indicadores_no_es_un_aviso(fuente):
     """"19/08/2026 UF 40.856,64 USD 914,19" entró como aviso de Magnolia
     en la corrida del 19-08, con ficha propia y todo."""

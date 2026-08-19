@@ -16,7 +16,7 @@ que llega.
 
 | # | Qué | Dónde | Cuánto demora | Sin esto… |
 |---|---|---|---|---|
-| **1** | **Activar GitHub Pages** para ver el dashboard: Settings → Pages → Build and deployment → Source: **GitHub Actions**. Es lo ÚNICO que el radar no puede hacer solo (el token de Actions no puede crear el sitio). | Navegador (no la app) | 30 seg | El dashboard existe pero no hay cómo VERLO: GitHub muestra el HTML como código. |
+| ~~1~~ | ~~Activar GitHub Pages~~ ✅ **Hecho el 18-08**: el dashboard vive en https://alfonsoandona.github.io/arriendos-vitacura/ y se actualiza en cada corrida. | — | — | — |
 | **2** | **Probar [`gestion.yml`](gestion.yml)** con el primer aviso que mires: su código `#ABC12` + `estado: visita` o `descartado` | Lápiz ✏️ en GitHub | 2 min | Los que ya viste siguen compitiendo por tu atención en el tablero. |
 | 3 | Pegar la URL de las corredoras que apuntan a su portada — lista con su estado real más abajo (bloque 2) | Navegador | 2 min c/u | Traen lo que muestre su home, no arriendos de Vitacura. |
 | ~~3~~ | ~~El Sport Francés~~ | — | — | ✅ Confirmado por ti: es ese punto. |
@@ -128,15 +128,18 @@ ya midió cuáles vale la pena pedir y cuáles no.** Prioriza así:
 
 ```yaml
 century21:           ______________________________________________
-magnoliaproperty:    ______________________________________________
 zentagroup:          ______________________________________________
-colliers:            ______________________________________________
 enlaceinmobiliario:  ______________________________________________
 rentas_cl:           ______________________________________________
 arriendos_cl:        ______________________________________________
 clasificados_cl:     ______________________________________________
 busconido:           _____________________________ (¿/departamentos/vitacura?)
 ```
+
+Del diagnóstico del 19-08: **magnoliaproperty ya entrega** (7 avisos desde
+su raíz, no necesita URL) y **colliers tiene el certificado TLS roto** (no
+es problema de ruta). **Acceso Inmobiliario quedó conectada** ese mismo día
+a pedido tuyo, con navegador y fichas completas.
 
 **Con URL y todo, algo ya entregan** (poco, pero real): propertypartners (4),
 propiedades_cl (6), nativopropiedades (8), portillapropiedades (2) — la ruta

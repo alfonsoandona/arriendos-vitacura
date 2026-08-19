@@ -479,7 +479,8 @@ def _desde_estado_embebido(html: str, base_url: str, fuente: FuenteConfig,
         url = _absoluto(url, base_url) if url else base_url
         titulo = str(_busca(d, _LLAVES["titulo"]) or "")
         desc = str(_busca(d, _LLAVES["descripcion"]) or "")
-        direccion = _texto_de(_busca(d, _LLAVES["direccion"]))
+        direccion = _direccion_de_json(
+            _texto_de(_busca(d, _LLAVES["direccion"])))
         comuna_cruda = _texto_de(_busca(d, _LLAVES["comuna"]))
 
         blob = " ".join([titulo, desc, direccion, comuna_cruda]).strip()
@@ -1005,6 +1006,29 @@ def _quitar_comuna_inicial(palabras: list[str]) -> list[str]:
 # rótulo del precio como calle y la parte entera de la UF como altura), y
 # "UF38 00" la de otro de Yapo. Ninguna de esas palabras encabeza una calle
 # chilena; todas encabezan un precio, un código o un dato del programa.
+# Lo que un portal mete en su campo "dirección" y NO es una dirección,
+# medido en la auditoría del 19-08 contra el estado real: "Disponibilidad:
+# Agosto 2026", "Linea 7" (¡la línea del metro!), "CORAZÓN DE VITACURA
+# DICIEMBRE 2026", "GRAN DEPARTAMENT DISPONIBLE...". Contaminan el
+# fingerprint (la identidad del aviso ES su dirección), el link de Google
+# Maps y la tabla del dashboard. Un campo de dirección con fecha de
+# disponibilidad, mes, o palabras de marketing no es una calle.
+_DIRECCION_JSON_INVALIDA = re.compile(
+    r"disponib|entrega\s|l[ií]nea\s*\d|\bmetro\b"
+    r"|enero|febrero|marzo|abril|mayo|junio|julio|agosto"
+    r"|septiembre|octubre|noviembre|diciembre|\b20\d{2}\b"
+    r"|amoblad|seguridad|coraz[oó]n|estacionamiento|oportunidad"
+    r"|imperdible|exclusiv|espectacular|impecable", re.I)
+
+
+def _direccion_de_json(direccion: str) -> str:
+    """El campo dirección de un payload, con la basura de marketing afuera."""
+    d = (direccion or "").strip()
+    if not d or _DIRECCION_JSON_INVALIDA.search(d):
+        return ""
+    return d
+
+
 _NO_ES_CALLE = re.compile(
     r"^(?:ba[ñn]os?|dormitorios?|piezas?|estacionamientos?|bodegas?"
     r"|pisos?|m2|mts?2?|uf\s*\d*|clp|cod\.?|c[oó]digo|mensual"
@@ -1090,6 +1114,11 @@ def _direccion_desde(texto: str, comuna: str) -> str:
         if _NO_ES_CALLE.match(calle):
             # Se sigue buscando en vez de rendirse: "Baños: 3" al principio
             # del texto no impide que más adelante venga la dirección real.
+            continue
+        # "CORAZÓN DE VITACURA DICIEMBRE 2026": el año de disponibilidad
+        # tiene toda la pinta de altura y el mes de nombre de calle. La
+        # misma lista negra que limpia el campo dirección de los payloads.
+        if _DIRECCION_JSON_INVALIDA.search(calle):
             continue
         return f"{calle}, {comuna}" if comuna else calle
 
@@ -1242,9 +1271,50 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
                 _completar_con_tarjetas(resultado, soup, base_url, fuente,
                                         valor_uf)
                 _completar_con_serp(resultado, soup, base_url, valor_uf)
+                _completar_con_enlace(resultado, soup, base_url, valor_uf)
             return resultado
 
     return []
+
+
+def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,
+                          base_url: str, valor_uf: float | None) -> None:
+    """El precio desde el bloque que ENLAZA al aviso.
+
+    El caso medido (goplaceit, 19-08): 30 avisos JSON-LD con URL propia y
+    CERO con precio — y el canon pintado en la página, al lado del link,
+    en un bloque que no tiene forma de tarjeta para `_candidatos`. El link
+    del aviso es un identificador que ninguna heurística de forma necesita:
+    se busca el <a> que apunta a ESTE aviso y se sube por sus padres hasta
+    el primer bloque corto que traiga un monto. Corto (≤ 600 caracteres) es
+    la defensa: la grilla entera o el panel de filtros no caben ahí.
+    """
+    sin = [a for a in avisos
+           if a.arriendo_clp is None and a.arriendo_uf is None
+           and a.url and a.url != base_url]
+    for a in sin:
+        cola = urlparse(a.url).path
+        if len(cola) < 8:
+            continue
+        ancla = soup.find("a", href=lambda h: h and cola in h)
+        if ancla is None:
+            continue
+        nodo = ancla
+        for _ in range(4):
+            if nodo.parent is None:
+                break
+            nodo = nodo.parent
+            texto = " ".join(nodo.get_text(" ").split())
+            if len(texto) > 600:
+                break
+            montos = P.parse_montos(texto, valor_uf)
+            clp, uf = montos.get("arriendo_clp"), montos.get("arriendo_uf")
+            if clp or uf:
+                a.arriendo_clp, a.arriendo_uf = clp, uf
+                if a.gastos_comunes_clp is None and \
+                        montos.get("gastos_comunes_clp"):
+                    a.gastos_comunes_clp = montos["gastos_comunes_clp"]
+                break
 
 
 def _completar_con_serp(avisos: list[Arriendo], soup: BeautifulSoup,

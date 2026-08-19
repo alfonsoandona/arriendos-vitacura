@@ -938,65 +938,6 @@
     "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/11966139-maravilloso-y-amplio-departamento-3-dormitorios-alonso-de-cordova",
     "veces_visto": 6
   },
-  "0c7c9d56d2d91178": {
-    "arriendo_clp": 5107080,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "metro tobalaba costanera center 178",
-    "comuna": "Providencia",
-    "direccion": "Metro Tobalaba Costanera Center 178, Providencia",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 5107080,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T14:22:02",
-    "score": 0,
-    "source": "magnoliaproperty",
-    "tipo": "local comercial",
-    "titulo": "Cod.: 9.012 Arriendo UF 125 Local Comercial en Providencia A pasos del Metro Tobalaba, Costanera Center 178 / 178 m 2 Ma",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://www.magnoliaproperty.cl/9012",
-    "veces_visto": 1
-  },
-  "0cd8ca683af71a4e": {
-    "arriendo_clp": 2300637.0,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 1,
-    "clave_direccion": "octubre 2026",
-    "comuna": "Vitacura",
-    "direccion": "Octubre 2026, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 450000.0,
-    "historial_precio": [
-      {
-        "clp": 2300637.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.4021409,
-    "lon": -70.5849643,
-    "m2_terraza": 20.0,
-    "m2_totales": 140.0,
-    "orientacion": "nororiente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Arriendo depto 3 dorm sector Vespucio con Las Hual",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arriendo-depto-3-dorm-sector-vespucio-con-las-hual/4292140",
-    "veces_visto": 2
-  },
   "0d5cd54a6fe93569": {
     "arriendo_clp": null,
     "avisado": false,
@@ -1395,40 +1336,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://www.propiedades.cl/50823",
     "veces_visto": 1
-  },
-  "1402f790c0676526": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 1800000.0,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 1,
-    "clave_direccion": "linea 7 las condes",
-    "comuna": "Vitacura",
-    "direccion": "Línea 7, Las Condes",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 200000.0,
-    "historial_precio": [
-      {
-        "clp": 1800000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.3840881,
-    "lon": -70.5367623,
-    "orientacion": "norte",
-    "piso": 14,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 68,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "DEPARTAMENTO AMOBLADO CON EXQUISITO GUSTO",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-amoblado-con-exquisito-gusto/ca342c13336ab095093401bf4b745dd77e4b3f8f",
-    "veces_visto": 2
   },
   "14a759980faa0bf0": {
     "arriendo_clp": 2550000.0,
@@ -2343,36 +2250,6 @@
     "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-vitacura-amoblado/4302760",
     "veces_visto": 6
   },
-  "23918feba67ab244": {
-    "arriendo_clp": 1348269.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "disponibilidad diciembre 2026",
-    "comuna": "Vitacura",
-    "direccion": "DISPONIBILIDAD DICIEMBRE 2026, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "historial_precio": [
-      {
-        "clp": 1348269.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.4073768,
-    "lon": -70.5978761,
-    "m2_totales": 100.0,
-    "m2_utiles": 100.0,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Departamento en Arriendo en Vitacura",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-en-vitacura/f9631b7690a02962195bda0bbaaab84f7723b4b6",
-    "veces_visto": 6
-  },
   "23a5b3413b30f895": {
     "arriendo_clp": null,
     "avisado": false,
@@ -2957,36 +2834,6 @@
     "url": "https://www.remax.cl/es-cl/propiedades/departamento/arriendo/vitacura/1028102081-72",
     "veces_visto": 3
   },
-  "29a155e3c16b401f": {
-    "arriendo_clp": 3881381.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 1,
-    "clave_direccion": "seguridad 24",
-    "comuna": "Vitacura",
-    "direccion": "Seguridad 24, Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "historial_precio": [
-      {
-        "clp": 3881381.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.36858,
-    "lon": -70.54374,
-    "m2_totales": 360.0,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Gran departamento cercano a Costanera",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/gran-departamento-cercano-a-costanera/3761706",
-    "veces_visto": 6
-  },
   "2a0d23bd8aca398c": {
     "amoblado": "sin amoblar",
     "arriendo_clp": 1225699.0,
@@ -3106,37 +2953,6 @@
     "ultima_vez": "2026-08-18T17:23:24",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203401852",
     "veces_visto": 3
-  },
-  "2a8cd96098c5e1c5": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 3881381.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "gran departament disponible diciembre 2026",
-    "comuna": "Vitacura",
-    "direccion": "GRAN DEPARTAMENT DISPONIBLE DICIEMBRE 2026, Vitacura",
-    "dormitorios": 5,
-    "envio_pendiente": false,
-    "estacionamientos": 3,
-    "historial_precio": [
-      {
-        "clp": 3881381.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.3999948,
-    "lon": -70.5861887,
-    "orientacion": "oriente",
-    "piso": 2,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "GRAN DEPARTAMENT DISPONIBLE DICIEMBRE 2026",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/gran-departament-disponible-01-noviembre/d1a8f51d9e5ad99d283f3651ed014631494f5b00",
-    "veces_visto": 6
   },
   "2b9155175f1e1105": {
     "arriendo_clp": 4902797,
@@ -4086,30 +3902,6 @@
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/lo-barnechea-la-dehesa/casa/201417810",
     "veces_visto": 3
   },
-  "36346828216370ad": {
-    "arriendo_clp": 4289947,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "metro manquehue 180",
-    "comuna": "Las Condes",
-    "direccion": "Metro Manquehue 180, Las Condes",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 4289947,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-19T00:23:03",
-    "score": 0,
-    "source": "magnoliaproperty",
-    "tipo": "oficina",
-    "titulo": "Cod.: 8.967 Arriendo UF 105 Oficina en Las Condes A pasos del Metro Manquehue 180 m 2 Magnolia Property Ficha",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.magnoliaproperty.cl/8967",
-    "veces_visto": 1
-  },
   "36944668cab42ccb": {
     "arriendo_clp": 3268531.0,
     "ausencias": 4,
@@ -4288,31 +4080,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://www.houm.com/cl/arriendo-departamento-region-metropolitana/independencia/167934",
     "veces_visto": 6
-  },
-  "39337fe17725ca4c": {
-    "arriendo_clp": 9151887,
-    "ausencias": 1,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "metro el golf 320",
-    "comuna": "Las Condes",
-    "direccion": "Metro El Golf 320, Las Condes",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 9151887,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-19T00:00:34",
-    "score": 0,
-    "source": "magnoliaproperty",
-    "tipo": "oficina",
-    "titulo": "Cod.: 8.929 Arriendo UF 224 Oficina en Las Condes A pasos del Metro El Golf 320 m 2 Magnolia Property Ficha",
-    "ultima_vez": "2026-08-19T00:00:34",
-    "url": "https://www.magnoliaproperty.cl/8929",
-    "veces_visto": 1
   },
   "394367fca5c4ee64": {
     "arriendo_clp": 2533112.0,
@@ -5609,35 +5376,6 @@
     "titulo": "ARRIENDO 287 \"Atención comerciantes, gran local comercial tipo galpón, c... \"Letras- Biaut\" $ 6.000.000.- UF 146,85.- 57",
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-cisterna/bodega/217414957",
-    "veces_visto": 6
-  },
-  "4b65baa0ab735fa2": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 3100000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "seguridad amoblado disponibilidad mayo 2026",
-    "comuna": "Vitacura",
-    "direccion": "SEGURIDAD AMOBLADO DISPONIBILIDAD MAYO 2026, Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 3100000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.396502,
-    "lon": -70.590439,
-    "orientacion": "oriente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": " ALONSO SOTOMAYOR /   ESPOZ / AMOBLADO",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/alonso-sotomayor-espoz-amoblado/1827031",
     "veces_visto": 6
   },
   "4b6c8d864d8e9339": {
@@ -7229,30 +6967,6 @@
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
     "veces_visto": 6
   },
-  "60880b666aa2c5b2": {
-    "arriendo_clp": 10800000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "ano 2024",
-    "comuna": "Lo Barnechea",
-    "direccion": "Año 2024, Lo Barnechea",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 10800000.0,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-19T00:23:03",
-    "score": 0,
-    "source": "clasificados_cl",
-    "tipo": "casa",
-    "titulo": "Legales y Públicos Banco Chile - avisos nulos por hurto (2) Banco Chile - avisos nulos por robo (9) Banco Chile - avisos",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
-    "veces_visto": 1
-  },
   "60d74ac0ea4f597a": {
     "arriendo_clp": null,
     "avisado": false,
@@ -8265,40 +7979,6 @@
     "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/escriva-de-balaguer-4d3b2e-y-bodega/01387311e2ef3bf2526a7d4acd2bdd45fd13d522",
     "veces_visto": 4
   },
-  "6d12d897b651893d": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 1634266.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "disponibilidad agosto 2026",
-    "comuna": "Vitacura",
-    "direccion": "Disponibilidad: Agosto 2026, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 380000.0,
-    "historial_precio": [
-      {
-        "clp": 1634266.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.3900554,
-    "lon": -70.57141539999999,
-    "m2_totales": 117.0,
-    "orientacion": "poniente",
-    "piso": 14,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 84,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Departamento en condominio",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-condominio-de-tres-dormitorios/af5e92700ab3dd3e5a96add01daa2a605072a238",
-    "veces_visto": 6
-  },
   "6d6a87eb658f00e5": {
     "arriendo_clp": null,
     "avisado": false,
@@ -8827,42 +8507,6 @@
     "url": "https://www.remax.cl/es-cl/propiedades/departamento/arriendo/vitacura/1028108079-44",
     "veces_visto": 4
   },
-  "73813df2d4c20864": {
-    "ano_construccion": 2024,
-    "antiguedad_anos": 2,
-    "arriendo_clp": 3501005.0,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "septiembre 2026",
-    "comuna": "Vitacura",
-    "direccion": "Septiembre 2026, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 500000.0,
-    "historial_precio": [
-      {
-        "clp": 3501005.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.4018993,
-    "lon": -70.5841285,
-    "m2_terraza": 50.0,
-    "m2_totales": 190.0,
-    "orientacion": "nororiente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Exclusivo Dpto. en Vitacura, 3 dorm y 3 baños, 140",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/exclusivo-dpto-en-vitacura-3-dorm-y-3-banos-140/4293026",
-    "veces_visto": 2
-  },
   "738de60aa5f4f694": {
     "arriendo_clp": 2533112,
     "avisado": false,
@@ -9194,47 +8838,6 @@
     "ultima_vez": "2026-08-18T14:22:02",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/terrenoconstructora/216405473",
     "veces_visto": 2
-  },
-  "78f889e80b7f669f": {
-    "amoblado": "amoblado",
-    "ano_construccion": 1993,
-    "antiguedad_anos": 33,
-    "arriendo_clp": 2001975.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "linea 7",
-    "comuna": "Vitacura",
-    "direccion": "Linea 7, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 340000.0,
-    "historial_precio": [
-      {
-        "clp": 2247115.0,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 2001975.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.407135,
-    "lon": -70.597527,
-    "m2_totales": 140.0,
-    "m2_utiles": 200.0,
-    "orientacion": "norte",
-    "piso": 4,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Amplio depto Vitacura, muy iluminado, vista despejada",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amplio-depto-vitacura-muy-iluminado-vista-despejada/57d3832684497847e9b5a9b6fecc3d378a420cf3",
-    "veces_visto": 6
   },
   "79259750a4ffae21": {
     "arriendo_clp": null,
@@ -9979,39 +9582,6 @@
     "url": "https://www.icasas.cl/propiedad/bca2-a6c2-19b04d0-abd28a81d856-7e50",
     "veces_visto": 6
   },
-  "84ca39172a400f66": {
-    "arriendo_clp": 3881381.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "ano 2003",
-    "comuna": "Vitacura",
-    "direccion": "Año: 2003, Vitacura",
-    "dormitorios": 5,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 1400000.0,
-    "historial_precio": [
-      {
-        "clp": 3881381.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.365607339207536,
-    "lon": -70.544490693387,
-    "m2_terraza": 39.0,
-    "m2_totales": 365.0,
-    "m2_utiles": 365.0,
-    "orientacion": "oriente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Departamento en arriendo en Vitacura",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-en-vitacura/905b082e6579d396fff93e7ea1560b16430b5539",
-    "veces_visto": 6
-  },
   "84ddea8d6b560fce": {
     "arriendo_clp": 6354433.0,
     "ausencias": 3,
@@ -10192,31 +9762,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12850253-departamento-en-arriendo-en-vista-despejada-nororiente-la-aurora-la-llaveria",
     "veces_visto": 6
-  },
-  "8762e1d41613bf1d": {
-    "arriendo_clp": 12000000.0,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "ano 2014",
-    "comuna": "Vitacura",
-    "direccion": "Año 2014, Vitacura",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 12000000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T14:22:02",
-    "score": 0,
-    "source": "clasificados_cl",
-    "tipo": "casa",
-    "titulo": "Legales y Públicos Banco Chile - avisos nulos por hurto (2) Banco Chile - avisos nulos por robo (9) Banco Chile - avisos",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
-    "veces_visto": 1
   },
   "8838547c430ef9d6": {
     "arriendo_clp": null,
@@ -11916,32 +11461,6 @@
     "url": "https://www.propiedades.cl/49908",
     "veces_visto": 1
   },
-  "9fd0c68dc4ee6342": {
-    "arriendo_clp": 1800000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "ano 2021",
-    "comuna": "Vitacura",
-    "direccion": "AÑO 2021, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 1800000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 66,
-    "source": "economicos",
-    "tipo": "departamento",
-    "titulo": "Departamento en Arriendo en Vitacura 3 dormitorios 3 baños / Magnolia Property MAGNOLIA PROPERTY ARRIENDA LUMINOSO DEPAR",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77087837-3L0-202009014.html",
-    "veces_visto": 2
-  },
   "9ffeef8120862782": {
     "arriendo_clp": 10132447.0,
     "ausencias": 3,
@@ -12258,31 +11777,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/valparaiso/valparaiso/localcomercial/205400029",
     "veces_visto": 3
-  },
-  "a304eff135ee208d": {
-    "arriendo_clp": 17300000.0,
-    "ausencias": 3,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "ano 2018",
-    "comuna": "Santiago",
-    "direccion": "Año 2018, Santiago",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 17300000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "piso": 10,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T17:23:24",
-    "score": 0,
-    "source": "clasificados_cl",
-    "titulo": "Legales y Públicos Banco Chile - avisos nulos por hurto (2) Banco Chile - avisos nulos por robo (9) Banco Chile - avisos",
-    "ultima_vez": "2026-08-18T17:23:24",
-    "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
-    "veces_visto": 1
   },
   "a30ed84bdc091098": {
     "arriendo_clp": null,
@@ -14414,37 +13908,6 @@
     "url": "https://www.propiedades.cl/51249",
     "veces_visto": 3
   },
-  "bf91a785d06c0f8a": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 3881381.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "corazon de vitacura diciembre 2026",
-    "comuna": "Vitacura",
-    "direccion": "CORAZÓN DE VITACURA DICIEMBRE 2026, Vitacura",
-    "dormitorios": 5,
-    "envio_pendiente": false,
-    "estacionamientos": 3,
-    "historial_precio": [
-      {
-        "clp": 3881381.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.3999948,
-    "lon": -70.5861887,
-    "orientacion": "oriente",
-    "piso": 2,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "ARRIENDO VITACURA DISPONIBLE DICEMBBRE 2026",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arriendo-vitacura-disponible-01-noviembre/1b41014d1c0b712addc22cdde893c750ceebabab",
-    "veces_visto": 6
-  },
   "bfef87b058ea9492": {
     "amoblado": "amoblado",
     "arriendo_clp": 4500000.0,
@@ -14560,30 +14023,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-depto-4d-3b-3e-colegio-manquehue/31929110",
     "veces_visto": 5
-  },
-  "c07c845029964657": {
-    "arriendo_clp": 19500000.0,
-    "ausencias": 1,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "ano 2011",
-    "comuna": "Santiago",
-    "direccion": "Año 2011, Santiago",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 19500000.0,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-19T00:00:34",
-    "score": 0,
-    "source": "clasificados_cl",
-    "titulo": "Legales y Públicos Banco Chile - avisos nulos por hurto (2) Banco Chile - avisos nulos por robo (9) Banco Chile - avisos",
-    "ultima_vez": "2026-08-19T00:00:34",
-    "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
-    "veces_visto": 1
   },
   "c09266e7266fe9f7": {
     "arriendo_clp": 3268531,
@@ -15860,39 +15299,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12616351-departamento-nuevo-sector-alonso-de-cordova",
     "veces_visto": 6
-  },
-  "cef79e9335d4ce90": {
-    "arriendo_clp": 2165402,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "alonso de sotomayor vitacura",
-    "comuna": "Vitacura",
-    "direccion": "Alonso de Sotomayor, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630249, Chile",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 350000.0,
-    "historial_precio": [
-      {
-        "clp": 2165402,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "lat": -33.3967373,
-    "lon": -70.5908521,
-    "m2_totales": 140.0,
-    "m2_utiles": 140.0,
-    "orientacion": "poniente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T23:28:04",
-    "score": 0,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "Amplio Departamento en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-19T00:23:03",
-    "url": "https://casas.mitula.cl/adform/24301-256-4ded-775464100993-92aa-76750785-4015",
-    "veces_visto": 3
   },
   "cfc631b51eb1fa17": {
     "arriendo_clp": 2800000.0,
@@ -17851,30 +17257,6 @@
     "url": "https://www.icasas.cl/propiedad/af4f-af9e-fb15a106-d9ba389ddcb-4e59",
     "veces_visto": 1
   },
-  "eb40e40c3be63c27": {
-    "arriendo_clp": null,
-    "ausencias": 4,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "la aurora 2097 vitacura santiago metropolitana de santiago chl",
-    "comuna": "Vitacura",
-    "direccion": "Calle La Aurora 2097, Vitacura, Santiago, Metropolitana de Santiago, CHL",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "historial_precio": [],
-    "m2_totales": 140.0,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 62,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "Escrivá de Balaguer 4D+3B+2E y bodega",
-    "ultima_vez": "2026-08-18T14:22:02",
-    "url": "https://casas.mitula.cl/casas/arriendo-departamentos-vitacura?page=2",
-    "veces_visto": 2
-  },
   "eb4963585cc20db6": {
     "amoblado": "amoblado",
     "ano_construccion": 2021,
@@ -19037,31 +18419,6 @@
     "ultima_vez": "2026-08-19T00:23:03",
     "url": "https://casas.mitula.cl/adform/24301-256-4d2e-3cc37c8cbc7f-b00c-dba48112-88d0",
     "veces_visto": 3
-  },
-  "fc8e617df46eac3e": {
-    "arriendo_clp": 10009877,
-    "ausencias": 3,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "metro tobalaba mut 388",
-    "comuna": "Las Condes",
-    "direccion": "Metro Tobalaba MUT 388, Las Condes",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 10009877,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T17:23:24",
-    "score": 0,
-    "source": "magnoliaproperty",
-    "tipo": "oficina",
-    "titulo": "Cod.: 9.020 Arriendo UF 245 Oficina en Las Condes A pasos del Metro Tobalaba, MUT 388 m 2 Magnolia Property Ficha",
-    "ultima_vez": "2026-08-18T17:23:24",
-    "url": "https://www.magnoliaproperty.cl/9020",
-    "veces_visto": 1
   },
   "fcca1e442d7484f4": {
     "arriendo_clp": null,
