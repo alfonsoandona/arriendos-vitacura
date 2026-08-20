@@ -584,10 +584,17 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     tope = int((perfil.get("alertas") or {}).get("max_por_corrida", 8))
     sobrantes: list[Arriendo] = []
     if len(a_avisar) > tope:
-        # Las de mayor puntaje primero; el resto queda en el tablero y alerta
-        # en la corrida siguiente. Sin tope, la primera corrida contra
-        # portales de arriendo manda cuarenta mensajes seguidos, porque trae
-        # inventario acumulado y no novedades del día.
+        # Las de mayor puntaje primero; el resto queda en el tablero. Sin
+        # tope, la primera corrida contra portales de arriendo manda
+        # cuarenta mensajes seguidos, porque trae inventario acumulado y no
+        # novedades del día.
+        #
+        # OJO —y este comentario decía lo contrario hasta el 20-08—: los
+        # sobrantes NO alertan en la corrida siguiente. Abajo se registran
+        # como vistos igual que todos, así que dejan de ser "nuevos" y solo
+        # vuelven a sonar si BAJAN de precio. Es la regla del 18-08 ("que
+        # sea solo de nuevos o modificaciones"), y su contrapeso es el
+        # mensaje índice: un click y ahí está la lista completa.
         #
         # Pero el recorte ya no es silencioso: los que no cupieron van en UN
         # mensaje índice (ver el paso 7). Si el noveno era justo el bueno, la
@@ -658,9 +665,10 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
 
     stats["avisados"] = enviados
 
-    # El índice de los que calificaron y no cupieron. No los marca como
-    # avisados a propósito: su aviso completo llega en las corridas
-    # siguientes; esto solo evita que el tope sea un recorte invisible.
+    # El índice de los que calificaron y no cupieron. Es su ÚNICA
+    # aparición en el teléfono —quedan registrados como vistos, así que no
+    # vuelven a sonar salvo que bajen de precio—, y por eso el mensaje
+    # lleva el link a la lista completa en vez de un recorte silencioso.
     if enviados and sobrantes:
         telegram.enviar(mensaje_sobrantes(sobrantes))
 

@@ -150,7 +150,25 @@ jobs:
         # su bitácora describe un mundo que no existe.
         if: ${{ always() && !inputs.dry_run && !inputs.sin_historial }}
         run: |
-          # La salida cruda se recorta: interesa el final, donde está el error.
+          # ARCHIVO PERMANENTE, pedido del usuario (20-08): "es importante
+          # guardar todo porque iremos corrigiendo en el camino". Cada
+          # corrida deja su log ENTERO —sin recortar— y su resumen con
+          # fecha y hora en logs/corridas/, así que el "¿por qué este aviso
+          # salió así el martes?" se contesta abriendo un archivo en vez de
+          # arqueología en el historial de git.
+          #
+          # Pesa poco: ~20 KB por corrida, 3 corridas al día, y git los
+          # comprime entre sí porque son casi idénticos.
+          SELLO="$(date -u +%Y-%m-%d-%H%M)"
+          mkdir -p logs/corridas
+          [[ -f logs/ultima-corrida.log ]] \
+            && cp logs/ultima-corrida.log "logs/corridas/$SELLO.log"
+          [[ -f logs/ultima-corrida.md ]] \
+            && cp logs/ultima-corrida.md "logs/corridas/$SELLO.md"
+
+          # La copia "última" sí se recorta: es la vista rápida, y lo que
+          # interesa de un vistazo es el final, donde está el error. El
+          # archivo de arriba ya guardó el log completo.
           if [[ -f logs/ultima-corrida.log ]]; then
             tail -n 400 logs/ultima-corrida.log > logs/.tmp \
               && mv logs/.tmp logs/ultima-corrida.log
