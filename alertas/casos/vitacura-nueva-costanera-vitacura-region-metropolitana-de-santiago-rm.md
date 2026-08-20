@@ -1,14 +1,14 @@
 # Nueva costanera, Vitacura, Región Metropolitana de Santiago (RM)
 
-**85/100** · `#NCUVN` · Vitacura · sin ubicar · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Nueva+costanera%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)
+**89/100** · `#YDDXP` · Vitacura · sin ubicar · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Nueva+costanera%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
 | Arriendo | $1.552.602 |
-| Gastos comunes | $430.000 (27,7% del canon) |
-| **Costo mensual** | **$1.982.602** |
+| Gastos comunes | — |
+| **Costo mensual** | **$1.552.602** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 38 |
 | Por m² | $10.708 / m² |
 
@@ -20,9 +20,9 @@
 | Superficie total | 145 m² |
 | Superficie útil | 140 m² |
 | Dormitorios | 4 |
-| Baños | 4 |
+| Baños | 3 |
 | Estacionamientos | 2 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
 | Piso | 5 |
 | Orientación | norte |
@@ -35,32 +35,31 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.552.602 · GC $430.000 · 27.7% del canon — altos |
+| Precio | 16/20 | $1.552.602 · GC no publicados |
 | Superficie | 14/16 | 145 m² totales |
-| Programa | 13/14 | 4D · 4B |
+| Programa | 13/14 | 4D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **90/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **93/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.552.602 · GC $430.000 · 27.7% del canon — altos
+- Precio: $1.552.602 · GC no publicados
 - Superficie: 145 m² totales
-- Programa: 4D · 4B
+- Programa: 4D · 3B
 - piso 5
 - orientación norte
 - 36 m² por dormitorio
 - 2 estacionamientos
-- con bodega
 
 </details>
 
 ## Qué preguntar antes de ir
 
-- [ ] **Los gastos comunes son altos** (27,7% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
+- [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.105.204 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
@@ -76,8 +75,9 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: NCUVN
+  - codigo: YDDXP
     estado: visita        # descartado | visto | contactado | visita
+    # gastos_comunes_clp: 250000
     # ano_construccion: 2015
     # nota: "lo que te dijeron"
 ```
@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 20/08/2026 Arriendo Mensual / Departamento / Vitacura UF 38 Vitacura, Nueva costanera Habitaciones: 4 Baños: 3 Terreno: 150 m² Estacionamientos: 2 Departamento en arriendo, con entrega inmediata, a pasos de Nueva Costanera y Vespucio Norte, comuna de Vitacura. -140m2. - Piso 5. - Cocina tradicion... Publicado: 20/08/2026 Cód: 130722817 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 20-08-2026 12:28 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 20-08-2026 15:24 UTC.
 
 </details>
