@@ -1,14 +1,14 @@
 # Historial de búsquedas
 
-_Actualizado 20-08-2026 16:06 UTC · 1750 eventos guardados_
+_Actualizado 20-08-2026 17:28 UTC · 1841 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 693 |
-| Dejaron de publicarse | 645 |
-| Cambios de precio | 412 (14 a la baja) |
+| Departamentos nuevos | 720 |
+| Dejaron de publicarse | 702 |
+| Cambios de precio | 419 (15 a la baja) |
 | Canon mediano | $2.400.000 |
 | Canon mediano por m² | $15.066 |
 | Días publicado antes de irse | 1 |
@@ -18,69 +18,69 @@ _Actualizado 20-08-2026 16:06 UTC · 1750 eventos guardados_
 
 | Mes | Nuevos |
 |---|---|
-| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 693 |
+| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 720 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
-| 2026-08-20 | 📤 | Nueva Costanera 3, Vitacura · Vitacura — 1 días publicado | $4.698.665 |
-| 2026-08-20 | 📤 | ARRIENDO 631 "EXCELENTE PROPIEDAD INDUSTRIAL, que co · Puerto Montt | $11.318.021 |
-| 2026-08-20 | 📤 | Edificio de 12, Vitacura · Vitacura — 1 días publicado | $2.247.260 |
-| 2026-08-20 | 📤 | Martín de Zamora, Region Metropolitana · Las Condes — 2 días publicado | $1.000.000 |
-| 2026-08-20 | 📤 | Cod.: 6.729 Venta UF 38.000 Departamento en Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | ARRIENDO 566 "cod: 411.591 CdePA Barrio Brasil. 1.53 · Santiago | $11.849.191 |
-| 2026-08-20 | 📤 | COD: 51.245 Local Comercial en Ñuñoa Antonio Varas / · Ñuñoa — 2 días publicado | — |
-| 2026-08-20 | 📤 | Eyzaguirre, Region Metropolitana · Santiago — 2 días publicado | $560.000 |
-| 2026-08-20 | 📤 | Cod.: 7.932 Venta UF 42.000 Casa en Zapallar Cachagu | — |
-| 2026-08-20 | 📤 | Avenida Beauchef, Region Metropolitana · Santiago — 2 días publicado | $750.000 |
-| 2026-08-20 | 📤 | Valparaíso Chile 2, Valparaíso · Valparaíso — 2 días publicado | $12.012.240 |
-| 2026-08-20 | 📤 | Cod.: 6.983 Venta UF 35.000 Casa en Colina Sector Lo · Colina | — |
-| 2026-08-20 | 📤 | Rosario Norte · Las Condes — 2 días publicado | $939.757 |
-| 2026-08-20 | 📤 | Avenida Escuela Agrícola, Region Metropolitana · Macul — 2 días publicado | $550.000 |
-| 2026-08-20 | 📤 | B 1, Vitacura · Vitacura — 2 días publicado | $3.082.000 |
-| 2026-08-20 | 📤 | Avenida Eliecer Parada, Region Metropolitana · Ñuñoa — 2 días publicado | $1.150.000 |
-| 2026-08-20 | 📤 | Gran Vista/ 2, Las Condes · Vitacura — 2 días publicado | $2.200.000 |
-| 2026-08-20 | 📤 | Útiles. Dormitorios: 3, Vitacura · Vitacura — 2 días publicado | $4.500.000 |
-| 2026-08-20 | 📤 | Vitacura. A 1, San Pedro · Vitacura — 2 días publicado | $2.000.000 |
-| 2026-08-20 | 📤 | A PARTIR DE LOS 6, Vitacura · Vitacura — 2 días publicado | $4.500.000 |
-| 2026-08-20 | 📤 | Carlos Wilson, Region Metropolitana · Providencia — 2 días publicado | $1.200.000 |
-| 2026-08-20 | 📤 | COD: 51.302 Casa en Las Condes Plaza Renacimiento It · Las Condes | — |
-| 2026-08-20 | 📤 | Santa Elena, Region Metropolitana · Santiago — 2 días publicado | $500.000 |
-| 2026-08-20 | 📤 | Maule Chile 3, Talca · Talca — 2 días publicado | $600.000 |
-| 2026-08-20 | 📤 | Paz Biobío Chile 2, San Pedro de la Paz · San Pedro de la Paz — 2 días publicado | $600.000 |
-| 2026-08-20 | 📤 | GAS CON HORNO DE 4, Vitacura · Vitacura — 2 días publicado | $1.200.446 |
-| 2026-08-20 | 📤 | Metropolitana de Santiago Chile 6, Lo Barnechea · Lo Barnechea — 2 días publicado | — |
-| 2026-08-20 | 📤 | Maule Chile 5, Talca · Talca — 2 días publicado | — |
-| 2026-08-20 | 📤 | Bedrooms 5, Vitacura · Vitacura — 2 días publicado | $3.186.921 |
-| 2026-08-20 | 📤 | Cod.: 8.810 Venta UF 25.890 Casa en Lo Barnechea Cam · Lo Barnechea | — |
-| 2026-08-20 | 📤 | DORMITORIO PEQUEÑO 1, Santiago · Santiago — 1 días publicado | — |
-| 2026-08-20 | 📤 | Metropolitana de Santiago Chile 5, Calera de Tango · Calera de Tango — 2 días publicado | $1.879.466 |
-| 2026-08-20 | 📤 | María Auxiliadora, Region Metropolitana · San Miguel — 2 días publicado | $350.000 |
-| 2026-08-20 | 📤 | B 2, Vitacura · Vitacura — 2 días publicado | $2.002.105 |
-| 2026-08-20 | 📤 | Aníbal Pinto, Region Metropolitana · Independencia — 2 días publicado | $420.000 |
-| 2026-08-20 | 📤 | Tupungato, Vitacura, Región Metropolitana de Santiag · Vitacura | $1.190.000 |
-| 2026-08-20 | 📤 | Nataniel Cox, Region Metropolitana · Santiago — 2 días publicado | $405.000 |
-| 2026-08-20 | 📤 | ARRIENDO 331 "Excelente oportunidad en Lo Barnechea  · Lo Barnechea | $9.806.227 |
-| 2026-08-20 | 📤 | Avenida La Marina, Region Metropolitana · San Miguel — 1 días publicado | $500.000 |
-| 2026-08-20 | 📤 | Real Madrid, Region Metropolitana · La Florida — 2 días publicado | $530.000 |
-| 2026-08-20 | 📤 | Cod.: 8.218 Venta UF 11.000 Casa en Machalí Condomin · Machalí | — |
-| 2026-08-20 | 📤 | Maule Chile 2, Talca · Talca — 2 días publicado | $360.000 |
-| 2026-08-20 | 📤 | Los Tres Antonios, Region Metropolitana · Ñuñoa — 2 días publicado | $800.000 |
-| 2026-08-20 | 📤 | Cod.: 6.491 Venta UF 49.000 Casa en Zapallar CANTAGU | — |
-| 2026-08-20 | 📤 | Avenida Vicuña Mackenna, Region Metropolitana · Ñuñoa — 2 días publicado | $450.000 |
-| 2026-08-20 | 📤 | Avenida Presidente Kennedy, Region Metropolitana · Las Condes — 2 días publicado | $2.200.000 |
-| 2026-08-20 | 📤 | Metropolitana de Santiago Chile 1, Ñuñoa · Ñuñoa — 1 días publicado | — |
-| 2026-08-20 | 📤 | Rosario Norte, Region Metropolitana · Santiago — 2 días publicado | $939.757 |
-| 2026-08-20 | 📤 | Dispone de 3, Vitacura · Vitacura — 2 días publicado | $3.268.742 |
-| 2026-08-20 | 📤 | Juan xxii / vitacura, Región Metropolitana de Santia · Vitacura — 2 días publicado | $1.000.000 |
-| 2026-08-20 | 📤 | ARRIENDO 567 "cod. 410.639 CdePA Metro Toesca ,964 m · Santiago | $6.354.844 |
-| 2026-08-20 | 📤 | Diagonal José María Caro, Region Metropolitana · Recoleta — 2 días publicado | $550.000 |
-| 2026-08-20 | 📤 | Papudo Valparaíso Chile 4, Valparaíso · Valparaíso — 2 días publicado | — |
-| 2026-08-20 | 📤 | San Martín, Region Metropolitana · Santiago — 2 días publicado | $500.000 |
-| 2026-08-20 | 📤 | Santa Filomena, Region Metropolitana · Recoleta — 2 días publicado | $650.000 |
-| 2026-08-20 | 📤 | Putaendo Valparaíso Chile 3, Valparaíso · Valparaíso — 2 días publicado | — |
-| 2026-08-20 | 📤 | COD: 50.444 Departamento en Santiago Tarapacá / Eleu · Santiago | — |
-| 2026-08-20 | 📤 | Maestra Lidia Torres, Region Metropolitana · Recoleta — 2 días publicado | $750.000 |
-| 2026-08-20 | 📤 | Cava. 2, Vitacura · Vitacura — 2 días publicado | $4.004.209 |
-| 2026-08-20 | 📤 | Dieciocho, Region Metropolitana · Santiago — 2 días publicado | $650.000 |
+| 2026-08-20 | 📤 | Espoz, Lo Castillo, Vitacura, Provincia de Santiago, · Vitacura — 2 días publicado | $1.961.182 |
+| 2026-08-20 | 📤 | Camino Santa Teresa de Los Andes, Vitacura, Provinci · Vitacura — 2 días publicado | $2.451.478 |
+| 2026-08-20 | 📤 | COD: 50.118 Oficina en Santiago General Bulnes / Yun · Santiago — 2 días publicado | $3.268.637 |
+| 2026-08-20 | 📤 | Las Fresas, Vitacura, Provincia de Santiago, Región  · Vitacura — 2 días publicado | $3.881.506 |
+| 2026-08-20 | 📤 | Calle La Aurora 2097, Vitacura, Santiago, Metropolit · Vitacura | $2.000.000 |
+| 2026-08-20 | 📤 | Cod.: 7.137 Venta UF 13.100 Casa en Colina PRECIOSA  · Colina | — |
+| 2026-08-20 | 📤 | Avenida Presidente Kennedy Lateral, Vitacura, Provin · Vitacura — 2 días publicado | $1.184.881 |
+| 2026-08-20 | 📤 | Cod.: 8.602 Venta UF 11.500 Departamento en Las Cond · Las Condes | — |
+| 2026-08-20 | 📤 | Arriendo Amplia Oficina Open Space Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-20 | 📤 | Lo Curro, Vitacura, Santiago, Metropolitana de Santi · Vitacura — 2 días publicado | $4.821.239 |
+| 2026-08-20 | 📤 | Pasaje Agustín del Castillo, Vitacura, Provincia de  · Vitacura — 1 días publicado | $1.716.034 |
+| 2026-08-20 | 📤 | Calle Vía Aurora 9260, Vitacura, Santiago, Metropoli · Vitacura — 2 días publicado | $3.268.637 |
+| 2026-08-20 | 📤 | SE ARRIENDA OFICINA EXCELENTE SECTOR VITACURA · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | Cod.: 7.304 Venta UF 21.300 Casa en Colina CASA CON  · Colina | — |
+| 2026-08-20 | 📤 | El Arcángel, Vitacura, Provincia de Santiago, Región · Vitacura — 2 días publicado | $4.000.000 |
+| 2026-08-20 | 📤 | Alonso de Sotomayor, Vitacura, Provincia de Santiago · Vitacura — 1 días publicado | $2.165.472 |
+| 2026-08-20 | 📤 | Cod.: 8.211 Venta UF 69.000 Casa en Lo Barnechea San · Lo Barnechea — 2 días publicado | — |
+| 2026-08-20 | 📤 | Teresa Concha, Vitacura, Provincia de Santiago, Regi · Vitacura — 2 días publicado | $3.064.347 |
+| 2026-08-20 | 📤 | Aurelio González, Vitacura, Provincia de Santiago, R · Vitacura — 2 días publicado | $3.000.000 |
+| 2026-08-20 | 📤 | Francisco de Aguirre, Vitacura, Provincia de Santiag · Vitacura — 2 días publicado | $2.737.483 |
+| 2026-08-20 | 📤 | Padre Hurtado Norte  Sin número, Parque Carolina Rab · Padre Hurtado — 2 días publicado | — |
+| 2026-08-20 | 📤 | COD: 51.248 Local Comercial en Ñuñoa Antonio Varas / · Ñuñoa | — |
+| 2026-08-20 | 📤 | El Tamarugo, Vitacura, Provincia de Santiago, Región · Vitacura — 2 días publicado | $2.819.199 |
+| 2026-08-20 | 📤 | COD: 45.994 Departamento en Las Condes Parque Arauco · Las Condes — 2 días publicado | $1.756.892 |
+| 2026-08-20 | 📤 | AV. VITACURA A LA ALTURA DE LUIS PASTEUR · Vitacura — 1 días publicado | — |
+| 2026-08-20 | 📤 | Kennedy frente al Parque Arauco | — |
+| 2026-08-20 | 📤 | Arquitecto Herbage, Vitacura, Provincia de Santiago, · Vitacura — 1 días publicado | $1.650.000 |
+| 2026-08-20 | 📤 | Paul Claudel, Vitacura, Provincia de Santiago, Regió · Vitacura — 2 días publicado | $3.268.637 |
+| 2026-08-20 | 📤 | Vía Aurora, Vitacura, Provincia de Santiago, Región  · Vitacura — 2 días publicado | $3.023.489 |
+| 2026-08-20 | 📤 | Mar Jónico, Vitacura, Provincia de Santiago, Región  · Vitacura — 2 días publicado | $1.800.000 |
+| 2026-08-20 | 📤 | El Coihue, Lo Castillo, Vitacura, Provincia de Santi · Vitacura — 1 días publicado | $1.920.324 |
+| 2026-08-20 | 📤 | Luis Carrera/Las Hualtatas, Plaza Los Castaños · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | Espoz, Vitacura, Provincia de Santiago, Región Metro · Vitacura — 2 días publicado | $2.451.478 |
+| 2026-08-20 | 📤 | Miguel Comas, Vitacura, Provincia de Santiago, Regió · Vitacura — 2 días publicado | $2.696.625 |
+| 2026-08-20 | 📤 | Costanera Sur San Josemaría Escrivá de Balaguer, Vit · Vitacura — 1 días publicado | $2.500.000 |
+| 2026-08-20 | 📤 | Chapultepec, Jardín del Este, Vitacura, Provincia de · Vitacura — 2 días publicado | $3.677.216 |
+| 2026-08-20 | 📤 | Cod.: 8.370 Venta UF 22.900 Casa en Lo Barnechea LOS · Lo Barnechea | — |
+| 2026-08-20 | 📤 | Vitacura / Nueva Costanera, Parque Carolina Rabat · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | COD: 51.279 Casa en Lo Barnechea El Temporal / casa  · Lo Barnechea — 2 días publicado | $2.206.330 |
+| 2026-08-20 | 📤 | Vespucio Norte / Santa María, Plaza Los Castaños · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | Amplia Oficina en Arriendo Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-20 | 📤 | ARRIENDO 712 "Te presentamos esta amplia y luminosa  · Providencia | $10.133.101 |
+| 2026-08-20 | 📤 | El Nogal, Vitacura, Provincia de Santiago, Región Me · Vitacura — 2 días publicado | $1.879.466 |
+| 2026-08-20 | 📤 | LOS MILITARES CON ALONSO DE CORDOVA 0, Avenida Alons · Las Condes — 2 días publicado | — |
+| 2026-08-20 | 📤 | Las Nieves Sin número, Las Nieves, Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-20 | 📤 | Alejandro Serani, Vitacura, Provincia de Santiago, R · Vitacura — 2 días publicado | $2.400.000 |
+| 2026-08-20 | 📤 | AMPLIO DEPARTAMENTO CERCANO A CLUB DE GOLF LOS LEONE · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | Camino El Parque, Vitacura, Provincia de Santiago, R · Vitacura — 2 días publicado | $3.200.000 |
+| 2026-08-20 | 📤 | El Matico, Lo Castillo, Vitacura, Provincia de Santi · Vitacura — 2 días publicado | $3.472.927 |
+| 2026-08-20 | 📤 | La Llavería, Vitacura, Provincia de Santiago, Región · Vitacura — 1 días publicado | $2.247.188 |
+| 2026-08-20 | 📤 | Vitacura.- 1, Vitacura · Vitacura — 2 días publicado | $1.184.881 |
+| 2026-08-20 | 📤 | Candelaria Goyenechea, Lo Castillo, Vitacura, Provin · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | EL CLONQUI Sin número, El Clonqui, Vitacura · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 📤 | Avenida Club de Campo, Vitacura, Provincia de Santia · Vitacura — 2 días publicado | $1.525.000 |
+| 2026-08-20 | 📤 | Cod.: 5.943 Venta UF 26.500 Casa en Lo Barnechea PRE · Lo Barnechea — 2 días publicado | — |
+| 2026-08-20 | 📤 | AV. VITACURA / AMERICO VESPUCIO NORTE · Vitacura — 1 días publicado | — |
+| 2026-08-20 | 📤 | Francisco de Aguirre/Av. Vitacura, Parque Carolina R · Vitacura — 2 días publicado | — |
+| 2026-08-20 | 🆕 | VITACURA: AMOBLADO. 4 dormitorios, 3 baños. Remodela · Vitacura | $7.000.000 |
+| 2026-08-20 | 🆕 | VITACURA: AMOBLADO. 4 dormitorios, 3 baños. Remodela · Vitacura | $7.000.000 |
+| 2026-08-20 | 🆕 | OPORTUNIDAD ÚNICA E INIGUALABLE EN ARRIENDO FRENTE A · Vitacura | — |
