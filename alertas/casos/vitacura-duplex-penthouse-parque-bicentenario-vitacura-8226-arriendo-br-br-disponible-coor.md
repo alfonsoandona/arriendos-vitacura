@@ -1,14 +1,14 @@
 # DÚPLEX PENTHOUSE, Parque Bicentenario, Vitacura &#8226; Arriendo<br /><br />DISPONIBLE - Coordina una visita<br /><br />Maria Paz: Cuándo llegué a est
 
-**63/100** · `#UR6G6` · Vitacura · sin ubicar
+**63/100** · `#ENJZH` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
 | Arriendo | — |
-| Gastos comunes | — |
-| **Costo mensual** | **—** ⚠️ sin gastos comunes |
+| Gastos comunes | $460.000 |
+| **Costo mensual** | **—** |
 
 ## Qué es
 
@@ -60,7 +60,6 @@
 
 ## Qué preguntar antes de ir
 
-- [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son varios millones al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
@@ -69,17 +68,16 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura)
-- [nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura?page=2)
+- [Nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura?page=2)
+- [nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: UR6G6
+  - codigo: ENJZH
     estado: visita        # descartado | visto | contactado | visita
-    # gastos_comunes_clp: 250000
     # ano_construccion: 2015
     # nota: "lo que te dijeron"
 ```
@@ -92,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 DÚPLEX PENTHOUSE, Parque Bicentenario, Vitacura &#8226; Arriendo<br /><br />DISPONIBLE - Coordina una visita<br /><br />Maria Paz: Cuándo llegué a este increíble Penthouse quedé realmente impactada al ver un diseño diferente y compuesto a la vez. Un nivel extraordinario en detalles y estilo. Destaca principalmente por su vista despejada en 360 totalmente privilegiada. Entrada directa a través de Palier privado. Ambos pisos se conectan a través de escalera interna. Edificio se encuentra emplazada en un entorno residencial privilegiado y de un muy buen nivel dentro de sector de Av. Nueva Costanera, Av. Vitacura y Av. Bicentenario.<br /><br /><br /><br />Dormitorios : 5 en suites <br />Baños :6<br />Estacionamientos: 10 <br />Bodegas: 2<br />Superficie útil : 610 m²<br />Superficie terraza : 400 m²<br />Superficie total : 1010 m²<br /><br />TOP 5 CARACTERÍSTICAS<br /><br />1. Excepcional, único y finísimo Departamento de dos pisos completos (últimos dos pisos),<br />2. Cocina equipada con productos marca Miele,<br />3. Propiedad incluye 10 Estacionamientos y 2 Bodegas.<br />4. Aire acondicionado en varios ambientes <br />5. Inmejorable ubicación de Vitacura con vista a las Naciones Unidas, a pasos del Mall Casa Costanera, restaurantes, muy buena conectividad.<br /><br />PRIMER PISO:<br /><br />Hall de entrada acceso directo desde el ascensor <br />Living y comedor por separados ambos con salida a sus respectivas terrazas con vista panorámica y despejada<br />Cocina full equipada
 ```
 
-Leído de `nuroa` vía `json-ld` el 20-08-2026 16:02 UTC.
+Leído de `nuroa` vía `json-ld` el 20-08-2026 23:33 UTC.
 
 </details>
