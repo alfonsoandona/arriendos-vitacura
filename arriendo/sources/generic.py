@@ -1014,7 +1014,12 @@ def _quitar_comuna_inicial(palabras: list[str]) -> list[str]:
 # Maps y la tabla del dashboard. Un campo de dirección con fecha de
 # disponibilidad, mes, o palabras de marketing no es una calle.
 _DIRECCION_JSON_INVALIDA = re.compile(
-    r"disponib|entrega\s|l[ií]nea\s*\d|\bmetro\b"
+    # Los REQUISITOS del arriendo, que traen número y parecen numeración:
+    # "Acreditar renta 3 veces" llegó como la dirección "Acreditar 3,
+    # Vitacura" — con puntaje 84, o sea compitiendo en serio, con su link
+    # de Maps apuntando a una calle que no existe.
+    r"acredita|requisito|liquidaci[oó]n|\baval(?:es)?\b|garant[ií]a|contrato"
+    r"|disponib|entrega\s|l[ií]nea\s*\d|\bmetro\b"
     r"|enero|febrero|marzo|abril|mayo|junio|julio|agosto"
     r"|septiembre|octubre|noviembre|diciembre|\b20\d{2}\b"
     r"|amoblad|seguridad|coraz[oó]n|estacionamiento|oportunidad"

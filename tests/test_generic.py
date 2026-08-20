@@ -725,6 +725,17 @@ def test_la_disponibilidad_no_es_una_direccion(fuente):
     assert not a.direccion, "una fecha de disponibilidad no ubica nada"
 
 
+def test_los_requisitos_del_arriendo_no_son_una_direccion(fuente):
+    """"Acreditar renta 3 veces" llegó como la dirección "Acreditar 3,
+    Vitacura" — puntaje 84, avisado, con link de Maps a una calle que no
+    existe. Los requisitos traen número y parecen numeración."""
+    doc = ('<html><body><article>Departamento 3 dormitorios en Vitacura '
+           '$1.500.000 120 m2. Acreditar renta 3 veces el arriendo. '
+           '<a href="/aviso/3">ver</a></article></body></html>')
+    a = extraer(doc, "https://ejemplo.cl/arriendo", fuente)[0]
+    assert not a.direccion or "creditar" not in a.direccion
+
+
 def test_el_precio_llega_desde_el_bloque_que_enlaza(fuente):
     """goplaceit real del 19-08: 30 avisos JSON-LD con URL y cero precio,
     con el canon pintado al lado del link en un bloque sin forma de

@@ -76,40 +76,6 @@
     "url": "https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551",
     "veces_visto": 1
   },
-  "03731de142195403": {
-    "arriendo_clp": 1552602.0,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "acreditar 3",
-    "comuna": "Vitacura",
-    "direccion": "Acreditar 3, Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 430000.0,
-    "historial_precio": [
-      {
-        "clp": 1552602.0,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "lat": -33.3921947,
-    "lon": -70.59566439999999,
-    "m2_totales": 140.0,
-    "m2_utiles": 140.0,
-    "orientacion": "oriente",
-    "piso": 6,
-    "precio_al_avisar": 1552602.0,
-    "primera_vez": "2026-08-19T04:17:11",
-    "score": 84,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "2 estacionamientos 140m2 Vitacura",
-    "ultima_vez": "2026-08-19T23:28:36",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/2-estacionamientos-140m2-vitacura/0a473ba32517432c7fe82ad504ac1495b8678e88",
-    "veces_visto": 4
-  },
   "03cf246a9d6863f1": {
     "arriendo_clp": 1225739,
     "avisado": true,
@@ -4474,39 +4440,6 @@
     "ultima_vez": "2026-08-19T23:28:36",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
     "veces_visto": 8
-  },
-  "302c661355e998b1": {
-    "arriendo_clp": 1100000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "matta requisitos 6 las condes",
-    "comuna": "Vitacura",
-    "direccion": "Matta. Requisitos: 6, Las Condes",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 120000.0,
-    "historial_precio": [
-      {
-        "clp": 1100000.0,
-        "cuando": "2026-08-18"
-      }
-    ],
-    "lat": -33.380483,
-    "lon": -70.542661,
-    "m2_totales": 98.0,
-    "m2_utiles": 90.0,
-    "piso": 3,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Departamento Kennedy con la Llaveria.",
-    "ultima_vez": "2026-08-19T23:28:36",
-    "url": "https://www.toctoc.com/propiedades/arriendoparticularsr/departamento/vitacura/departamento-kennedy-con-la-llaveria/4306896",
-    "veces_visto": 10
   },
   "303ce69341607ef9": {
     "arriendo_clp": 2000000.0,
