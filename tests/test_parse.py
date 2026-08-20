@@ -803,3 +803,25 @@ def test_un_estacionamiento_de_verdad_si_se_detecta():
         "$120.000 mensuales") == "estacionamiento"
     assert P.parse_tipo("Se arrienda bodega 12 m² en Vitacura") == "bodega"
 
+
+
+def test_el_ano_de_construccion_en_plural_tambien_es_el_ano():
+    """Yapo escribe "Años de construcción 1978" —plural y sin dos puntos— y
+    el patrón solo aceptaba "año". Medido el 20-08 sobre fichas reales: de
+    15 que publican la antigüedad se leían 7, y yapo (90 avisos por
+    corrida) era el hueco más grande. La antigüedad es el criterio SÍ O SÍ
+    del usuario, así que cada ficha sin leer es un edificio viejo
+    compitiendo de igual a igual con uno nuevo."""
+    ano, antig = P.parse_antiguedad(
+        "Altura ¡Pregunta al anunciante! Años de construcción 1978 Niveles 1")
+    assert ano == 1978
+    assert antig is not None and antig > 30, "y con eso el filtro lo descarta"
+
+
+def test_la_antiguedad_laboral_no_es_la_del_edificio():
+    """Los requisitos del contrato piden "certificado de antigüedad
+    laboral": esa antigüedad es la del arrendatario en su trabajo."""
+    assert P.parse_antiguedad(
+        "contrato de trabajo o certificado de antigüedad laboral") \
+        == (None, None)
+    assert P.parse_antiguedad("Antigüedad Indiferente Buscar") == (None, None)

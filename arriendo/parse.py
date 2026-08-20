@@ -791,8 +791,15 @@ def _completar_superficies(out: dict[str, float], sin_calificar: list[float]) ->
 # El año acepta el punto de miles porque los portales lo escriben así:
 # "Año de construcción: 1.978" es una ficha REAL de iCasas — y justo la clase
 # de dato que decide el requisito duro de <30 años.
+# OJO con el PLURAL: yapo escribe "Años de construcción 1978" —así, en
+# plural y sin dos puntos— y el patrón, que solo aceptaba "año", no leía
+# nada. Medido el 20-08 sobre las fichas reales: de 15 que publican la
+# antigüedad el radar leía 7, y yapo (90 avisos por corrida) era el hueco
+# más grande. El criterio SÍ O SÍ del usuario es la antigüedad, así que
+# cada ficha que no se lee es un edificio viejo compitiendo de igual a
+# igual con uno nuevo.
 _ANO_CONSTRUCCION = re.compile(
-    r"(?:ano|año)\s*(?:de\s*)?(?:construccion|construcción|edificacion|edificación)"
+    r"a[ñn]os?\s*(?:de\s*)?(?:construccion|construcción|edificacion|edificación)"
     r"\s*[:\-]?\s*(\d\.?\d{3})",
     re.I,
 )
@@ -801,8 +808,13 @@ _CONSTRUIDO_EN = re.compile(
     r"\s*(?:en|el|el\s*ano|el\s*año)?\s*(\d\.?\d{3})",
     re.I,
 )
+# `(?!laboral)` porque los requisitos del contrato piden "certificado de
+# antigüedad laboral", y esa antigüedad es la del arrendatario en su
+# trabajo — nada que ver con el edificio.
 _ANTIGUEDAD = re.compile(
-    r"(?:antiguedad|antigüedad)\s*[:\-]?\s*(?:de\s*)?(\d{1,3})\s*(?:anos|años)?",
+    r"(?:antiguedad|antigüedad)\s+(?!laboral)"
+    r"[:\-]?\s*(?:de\s*)?(\d{1,3})\s*(?:anos|años)?"
+    r"|(?:antiguedad|antigüedad)\s*[:\-]\s*(?:de\s*)?(\d{1,3})\s*(?:anos|años)?",
     re.I,
 )
 _ANTIGUEDAD_INV = re.compile(r"(\d{1,3})\s*(?:anos|años)\s*de\s*antig", re.I)
@@ -844,7 +856,12 @@ def parse_antiguedad(texto: str, ref: date | None = None) -> tuple[int | None, i
     for pat in (_ANTIGUEDAD, _ANTIGUEDAD_INV):
         m = pat.search(t)
         if m:
-            candidato = int(m.group(1))
+            # _ANTIGUEDAD tiene dos ramas (con y sin dos puntos), así que
+            # el número puede estar en cualquiera de los dos grupos.
+            crudo = next((g for g in m.groups() if g), None)
+            if crudo is None:
+                continue
+            candidato = int(crudo)
             if 0 <= candidato <= 150:
                 antig = candidato
                 break
