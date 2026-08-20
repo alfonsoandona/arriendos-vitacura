@@ -21,6 +21,7 @@ from datetime import datetime, date
 from pathlib import Path
 from typing import Any
 
+from .geo import haversine_km
 from .models import Arriendo, clave_direccion, _normalize_key
 from .tiempo import ahora_utc
 
@@ -349,7 +350,164 @@ def deduplicar(hallazgos: list[Arriendo]) -> list[Arriendo]:
         por_fp.setdefault(a.fingerprint, []).append(a)
 
     salida = [_colapsar(copias) for copias in por_fp.values()]
-    return _colapsar_por_titulo(_colapsar_por_direccion(salida))
+    return _colapsar_por_codigo(_colapsar_por_cercania(
+        _colapsar_por_titulo(_colapsar_por_direccion(salida))))
+
+
+def _colapsar_por_codigo(hallazgos: list[Arriendo]) -> list[Arriendo]:
+    """Quinta pasada, y la más limpia: el código de la corredora.
+
+    Una corredora publica su propiedad en su sitio, en TocToc, en Yapo y en
+    tres metabuscadores, y en todos lleva el mismo "Cod. 108.143" que le
+    puso su propio sistema. Ese número cruza portales mejor que cualquier
+    dirección, porque la dirección la reescribe cada portal a su manera y el
+    código viaja intacto dentro de la descripción.
+
+    El caso que lo pidió (20-08, el usuario mandó las dos fichas): el mismo
+    departamento como "Rotonda lo curro" en chilepropiedades y como
+    "Vitacura 312 Metropolitana Juan XXIII 6859 301" en TocToc. Dos
+    direcciones irreconciliables, geocodificadas a 249 metros una de otra —
+    y el mismo Cod. 108.143 en las dos, con la misma descripción palabra por
+    palabra.
+
+    Para no fundir dos propiedades de corredoras distintas que casualmente
+    comparten número, se exige además que COINCIDA la superficie o el precio
+    (±1%, que es lo que se mueve un canon en UF por el valor del día) y que
+    el programa no se contradiga.
+    """
+    from .parse import codigo_de_aviso
+
+    por_codigo: dict[str, list[Arriendo]] = {}
+    for a in hallazgos:
+        cod = codigo_de_aviso(f"{a.title or ''} {a.raw_text or ''}")
+        if cod:
+            por_codigo.setdefault(cod, []).append(a)
+
+    fundidos: set[int] = set()
+    for grupo in por_codigo.values():
+        if len(grupo) < 2:
+            continue
+        principal = grupo[0]
+        for otra in grupo[1:]:
+            if id(otra) in fundidos:
+                continue
+            if not _coincide_el_tamano(principal, otra):
+                continue
+            if _programa_se_contradice(principal, otra):
+                continue
+            ganador = max((principal, otra),
+                          key=lambda x: (x.score, _riqueza(x)))
+            perdedor = otra if ganador is principal else principal
+            _fusionar(ganador, perdedor)
+            otros = set(ganador.extras.get("tambien_en", []))
+            otros |= set(perdedor.extras.get("tambien_en", []))
+            otros.add(f"{perdedor.source}|{perdedor.url}")
+            otros.discard(f"{ganador.source}|{ganador.url}")
+            ganador.extras["tambien_en"] = sorted(otros)
+            ganador.extras["fusion_por"] = "el mismo código de la corredora"
+            fundidos.add(id(perdedor))
+            principal = ganador
+
+    return [a for a in hallazgos if id(a) not in fundidos]
+
+
+def _coincide_el_tamano(a: Arriendo, b: Arriendo) -> bool:
+    """¿Miden o cuestan lo mismo? Basta con una de las dos."""
+    ma, mb = (a.m2_totales or a.m2_utiles), (b.m2_totales or b.m2_utiles)
+    if ma and mb and abs(ma - mb) <= 1:
+        return True
+    pa, pb = a.arriendo_clp, b.arriendo_clp
+    if pa and pb and abs(pa - pb) <= max(pa, pb) * 0.01:
+        return True
+    # Sin ninguno de los dos datos en ambos lados no hay con qué confirmar,
+    # y el código solo no alcanza: se prefiere duplicar antes que fundir mal.
+    return False
+
+
+# Dos avisos a menos de esto son, como mucho, el mismo edificio. 120 metros
+# es media cuadra larga: alcanza para dos geocodificaciones de la misma
+# dirección escritas distinto, y no alcanza para saltar de una torre a otra.
+_MISMO_EDIFICIO_KM = 0.12
+
+
+def _colapsar_por_cercania(hallazgos: list[Arriendo]) -> list[Arriendo]:
+    """Cuarta pasada: el mismo departamento con la dirección escrita distinto.
+
+    El caso que lo pidió (20-08, el usuario mandó las dos fichas): el mismo
+    departamento de UF 30 y 110 m² publicado por chilepropiedades como
+    "Rotonda lo curro" y por toctoc como "Vitacura 312 Metropolitana Juan
+    XXIII 6859 301". Dos direcciones que no se parecen en nada, dos
+    fingerprints, dos fichas, dos filas en el tablero — y es UN
+    departamento.
+
+    Lo que sí coincide es lo que no se puede escribir de dos maneras: el
+    canon EXACTO, la superficie y el punto en el mapa. La llave son los
+    tres juntos, y los tres son necesarios:
+
+    - el precio exacto solo, en un edificio nuevo, junta unidades distintas
+      del mismo tipo;
+    - la cercanía sola junta la torre A con la torre B;
+    - los m² solos no dicen nada.
+
+    Con los tres, la probabilidad de fundir dos departamentos distintos es
+    la de que dos unidades del mismo edificio publiquen el mismo canon al
+    peso y la misma superficie al metro. Y aun así se exige que el programa
+    no se CONTRADIGA, que es la última red.
+    """
+    con_geo = [a for a in hallazgos if a.lat is not None and a.lon is not None]
+    if len(con_geo) < 2:
+        return hallazgos
+
+    grupos: dict[tuple, list[Arriendo]] = {}
+    for a in con_geo:
+        precio = a.arriendo_clp or (a.arriendo_uf and round(a.arriendo_uf, 2))
+        m2 = a.m2_totales or a.m2_utiles
+        if not precio or not m2:
+            continue
+        grupos.setdefault((round(float(precio)), round(float(m2))),
+                          []).append(a)
+
+    fundidos: set[int] = set()
+    for grupo in grupos.values():
+        if len(grupo) < 2:
+            continue
+        principal = grupo[0]
+        for otra in grupo[1:]:
+            if id(otra) in fundidos or id(principal) in fundidos:
+                continue
+            if haversine_km(principal.lat, principal.lon,
+                            otra.lat, otra.lon) > _MISMO_EDIFICIO_KM:
+                continue
+            if _programa_se_contradice(principal, otra):
+                continue
+            ganador = max((principal, otra),
+                          key=lambda x: (x.score, _riqueza(x)))
+            perdedor = otra if ganador is principal else principal
+            _fusionar(ganador, perdedor)
+            otros = set(ganador.extras.get("tambien_en", []))
+            otros |= set(perdedor.extras.get("tambien_en", []))
+            otros.add(f"{perdedor.source}|{perdedor.url}")
+            otros.discard(f"{ganador.source}|{ganador.url}")
+            ganador.extras["tambien_en"] = sorted(otros)
+            ganador.extras["fusion_por"] = "mismo precio, m² y punto en el mapa"
+            fundidos.add(id(perdedor))
+            principal = ganador
+
+    return [a for a in hallazgos if id(a) not in fundidos]
+
+
+def _programa_se_contradice(a: Arriendo, b: Arriendo) -> bool:
+    """¿Dicen cosas incompatibles sobre cuántas piezas tiene?
+
+    Se tolera UN dormitorio de diferencia: la mitad de los portales cuenta
+    la pieza de servicio y la otra mitad no, y esa discrepancia no es dos
+    departamentos distintos — es la misma discusión de siempre.
+    """
+    for campo, tolerancia in (("dormitorios", 1), ("banos", 1)):
+        x, y = getattr(a, campo), getattr(b, campo)
+        if x is not None and y is not None and abs(x - y) > tolerancia:
+            return True
+    return False
 
 
 def _colapsar_por_titulo(hallazgos: list[Arriendo]) -> list[Arriendo]:

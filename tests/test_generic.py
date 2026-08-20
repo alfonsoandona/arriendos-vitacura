@@ -919,3 +919,19 @@ def test_banos_3_no_es_una_direccion():
     from arriendo.sources.generic import _direccion_desde
     assert _direccion_desde("Departamento con Baños: 3 y cocina equipada",
                             "Vitacura") in ("", "Vitacura")
+
+
+def test_el_rotulo_adelante_no_invierte_dormitorios_y_banos():
+    """chilepropiedades escribe "Habitaciones: 4 Baños: 3" y el radar leía
+    4 BAÑOS y cero dormitorios: el número de una etiqueta se lo llevaba la
+    palabra siguiente. Aviso real del 20-08."""
+    from arriendo.parse import parse_programa
+
+    r = parse_programa(", Rotonda lo curro Habitaciones: 4 Baños: 3 "
+                       "Terreno: 110 m² Estacionamientos: 2")
+    assert r["dormitorios"] == 4
+    assert r["banos"] == 3
+    assert r["estacionamientos"] == 2
+    # Y las formas de siempre siguen funcionando.
+    assert parse_programa("3 dormitorios 2 baños")["dormitorios"] == 3
+    assert parse_programa("3D/2B")["banos"] == 2

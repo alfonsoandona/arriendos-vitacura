@@ -293,6 +293,36 @@ _CODIGO_CON_SIGLA = re.compile(
     r"|[A-ZÁÉÍÓÚÑ]{2,5}\*\s)\d{3}\.\d{3}(?!\d)(?![.,]\d)")
 
 
+# El código con que la CORREDORA identifica su propiedad: "Cod. 108.143",
+# "Código: MPB-4521", "COD 45994". Es la misma propiedad en todos los
+# portales donde ella la publique, porque lo genera su propio sistema.
+#
+# Ya existía como `_CODIGO_DE_AVISO`, pero solo para BORRARLO —ese número
+# con puntos de miles se leía como un monto—. Acá se usa al revés: como la
+# llave más limpia que existe para cruzar portales. El caso que lo pidió
+# (20-08): el mismo departamento publicado por chilepropiedades como
+# "Rotonda lo curro" y por toctoc como "Vitacura 312 Metropolitana Juan
+# XXIII 6859 301" —dos direcciones que no se parecen en nada— traía en
+# ambos "Cod. 108.143" y la misma descripción palabra por palabra.
+_CODIGO_CORREDORA = re.compile(
+    r"\bc[oó]d(?:igo)?\b\.?\s*[:#°-]?\s*"
+    r"([A-Z]{0,4}[-\s]?\d[\d.]{2,10}(?:-\w{1,4})?)", re.I)
+
+
+def codigo_de_aviso(texto: str) -> str:
+    """El código con que la corredora identifica esta propiedad. "" si no hay.
+
+    Se normaliza sin puntos ni espacios para que "108.143" y "108143" sean
+    el mismo, y se exige un mínimo de cuatro dígitos: códigos de tres son
+    tan comunes que colisionan entre corredoras distintas.
+    """
+    m = _CODIGO_CORREDORA.search(texto or "")
+    if not m:
+        return ""
+    crudo = re.sub(r"[.\s-]", "", m.group(1)).upper()
+    return crudo if len(re.sub(r"\D", "", crudo)) >= 4 else ""
+
+
 def _montos_etiquetados(texto: str) -> list[tuple[float, str, int]]:
     """Todos los montos en pesos del texto, con su etiqueta y su posición.
 
@@ -852,6 +882,21 @@ def techo_antiguedad(texto: str) -> int | None:
 _DORM = re.compile(
     r"(\d{1,2})\s*(?:dormitorios?|dorm\b|piezas?|habitaciones?|hab\b)", re.I)
 _BANO = re.compile(r"(\d{1,2})\s*(?:banos?|baños?|bao?s\b)", re.I)
+
+# El rótulo ADELANTE: "Habitaciones: 4", "Baños: 3", "Dormitorios: 3".
+#
+# Sin esto, chilepropiedades entregaba los datos DADOS VUELTA. En
+# "Habitaciones: 4 Baños: 3" el patrón de dormitorios —que espera el número
+# antes de la palabra— no calzaba con nada, y el de baños sí: agarraba el
+# "4" de las habitaciones porque venía justo antes de la palabra "Baños".
+# Resultado medido el 20-08 en un aviso real: 4 baños, cero dormitorios,
+# y un departamento de 4 dormitorios compitiendo como si tuviera 3.
+#
+# Van PRIMERO que los otros por eso mismo: donde hay rótulo con dos puntos,
+# el número de al lado pertenece al rótulo y no al que sigue.
+_DORM_INV = re.compile(
+    r"(?:dormitorios?|piezas?|habitaciones?|hab)\s*:\s*(\d{1,2})", re.I)
+_BANO_INV = re.compile(r"(?:ba[nñ]os?)\s*:\s*(\d{1,2})", re.I)
 # Formato compacto de las grillas de portal: "3D/2B", "3D 2B", "3D2B".
 _COMPACTO = re.compile(r"\b(\d{1,2})\s*d\s*[/\-y ]?\s*(\d{1,2})\s*b\b", re.I)
 
@@ -912,18 +957,22 @@ def parse_programa(texto: str) -> dict:
         if 0 < bano <= 20:
             out["banos"] = bano
 
+    # Si el texto usa rótulos con dos puntos, MANDA esa lectura: es la más
+    # explícita que existe y la única que no se confunde con el vecino.
+    hay_rotulos = _DORM_INV.search(t) or _BANO_INV.search(t)
+
     if "dormitorios" not in out:
-        md = _DORM.search(t)
+        md = _DORM_INV.search(t) or (None if hay_rotulos else _DORM.search(t))
         if md and 0 < int(md.group(1)) <= 20:
             out["dormitorios"] = int(md.group(1))
-        elif (v := _en_letras(_DORM_EN_LETRAS, t)):
+        elif not hay_rotulos and (v := _en_letras(_DORM_EN_LETRAS, t)):
             out["dormitorios"] = v
 
     if "banos" not in out:
-        mb = _BANO.search(t)
+        mb = _BANO_INV.search(t) or (None if hay_rotulos else _BANO.search(t))
         if mb and 0 < int(mb.group(1)) <= 20:
             out["banos"] = int(mb.group(1))
-        elif (v := _en_letras(_BANO_EN_LETRAS, t)):
+        elif not hay_rotulos and (v := _en_letras(_BANO_EN_LETRAS, t)):
             out["banos"] = v
 
     for patron in (_ESTACIONAMIENTO, _ESTACIONAMIENTO_INV):

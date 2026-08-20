@@ -139,6 +139,13 @@ def _datos_json(avisos: list[Arriendo], ahora: datetime) -> str:
             "aviso": a.url,
             "maps": maps,
             "fuente": a.source,
+            # Las otras publicaciones del MISMO departamento. Pedido del
+            # 20-08 ("poner las múltiples publicaciones que representan
+            # 1"): la ficha y el mensaje de Telegram ya las mostraban, el
+            # dashboard no — y es donde uno compara.
+            "otros": [{"f": str(o).partition("|")[0],
+                       "u": str(o).partition("|")[2]}
+                      for o in (a.extras.get("tambien_en") or [])],
         })
     # `</` cerraría el <script> que envuelve esto; escapado deja de poder.
     return json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
@@ -350,7 +357,11 @@ def _fila_tabla(a: Arriendo, ahora: datetime) -> str:
     marca = {"visita": "📅", "contactado": "📞", "visto": "👁"}.get(gest, "")
     chips = ("<span class=chip>🆕</span>" if _es_de_24h(a, ahora) else "") + \
         (f"<span class=chip>{marca}</span>" if marca else "") + \
-        ("<span class=chip>📉</span>" if _bajo_precio(a) else "")
+        ("<span class=chip>📉</span>" if _bajo_precio(a) else "") + \
+        (f'<span class=chip title="publicado en '
+         f'{1 + len(a.extras.get("tambien_en") or [])} portales">🔗'
+         f'{1 + len(a.extras.get("tambien_en") or [])}</span>'
+         if a.extras.get("tambien_en") else "")
     links = [f'<a href="{_e(_link_ficha(a))}">ficha</a>',
              f'<a href="{_e(a.url)}" target="_blank" rel="noopener">aviso</a>']
     if a.lat is not None:
@@ -710,10 +721,16 @@ if (orden) orden.onchange = () => {
         + '" target="_blank" rel="noopener">Google Maps</a>' : '',
       '<a href="#r-' + esc(d.cod) + '" data-fila="' + esc(d.cod)
         + '">ver en la tabla</a>'].filter(Boolean).join(' · ');
+    const otros = (d.otros || []).map(o =>
+      '<a href="' + esc(o.u) + '" target="_blank" rel="noopener">'
+      + esc(o.f) + '</a>').join(' · ');
     return '<div class="pop"><code>#' + esc(d.cod) + '</code>' + chips
       + '<div class="pop-dir">' + esc(d.dir) + '</div>'
       + '<div class="pop-datos">' + datos + '</div>'
-      + '<div class="pop-links">' + links + '</div></div>';
+      + '<div class="pop-links">' + links + '</div>'
+      + (otros ? '<div class="pop-datos">🔗 el mismo, también en: '
+                 + otros + '</div>' : '')
+      + '</div>';
   }
 
   CAPA = L.layerGroup().addTo(MAPA);

@@ -338,3 +338,18 @@ def test_con_la_calle_recuperada_los_dos_portales_se_funden(perfil):
                                 direccion="Agustín del Castillo 1420",
                                 arriendo_clp=1_634_318.0), perfil)
     assert len(deduplicar([de_yapo, de_mitula])) == 1
+
+
+def test_el_mismo_depto_en_varios_portales_se_ve_en_el_dashboard(
+        tmp_path, perfil):
+    """Pedido del 20-08: "poner las múltiples publicaciones que
+    representan 1". La ficha y Telegram ya lo mostraban; el dashboard no."""
+    a = S.evaluar(depto(lat=-33.3830, lon=-70.5650), perfil)
+    a.extras["tambien_en"] = ["toctoc|https://toctoc.cl/x",
+                              "yapo|https://yapo.cl/y"]
+    texto = escribir_dashboards([a], tmp_path, perfil)[0].read_text(
+        encoding="utf-8")
+    assert "🔗3" in texto, "la tabla dice en cuántos portales está"
+    otros = _json_embebido(texto)[0]["otros"]
+    assert {o["f"] for o in otros} == {"toctoc", "yapo"}
+    assert "también en" in texto, "el popup del mapa los lista"
