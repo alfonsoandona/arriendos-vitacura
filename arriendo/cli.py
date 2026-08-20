@@ -230,6 +230,29 @@ def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
     return vivos + resto
 
 
+# Los campos sobre los que `_no_contradice` puede pelearse. Si el texto de
+# la ficha discrepa en uno, se le quita ESE campo y se conserva el resto:
+# un desacuerdo sobre los dormitorios no dice nada sobre el año.
+_CAMPOS_EN_DISPUTA = ("dormitorios", "banos", "comuna")
+
+
+def _sin_lo_que_contradice(a, candidato):
+    """El candidato de la ficha, sin los campos que discrepan del aviso."""
+    import copy
+
+    limpio = copy.deepcopy(candidato)
+    for campo in _CAMPOS_EN_DISPUTA:
+        mio, suyo = getattr(a, campo), getattr(limpio, campo)
+        if mio in (None, "") or suyo in (None, ""):
+            continue
+        if campo == "comuna":
+            if P.norm(str(mio)) != P.norm(str(suyo)):
+                limpio.comuna = ""
+        elif mio != suyo:
+            setattr(limpio, campo, None)
+    return limpio
+
+
 def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                           uf: float, perfil: dict, store) -> list:
     """Completa cada alerta con los datos de su propia ficha. Ver paso 6b.
@@ -305,7 +328,22 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                                            titulo=a.title,
                                            direccion=a.direccion)
         if del_texto is not None and not _no_contradice(a, del_texto):
-            del_texto = None
+            # Contradice en algo. Antes se botaba la ficha ENTERA, y eso
+            # costaba caro: el aviso real de yapo que trajo el usuario dice
+            # "4 dormitorios" en el título y su propia ficha se lee como 3
+            # —la describe como "4 Dormitorios tradicionales mas el 4to que
+            # es chico"—, así que por ese desacuerdo se tiraba a la basura
+            # el "Años de construcción 1978" que venía en la misma página.
+            # El año es el criterio SÍ O SÍ y el campo más escaso: perderlo
+            # por un desacuerdo sobre los dormitorios es el peor negocio.
+            #
+            # Ahora se descarta solo lo que contradice. Y únicamente cuando
+            # la página está CONFIRMADA como la de este aviso (hay
+            # candidatos propios); sin esa confirmación, un desacuerdo
+            # significa que el texto puede ser del widget de similares, y
+            # ahí sí se bota todo.
+            del_texto = _sin_lo_que_contradice(a, del_texto) if propios \
+                else None
         # Sin candidato propio Y sin ancla, nada garantiza que el texto hable
         # de ESTE aviso — pudo ser puro widget de similares. La lección del
         # 17-08 (dormitorios de un vecino en la alerta) no se repite.

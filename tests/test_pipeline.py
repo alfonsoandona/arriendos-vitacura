@@ -892,3 +892,36 @@ def test_un_candidato_unico_que_contradice_no_es_la_propiedad():
     a = Arriendo(source="s", url="https://f1.cl/a", dormitorios=3)
     c = Arriendo(source="s", url="https://f1.cl/otro", dormitorios=4)
     assert _candidatos_propios(a, [c]) == []
+
+
+def test_un_desacuerdo_de_dormitorios_no_bota_el_ano():
+    """La cadena completa del 20-08, con el aviso real que trajo el usuario.
+
+    Yapo titula "4 dormitorios" y su propia ficha se lee como 3 —la
+    describe como "4 Dormitorios tradicionales mas el 4to que es chico"—.
+    Por ese desacuerdo se botaba la ficha ENTERA, y con ella el "Años de
+    construcción 1978" que venía en la misma página. El año es el criterio
+    sí o sí y el campo más escaso: perderlo por una pelea sobre los
+    dormitorios era el peor negocio posible.
+    """
+    from arriendo.cli import _sin_lo_que_contradice
+    from arriendo.models import Arriendo
+    from arriendo.store import _fusionar
+
+    aviso = Arriendo(source="yapo", url="https://yapo.cl/a/1",
+                     title="2 estacionamientos 140m2 4 dormitorios",
+                     comuna="Vitacura", dormitorios=4, banos=3)
+    de_la_ficha = Arriendo(source="yapo", url="https://yapo.cl/a/1",
+                           title="ficha", comuna="Vitacura",
+                           dormitorios=3, banos=3,
+                           antiguedad_anos=48, ano_construccion=1978,
+                           gastos_comunes_clp=430_000.0)
+
+    limpio = _sin_lo_que_contradice(aviso, de_la_ficha)
+    assert limpio.dormitorios is None, "lo que contradice se descarta"
+    assert limpio.antiguedad_anos == 48, "lo que no contradice se conserva"
+
+    _fusionar(aviso, limpio)
+    assert aviso.dormitorios == 4, "el aviso mantiene lo suyo"
+    assert aviso.ano_construccion == 1978
+    assert aviso.gastos_comunes_clp == 430_000.0
