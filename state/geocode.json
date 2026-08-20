@@ -7,6 +7,10 @@
     "calle": "Raimundo Larraín",
     "visto": "2026-08-20"
   },
+  "@-33 37213 -70 54192": {
+    "calle": "Santa Teresa de Los Andes 9770",
+    "visto": "2026-08-20"
+  },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
     "visto": "2026-08-20"
@@ -53,6 +57,10 @@
   },
   "@-33 40436 -70 60124": {
     "calle": "Avenida Bicentenario 3116",
+    "visto": "2026-08-20"
+  },
+  "@-33 40454 -70 59420": {
+    "calle": "Las Nieves 3606",
     "visto": "2026-08-20"
   },
   "@-33 40632 -70 59601": {
@@ -136,7 +144,7 @@
   "avenida presidente kennedy lateral vitacura provincia de santiago región metropolitana de santiago 7560360 chile vitacura chile": {
     "lat": -33.3990263,
     "lon": -70.5746345,
-    "visto": "2026-08-18"
+    "visto": "2026-08-20"
   },
   "avenida vitacura lo castillo vitacura provincia de santiago región metropolitana de santiago 7630391 chile vitacura chile": {
     "lat": -33.4028596,
@@ -246,7 +254,7 @@
   "costanera sur san josemaría escrivá de balaguer vitacura provincia de santiago región metropolitana de santiago 7710171 chile vitacura chile": {
     "lat": -33.3713471,
     "lon": -70.5199289,
-    "visto": "2026-08-18"
+    "visto": "2026-08-20"
   },
   "el arcángel vitacura provincia de santiago región metropolitana de santiago 7630280 chile vitacura chile": {
     "lat": -33.4014057,
@@ -391,7 +399,7 @@
   "nueva costanera vitacura región metropolitana de santiago (rm) vitacura chile": {
     "lat": -33.4063794,
     "lon": -70.5992277,
-    "visto": "2026-08-19"
+    "visto": "2026-08-20"
   },
   "pasaje agustín del castillo vitacura provincia de santiago región metropolitana de santiago 7630249 chile vitacura chile": {
     "lat": -33.394128,
