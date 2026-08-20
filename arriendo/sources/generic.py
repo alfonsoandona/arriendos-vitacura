@@ -1282,6 +1282,38 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
     return []
 
 
+# El pin del departamento en el mapa embebido de la ficha. Yapo es el caso
+# que lo pidió (20-08): esconde la dirección tras "¡Pregunta al anunciante!"
+# y al mismo tiempo publica las coordenadas exactas en su iframe de Google
+# Maps. Las tres formas que usan los portales chilenos:
+#
+#   maps/embed/v1/place?key=...&q=-33.397451,-70.584671   (yapo)
+#   maps.google.com/maps?q=-33.39,-70.58&z=16
+#   maps/embed?pb=...!2d-70.584671!3d-33.397451...        (el iframe clásico)
+#
+# La coma puede venir escapada como %2C.
+_COORD = r"(-?\d{1,2}\.\d{3,})"
+_MAPA_Q = re.compile(rf"[?&](?:q|center|ll)=%s(?:,|%%2C)%s" % (_COORD, _COORD),
+                     re.I)
+_MAPA_PB = re.compile(rf"!2d{_COORD}!3d{_COORD}")
+
+
+def coords_de_mapa(html: str) -> tuple[float, float] | None:
+    """Las coordenadas del pin del mapa embebido. None si no hay.
+
+    Se validan contra Chile continental antes de devolverlas: un mapa de la
+    oficina de la corredora en otro país, o un `q=` que resultó ser otra
+    cosa, no puede terminar poniendo un punto falso en el dashboard.
+    """
+    for patron, invertido in ((_MAPA_Q, False), (_MAPA_PB, True)):
+        for m in patron.finditer(html or ""):
+            a, b = float(m.group(1)), float(m.group(2))
+            lat, lon = (b, a) if invertido else (a, b)
+            if -56 <= lat <= -17 and -76 <= lon <= -66:
+                return lat, lon
+    return None
+
+
 def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,
                           base_url: str, valor_uf: float | None) -> None:
     """El precio desde el bloque que ENLAZA al aviso.

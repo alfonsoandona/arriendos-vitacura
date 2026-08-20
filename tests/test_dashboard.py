@@ -264,3 +264,77 @@ def test_el_tope_de_consultas_se_respeta(tmp_path, perfil, monkeypatch):
               for i in range(10)]
     C._geocodificar(avisos, perfil, {})
     assert len(llamadas) == 3
+
+
+# ---------------------------------------------------------------------------
+# El pin del mapa de la ficha y la geocodificación INVERSA (20-08).
+#
+# El usuario trajo un aviso real de yapo: "Dirección exacta: ¡Pregunta al
+# anunciante!" y, al lado, el iframe de Google Maps con las coordenadas
+# exactas. Sin dirección ese departamento era un aviso distinto del mismo
+# departamento en mitula, y llegaron dos mensajes.
+# ---------------------------------------------------------------------------
+
+def test_el_pin_del_mapa_se_lee_en_sus_tres_formas():
+    from arriendo.sources.generic import coords_de_mapa
+
+    yapo = ('<iframe src="https://www.google.com/maps/embed/v1/place'
+            '?key=AIza123&q=-33.397451500000000,-70.584671500000000"></iframe>')
+    clasico = ('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12'
+               '!2d-70.5846715!3d-33.3974515!2m3"></iframe>')
+    escapado = '<iframe src="https://maps.google.com/maps?q=-33.3974%2C-70.5846">'
+    for nombre, doc in (("yapo", yapo), ("pb", clasico), ("escapado", escapado)):
+        pin = coords_de_mapa(doc)
+        assert pin is not None, nombre
+        assert -33.5 < pin[0] < -33.3 and -70.7 < pin[1] < -70.5, nombre
+
+
+def test_un_mapa_fuera_de_chile_no_ubica_nada():
+    from arriendo.sources.generic import coords_de_mapa
+
+    assert coords_de_mapa('<iframe src="...?q=40.4168,-3.7038">') is None
+    assert coords_de_mapa("<p>sin mapa</p>") is None
+
+
+def test_la_inversa_llena_la_direccion_que_el_portal_esconde(
+        tmp_path, perfil, monkeypatch):
+    from arriendo import cli as C, geo
+
+    monkeypatch.setenv("ARRIENDO_STATE_DIR", str(tmp_path))
+    llamadas = []
+
+    def falso_reverse(lat, lon, **kw):
+        llamadas.append((lat, lon))
+        return "Agustín del Castillo 1420"
+
+    monkeypatch.setattr(geo, "reverse", falso_reverse)
+
+    a = S.evaluar(depto(direccion=None, lat=-33.3974515, lon=-70.5846715),
+                  perfil)
+    assert not a.direccion
+    C._geocodificar([a], perfil, {})
+    assert a.direccion == "Agustín del Castillo 1420, Vitacura"
+    assert a.extras["dir_origen"] == "del pin del mapa del aviso"
+
+    # Segunda corrida: la caché responde, Nominatim no se molesta.
+    b = S.evaluar(depto(url="https://f1.cl/otro", direccion=None,
+                        lat=-33.3974515, lon=-70.5846715), perfil)
+    C._geocodificar([b], perfil, {})
+    assert b.direccion == "Agustín del Castillo 1420, Vitacura"
+    assert len(llamadas) == 1, "el punto se paga UNA vez"
+
+
+def test_con_la_calle_recuperada_los_dos_portales_se_funden(perfil):
+    """El desenlace del caso real: yapo sin dirección y mitula con ella eran
+    dos avisos y dos mensajes. Con la calle del pin, son uno."""
+    from arriendo.store import deduplicar
+
+    de_yapo = S.evaluar(depto(url="https://yapo.cl/aviso/32868761",
+                              source="yapo",
+                              direccion="Agustín del Castillo 1420",
+                              arriendo_clp=1_634_318.0), perfil)
+    de_mitula = S.evaluar(depto(url="https://casas.mitula.cl/adform/abc",
+                                source="mitula",
+                                direccion="Agustín del Castillo 1420",
+                                arriendo_clp=1_634_318.0), perfil)
+    assert len(deduplicar([de_yapo, de_mitula])) == 1

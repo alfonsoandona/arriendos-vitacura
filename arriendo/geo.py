@@ -158,6 +158,64 @@ _ULTIMA_LLAMADA = 0.0
 _dormir = time.sleep
 
 
+NOMINATIM_REVERSE = "https://nominatim.openstreetmap.org/reverse"
+
+
+def reverse(lat: float, lon: float, session: Any = None,
+            timeout: int = 20) -> str:
+    """De coordenadas a dirección de calle. "" si no se puede.
+
+    El caso que lo pidió (20-08, con un aviso real en la mano): yapo
+    esconde la dirección —"Dirección exacta: ¡Pregunta al anunciante!"—
+    pero deja el pin del departamento en su mapa embebido. Con el pin, la
+    calle se recupera preguntándole a Nominatim al revés.
+
+    No es un lujo cosmético: la dirección ES la identidad del aviso en este
+    radar. Sin ella, el mismo departamento publicado en yapo y en mitula
+    son dos avisos distintos y llegan dos mensajes — que es exactamente lo
+    que pasó con el de Agustín del Castillo.
+
+    Se devuelve "calle altura" sin comuna: la comuna la pone quien llama,
+    que ya la sabe y no necesita la versión larga de Nominatim.
+    """
+    global _ULTIMA_LLAMADA
+
+    import requests
+
+    espera = 1.0 - (time.time() - _ULTIMA_LLAMADA)
+    if espera > 0:
+        _dormir(espera)
+    _ULTIMA_LLAMADA = time.time()
+
+    s = session or requests
+    try:
+        r = s.get(
+            NOMINATIM_REVERSE,
+            params={
+                "lat": lat,
+                "lon": lon,
+                "format": "json",
+                # 18 = nivel de calle con número. Más fino devuelve el
+                # nombre del edificio, que no sirve para deduplicar.
+                "zoom": 18,
+                "addressdetails": 1,
+            },
+            headers={"User-Agent": _UA},
+            timeout=timeout,
+        )
+        r.raise_for_status()
+        data = r.json()
+    except Exception:                                            # noqa: BLE001
+        return ""
+
+    dir_ = (data or {}).get("address") or {}
+    calle = dir_.get("road") or dir_.get("pedestrian") or ""
+    if not calle:
+        return ""
+    altura = str(dir_.get("house_number") or "").strip()
+    return f"{calle} {altura}".strip()
+
+
 def geocode(direccion: str, session: Any = None,
             timeout: int = 20) -> tuple[float, float] | None:
     """Resuelve una dirección chilena a (lat, lon). None si no se puede."""

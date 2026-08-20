@@ -73,6 +73,34 @@ class Cache:
             return float(e["lat"]), float(e["lon"])
         return None
 
+    def direccion(self, consulta: str) -> str | None:
+        """La calle ya resuelta al revés (coordenadas -> dirección).
+
+        Devuelve None cuando nunca se preguntó y "" cuando se preguntó y
+        Nominatim no supo: son cosas distintas —la primera merece un
+        request, la segunda no— y colapsarlas gastaría la cuota de cortesía
+        preguntando siempre por los mismos puntos sin calle.
+        """
+        e = self.datos.get(clave(consulta))
+        if e is None or "calle" not in e:
+            return None
+        self._usada(e)
+        return str(e.get("calle") or "")
+
+    def anotar_direccion(self, consulta: str, calle: str) -> None:
+        k = clave(consulta)
+        if not k:
+            return
+        hoy = date.today().isoformat()
+        e = dict(self.datos.get(k) or {})
+        e["calle"] = calle or ""
+        e["visto"] = hoy
+        if not calle:
+            e["fallo"] = hoy
+            e["intentos"] = int(e.get("intentos", 0)) + 1
+        self.datos[k] = e
+        self.sucia = True
+
     def hay_que_preguntar(self, consulta: str) -> bool:
         """Si vale la pena gastar un request en esta dirección."""
         e = self.datos.get(clave(consulta))

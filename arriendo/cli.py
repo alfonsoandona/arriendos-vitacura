@@ -186,7 +186,8 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
     alertable. Y el precio NO se toca —_fusionar lo excluye a propósito—: el
     del listado es el vigente, y el de una ficha puede estar desactualizado.
     """
-    from .sources.generic import candidato_de_texto, extraer
+    from .sources.generic import (candidato_de_texto, coords_de_mapa,
+                                  extraer)
     from .sources.registry import _bajar
     from .store import _fusionar
 
@@ -197,6 +198,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         faltan = (a.antiguedad_anos is None or a.gastos_comunes_clp is None
                   or a.m2_totales is None or a.piso is None
                   or a.dormitorios is None or a.banos is None
+                  or a.lat is None or not a.direccion
                   or (a.arriendo_clp is None and a.arriendo_uf is None))
         if not (fuente and faltan) or a.extras.get("sin_link_directo"):
             salida.append((a, motivo))
@@ -209,6 +211,16 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         if not html:
             salida.append((a, motivo))
             continue
+
+        # El pin del mapa embebido, ANTES de mirar candidatos: es el dato
+        # más duro de la ficha —lo puso el anunciante marcando el edificio—
+        # y varios portales lo publican aunque escondan la dirección. Yapo
+        # es el caso: "Dirección exacta: ¡Pregunta al anunciante!" y el
+        # iframe de Google Maps con las coordenadas exactas al lado.
+        if a.lat is None and (pin := coords_de_mapa(html)):
+            a.lat, a.lon = pin
+            a.extras["geo_origen"] = "pin del mapa del aviso"
+            log.debug("Pin del mapa para %s: %.5f, %.5f", a.codigo, *pin)
 
         candidatos = extraer(html, a.url, fuente, uf)
         propios = _candidatos_propios(a, candidatos)
@@ -286,7 +298,7 @@ _MAX_KM_PLAUSIBLE = 40.0
 
 def _geocodificar(candidatos: list, perfil: dict, stats: dict) -> None:
     """Coordenadas para los candidatos con dirección. Nunca levanta."""
-    from .geo import consultas_geocode, geocode, haversine_km
+    from .geo import consultas_geocode, geocode, haversine_km, reverse
     from .geocache import Cache
 
     ancla = perfil.get("ancla") or {}
@@ -328,6 +340,31 @@ def _geocodificar(candidatos: list, perfil: dict, stats: dict) -> None:
             # si desmienten una comuna deducida): se recalcula.
             S.evaluar(a, perfil)
             ubicados += 1
+
+        # Segunda pasada, al REVÉS: los que tienen coordenadas (del pin del
+        # mapa de su ficha) y NO tienen dirección. Yapo es el caso que lo
+        # pidió — esconde la dirección y publica el pin — y no es cosmético:
+        # la dirección ES la identidad del aviso acá, así que sin ella el
+        # mismo departamento en yapo y en mitula son dos avisos y llegan dos
+        # mensajes. Con la calle recuperada, se funden en uno.
+        for a in candidatos:
+            if a.lat is None or a.direccion:
+                continue
+            if preguntas >= TOPE_GEOCODE_POR_CORRIDA:
+                break
+            clave = f"@{a.lat:.5f},{a.lon:.5f}"
+            calle = cache.direccion(clave)
+            if calle is None:
+                if not cache.hay_que_preguntar(clave):
+                    continue
+                preguntas += 1
+                calle = reverse(a.lat, a.lon) or ""
+                cache.anotar_direccion(clave, calle)
+            if not calle:
+                continue
+            a.direccion = f"{calle}, {a.comuna}" if a.comuna else calle
+            a.extras["dir_origen"] = "del pin del mapa del aviso"
+            S.evaluar(a, perfil)
     except Exception as e:                                       # noqa: BLE001
         # El geocoding es un lujo, no una pierna: si Nominatim se cae, la
         # corrida sigue con lo que haya.
