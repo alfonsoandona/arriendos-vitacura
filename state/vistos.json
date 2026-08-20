@@ -580,54 +580,6 @@
     "url": "https://www.magnoliaproperty.cl/7682",
     "veces_visto": 1
   },
-  "05ca8cd62e854abd": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 5066387,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "vitacura lo castillo vitacura",
-    "comuna": "Vitacura",
-    "direccion": "Avenida Vitacura, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630391, Chile",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 150000.0,
-    "historial_precio": [
-      {
-        "clp": 1200000.0,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 2247188,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 4698665,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 5066387,
-        "cuando": "2026-08-20"
-      }
-    ],
-    "lat": -33.4028596,
-    "lon": -70.5950587,
-    "m2_terraza": 16.0,
-    "m2_totales": 154.0,
-    "m2_utiles": 138.0,
-    "orientacion": "poniente",
-    "piso": 2,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "Departamento AMOBLADO en arriendo de 3 dorm. en Vitacura",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://casas.mitula.cl/adform/24301-256-440d-624a25b59f5d-b461-a57e9f58-fc08",
-    "veces_visto": 11
-  },
   "05ee98d36eef365e": {
     "arriendo_clp": null,
     "ausencias": 4,
@@ -3661,42 +3613,6 @@
     "ultima_vez": "2026-08-18T13:52:45",
     "url": "https://casas.trovit.cl/arriendo-departamento-vitacura?page=3",
     "veces_visto": 1
-  },
-  "254678edcc5e63c6": {
-    "amoblado": "amoblado",
-    "ano_construccion": 2012,
-    "antiguedad_anos": 14,
-    "arriendo_clp": 2400000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "americo vespucio norte vitacura",
-    "comuna": "Vitacura",
-    "direccion": "Avenida Américo Vespucio Norte, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630249, Chile",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 290000.0,
-    "historial_precio": [
-      {
-        "clp": 2400000.0,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "lat": -33.3959324,
-    "lon": -70.5894746,
-    "m2_totales": 140.0,
-    "m2_utiles": 167.0,
-    "orientacion": "nororiente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "Departamento en Arriendo en alonso sotomayor",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://casas.mitula.cl/adform/24301-256-7d4a-fee316fb46cd-bef8-19fb4f0-4f97",
-    "veces_visto": 11
   },
   "25715c45b4172deb": {
     "arriendo_clp": null,
@@ -8251,42 +8167,6 @@
     "url": "https://casas.mitula.cl/adform/24301-256-7eca-abd28a81d8d0-a73c-19b054a-bd1c",
     "veces_visto": 10
   },
-  "4d948e3df314adfb": {
-    "amoblado": "amoblado",
-    "ano_construccion": 1995,
-    "antiguedad_anos": 31,
-    "arriendo_clp": 3085000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 4,
-    "clave_direccion": "las nieves vitacura",
-    "comuna": "Vitacura",
-    "direccion": "Las Nieves, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630578, Chile",
-    "dormitorios": 5,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 450000.0,
-    "historial_precio": [
-      {
-        "clp": 3085000.0,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "m2_terraza": 15.0,
-    "m2_totales": 380.0,
-    "m2_utiles": 380.0,
-    "orientacion": "norte",
-    "piso": 15,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "Departamento Las nieves ID: 150762r",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://casas.mitula.cl/adform/24301-256-4134-dfa133c4d87d-c0f6-d0060b14-1431",
-    "veces_visto": 11
-  },
   "4de804f538037a99": {
     "arriendo_clp": 1800000.0,
     "ausencias": 12,
@@ -9800,37 +9680,6 @@
     "ultima_vez": "2026-08-20T14:23:29",
     "url": "https://www.icasas.cl/propiedad/1004f-8c75-741def78-1a3e9e4b301c-4fb6",
     "veces_visto": 9
-  },
-  "592c64afd98ec788": {
-    "arriendo_clp": 1389171,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "hospital a 1 concepcion",
-    "comuna": "Vitacura",
-    "direccion": "Hospital A 1, Concepción",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "historial_precio": [
-      {
-        "clp": 1389171,
-        "cuando": "2026-08-20"
-      }
-    ],
-    "m2_totales": 191.35,
-    "m2_utiles": 225.0,
-    "orientacion": "norte",
-    "piso": 6,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-20T13:48:45",
-    "score": 0,
-    "source": "trovit",
-    "tipo": "oficina",
-    "titulo": "Oficina en arriendo en Vitacura",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://casas.trovit.cl/arriendo-departamento-vitacura",
-    "veces_visto": 3
   },
   "59942f31b3487393": {
     "arriendo_clp": null,
@@ -21602,72 +21451,6 @@
     "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amplio-dpto-3-dormitorios-mas-servicio-estoril/62313db937b2eb47fc03dd6bc00d3af11b5bf811",
     "veces_visto": 2
   },
-  "be7340ca215f9e4b": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 3100000.0,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "nueva costanera vitacura",
-    "comuna": "Vitacura",
-    "direccion": "Avenida Nueva Costanera, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630413, Chile",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 450000.0,
-    "historial_precio": [
-      {
-        "clp": 3100000.0,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 1552552,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 2410542,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 1552552,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 1552602,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 3100000.0,
-        "cuando": "2026-08-20"
-      },
-      {
-        "clp": 2410620,
-        "cuando": "2026-08-20"
-      },
-      {
-        "clp": 1552602,
-        "cuando": "2026-08-20"
-      },
-      {
-        "clp": 3100000.0,
-        "cuando": "2026-08-20"
-      }
-    ],
-    "m2_terraza": 20.0,
-    "m2_totales": 40.0,
-    "m2_utiles": 140.0,
-    "orientacion": "oriente",
-    "piso": 5,
-    "precio_al_avisar": 1552602,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "mitula",
-    "tipo": "departamento",
-    "titulo": "ARRIENDO DEPARTAMENTO 3HAB 3BA VITACURA",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://casas.mitula.cl/adform/24301-256-73d4-25e15dc85232-a255-19f65aa-910d",
-    "veces_visto": 19
-  },
   "be7f1dce0875812b": {
     "arriendo_clp": null,
     "avisado": false,
@@ -25704,24 +25487,6 @@
     "ultima_vez": "2026-08-18T17:23:24",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203375847",
     "veces_visto": 3
-  },
-  "e1cbfbbdd48a3678": {
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "propiedad comercial de 2",
-    "comuna": "Santiago",
-    "direccion": "Propiedad Comercial de 2, Santiago",
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "fuenzalida",
-    "titulo": "ARRIENDO 1095 \"AT397.842* -Gran Propiedad Comercial de 2 pisos ,uso In... \"Portugal - Manuel Antonio Matta\" $ 36.773.352",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/bodega/217397842",
-    "veces_visto": 14
   },
   "e206d2bbebac5a6b": {
     "arriendo_clp": null,

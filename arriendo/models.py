@@ -220,7 +220,15 @@ class Arriendo:
         interesa— y no como uno nuevo.
         """
         base = clave_direccion(self.direccion, self.comuna)
-        if base and self.comuna:
+        # Solo una dirección CON ALTURA puede ser la identidad. "Las Nieves"
+        # sin número no es un edificio: es una calle con decenas, y usarla de
+        # identidad fundió siete departamentos distintos —de 3D/248 m² a
+        # 5D/380 m²— en un registro el 20-08. Sin altura se cae a la URL, que
+        # identifica la PUBLICACIÓN; juntar publicaciones de la misma calle
+        # que además comparten el canon exacto es trabajo de `deduplicar`,
+        # que sí puede exigir esa corroboración. El precio sigue fuera de la
+        # identidad, así que una baja de canon se reconoce igual.
+        if base and self.comuna and re.search(r"\b\d{3,}\b", base):
             unidad = _normalize_key(self.extras.get("unidad", "") or "")
             key = f"{base}|{_normalize_key(self.comuna)}"
             if unidad:

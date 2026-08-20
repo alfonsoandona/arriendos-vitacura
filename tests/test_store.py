@@ -565,3 +565,50 @@ def test_cincuenta_avisos_sin_direccion_util_no_se_funden():
                        raw_text=f"Departamento distinto número {i} en Vitacura")
               for i in range(50)]
     assert len(deduplicar(avisos)) == 50
+
+
+def test_una_calle_sin_altura_no_funde_todo_el_barrio():
+    """"Las Nieves" es una calle entera, no un edificio: la corrida del
+    20-08 fundió siete departamentos —de 3D/248 m² a 5D/380 m²— en uno.
+    Sin altura se exige una segunda señal que coincida."""
+    from arriendo.store import deduplicar
+
+    distintos = [
+        Arriendo(source="mitula", url="https://m.cl/1", title="Depto A",
+                 direccion="Las Nieves, Vitacura", comuna="Vitacura",
+                 dormitorios=3, m2_totales=248.0, arriendo_clp=2_000_000.0),
+        Arriendo(source="mitula", url="https://m.cl/2", title="Depto B",
+                 direccion="Las Nieves, Vitacura", comuna="Vitacura",
+                 dormitorios=5, m2_totales=380.0, arriendo_clp=3_085_000.0),
+        Arriendo(source="mitula", url="https://m.cl/3", title="Depto C",
+                 direccion="Las Nieves, Vitacura", comuna="Vitacura",
+                 dormitorios=4, m2_totales=300.0, arriendo_clp=2_500_000.0),
+    ]
+    assert len(deduplicar(distintos)) == 3, "tres departamentos, tres avisos"
+
+    # Pero el MISMO departamento en dos portales sí se junta: la calle
+    # coincide y el canon exacto la corrobora.
+    mismo = [
+        Arriendo(source="yapo", url="https://y.cl/9", title="Depto",
+                 direccion="Agustín del Castillo, Vitacura", comuna="Vitacura",
+                 dormitorios=4, arriendo_clp=1_634_318.0),
+        Arriendo(source="mitula", url="https://m.cl/9", title="Depto",
+                 direccion="Agustín del Castillo, Vitacura", comuna="Vitacura",
+                 dormitorios=4, arriendo_clp=1_634_318.0),
+    ]
+    assert len(deduplicar(mismo)) == 1, "mismo canon exacto: es el mismo"
+
+
+def test_con_altura_la_direccion_basta():
+    """"Alonso de Córdova 4200" ES un edificio: no hace falta corroborar."""
+    from arriendo.store import deduplicar
+
+    par = [
+        Arriendo(source="yapo", url="https://y.cl/1", title="A",
+                 direccion="Alonso de Córdova 4200", comuna="Vitacura",
+                 arriendo_clp=1_500_000.0),
+        Arriendo(source="toctoc", url="https://t.cl/1", title="B",
+                 direccion="Alonso de Córdova 4200, Vitacura", comuna="Vitacura",
+                 arriendo_clp=1_480_000.0),   # precio distinto, misma unidad
+    ]
+    assert len(deduplicar(par)) == 1

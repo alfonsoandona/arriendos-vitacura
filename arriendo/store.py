@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from datetime import datetime, date
 from pathlib import Path
 from typing import Any
@@ -564,6 +565,33 @@ def _colapsar(copias: list[Arriendo]) -> Arriendo:
     return principal
 
 
+def _corroboracion(a: Arriendo, clave: str) -> str:
+    """Qué más tiene que coincidir, además de la calle, para fundir.
+
+    Una calle CON altura identifica un edificio: "Alonso de Córdova 4200"
+    es una dirección y basta. Una calle SIN altura identifica una calle
+    entera, y en Vitacura una calle tiene decenas de edificios: la corrida
+    del 20-08 fundió siete departamentos distintos de "Las Nieves" —de 3D
+    y 248 m² a 5D y 380 m²— en un registro, y seis desaparecieron.
+
+    Así que sin altura se exige una segunda señal: el canon exacto, o el
+    programa y la superficie cuando el canon falta. Con altura no se exige
+    nada, porque la dirección ya hizo el trabajo.
+
+    Es deliberadamente conservador en la dirección segura: ante la duda se
+    prefiere un mensaje de más a un departamento perdido en silencio.
+    """
+    if re.search(r"\b\d{3,}\b", clave):
+        return ""
+    if a.arriendo_clp:
+        return f"clp:{int(a.arriendo_clp)}"
+    if a.arriendo_uf:
+        return f"uf:{a.arriendo_uf}"
+    if a.dormitorios or a.m2_referencia:
+        return f"prog:{a.dormitorios}/{a.m2_referencia}"
+    return f"solo:{a.fingerprint}"
+
+
 def _colapsar_por_direccion(hallazgos: list[Arriendo]) -> list[Arriendo]:
     """Segunda pasada: cruza las copias que el fingerprint no alcanzó a juntar.
 
@@ -588,7 +616,9 @@ def _colapsar_por_direccion(hallazgos: list[Arriendo]) -> list[Arriendo]:
     for a in hallazgos:
         clave = clave_direccion(a.direccion, a.comuna)
         if clave and a.comuna:
-            grupos.setdefault((clave, _normalize_key(a.comuna)), []).append(a)
+            grupos.setdefault(
+                (clave, _normalize_key(a.comuna), _corroboracion(a, clave)),
+                []).append(a)
         else:
             sueltos.append(a)
 
