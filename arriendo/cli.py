@@ -178,6 +178,45 @@ def _candidatos_propios(a, candidatos: list) -> list:
     return []
 
 
+def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
+                          uf: float, perfil: dict, store,
+                          stats: dict) -> list:
+    """Visita la ficha de los mejores candidatos para completarlos.
+
+    Reusa el mismo motor que enriquece las alertas (`_enriquecer_por_ficha`)
+    —incluido el pin del mapa y las defensas contra el widget de "similares"—
+    pero lo corre sobre los candidatos ORDENADOS POR PUNTAJE y antes de
+    decidir a quién avisar. Ver `TOPE_FICHAS_POR_CORRIDA` para el porqué.
+
+    Los que la ficha descalifica (el año real, los m² reales) desaparecen de
+    la lista: eso es el enriquecimiento haciendo su mejor trabajo, que es la
+    alerta que NO llega.
+    """
+    if not candidatos:
+        return candidatos
+    ordenados = sorted(candidatos, key=S.orden, reverse=True)
+    elegidos = ordenados[:TOPE_FICHAS_POR_CORRIDA]
+    resto = ordenados[TOPE_FICHAS_POR_CORRIDA:]
+
+    antes_con_ano = sum(1 for a in elegidos if a.antiguedad_anos is not None)
+    antes_con_dir = sum(1 for a in elegidos if a.direccion)
+
+    vivos = [a for a, _ in _enriquecer_por_ficha(
+        [(a, "") for a in elegidos], fuentes, fetcher, uf, perfil, store)]
+
+    ganados_ano = sum(1 for a in vivos if a.antiguedad_anos is not None) \
+        - antes_con_ano
+    ganados_dir = sum(1 for a in vivos if a.direccion) - antes_con_dir
+    stats["fichas_visitadas"] = len(elegidos)
+    stats["ano_ganado_en_ficha"] = max(0, ganados_ano)
+    stats["dir_ganada_en_ficha"] = max(0, ganados_dir)
+    log.info("Fichas leídas: %d — %d ganaron el año, %d la dirección, "
+             "%d se descartaron al verlas",
+             len(elegidos), max(0, ganados_ano), max(0, ganados_dir),
+             len(elegidos) - len(vivos))
+    return vivos + resto
+
+
 def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                           uf: float, perfil: dict, store) -> list:
     """Completa cada alerta con los datos de su propia ficha. Ver paso 6b.
@@ -288,6 +327,21 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
 
 
 TOPE_GEOCODE_POR_CORRIDA = 25
+
+# Cuántas fichas visitar por corrida para completar candidatos. Pedido del
+# 20-08 ("prioricemos dirección... hay que robustecer los datos") y medido
+# antes de pedirlo: de 72 candidatos vivos solo 5 traían el año de
+# construcción —el criterio SÍ O SÍ del usuario— y 55 de los 67 que
+# faltaban tenían ficha propia visitable, que es donde el año vive.
+#
+# Hasta ahora solo se visitaban las 8 fichas de los que iban a alertar, así
+# que el filtro duro de antigüedad casi no filtraba: un edificio de 1975 sin
+# año publicado competía de igual a igual con uno de 2020.
+#
+# 45 a ~2s cada una son unos 90 segundos sobre los ~250 de una corrida
+# normal, contra un techo de 18 minutos. Se visitan por orden de puntaje: si
+# el presupuesto se acaba, se acaba en los que menos importan.
+TOPE_FICHAS_POR_CORRIDA = 45
 
 # Un resultado a más de esto del ancla no es la propiedad: es una calle
 # homónima en otra ciudad. Peor que no tener coordenadas es tener las de otro
@@ -590,6 +644,15 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         if len(grupo) > 1:
             for a in grupo:
                 a.extras["gemelos"] = [x.codigo for x in grupo if x is not a]
+
+    # --- 5c. completar los candidatos desde su propia ficha ---
+    #
+    # Va ANTES de decidir a quién avisar, y ese orden es todo: el filtro
+    # duro de antigüedad solo puede descartar un edificio viejo si alguien
+    # leyó el año, y el año vive en la ficha. Enriquecer después de decidir
+    # es llegar tarde a la decisión.
+    candidatos = _completar_candidatos(candidatos, fuentes, fetcher, uf,
+                                       perfil, store, stats)
 
     # --- 6. decidir a quién avisar ---
     a_avisar: list[tuple[Arriendo, str]] = []

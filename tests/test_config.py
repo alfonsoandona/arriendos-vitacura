@@ -462,7 +462,9 @@ def test_hay_dos_grupos_de_fuentes_y_se_distinguen():
     por_calibrar = [f for f in activas if not f.url_confirmada]
 
     assert len(confirmadas) >= 20
-    assert len(por_calibrar) >= 15
+    # El número baja cuando una se resuelve o se apaga por muerta
+    # (20-08: nueve apagadas con su motivo medido). Eso es progreso.
+    assert len(por_calibrar) >= 8
 
 
 def test_las_fuentes_por_calibrar_apuntan_a_la_raiz():

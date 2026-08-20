@@ -186,12 +186,15 @@ fuentes:
       arriendo + departamento + Vitacura y pegar la URL.
 
   - id: emol_propiedades
+    activa: false
     nombre: Emol Propiedades
     comuna_default: Vitacura
     urls: ["https://www.propiedades.emol.com/propiedades/buscar?o=Arriendo&tp=Departamento&c=Vitacura"]
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
     notas: >-
+      APAGADA 20-08: su robots.txt no permite este acceso y se respeta. Se deja registrada para que la omisión sea visible.
+
       El portal de El Mercurio. Trae corredoras tradicionales del sector
       oriente que no están en otra parte.
 
@@ -379,6 +382,7 @@ fuentes:
       calibración deje el HTML guardado y se pueda escribir la ruta buena.
 
   - id: sothebys
+    activa: false
     nombre: Chile Sotheby's Realty
     # OJO: el dominio es chile.sothebysrealty.com. La primera versión de este
     # archivo apuntaba a chilesothebysrealty.com, que no existe — verificado
@@ -386,14 +390,21 @@ fuentes:
     urls: ["https://chile.sothebysrealty.com/"]
     url_confirmada: false
     notas: >-
+      APAGADA 20-08: responde 403 a todo, con GET y con navegador.
+
       Segmento alto: muchos de sus arriendos superan el presupuesto, pero los
       que caen dentro suelen ser exactamente el producto que busca el perfil.
 
   - id: contempora
     nombre: Contempora Propiedades
     urls: ["https://www.contempora.cl/"]
+    activa: false
     url_confirmada: false
-    notas: "Corredora con foco en Vitacura y Lo Barnechea."
+    notas: >-
+      APAGADA 20-08: no responde. Se llevaba 77 segundos de reloj por
+      corrida esperando un timeout que nunca falla en fallar. Corredora con
+      foco en Vitacura y Lo Barnechea, así que si te abre a ti, dime con
+      qué dominio y la reactivo.
 
   # -------------------------------------------------------------------
   # Corredoras y plataformas por calibrar
@@ -477,18 +488,24 @@ fuentes:
     notas: "Vista con avisos de arriendo en Vitacura a través de Mitula."
 
   - id: maxrenta
+    activa: false
     nombre: MaxRenta
     urls: ["https://www.maxrenta.cl/"]
     url_confirmada: false
     notas: >-
+      APAGADA 20-08: no respondió a tiempo en ningún diagnóstico ni corrida.
+
       Vista publicando arriendo de departamento en Vitacura vía GoPlaceIt.
       El nombre sugiere foco en renta, que es exactamente lo que se busca.
 
   - id: colliers
+    activa: false
     nombre: Colliers Chile
     urls: ["https://www.colliers.cl/"]
     url_confirmada: false
     notas: >-
+      APAGADA 20-08: su certificado TLS está roto. Es problema del sitio, no de la ruta: pegar una URL no lo arregla.
+
       Corredora internacional con operación fuerte en Chile. Su foco es
       oficinas e industrial, pero tiene área residencial en el sector oriente.
 
@@ -499,6 +516,7 @@ fuentes:
     notas: "Corredora chilena con presencia en el sector oriente."
 
   - id: inciti
+    activa: false
     nombre: Inciti
     urls: ["https://www.inciti.com/"]
     url_confirmada: false
@@ -515,10 +533,13 @@ fuentes:
       embebido, que la pasada 2 del extractor sabe leer.
 
   - id: arriendoasegurado
+    activa: false
     nombre: Arriendo Asegurado
     urls: ["https://www.arriendoasegurado.cl/"]
     url_confirmada: false
     notas: >-
+      APAGADA 20-08: su anti-bot corta la conexión sin responder, y se lleva 130 segundos de la corrida en el intento. Nunca entregó un aviso.
+
       Gestión de arriendos. Inventario propio y disponibilidad real, como
       Houm.
 
@@ -541,6 +562,7 @@ fuentes:
     notas: "Portal generalista chileno."
 
   - id: inmuebles_cl
+    activa: false
     nombre: Inmuebles.cl
     urls: ["https://www.inmuebles.cl/"]
     url_confirmada: false
@@ -557,10 +579,12 @@ fuentes:
   - id: capitalizarme
     nombre: Capitalizarme
     urls: ["https://www.capitalizarme.com/"]
+    activa: false
     url_confirmada: false
     notas: >-
-      Proptech de inversión inmobiliaria. Su foco es la venta a inversionista,
-      pero administra arriendo de la cartera que coloca.
+      APAGADA 20-08: su robots.txt no permite este acceso y se respeta.
+      Proptech de inversión inmobiliaria; su foco es la venta a
+      inversionista, pero administra arriendo de la cartera que coloca.
 
   # -------------------------------------------------------------------
   # Registradas y apagadas a propósito
