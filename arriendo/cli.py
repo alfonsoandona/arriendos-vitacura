@@ -211,22 +211,34 @@ def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
     elegidos = ordenados[:TOPE_FICHAS_POR_CORRIDA]
     resto = ordenados[TOPE_FICHAS_POR_CORRIDA:]
 
-    antes_con_ano = sum(1 for a in elegidos if a.antiguedad_anos is not None)
-    antes_con_dir = sum(1 for a in elegidos if a.direccion)
+    # Se mide sobre los MISMOS objetos, no sobre la lista que vuelve, y esa
+    # es toda la diferencia: un aviso que gana el año y resulta ser de 1993
+    # se descarta y sale de la lista, así que contarlo "después" lo daba por
+    # perdido. El contador anterior decía "0 ganaron el año" en una corrida
+    # donde 27 avisos habían ganado el año y habían sido descartados por
+    # viejos — o sea, en la corrida donde el criterio SÍ O SÍ del usuario
+    # hizo exactamente su trabajo. Medir mal es peor que no medir: mandó a
+    # buscar un bug que no existía.
+    sin_ano_antes = {id(a) for a in elegidos if a.antiguedad_anos is None}
+    sin_dir_antes = {id(a) for a in elegidos if not a.direccion}
 
     vivos = [a for a, _ in _enriquecer_por_ficha(
         [(a, "") for a in elegidos], fuentes, fetcher, uf, perfil, store)]
 
-    ganados_ano = sum(1 for a in vivos if a.antiguedad_anos is not None) \
-        - antes_con_ano
-    ganados_dir = sum(1 for a in vivos if a.direccion) - antes_con_dir
+    ganados_ano = sum(1 for a in elegidos
+                      if id(a) in sin_ano_antes and a.antiguedad_anos is not None)
+    ganados_dir = sum(1 for a in elegidos
+                      if id(a) in sin_dir_antes and a.direccion)
+    descartados = len(elegidos) - len(vivos)
+    por_viejo = sum(1 for a in elegidos
+                    if a.descartado and a.clase_descarte == "antiguedad")
     stats["fichas_visitadas"] = len(elegidos)
-    stats["ano_ganado_en_ficha"] = max(0, ganados_ano)
-    stats["dir_ganada_en_ficha"] = max(0, ganados_dir)
-    log.info("Fichas leídas: %d — %d ganaron el año, %d la dirección, "
-             "%d se descartaron al verlas",
-             len(elegidos), max(0, ganados_ano), max(0, ganados_dir),
-             len(elegidos) - len(vivos))
+    stats["ano_ganado_en_ficha"] = ganados_ano
+    stats["dir_ganada_en_ficha"] = ganados_dir
+    stats["descartados_por_ficha"] = descartados
+    log.info("Fichas leídas: %d — %d ganaron el año, %d la dirección; "
+             "%d se descartaron al verlas (%d por viejos)",
+             len(elegidos), ganados_ano, ganados_dir, descartados, por_viejo)
     return vivos + resto
 
 
