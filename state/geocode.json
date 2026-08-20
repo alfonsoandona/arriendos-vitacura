@@ -122,6 +122,16 @@
     "intentos": 1,
     "visto": "2026-08-18"
   },
+  "bedrooms 2 vitacura chile": {
+    "fallo": "2026-08-20",
+    "intentos": 1,
+    "visto": "2026-08-20"
+  },
+  "bedrooms vitacura chile": {
+    "fallo": "2026-08-20",
+    "intentos": 1,
+    "visto": "2026-08-20"
+  },
   "calle alonso de sotomayor 4200 vitacura santiago metropolitana de santiago 7630251 chl vitacura chile": {
     "fallo": "2026-08-19",
     "intentos": 1,
@@ -400,12 +410,12 @@
   "vitacura 3 vitacura vitacura chile": {
     "lat": -33.383528,
     "lon": -70.5489776,
-    "visto": "2026-08-18"
+    "visto": "2026-08-20"
   },
   "vitacura 4 vitacura vitacura chile": {
     "lat": -33.3831905,
     "lon": -70.5491326,
-    "visto": "2026-08-18"
+    "visto": "2026-08-20"
   },
   "vitacura metropolitana vitacura chile": {
     "lat": -33.383528,
