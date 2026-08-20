@@ -1,6 +1,6 @@
 # Tablero de arriendos
 
-Actualizado: 20-08-2026 · **63 candidatos** · 🆕 **6 nuevos** en esta corrida · 📉 1 con el precio bajando · canon mediano $1.552.653
+Actualizado: 20-08-2026 · **51 candidatos** · 🆕 **1 nuevos** en esta corrida · 📉 1 con el precio bajando · canon mediano $1.634.318
 
 ## 🆕 Nuevos en esta corrida
 
@@ -8,12 +8,7 @@ Si solo hay tiempo para una sección, es esta: lo demás ya estaba ayer.
 
 | # | Código | Dirección | Costo mensual | m² | D/B | Días | ⭐ |
 |---|---|---|---|---|---|---|---|
-| | `#Q2FFM` | [Pasaje La Capitanía Interior 290](casos/vitacura-pasaje-la-capitania-interior-290-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Pasaje+La+Capitan%C3%ADa+Interior+290%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.650.000 * | 170 | 4/4 | — | 88 |
-| | `#P3JCQ` | [Kennedy Interior 5420](casos/vitacura-kennedy-interior-5420-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Kennedy+Interior+5420%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.530.000 | 110 | 3/2 | — | 84 |
-| | `#QV9PC` | [Andrés de Vera 5067](casos/vitacura-andres-de-vera-5067-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s+de+Vera+5067%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.600.000 * | 105 | 3/2 | — | 80 |
-| | `#5ZREX` | [Alonso de Córdova 2313](casos/vitacura-alonso-de-cordova-2313-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alonso+de+C%C3%B3rdova+2313%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.934.371 | 118 | 3/1 | — | 75 |
-| | `#UTBXE` | [Alejandro Serani Norte 9347](casos/vitacura-alejandro-serani-norte-9347-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alejandro+Serani+Norte+9347%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.890.000 * | 125 | 4/4 | — | 74 |
-| | `#UYQ8K` | [Francisco Bertrand Vergara 3330](casos/vitacura-francisco-bertrand-vergara-3330-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Francisco+Bertrand+Vergara+3330%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.850.000 * | 120 | 3/4 | — | 63 |
+| | `#NCUVN` | [Nueva costanera](casos/vitacura-nueva-costanera-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Nueva+costanera%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile) 🆕 | $1.982.602 | 145 | 4/4 | 0 | 85 |
 
 ## 📉 Bajaron de precio
 
@@ -29,67 +24,55 @@ Un canon que baja es un propietario que no está logrando arrendar — el mejor 
 |---|---|---|---|---|---|---|---|
 | 1 | `#C3M87` | [Vitacura](casos/vitacura-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura%2C+Vitacura%2C+Chile)  | $1.552.602 * | 280 | 4/3 | 1 | 97 |
 | 2 | `#8N3KG` | [Vitacura 312 Metropolitana La Llavería Sin número](casos/vitacura-vitacura-312-metropolitana-la-llaveria-sin-numero.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+La+Llaver%C3%ADa+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)  | $1.859.371 | 111 | 4/3 | 2 | 93 |
-| 3 | `#WA89A` | [Arquitecto Herbage](casos/vitacura-arquitecto-herbage-vitacura-provincia-de-santiago-region-metropolitana-de-santiag.md) [📍](https://www.google.com/maps/search/?api=1&query=Arquitecto+Herbage%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7640639%2C+Chile%2C+Vitacura%2C+Chile)  | $2.000.000 | — | 4/3 | 1 | 93 |
-| 4 | `#3MTYA` | [Vitacura, Región Metropolitana](casos/vitacura-vitacura-region-metropolitana.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura%2C+Regi%C3%B3n+Metropolitana%2C+Vitacura%2C+Chile)  | $1.634.318 * | 120 | 4/4 | 2 | 93 |
-| 5 | `#VYEVX` | [Rotonda lo curro](casos/vitacura-rotonda-lo-curro-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Rotonda+lo+curro%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)  | $1.225.739 * | 110 | 3/4 | 1 | 93 |
-| 6 | `#BB6M4` | [Juan xxii / vitacura, Región Metropolitana de Santiago (RM)](casos/vitacura-juan-xxii-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Juan+xxii+%2F+vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)  | $1.000.000 * | 120 | 4/4 | 2 | 92 |
-| 7 | `#SGCBE` | [Fernando de Arguello 8399](casos/vitacura-fernando-de-arguello-8399-vitacura-chile-metropolitana-de-santiago.md) [📍](https://www.google.com/maps/search/?api=1&query=Fernando+de+Arguello+8399%2C+Vitacura%2C+Chile%2C+Metropolitana+de+Santiago%2C+Vitacura%2C+Chile)  | $1.872.602 | 150 | 3/3 | 2 | 92 |
-| 8 | `#892GM` | [Avenida Juan XXIII 6650](casos/vitacura-avenida-juan-xxiii-6650-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Avenida+Juan+XXIII+6650%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.980.000 | 120 | 3/3 | 2 | 91 |
-| 9 | `#9CERR` | [Vitacura 312 Metropolitana Juan XXIII 6859 301](casos/vitacura-vitacura-312-metropolitana-juan-xxiii-6859-301.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+Juan+XXIII+6859+301%2C+Vitacura%2C+Chile)  | $1.225.778 * | 110 | 4/2 | 1 | 91 |
-| 10 | `#VQ3SD` | [DUPLEX CON VISTAS DESPEJADAS 120, Padre Hurtado](casos/vitacura-duplex-con-vistas-despejadas-120-padre-hurtado.md) [📍](https://www.google.com/maps/search/?api=1&query=DUPLEX+CON+VISTAS+DESPEJADAS+120%2C+Padre+Hurtado%2C+Vitacura%2C+Chile)  | $1.872.653 | 120 | 3/3 | 2 | 90 |
-| 11 | `#Q2FFM` | [Pasaje La Capitanía Interior 290](casos/vitacura-pasaje-la-capitania-interior-290-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Pasaje+La+Capitan%C3%ADa+Interior+290%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.650.000 * | 170 | 4/4 | — | 88 |
-| 12 | `#9Q4TT` | [Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2](casos/vitacura-kennedy-tabancura-3-dormitorios-3-banos-cocina-grande-2-estacionamientos-bodega-9.md)  | $1.062.307 * | — | 3/3 | 2 | 88 |
-| 13 | `#YVT22` | [Arriendo departamento en av kennedy vitacura](casos/vitacura-arriendo-departamento-en-av-kennedy-vitacura.md)  | $770.000 * | — | —/— | 2 | 87 |
-| 14 | `#E8CXD` | [Eventos</p><p></p><p><strong>Superficie:</strong> 123, Las C](casos/vitacura-eventos-p-p-p-p-strong-superficie-strong-123-las-condes.md) [📍](https://www.google.com/maps/search/?api=1&query=Eventos%3C%2Fp%3E%3Cp%3E%3C%2Fp%3E%3Cp%3E%3Cstrong%3ESuperficie%3A%3C%2Fstrong%3E+123%2C+Las+Condes%2C+Vitacura%2C+Chile)  | $2.000.000 | 123 | 4/3 | 1 | 86 |
-| 15 | `#5HJU3` | [Agustín del Castillo 2841](casos/vitacura-agustin-del-castillo-2841-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Agust%C3%ADn+del+Castillo+2841%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.982.653 | 150 | 4/3 | 2 | 85 |
+| 3 | `#3MTYA` | [Vitacura, Región Metropolitana](casos/vitacura-vitacura-region-metropolitana.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura%2C+Regi%C3%B3n+Metropolitana%2C+Vitacura%2C+Chile)  | $1.634.318 * | 120 | 4/4 | 2 | 93 |
+| 4 | `#VYEVX` | [Rotonda lo curro](casos/vitacura-rotonda-lo-curro-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Rotonda+lo+curro%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)  | $1.225.739 * | 110 | 3/4 | 1 | 93 |
+| 5 | `#BB6M4` | [Juan xxii / vitacura, Región Metropolitana de Santiago (RM)](casos/vitacura-juan-xxii-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Juan+xxii+%2F+vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile)  | $1.000.000 * | 120 | 4/4 | 2 | 92 |
+| 6 | `#WA89A` | [Arquitecto Herbage](casos/vitacura-arquitecto-herbage-vitacura-provincia-de-santiago-region-metropolitana-de-santiag.md) [📍](https://www.google.com/maps/search/?api=1&query=Arquitecto+Herbage%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7640639%2C+Chile%2C+Vitacura%2C+Chile)  | $2.000.000 | 126 | 4/3 | 1 | 91 |
+| 7 | `#892GM` | [Avenida Juan XXIII 6650](casos/vitacura-avenida-juan-xxiii-6650-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Avenida+Juan+XXIII+6650%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.980.000 | 120 | 3/3 | 2 | 91 |
+| 8 | `#9CERR` | [Vitacura 312 Metropolitana Juan XXIII 6859 301](casos/vitacura-vitacura-312-metropolitana-juan-xxiii-6859-301.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+Juan+XXIII+6859+301%2C+Vitacura%2C+Chile)  | $1.225.778 * | 110 | 4/2 | 1 | 91 |
+| 9 | `#VQ3SD` | [DUPLEX CON VISTAS DESPEJADAS 120, Padre Hurtado](casos/vitacura-duplex-con-vistas-despejadas-120-padre-hurtado.md) [📍](https://www.google.com/maps/search/?api=1&query=DUPLEX+CON+VISTAS+DESPEJADAS+120%2C+Padre+Hurtado%2C+Vitacura%2C+Chile)  | $1.872.653 | 120 | 3/3 | 2 | 90 |
+| 10 | `#SGCBE` | [Fernando de Arguello 8399](casos/vitacura-fernando-de-arguello-8399-vitacura-chile-metropolitana-de-santiago.md) [📍](https://www.google.com/maps/search/?api=1&query=Fernando+de+Arguello+8399%2C+Vitacura%2C+Chile%2C+Metropolitana+de+Santiago%2C+Vitacura%2C+Chile)  | $1.872.602 | 150 | 3/3 | 2 | 89 |
+| 11 | `#Q2FFM` | [Pasaje La Capitanía Interior 290](casos/vitacura-pasaje-la-capitania-interior-290-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Pasaje+La+Capitan%C3%ADa+Interior+290%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.650.000 * | 170 | 4/4 | hoy | 88 |
+| 12 | `#YVT22` | [Arriendo departamento en av kennedy vitacura](casos/vitacura-arriendo-departamento-en-av-kennedy-vitacura.md)  | $770.000 * | — | —/— | 2 | 87 |
+| 13 | `#E8CXD` | [Eventos</p><p></p><p><strong>Superficie:</strong> 123, Las C](casos/vitacura-eventos-p-p-p-p-strong-superficie-strong-123-las-condes.md) [📍](https://www.google.com/maps/search/?api=1&query=Eventos%3C%2Fp%3E%3Cp%3E%3C%2Fp%3E%3Cp%3E%3Cstrong%3ESuperficie%3A%3C%2Fstrong%3E+123%2C+Las+Condes%2C+Vitacura%2C+Chile)  | $2.000.000 | 123 | 4/3 | 1 | 86 |
+| 14 | `#5HJU3` | [Agustín del Castillo 2841](casos/vitacura-agustin-del-castillo-2841-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Agust%C3%ADn+del+Castillo+2841%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.982.653 | 150 | 4/3 | 2 | 85 |
+| 15 | `#NCUVN` | [Nueva costanera](casos/vitacura-nueva-costanera-vitacura-region-metropolitana-de-santiago-rm.md) [📍](https://www.google.com/maps/search/?api=1&query=Nueva+costanera%2C+Vitacura%2C+Regi%C3%B3n+Metropolitana+de+Santiago+%28RM%29%2C+Vitacura%2C+Chile) 🆕 | $1.982.602 | 145 | 4/4 | 0 | 85 |
 | 16 | `#EGK7Z` | [Arquitecto Herbage 6149](casos/vitacura-arquitecto-herbage-6149-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Arquitecto+Herbage+6149%2C+Vitacura%2C+Vitacura%2C+Chile)  | $2.000.000 | 123 | 4/4 | 1 | 84 |
-| 17 | `#P3JCQ` | [Kennedy Interior 5420](casos/vitacura-kennedy-interior-5420-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Kennedy+Interior+5420%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.530.000 | 110 | 3/2 | — | 84 |
-| 18 | `#CN7ZW` | [Agustín del Castillo - Costanera. 4 dormitorios, 3 baños, 2 ](casos/vitacura-agustin-del-castillo-costanera-4-dormitorios-3-banos-2-estacionamientos-terrazas-.md)  | $1.500.000 * | — | 4/3 | 2 | 84 |
-| 19 | `#JUHQH` | [recibos 3 dormitorios, 2 baños, garage automático. 944890649](casos/vitacura-recibos-3-dormitorios-2-banos-garage-automatico-944890649-850-000-recibos-3-dormi.md)  | $850.000 * | — | 3/2 | 2 | 83 |
-| 20 | `#S99QA` | [valdiviapropiedades +56998951965 Antonio Pastrana/ Francisco](casos/vitacura-valdiviapropiedades-56998951965-antonio-pastrana-francisco-aguirre-recibos-3-dorm.md)  | $1.511.745 * | — | 3/3 | 2 | 83 |
-| 21 | `#XSY82` | [Juan Nadal Vitacura Cómodo Dpto 3D 2B 2E 1B - Gran Conectivi](casos/vitacura-juan-nadal-vitacura-comodo-dpto-3d-2b-2e-1b-gran-conectividad-179538-oportunidad-.md)  | $1.300.000 * | — | 3/2 | 2 | 81 |
-| 22 | `#87A9H` | [Vitacura 312 Metropolitana Alonso de Córdova Sin número](casos/vitacura-vitacura-312-metropolitana-alonso-de-cordova-sin-numero.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+Alonso+de+C%C3%B3rdova+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)  | $1.892.370 | 127 | 3/2 | 1 | 80 |
-| 23 | `#QV9PC` | [Andrés de Vera 5067](casos/vitacura-andres-de-vera-5067-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s+de+Vera+5067%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.600.000 * | 105 | 3/2 | — | 80 |
-| 24 | `#W3E9R` | [Arriendo en Vitacura 4D / 3B Arriendo](casos/vitacura-arriendo-en-vitacura-4d-3b-arriendo.md)  | $1.650.000 * | — | 4/3 | 1 | 80 |
-| 25 | `#H5NK5` | [Vitacura, Las Hualtatas Habitaciones: 3 Baños: 3 Terreno: 12](casos/vitacura-vitacura-las-hualtatas-habitaciones-3-banos-3-terreno-120-m-estacionamientos-2-co.md)  | $1.700.000 * | — | 3/3 | 2 | 80 |
-| 26 | `#4GPX3` | [(Correa Propiedades) Luz](casos/vitacura-correa-propiedades-luz-vitacura-espectacular-ubicacion-excelente-departamento-3-d.md)  | $1.400.000 * | — | 3/2 | 2 | 80 |
-| 27 | `#U44VT` | [Lindo y acogedor depto vista despejada vitacura](casos/vitacura-lindo-y-acogedor-depto-vista-despejada-vitacura.md)  | $1.348.313 * | — | —/— | 2 | 80 |
-| 28 | `#KNAE9` | [Vitacura depto amoblado 3 dorm 2 banos ser y estar](casos/vitacura-vitacura-depto-amoblado-3-dorm-2-banos-ser-y-estar.md)  | $1.400.000 * | — | —/— | 2 | 80 |
-| 29 | `#WKXT2` | [Pasaje Agustín del Castillo](casos/vitacura-pasaje-agustin-del-castillo-vitacura-provincia-de-santiago-region-metropolitana-d.md) [📍](https://www.google.com/maps/search/?api=1&query=Pasaje+Agust%C3%ADn+del+Castillo%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7630249%2C+Chile%2C+Vitacura%2C+Chile)  | $2.146.034 | 140 | 4/3 | 1 | 78 |
-| 30 | `#GEEGA` | [El Nogal](casos/vitacura-el-nogal-vitacura-provincia-de-santiago-region-metropolitana-de-santiago-7640509-.md) [📍](https://www.google.com/maps/search/?api=1&query=El+Nogal%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7640509%2C+Chile%2C+Vitacura%2C+Chile)  | $2.079.466 | 127 | 3/3 | 2 | 77 |
-| 31 | `#95FWW` | [Vitacura 312 Metropolitana FRANCISCO DE AGUIRRE / NUEVA COST](casos/vitacura-vitacura-312-metropolitana-francisco-de-aguirre-nueva-costanera-plaza-del-hoyo-0.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+FRANCISCO+DE+AGUIRRE+%2F+NUEVA+COSTANERA%2FPLAZA+DEL+HOYO+0+%2C+Vitacura%2C+Chile)  | $1.850.353 | — | 3/3 | 2 | 76 |
-| 32 | `#5ZREX` | [Alonso de Córdova 2313](casos/vitacura-alonso-de-cordova-2313-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alonso+de+C%C3%B3rdova+2313%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.934.371 | 118 | 3/1 | — | 75 |
-| 33 | `#DB2HZ` | [Vitacura, Tupungato Habitaciones: 3 Baños: 2 Terreno: 98 m² ](casos/vitacura-vitacura-tupungato-habitaciones-3-banos-2-terreno-98-m-estacionamientos-1-se-arri.md)  | $1.190.000 * | — | —/3 | 2 | 75 |
-| 34 | `#UTBXE` | [Alejandro Serani Norte 9347](casos/vitacura-alejandro-serani-norte-9347-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alejandro+Serani+Norte+9347%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.890.000 * | 125 | 4/4 | — | 74 |
-| 35 | `#QR5SX` | [Quinchos 2, Los Andes](casos/vitacura-quinchos-2-los-andes.md) [📍](https://www.google.com/maps/search/?api=1&query=Quinchos+2%2C+Los+Andes%2C+Vitacura%2C+Chile)  | $1.750.000 * | 110 | 3/1 | 2 | 70 |
-| 36 | `#ACHDU` | [Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estaci](casos/vitacura-sector-los-abetos-3-dormitorios-2-banos-servicios-estacionamiento-dueno-telefono-.md)  | $1.703.777 * | — | 3/2 | 2 | 70 |
-| 37 | `#KKGAM` | [Vitacura, Metropolitana](casos/vitacura-vitacura-metropolitana.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura%2C+Metropolitana%2C+Vitacura%2C+Chile)  | — | 167 út. | 3/3 | 2 | 69 |
-| 38 | `#Q5K62` | [Vitacura 4](casos/vitacura-vitacura-4-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+4%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 175 | 4/4 | 2 | 69 |
-| 39 | `#4PW2M` | [Vitacura 3](casos/vitacura-vitacura-3-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+3%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 140 | 3/3 | 2 | 68 |
-| 40 | `#2AMZX` | [Arcángel 4990](casos/vitacura-arcangel-4990-vitacura-depto-601.md) [📍](https://www.google.com/maps/search/?api=1&query=Arc%C3%A1ngel+4990%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.838.668 * | 114 | 4/— | 2 | 66 |
-| 41 | `#S84GC` | [TRIPLEX EN VITACURA ARRIENDO EXCLUSIVO TRIPLEX EN VITACURA 2](casos/vitacura-triplex-en-vitacura-arriendo-exclusivo-triplex-en-vitacura-220mts2-piso-5-5-dormi.md)  | — | 220 út. | 5/5 | 2 | 66 |
-| 42 | `#ZWNAN` | [Estupendo depto excelente ubicacion vitacura](casos/vitacura-estupendo-depto-excelente-ubicacion-vitacura.md)  | $1.716.034 * | — | —/— | 2 | 65 |
-| 43 | `#XBQAE` | [AMPLIO DEPARTAMENTO CERCANO A CLUB DE GOLF LOS LEONES](casos/vitacura-amplio-departamento-cercano-a-club-de-golf-los-leones-vitacura-paul-claudel.md) [📍](https://www.google.com/maps/search/?api=1&query=AMPLIO+DEPARTAMENTO+CERCANO+A+CLUB+DE+GOLF+LOS+LEONES%2C+VITACURA%2C+Paul+Claudel%2C+Vitacura%2C+Chile)  | — | 200 | 4/4 | 2 | 64 |
-| 44 | `#UYQ8K` | [Francisco Bertrand Vergara 3330](casos/vitacura-francisco-bertrand-vergara-3330-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Francisco+Bertrand+Vergara+3330%2C+Vitacura%2C+Vitacura%2C+Chile) 🆕 | $1.850.000 * | 120 | 3/4 | — | 63 |
-| 45 | `#GZBMG` | [Candelaria Goyenechea, Lo Castillo](casos/vitacura-candelaria-goyenechea-lo-castillo-vitacura-provincia-de-santiago-region-metropoli.md) [📍](https://www.google.com/maps/search/?api=1&query=Candelaria+Goyenechea%2C+Lo+Castillo%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7630249%2C+Chile%2C+Vitacura%2C+Chile)  | — | 270 | 3/4 | 2 | 61 |
-| 46 | `#7WHMH` | [Las Nieves Sin número, Las Nieves](casos/vitacura-las-nieves-sin-numero-las-nieves-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Las+Nieves+Sin+n%C3%BAmero%2C+Las+Nieves%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 248 | 3/4 | 1 | 61 |
-| 47 | `#HATUC` | [Depto arriendo SIN MUEBLES Juan XXIII/Eduardo Acevedo Depto ](casos/vitacura-depto-arriendo-sin-muebles-juan-xxiii-eduardo-acevedo-depto-arriendo-sin-muebles-.md)  | — | 180 | 4/4 | 2 | 61 |
-| 48 | `#W3D4K` | [Piscina: 1](casos/sin-comuna-piscina-1.md) [📍](https://www.google.com/maps/search/?api=1&query=Piscina%3A+1%2C+Vitacura%2C+Chile)  | — | 140 | 4/3 | 1 | 61 |
-| 49 | `#TST3A` | [Camino El Parque 100 111, Parque Carolina Rabat](casos/vitacura-camino-el-parque-100-111-parque-carolina-rabat.md) [📍](https://www.google.com/maps/search/?api=1&query=Camino+El+Parque+100+111%2C+Parque+Carolina+Rabat%2C+Vitacura%2C+Chile)  | — | — | 4/4 | 2 | 58 |
-| 50 | `#UZ2XT` | [VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B](casos/vitacura-vitacura-lo-gallo-mar-jonico-penthouse-3d-3b.md)  | — | — | 3/3 | 2 | 58 |
-| 51 | `#XF2QM` | [VITACURA, KENNEDY, PAUL CLAUDEL, PENTHOUSE](casos/vitacura-vitacura-kennedy-paul-claudel-penthouse.md)  | — | — | 3/3 | 1 | 58 |
-| 52 | `#TK8KR` | [Región Metropolitana de Santiago, Provincia de Santiago](casos/vitacura-region-metropolitana-de-santiago-provincia-de-santiago.md) [📍](https://www.google.com/maps/search/?api=1&query=Regi%C3%B3n+Metropolitana+de+Santiago%2C+Provincia+de+Santiago%2C+Vitacura%2C+Chile)  | — | 107 | 4/2 | 2 | 57 |
-| 53 | `#JM3CK` | [Amplio departamento, 3 dormitorios, 3 baños, pieza servicio,](casos/vitacura-amplio-departamento-3-dormitorios-3-banos-pieza-servicio-estacionamiento-bodega-l.md)  | — | — | 3/3 | 2 | 57 |
-| 54 | `#H6FJE` | [EL CLONQUI Sin número, El Clonqui](casos/vitacura-el-clonqui-sin-numero-el-clonqui-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=EL+CLONQUI+Sin+n%C3%BAmero%2C+El+Clonqui%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | — | 3/3 | 2 | 55 |
-| 55 | `#DFGFK` | [Camino el parque / av. Las condes Habitaciones: 2 Baños: 2 T · Las Condes](casos/las-condes-camino-el-parque-av-las-condes-habitaciones-2-banos-2-terreno-91-m-estacionamie.md)  | $1.225.739 * | — | —/2 | 2 | 54 |
-| 56 | `#MFYS7` | [Departamento en arriendo de 3 dorm. en Vitacura](casos/vitacura-departamento-en-arriendo-de-3-dorm-en-vitacura.md)  | — | — | 3/2 | 2 | 54 |
-| 57 | `#XEC3Z` | [DEPARTAMENTO 240 METROS PISO ALTO EXCLUSIVO DEPARTAMENTO ANT](casos/vitacura-departamento-240-metros-piso-alto-exclusivo-departamento-antiguo-240-metros-piso-.md)  | — | — | 3/2 | 2 | 53 |
-| 58 | `#K8R4T` | [Espoz 2620, 763 0249 Vitacura, Chile, Parque Carolina Rabat](casos/vitacura-espoz-2620-763-0249-vitacura-chile-parque-carolina-rabat.md) [📍](https://www.google.com/maps/search/?api=1&query=Espoz+2620%2C+763+0249+Vitacura%2C+Chile%2C+Parque+Carolina+Rabat%2C+Vitacura%2C+Chile)  | — | 240 | 3/— | 2 | 52 |
-| 59 | `#PR3QK` | [Vitacura depto. amoblado 3 dorm. 2 baños...](casos/vitacura-vitacura-depto-amoblado-3-dorm-2-banos.md)  | — | — | 3/2 | 2 | 50 |
-| 60 | `#63YS8` | [rentas.cl](casos/sin-comuna-rentas-cl.md)  | $1.400.000 * | — | —/— | 2 | 17 |
-| 61 | `#2N98R` | [Indicadores UF: $ 40.858 USD: $ 922 Simulador crédito hipote](casos/vitacura-indicadores-uf-40-858-usd-922-simulador-credito-hipotecario-apariencia-cambiar-mo.md)  | — | — | —/— | 1 | 14 |
-| 62 | `#FEXZU` | [Arriendo temporal en Algarrobo 4D / 3B Arriendo temporal](casos/sin-comuna-arriendo-temporal-en-algarrobo-4d-3b-arriendo-temporal.md)  | — | — | 4/3 | 1 | 9 |
-| 63 | `#VJ3BP` | [Finas terminaciones 3 dormitorios más escritorio en Navidad](casos/sin-comuna-finas-terminaciones-3-dormitorios-mas-escritorio-en-navidad.md)  | — | — | 3/— | 2 | 4 |
+| 17 | `#P3JCQ` | [Kennedy Interior 5420](casos/vitacura-kennedy-interior-5420-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Kennedy+Interior+5420%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.530.000 | 110 | 3/2 | hoy | 84 |
+| 18 | `#GEEGA` | [El Nogal](casos/vitacura-el-nogal-vitacura-provincia-de-santiago-region-metropolitana-de-santiago-7640509-.md) [📍](https://www.google.com/maps/search/?api=1&query=El+Nogal%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7640509%2C+Chile%2C+Vitacura%2C+Chile)  | $2.079.466 | 127 | 3/3 | 2 | 82 |
+| 19 | `#XSY82` | [Juan Nadal Vitacura Cómodo Dpto 3D 2B 2E 1B - Gran Conectivi](casos/vitacura-juan-nadal-vitacura-comodo-dpto-3d-2b-2e-1b-gran-conectividad-179538-oportunidad-.md)  | $1.300.000 * | — | 3/2 | 2 | 81 |
+| 20 | `#87A9H` | [Vitacura 312 Metropolitana Alonso de Córdova Sin número](casos/vitacura-vitacura-312-metropolitana-alonso-de-cordova-sin-numero.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+Alonso+de+C%C3%B3rdova+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)  | $1.892.370 | 127 | 3/2 | 1 | 80 |
+| 21 | `#QV9PC` | [Andrés de Vera 5067](casos/vitacura-andres-de-vera-5067-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s+de+Vera+5067%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.600.000 * | 105 | 3/2 | hoy | 80 |
+| 22 | `#W3E9R` | [Arriendo en Vitacura 4D / 3B Arriendo](casos/vitacura-arriendo-en-vitacura-4d-3b-arriendo.md)  | $1.650.000 * | — | 4/3 | 1 | 80 |
+| 23 | `#U44VT` | [Lindo y acogedor depto vista despejada vitacura](casos/vitacura-lindo-y-acogedor-depto-vista-despejada-vitacura.md)  | $1.348.313 * | — | —/— | 2 | 80 |
+| 24 | `#KNAE9` | [Vitacura depto amoblado 3 dorm 2 banos ser y estar](casos/vitacura-vitacura-depto-amoblado-3-dorm-2-banos-ser-y-estar.md)  | $1.400.000 * | — | —/— | 2 | 80 |
+| 25 | `#WKXT2` | [Pasaje Agustín del Castillo](casos/vitacura-pasaje-agustin-del-castillo-vitacura-provincia-de-santiago-region-metropolitana-d.md) [📍](https://www.google.com/maps/search/?api=1&query=Pasaje+Agust%C3%ADn+del+Castillo%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7630249%2C+Chile%2C+Vitacura%2C+Chile)  | $2.146.034 | 140 | 4/3 | 1 | 78 |
+| 26 | `#95FWW` | [Vitacura 312 Metropolitana FRANCISCO DE AGUIRRE / NUEVA COST](casos/vitacura-vitacura-312-metropolitana-francisco-de-aguirre-nueva-costanera-plaza-del-hoyo-0.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+312+Metropolitana+FRANCISCO+DE+AGUIRRE+%2F+NUEVA+COSTANERA%2FPLAZA+DEL+HOYO+0+%2C+Vitacura%2C+Chile)  | $1.850.353 | — | 3/3 | 2 | 76 |
+| 27 | `#5ZREX` | [Alonso de Córdova 2313](casos/vitacura-alonso-de-cordova-2313-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alonso+de+C%C3%B3rdova+2313%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.934.371 | 118 | 3/1 | hoy | 75 |
+| 28 | `#UTBXE` | [Alejandro Serani Norte 9347](casos/vitacura-alejandro-serani-norte-9347-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Alejandro+Serani+Norte+9347%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.890.000 * | 125 | 4/4 | hoy | 74 |
+| 29 | `#QR5SX` | [Quinchos 2, Los Andes](casos/vitacura-quinchos-2-los-andes.md) [📍](https://www.google.com/maps/search/?api=1&query=Quinchos+2%2C+Los+Andes%2C+Vitacura%2C+Chile)  | $1.750.000 * | 110 | 3/1 | 2 | 70 |
+| 30 | `#Q5K62` | [Vitacura 4](casos/vitacura-vitacura-4-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+4%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 175 | 4/4 | 2 | 69 |
+| 31 | `#4PW2M` | [Vitacura 3](casos/vitacura-vitacura-3-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Vitacura+3%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 140 | 3/3 | 2 | 68 |
+| 32 | `#2AMZX` | [Arcángel 4990](casos/vitacura-arcangel-4990-vitacura-depto-601.md) [📍](https://www.google.com/maps/search/?api=1&query=Arc%C3%A1ngel+4990%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.838.668 * | 114 | 4/— | 2 | 66 |
+| 33 | `#ZWNAN` | [Estupendo depto excelente ubicacion vitacura](casos/vitacura-estupendo-depto-excelente-ubicacion-vitacura.md)  | $1.716.034 * | — | —/— | 2 | 65 |
+| 34 | `#XBQAE` | [AMPLIO DEPARTAMENTO CERCANO A CLUB DE GOLF LOS LEONES](casos/vitacura-amplio-departamento-cercano-a-club-de-golf-los-leones-vitacura-paul-claudel.md) [📍](https://www.google.com/maps/search/?api=1&query=AMPLIO+DEPARTAMENTO+CERCANO+A+CLUB+DE+GOLF+LOS+LEONES%2C+VITACURA%2C+Paul+Claudel%2C+Vitacura%2C+Chile)  | — | 200 | 4/4 | 2 | 64 |
+| 35 | `#UYQ8K` | [Francisco Bertrand Vergara 3330](casos/vitacura-francisco-bertrand-vergara-3330-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Francisco+Bertrand+Vergara+3330%2C+Vitacura%2C+Vitacura%2C+Chile)  | $1.850.000 * | 120 | 3/4 | hoy | 63 |
+| 36 | `#GZBMG` | [Candelaria Goyenechea, Lo Castillo](casos/vitacura-candelaria-goyenechea-lo-castillo-vitacura-provincia-de-santiago-region-metropoli.md) [📍](https://www.google.com/maps/search/?api=1&query=Candelaria+Goyenechea%2C+Lo+Castillo%2C+Vitacura%2C+Provincia+de+Santiago%2C+Regi%C3%B3n+Metropolitana+de+Santiago%2C+7630249%2C+Chile%2C+Vitacura%2C+Chile)  | — | 270 | 3/4 | 2 | 61 |
+| 37 | `#7WHMH` | [Las Nieves Sin número, Las Nieves](casos/vitacura-las-nieves-sin-numero-las-nieves-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=Las+Nieves+Sin+n%C3%BAmero%2C+Las+Nieves%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | 248 | 3/4 | 1 | 61 |
+| 38 | `#W3D4K` | [Piscina: 1](casos/sin-comuna-piscina-1.md) [📍](https://www.google.com/maps/search/?api=1&query=Piscina%3A+1%2C+Vitacura%2C+Chile)  | — | 140 | 4/3 | 1 | 61 |
+| 39 | `#TST3A` | [Camino El Parque 100 111, Parque Carolina Rabat](casos/vitacura-camino-el-parque-100-111-parque-carolina-rabat.md) [📍](https://www.google.com/maps/search/?api=1&query=Camino+El+Parque+100+111%2C+Parque+Carolina+Rabat%2C+Vitacura%2C+Chile)  | — | — | 4/4 | 2 | 58 |
+| 40 | `#UZ2XT` | [VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B](casos/vitacura-vitacura-lo-gallo-mar-jonico-penthouse-3d-3b.md)  | — | — | 3/3 | 2 | 58 |
+| 41 | `#XF2QM` | [VITACURA, KENNEDY, PAUL CLAUDEL, PENTHOUSE](casos/vitacura-vitacura-kennedy-paul-claudel-penthouse.md)  | — | — | 3/3 | 1 | 58 |
+| 42 | `#TK8KR` | [Región Metropolitana de Santiago, Provincia de Santiago](casos/vitacura-region-metropolitana-de-santiago-provincia-de-santiago.md) [📍](https://www.google.com/maps/search/?api=1&query=Regi%C3%B3n+Metropolitana+de+Santiago%2C+Provincia+de+Santiago%2C+Vitacura%2C+Chile)  | — | 107 | 4/2 | 2 | 57 |
+| 43 | `#H6FJE` | [EL CLONQUI Sin número, El Clonqui](casos/vitacura-el-clonqui-sin-numero-el-clonqui-vitacura.md) [📍](https://www.google.com/maps/search/?api=1&query=EL+CLONQUI+Sin+n%C3%BAmero%2C+El+Clonqui%2C+Vitacura%2C+Vitacura%2C+Chile)  | — | — | 3/3 | 2 | 55 |
+| 44 | `#DFGFK` | [Camino el parque / av. Las condes Habitaciones: 2 Baños: 2 T · Las Condes](casos/las-condes-camino-el-parque-av-las-condes-habitaciones-2-banos-2-terreno-91-m-estacionamie.md)  | $1.225.739 * | — | —/2 | 2 | 54 |
+| 45 | `#MFYS7` | [Departamento en arriendo de 3 dorm. en Vitacura](casos/vitacura-departamento-en-arriendo-de-3-dorm-en-vitacura.md)  | — | — | 3/2 | 2 | 54 |
+| 46 | `#K8R4T` | [Espoz 2620, 763 0249 Vitacura, Chile, Parque Carolina Rabat](casos/vitacura-espoz-2620-763-0249-vitacura-chile-parque-carolina-rabat.md) [📍](https://www.google.com/maps/search/?api=1&query=Espoz+2620%2C+763+0249+Vitacura%2C+Chile%2C+Parque+Carolina+Rabat%2C+Vitacura%2C+Chile)  | — | 240 | 3/— | 2 | 52 |
+| 47 | `#PR3QK` | [Vitacura depto. amoblado 3 dorm. 2 baños...](casos/vitacura-vitacura-depto-amoblado-3-dorm-2-banos.md)  | — | — | 3/2 | 2 | 50 |
+| 48 | `#63YS8` | [rentas.cl](casos/sin-comuna-rentas-cl.md)  | $1.400.000 * | — | —/— | 2 | 17 |
+| 49 | `#2N98R` | [Indicadores UF: $ 40.858 USD: $ 922 Simulador crédito hipote](casos/vitacura-indicadores-uf-40-858-usd-922-simulador-credito-hipotecario-apariencia-cambiar-mo.md)  | — | — | —/— | 1 | 14 |
+| 50 | `#FEXZU` | [Arriendo temporal en Algarrobo 4D / 3B Arriendo temporal](casos/sin-comuna-arriendo-temporal-en-algarrobo-4d-3b-arriendo-temporal.md)  | — | — | 4/3 | 1 | 9 |
+| 51 | `#VJ3BP` | [Finas terminaciones 3 dormitorios más escritorio en Navidad](casos/sin-comuna-finas-terminaciones-3-dormitorios-mas-escritorio-en-navidad.md)  | — | — | 3/— | 2 | 4 |
 
 `*` = costo sin gastos comunes, porque el aviso no los publica. `út.` = superficie útil; el aviso no publicó la total. **Días** = hace cuántos días lo conoce el radar.
 
@@ -110,7 +93,7 @@ departamentos:
     nota: "llamé: disponible desde el 1 de septiembre"
 ```
 
-<details><summary>Descartados por el filtro y por qué (451)</summary>
+<details><summary>Descartados por el filtro y por qué (417)</summary>
 
 | Aviso | Motivo |
 |---|---|
@@ -129,8 +112,6 @@ departamentos:
 | [Vitacura](https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12916283-departamento-en-arriendo-en-vespucio-norte-las-fresas) | 2 dormitorios, bajo el mínimo de 3 |
 | [Vía Blanca 6900](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-via-blanca-6900/32414027) | 2 dormitorios, bajo el mínimo de 3 |
 | [Vitacura.- 1](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/sector-exclusivo-y-tranquilo-amplio-80-mtrs2-1d-e-y-b/32698090) | 1 dormitorios, bajo el mínimo de 3 |
-| [Nieves 3432](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-de-1-dormitorio-vitacura-codAAU2IPI.html) | 1 dormitorios, bajo el mínimo de 3 |
-| [AÑO 1990](https://www.economicos.cl/search/propiedades/depto-con-o-sin-muebles-armando-jaramillonieves-codAAUOHWI.html) | 2 dormitorios, bajo el mínimo de 3 |
 | [Vitacura 2](https://www.doomos.cl/de/3006674_arriendo-departamento-vitacura-vitacura-alonso-de-cordova.html) | 2 dormitorios, bajo el mínimo de 3 |
 | [El Arcángel](https://casas.mitula.cl/adform/24301-256-4ed3-d9ba389de45-b018-fb15a180-afc9) | 2 dormitorios, bajo el mínimo de 3 |
 | [Calle El Coigüe 3859](https://casas.mitula.cl/adform/24301-256-4dd0-f57a9b5c9974-bfb2-7664122e-8f12) | 2 dormitorios, bajo el mínimo de 3 |
@@ -149,20 +130,6 @@ departamentos:
 | [Coldwell Banker Chile Vitacura Exclusivo departamento en Vit](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/exclusivo-departamento-en-vitacura/32787395) | 2 dormitorios, bajo el mínimo de 3 |
 | [Daniela Droguett Massone Vitacura Arriendo moderno dpto 1D/1](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-moderno-dpto-1d-1b-practicamente-nuevo/32832165) | 1 dormitorios, bajo el mínimo de 3 |
 | [Mauricio Salas Vitacura Confort y Amplitud en Cada Espacio (](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/confort-y-amplitud-en-cada-espacio-178015/32793342) | 2 dormitorios, bajo el mínimo de 3 |
-| [Departamento en Arriendo en Vitacura 2 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-3-banos-codR77087837-3L0-202007417.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Departamento en Arriendo en Vitacura 2 dormitorios 2 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-codR76039513-7L0-202714904.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Departamento en Arriendo en Vitacura 2 dormitorios 2 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-codR76039513-7L0-202714911.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Departamento en Arriendo en Vitacura 2 dormitorios 2 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-codR76039513-7L0-202714918.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Arriendo departamento, ubicación nort-oriente, bien soleado,](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-3-banos-cod48093016.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Arriendo departamento, ubicación nort-oriente, bien soleado,](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-3-banos-cod48049299.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Vitacura/ Fatima, amplio, comodos 2 dormitorios, baños, terr](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-cod47774421.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Las Nieves, dos dormitorios estacionamiento, bodega piscina ](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-cod47560542.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Las Nieves, 1 dormitorio, 1 baño, living comedor, cocina, es](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-1-dormitorio-1-bano-cod7475885.html) | 1 dormitorios, bajo el mínimo de 3 |
-| [Arriendo moderno depto en vitacura Lindo depto vitacura . Wi](https://www.economicos.cl/search/propiedades/arriendo-moderno-depto-en-vitacura-codAAUSVGA.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Las Hualtatas cercano a Parque Arauco, 2 dormitorios, 2 baño](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-cod47188462.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Monseñor Escriba/ Mirador, recibos, 2 dormitorios, terraza, ](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-cod46958286.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Las Hualtatas cercano a Parque Arauco, 2 dormitorios, 2 baño](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-cod47110132.html) | 2 dormitorios, bajo el mínimo de 3 |
-| [Depto SIN MUEBLES Av Las Condes/Cam San Francisco de Asis De](https://www.economicos.cl/search/propiedades/depto-sin-muebles-av-las-condescam-san-francisco-de-asis-codAAUOHMA.html) | 1 dormitorios, bajo el mínimo de 3 |
 | [Departamento en Vitacura, Provincia De Santiago Magnolia Pro](https://www.icasas.cl/propiedad/af4f-af9e-fb15a106-d9ba389ddcb-4e59) | 2 dormitorios, bajo el mínimo de 3 |
 | [Departamento en Vitacura, Provincia De Santiago Magnolia Pro](https://www.icasas.cl/propiedad/8e98-bf38-766411b4-f57a9b5c98fa-4d56) | 2 dormitorios, bajo el mínimo de 3 |
 | [Departamento en Vitacura, Provincia De Santiago Se Arrienda ](https://www.icasas.cl/propiedad/a1cd-8700-5b9ef0a2-28456aa6d73a-45c5) | 2 dormitorios, bajo el mínimo de 3 |
@@ -178,23 +145,22 @@ departamentos:
 | [Venta en El Quisco 4D / 3B Venta](https://www.accesoinmobiliario.cl/properties/P20268624UGC-V) | es una publicación de venta, no de arriendo |
 | [Consta de 5](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/top-dpto-de-lujo-con-rooftop-en-santa-teresa/4197089) | es una publicación de venta, no de arriendo |
 | [Metropolitana de Santiago Chile 6](https://www.bienesonline.cl/es/chile/lo-barnechea/propiedad/123868-venta-casa) | es una publicación de venta, no de arriendo |
-| [Av. Club de Campo 125](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-1-dormitorio-1-bano-codR76425889-4L0-983.html) | es el arriendo de una pieza, no del departamento |
 | [Avenida Club de Campo](https://casas.mitula.cl/adform/24301-256-77ba-ba3e69f1c5ee-9c12-19f2efc-ccd6) | es el arriendo de una pieza, no del departamento |
 | [Rotonda Irene Frei, 832 0000 Santiago, Chile, Plaza Los Cast](https://www.nestoria.cl/vitacura/propiedades/arriendo) | es el arriendo de una pieza, no del departamento |
 | [INCREIBLE EN BARRIO PIO XI, casi nuevo!!](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/increible-en-barrio-pio-xi-casi-nuevo/4318898) | es una publicación de venta, no de arriendo |
 | ["Depto. de Lujo y gran terraza privada 360"](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/depto-de-lujo-y-gran-terraza-privada-360/379d85dbc3d1911fd2310fabc00fcbbd595434c2) | es una publicación de venta, no de arriendo |
 | [Arrienda Duplex amplios espacios sector Parque Arauco](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arrienda-duplex-amplios-espacios-sector-parque-arauco/d88e86d1e9324cf652b74acfdefd3833a8a7155d) | es arriendo por temporada / por días |
 | [Departamento en Vitacura, Provincia De Santiago MAGNOLIA PRO](https://www.icasas.cl/propiedad/1b32-a3e7-6e5c84ba-9b271b6584d0-4b06) | es una publicación de venta, no de arriendo |
-| [SE ARRIENDA OFICINA HABILITADA EN VITACURA](https://casas.trovit.cl/arriendo-departamento-vitacura) | es el arriendo de una pieza, no del departamento |
-| [Cod.: 5.586 Venta UF 32.000 Departamento en Zapallar AMOBLAD](https://www.magnoliaproperty.cl/5586) | es una publicación de venta, no de arriendo |
-| [Cod.: 7.591 Venta UF 67.500 Departamento en Las Condes CHARL](https://www.magnoliaproperty.cl/7591) | es una publicación de venta, no de arriendo |
-| [Cod.: 8.134 Venta UF 17.505 Departamento en Lo Barnechea Por](https://www.magnoliaproperty.cl/8134) | es una publicación de venta, no de arriendo |
-| [Cod.: 5.991 Venta UF 18.000 Casa en Olmué CONDOMINIO ALTOS D](https://www.magnoliaproperty.cl/5991) | es una publicación de venta, no de arriendo |
+| [Cod.: 6.729 Venta UF 38.000 Departamento en Vitacura Avenida](https://www.magnoliaproperty.cl/6729) | es una publicación de venta, no de arriendo |
+| [Cod.: 8.870 Venta UF 46.000 Departamento en Vitacura Candela](https://www.magnoliaproperty.cl/8870) | es una publicación de venta, no de arriendo |
+| [Cod.: 8.245 Venta UF 49.900 Departamento en Lo Barnechea Cam](https://www.magnoliaproperty.cl/8245) | es una publicación de venta, no de arriendo |
+| [Cod.: 8.484 Venta UF 37.000 Casa en Vitacura Santa Maria con](https://www.magnoliaproperty.cl/8484) | es una publicación de venta, no de arriendo |
+| [Cod.: 6.932 Venta UF 25.000 Casa en Lo Barnechea CAMINO EL Y](https://www.magnoliaproperty.cl/6932) | es una publicación de venta, no de arriendo |
 | [ALGARROBO CENTRO, CERCANO A PLAYA, FULL AMOBLADO... VENTA. N](https://www.nativopropiedades.cl/property.asp?idPro=1651) | es una publicación de venta, no de arriendo |
 | [PRESIDENTE RIESCO, EL GOLF, CERRO SAN LUIS... VENTA. Nativo ](https://www.nativopropiedades.cl/property.asp?idPro=1628) | es una publicación de venta, no de arriendo |
 | [PARQUE FORESTAL, METRO, MONJITAS... VENTA. Estupendo departa](https://www.nativopropiedades.cl/property.asp?idPro=1621) | es una publicación de venta, no de arriendo |
 | [LUIS PEREIRA, SIMON BOLIVAR, ECHEÑIQUE... VENTA. Nativo prop](https://www.nativopropiedades.cl/property.asp?idPro=1569) | es una publicación de venta, no de arriendo |
-| [Legales y Públicos Banco Chile - avisos nulos por hurto (2) ](https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551) | es una publicación de venta, no de arriendo |
+| [COD: 51.196 Departamento en Las Condes MÁLAGA / EL GOLF Vent](https://www.propiedades.cl/51196) | es una publicación de venta, no de arriendo |
 | [Vitacura](https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/11242195-departamento-en-arriendo-en-tabancura-4d3borientevista-4-habitaciones-127-m2) | arriendo de $1.920.324 sobre el máximo negociable de $1.904.000 |
 | [Vitacura](https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/11862019-departamento-en-arriendo-en-vitacura) | arriendo de $2.000.000 sobre el máximo negociable de $1.904.000 |
 | [Vitacura](https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12054265-arriendo-dpto-sector-exclusivo-vitacura) | arriendo de $3.432.069 sobre el máximo negociable de $1.904.000 |
@@ -219,7 +185,6 @@ departamentos:
 | [A PARTIR DE LOS 6](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-de-4-dorm-en-vitacura/55a95f640ceaccc9e6c9b5a1d022abdd629257a5) | arriendo de $4.500.000 sobre el máximo negociable de $1.904.000 |
 | [Vitacura. A 1, San Pedro](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-de-4-dorm-en-vitacura/fd6fd5a0f23b49326a47afbfc9c783c314060d54) | arriendo de $2.000.000 sobre el máximo negociable de $1.904.000 |
 | [Avenida Bicentenario 3977](https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/avenida-bicentenario-3977-vitacura-santiago-metropolitan-region-7630000-chile/130552858) | arriendo de $2.451.478 sobre el máximo negociable de $1.904.000 |
-| [Lo Castillo: 320](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-cod47926745.html) | arriendo de $3.881.506 sobre el máximo negociable de $1.904.000 |
 | [Nueva Costanera 3](https://www.icasas.cl/propiedad/7eb2-aaf0-761385e0-cfa0cd5043dd-4b41) | arriendo de $4.698.665 sobre el máximo negociable de $1.904.000 |
 | [Calle Nilo Azul 1778](https://casas.mitula.cl/adform/24301-256-7ead-3630486321fd-8f6f-19ebbdd-73f1) | arriendo de $3.268.637 sobre el máximo negociable de $1.904.000 |
 | [Paul Claudel](https://casas.mitula.cl/adform/24301-256-801c-8e70fd5b622f-bc61-19f9272-558b) | arriendo de $3.268.637 sobre el máximo negociable de $1.904.000 |
@@ -233,14 +198,13 @@ departamentos:
 | [Aurelio González](https://casas.mitula.cl/adform/24301-256-5030-1a3e9e4b3096-8cef-741deff2-100c9) | arriendo de $3.000.000 sobre el máximo negociable de $1.904.000 |
 | [Vía Aurora](https://casas.mitula.cl/adform/24301-256-4815-e3cd4d4d9e30-bea2-1a20f16f-6a92) | arriendo de $3.023.489 sobre el máximo negociable de $1.904.000 |
 | [Avenida Vitacura, Lo Castillo](https://casas.mitula.cl/adform/24301-256-440d-624a25b59f5d-b461-a57e9f58-fc08) | arriendo de $5.066.387 sobre el máximo negociable de $1.904.000 |
-| [Avenida Manquehue Norte 1757](https://casas.mitula.cl/adform/24301-256-7b98-441b981c9df2-8656-19cb3e5-3cae) | arriendo de $4.494.376 sobre el máximo negociable de $1.904.000 |
 | [Calle Las Nieves 3405](https://casas.mitula.cl/adform/24301-256-421d-13455c7e13a1-bd17-c0a91e15-a51d) | arriendo de $3.082.000 sobre el máximo negociable de $1.904.000 |
 | [Costanera Sur San Josemaría Escrivá de Balaguer](https://casas.mitula.cl/adform/24301-256-46b0-162c539a6641-b856-4e60a2d5-abc3) | arriendo de $2.500.000 sobre el máximo negociable de $1.904.000 |
 | [Avenida Presidente Kennedy 10290](https://casas.mitula.cl/adform/24301-256-4ba3-17b86d6cfa43-b275-616c8ba-cdd5) | arriendo de $2.941.773 sobre el máximo negociable de $1.904.000 |
-| [Avenida Bicentenario](https://casas.mitula.cl/adform/24301-256-77d2-dba4834c4afe-9d30-1a01e85-eb0a) | arriendo de $2.451.478 sobre el máximo negociable de $1.904.000 |
 | [Lo Curro](https://casas.mitula.cl/adform/24301-256-7aef-9daaaa0516fa-910f-19d79c7-d874) | arriendo de $4.821.239 sobre el máximo negociable de $1.904.000 |
 | [Calle Raimundo Larrain](https://casas.mitula.cl/adform/24301-256-7fd0-c05f58a4ce1a-8e95-195f9a1-6722) | arriendo de $3.881.506 sobre el máximo negociable de $1.904.000 |
 | [Francisco de Aguirre](https://casas.mitula.cl/adform/24301-256-7cec-2805d3fbe4fb-9fab-19fde9c-d245) | arriendo de $2.737.483 sobre el máximo negociable de $1.904.000 |
+| [Avenida Manquehue Norte 1757](https://casas.mitula.cl/adform/24301-256-7b98-441b981c9df2-8656-19cb3e5-3cae) | arriendo de $4.494.376 sobre el máximo negociable de $1.904.000 |
 | [El Coihue, Lo Castillo](https://casas.mitula.cl/adform/24301-256-71cb-c8bc58051a5a-9ec4-19f31a1-153d) | arriendo de $1.920.324 sobre el máximo negociable de $1.904.000 |
 | [Avenida Américo Vespucio Norte](https://casas.mitula.cl/adform/24301-256-7d4a-fee316fb46cd-bef8-19fb4f0-4f97) | arriendo de $2.400.000 sobre el máximo negociable de $1.904.000 |
 | [La Llavería](https://casas.mitula.cl/adform/24301-256-773a-ae7bc442f51a-8d72-19fe427-59fd) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
@@ -251,7 +215,6 @@ departamentos:
 | [Las Fresas](https://casas.mitula.cl/adform/24301-256-7c1d-5802c30820c-b9be-19f49a2-430e) | arriendo de $3.881.506 sobre el máximo negociable de $1.904.000 |
 | [Avenida Presidente Kennedy, Region Metropolitana](https://www.houm.com/cl/arriendo-departamento-region-metropolitana/las-condes/170742) | arriendo de $2.200.000 sobre el máximo negociable de $1.904.000 |
 | [Bedrooms 2](https://www.engelvoelkers.com/cl/en/exposes/bfadcb55-9fd5-5d40-8d61-29a044854ca6) | arriendo de $2.410.620 sobre el máximo negociable de $1.904.000 |
-| [Bedrooms 4](https://www.engelvoelkers.com/cl/en/exposes/87c5eec4-fb7b-5182-ba44-67ce0fa70403) | arriendo de $2.655.767 sobre el máximo negociable de $1.904.000 |
 | [Bedrooms 3](https://www.engelvoelkers.com/cl/en/exposes/f3ea6c50-4bb7-592c-bba9-50e9d83d7155) | arriendo de $3.064.347 sobre el máximo negociable de $1.904.000 |
 | [Bedrooms 5](https://www.engelvoelkers.com/cl/en/exposes/be756f50-7dc8-5ba4-a2c3-235567e1167a) | arriendo de $3.186.921 sobre el máximo negociable de $1.904.000 |
 | [Amplio depto Vitacura, muy iluminado, vista despejada](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amplio-depto-vitacura-muy-iluminado-vista-despejada/57d3832684497847e9b5a9b6fecc3d378a420cf3) | arriendo de $2.002.105 sobre el máximo negociable de $1.904.000 |
@@ -262,8 +225,12 @@ departamentos:
 | [Finas terminaciones 3 dormitorios más escritorio en Navidad](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/finas-terminaciones-3-dormitorios-mas-escritorio-en-navidad/07371a484d38769f591e0676b8d948d6574c5b7d) | arriendo de $2.533.275 sobre el máximo negociable de $1.904.000 |
 | [LOOFF PROP DPTO 3D/2B MAS SERVICIOS](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/looff-prop-dpto-3d2b-mas-servicios/78062b914728fa9bedfa556c1597c4261cee4ea5) | arriendo de $1.920.386 sobre el máximo negociable de $1.904.000 |
 | [EXPECTACULAR PENTHOUSE AMOBLADO](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/expectacular-penthouse-amoblado/009d96f0afc4111fe385abdf9bb3d35dabde0f9c) | arriendo de $3.064.446 sobre el máximo negociable de $1.904.000 |
+| [Amoblado: Bicentenario - CEPAL - Alonso de Cordova](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amoblado-bicentenario---cepal---alonso-de-cordova-/871d88d4576cd8a46684f943a1216fbf017c5894) | arriendo de $2.042.964 sobre el máximo negociable de $1.904.000 |
+| [AMOBLADO Las Nieves / Penthouse](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amoblado-las-nieves--penthouse/131e9e5f98789d93fab22f565a603fcebe240fc2) | arriendo de $3.064.446 sobre el máximo negociable de $1.904.000 |
 | [Departamento en arriendo 3 dorm + serv. Lo Curro Vitacura](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-de-3-dorm-en-vitacura/d4d80c8327cdb803d2e4ba9ffeba4cb1d29f954b) | arriendo de $3.023.587 sobre el máximo negociable de $1.904.000 |
 | [PENTHOUSE GRAN TERRAZA PANORAMICA / MUSEO RALLI](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/penthouse-gran-terraza-panoramica--museo-ralli/e56d23cc34db8a98ce1400e8af2f9e5bf01356ff) | arriendo de $3.064.446 sobre el máximo negociable de $1.904.000 |
+| [Remodelado / Las Nieves](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-de-3-dorm-en-vitacura/3b849a35f60210d96f6f69514b3a89044f30015c) | arriendo de $1.961.245 sobre el máximo negociable de $1.904.000 |
+| [Amplio: Luis Carrera - Parque Arauco](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amplio-luis-carrera---parque-arauco/44526e9257874b1339a676d1a43c1dbd98a29a31) | arriendo de $2.533.275 sobre el máximo negociable de $1.904.000 |
 | [MUSEO RALLI / PLAZA TURQUIA / CANDELARIA GOYENECHEA](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/museo-ralli--plaza-turquia--candelaria-goyenechea/1c11810d403a5ed9271137c7efdcb6ebfd528428) | arriendo de $2.165.542 sobre el máximo negociable de $1.904.000 |
 | [NUEVO / PLAZA TURQUIA / FRANCISCO DE AGUIRRE](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/nuevo--plaza-turquia--francisco-de-aguirre/5109faa9f5e044f00179e9c5ebc3dbcf3f475f18) | arriendo de $2.653.810 sobre el máximo negociable de $1.904.000 |
 | [Arriendo departamento amoblado vista a santiago](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arriendo-departamento-amoblado-vista-a-santiago/188bfae550f91640c61dc60eab41e829297dc4a6) | arriendo de $4.821.395 sobre el máximo negociable de $1.904.000 |
@@ -293,6 +260,7 @@ departamentos:
 | [AMOBLADO  y Vista despejada al oriente- Bicentenar](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amoblado-y-vista-despejada-al-oriente-bicentenar/4293676) | arriendo de $2.860.150 sobre el máximo negociable de $1.904.000 |
 | [Espectacular departamento a estrenar](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/espectacular-departamento-a-estrenar/4302509) | arriendo de $2.737.572 sobre el máximo negociable de $1.904.000 |
 | [Departamento de lujo completamente amoblado, con e](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-de-lujo-completamente-amoblado-con-e/4132125) | arriendo de $4.821.395 sobre el máximo negociable de $1.904.000 |
+| [Departamento condominio semi nuevo, San Damian](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-condominio-semi-nuevo-san-damian/bd02e2f70737b3bd13fd900bdef135063aeba303) | arriendo de $2.655.853 sobre el máximo negociable de $1.904.000 |
 | [Departamento Vista Totalmente Despejada](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-vista-totalmente-despejada/6f04602e709c0e87393ad6e91aa30e868fd91d97) | arriendo de $3.677.335 sobre el máximo negociable de $1.904.000 |
 | [Vista 360° a ciudad y club de golf](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/vista-360-a-ciudad-y-club-de-golf/838da6ed2afa6065d3cd03e973e6a7f37692b5d2) | arriendo de $4.085.928 sobre el máximo negociable de $1.904.000 |
 | [Escrivá de Balaguer 4D+3B+2E y bodega](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/escriva-de-balaguer-4d3b2e-y-bodega/01387311e2ef3bf2526a7d4acd2bdd45fd13d522) | arriendo de $2.000.000 sobre el máximo negociable de $1.904.000 |
@@ -345,24 +313,6 @@ departamentos:
 | [Amelia Propiedades Vitacura Departamento en arriendo de 4dor](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-arriendo-de-4dorm-3b-e-b-en-vitacura/32521279) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
 | [Andrea De la Barra Vitacura Gran Depto 167m2 4Dorm 4baños 2E](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/gran-depto-167m2-4dorm-4banos-2est-1bod-museo-ralli-arriendo/32773838) | arriendo de $2.400.000 sobre el máximo negociable de $1.904.000 |
 | [Andrea De La Barra Vitacura Arriendo - depto 4d](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/arriendo-depto-4d-3b-3e-colegio-manquehue/31929110) | arriendo de $1.920.324 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 5 dormitorios 5 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-5-dormitorios-5-banos-codR77091365-9L0-172023.html) | arriendo de $4.902.955 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77020232-9L0-125687.html) | arriendo de $2.451.478 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77087837-3L0-202009033.html) | arriendo de $2.165.472 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 4 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-4-banos-codR77087837-3L0-202008012.html) | arriendo de $3.268.637 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 4 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-4-dormitorios-3-banos-codR77765923-5L0-202005967.html) | arriendo de $2.533.194 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77087837-3L0-202008987.html) | arriendo de $4.500.000 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 4 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-4-dormitorios-3-banos-codR76868800-1L0-202051268.html) | arriendo de $2.002.040 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 5 dormitorios 4 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-5-dormitorios-4-banos-codR77087837-3L0-202008059.html) | arriendo de $5.107.245 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 4 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-4-banos-codR77087837-3L0-202009022.html) | arriendo de $4.698.665 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77087837-3L0-202008971.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 4 dormitorios 4 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-4-dormitorios-4-banos-codR77087837-3L0-202008471.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 2 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-2-banos-codR77765923-5L0-202006409.html) | arriendo de $2.451.478 sobre el máximo negociable de $1.904.000 |
-| [(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-cod48235579.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [(Correa Propiedades) Extraordinario penthouse, 230 m2 más te](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-cod48219237.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-cod47815954.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-cod48160448.html) | arriendo de $2.247.188 sobre el máximo negociable de $1.904.000 |
-| [UF62, Bicentenario, dúplex, 3 dormitorios, 2 baños, gran est](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-4-banos-cod7548423.html) | arriendo de $2.533.194 sobre el máximo negociable de $1.904.000 |
-| [Vitacura, Bicentenario. Dúplex, 3 dormitorios, 2 baños, gran](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-2-banos-cod48033220.html) | arriendo de $2.533.194 sobre el máximo negociable de $1.904.000 |
 | [Departamento en Vitacura, Provincia De Santiago Se arrienda ](https://www.icasas.cl/propiedad/16e6-b824-a5ae76fd-6def73691356-448f) | arriendo de $2.410.620 sobre el máximo negociable de $1.904.000 |
 | [Departamento en Vitacura, Provincia De Santiago Espectacular](https://www.icasas.cl/propiedad/3f9b-9230-7675070b-775464100919-4d73) | arriendo de $2.165.472 sobre el máximo negociable de $1.904.000 |
 | [Departamento en Vitacura, Provincia De Santiago Magnolia Pro](https://www.icasas.cl/propiedad/534c-8ff4-d9aa65ae-d53e0a6dea5-4958) | arriendo de $2.451.478 sobre el máximo negociable de $1.904.000 |
@@ -387,8 +337,8 @@ departamentos:
 | [Vitacura, Región Metropolitana](https://www.toppropiedades.cl/propiedad/172175) | 0 m² totales, no llega a más de 100 m² |
 | [Vitacura. ID 44408, Las Condes](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-vitacura-amoblado/4302760) | 98 m² totales, no llega a más de 100 m² |
 | [GAS CON HORNO DE 4](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/dpto-amoblado-excelente-ubicacion-3d2b/81160827e21945574de3036c9a6e70e4790b7427) | 98 m² totales, no llega a más de 100 m² |
-| [Avenida Nueva Costanera](https://casas.mitula.cl/adform/24301-256-73d4-25e15dc85232-a255-19f65aa-910d) | 40 m² totales, no llega a más de 100 m² |
-| [Camino Santa Teresa de Los Andes](https://casas.mitula.cl/adform/24301-256-7b30-9adf037b13f6-8c52-19f65aa-8735) | 62 m² totales, no llega a más de 100 m² |
+| [Avenida Nueva Costanera](https://casas.mitula.cl/adform/24301-256-4509-6def736913d0-b89e-a5ae7777-1760) | 40 m² totales, no llega a más de 100 m² |
+| [Camino Santa Teresa de Los Andes](https://casas.mitula.cl/adform/24301-256-479b-4346df958a9e-82f5-a2592db9-408e) | 62 m² totales, no llega a más de 100 m² |
 | [Avenida Presidente Kennedy Lateral](https://casas.mitula.cl/adform/24301-256-7b01-f1a91162c62b-8b33-19ffcf4-8396) | 90 m² totales, no llega a más de 100 m² |
 | [Avenida Vitacura 3706](https://casas.mitula.cl/adform/24301-256-7371-dea590eb2ae7-c042-19d2531-6129) | 79 m² totales, no llega a más de 100 m² |
 | [Mar Jónico](https://casas.mitula.cl/adform/24301-256-7a50-d491daee5106-b0aa-19ffb4d-c289) | 93 m² totales, no llega a más de 100 m² |
@@ -401,6 +351,8 @@ departamentos:
 | [Arriendo en vitacura](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arriendo-en-vitacura/b1ecbf6a0acfc64a16cc1c8bc63d7695ea597ef7) | 98 m² totales, no llega a más de 100 m² |
 | [ARRIENDO DEPTO DUPLEX, TERRAZA EN LA AZOTEA, SPORT](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/arriendo-depto-duplex-terraza-en-la-azotea-sport/3703098) | 96 m² totales, no llega a más de 100 m² |
 | [Departamento Kennedy con la Llaveria.](https://www.toctoc.com/propiedades/arriendoparticularsr/departamento/vitacura/departamento-kennedy-con-la-llaveria/4306896) | 98 m² totales, no llega a más de 100 m² |
+| [Tupungato](https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/tupungato/130240229) | 90 m² totales, no llega a más de 100 m² |
+| [Las Hualtatas](https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/las-hualtatas/129633543) | 100 m² totales, no llega a más de 100 m² |
 | [Mónica Claro Propiedades Vitacura Departamento SPORT FRANCES](https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-sport-frances/32571551) | 96 m² totales, no llega a más de 100 m² |
 | [Vespucio Norte / Santa María, Plaza Los Castaños](https://www.nestoria.cl/vitacura/propiedades/arriendo) | es oficina, no departamento |
 | [Sur Km 1014](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/industrial/208418409) | es terreno, no departamento |
@@ -419,7 +371,6 @@ departamentos:
 | [Texas 900 - 1200, Parque Carolina Rabat](https://www.nestoria.cl/vitacura/propiedades/arriendo) | es casa, no departamento |
 | [Espacio de Trabajo Amplio y Luminoso (176427), Parque Caroli](https://www.nestoria.cl/vitacura/propiedades/arriendo) | es oficina, no departamento |
 | [KENNEDY 9798   - ESQUINA LA AURORA - ALTO LAS CONDES/PLENO K](https://www.nestoria.cl/vitacura/propiedades/arriendo) | es estacionamiento, no departamento |
-| [(Correa Propiedades) Sector Luis Carrera, 224 m2 más terraza](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-4-banos-cod47732133.html) | es estacionamiento, no departamento |
 | [ARRIENDO, AVENIDA PRESIDENTE KENNEDY](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
 | [SE ARRIENDA OF RECIÉN REMODELADA EN VITACURA](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
 | [se arrienda oficina en Kennedy](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
@@ -434,6 +385,7 @@ departamentos:
 | [SE ARRIENDA OFICINA EXCELENTE SECTOR VITACURA](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
 | [SAN PATRICIO / VITACURA](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
 | [LOCAL COMERCIAL 30M / VITACURA /  NVA COSTANERA](https://casas.trovit.cl/arriendo-departamento-vitacura) | es local comercial, no departamento |
+| [Oficina en arriendo en Vitacura](https://casas.trovit.cl/arriendo-departamento-vitacura) | es oficina, no departamento |
 | [ARRIENDO – Tomás Moro – Las Condes UF 75 ARRIENDO – Tomás Mo](https://heyhomes.cl/propiedad/arriendo-tomas-moro-las-condes/) | es casa, no departamento |
 | [ARRIENDO 967 "Oficina en venta y-o arriendo, 3 pisos, 6 priv](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203375847) | es oficina, no departamento |
 | [ARRIENDO 1038 "Espectacular local comercial. Instalaciones m](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/localcomercial/205391511) | es local comercial, no departamento |
@@ -441,11 +393,10 @@ departamentos:
 | [ARRIENDO 442 "Se arrienda amplio local comercial en el coraz](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/concepcion/concepcion/localcomercial/205411321) | es local comercial, no departamento |
 | [ARRIENDO 331 "Excelente oportunidad en Lo Barnechea de casa ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/lo-barnechea-la-dehesa/casa/201417810) | es casa, no departamento |
 | [ARRIENDO 833 "Oficina en Venta y Arriendo, 14 privados, Av. ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/oficina/203378709) | es oficina, no departamento |
-| [ARRIENDO 388 "¡Oportunidad única! Este amplio local comercia](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/valparaiso/valparaiso/localcomercial/205400029) | es local comercial, no departamento |
+| [ARRIENDO 389 "¡Oportunidad única! Este amplio local comercia](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/valparaiso/valparaiso/localcomercial/205400029) | es local comercial, no departamento |
 | [ARRIENDO 555 "Se arrienda amplio local comercial en Portada ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/localcomercial/205410739) | es local comercial, no departamento |
 | [ARRIENDO 1780 "Venta de casa en Vitacura.- Casa en venta y-o](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/vitacura/casa/201414246) | es casa, no departamento |
 | [ARRIENDO 149 "Terreno de 8327 m2 con edificaciones destinada](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-varas/puerto-varas/oficina/203411557) | es oficina, no departamento |
-| [COD: 50.755 Casa en Lo Barnechea Fundo La Dehesa Venta: UF 3](https://www.propiedades.cl/50755) | es casa, no departamento |
 | [Región del Maule. Fundo 750](https://www.bienesonline.cl/es/chile/san-javier/propiedad/123867-san-javier-region-del-maule-fundo-750-ha) | publicado en la Región de Maule, no en la Metropolitana |
 | [Venta en Pudahuel 4D / 3B Venta](https://www.accesoinmobiliario.cl/properties/P202686397RV-V) | comuna fuera de la zona: Pudahuel |
 | [Venta en Providencia 2D / 2B Venta](https://www.accesoinmobiliario.cl/properties/P20268638SRM-V) | comuna fuera de la zona: Providencia |
@@ -500,14 +451,12 @@ departamentos:
 | [Real Madrid, Region Metropolitana](https://www.houm.com/cl/arriendo-departamento-region-metropolitana/la-florida/177543) | comuna fuera de la zona: La Florida |
 | [Avenida La Marina, Region Metropolitana](https://www.houm.com/cl/arriendo-departamento-region-metropolitana/san-miguel/177709) | comuna fuera de la zona: San Miguel |
 | [Rosario Norte](https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/173170) | Las Condes a 2.9 km, fuera del anillo de 1.2 km |
-| [Propiedad Comercial de 2](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/localcomercial/205397842) | comuna fuera de la zona: Santiago |
-| [CdePA Matucana- Atacama- Chacabuco 3000](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205411150) | comuna fuera de la zona: Santiago |
+| [Propiedad Comercial de 2](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/unoa/otros/219397842) | comuna fuera de la zona: Santiago |
+| [CdePA Matucana- Atacama- Chacabuco 3000](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203411150) | comuna fuera de la zona: Santiago |
 | [Callejón 6](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/paine/paine/industrial/208418344) | comuna fuera de la zona: Paine |
 | [Calle Hipodromo de Chile 1770](https://placehold.co/1920x1080.mp4) | comuna fuera de la zona: Independencia |
 | [DORMITORIO PEQUEÑO 1](https://placehold.co/1920x1080.mp4) | comuna fuera de la zona: Santiago |
 | [Vendemos hermosa en Hacienda Condominio El Guindal UF 2.750 ](https://www.bienesonline.cl/es/chile/los-andes/propiedad/124167-vendemos-hermosa-en-hacienda-condominio-el-guindal) | comuna fuera de la zona: Valparaíso |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-3-banos-codR77087837-3L0-202008115.html) | comuna fuera de la zona: San Pedro |
-| [Departamento en Arriendo en Vitacura 3 dormitorios 5 baños /](https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-3-dormitorios-5-banos-codR76868800-1L0-202051186.html) | comuna fuera de la zona: Padre Hurtado |
 | [Proyectos relacionados Departamento warren Tipo: Departament](https://www.doomos.cl/detp/1188_departamento-warren.html) | comuna fuera de la zona: Providencia |
 | [ARRIENDO – Los Industriales – Macul UF 10 ARRIENDO – Los Ind](https://heyhomes.cl/propiedad/arriendo-los-industriales-macul/) | comuna fuera de la zona: Valdivia |
 | [ARRIENDO – Metro Mirador – La Florida UF 15 ARRIENDO – Metro](https://heyhomes.cl/propiedad/arriendo-metro-mirador-la-florida/) | comuna fuera de la zona: La Florida |
@@ -516,25 +465,25 @@ departamentos:
 | [ARRIENDO – Eliodoro Yáñez – Providencia UF 45 ARRIENDO – Eli](https://heyhomes.cl/propiedad/arriendo-eliodoro-yanez-providencia/) | comuna fuera de la zona: Providencia |
 | [ARRIENDO – Av. Vicuña Mackenna Oriente – La Florida UF 90 AR](https://heyhomes.cl/propiedad/arriendo-b-av-vicuna-mackenna-oriente-la-florida/) | comuna fuera de la zona: La Florida |
 | [VENTA – Orrego Luco – Providencia UF 48.000 VENTA – Orrego L](https://heyhomes.cl/propiedad/venta-orrego-luco-providencia/) | comuna fuera de la zona: Providencia |
-| [ARRIENDO 866 "cod: 412.061*CdePA Centro de Rancagua: Astorga](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/otros/219412061) | comuna fuera de la zona: Rancagua |
 | [ARRIENDO 851 "cod: 412.061*CdePA Centro de Rancagua: Astorga](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/localcomercial/205412061) | comuna fuera de la zona: Rancagua |
 | [ARRIENDO 827 "cod: 412.061*CdePA Centro de Rancagua: Astorga](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/oficina/203412061) | comuna fuera de la zona: Rancagua |
+| [ARRIENDO 866 "cod: 412.061*CdePA Centro de Rancagua: Astorga](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/otros/219412061) | comuna fuera de la zona: Rancagua |
 | [ARRIENDO 1156 "cod: 412.061*CdePA Centro de Rancagua: Astorg](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/rancagua/rancagua/industrial/208412061) | comuna fuera de la zona: Rancagua |
 | [ARRIENDO 1182 "Local comercial en arriendo, 1.100 m2. constr](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205376469) | comuna fuera de la zona: Santiago |
+| [ARRIENDO 904 "cod: 405.473 CdePA Salvador Gutiérrez - Rada. ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/industrial/208405473) | comuna fuera de la zona: Quinta Normal |
 | [ARRIENDO 941 "cod: 405.473 CdePA Salvador Gutiérrez - Rada. ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/terrenoconstructora/216405473) | comuna fuera de la zona: Quinta Normal |
-| [ARRIENDO 903 "cod: 405.473 CdePA Salvador Gutiérrez - Rada. ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/quinta-normal/industrial/208405473) | comuna fuera de la zona: Quinta Normal |
 | [ARRIENDO 544 "Tenemos disponible en arriendo esta propiedad ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/pudahuel/industrial/208410746) | comuna fuera de la zona: Pudahuel |
-| [ARRIENDO 744 "cod 410.493 CdePA Propiedad para fines educaci](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410493) | comuna fuera de la zona: Santiago |
-| [ARRIENDO 760 "cod 410.493 CdePA Propiedad para fines educaci](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205410493) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 643 "cod 410.493 CdePA Propiedad para fines educaci](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410493) | comuna fuera de la zona: Santiago |
+| [ARRIENDO 760 "cod 410.493 CdePA Propiedad para fines educaci](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205410493) | comuna fuera de la zona: Santiago |
+| [ARRIENDO 744 "cod 410.493 CdePA Propiedad para fines educaci](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410493) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 344 "Espectacular propiedad industrial en sector pr](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/recoleta/industrial/208414514) | comuna fuera de la zona: Recoleta |
 | [ARRIENDO 370 "¡No pierdas la oportunidad de arrendar esta in](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/cerrillos/oficina/203414842) | comuna fuera de la zona: Cerrillos |
 | [ARRIENDO 566 "cod: 411.591 CdePA Barrio Brasil. 1.530 mts2. ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203411591) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 837 "Arriendo de oficina, 1.000 m2. 8 privados, Hué](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203378274) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 810 "Se vende o arrienda oficina en el sector de Pl](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203401852) | comuna fuera de la zona: Santiago |
-| [ARRIENDO 877 "Te presentamos esta amplia y luminosa oficina ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/oficina/203389661) | comuna fuera de la zona: Providencia |
 | [ARRIENDO 556 "Te presentamos esta amplia y luminosa oficina ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/terrenoconstructora/216389661) | comuna fuera de la zona: Providencia |
 | [ARRIENDO 712 "Te presentamos esta amplia y luminosa oficina ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/localcomercial/205389661) | comuna fuera de la zona: Providencia |
+| [ARRIENDO 877 "Te presentamos esta amplia y luminosa oficina ](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/oficina/203389661) | comuna fuera de la zona: Providencia |
 | [ARRIENDO 433 "RS* 412.741 Local Comercial a la calle, ubicad](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/vina-del-mar/vina-del-mar/localcomercial/205412741) | comuna fuera de la zona: Viña del Mar |
 | [ARRIENDO 1435 "Amplio local comercial a la calle, en pleno c](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/maipu/localcomercial/205379580) | comuna fuera de la zona: Maipú |
 | [ARRIENDO 1266 "Amplio local comercial a la calle, en pleno c](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/maipu/oficina/203379580) | comuna fuera de la zona: Maipú |
@@ -544,26 +493,26 @@ departamentos:
 | [ARRIENDO 871 "Oficina en arriendo, 9 privados, Av. El Bosque](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203231823) | comuna fuera de la zona: El Bosque |
 | [ARRIENDO 692 "¡Gran oportunidad de arriendo! Parcela en la c](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-pintana/parceladeagrado/214406451) | comuna fuera de la zona: La Pintana |
 | [ARRIENDO 842 "Oficina en arriendo, 11 privados, Av. El Bosqu](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/oficina/203231824) | comuna fuera de la zona: El Bosque |
-| [ARRIENDO 504 "cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 8](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410639) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 567 "cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 8](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/oficina/203410639) | comuna fuera de la zona: Santiago |
+| [ARRIENDO 504 "cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 8](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410639) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 592 "cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 8](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/localcomercial/205410639) | comuna fuera de la zona: Santiago |
 | [ARRIENDO 631 "EXCELENTE PROPIEDAD INDUSTRIAL, que correspond](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/sitiohabitacional/204396157) | comuna fuera de la zona: Puerto Montt |
 | [ARRIENDO 457 "EXCELENTE PROPIEDAD INDUSTRIAL, que correspond](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/puerto-montt/puerto-montt/industrial/208396157) | comuna fuera de la zona: Puerto Montt |
 | [ARRIENDO 322 "¡Atención inversionistas! Se vende y-o arriend](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/coquimbo/coquimbo/localcomercial/205411805) | comuna fuera de la zona: Coquimbo |
-| [ARRIENDO 288 "Atención comerciantes, gran local comercial ti](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-cisterna/bodega/217414957) | comuna fuera de la zona: La Cisterna |
 | [ARRIENDO 498 "*MPB*411.605. Luis Thayer Ojeda- Carmen Sylva.](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/otros/219411605) | comuna fuera de la zona: Providencia |
+| [ARRIENDO 288 "Atención comerciantes, gran local comercial ti](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/la-cisterna/bodega/217414957) | comuna fuera de la zona: La Cisterna |
 | [ARRIENDO 566 "*MPB*411.605. Luis Thayer Ojeda- Carmen Sylva.](https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/providencia/localcomercial/205411605) | comuna fuera de la zona: Providencia |
 | [Arriendo en Independencia 3D / 2B Arriendo](https://www.accesoinmobiliario.cl/properties/P20268631MKM-A) | comuna fuera de la zona: Independencia |
 | [Arriendo en Estación Central 2D / 2B Arriendo](https://www.accesoinmobiliario.cl/properties/P20268629QZU-A) | comuna fuera de la zona: Estación Central |
-| [Cod.: 7.682 Venta UF 21.000 Casa en Colina Chicureo/El Peñón](https://www.magnoliaproperty.cl/7682) | comuna fuera de la zona: Colina |
-| [Cod.: 8.677 Venta UF 13.500 Parcela en Colina Lo Pinto / Lo ](https://www.magnoliaproperty.cl/8677) | comuna fuera de la zona: Colina |
+| [Cod.: 8.292 Venta UF 14.500 Casa en Machalí Condominio Mirad](https://www.magnoliaproperty.cl/8292) | comuna fuera de la zona: Machalí |
 | [Venta - Casa GASPAR DE LA BARRERA /SANTIAGO... Portilla Prop](https://www.portillapropiedades.cl/property.asp?idPro=231) | comuna fuera de la zona: Santiago |
 | [SAN CARLOS DE APOQUINDO, CAMINO LAS FLORES... VENTA. Nativo ](https://www.nativopropiedades.cl/property.asp?idPro=1695) | comuna fuera de la zona: La Reina |
 | [ALVARO CASANOVA](https://www.nativopropiedades.cl/property.asp?idPro=1666) | comuna fuera de la zona: La Reina |
-| [COD: 50.922 Local Comercial en Independencia Catorce de la F](https://www.propiedades.cl/50922) | comuna fuera de la zona: Independencia |
-| [COD: 48.795 Departamento en San Miguel Metro Ciudad del Niño](https://www.propiedades.cl/48795) | comuna fuera de la zona: San Miguel |
-| [COD: 50.327 Bodega en Renca **Bodega totalmente equipada** e](https://www.propiedades.cl/50327) | comuna fuera de la zona: Renca |
-| [COD: 51.197 Departamento en Providencia Triplex con jardín y](https://www.propiedades.cl/51197) | comuna fuera de la zona: Providencia |
-| [COD: 46.356 Oficina en Santiago Merced / Mac Iver Arriendo: ](https://www.propiedades.cl/46356) | comuna fuera de la zona: Santiago |
+| [COD: 51.289 Departamento en Ñuñoa Metro Ñuble Venta: UF 3.00](https://www.propiedades.cl/51289) | comuna fuera de la zona: Ñuñoa |
+| [COD: 51.067 Bodega en Independencia Fermin Vivaceta / Gamero](https://www.propiedades.cl/51067) | comuna fuera de la zona: Independencia |
+| [COD: 49.908 Departamento en Ñuñoa Pedro de Valdivia / Irarra](https://www.propiedades.cl/49908) | comuna fuera de la zona: Valdivia |
+| [COD: 50.696 Local Comercial en Providencia Pío Nono / Bellav](https://www.propiedades.cl/50696) | comuna fuera de la zona: Providencia |
+| [COD: 51.277 Local Comercial en Santiago San Diego / Chiloé V](https://www.propiedades.cl/51277) | comuna fuera de la zona: Santiago |
+| [Legales y Públicos Banco Chile - avisos nulos por hurto (2) ](https://www.clasificados.cl/Clasificados.aspx?categoria=clasificacion&clasificacion=1551) | comuna fuera de la zona: San Bernardo |
 
 </details>
