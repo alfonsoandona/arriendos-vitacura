@@ -90,6 +90,6 @@ Disfruta de momentos inolvidables en su terraza, ideal para relajarte al aire li
 Ubicado en una de las comunas más cotizadas y seguras de Chile, este departamento promete no solo una vivienda excepcional, sino una inversión que se valoriza cada día. Todo esto por un atractivo valor de CLP 1,750,000. Expande tus horizontes y vive la vida que siempre soñaste en Vitacura.  Vitacura
 ```
 
-Leído de `toctoc` vía `estado-embebido` el 19-08-2026 23:24 UTC.
+Leído de `toctoc` vía `estado-embebido` el 20-08-2026 12:28 UTC.
 
 </details>

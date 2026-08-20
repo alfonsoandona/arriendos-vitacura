@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.634.318 |
+| Arriendo | $1.634.371 |
 | Gastos comunes | $257.999 (15,8% del canon) |
-| **Costo mensual** | **$1.892.317** |
+| **Costo mensual** | **$1.892.370** |
 | Publicado en UF | UF 40 |
 | Por m² | $12.869 / m² |
 
@@ -34,7 +34,7 @@
 |---|---|---|
 | Ubicación | 18/26 | Vitacura · a 3,7 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 15/20 | $1.634.318 · GC $257.999 · 15.8% del canon |
+| Precio | 15/20 | $1.634.371 · GC $257.999 · 15.8% del canon |
 | Superficie | 13/16 | 127 m² totales |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -46,7 +46,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 3,7 km — fuera del anillo
-- Precio: $1.634.318 · GC $257.999 · 15.8% del canon
+- Precio: $1.634.371 · GC $257.999 · 15.8% del canon
 - Superficie: 127 m² totales
 - Programa: 3D · 2B
 - piso 8
@@ -61,14 +61,14 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.268.636 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.268.742 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [TocToc](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-3-dorm-alonso-de-cordova-vitacura/5a83ec5d9ddeec1014e84fbdea5c301beaad18d5)
+- [TocToc](https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-amoblado-3-dorm-vitacura/5a83ec5d9ddeec1014e84fbdea5c301beaad18d5)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -86,9 +86,10 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Departamento en arriendo 3 dorm. Alonso de Córdova Vitacura Departamento en arriendo
+Departamento en Arriendo Amoblado, 3 dorm. Vitacura Departamento en arriendo amoblado
 Departamento disponible de 3 dormitorios, uno de ellos en suite, walking clóset 2 baños, terraza, cocina integrada, amoblada y equipada, logia, conexión a lavadora.
 El edificio cuenta con seguridad 24/7, ascensores, estacionamiento de visitas.
+El departamento se entrega todo amoblado, sin embargo no se incluye ni ropa de cama ni toallas.
 
 Piso 8
 Sur-oriente
@@ -99,6 +100,6 @@ Gastos comunes aproximadamente $257.999 (Incluye agua caliente)
 Mi Hogar....Puede ser Tu Hogar.....  Vitacura
 ```
 
-Leído de `toctoc` vía `estado-embebido` el 19-08-2026 23:24 UTC.
+Leído de `toctoc` vía `estado-embebido` el 20-08-2026 12:28 UTC.
 
 </details>
