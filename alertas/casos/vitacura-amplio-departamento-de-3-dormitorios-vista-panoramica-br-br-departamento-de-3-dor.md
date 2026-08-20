@@ -1,8 +1,6 @@
-# Vitacura 3, Vitacura
+# , Amplio departamento de 3 dormitorios vista panorámica<br /><br />departamento de 3 dormitorios cercano a colegios y jardines infantiles.<br /><br />
 
-> ♻️ **Lleva 2120 días publicado — se negocia**
-
-**63/100** · `#MS6R6` · Vitacura · a 1,23 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Vitacura+3%2C+Vitacura%2C+Vitacura%2C+Chile)
+**63/100** · `#2W7CK` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
@@ -17,25 +15,24 @@
 | | |
 |---|---|
 | Tipo | departamento |
-| Superficie total | — |
-| Superficie útil | 110 m² |
+| Superficie total | 180 m² |
+| Superficie útil | 140 m² |
+| Terraza | 40 m² |
 | Dormitorios | 3 |
-| Baños | 3 |
-| Estacionamientos | 1 |
-| Bodega | — |
+| Baños | 4 |
+| Estacionamientos | 2 |
+| Bodega | sí |
 | Antigüedad | — |
-| Publicado | hace 2120 días |
-| Visto por el radar | desde el 2026-08-20 |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | 26/26 | Vitacura · a 1,2 km — fuera del anillo |
+| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
 | Precio | — /20 | el aviso no publica el valor · _falta el arriendo mensual_ |
-| Superficie | 10/16 | 110 m² útiles (total no publicada) |
-| Programa | 12/14 | 3D · 3B |
+| Superficie | 16/16 | 180 m² totales, terraza 40 m² |
+| Programa | 12/14 | 3D · 4B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
 > El puntaje se midió sobre **56 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **98/100**.
@@ -44,13 +41,13 @@
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Ubicación: Vitacura · a 1,2 km — fuera del anillo
-- Superficie: 110 m² útiles (total no publicada)
-- Programa: 3D · 3B
-- 37 m² por dormitorio
-- 1 estacionamientos
-- logia
-- publicado hace 2120 días — se negocia
+- Ubicación: Vitacura, sin ubicar en el mapa
+- Superficie: 180 m² totales, terraza 40 m²
+- Programa: 3D · 4B
+- 60 m² por dormitorio
+- 2 estacionamientos
+- con bodega
+- nuevo, logia
 - sin precio publicado: no se puede verificar contra el presupuesto, así que no compite con los que sí lo publican
 
 </details>
@@ -59,23 +56,22 @@
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son varios millones al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
-- [ ] **Lleva 2120 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Doomos](https://www.doomos.cl/de/1465886_arriendo-departamento-en-av-kennedy-vitacura.html)
+- [Nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura)
+- [nuroa](https://www.nuroa.cl/arriendos/departamento-santiago-vitacura?page=2)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: MS6R6
+  - codigo: 2W7CK
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -88,9 +84,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Arriendo departamento en av, kennedy, vitacura... Arriendo departamento en av, kennedy, vitacura... Departamento - Región Metropolitana - Vitacura 3 Hab. 3 Baños 110.00 m² Departamento en arriendo (3d,3b,1e,1bo), av. kennedy, vitacura, cuenta con 3 dormitorios, 3 baños. logia, terraza, conexión a lavadora y lavavajillas, 1 estacionamiento amplio en subterráneo (2... Publicado el 30/10/2020
+NUEVO, Amplio departamento de 3 dormitorios vista panorámica<br /><br />departamento de 3 dormitorios cercano a colegios y jardines infantiles.<br /><br />Dormitorios: 3<br />Baños: 4<br />Estacionamientos: 2<br />Bodegas: 1<br />Superficie útil: 140 m2<br />Superficie terraza: 40 m2<br />Superficie total: 180 m2<br /><br />CARACTERISTICAS:<br /><br />Hall de entrada<br />&#8232;Baño de visitas<br />Dormitorio principal en suite amplio con walking closet.<br />Living comedor amplios<br />Terraza grande en forma de L<br />Dormitorios con salida a terraza privada<br />Cocina con logia y comedor de diario<br />Buenos espacios de almacenamiento<br />Calefacción por loza radiante<br />Acordeón de vidrio en terraza principal<br />Condominio de alta seguridad<br />Cercano a colegios y jardines infantiles.<br />Sala de cine&#8232;<br />Piscina<br />Gimnasio full equipado<br />Salón infantil<br />Juegos infantiles<br />Varios estacionamientos de visitas Región Metropolitana de Santiago, Provincia de Santiago
 ```
 
-Leído de `doomos` vía `tarjeta` el 20-08-2026 16:02 UTC.
+Leído de `nuroa` vía `json-ld` el 20-08-2026 16:02 UTC.
 
 </details>
