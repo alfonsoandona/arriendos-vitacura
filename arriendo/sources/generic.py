@@ -308,7 +308,7 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
         blob = " ".join([nombre, desc, direccion]).strip()
         a = _armar(blob, url, fuente, base_url, valor_uf)
         a.title = nombre or a.title
-        a.direccion = _direccion_util(direccion, a.comuna or comuna_cruda) \
+        a.direccion = _direccion_util(direccion, a.comuna or comuna) \
             or a.direccion
         a.comuna = comuna or a.comuna
         a.lat, a.lon = lat, lon
@@ -1311,8 +1311,8 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
 #
 # La coma puede venir escapada como %2C.
 _COORD = r"(-?\d{1,2}\.\d{3,})"
-_MAPA_Q = re.compile(rf"[?&](?:q|center|ll)=%s(?:,|%%2C)%s" % (_COORD, _COORD),
-                     re.I)
+_MAPA_Q = re.compile(
+    rf"[?&](?:q|center|ll)={_COORD}(?:,|%2C){_COORD}", re.I)
 _MAPA_PB = re.compile(rf"!2d{_COORD}!3d{_COORD}")
 
 

@@ -19,7 +19,6 @@ from __future__ import annotations
 import re
 import unicodedata
 from datetime import date
-from datetime import datetime as _dt
 from .tiempo import ahora_utc
 
 

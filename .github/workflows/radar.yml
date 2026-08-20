@@ -95,6 +95,14 @@ jobs:
         continue-on-error: true
         run: |
           pip install -r requirements-dev.txt
+          # El análisis estático SÍ es bloqueante-por-aviso y va primero,
+          # porque caza lo que los tests no pueden: la corrida del 20-08
+          # murió con un `NameError` en una línea que 596 tests recorrían
+          # sin activar —Python evalúa `a or b` de izquierda a derecha y el
+          # segundo operando solo se miraba cuando el aviso venía sin
+          # comuna—. Leer el código encuentra eso; ejecutarlo no.
+          python -m pyflakes arriendo/ \
+            || echo "::warning::pyflakes encontró algo. Revisar YA: acá viven los NameError."
           python -m pytest tests/ -q \
             || echo "::warning::Tests fallando — la corrida sigue igual. Revisar CI."
 

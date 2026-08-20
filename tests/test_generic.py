@@ -935,3 +935,21 @@ def test_el_rotulo_adelante_no_invierte_dormitorios_y_banos():
     # Y las formas de siempre siguen funcionando.
     assert parse_programa("3 dormitorios 2 baños")["dormitorios"] == 3
     assert parse_programa("3D/2B")["banos"] == 2
+
+
+def test_un_aviso_sin_comuna_no_revienta(fuente):
+    """El caso exacto que tumbó la corrida del 20-08: un JSON-LD cuya
+    dirección viene sin addressLocality, así que la comuna queda vacía.
+    Los fixtures siempre traían comuna, y por eso 596 tests lo dejaron
+    pasar — Python evalúa `a or b` de izquierda a derecha y nunca llegaba
+    al segundo operando."""
+    import json as _json
+    nodo = {"@type": "Apartment", "name": "Departamento sin comuna",
+            "url": "https://ejemplo.cl/aviso/77",
+            "numberOfBedrooms": 3,
+            "address": {"streetAddress": "Calle Larga 1234"}}
+    doc = (f'<html><body><script type="application/ld+json">'
+           f'{_json.dumps(nodo, ensure_ascii=False)}</script></body></html>')
+    avisos = extraer(doc, "https://ejemplo.cl/arriendo", fuente)
+    assert len(avisos) == 1
+    assert "Calle Larga" in (avisos[0].direccion or "")

@@ -7,16 +7,14 @@ import logging
 import os
 import re
 import sys
-from datetime import datetime
 from pathlib import Path
 
 from . import parse as P
 from . import scoring as S
 from .alerts.telegram import Telegram, mensaje_bajas, mensaje_sobrantes
 from .bitacora import escribir_bitacora
-from .config import (ALERTAS_DIR, LOGS_DIR, STATE_DIR, PerfilInvalido,
-                     cargar_perfil, dir_alertas, dir_docs, dir_estado,
-                     dir_logs)
+from .config import (PerfilInvalido, cargar_perfil, dir_alertas,
+                     dir_docs, dir_estado, dir_logs)
 from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .historial import (a_markdown as historial_markdown,
@@ -261,7 +259,21 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             a.extras["geo_origen"] = "pin del mapa del aviso"
             log.debug("Pin del mapa para %s: %.5f, %.5f", a.codigo, *pin)
 
-        candidatos = extraer(html, a.url, fuente, uf)
+        # Leer una ficha NO puede matar la corrida, y esa frase la escribió
+        # la corrida caída del 20-08: un `NameError` dentro del extractor
+        # —una variable que solo existía cuando el aviso traía comuna— se
+        # llevó la corrida entera desde acá. El barrido de fuentes ya tenía
+        # su red por fuente; este paso no tenía ninguna.
+        #
+        # La asimetría de siempre: un aviso enriquecido a medias sigue
+        # siendo alertable, una corrida caída no avisa nada.
+        try:
+            candidatos = extraer(html, a.url, fuente, uf)
+        except Exception:                                        # noqa: BLE001
+            log.exception("Ficha de %s reventó al extraer; se deja como está",
+                          a.codigo)
+            salida.append((a, motivo))
+            continue
         propios = _candidatos_propios(a, candidatos)
         # El plan B, del diagnóstico contra fichas reales: goplaceit e iCasas
         # no ponen JSON-LD de la propiedad en su ficha —las tres pasadas

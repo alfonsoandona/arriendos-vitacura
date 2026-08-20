@@ -42,7 +42,6 @@ from __future__ import annotations
 import html as _html
 import json
 import math
-import re
 import shutil
 from datetime import datetime, timedelta
 from pathlib import Path
