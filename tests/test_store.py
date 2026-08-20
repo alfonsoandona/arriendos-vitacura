@@ -523,3 +523,45 @@ def test_la_comuna_a_secas_no_es_llave_de_deduplicacion():
                        comuna="Vitacura", arriendo_clp=1_000_000 + i)
               for i in range(5)]
     assert len(deduplicar(avisos)) == 5, "cinco deptos distintos siguen siendo cinco"
+
+
+# ---------------------------------------------------------------------------
+# La sobre-fusión del 20-08: peor que no deduplicar.
+# ---------------------------------------------------------------------------
+
+def test_la_comuna_con_la_region_no_es_una_direccion():
+    """La corrida del 20-08 fundió CINCUENTA Y TRES departamentos distintos
+    en un registro: toctoc pone "Vitacura, Metropolitana" en el campo
+    dirección de media página, y esa llave los juntaba a todos. Un mensaje
+    y 52 departamentos perdidos."""
+    from arriendo.models import clave_direccion
+
+    for basura in ("Vitacura, Metropolitana", "Vitacura",
+                   "Región Metropolitana de Santiago",
+                   "Vitacura, Región Metropolitana de Santiago (RM)",
+                   "Bedrooms 2", "Dormitorios 3", "Vitacura 2"):
+        assert clave_direccion(basura, "Vitacura") == "", basura
+
+
+def test_las_direcciones_de_verdad_siguen_uniendo():
+    from arriendo.models import clave_direccion
+
+    for buena in ("Alonso de Córdova 4200", "Espoz 2620", "Rotonda lo curro",
+                  "Av. Vitacura 5480", "Avenida Juan XXIII 6699",
+                  "Agustín del Castillo"):
+        assert clave_direccion(buena, "Vitacura"), buena
+    # El mismo edificio escrito de dos formas sigue dando la misma llave.
+    assert clave_direccion("Alonso de Córdova Nº 4200", "Vitacura") == \
+        clave_direccion("Alonso de Cordova 4200, Vitacura", "Vitacura")
+
+
+def test_cincuenta_avisos_sin_direccion_util_no_se_funden():
+    """La prueba de fuego, con la forma exacta del desastre."""
+    from arriendo.store import deduplicar
+
+    avisos = [Arriendo(source="toctoc", url=f"https://toctoc.cl/p/{i}",
+                       title=f"Departamento {i}", direccion="Vitacura, Metropolitana",
+                       comuna="Vitacura", arriendo_clp=1_500_000.0 + i,
+                       raw_text=f"Departamento distinto número {i} en Vitacura")
+              for i in range(50)]
+    assert len(deduplicar(avisos)) == 50

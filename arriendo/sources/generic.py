@@ -308,7 +308,8 @@ def _desde_jsonld(soup: BeautifulSoup, base_url: str, fuente: FuenteConfig,
         blob = " ".join([nombre, desc, direccion]).strip()
         a = _armar(blob, url, fuente, base_url, valor_uf)
         a.title = nombre or a.title
-        a.direccion = direccion or a.direccion
+        a.direccion = _direccion_util(direccion, a.comuna or comuna_cruda) \
+            or a.direccion
         a.comuna = comuna or a.comuna
         a.lat, a.lon = lat, lon
         a.extras["via"] = "json-ld"
@@ -486,7 +487,8 @@ def _desde_estado_embebido(html: str, base_url: str, fuente: FuenteConfig,
         blob = " ".join([titulo, desc, direccion, comuna_cruda]).strip()
         a = _armar(blob, url, fuente, base_url, valor_uf)
         a.title = titulo or a.title
-        a.direccion = direccion or a.direccion
+        a.direccion = _direccion_util(direccion, a.comuna or comuna_cruda) \
+            or a.direccion
         a.comuna = P.parse_comuna(comuna_cruda) or a.comuna
         a.extras["via"] = "estado-embebido"
 
@@ -1026,12 +1028,28 @@ _DIRECCION_JSON_INVALIDA = re.compile(
     r"|imperdible|exclusiv|espectacular|impecable", re.I)
 
 
-def _direccion_de_json(direccion: str) -> str:
+def _direccion_de_json(direccion: str, comuna: str = "") -> str:
     """El campo dirección de un payload, con la basura de marketing afuera."""
     d = (direccion or "").strip()
     if not d or _DIRECCION_JSON_INVALIDA.search(d):
         return ""
     return d
+
+
+def _direccion_util(direccion: str, comuna: str = "") -> str:
+    """La dirección, o "" si no identifica ningún lugar.
+
+    La corrida del 20-08 lo cobró caro: "Vitacura, Metropolitana" —lo único
+    que toctoc pone en el campo dirección de media página— y "Bedrooms 2"
+    —engelvoelkers publica sus specs en inglés— viajaban como direcciones,
+    y `clave_direccion` las aceptaba como llave: CINCUENTA Y TRES
+    departamentos distintos fundidos en un registro.
+    `clave_direccion` ya no las acepta, y acá se cierra el círculo: si no
+    sirve para identificar, tampoco se muestra ni se manda a Google Maps.
+    """
+    from ..models import clave_direccion
+    d = (direccion or "").strip()
+    return d if d and clave_direccion(d, comuna) else ""
 
 
 _NO_ES_CALLE = re.compile(

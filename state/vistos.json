@@ -4194,39 +4194,6 @@
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-lo-curro/32419874",
     "veces_visto": 4
   },
-  "2935c39672975338": {
-    "amoblado": "amoblado",
-    "ano_construccion": 2010,
-    "antiguedad_anos": 16,
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "region metropolitana de santiago provincia de santiago",
-    "comuna": "Vitacura",
-    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 350000.0,
-    "historial_precio": [],
-    "lat": -33.3966538,
-    "lon": -70.5755001,
-    "m2_terraza": 100.0,
-    "m2_totales": 107.0,
-    "m2_utiles": 107.0,
-    "orientacion": "oriente",
-    "piso": 11,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 57,
-    "source": "nuroa",
-    "tipo": "departamento",
-    "titulo": "penthouse ubicado en el mejor barrio de Vitacura Nueva Costanera, Jardín del Este, a pasos del Club de Polo y Equitación",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 14
-  },
   "2938b03135c4a116": {
     "arriendo_clp": 11317655.0,
     "ausencias": 4,
@@ -6883,36 +6850,6 @@
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-en-vitacura-con-piscina-privada-155867/32235257",
     "veces_visto": 5
   },
-  "418244b2792bdf0c": {
-    "amoblado": "amoblado",
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": true,
-    "banos": 3,
-    "clave_direccion": "vitacura 3",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura 3, Vitacura",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 1,
-    "gastos_comunes_clp": 450000.0,
-    "historial_precio": [],
-    "lat": -33.383528,
-    "lon": -70.5489776,
-    "m2_terraza": 20.0,
-    "m2_totales": 140.0,
-    "m2_utiles": 110.0,
-    "orientacion": "oriente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 68,
-    "source": "doomos",
-    "tipo": "departamento",
-    "titulo": "Arriendo departamento en av, kennedy, vitacura... Arriendo departamento en av, kennedy, vitacura... Departamento - Regió",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.doomos.cl/de/1465886_arriendo-departamento-en-av-kennedy-vitacura.html",
-    "veces_visto": 12
-  },
   "41a323b82b11fe51": {
     "amoblado": "amoblado",
     "arriendo_clp": 1850000.0,
@@ -8769,38 +8706,6 @@
     "titulo": "Diagonal José María Caro",
     "ultima_vez": "2026-08-20T14:23:29",
     "url": "https://www.houm.com/cl/arriendo-departamento-region-metropolitana/recoleta/176958",
-    "veces_visto": 14
-  },
-  "50f2d531a0a55e0a": {
-    "ano_construccion": 1998,
-    "antiguedad_anos": 28,
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "region metropolitana de santiago provincia de santiago",
-    "comuna": "Las Condes",
-    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 3,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "gastos_comunes_clp": 170000.0,
-    "historial_precio": [],
-    "lat": -33.4054866,
-    "lon": -70.5743833,
-    "m2_terraza": 25.0,
-    "m2_totales": 160.0,
-    "m2_utiles": 291.0,
-    "orientacion": "oriente",
-    "piso": 18,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "nuroa",
-    "tipo": "departamento",
-    "titulo": "MAGNOLIA PROPERTY VENDE MARAVILLOSO DEPARTAMENTO DE 160 MTS TOTALES EN BARRIO EL GOLF, LAS CONDES<br />A pasos de Isidor",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
     "veces_visto": 14
   },
   "5122fb5d3cf57057": {
@@ -12253,39 +12158,6 @@
     "ultima_vez": "2026-08-19T00:00:34",
     "url": "https://www.icasas.cl/propiedad/16f7-9c3d-7ccf12a6-82f6b34de901-4b74",
     "veces_visto": 5
-  },
-  "6c9d42a7ea126bf2": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 2000000.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 3,
-    "clave_direccion": "vitacura metropolitana",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura, Metropolitana",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "historial_precio": [
-      {
-        "clp": 2000000.0,
-        "cuando": "2026-08-20"
-      }
-    ],
-    "lat": -33.383528,
-    "lon": -70.5489776,
-    "m2_utiles": 167.0,
-    "orientacion": "oriente",
-    "piso": 6,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "toctoc",
-    "tipo": "departamento",
-    "titulo": "Escrivá de Balaguer 4D+3B+2E y bodega",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/escriva-de-balaguer-4d3b2e-y-bodega/01387311e2ef3bf2526a7d4acd2bdd45fd13d522",
-    "veces_visto": 10
   },
   "6d40713d58b5edf6": {
     "amoblado": "amoblado",
@@ -16391,39 +16263,6 @@
     "url": "https://www.yapo.cl/bienes-raices-alquiler-apartamentos/departamento-remodelado-en-condominio-con-amplios/28123597",
     "veces_visto": 5
   },
-  "9427ed98e2e6ce84": {
-    "arriendo_clp": null,
-    "avisado": true,
-    "aviso_antiguedad_publicacion": true,
-    "banos": 4,
-    "clave_direccion": "vitacura 4",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura 4, Vitacura",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 2,
-    "historial_precio": [
-      {
-        "clp": 1634318,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "lat": -33.3831905,
-    "lon": -70.5491326,
-    "m2_totales": 175.0,
-    "m2_utiles": 140.0,
-    "orientacion": "norte",
-    "piso": 3,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T14:22:01",
-    "score": 69,
-    "source": "doomos",
-    "tipo": "departamento",
-    "titulo": "Estupendo depto, excelente ubicación vitacura... Estupendo depto, excelente ubicación vitacura... Departamento - Región ",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.doomos.cl/de/2168989_estupendo-depto-excelente-ubicacion-vitacura.html",
-    "veces_visto": 12
-  },
   "9428eefc8ff05bb3": {
     "arriendo_clp": 3473039.0,
     "avisado": false,
@@ -16726,33 +16565,6 @@
     "ultima_vez": "2026-08-20T14:23:29",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/cerrillos/oficina/203414842",
     "veces_visto": 3
-  },
-  "96423414da2e03ee": {
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 5,
-    "clave_direccion": "region metropolitana de santiago provincia de santiago",
-    "comuna": "Santiago",
-    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 4,
-    "envio_pendiente": false,
-    "estacionamientos": 3,
-    "gastos_comunes_clp": 900000.0,
-    "historial_precio": [],
-    "m2_totales": 233.0,
-    "m2_utiles": 40.0,
-    "orientacion": "norponiente",
-    "piso": 8,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "nuroa",
-    "tipo": "departamento",
-    "titulo": "Espectacular Departamento en Santa María – Club de Polo",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 14
   },
   "966044ab49b95cd2": {
     "amoblado": "amoblado",
@@ -19165,39 +18977,6 @@
     "url": "https://www.houm.com/cl/arriendo-departamento-region-metropolitana/las-condes/177842",
     "veces_visto": 9
   },
-  "a8fbb728f5f3bab4": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 3064347,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "bedrooms 3",
-    "comuna": "Vitacura",
-    "direccion": "Bedrooms 3, Vitacura",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 3064248,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 3064347,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "m2_terraza": 325.0,
-    "m2_totales": 510.0,
-    "m2_utiles": 185.0,
-    "orientacion": "norte",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "engelvoelkers",
-    "tipo": "departamento",
-    "titulo": "Vitacura, Santiago Metropolitan Region, Chile Arriendo penthouse con gran terraza y vista privilegiada Basic rent excl. ",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.engelvoelkers.com/cl/en/exposes/f3ea6c50-4bb7-592c-bba9-50e9d83d7155",
-    "veces_visto": 14
-  },
   "a8fd1762fb18ab89": {
     "arriendo_clp": null,
     "avisado": false,
@@ -20894,38 +20673,6 @@
     "ultima_vez": "2026-08-20T14:23:29",
     "url": "https://www.nestoria.cl/vitacura/propiedades/arriendo",
     "veces_visto": 11
-  },
-  "b68a3831d0d51976": {
-    "arriendo_clp": 14709341.0,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "6",
-    "comuna": "Paine",
-    "direccion": "Callejón 6, Paine",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 14708390.0,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 14708866.0,
-        "cuando": "2026-08-19"
-      },
-      {
-        "clp": 14709341.0,
-        "cuando": "2026-08-20"
-      }
-    ],
-    "orientacion": "poniente",
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "fuenzalida",
-    "titulo": "ARRIENDO 58 \"Planta industrial en arriendo, terreno de 9.300 m2, sector... \"Panamericana 5 Sur km 42, Callejón 6 Ponient",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/paine/paine/bodega/217418344",
-    "veces_visto": 14
   },
   "b69767c9432f48c3": {
     "arriendo_clp": 3677335.0,
@@ -24811,41 +24558,6 @@
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/santiago/otros/219410639",
     "veces_visto": 3
   },
-  "d623f7aad707c71d": {
-    "amoblado": "amoblado",
-    "arriendo_clp": 2410620,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "clave_direccion": "bedrooms 2",
-    "comuna": "Vitacura",
-    "direccion": "Bedrooms 2, Vitacura",
-    "envio_pendiente": false,
-    "historial_precio": [
-      {
-        "clp": 4902797,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 2410542,
-        "cuando": "2026-08-18"
-      },
-      {
-        "clp": 2410620,
-        "cuando": "2026-08-19"
-      }
-    ],
-    "m2_totales": 250.0,
-    "m2_utiles": 110.0,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "engelvoelkers",
-    "tipo": "departamento",
-    "titulo": "Vitacura, Santiago Metropolitan Region, Chile Moderno y luminoso Penthouse Basic rent excl. utilities UF 59 ~€2,171 3 Be",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.engelvoelkers.com/cl/en/exposes/bfadcb55-9fd5-5d40-8d61-29a044854ca6",
-    "veces_visto": 14
-  },
   "d652a6ef8b11f3ff": {
     "arriendo_clp": null,
     "avisado": false,
@@ -25589,27 +25301,6 @@
     "ultima_vez": "2026-08-19T23:28:36",
     "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/la-serena/la-serena/oficina/203416344",
     "veces_visto": 3
-  },
-  "dec3892ffc472ed2": {
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "region metropolitana de santiago provincia de santiago",
-    "comuna": "Providencia",
-    "direccion": "Región Metropolitana de Santiago, Provincia de Santiago",
-    "dormitorios": 2,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "nuroa",
-    "tipo": "departamento",
-    "titulo": "Oportunidad Departamentos Nuevos en Verde!!!<br /><br />Compre con nosotros SIN COMISIÓN.<br /><br />Hermoso departament",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.nuroa.cl/arriendos/departamento-santiago-vitacura",
-    "veces_visto": 14
   },
   "ded4cd7bd7119e1c": {
     "arriendo_clp": 3472814,
@@ -28736,31 +28427,6 @@
     "ultima_vez": "2026-08-20T13:48:45",
     "url": "https://www.economicos.cl/search/propiedades/arriendo-moderno-depto-en-vitacura-codAAUSVGA.html",
     "veces_visto": 4
-  },
-  "fb10fee19d4fddca": {
-    "amoblado": "amoblado",
-    "arriendo_clp": null,
-    "avisado": false,
-    "aviso_antiguedad_publicacion": false,
-    "banos": 2,
-    "clave_direccion": "vitacura 2",
-    "comuna": "Vitacura",
-    "direccion": "Vitacura 2, Vitacura",
-    "dormitorios": 2,
-    "envio_pendiente": false,
-    "historial_precio": [],
-    "m2_utiles": 141.0,
-    "orientacion": "oriente",
-    "piso": 9,
-    "precio_al_avisar": null,
-    "primera_vez": "2026-08-18T13:52:45",
-    "score": 0,
-    "source": "doomos",
-    "tipo": "departamento",
-    "titulo": "Arriendo departamento vitacura vitacura //... Arriendo departamento vitacura vitacura //... Departamento - Región Metrop",
-    "ultima_vez": "2026-08-20T14:23:29",
-    "url": "https://www.doomos.cl/de/3006675_arriendo-departamento-vitacura-vitacura-alonso-de-cordova.html",
-    "veces_visto": 12
   },
   "fb3dcd173f69d521": {
     "arriendo_clp": 9192744.0,

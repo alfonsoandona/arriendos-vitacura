@@ -372,4 +372,42 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
         if nombre:
             clave = sin_comuna
 
-    return re.sub(r"\s+", " ", clave).strip()
+    clave = re.sub(r"\s+", " ", clave).strip()
+
+    # Última defensa, y la puso una corrida real: el 20-08 la llave
+    # "vitacura metropolitana" —lo único que toctoc pone en el campo
+    # dirección de la mitad de sus avisos— fundió CINCUENTA Y TRES
+    # departamentos distintos en un solo registro. Igual "bedrooms 2"
+    # (engelvoelkers publica sus specs en inglés) y "vitacura 2".
+    #
+    # El guardia de "la dirección ES la comuna" de más arriba no las
+    # atrapaba porque traen una palabra más. La regla correcta no es
+    # comparar con la comuna: es exigir que quede ALGO que pueda ser el
+    # nombre de una calle — y ni la región, ni el país, ni una
+    # característica del departamento lo son.
+    # Se saca también el nombre de la comuna: "Vitacura, Metropolitana" no
+    # deja nada, pero "Av. Vitacura 5480" sí es una calle de verdad. Lo que
+    # las separa es la ALTURA: las numeraciones chilenas de estas comunas
+    # tienen tres dígitos o más, así que un "Vitacura 2" suelto no es una
+    # dirección y un "Vitacura 5480" sí.
+    c = _normalize_key(comuna)
+    ignorables = _NO_SON_CALLE | _CONECTORES | set(c.split())
+    palabras = [p for p in clave.split()
+                if p not in ignorables and not p.isdigit()]
+    if not palabras and not re.search(r"\b\d{3,}\b", clave):
+        return ""
+    return clave
+
+
+# Palabras que jamás son, por sí solas, el nombre de una calle: la cola
+# administrativa (región, provincia, país) y las specs que algunos portales
+# meten en el campo dirección, en castellano y en inglés.
+_CONECTORES = frozenset("de del la las el los y en".split())
+
+_NO_SON_CALLE = frozenset("""
+metropolitana region regiones rm provincia santiago chile chl cl comuna
+bedrooms bathrooms rooms beds baths dormitorios dormitorio banos bano
+habitaciones habitacion piezas pieza m2 mts mt sqm parking parks
+estacionamientos estacionamiento bodega bodegas piso pisos depto
+departamento apartamento casa uf clp precio
+""".split())
