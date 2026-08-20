@@ -925,3 +925,29 @@ def test_un_desacuerdo_de_dormitorios_no_bota_el_ano():
     assert aviso.dormitorios == 4, "el aviso mantiene lo suyo"
     assert aviso.ano_construccion == 1978
     assert aviso.gastos_comunes_clp == 430_000.0
+
+
+def test_el_ano_se_rescata_aunque_el_texto_no_ancle():
+    """iCasas publica "Año de construcción" en su tabla de especificaciones
+    y su ficha no deja ningún candidato estructurado, así que el texto no
+    ancla y se descartaba entero — con el año adentro.
+
+    Una tarjeta de "propiedades similares" muestra precio, dormitorios y
+    foto; jamás el año de construcción, que vive rotulado en la ficha de la
+    propiedad misma. Por eso el año se rescata solo, y solo él.
+    """
+    from arriendo.cli import _solo_el_ano
+    from arriendo.models import Arriendo
+
+    del_texto = Arriendo(source="icasas", url="https://icasas.cl/a/1",
+                         title="t", antiguedad_anos=48,
+                         ano_construccion=1978, dormitorios=3,
+                         m2_totales=250.0, arriendo_clp=9_000_000.0)
+    rescatado = _solo_el_ano(del_texto)
+    assert rescatado.antiguedad_anos == 48
+    assert rescatado.ano_construccion == 1978
+    for sospechoso in ("dormitorios", "m2_totales", "arriendo_clp"):
+        assert getattr(rescatado, sospechoso) is None, sospechoso
+
+    # Sin año no hay nada que rescatar.
+    assert _solo_el_ano(Arriendo(source="x", url="u", title="t")) is None

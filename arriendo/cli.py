@@ -230,6 +230,24 @@ def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
     return vivos + resto
 
 
+def _solo_el_ano(candidato):
+    """El candidato reducido a su antigüedad. None si no la trae."""
+    import copy
+
+    if candidato.antiguedad_anos is None and candidato.ano_construccion is None:
+        return None
+    limpio = copy.deepcopy(candidato)
+    for campo, vacio in (
+            ("arriendo_clp", None), ("arriendo_uf", None),
+            ("gastos_comunes_clp", None), ("m2_totales", None),
+            ("m2_utiles", None), ("m2_terraza", None),
+            ("dormitorios", None), ("banos", None), ("piso", None),
+            ("estacionamientos", None), ("bodega", None),
+            ("orientacion", ""), ("garantia_meses", None)):
+        setattr(limpio, campo, vacio)
+    return limpio
+
+
 # Los campos sobre los que `_no_contradice` puede pelearse. Si el texto de
 # la ficha discrepa en uno, se le quita ESE campo y se conserva el resto:
 # un desacuerdo sobre los dormitorios no dice nada sobre el año.
@@ -349,7 +367,18 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         # 17-08 (dormitorios de un vecino en la alerta) no se repite.
         if not propios and del_texto is not None \
                 and not del_texto.extras.get("texto_anclado"):
-            del_texto = None
+            # Sin candidato propio y sin ancla, el texto pudo ser del widget
+            # de similares: no se le cree la descripción. Pero el AÑO sí se
+            # rescata, y es una excepción medida: icasas publica "Año de
+            # construcción: 1978" en su tabla de especificaciones y su ficha
+            # no deja ningún candidato estructurado, así que el año se
+            # perdía entero. Una tarjeta de "propiedades similares" muestra
+            # precio, dormitorios y foto — jamás el año de construcción, que
+            # vive rotulado en la ficha de la propiedad misma.
+            #
+            # Es el campo más escaso (7% de cobertura) y el criterio SÍ O SÍ
+            # del usuario, así que vale rescatarlo solo.
+            del_texto = _solo_el_ano(del_texto)
         if not propios and del_texto is None:
             # La ficha no se reconoció a sí misma (o era en verdad un
             # listado). El aviso sigue tal cual: escueto pero honesto.
