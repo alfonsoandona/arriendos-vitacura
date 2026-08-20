@@ -192,7 +192,22 @@ def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
     """
     if not candidatos:
         return candidatos
-    ordenados = sorted(candidatos, key=S.orden, reverse=True)
+    # El presupuesto se gasta donde está el hueco, no donde está el puntaje.
+    # Medido el 20-08: leyendo por puntaje puro, 45 fichas devolvieron CERO
+    # años nuevos — porque las mejor puntuadas suelen ser justamente las que
+    # ya traen sus datos completos, y la ficha no tenía nada que agregar.
+    #
+    # El orden ahora es: primero los que no saben su AÑO —el criterio sí o
+    # sí del usuario, y el campo más escaso de todos— y dentro de ese grupo,
+    # por puntaje. Un aviso que ya trae año, dirección y superficie no gasta
+    # una visita.
+    def _prioridad(a):
+        le_falta_lo_caro = (a.antiguedad_anos is None,
+                            not a.direccion,
+                            a.m2_referencia is None)
+        return (sum(le_falta_lo_caro), S.orden(a))
+
+    ordenados = sorted(candidatos, key=_prioridad, reverse=True)
     elegidos = ordenados[:TOPE_FICHAS_POR_CORRIDA]
     resto = ordenados[TOPE_FICHAS_POR_CORRIDA:]
 
