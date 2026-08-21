@@ -1,14 +1,14 @@
 # Historial de búsquedas
 
-_Actualizado 20-08-2026 23:37 UTC · 1962 eventos guardados_
+_Actualizado 21-08-2026 12:36 UTC · 2172 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 752 |
-| Dejaron de publicarse | 760 |
-| Cambios de precio | 450 (15 a la baja) |
+| Departamentos nuevos | 786 |
+| Dejaron de publicarse | 810 |
+| Cambios de precio | 576 (15 a la baja) |
 | Canon mediano | $2.400.000 |
 | Canon mediano por m² | $15.000 |
 | Días publicado antes de irse | 1 |
@@ -18,69 +18,69 @@ _Actualizado 20-08-2026 23:37 UTC · 1962 eventos guardados_
 
 | Mes | Nuevos |
 |---|---|
-| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 752 |
+| 2026-08 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 786 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
-| 2026-08-20 | 📤 | Maule Chile 2, Talca · Talca | $300.000 |
-| 2026-08-20 | 📤 | departamento en venta en El Golf, Presidente Riesco, · Las Condes | — |
-| 2026-08-20 | 📤 | Las Nieves 3606, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | Se vende hermoso departamento con orientación surori · Vitacura | — |
-| 2026-08-20 | 📤 | Precioso depto. ubicado Av. Santa María lateral a pa · Vitacura | — |
-| 2026-08-20 | 📤 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura | $3.595.500 |
-| 2026-08-20 | 📤 | Avenida Presidente Kennedy Lateral, Vitacura, Provin · Vitacura | $1.225.739 |
-| 2026-08-20 | 📤 | Departamento en arriendo<br />Departamento disponibl · Vitacura | — |
-| 2026-08-20 | 📤 | Costanera Sur, Vitacura, Provincia de Santiago, Regi · Vitacura | $2.492.336 |
-| 2026-08-20 | 📤 | ARRIENDO 866 "cod: 412.061*CdePA Centro de Rancagua: · Rancagua | — |
-| 2026-08-20 | 📤 | Propiedad Comercial de 2, Santiago · Santiago | — |
-| 2026-08-20 | 📤 | Rodrigo de Quiroga, Vitacura, Provincia de Santiago, · Vitacura | $2.124.614 |
-| 2026-08-20 | 📤 | Un departamento que no se repite. Vive el lujo sin c · Vitacura | — |
-| 2026-08-20 | 📤 | A pasos de Alonso de Córdova y Paseo El Mañío se enc · Vitacura | — |
-| 2026-08-20 | 📤 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura | $4.290.086 |
-| 2026-08-20 | 📤 | COD: 48.793 Departamento en Independencia Nueva Andr · Independencia — 1 días publicado | — |
-| 2026-08-20 | 📤 | Cod.: 7.677 Venta UF 37.500 Local Comercial en Vitac · Vitacura — 2 días publicado | — |
-| 2026-08-20 | 📤 | Oportunidad Departamentos Nuevos en Verde!!!<br /><b · Providencia | — |
-| 2026-08-20 | 📤 | Santa Teresa de Los Andes 9770, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | Espectacular Departamento en Santa María – Club de P · Santiago | — |
-| 2026-08-20 | 📤 | Avenida Bicentenario, Vitacura, Provincia de Santiag · Vitacura | $2.451.478 |
-| 2026-08-20 | 📤 | En venta departamento remodelado y clásico en Vitacu · Vitacura | — |
-| 2026-08-20 | 📤 | El Arcángel 5011, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | REMAX OFRECE EN EXCLUSIVA · Vitacura | $1.250.000 |
-| 2026-08-20 | 📤 | DEPARTAMENTO CON GRAN OPORTUNIDAD PARA NOVACIÓN. · Vitacura | $1.003.913 |
-| 2026-08-20 | 📤 | Casa en Lo Barnechea CAMINO REAL 6 Dorm. 7 Baños 450 · Lo Barnechea | — |
-| 2026-08-20 | 📤 | Las Fresas 4444, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | Alonso de Córdova, Lo Castillo, Vitacura, Provincia  · Vitacura | — |
-| 2026-08-20 | 📤 | Costanera Sur San Josemaría Escrivá de Balaguer, Vit · Vitacura | $2.247.188 |
-| 2026-08-20 | 📤 | Manquehue Nueva Las Condes 178, Las Condes · Las Condes | $4.249.365 |
-| 2026-08-20 | 📤 | penthouse ubicado en el mejor barrio de Vitacura Nue · Vitacura | — |
-| 2026-08-20 | 📤 | Las Cuijas, Vitacura, Provincia de Santiago, Región  · Vitacura | $3.881.506 |
-| 2026-08-20 | 📤 | Paul Claudel, Vitacura, Provincia de Santiago, Regió · Vitacura | $2.247.188 |
-| 2026-08-20 | 📤 | A 3, Lo Barnechea · Lo Barnechea | — |
-| 2026-08-20 | 📤 | Avenida Vitacura 3706, Vitacura, Santiago, Metropoli · Vitacura — 1 días publicado | $4.902.955 |
-| 2026-08-20 | 📤 | Este luminoso departamento te invita a vivir una exp · Vitacura | — |
-| 2026-08-20 | 📤 | Año de Construcción: 1991, Vitacura · Vitacura | $1.250.000 |
-| 2026-08-20 | 📤 | Departamento en Vitacura, Provincia De Santiago Excl · Vitacura — 2 días publicado | $2.999.888 |
-| 2026-08-20 | 📤 | Avenida Bicentenario 3330, Las Condes · Las Condes | — |
-| 2026-08-20 | 📤 | Candelaria Goyenechea 3920, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | COD: 51.090 Casa en Puerto Varas Molino Viejo Venta: · Puerto Varas | — |
-| 2026-08-20 | 📤 | Cod.: 6.710 Venta UF 27.900 Arriendo $ 5.500.000 | $5.500.000 |
-| 2026-08-20 | 📤 | Avenida Presidente Kennedy, Vitacura, Provincia de S · Las Condes | $1.800.000 |
-| 2026-08-20 | 📤 | Vitacura, Metropolitana · Vitacura | — |
-| 2026-08-20 | 📤 | Cod.: 5.801 Venta UF 8.500 Casa en Navidad El Manzan | — |
-| 2026-08-20 | 📤 | Departamento Duplex con azotea, vistas despejadas y  · Vitacura | — |
-| 2026-08-20 | 📤 | COD: 50.872 Local Comercial en Renca Workcenter Mira · Renca — 1 días publicado | — |
-| 2026-08-20 | 📤 | ARRIENDO 1156 "cod: 412.061*CdePA Centro de Rancagua · Rancagua | — |
-| 2026-08-20 | 📤 | Vitacura, Metropolitana · Vitacura | $1.552.653 |
-| 2026-08-20 | 📤 | ARRIENDO 827 "cod: 412.061*CdePA Centro de Rancagua: · Rancagua | — |
-| 2026-08-20 | 📤 | Avenida Bicentenario 3116, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | Dpto totalmente remodelado, finas terminaciones, ubi · Vitacura | — |
-| 2026-08-20 | 📤 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura | $3.268.637 |
-| 2026-08-20 | 📤 | Paul Claudel 1135, Vitacura · Vitacura | — |
-| 2026-08-20 | 📤 | Vendida Cod.: 7.626 Venta UF 47.900 Casa en Lo Barne · Lo Barnechea | — |
-| 2026-08-20 | 📤 | Maule Chile 5, Talca · Talca | — |
-| 2026-08-20 | 📤 | Costanera Sur San Josemaría Escrivá de Balaguer 9547 · Vitacura | $2.400.000 |
-| 2026-08-20 | 📤 | COD: 51.275 Local Comercial en Santiago Metro Rondiz · Santiago | — |
-| 2026-08-20 | 📈 | COD: 45.994 Departamento en Las Condes Parque Arauco — antes $1.756.892 | $1.756.949 |
-| 2026-08-20 | 🆕 | INCREÍBLE Dúplex moderno de 1 dormitorio. Destaca po · Vitacura | — |
+| 2026-08-21 | 📤 | Camino Santa Teresa de Los Andes, Vitacura, Provinci · Vitacura — 1 días publicado | $1.184.919 |
+| 2026-08-21 | 📤 | COD: 51.197 Departamento en Providencia Triplex con  · Providencia — 2 días publicado | — |
+| 2026-08-21 | 📤 | proyecto en VENTA de la reconocida Inmobiliaria Deis · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | Las Nieves, Vitacura, Provincia de Santiago, Región  · Vitacura — 1 días publicado | $612.889 |
+| 2026-08-21 | 📤 | Depto 3 dorm 3 baños mas serv en Alonso de Cordova V · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | Amplio y luminoso departamento en venta para remodel · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | Avenida Vitacura, Lo Castillo, Vitacura, Provincia d · Vitacura — 1 días publicado | $4.249.365 |
+| 2026-08-21 | 📤 | Calle El Pangue 4262, Vitacura, Santiago, Metropolit · Vitacura — 3 días publicado | $4.085.928 |
+| 2026-08-21 | 📤 | Cod.: 7.802 Venta UF 12.000 Casa en Colina Av. Chami · Colina — 1 días publicado | — |
+| 2026-08-21 | 📤 | COD: 49.169 Oficina en Santiago Serrano / Coquimbo V · Santiago — 3 días publicado | $2.451.557 |
+| 2026-08-21 | 📤 | Cod.: 7.657 Venta UF 16.800 Casa en Puchuncaví El Mi · Puchuncaví — 1 días publicado | — |
+| 2026-08-21 | 📤 | Cod.: 7.709 Venta UF 13.800 Casa en Colina COLEGIO S · Colina — 1 días publicado | — |
+| 2026-08-21 | 📤 | ESPECTACULAR DEPARTAMENTO FRENTE AL PARQUE BICENTENA · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | Vitacura, Santiago, Metropolitana de Santiago, 76500 · Vitacura — 2 días publicado | $4.085.928 |
+| 2026-08-21 | 📤 | Costanera Sur San Josemaría Escrivá de Balaguer, Vit · Vitacura — 1 días publicado | $1.184.919 |
+| 2026-08-21 | 📤 | Departamento en arriendo de 2 dorm. en Vitacura · Vitacura — 1 días publicado | $1.879.527 |
+| 2026-08-21 | 📤 | Penthouse en arriendo de 4 dorm. en Vitacura/CAleman · Vitacura — 3 días publicado | $3.677.335 |
+| 2026-08-21 | 📤 | Avenida Américo Vespucio Norte, Vitacura, Provincia  · Vitacura — 1 días publicado | $1.797.808 |
+| 2026-08-21 | 📤 | Costanera Sur San Josemaría Escrivá de Balaguer, Vit · Vitacura — 1 días publicado | $400.000 |
+| 2026-08-21 | 📤 | DÚPLEX PENTHOUSE, Parque Bicentenario, Vitacura &#82 · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | MAGNOLIA PROPERTY VENDE MARAVILLOSO DEPARTAMENTO DE  · Las Condes — 1 días publicado | — |
+| 2026-08-21 | 📤 | Departamento en arriendo de 3 dorm. en Vitacura · Vitacura — 3 días publicado | $3.677.335 |
+| 2026-08-21 | 📤 | MAGNOLIA PROPERTY VENDE LUMINOSO Y MODERNO DEPARTAME · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | COD: 50.922 Local Comercial en Independencia Catorce · Independencia — 3 días publicado | — |
+| 2026-08-21 | 📤 | ARRIENDO 941 "cod: 405.473 CdePA Salvador Gutiérrez  · Quinta Normal — 1 días publicado | $20.429.640 |
+| 2026-08-21 | 📤 | Departamento en arriendo de 5 dorm. en Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | El Arcángel, Vitacura, Provincia de Santiago, Región · Vitacura — 1 días publicado | $3.064.446 |
+| 2026-08-21 | 📤 | ARRIENDO 1780 "Venta de casa en Vitacura.- Casa en v · Vitacura — 1 días publicado | $6.946.078 |
+| 2026-08-21 | 📤 | Espectacular Departamento en Arriendo en Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | Dispone de 3, Vitacura · Vitacura — 1 días publicado | $3.268.742 |
+| 2026-08-21 | 📤 | PENTHOUSE en arriendo en exclusivo sector Vitacura · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | ARRIENDO OFICINA VITACURA · Vitacura — 2 días publicado | — |
+| 2026-08-21 | 📤 | Las Nieves, Vitacura, Provincia de Santiago, Región  · Vitacura — 1 días publicado | $3.064.446 |
+| 2026-08-21 | 📤 | Golf 422, Las Condes · Las Condes — 1 días publicado | $11.195.443 |
+| 2026-08-21 | 📤 | Vía Azul, Vitacura, Provincia de Santiago, Región Me · Lo Barnechea — 1 días publicado | $7.967.560 |
+| 2026-08-21 | 📤 | ARRIENDO 332 "Excelente oportunidad en Lo Barnechea  · Lo Barnechea — 1 días publicado | $9.806.227 |
+| 2026-08-21 | 📤 | Avenida Manquehue Norte 1757, Vitacura, Santiago, Me · Vitacura — 2 días publicado | $4.494.521 |
+| 2026-08-21 | 📤 | ESPECTACULAR Departamento con vista 100% despejada a · Vitacura — 1 días publicado | — |
+| 2026-08-21 | 📤 | ARRIENDO 592 "cod. 410.639 CdePA Metro Toesca ,964 m · Santiago — 1 días publicado | $6.354.844 |
+| 2026-08-21 | 📤 | COD: 48.638 Oficina en Las Condes Cerro el Plomo / P · Las Condes — 1 días publicado | — |
+| 2026-08-21 | 📤 | ARRIENDO 433 "RS* 412.741 Local Comercial a la calle · Viña del Mar — 1 días publicado | $8.989.042 |
+| 2026-08-21 | 📤 | Las Tranqueras, Vitacura, Provincia de Santiago, Reg · Vitacura — 1 días publicado | $4.500.000 |
+| 2026-08-21 | 📤 | Manquehue Nueva Las Condes 331, Las Condes · Las Condes — 1 días publicado | $8.253.575 |
+| 2026-08-21 | 📤 | Departamento en arriendo  en VITACURA · Vitacura — 1 días publicado | $3.600.000 |
+| 2026-08-21 | 📤 | Espoz, Vitacura, Provincia de Santiago, Región Metro · Vitacura — 1 días publicado | $2.451.557 |
+| 2026-08-21 | 📤 | El Coihue, Lo Castillo, Vitacura, Provincia de Santi · Vitacura — 1 días publicado | $1.920.386 |
+| 2026-08-21 | 📤 | ESPECTACULAR Departamento EN SANTA TERESITA DE LOS A · Los Andes — 1 días publicado | — |
+| 2026-08-21 | 📤 | San Damián Interior, Vitacura, Provincia de Santiago · Vitacura — 1 días publicado | $1.250.000 |
+| 2026-08-21 | 📤 | Francisco de Aguirre, Vitacura, Provincia de Santiag · Vitacura — 1 días publicado | $2.737.572 |
+| 2026-08-21 | 📤 | Calle Raimundo Larrain, Lo Barnechea, Santiago, Metr · Lo Barnechea — 3 días publicado | $3.881.632 |
+| 2026-08-21 | 🆕 | COD: 51.272 Departamento en Lo Barnechea San Jose de · Lo Barnechea | $2.043.030 |
+| 2026-08-21 | 🆕 | ARRIENDO 699 "Fuenzalida Propiedades El Golf (Código · Las Condes | $5.924.787 |
+| 2026-08-21 | 🆕 | ARRIENDO 161 "¡Gran oportunidad de inversión! Este a | $8.172.120 |
+| 2026-08-21 | 🆕 | ARRIENDO DEPARTAMENTO 2HAB 2BA VITACURA · Vitacura | $1.797.866 |
+| 2026-08-21 | 🆕 | Amplio y luminoso departamento, con espectaculares v · Vitacura | — |
+| 2026-08-21 | 🆕 | ¡No pierdas la oportunidad de adquirir este espectac · Vitacura | — |
+| 2026-08-21 | 📈 | Lindo y acogedor depto vista despejada vitacura — antes $1.348.356 | $1.348.400 |
+| 2026-08-21 | 📈 | Arriendo departamento vitacura vitacura alonso de co — antes $5.066.551 | $5.066.714 |
+| 2026-08-21 | 📈 | Arriendo departamento vitacura estadio manquehue — antes $2.451.557 | $2.451.636 |
+| 2026-08-21 | 📈 | Arriendo departamento vitacura vitacura alonso de co — antes $4.698.817 | $4.698.969 |
