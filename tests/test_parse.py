@@ -825,3 +825,52 @@ def test_la_antiguedad_laboral_no_es_la_del_edificio():
         "contrato de trabajo o certificado de antigüedad laboral") \
         == (None, None)
     assert P.parse_antiguedad("Antigüedad Indiferente Buscar") == (None, None)
+
+
+def test_mts_a_secas_es_metro_lineal_no_metro_cuadrado():
+    """El widget de servicios cercanos de goplaceit ("Gran Tienda 1008
+    Mts.") entraba como superficie: le ponía "1008 m² totales" a un
+    departamento de 240 y ese número inventado pasaba el filtro duro de
+    >100 m², que es el criterio central del perfil."""
+    assert P.parse_superficies("Gran Tienda 1008 Mts. Farmacia 551 Mts") == {}
+    assert P.parse_superficies("a solo 1.500 mts del Parque Araucano") == {}
+    assert P.parse_superficies("altura libre interior de 2,70 mts.") == {}
+
+
+def test_mts_a_secas_sí_cuenta_cuando_la_cláusula_lo_califica():
+    """Todas las apariciones legítimas del corpus venían rotuladas."""
+    assert P.parse_superficies("Full terraza de 30 mts")["m2_terraza"] == 30
+    assert P.parse_superficies("un terreno de 210 mts")["m2_terreno"] == 210
+
+
+def test_el_metro_cuadrado_con_espacio_sigue_siendo_metro_cuadrado():
+    """yapo y goplaceit escriben "150 m 2" en sus tarjetas. Sin esto, los
+    30 avisos de yapo llegaban sin superficie."""
+    assert P.parse_superficies("$2.250.000 150 m 2 3 1 3")["m2_utiles"] == 150
+    assert P.parse_superficies("964 mts 2 - 800 mts 2")["m2_totales"] == 964
+
+
+def test_la_ficha_tecnica_al_reves_queda_clasificada():
+    """"Metros cuadrados 127 útiles Metros cuadrados 142 totales" es la
+    ficha técnica de goplaceit: la unidad va delante y el calificador
+    detrás del número."""
+    assert P.parse_superficies(
+        "Metros cuadrados 127 útiles Metros cuadrados 142 totales") == {
+            "m2_utiles": 127, "m2_totales": 142}
+
+
+def test_la_total_al_reves_se_rescata_aunque_la_util_ya_este():
+    """La misma ficha repite "127M² útiles" más abajo; la pasada normal se
+    llevaba la útil, daba el trabajo por hecho, y los 142 totales —el dato
+    sobre el que filtra el perfil— se perdían."""
+    sup = P.parse_superficies(
+        "Metros cuadrados 127 útiles Metros cuadrados 142 totales"
+        " ... 4 Habitaciones / 3 Baños / 127M² útiles")
+    assert sup["m2_totales"] == 142
+
+
+def test_el_piso_rotulado_con_dos_puntos():
+    """goplaceit escribe "building Piso : 5"; sin esto el piso se leía de la
+    prosa ("PRIMER PISO:", que es un piso de la casa)."""
+    assert P.parse_piso("building Piso : 5 Publicado el 16-10-2023") == 5
+    assert P.parse_piso("Piso: cerámica") is None

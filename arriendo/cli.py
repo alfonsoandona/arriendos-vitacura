@@ -368,11 +368,21 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             # por un desacuerdo sobre los dormitorios es el peor negocio.
             #
             # Ahora se descarta solo lo que contradice. Y únicamente cuando
-            # la página está CONFIRMADA como la de este aviso (hay
-            # candidatos propios); sin esa confirmación, un desacuerdo
-            # significa que el texto puede ser del widget de similares, y
-            # ahí sí se bota todo.
-            del_texto = _sin_lo_que_contradice(a, del_texto) if propios \
+            # la página está CONFIRMADA como la de este aviso; sin esa
+            # confirmación, un desacuerdo significa que el texto puede ser
+            # del widget de similares, y ahí sí se bota todo.
+            #
+            # La confirmación tiene DOS formas, y por mucho tiempo se aceptó
+            # solo una. Un candidato propio confirma; y el ancla también:
+            # `texto_anclado` significa que el título de ESTE aviso apareció
+            # textual en la página, que es exactamente la pregunta que el
+            # guardia hace. goplaceit lo cobró el 21-08: su ficha no publica
+            # JSON-LD de la propiedad, así que jamás tiene candidato propio
+            # —11 de 11 visitas cayeron acá— y por cualquier desacuerdo de
+            # dormitorios se botaba entera una página que traía el precio,
+            # los m² y el año de construcción.
+            confirmada = bool(propios) or del_texto.extras.get("texto_anclado")
+            del_texto = _sin_lo_que_contradice(a, del_texto) if confirmada \
                 else None
         # Sin candidato propio Y sin ancla, nada garantiza que el texto hable
         # de ESTE aviso — pudo ser puro widget de similares. La lección del

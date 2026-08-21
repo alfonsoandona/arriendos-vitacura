@@ -609,13 +609,32 @@ def parse_garantia(texto: str) -> float | None:
 # Superficies
 # ---------------------------------------------------------------------------
 
+# "mts" a secas NO es m²: es metros lineales. Medido sobre el corpus del
+# 21-08, todas sus apariciones sin el 2 eran una de dos cosas —una medida
+# lineal ("altura libre interior de 2,70 mts", "a solo 1.500 mts del Parque",
+# "Gran Tienda 1008 Mts." del widget de servicios cercanos de goplaceit) o
+# una superficie YA calificada ("terraza de 30 mts", "terreno de 210 mts",
+# "320 mt. útiles")—; ninguna era la superficie del departamento escrita sin
+# rótulo. Por eso la forma sin el 2 va en su propio grupo: solo cuenta si la
+# cláusula la califica.
+#
+# Lo cobró goplaceit el 21-08: su widget de servicios ("Supermercado 620
+# Mts.", "Gran Tienda 1008 Mts.") entraba como superficie y le ponía "1008 m²
+# totales" a un departamento de 240 — un número inventado que además pasaba
+# el filtro duro de >100 m² totales, que es el criterio central del perfil.
 _M2 = re.compile(
-    rf"{_NUM}\s*(?:m2|m²|mt2|mts2|mts\.?|metros?\s*cuadrados?)\b",
+    rf"{_NUM}\s*(?:(?P<cuadrado>m²|mt?s?\s*2|metros?\s*cuadrados?)"
+    rf"|(?P<lineal>mts?\.?))\b",
     re.I,
 )
 
-# La misma medida escrita al revés, como rótulo de columna: "mt2 118".
-_M2_INVERTIDO = re.compile(rf"(?:m2|m²|mt2|mts2)\s*{_NUM}", re.I)
+# La misma medida escrita al revés, como rótulo de columna: "mt2 118", o
+# como ficha técnica: "Metros cuadrados 127 útiles" (goplaceit). Solo la
+# forma inequívoca —con el 2 o escrita completa—, nunca "mts" a secas: al
+# revés, "Paradero 177 Mts" y "177 mts Paradero" son igual de ambiguas y
+# esta pasada no tiene cláusula que la desambigüe.
+_M2_INVERTIDO = re.compile(
+    rf"(?:m²|mt?s?\s*2|metros?\s*cuadrados?)\s*{_NUM}", re.I)
 
 _QUAL_UTIL = ("util", "utiles", "interior", "habitable", "construid")
 _QUAL_TOTAL = ("total", "totales")
@@ -732,17 +751,39 @@ def parse_superficies(texto: str) -> dict[str, float]:
 
             if cual:
                 out.setdefault(cual, v)
-            else:
+            elif not m.group("lineal"):
                 sin_calificar.append(v)
 
-    if not out and not sin_calificar:
-        # Última pasada, con la unidad ADELANTE: las grillas de atributos
-        # rotulan la columna y ponen el número después ("Superficie mt2 118").
-        # Va al final y solo si no se encontró nada, porque leída al revés
-        # esta forma es ambigua.
-        for m in _M2_INVERTIDO.finditer(texto or ""):
+    if "m2_totales" not in out or "m2_utiles" not in out:
+        # Pasada con la unidad ADELANTE: las grillas de atributos
+        # rotulan la columna y ponen el número después ("Superficie mt2 118",
+        # "Metros cuadrados 127 útiles"). Va al final y con `setdefault`,
+        # porque leída al revés esta forma es ambigua: nunca pisa lo que la
+        # pasada normal ya clasificó, solo llena lo que falte.
+        #
+        # Corre aunque la pasada normal haya encontrado algo, y eso es lo que
+        # rescata la total de goplaceit: su ficha escribe "Metros cuadrados
+        # 236 útiles Metros cuadrados 240 totales" arriba y "236M² útiles"
+        # abajo, así que la pasada normal se llevaba la útil, daba el trabajo
+        # por hecho y los 240 totales —el dato sobre el que filtra el
+        # perfil— se perdían.
+        #
+        # El calificador viene DESPUÉS del número —"Metros cuadrados 127
+        # útiles Metros cuadrados 142 totales", que es la ficha técnica de
+        # goplaceit— así que se lee la cola hasta la medida siguiente. Sin
+        # esto, la útil y la total de esa ficha llegaban sin clasificar y la
+        # regla del "una sola sin calificar es la útil" las juntaba mal.
+        invertidas = list(_M2_INVERTIDO.finditer(texto or ""))
+        for i, m in enumerate(invertidas):
             v = parse_numero(m.group(1))
-            if v is not None and _en(v, BANDA_M2):
+            if v is None or not _en(v, BANDA_M2):
+                continue
+            es_ultima = i + 1 >= len(invertidas)
+            hasta = len(texto) if es_ultima else invertidas[i + 1].start()
+            cual = _calificador_pegado(texto[m.end():hasta])
+            if cual:
+                out.setdefault(cual, v)
+            else:
                 sin_calificar.append(v)
 
     _completar_superficies(out, sin_calificar)
@@ -1020,7 +1061,10 @@ def parse_programa(texto: str) -> dict:
 # ---------------------------------------------------------------------------
 
 _PISO = [
-    re.compile(r"\bpiso\s*(?:n[°º]?\s*)?(\d{1,2})\b", re.I),      # "piso 12"
+    # Los dos puntos del rótulo son opcionales y pueden venir separados:
+    # goplaceit escribe "building Piso : 5" en su ficha técnica y sin esto el
+    # piso se leía de la prosa ("PRIMER PISO:", que es un piso de la casa).
+    re.compile(r"\bpiso\s*[:\-]?\s*(?:n[°º]?\s*)?(\d{1,2})\b", re.I),
     re.compile(r"\b(\d{1,2})\s*[°ºa]?\s*piso\b", re.I),           # "12° piso"
 ]
 

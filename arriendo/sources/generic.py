@@ -1551,6 +1551,71 @@ _NO_DEL_TEXTO_DE_FICHA = ("direccion", "comuna", "lat", "lon", "tipo",
                           "amoblado", "mascotas", "disponible_desde",
                           "publicado_el", "corredora")
 
+# Cuánta cabecera se lee hacia atrás desde el título. La ficha técnica que
+# los portales ponen arriba cabe de sobra en esta ventana (la de goplaceit
+# mide ~700 caracteres), y el tope es lo que impide tragarse un carrusel de
+# "vistos recientemente" en una página que lo tenga: lo que se lee es la
+# vecindad inmediata al título, no el sitio entero.
+_CABECERA_MAX = 3_000
+
+# Lo que SÍ se acepta de la cabecera. Son datos técnicos, medibles y
+# verificables; nada de identidad (dirección, comuna) ni de texto libre
+# (el título, la descripción), que es donde una cabecera contaminada haría
+# daño de verdad — fusionar dos departamentos distintos.
+_DE_LA_CABECERA = ("arriendo_clp", "gastos_comunes_clp", "ano_construccion",
+                   "antiguedad_anos", "m2_totales", "m2_utiles", "m2_terraza",
+                   "dormitorios", "banos", "estacionamientos", "bodega",
+                   "piso", "orientacion")
+
+
+def _rellenar_desde_cabecera(a: Arriendo, cabecera: str, url: str,
+                             fuente: FuenteConfig,
+                             valor_uf: float | None) -> None:
+    """Los datos técnicos de la cabecera de la ficha, solo donde falten.
+
+    El ancla del título existe para no creerle al widget de "propiedades
+    similares", que vive al final de la página. Pero cortar DESDE el título
+    también botaba la cabecera, y ahí es justamente donde varios portales
+    publican la ficha técnica. Medido contra la ficha real de goplaceit del
+    21-08: sobre el ancla quedaban 142/127 m², 4D/3B y 2 estacionamientos —y
+    se perdían "46,5 UF", "Precio convertido: $1.817.308 CLP" y "Año de
+    construcción : 2010", los dos campos que más pesan y el criterio sí o sí
+    del usuario. Sus 17 candidatos (24% del total) llegaban sin precio y sin
+    año teniendo ambos escritos en su propia página.
+
+    Solo campos técnicos: la identidad —dirección, comuna, tipo— no se toma
+    de acá nunca, que es donde una cabecera contaminada haría daño de verdad
+    (fusionar dos departamentos distintos). Los montos siguen pasando por
+    `montos_rotulados`, así que el "+11.724.570.000CLP de gastos comunes" que
+    goplaceit renderiza roto se descarta igual que antes.
+
+    Y la cabecera GANA sobre lo que se leyó del cuerpo, porque no son dos
+    lecturas del mismo tipo: la cabecera es la ficha técnica rotulada y el
+    cuerpo es prosa. La segunda ficha real del 21-08 lo muestra entero — su
+    cabecera dice "4 Hab. 5 Baños ... Piso : 5" y su descripción narra
+    "PRIMER PISO: ... 3 dormitorios ... 2 Baños completos", que son los
+    cuartos de un piso y no el departamento. Leyendo la prosa el radar
+    publicaba 3D/2B/piso 1 para un 4D/5B en el piso 5. Con la cabecera
+    ganando, la ficha además queda de acuerdo con lo que el listado ya
+    declaraba (numberOfBedrooms 4), que es la confirmación cruzada.
+
+    El riesgo conocido es una cabecera con carrusel de otras propiedades; por
+    eso la ventana es corta y pegada al título, y por eso la identidad no se
+    toca. Si aparece un portal así, el diagnóstico lo muestra.
+    """
+    if not cabecera or len(cabecera) < 40:
+        return
+    desde = _armar(cabecera, url, fuente, "", valor_uf)
+    rotulados = P.montos_rotulados(cabecera, valor_uf)
+    desde.arriendo_clp = rotulados.get("arriendo_clp")
+    desde.gastos_comunes_clp = rotulados.get("gastos_comunes_clp")
+    for campo in _DE_LA_CABECERA:
+        nuevo = getattr(desde, campo)
+        if nuevo not in (None, "", 0) and nuevo != getattr(a, campo):
+            setattr(a, campo, nuevo)
+            a.extras.setdefault("de_la_cabecera", []).append(campo)
+
+
 
 def candidato_de_texto(html: str, url: str, fuente: FuenteConfig,
                        valor_uf: float | None = None,
@@ -1582,12 +1647,18 @@ def candidato_de_texto(html: str, url: str, fuente: FuenteConfig,
         return None
 
     anclado = False
+    cabecera = ""
     for ancla in (titulo, (direccion or "").split(",")[0]):
         corto = re.sub(r"\s+", " ", ancla or "").strip()[:40]
         if len(corto) < 12:
             continue
         m = re.search(re.escape(corto), texto, re.I)
         if m:
+            # Lo de ANTES del ancla no es basura: es la cabecera de la ficha,
+            # y varios portales ponen ahí justo la ficha técnica. Se guarda
+            # la vecindad inmediata al título —lo más cercano es lo que más
+            # probablemente habla de esta propiedad— y se lee aparte.
+            cabecera = texto[:m.start()][-_CABECERA_MAX:]
             texto = texto[m.start():]
             anclado = True
             break
@@ -1601,6 +1672,7 @@ def candidato_de_texto(html: str, url: str, fuente: FuenteConfig,
     a.arriendo_uf = None
     a.gastos_comunes_clp = rotulados.get("gastos_comunes_clp")
     a.garantia_meses = None
+    _rellenar_desde_cabecera(a, cabecera, url, fuente, valor_uf)
     for campo in _NO_DEL_TEXTO_DE_FICHA:
         vacio = "" if isinstance(getattr(a, campo), str) else None
         setattr(a, campo, vacio)

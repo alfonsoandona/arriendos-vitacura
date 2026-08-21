@@ -117,14 +117,12 @@ fuentes:
     # El 306 es el id de comuna de Vitacura en su ruta canónica.
     urls: ["https://www.goplaceit.com/cl/departamento/arriendo/comuna/306-vitacura"]
     motor: navegador
-    # Sus tarjetas pintan el precio recién cuando entran en pantalla: el HTML
-    # del servidor trae 2 precios para 30 avisos (medido el 21-08), y esos 2
-    # son las tarjetas "destacadas" de arriba. Bajar la página es lo que
-    # obliga a las otras 28 a mostrarse. Sin esto, goplaceit era la mayor
-    # fuente de candidatos sin precio del radar: 15 de 40.
-    acciones:
-      - {tipo: scroll, valor: 6}
-      - {tipo: esperar_ms, valor: 1500}
+    # El scroll se probó y se revirtió: costó 160 segundos (goplaceit pasó de
+    # 121s a 281s, más de la mitad de la corrida entera) y no movió el precio
+    # ni un punto, porque su listado NO tiene tarjetas que pintar — el
+    # documento es puro JSON-LD con nombre, URL, dormitorios y baños, y ahí
+    # el precio no está de ninguna forma. Donde sí está es en la FICHA, que
+    # el radar ya visita: la lee la cabecera de `candidato_de_texto`.
     detalle: {patron: "/propiedad/arriendo/departamento/", max: 10}
     paginacion: {paginas: 3, parametro: page}
     url_confirmada: true
@@ -179,13 +177,15 @@ fuentes:
     # sitio entregaba cero: no existe, y el servidor devolvía su portada.
     # Esta salió de sus propios enlaces, leídos en el HTML del 21-08.
     urls: ["https://comunavitacura.cl/arriendo-departamentos-en-vitacura/"]
-    # Medido el 21-08 sobre su HTML real: CERO precios en el documento
-    # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
-    # porque pinta el listado con JavaScript. Con GET simple nunca iba a
-    # entregar nada; con navegador tiene una oportunidad.
     motor: navegador
     url_confirmada: true
     entrega_variable: true
+    # APAGADA el 21-08, con la ruta buena y el navegador puestos. Su HTML
+    # renderizado son 186 KB de directorio municipal —bomberos, colegios,
+    # peluquerías, gasolineras— con DOS '$' y CERO 'UF' en todo el archivo.
+    # No es un portal de arriendos: es la guía de la comuna. No hay
+    # extractor que saque avisos de donde no hay avisos.
+    activa: false
     notas: >-
       Nicho puro: todo lo que publique es de la comuna que se busca. El
       inventario puede ser chico y variable, por eso entrega_variable.

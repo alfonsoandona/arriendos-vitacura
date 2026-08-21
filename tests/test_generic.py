@@ -1046,3 +1046,72 @@ def test_el_arriendo_en_pesos_del_mismo_portal_sigue_entrando(fuente):
     assert a.operacion == "arriendo"
     assert a.arriendo_clp == 3_085_000
     assert a.arriendo_uf is None
+
+
+# Ficha real de goplaceit (21-08-2026), recortada a lo que importa: la ficha
+# técnica va ARRIBA del título y la descripción es prosa que habla de los
+# pisos de la casa, no del departamento.
+_FICHA_GOPLACEIT = """<html><body>
+  <header>Chile Estados Unidos España Región Metropolitana Vitacura</header>
+  <div>Departamento en Arriendo 46,5 UF Precio convertido: $1.817.308 CLP
+    4 Hab. 3 Baños Metros cuadrados 127 útiles Metros cuadrados 142 totales
+    parking 2 estacionamientos storage Sin información
+    Orientación : Sur-Oriente ic_ascensor Año de construcción : 2010
+    building Piso : 5 Código de propiedad: 11242195</div>
+  <h1>Departamento en Arriendo en Tabancura, Vitacura</h1>
+  <div>Descripción de la propiedad. PRIMER PISO: hall de entrada,
+    3 dormitorios de muy buen tamaño. 2 Baños completos.</div>
+  <div>Servicios: Supermercado 620 Mts. Gran Tienda 1008 Mts.
+    Farmacia 551 Mts. Paradero 177 Mts.</div>
+</body></html>"""
+
+_TITULO_GOPLACEIT = "Departamento en Arriendo en Tabancura, Vitacura"
+
+
+def test_la_cabecera_de_la_ficha_entrega_precio_y_ano(fuente):
+    """El ancla del título botaba la cabecera, y ahí vive la ficha técnica.
+
+    goplaceit publica el precio y el año de construcción ARRIBA del título;
+    cortando desde el título, sus 17 candidatos (24% del total del 21-08)
+    llegaban sin precio y sin año teniéndolos escritos en su propia página.
+    """
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_GOPLACEIT, "https://goplaceit.com/p/1",
+                           fuente, valor_uf=40_860,
+                           titulo=_TITULO_GOPLACEIT)
+    assert c is not None and c.extras["texto_anclado"]
+    assert c.arriendo_clp == 1_817_308
+    assert c.ano_construccion == 2010
+
+
+def test_la_ficha_tecnica_de_la_cabecera_le_gana_a_la_prosa(fuente):
+    """"PRIMER PISO: ... 3 dormitorios ... 2 Baños" son los cuartos de UN
+    piso, no el departamento: la cabecera rotulada dice 4 Hab., 3 Baños y
+    Piso 5, y es la que manda."""
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_GOPLACEIT, "https://goplaceit.com/p/1",
+                           fuente, valor_uf=40_860,
+                           titulo=_TITULO_GOPLACEIT)
+    assert (c.dormitorios, c.banos, c.piso) == (4, 3, 5)
+    assert (c.m2_utiles, c.m2_totales) == (127, 142)
+    assert c.estacionamientos == 2
+
+
+def test_la_cabecera_no_aporta_identidad(fuente):
+    """La cabecera puede estar contaminada por un carrusel; por eso de ella
+    solo se aceptan datos técnicos y jamás la identidad."""
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_GOPLACEIT, "https://goplaceit.com/p/1",
+                           fuente, valor_uf=40_860,
+                           titulo=_TITULO_GOPLACEIT)
+    assert c.direccion == "" and c.comuna == ""
+
+
+def test_las_distancias_del_widget_no_son_superficie(fuente):
+    """"Gran Tienda 1008 Mts." es cuánto hay que caminar, no cuánto mide el
+    departamento — y 1008 m² pasaba el filtro duro de >100 m² totales."""
+    from arriendo.sources.generic import candidato_de_texto
+    c = candidato_de_texto(_FICHA_GOPLACEIT, "https://goplaceit.com/p/1",
+                           fuente, valor_uf=40_860,
+                           titulo=_TITULO_GOPLACEIT)
+    assert c.m2_totales == 142, "los 1008 Mts del supermercado no son m²"
