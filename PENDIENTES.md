@@ -1,155 +1,161 @@
 # Pendientes
 
-**Estado al 20-08-2026.** El radar corre solo 3 veces al día y avisa por
-Telegram. Nada de esta lista lo desbloquea: todo lo que está acá lo mejora.
+**Estado al 21-08-2026, corrida de las 12:33.** El radar corre solo 3 veces
+al día, avisa por Telegram y publica el dashboard. Nada de esta lista lo
+detiene: todo lo que está acá lo mejora.
 
-Se trabaja **conversando en el chat**: tú contestas, yo edito el código y
-pusheo. No necesitas editar archivos salvo que quieras.
+Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 
 ---
 
-## 🟢 Lo que ya está funcionando
+## 📊 Dónde está parado hoy
 
 | | |
 |---|---|
-| Telegram | ✅ avisa 3 veces al día (8:00, 13:00 y 19:00 de Chile) |
-| Dashboard | ✅ https://alfonsoandona.github.io/arriendos-vitacura/ · mapa interactivo, se actualiza solo |
-| Fuentes | ✅ 42 consultadas, ~35 entregando · 1.400 avisos crudos por corrida |
-| Registro | ✅ cada corrida guarda su log completo en `logs/corridas/` |
-| Gestión | ✅ `gestion.yml` listo (falta estrenarlo) |
+| Corrida | 182s · 32/33 fuentes · sin errores |
+| Inventario | 918 avisos crudos → 433 únicos → **49 candidatos** |
+| Unificación | grupo mayor: 4 publicaciones (venía de 53) |
+| Filtro de antigüedad | **funcionando**: 30 avisos con año conocido, **24 descartados por viejos** |
+
+**Cobertura de datos en los 49 candidatos** — la lista de tareas está acá:
+
+| Dato | Cobertura |
+|---|---|
+| m² totales | 60% |
+| dirección | 62% |
+| precio | **41%** ⚠️ |
+| gastos comunes | 41% |
+| en el mapa | 41% |
+| piso | 33% |
+| año de construcción | **12%** ⚠️ |
 
 ---
 
-## 🔴 TU LISTA — 4 cosas, ninguna toma más de 5 minutos
+## 🔴 MI LISTA — en orden de impacto
 
-### Paso 1 · Estrenar la gestión (2 min) — *lo más útil que puedes hacer hoy*
+### 1. TocToc se cae por timeout y se lleva media cosecha ⚠️ *lo más urgente*
 
-Cuando mires un aviso del dashboard o de Telegram, escríbeme acá en el chat
-cualquiera de estas frases. Yo la traduzco a `gestion.yml`:
+**Medido hoy:** toctoc entregó **318 avisos cuando entrega ~650**. Dos de sus
+tres búsquedas murieron con `Timeout 30000ms exceeded`. Es la fuente número
+uno del radar —un tercio de todo el inventario— así que cuando se cae, la
+corrida entera baja de 1.400 avisos crudos a 918.
+
+**Qué haría:** subir el tope de navegación para las fuentes lentas y
+reintentar la página caída en vez de darla por perdida. Es un cambio chico
+con el mayor retorno de toda la lista.
+
+### 2. El precio: solo 41% de los candidatos lo trae
+
+Sin canon no se puede aplicar tu filtro de presupuesto — el criterio central
+del pedido. Es el mismo tipo de agujero que ya cerré en el año, y esas
+auditorías (mitula, nuroa, yapo) encontraron bugs reales **todas las veces**.
+
+**Qué haría:** auditar portal por portal contra el HTML guardado, como con
+nuroa: ver dónde publica cada uno el precio y por qué no se está leyendo.
+
+### 3. Diecinueve candidatos sin link a su propia ficha
+
+De 48 candidatos, **19 no tienen link directo al aviso**. Eso los deja fuera
+del lector de fichas, que es de donde salen el año, los gastos comunes y el
+piso. Es la causa de fondo detrás de los dos puntos anteriores: si no hay
+ficha que abrir, no hay datos que ganar. Nuroa pasó de 0 a 25 links con este
+mismo trabajo.
+
+### 4. Dos portales que responden 403
+
+- **economicos** (El Mercurio): 403 recurrente, con GET y con navegador.
+  Entregaba 20 avisos.
+- **enlaceinmobiliario**: 403.
+
+### 5. Siete fuentes que cargan y extraen cero
+
+`busconido` · `comunavitacura` · `assetplan` · `remax` · `century21` ·
+`zentagroup` · `arriendos_cl`
+
+Tengo el HTML real de todas guardado en la rama `diagnostico-datos`, así que
+se calibran sin volver a visitarlas.
+
+### 6. La libreta de edificios
+
+Que un edificio enseñe su año **una vez** y sirva para todos los avisos
+futuros de esa dirección. Es tu idea del rol/SII por un camino gratis. Con
+el año ya funcionando, esto lo multiplica: los avisos se repiten mucho por
+edificio.
+
+### 7. Limpieza menor
+
+Direcciones con HTML crudo adentro (`"Eventos</p><p><strong>Superficie…"`).
+
+---
+
+## 🙋 TU LISTA
+
+### Decisión 1 · El filtro de antigüedad *(la que más cambia el producto)*
+
+Hoy el filtro de "menos de 30 años" **solo descarta a quien publica el año**
+y resulta viejo — 24 descartados así, funciona bien. Pero al 88% que **no
+publica el año** no lo toca: solo le baja el puntaje.
+
+- **(a)** Dejarlo así — mejor ver un edificio viejo que perderse uno bueno
+- **(b)** Duro: sin año publicado, se descarta
+- **(c)** Intermedio: sin año no suena por Telegram, pero sí sale en el dashboard
+
+### Decisión 2 · El tope de 8 alertas por corrida
+
+Si califican más de 8, los que no caben **no vuelven a sonar** (solo salen en
+el mensaje "👉 Ver la lista completa").
+
+- **(a)** Dejarlo así · **(b)** que el que no cupo reintente mañana ·
+  **(c)** subir el tope a ____
+
+### Paso 1 · Estrenar la gestión (2 min)
+
+Escríbeme una frase con cualquier aviso que mires:
 
 ```
 "descarta el #FX6GA, ya se arrendó"
 "llamé por el #BB6M4, visita el jueves"
-"el #VQ3SD en realidad son 95 m², no 120"
-"el #JUHQH lo vi, no me gustó"
+"el #VQ3SD en realidad son 95 m²"
 ```
 
-El código lo copias tocándolo en la tabla del dashboard.
+Un `descartado` no vuelve a sonar nunca; los contactados salen marcados
+📞📅 en tabla y mapa; y lo que corrijas **pisa** al aviso y lo re-puntúa.
 
-**Qué gana el radar:** un `descartado` no vuelve a sonar NUNCA; los
-contactados salen marcados 📞📅 en tabla y mapa; y los datos que corrijas
-**pisan** lo que dice el aviso y lo re-puntúan.
+### Paso 2 · URLs de corredoras (2 min c/u)
 
-### Paso 2 · URLs de corredoras (2 min cada una)
-
-Entras al sitio → filtras **arriendo + departamento + Vitacura** → me pegas
-la URL de la barra de direcciones. Pega las que quieras, de a una o todas.
+Entras → filtras **arriendo + departamento + Vitacura** → me pegas la URL.
+Como hiciste con nuroa: eso solo ya subió sus m² de 0% a 100%.
 
 ```
 century21.cl           ______________________________________
 zentagroup.com         ______________________________________
 enlaceinmobiliario.cl  ______________________________________
 arriendos.cl           ______________________________________
-clasificados.cl        ______________________________________  (hoy entrega 1)
-rentas.cl              ______________________________________  (hoy entrega 1)
+clasificados.cl        ______________________________________
+rentas.cl              ______________________________________
 busconido.cl           ______________________________________
 ```
 
-Estas ya NO las necesitas pegar: **magnoliaproperty** entrega sola desde su
-raíz, y **colliers** tiene el certificado TLS roto (es problema de ellos).
+**Y si ves cualquier portal que "llegue sin info", mándamelo con el link.**
+Los tres arreglos más grandes del radar salieron de un link tuyo.
 
-**¿Conoces otra corredora del sector?** Las que publican solo en su propio
-sitio son las que más valen — es la razón por la que este radar existe.
-
-### Paso 3 · Cuatro respuestas de perfil (1 min) — copia y contesta
+### Paso 3 · Cuatro respuestas de perfil (1 min)
 
 ```
 Mascotas:           tengo / no aplica
 Amoblado:           sin amoblar / amoblado / da lo mismo
 Estacionamientos:   mínimo ____ , ideal ____
-Pieza de servicio:  ¿cuenta como dormitorio? sí / no      (hoy: NO cuenta)
+Pieza de servicio:  ¿cuenta como dormitorio? sí / no      (hoy: NO)
 ```
 
-Hoy el radar supone: sin preferencia de amoblado, 2+ estacionamientos ideal,
-pieza de servicio no cuenta. Cada respuesta afina el puntaje.
-
-### Paso 4 · Una decisión sobre las alertas
-
-Hoy alertan: **nuevos**, **bajas de precio ≥4%**, **"lleva N días
-publicado"**, **reintentos** y **"se fueron del mercado"**.
-
-Pero si en una corrida califican más de 8, los que no caben **no vuelven a
-sonar** (solo aparecen en el mensaje "👉 Ver la lista completa"). Elige:
-
-- [ ] Déjalo así — el click-through me sirve
-- [ ] Que el que no cupo vuelva a intentar sonar en la corrida siguiente
-- [ ] Sube el tope de 8 a ____ (hoy sobra 1 o 2 por corrida, no 40 como al principio)
-
 ---
 
-## 🔧 MI LISTA — dime "dale" y las tomo, en este orden
-
-### A · Arreglar el criterio "sí o sí" de antigüedad ⚠️ *la más importante*
-
-**El problema, medido hoy:** de 72 candidatos vivos, **solo 5 tienen el año
-de construcción (6%)**. Tu filtro duro de "menos de 30 años" no está
-filtrando casi nada — los avisos sin año no se descartan, solo puntúan más
-bajo. Podrías estar viendo edificios de 1975 arriba en la lista.
-
-**La solución, ya medida:** de los 67 que no lo traen, **55 tienen link
-directo a su ficha**, que es donde el año casi siempre está publicado. Hoy
-el radar solo visita las fichas de los 8 que va a alertar. Si visita las de
-todos los candidatos, el criterio empieza a funcionar de verdad.
-
-**Costo:** ~1 minuto más por corrida (hoy tarda 4, con techo de 18).
-
-### B · Polígono real de Vitacura
-
-Hoy la comuna se decide por el texto del aviso ("Vitacura" escrito en
-alguna parte) con las coordenadas de apoyo. Con el polígono real, las
-coordenadas deciden solas y desaparece toda una clase de errores: avisos de
-Las Condes etiquetados como Vitacura y viceversa.
-
-### C · Fuentes que cargan pero extraen cero
-
-Bajan su página con contenido y el extractor no reconoce nada. Ya tengo sus
-HTML reales guardados en la rama `diagnostico-datos` para calibrarlas sin
-volver a visitarlas:
-
-`assetplan` · `enlaceinmobiliario` · `busconido` · `comunavitacura` ·
-`zentagroup` · `century21` · `propiedades_cl`
-
-### D · Dos fuentes que se cayeron y antes funcionaban
-
-- **economicos** (El Mercurio): empezó a responder **403**; el reintento con
-  navegador tampoco pasa. Entregaba 20 avisos.
-- **doomos**: **timeouts** (3 intentos × 25s = 78 segundos perdidos por
-  corrida). Entregaba 33 avisos.
-
-### E · Apagar las fuentes muertas para no gastar tiempo
-
-`contempora` (78s), `maxrenta` (78s) y `arriendoasegurado` (80s) se comen
-casi 4 minutos de reloj entre las tres y nunca han entregado nada. Apagarlas
-acorta la corrida sin perder un solo aviso.
-
-### F · Subir la cobertura de dirección y m²
-
-Hoy: dirección 75%, m² totales 50%, gastos comunes 30%. Los huecos están
-concentrados en yapo, economicos y doomos, y se cierran leyendo sus fichas
-(mismo mecanismo del punto A).
-
----
-
-## 📁 Dónde queda el rastro de todo
-
-Para cuando encontremos algo raro y haya que corregir:
+## 📁 Dónde queda el rastro
 
 | Archivo | Qué guarda |
 |---|---|
 | `logs/corridas/AAAA-MM-DD-HHMM.log` | el log **completo** de cada corrida, para siempre |
-| `logs/corridas/AAAA-MM-DD-HHMM.md` | el resumen: qué entregó cada fuente |
 | `logs/historial.jsonl` | una línea por corrida desde el día uno |
-| `alertas/historial.md` | qué se avisó y cuándo |
 | `alertas/casos/` | la ficha de cada aviso, aunque el aviso ya no exista |
-| `state/arriendos.json` | cada aviso con su **texto crudo** — la materia prima para reproducir cualquier error |
+| `state/arriendos.json` | cada aviso con su **texto crudo** |
 | rama `diagnostico-datos` | el HTML real de cada portal, para depurar sin visitarlos |
