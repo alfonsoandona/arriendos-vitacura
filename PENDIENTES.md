@@ -85,9 +85,12 @@ arriendo que leer.
 
 ### 3. ~~El paso de tests se toma 6 minutos de cada corrida~~ ✅
 
-Cronometrado y arreglado hoy: 353 segundos de suite con 6 de CPU. La red
-está cortada en los tests, cada intento de bajar una ficha fallaba, y el
-cliente esperaba 2, 4 y 8 segundos antes de reintentar algo condenado.
+Cronometrado y arreglado hoy: **5 min 53 s → 15 s**, medido en el runner.
+353 segundos de suite con 6 de CPU: la red está cortada en los tests, cada
+intento de bajar una ficha fallaba, y el cliente esperaba 2, 4 y 8 segundos
+antes de reintentar algo condenado. De punta a punta, la corrida completa
+—instalar, verificar, barrer, publicar el dashboard— pasó de ~15 minutos a
+~7.
 
 ### 4. Portales que responden pero entregan cero
 
