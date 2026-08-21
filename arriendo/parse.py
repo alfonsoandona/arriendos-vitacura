@@ -843,9 +843,14 @@ _ANO_CONSTRUCCION = re.compile(
     r"\s*[:\-]?\s*(\d\.?\d{3})",
     re.I,
 )
+# El relleno entre el participio y el año se acepta como CADENA de palabras
+# y no como una sola: la alternación de antes probaba "en", se comía el "en"
+# de "construido EN el año 2021" y ahí exigía los dígitos, que venían dos
+# palabras después. Engel & Völkers escribe exactamente así en su ficha
+# —"edificio construido en el año 2021"— y ese año se perdía entero.
 _CONSTRUIDO_EN = re.compile(
     r"(?:construid[oa]|edificad[oa]|entregad[oa]|recepcionad[oa])"
-    r"\s*(?:en|el|el\s*ano|el\s*año)?\s*(\d\.?\d{3})",
+    r"(?:\s+(?:en|el|la|durante|a[ñn]o|de)){0,3}\s*(\d\.?\d{3})",
     re.I,
 )
 # `(?!laboral)` porque los requisitos del contrato piden "certificado de

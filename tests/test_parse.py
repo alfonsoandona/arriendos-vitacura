@@ -874,3 +874,20 @@ def test_el_piso_rotulado_con_dos_puntos():
     prosa ("PRIMER PISO:", que es un piso de la casa)."""
     assert P.parse_piso("building Piso : 5 Publicado el 16-10-2023") == 5
     assert P.parse_piso("Piso: cerámica") is None
+
+
+def test_el_ano_de_construccion_en_prosa_con_relleno():
+    """Engel & Völkers lo escribe en su ficha como "edificio construido en
+    el año 2021". La alternación anterior probaba "en", se comía el "en" y
+    ahí exigía los dígitos, que venían dos palabras después."""
+    assert P.parse_antiguedad("edificio construido en el año 2021")[0] == 2021
+    assert P.parse_antiguedad("entregado en el año 2019")[0] == 2019
+    assert P.parse_antiguedad("recepcionado el año 2012")[0] == 2012
+    assert P.parse_antiguedad("construida durante 2020")[0] == 2020
+
+
+def test_una_fecha_de_entrega_no_es_el_ano_de_construccion():
+    """"entregada en enero 2025" habla de cuándo se desocupa, no de cuándo
+    se construyó; el relleno aceptado es corto a propósito."""
+    assert P.parse_antiguedad("entregada en enero 2025")[0] is None
+    assert P.parse_antiguedad("construido en el mes 3 de 2024")[0] is None
