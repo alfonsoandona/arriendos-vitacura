@@ -93,6 +93,17 @@ class FuenteConfig:
     # entrega cero probablemente solo tiene la URL mal, y son dos problemas
     # con arreglos distintos.
     url_confirmada: bool = False
+    # La URL es una RUTA CANDIDATA: no salió de ver el sitio, pero tampoco es
+    # una adivinanza a ciegas. Se pone cuando la raíz YA se midió y resultó
+    # inútil —busconido devuelve su portada, 212 KB de "Bienvenido al primer
+    # portal de Chile especializado en arriendo"— y la candidata sale del
+    # patrón confirmado de las fichas del propio portal.
+    #
+    # Existe para que el catálogo distinga tres estados y no dos: confirmada,
+    # a la raíz esperando que alguien la mire, y probando una ruta con
+    # fundamento. Sin esto, la regla de "las no confirmadas apuntan a la
+    # raíz" condena a una fuente cuya raíz ya se sabe que no sirve.
+    ruta_candidata: bool = False
     # El orden de la fila de iconos SIN rotular con que la tarjeta cierra.
     # Yapo termina cada tarjeta en "$1.250.000 2 1 2 Compara este anuncio":
     # dormitorios, estacionamientos y baños como números pelados junto a un

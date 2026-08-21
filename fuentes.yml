@@ -158,15 +158,17 @@ fuentes:
     # cualquier fuente de este catálogo. Salió de la auditoría de fuentes
     # del 17-08: no estaba en ninguna lista previa.
     #
-    # A la raíz, siguiendo la regla del catálogo: una ruta inventada da 404,
-    # que en el reporte de calibración se ve igual que un sitio caído. La
-    # candidata —sacada del patrón confirmado de sus fichas,
-    # /departamentos/<comuna>/<id>/<slug>— queda anotada para probarla:
-    # https://www.busconido.cl/departamentos/vitacura
-    urls: ["https://www.busconido.cl/"]
-    # (21-08) Se probó con navegador y no sirvió: la URL apunta a la
-    # PORTADA del sitio, y renderizarla no crea un listado que no está.
-    # Vuelve a GET simple hasta tener la URL del buscador filtrado.
+    # (21-08) Se prueba la ruta candidata. El HTML real de la raíz confirmó
+    # el diagnóstico: 212 KB que dicen "Bienvenido al primer portal de Chile
+    # especializado en arriendo" — es la PORTADA, y renderizarla con
+    # navegador no crea un listado que no está. La candidata sale del patrón
+    # confirmado de sus fichas (/departamentos/<comuna>/<id>/<slug>), así que
+    # /departamentos/vitacura es el listado de la comuna si el patrón manda.
+    #
+    # Si entrega cero otra vez, la corrida lo dirá y se apaga hasta tener la
+    # URL del buscador filtrado (está en la lista del usuario).
+    urls: ["https://www.busconido.cl/departamentos/vitacura"]
+    ruta_candidata: true
     url_confirmada: false
     entrega_variable: true
     notas: >-
@@ -381,6 +383,18 @@ fuentes:
     comuna_default: Vitacura
     urls: ["https://www.assetplan.cl/arriendo/departamento/vitacura"]
     url_confirmada: true
+    # (21-08) La URL es la correcta —su HTML renderizado titula "Departamentos
+    # en Arriendo en Vitacura" y trae los filtros, el "Ordenar por" y el "Ver
+    # mapa"— pero la grilla llega vacía: el listado lo pide un XHR posterior y
+    # `networkidle` nunca se cumple porque su analítica hace polling, así que
+    # la página se lee a los 6 segundos con el cascarón puesto. Los 1.169 "$"
+    # del archivo son plantillas de JavaScript, no precios.
+    #
+    # Cinco segundos más de espera es el experimento. Medible: si sigue en
+    # cero, se apaga y se recupera el tiempo — igual que el scroll de
+    # goplaceit, que se probó y se revirtió el mismo día.
+    acciones:
+      - {tipo: esperar_ms, valor: 5000}
     notas: >-
       Especialista en multifamily. La mayor parte de su inventario son
       departamentos chicos de renta, así que probablemente entregue poco que

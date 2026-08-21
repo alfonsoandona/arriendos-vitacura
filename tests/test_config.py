@@ -481,7 +481,11 @@ def test_las_fuentes_por_calibrar_apuntan_a_la_raiz():
     from urllib.parse import urlparse
 
     for f in fuentes_activas(cargar_fuentes()):
-        if f.url_confirmada:
+        # `ruta_candidata` es el tercer estado: la raíz YA se midió y resultó
+        # ser la portada del sitio, así que insistir en ella es garantizar el
+        # cero. La candidata sale del patrón confirmado de las fichas del
+        # propio portal, y la corrida siguiente dice si sirvió.
+        if f.url_confirmada or f.ruta_candidata:
             continue
         for u in f.urls:
             ruta = urlparse(u).path
@@ -497,3 +501,20 @@ def test_ningun_dominio_se_repite_entre_fuentes():
         host = (urlparse(f.urls[0]).hostname or "").replace("www.", "")
         assert host not in vistos, f"{f.id} repite el dominio de {vistos.get(host)}"
         vistos[host] = f.id
+
+
+def test_la_ruta_candidata_es_un_tercer_estado_y_no_una_excusa():
+    """Una ruta candidata solo se justifica cuando la raíz YA se midió y
+    resultó ser la portada. Si además estuviera "confirmada" el catálogo
+    estaría diciendo dos cosas a la vez, y el reporte de calibración
+    —que separa "está rota" de "tiene la URL mala"— dejaría de servir.
+    """
+    from urllib.parse import urlparse
+
+    for f in cargar_fuentes():
+        if not f.ruta_candidata:
+            continue
+        assert not f.url_confirmada, \
+            f"{f.id}: o la URL está confirmada, o es candidata; no las dos"
+        assert any(urlparse(u).path not in ("", "/") for u in f.urls), \
+            f"{f.id} se declara candidata pero apunta a la raíz"
