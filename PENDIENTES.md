@@ -12,36 +12,37 @@ Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 
 | | |
 |---|---|
-| Corrida | **379s** · 29/29 fuentes · sin errores (venía de 498s) |
-| Inventario | 1.177 avisos crudos → 411 únicos → **41 candidatos** |
-| Fichas | 65 leídas → 6 ganaron el año, 24 se descartaron al verlas |
-| Filtro de antigüedad | **funcionando**: descarta al que publica año y resulta viejo |
+| Corrida | **207s** · 29/29 fuentes · sin errores (venía de 498s) |
+| Inventario | 1.301 avisos crudos → 459 únicos → **35 candidatos** |
+| Fichas | 37 leídas → 3 ganaron el año, 2 descartados por viejos |
+| Alertas | 1 esta corrida · **3 avisos "aparecieron"** (venían 47 de ruido) |
 
-**Cobertura de datos en los candidatos** — la lista de tareas está acá:
+**Cobertura de datos en los candidatos:**
 
-| Dato | Hoy | Ayer |
+| Dato | Ahora | En la mañana |
 |---|---|---|
-| precio | **82%** | 41% |
-| dirección | **80%** | 62% |
-| en el mapa | **78%** | 41% |
-| año de construcción | **9%** ⚠️ | 12% |
+| precio | **91%** | 41% |
+| dirección | 65% | 62% |
+| en el mapa | 62% | 41% |
+| año de construcción | **17%** ⚠️ | 12% |
 
-El año bajó de 12% a 9% y eso es progreso, no retroceso: la lista de
-candidatos se limpió —salieron los que tenían m² inventados por el widget de
-servicios y los que no traían link propio— así que el 9% se mide sobre menos
-avisos y mejores. En números absolutos, las fichas ganaron 6 años esta
-corrida y descartaron 24 avisos al verlos.
+La dirección y el mapa se ven casi iguales que en la mañana, y eso esconde
+dos movimientos en direcciones opuestas: se ganaron direcciones nuevas y se
+BORRARON las que no ubicaban nada ("Vitacura", "Edificio de 18", "Antigüedad:
+30"). Un aviso que antes tenía un pin sobre el centro de la comuna hoy no
+tiene pin — y está mejor así: un punto que no sabemos es peor que ninguno.
 
-Lo que movió esos números hoy: la ficha técnica de goplaceit (vive ARRIBA
-del título y el ancla la botaba entera), "Mts" leído como m² (el widget de
-servicios cercanos ponía "1008 m² totales" a un depto de 240), y 17
-direcciones que no eran direcciones.
+Lo que movió los números: la ficha técnica de goplaceit (vive ARRIBA del
+título y el ancla la botaba entera), "Mts" leído como m² (el widget de
+servicios ponía "1008 m² totales" a un depto de 240), el canon de doomos
+—que se pinta arriba de su tarjeta— y 17 direcciones que no eran
+direcciones.
 
 ---
 
 ## 🔴 MI LISTA — en orden de impacto
 
-### 1. El año de construcción: 9% ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
+### 1. El año de construcción: 17% ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
 
 **Ya no es un problema del lector.** Audité doce fichas reales de las cinco
 fuentes más grandes buscando dónde publica cada una el año:
@@ -62,13 +63,13 @@ El hueco es de los portales, no del extractor. Quedan tres frentes:
   portales dijeron años distintos del mismo edificio y **anuló la entrada en
   vez de elegir**. Todavía no rescata a nadie —a ninguno de los que le falta
   el año le coincide la dirección con uno que lo tenga— y el valor es
-  acumulativo por diseño. **A medir en una semana.**
+  acumulativo por diseño. Ya va en 8 edificios. **A medir en una semana.**
 - **Más fichas.** El presupuesto subió a 100 (la última corrida usó 65) y
   ahora rinde: 6 avisos ganaron el año y 24 se descartaron al verlos.
 - **Las fuentes que sí lo publican y todavía no se auditan:** doomos,
   fuenzalida, icasas, accesoinmobiliario.
 
-### 2. El precio: 82%, y lo que queda es del portal
+### 2. El precio: 91%, y lo que queda es del portal
 
 | Fuente | precio | qué le pasa |
 |---|---|---|
@@ -82,12 +83,11 @@ Auditados contra su HTML real. Lo que queda es nuroa, y ahí el problema es
 que su listado de arriendos trae sobre todo ventas: no hay precio de
 arriendo que leer.
 
-### 3. El paso de tests se toma 6 minutos de cada corrida
+### 3. ~~El paso de tests se toma 6 minutos de cada corrida~~ ✅
 
-Seis minutos por corrida son dieciocho al día de alertas que llegan más
-tarde de lo necesario, y la suite completa corre en 6 segundos acá. Ya quedó
-cronometrado por tramos: la próxima corrida dice en el log cuál de los tres
-se los lleva.
+Cronometrado y arreglado hoy: 353 segundos de suite con 6 de CPU. La red
+está cortada en los tests, cada intento de bajar una ficha fallaba, y el
+cliente esperaba 2, 4 y 8 segundos antes de reintentar algo condenado.
 
 ### 4. Portales que responden pero entregan cero
 
@@ -130,6 +130,11 @@ se calibran sin volver a visitarlos.
   `es_nuevo` ahora usa la URL como red.
 - Un candidato que era la **calculadora de crédito hipotecario** de
   chilepropiedades.
+- **"Vitacura, Metropolitana" como dirección**: el guardia solo ignoraba la
+  comuna QUE EL AVISO TRAÍA, y cuando llega sin comuna esa palabra sobrevivía
+  como nombre de calle. Es la llave que fundió 37 departamentos el 17-08.
+- **El paso de tests del workflow**: 5 min 53 s de cada corrida, esperando
+  reintentos imposibles.
 
 ---
 
