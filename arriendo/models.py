@@ -398,8 +398,20 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
     # las separa es la ALTURA: las numeraciones chilenas de estas comunas
     # tienen tres dígitos o más, así que un "Vitacura 2" suelto no es una
     # dirección y un "Vitacura 5480" sí.
+    # La comuna del aviso, y TODAS las comunas conocidas. Que se ignore solo
+    # la propia deja un agujero por el que ya se coló la peor fusión del
+    # radar: cuando el aviso llega sin comuna —y llegan muchos— "Vitacura,
+    # Región Metropolitana" conservaba la palabra "Vitacura" como si fuera un
+    # nombre de calle, y esa llave junta todo lo que no tiene dirección. El
+    # 17-08 fundió 37 departamentos distintos en un registro; el 20-08, 53.
+    #
+    # Una comuna es una comuna la traiga o no el aviso. Lo que salva a
+    # "Av. Vitacura 5480" es la ALTURA, que se comprueba más abajo.
+    from .parse import COMUNAS_CONOCIDAS
     c = _normalize_key(comuna)
-    ignorables = _NO_SON_CALLE | _CONECTORES | set(c.split())
+    ignorables = (_NO_SON_CALLE | _CONECTORES | set(c.split())
+                  | {p for x in COMUNAS_CONOCIDAS
+                     for p in _normalize_key(x).split()})
     palabras = [p for p in clave.split()
                 if p not in ignorables and not p.isdigit()]
     if not palabras and not re.search(r"(?<!\d)\d{3,}", clave):

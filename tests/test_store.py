@@ -710,3 +710,30 @@ def test_un_aviso_de_verdad_nuevo_sigue_siendo_nuevo(tmp_path):
     otro = Arriendo(source="toctoc", url="https://toctoc.cl/p/10",
                     title="Otro depto", comuna="Vitacura")
     assert store.es_nuevo(otro)
+
+
+@pytest.mark.parametrize("direccion", [
+    "Vitacura, Metropolitana",
+    "Vitacura, Región Metropolitana",
+    "Las Condes, Chile",
+    "Providencia, RM",
+])
+def test_una_comuna_sola_no_es_una_direccion_aunque_el_aviso_no_traiga_comuna(direccion):
+    """Que se ignore solo la comuna PROPIA deja un agujero por el que ya se
+    coló la peor fusión del radar: cuando el aviso llega sin comuna —y
+    llegan muchos— "Vitacura, Región Metropolitana" conservaba "Vitacura"
+    como si fuera nombre de calle, y esa llave junta todo lo que no tiene
+    dirección. El 17-08 fundió 37 departamentos en un registro; el 20-08, 53.
+    """
+    from arriendo.models import clave_direccion
+    assert clave_direccion(direccion, "") == ""
+
+
+@pytest.mark.parametrize("direccion", [
+    "Av. Vitacura 5480", "Espoz 4200",
+    "Camino El Parque 100, Las Condes",
+    "Las Condes Isabel La Católica 4800",
+])
+def test_lo_que_salva_a_una_calle_con_nombre_de_comuna_es_la_altura(direccion):
+    from arriendo.models import clave_direccion
+    assert clave_direccion(direccion, "")
