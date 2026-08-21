@@ -283,7 +283,12 @@ fuentes:
     # Rotula sus precios como CLP y publica UF: "$ 53 CLP" es un 3D de
     # Vitacura a 53 UF, y su propia página dice "a partir de CLF 25".
     moneda_precio: uf
-    paginacion: {paginas: 2, parametro: page}
+    # Cuatro páginas y no dos: medido el 21-08, de cada 25 avisos que nuroa
+    # entrega en su listado de ARRIENDOS solo 3 son arriendos —los otros 22
+    # son ventas que cuela igual, y sus títulos lo confirman ("en Venta",
+    # "VENTA DEPARTAMENTO")—. Con ese rendimiento, dos páginas dejan seis
+    # arriendos sobre la mesa. Cuestan 2 segundos más.
+    paginacion: {paginas: 4, parametro: page}
     url_confirmada: true
     notas: "Metabuscador. Ver la nota del bloque."
 

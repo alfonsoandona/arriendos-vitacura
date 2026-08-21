@@ -380,9 +380,46 @@ def test_techo_alcanzable_separa_malo_de_desconocido(perfil):
 
 
 def test_alerta_incompleto_si_puede_llegar_al_umbral(perfil):
-    """El mercado de arriendo se mueve en días."""
-    l = S.evaluar(depto(antiguedad_anos=None, banos=None), perfil)
+    """El mercado de arriendo se mueve en días.
+
+    Con el año conocido: al que le faltan OTROS datos se le alerta igual,
+    porque esperar un dato cuesta más que revisarlo a mano.
+    """
+    l = S.evaluar(depto(antiguedad_anos=8, banos=None), perfil)
     assert S.debe_alertar(l, perfil) is True
+
+
+def test_sin_ano_publicado_no_suena_pero_no_se_pierde(perfil):
+    """Decisión del usuario (21-08): "que se vaya al dashboard, no se
+    alerta, y que baje puntaje".
+
+    La antigüedad es su criterio SÍ O SÍ y el 88% de los avisos no la
+    publica: alertarlos a todos es prometer un filtro que no se aplicó.
+    """
+    l = S.evaluar(depto(antiguedad_anos=None, ano_construccion=None), perfil)
+    assert not l.descartado, "sigue en el tablero y en el dashboard"
+    assert S.debe_alertar(l, perfil) is False, "pero no interrumpe"
+
+    # Con el año publicado y dentro del máximo, suena igual que siempre.
+    con_ano = S.evaluar(depto(antiguedad_anos=8), perfil)
+    assert S.debe_alertar(con_ano, perfil) is True
+
+
+def test_la_pieza_de_servicio_cuenta_si_el_perfil_lo_dice(perfil):
+    """"Pieza de servicio soy indiferente" (21-08). Siendo indiferente, la
+    lectura que no pierde opciones es contarla: un 2D + servicio vale 3."""
+    import copy
+
+    dos_mas_servicio = depto(dormitorios=2, antiguedad_anos=8)
+    dos_mas_servicio.extras["pieza_servicio"] = True
+    assert not S.evaluar(dos_mas_servicio, perfil).descartado
+
+    # Con la opción apagada vuelve la regla original.
+    estricto = copy.deepcopy(perfil)
+    estricto["requisitos"]["dormitorios"]["contar_pieza_servicio"] = False
+    otro = depto(dormitorios=2, antiguedad_anos=8)
+    otro.extras["pieza_servicio"] = True
+    assert S.evaluar(otro, estricto).descartado
 
 
 def test_no_alerta_lo_descartado(perfil):

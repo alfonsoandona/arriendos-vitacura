@@ -324,12 +324,17 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
     """La primera corrida trae inventario acumulado, no novedades del día.
 
     Sin tope serían cuarenta mensajes seguidos a las ocho de la mañana.
+
+    Los avisos del fixture publican su año a propósito: desde el 21-08 un
+    aviso sin año no interrumpe por Telegram, así que sin ese dato este
+    test mediría el filtro nuevo en vez del tope.
     """
     tarjetas = "".join(
         f"""<article><a href="/aviso/{n}">Departamento en arriendo</a>
         <p>Luis Carrera {1000 + n}, Vitacura</p>
         <p>$1.450.000 + G.C. $180.000</p>
-        <p>134 m² totales · 3 dormitorios · 3 baños</p></article>"""
+        <p>134 m² totales · 3 dormitorios · 3 baños</p>
+        <p>Año de construcción: 2018</p></article>"""
         for n in range(20))
 
     def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
@@ -343,7 +348,7 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
 
     perfil = tmp_path / "perfil.yml"
     original = Path("perfil.yml").read_text(encoding="utf-8")
-    perfil.write_text(original.replace("max_por_corrida: 8",
+    perfil.write_text(original.replace("max_por_corrida: 5",
                                        "max_por_corrida: 3"), encoding="utf-8")
 
     cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(perfil)))

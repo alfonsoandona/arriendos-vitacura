@@ -119,6 +119,12 @@ requisitos:
   # mismo; el parser lee las dos palabras.
   dormitorios:
     min: 3
+    # Decisión del usuario (21-08): "pieza de servicio soy indiferente".
+    # Siendo indiferente, la lectura que NO pierde opciones es contarla: un
+    # "2D + servicio" pasa a valer 3 y entra al tablero. Sigue apareciendo
+    # marcado "+ servicio" en la ficha y en la alerta, así que la
+    # indiferencia es informada y no a ciegas.
+    contar_pieza_servicio: true
 
   # "Sí o sí menos de 30 años" (respuesta del 17-08). Descarta SOLO cuando la
   # edad se conoce: un aviso que no publica el año entra igual, con la línea
@@ -126,6 +132,13 @@ requisitos:
   # importante antes de ir a ver cualquiera.
   antiguedad_anos:
     max: 30
+    # Decisión del usuario (21-08): "que se vaya al dashboard, no se alerta,
+    # y que baje puntaje". El aviso que NO publica el año no se descarta
+    # —sigue en el tablero y en el dashboard, con su puntaje penalizado por
+    # el rubro sin medir— pero no interrumpe por Telegram. Es el punto medio
+    # entre perder un departamento bueno por falta de un dato y llenar el
+    # teléfono de avisos que podrían ser de 1975.
+    alertar_sin_ano: false
 
   # El presupuesto. Son DOS números y hacen cosas distintas:
   #
@@ -363,7 +376,7 @@ alertas:
   # sin tope serían cuarenta mensajes seguidos a las ocho de la mañana.
   # Se mandan las de mayor puntaje; el resto queda en el tablero y alerta en
   # la corrida siguiente.
-  max_por_corrida: 8
+  max_por_corrida: 5
 
   # Por dónde avisar. Telegram y nada más.
   canales: [telegram]

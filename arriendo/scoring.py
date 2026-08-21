@@ -470,10 +470,22 @@ def _descarta_por_requisitos(l: Arriendo, perfil: dict) -> tuple[str, str]:
                     f"{piso:g} m²", "superficie")
 
     # --- dormitorios ---
-    minimo = (req.get("dormitorios") or {}).get("min")
+    cfg_dorm = req.get("dormitorios") or {}
+    minimo = cfg_dorm.get("min")
     if minimo is not None and l.dormitorios is not None:
+        # La pieza de servicio cuenta o no según el perfil. El usuario dijo
+        # "soy indiferente" (21-08), y siendo indiferente la lectura que NO
+        # pierde opciones es contarla: un "2D + servicio" pasa a valer 3 y
+        # entra al tablero, marcado "+ servicio" para que la indiferencia
+        # sea informada. Con la opción apagada se vuelve a la regla
+        # original: tres dormitorios de familia, sin contar los 6 m² detrás
+        # de la cocina.
+        dormitorios = l.dormitorios
+        if cfg_dorm.get("contar_pieza_servicio") \
+                and l.extras.get("pieza_servicio"):
+            dormitorios += 1
         piso = float(minimo) - _tolerancia(perfil, "dormitorios")
-        if l.dormitorios < piso:
+        if dormitorios < piso:
             return (f"{l.dormitorios} dormitorios, bajo el mínimo de {minimo:g}",
                     "dormitorios")
 
@@ -1060,6 +1072,18 @@ def debe_alertar(l: Arriendo, perfil: dict) -> bool:
     if l.descartado:
         return False
     cfg = perfil.get("alertas") or {}
+
+    # Sin el año publicado no interrumpe por Telegram. Decisión del usuario
+    # (21-08): "que se vaya al dashboard, no se alerta, y que baje puntaje".
+    # La antigüedad es su criterio SÍ O SÍ, y el 88% de los avisos no la
+    # publica: alertarlos a todos es prometer un filtro que no se aplicó.
+    # El aviso NO se descarta —sigue en el tablero, en el dashboard y en el
+    # mensaje índice de "ver la lista completa"—, solo no suena.
+    req = (perfil.get("requisitos") or {}).get("antiguedad_anos") or {}
+    if req.get("alertar_sin_ano") is False \
+            and l.antiguedad_anos is None and l.ano_construccion is None:
+        return False
+
     if l.score >= int(cfg.get("score_minimo", 35)):
         return True
     # Red de seguridad: cumple los filtros duros pero le faltan datos para
