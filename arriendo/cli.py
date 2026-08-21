@@ -17,6 +17,7 @@ from .config import (PerfilInvalido, cargar_perfil, dir_alertas,
                      dir_docs, dir_estado, dir_logs)
 from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
+from .edificios import Libreta, aplicar as aplicar_libreta
 from .historial import (a_markdown as historial_markdown,
                         anotar as anotar_historial, eventos_de_corrida,
                         gc_tipico, leer as leer_historial, resumen_mercado,
@@ -666,6 +667,17 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     stats["unicos"] = len(unicos)
     log.info("Después de deduplicar: %d", len(unicos))
 
+    # --- 3b. la libreta de edificios ---
+    #
+    # Va ANTES de evaluar porque el año es el criterio SÍ O SÍ: si llega
+    # después, el filtro duro ya decidió sin él. Ver arriendo/edificios.py.
+    libreta = Libreta(dir_estado())
+    stats["ano_de_libreta"] = aplicar_libreta(unicos, libreta)
+    if stats["ano_de_libreta"]:
+        log.info("Libreta de edificios: %d avisos ganaron el año por su "
+                 "dirección (la libreta sabe de %d edificios)",
+                 stats["ano_de_libreta"], len(libreta.datos))
+
     # --- 4. evaluar ---
     for a in unicos:
         # La tendencia de precio se adjunta ANTES de evaluar: es lo que
@@ -769,6 +781,19 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     # es llegar tarde a la decisión.
     candidatos = _completar_candidatos(candidatos, fuentes, fetcher, uf,
                                        perfil, store, stats)
+
+    # Segunda pasada de la libreta: las fichas que se acaban de leer traen
+    # años nuevos, y ese año es del EDIFICIO — le sirve a los hermanos que
+    # siguen sin él. Los que ganan el año se reevalúan, que es lo que hace
+    # que el filtro duro de antigüedad los alcance.
+    if (nuevos := aplicar_libreta(candidatos, libreta)):
+        log.info("Libreta, segunda pasada: %d más ganaron el año", nuevos)
+        stats["ano_de_libreta"] = stats.get("ano_de_libreta", 0) + nuevos
+        for a in candidatos:
+            if a.extras.get("ano_de_libreta"):
+                S.evaluar(a, perfil)
+        candidatos = [a for a in candidatos if not a.descartado]
+    libreta.guardar()
 
     # --- 6. decidir a quién avisar ---
     a_avisar: list[tuple[Arriendo, str]] = []

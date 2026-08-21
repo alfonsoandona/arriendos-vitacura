@@ -94,17 +94,30 @@ jobs:
         # job— pero la corrida sigue.
         continue-on-error: true
         run: |
-          pip install -r requirements-dev.txt
+          # Cada tramo cronometrado por separado: el paso entero se toma
+          # SEIS MINUTOS en cada corrida (medido en las corridas del 21-08,
+          # 17:51 y 18:28) mientras la suite completa corre en 6 segundos en
+          # el entorno de desarrollo. Seis minutos por corrida son dieciocho
+          # al día de alertas que llegan más tarde de lo necesario, y
+          # adivinar cuál de los tres tramos se los lleva es exactamente lo
+          # que este radar no hace. La próxima corrida lo dice en el log.
+          echo "::group::instalar herramientas de prueba"
+          time pip install -r requirements-dev.txt
+          echo "::endgroup::"
           # El análisis estático SÍ es bloqueante-por-aviso y va primero,
           # porque caza lo que los tests no pueden: la corrida del 20-08
           # murió con un `NameError` en una línea que 596 tests recorrían
           # sin activar —Python evalúa `a or b` de izquierda a derecha y el
           # segundo operando solo se miraba cuando el aviso venía sin
           # comuna—. Leer el código encuentra eso; ejecutarlo no.
-          python -m pyflakes arriendo/ \
+          echo "::group::pyflakes"
+          time python -m pyflakes arriendo/ \
             || echo "::warning::pyflakes encontró algo. Revisar YA: acá viven los NameError."
-          python -m pytest tests/ -q \
+          echo "::endgroup::"
+          echo "::group::pytest"
+          time python -m pytest tests/ -q --durations=5 \
             || echo "::warning::Tests fallando — la corrida sigue igual. Revisar CI."
+          echo "::endgroup::"
 
       - name: Correr el radar
         env:

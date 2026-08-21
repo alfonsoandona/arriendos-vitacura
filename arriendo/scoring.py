@@ -637,6 +637,12 @@ def _rubro_antiguedad(l: Arriendo, perfil: dict) -> Rubro:
     else:
         ano = l.ano_construccion
         detalle = f"{antig:g} años" + (f" (construido en {ano})" if ano else "")
+        if l.extras.get("ano_de_libreta"):
+            # El usuario tiene que poder distinguir "este aviso publica 2010"
+            # de "otro aviso de esta misma dirección publicó 2010". Es un dato
+            # igual de bueno —el año es del edificio— pero de otra mano, y el
+            # tablero no puede hacerlos pasar por lo mismo.
+            detalle += ", según otro aviso de la misma dirección"
     return Rubro("Antigüedad", PESO_ANTIGUEDAD, obtenido, True, detalle)
 
 
