@@ -1174,3 +1174,68 @@ def test_las_horas_de_conserjeria_no_son_la_altura_de_una_calle():
     assert _direccion_desde("contrato 12 meses", "Vitacura") == ""
     assert _direccion_desde("Alonso de Córdova 5900 piso 8", "Vitacura") == \
         "Alonso de Córdova 5900, Vitacura", "el piso no es parte de la calle"
+
+
+# Las direcciones basura reales que el radar tenía guardadas el 21-08, sacadas
+# de auditar las 163 que había en el estado. Todas tienen la misma forma: una
+# frase del aviso con un número al final que pasa por altura, y palabras con
+# mayúscula que pasan por nombre de calle.
+_DIRECCIONES_QUE_NO_LO_SON = [
+    "Edificio de 18 pisos",
+    "GAS CON HORNO DE 4 quemadores",
+    "POCOS DEPARTAMENTOS SOLO 4 unidades",
+    "Consta de 5 ambientes",
+    "DUPLEX CON VISTAS DESPEJADAS 120",
+    "Propiedad Comercial de 2",
+    "Antigüedad: 30",
+    "Útiles. Dormitorios: 3",
+    "M2 Terreno: 220",
+    "Cava. 2",
+    "Quinchos 2",
+    "ID 44348",
+    "Meson... Mapa FOIX REALTY 100",
+    "Bodega. Conserjería 24 horas",
+    "A 10 minutos del metro",
+    "B 1 dormitorio en suite",
+    "A&amp; 43",
+]
+
+# Y las que sí lo son, que es la mitad que importa: perder una dirección buena
+# es peor que dejar pasar una mala, porque la buena identifica el edificio y
+# es la llave con la que se fusionan las publicaciones de un mismo depto.
+_DIRECCIONES_DE_VERDAD = [
+    "Agustín del Castillo 2841", "Alonso de Córdova 2313",
+    "Arcángel 4990", "Armando Jaramillo 1240", "Arquitecto Herbage 6149",
+    "Av. Club de Campo 125", "Avenida Juan XXIII 6650",
+    "Calle El Coigüe 3859", "Calle Nilo Azul 1778", "Espoz 4200",
+    "Francisco Bertrand Vergara 3330", "Kennedy Interior 5420",
+    "Pasaje La Capitanía Interior 290", "Camino El Parque 100",
+    "Avenida Presidente Kennedy 10290", "Vía Aurora 1500",
+]
+
+
+@pytest.mark.parametrize("texto", _DIRECCIONES_QUE_NO_LO_SON)
+def test_una_frase_del_aviso_no_es_una_direccion(texto):
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde(texto, "Vitacura") == "", \
+        "esto se publicó como dirección y se mandó a Google Maps"
+
+
+@pytest.mark.parametrize("calle", _DIRECCIONES_DE_VERDAD)
+def test_las_direcciones_de_verdad_sobreviven_al_filtro(calle):
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde(calle, "Vitacura") == f"{calle}, Vitacura"
+
+
+def test_la_palabra_que_descalifica_no_es_solo_un_borde():
+    """Cortando sin más, "DUPLEX CON VISTAS DESPEJADAS 120" dejaba la
+    dirección "CON VISTAS DESPEJADAS 120": el corte salvaba la basura de la
+    derecha. Una palabra que jamás es calle prueba que la frase describe el
+    departamento, no lo ubica — y se abandona esa altura entera.
+
+    Pero solo esa: la dirección real puede venir más adelante en el texto.
+    """
+    from arriendo.sources.generic import _direccion_desde
+    texto = "Edificio de 18 pisos, ubicado en Candelaria Goyenechea 4400"
+    assert _direccion_desde(texto, "Vitacura") == \
+        "Candelaria Goyenechea 4400, Vitacura"
