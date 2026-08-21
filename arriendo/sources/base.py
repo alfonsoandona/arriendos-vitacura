@@ -121,6 +121,23 @@ class FuenteConfig:
     notas: str = ""
 
 
+def espera_de_reintento(intento: int) -> float:
+    """Cuánto esperar antes de volver a intentar. Crece: 2s, 4s, 8s.
+
+    Está aparte para poder anularla en los tests, y eso no es una comodidad:
+    la suite corre con la red cortada por contrato, así que TODO reintento
+    está condenado desde antes de empezar y su espera no compra nada. Medido
+    en el runner del 21-08: los tests del pipeline tardaban 353 segundos
+    —cinco minutos y medio de cada corrida, tres veces al día— y el proceso
+    usaba 6 segundos de CPU. El resto era esperar reintentos imposibles.
+
+    En el entorno de desarrollo no se notaba porque ahí las conexiones
+    mueren de otra forma; es exactamente el tipo de cosa que solo se ve
+    cronometrando el lugar real.
+    """
+    return 2 ** (intento + 1)
+
+
 class Fetcher:
     """Cliente HTTP con reintentos, límite de velocidad y respeto por robots.txt.
 
@@ -285,7 +302,7 @@ class Fetcher:
                                 url, intento + 1, reintentos, e)
                     self.ultimo_motivo = _explicar(e)
                     if intento < reintentos - 1:
-                        time.sleep(2 ** (intento + 1))
+                        time.sleep(espera_de_reintento(intento))
 
         return None
 

@@ -142,3 +142,20 @@ def test_si_el_rescate_tambien_falla_queda_el_motivo_original(monkeypatch):
     f = FetcherFalso()
     assert registry._bajar(f, fuente, "https://x.cl/") is None
     assert "rechaza clientes" in f.ultimo_motivo
+
+
+def test_la_suite_no_duerme_esperando_reintentos_imposibles():
+    """La espera entre reintentos (2s, 4s, 8s) le da al sitio tiempo de
+    recuperarse, y en producción hay que dejarla en paz. Acá no: la suite
+    corta la red por contrato, así que todo reintento está condenado desde
+    antes de empezar.
+
+    La cuenta de no anularla, medida en el runner del 21-08: 353 segundos
+    de suite con 6 de CPU — cinco minutos y medio de cada corrida, tres
+    veces al día, esperando conexiones que no iban a existir. Este test
+    guarda la fixture que lo arregla, porque el síntoma solo se ve en CI y
+    ahí nadie lo mira hasta que las alertas llegan tarde.
+    """
+    from arriendo.sources import base
+    assert base.espera_de_reintento(0) == 0
+    assert base.espera_de_reintento(5) == 0

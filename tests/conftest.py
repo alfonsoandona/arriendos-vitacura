@@ -48,6 +48,28 @@ def sin_red(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def sin_esperas_de_reintento(monkeypatch):
+    """Anula la espera entre reintentos, que acá no compra nada.
+
+    La red está cortada por contrato (ver `sin_red`), así que TODO reintento
+    está condenado desde antes de empezar y esperar 2, 4 y 8 segundos entre
+    ellos es tiempo regalado. La cuenta es grande: en el runner del 21-08 la
+    suite tardaba 353 segundos —cinco minutos y medio de cada corrida, tres
+    veces al día, o sea alertas que llegan tarde— mientras el proceso usaba
+    6 segundos de CPU. Todo lo demás era dormir.
+
+    En el entorno de desarrollo no se veía, porque ahí las conexiones mueren
+    de otra forma y la suite entera corre en 6 segundos. Se encontró
+    cronometrando el paso dentro del workflow, que es donde pasaba.
+
+    Se anula SOLO la espera de reintento: la pausa de cortesía por host es
+    otra cosa y hay tests que la miden.
+    """
+    from arriendo.sources import base
+    monkeypatch.setattr(base, "espera_de_reintento", lambda intento: 0)
+
+
+@pytest.fixture(autouse=True)
 def sin_geocode(monkeypatch):
     """Salta el segundo de cortesía de Nominatim en los tests.
 
