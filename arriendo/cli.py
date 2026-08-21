@@ -455,10 +455,16 @@ TOPE_GEOCODE_POR_CORRIDA = 25
 # que el filtro duro de antigüedad casi no filtraba: un edificio de 1975 sin
 # año publicado competía de igual a igual con uno de 2020.
 #
-# 45 a ~2s cada una son unos 90 segundos sobre los ~250 de una corrida
-# normal, contra un techo de 18 minutos. Se visitan por orden de puntaje: si
-# el presupuesto se acaba, se acaba en los que menos importan.
-TOPE_FICHAS_POR_CORRIDA = 45
+# Sube a 100 el 21-08, y sube porque ahora RINDE. Con el ancla de la ficha
+# botando la cabecera, 45 fichas devolvían CERO años; arreglado eso, las
+# mismas 45 devolvieron cuatro años, siete descartes y el precio de la mitad
+# de goplaceit. Una ficha cuesta ~3 segundos y la corrida entera bajó a 268s
+# contra un techo de 18 minutos (1.080s): 55 fichas más son ~2,8 minutos y
+# dejan la corrida en ~7,5, todavía con la mitad del techo sin usar.
+#
+# Se visitan por orden de HUECO —primero los que no saben su año— así que si
+# el presupuesto se acaba, se acaba en los que ya traían sus datos.
+TOPE_FICHAS_POR_CORRIDA = 100
 
 # Un resultado a más de esto del ancla no es la propiedad: es una calle
 # homónima en otra ciudad. Peor que no tener coordenadas es tener las de otro

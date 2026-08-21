@@ -123,7 +123,11 @@ fuentes:
     # documento es puro JSON-LD con nombre, URL, dormitorios y baños, y ahí
     # el precio no está de ninguna forma. Donde sí está es en la FICHA, que
     # el radar ya visita: la lee la cabecera de `candidato_de_texto`.
-    detalle: {patron: "/propiedad/arriendo/departamento/", max: 10}
+    # Sube a 25 el 21-08: su ficha resultó ser la más rica del catálogo —canon
+    # en UF y en pesos, m² útiles y totales, estacionamientos, bodega, piso y
+    # el AÑO DE CONSTRUCCIÓN, todo rotulado— y su listado no trae ninguno de
+    # esos datos. Cada ficha que no se visita es un aviso que llega mudo.
+    detalle: {patron: "/propiedad/arriendo/departamento/", max: 25}
     paginacion: {paginas: 3, parametro: page}
     url_confirmada: true
     notas: >-
