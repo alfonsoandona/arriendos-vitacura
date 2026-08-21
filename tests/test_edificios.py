@@ -107,3 +107,29 @@ def test_la_direccion_basura_no_llega_a_la_libreta(libreta):
     la libreta hereda ese guardia entero."""
     aplicar([_aviso(direccion="Vitacura 3, Vitacura", ano=2010)], libreta)
     assert libreta.datos == {}
+
+
+def test_la_libreta_se_limpia_sola_al_abrirla(tmp_path):
+    """Lo que aprendió con un extractor viejo puede tener llaves que hoy no
+    serían direcciones ("id 44348 las condes", "312 metropolitana juan
+    xxiii 6859 301"). Esas entradas ya son inalcanzables —nadie va a volver
+    a producir esa llave— y solo engordan el archivo."""
+    import json
+    (tmp_path / "edificios.json").write_text(json.dumps({
+        "id 44348 las condes": {"ano": 1991},
+        "edificio de 18": {"ano": 2003},
+        "candelaria goyenechea sin altura": {"ano": 2007},
+        "espoz 4200": {"ano": 2010},
+    }), encoding="utf-8")
+
+    libreta = Libreta(tmp_path)
+    assert set(libreta.datos) == {"espoz 4200"}
+    assert libreta.sucia, "el olvido tiene que llegar al archivo"
+
+
+def test_una_direccion_que_hoy_no_es_direccion_no_entra(libreta):
+    """El guardia vive en `clave_direccion`, así que la libreta lo hereda
+    junto con la deduplicación y la memoria del store."""
+    aplicar([_aviso(direccion="Edificio de 18, Vitacura", ano=2010)], libreta)
+    aplicar([_aviso(direccion="ID 44348, Las Condes", ano=1991)], libreta)
+    assert libreta.datos == {}

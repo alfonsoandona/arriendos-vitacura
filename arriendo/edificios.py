@@ -42,7 +42,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from .models import Arriendo, clave_direccion
+from .models import NUNCA_EN_UNA_CALLE, Arriendo, clave_direccion
 
 log = logging.getLogger(__name__)
 
@@ -51,6 +51,14 @@ ARCHIVO = "edificios.json"
 # Antes de esto no hay departamentos en Vitacura, y después de hoy tampoco.
 # Un año fuera de la banda es un error de lectura, no un edificio.
 BANDA_ANO = (1900, date.today().year + 3)
+
+
+def _llave_valida(clave: str) -> bool:
+    """¿Esta llave es la que el extractor de hoy produciría?"""
+    partes = (clave or "").split()
+    if not any(p.isdigit() and len(p) >= 3 for p in partes):
+        return False
+    return not any(p in NUNCA_EN_UNA_CALLE for p in partes)
 
 
 def _clave_de_edificio(a: Arriendo) -> str:
@@ -70,16 +78,30 @@ class Libreta:
 
     def __init__(self, directorio: str | Path):
         self.ruta = Path(directorio) / ARCHIVO
-        self.datos: dict[str, dict[str, Any]] = self._leer()
+        # Antes de leer: `_leer` puede ensuciarla al olvidar entradas viejas.
         self.sucia = False
+        self.datos: dict[str, dict[str, Any]] = self._leer()
 
     def _leer(self) -> dict[str, dict[str, Any]]:
         try:
             with open(self.ruta, encoding="utf-8") as f:
                 datos = json.load(f)
-            return datos if isinstance(datos, dict) else {}
         except (OSError, ValueError):
             return {}
+        if not isinstance(datos, dict):
+            return {}
+        # La libreta se limpia sola al abrirla. Lo que aprendió con un
+        # extractor viejo puede tener llaves que hoy no serían direcciones
+        # —"id 44348 las condes", "312 metropolitana juan xxiii 6859 301"—:
+        # esas entradas ya son inalcanzables, porque nadie va a volver a
+        # producir esa llave, y dejarlas ahí solo engorda el archivo y
+        # confunde al que lo abra. Se van con la misma regla que las rechaza.
+        vivas = {k: v for k, v in datos.items() if _llave_valida(k)}
+        if len(vivas) != len(datos):
+            log.info("Libreta: %d entradas de un extractor viejo se olvidan",
+                     len(datos) - len(vivas))
+            self.sucia = True
+        return vivas
 
     def guardar(self) -> None:
         if not self.sucia:

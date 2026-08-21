@@ -202,9 +202,23 @@ class Store:
 
         recuperados = []
         for campo in _APRENDIDOS:
-            if getattr(l, campo, None) in (None, "") and prev.get(campo) not in (None, ""):
-                setattr(l, campo, prev[campo])
-                recuperados.append(campo)
+            if getattr(l, campo, None) not in (None, ""):
+                continue
+            valor = prev.get(campo)
+            if valor in (None, ""):
+                continue
+            if campo == "direccion" and not clave_direccion(
+                    str(valor), l.comuna or str(prev.get("comuna") or "")):
+                # La memoria no puede deshacer una mejora del extractor. Cada
+                # vez que el radar aprende a NO leer una dirección basura
+                # —"Edificio de 18", "Antigüedad: 30", "Vitacura 3"— el aviso
+                # vuelve a llegar con el campo vacío... y acá se le devolvía
+                # la misma basura que se acababa de dejar de extraer, con la
+                # firma de un dato aprendido. Lo que ya no se acepta al
+                # leerlo tampoco se acepta al recordarlo.
+                continue
+            setattr(l, campo, valor)
+            recuperados.append(campo)
         return recuperados
 
     # -- escritura --------------------------------------------------------

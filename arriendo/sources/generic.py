@@ -35,7 +35,7 @@ from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 
 from .. import parse as P
-from ..models import Arriendo
+from ..models import NUNCA_EN_UNA_CALLE, Arriendo
 from .base import FuenteConfig
 
 log = logging.getLogger(__name__)
@@ -991,45 +991,11 @@ _ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?([1-9]\d{0,4})$", re.I)
 _MAX_PALABRAS_CALLE = 4
 
 
-# Palabras que NINGUNA calle chilena tiene en su nombre. Salieron una por
-# una de auditar las 163 direcciones que el radar tenía guardadas el 21-08:
-# "Edificio de 18", "GAS CON HORNO DE 4", "POCOS DEPARTAMENTOS SOLO 4",
-# "Consta de 5", "DUPLEX CON VISTAS DESPEJADAS 120", "Antigüedad: 30",
-# "Útiles. Dormitorios: 3", "Cava. 2", "Quinchos 2", "Propiedad Comercial de
-# 2", "ID 44348", "Meson... Mapa FOIX REALTY 100". Todas tienen la misma
-# forma: una frase del aviso con un número al final que pasa por altura, y
-# palabras con mayúscula que pasan por nombre de calle.
-#
-# Una sola de estas palabras descalifica la dirección entera, porque no hay
-# tal cosa como una calle "Edificio" ni una calle "Dormitorios". La lista es
-# deliberadamente conservadora: quedan FUERA las que sí aparecen en
-# nomenclatura real —parque (Camino El Parque), costanera, vista en
-# singular, plaza, jardín— aunque también aparezcan en avisos malos. Perder
-# una dirección buena es peor que dejar pasar una mala: la buena identifica
-# el edificio y es la llave con la que se fusionan las publicaciones.
-_NUNCA_EN_UNA_CALLE = frozenset("""
-    edificio edificios departamento departamentos depto deptos duplex dúplex
-    penthouse loft consta cuenta dispone incluye gas horno cocina living
-    comedor terraza terrazas logia quincho quinchos cava bodega bodegas
-    conserjeria conserjería estacionamiento estacionamientos ascensor
-    ascensores piscina gimnasio sauna
-    dormitorio dormitorios pieza piezas habitacion habitación habitaciones
-    bano baño banos baños bedrooms bathrooms
-    antiguedad antigüedad superficie terreno util útil utiles útiles
-    metros mts m2 uf clp arriendo arriendos venta ventas precio canon
-    id cod codigo código rol
-    pocos poco solo sólo únicamente partir pasos apenas quedan
-    amoblado amoblada remodelado remodelada impecable espectacular hermoso
-    hermosa luminoso luminosa exclusivo exclusiva moderno moderna amplio
-    amplia acogedor acogedora
-    mapa realty propiedad propiedades inmobiliaria corredora broker
-    comercial vistas despejado despejada despejados despejadas
-""".split())
 
 
 def _es_nombre_de_calle(token: str) -> bool:
     """¿Esta palabra puede ser parte del nombre de una calle?"""
-    if P.norm(token).strip(".,:;") in _NUNCA_EN_UNA_CALLE:
+    if P.norm(token).strip(".,:;") in NUNCA_EN_UNA_CALLE:
         return False
     if token.lower() in _CONECTORES:
         return True
@@ -1203,7 +1169,7 @@ def _direccion_desde(texto: str, comuna: str) -> str:
             # "CON VISTAS DESPEJADAS 120" y "Propiedad Comercial de 2"
             # dejaba "Comercial de 2". Se abandona esta altura entera y se
             # sigue buscando: la dirección real puede venir más adelante.
-            if P.norm(anterior).strip(".,:;") in _NUNCA_EN_UNA_CALLE:
+            if P.norm(anterior).strip(".,:;") in NUNCA_EN_UNA_CALLE:
                 descalificada = True
                 break
             if not _es_nombre_de_calle(anterior):

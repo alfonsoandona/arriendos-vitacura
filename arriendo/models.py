@@ -404,6 +404,18 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
                 if p not in ignorables and not p.isdigit()]
     if not palabras and not re.search(r"\b\d{3,}\b", clave):
         return ""
+
+    # Y una palabra que jamás es calle descalifica la llave entera, tenga la
+    # altura que tenga: "Edificio de 18" reduce a "edificio de 18" y sobrevive
+    # a la regla de arriba porque "edificio" es una palabra como cualquier
+    # otra. El guardia vive ACÁ y no solo en el extractor porque el extractor
+    # no es el único que escribe direcciones: la memoria del store le devuelve
+    # a cada aviso lo que ya sabía de él, así que sin esto cada mejora del
+    # extractor se deshacía sola en la corrida siguiente — el aviso llegaba
+    # limpio y la memoria le devolvía la misma basura, con la firma de un dato
+    # aprendido.
+    if any(p in NUNCA_EN_UNA_CALLE for p in clave.split()):
+        return ""
     return clave
 
 
@@ -411,6 +423,41 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
 # administrativa (región, provincia, país) y las specs que algunos portales
 # meten en el campo dirección, en castellano y en inglés.
 _CONECTORES = frozenset("de del la las el los y en".split())
+
+# Palabras que NINGUNA calle chilena tiene en su nombre. Salieron una por
+# una de auditar las 163 direcciones que el radar tenía guardadas el 21-08:
+# "Edificio de 18", "GAS CON HORNO DE 4", "POCOS DEPARTAMENTOS SOLO 4",
+# "Consta de 5", "DUPLEX CON VISTAS DESPEJADAS 120", "Antigüedad: 30",
+# "Útiles. Dormitorios: 3", "Cava. 2", "Quinchos 2", "Propiedad Comercial de
+# 2", "ID 44348", "Meson... Mapa FOIX REALTY 100". Todas tienen la misma
+# forma: una frase del aviso con un número al final que pasa por altura, y
+# palabras con mayúscula que pasan por nombre de calle.
+#
+# Una sola de estas palabras descalifica la dirección entera, porque no hay
+# tal cosa como una calle "Edificio" ni una calle "Dormitorios". La lista es
+# deliberadamente conservadora: quedan FUERA las que sí aparecen en
+# nomenclatura real —parque (Camino El Parque), costanera, vista en
+# singular, plaza, jardín— aunque también aparezcan en avisos malos. Perder
+# una dirección buena es peor que dejar pasar una mala: la buena identifica
+# el edificio y es la llave con la que se fusionan las publicaciones.
+NUNCA_EN_UNA_CALLE = frozenset("""
+    edificio edificios departamento departamentos depto deptos duplex dúplex
+    penthouse loft consta cuenta dispone incluye gas horno cocina living
+    comedor terraza terrazas logia quincho quinchos cava bodega bodegas
+    conserjeria conserjería estacionamiento estacionamientos ascensor
+    ascensores piscina gimnasio sauna
+    dormitorio dormitorios pieza piezas habitacion habitación habitaciones
+    bano baño banos baños bedrooms bathrooms
+    antiguedad antigüedad superficie terreno util útil utiles útiles
+    metros mts m2 uf clp arriendo arriendos venta ventas precio canon
+    id cod codigo código rol
+    pocos poco solo sólo únicamente partir pasos apenas quedan
+    amoblado amoblada remodelado remodelada impecable espectacular hermoso
+    hermosa luminoso luminosa exclusivo exclusiva moderno moderna amplio
+    amplia acogedor acogedora
+    mapa realty propiedad propiedades inmobiliaria corredora broker
+    comercial vistas despejado despejada despejados despejadas
+""".split())
 
 _NO_SON_CALLE = frozenset("""
 metropolitana region regiones rm provincia santiago chile chl cl comuna

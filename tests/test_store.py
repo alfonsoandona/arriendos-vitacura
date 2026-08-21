@@ -612,3 +612,44 @@ def test_con_altura_la_direccion_basta():
                  arriendo_clp=1_480_000.0),   # precio distinto, misma unidad
     ]
     assert len(deduplicar(par)) == 1
+
+
+def test_la_memoria_no_deshace_una_mejora_del_extractor(tmp_path):
+    """Cada vez que el radar aprende a NO leer una dirección basura, el
+    aviso vuelve a llegar con el campo vacío — y la memoria se lo devolvía,
+    con la firma de un dato aprendido. Lo que ya no se acepta al leerlo
+    tampoco se acepta al recordarlo.
+    """
+    from arriendo.store import Store
+
+    store = Store(tmp_path)
+    viejo = Arriendo(source="toctoc", url="https://toctoc.cl/p/1",
+                     title="Depto", comuna="Vitacura")
+    viejo.direccion = "Edificio de 18, Vitacura"
+    viejo.dormitorios = 3
+    store.registrar(viejo)
+    store.guardar()
+
+    # El mismo aviso, ya leído con el extractor arreglado: sin dirección.
+    nuevo = Arriendo(source="toctoc", url="https://toctoc.cl/p/1",
+                     title="Depto", comuna="Vitacura")
+    recuperados = store.completar(nuevo)
+    assert nuevo.direccion == "", "la basura volvió por la puerta de atrás"
+    assert "direccion" not in recuperados
+    assert nuevo.dormitorios == 3, "lo bueno se sigue heredando"
+
+
+def test_una_direccion_buena_sí_se_recuerda(tmp_path):
+    from arriendo.store import Store
+
+    store = Store(tmp_path)
+    viejo = Arriendo(source="toctoc", url="https://toctoc.cl/p/2",
+                     title="Depto", comuna="Vitacura")
+    viejo.direccion = "Candelaria Goyenechea 4400, Vitacura"
+    store.registrar(viejo)
+    store.guardar()
+
+    nuevo = Arriendo(source="toctoc", url="https://toctoc.cl/p/2",
+                     title="Depto", comuna="Vitacura")
+    store.completar(nuevo)
+    assert nuevo.direccion == "Candelaria Goyenechea 4400, Vitacura"
