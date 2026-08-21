@@ -275,7 +275,14 @@ fuentes:
   - id: nuroa
     nombre: Nuroa
     comuna_default: Vitacura
-    urls: ["https://www.nuroa.cl/arriendos/departamento-santiago-vitacura"]
+    # La URL del usuario (20-08), con sus filtros: 3+ dormitorios, 100+ m²,
+    # 2+ baños y el recuadro del mapa sobre Vitacura. Filtrar en el portal
+    # es siempre mejor que filtrar después: llega menos ruido y las páginas
+    # rinden más.
+    urls: ["https://www.nuroa.cl/arriendos/vitacura-departamento?min_rooms=3&min_m2=100&min_bathrooms=2"]
+    # Rotula sus precios como CLP y publica UF: "$ 53 CLP" es un 3D de
+    # Vitacura a 53 UF, y su propia página dice "a partir de CLF 25".
+    moneda_precio: uf
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
     notas: "Metabuscador. Ver la nota del bloque."

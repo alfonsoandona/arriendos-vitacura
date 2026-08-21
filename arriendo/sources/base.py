@@ -101,6 +101,12 @@ class FuenteConfig:
     # PORTAL contra tarjetas cuyo texto confirma el orden — adivinarlo es
     # inventar dormitorios, que es el campo que más pesa.
     fila_iconos: str = ""
+    # La moneda en que el portal publica sus precios cuando NO se le puede
+    # creer la etiqueta. Nuroa es el caso medido (20-08): su microdata dice
+    # `priceCurrency="CLP"` y muestra "$ 53 CLP" para un 3 dormitorios de
+    # Vitacura — que son 53 UF. La propia página lo delata en su
+    # descripción: "a partir de CLF 25". Vacío = creerle a la etiqueta.
+    moneda_precio: str = ""
     notas: str = ""
 
 

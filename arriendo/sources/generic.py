@@ -172,7 +172,16 @@ def _num(v: Any) -> float | None:
     if isinstance(v, (int, float)):
         return float(v)
     if isinstance(v, str):
-        return P.parse_numero(v.strip()) or None
+        # OJO con el SIGNO. `parse_numero` está hecho para montos, que nunca
+        # son negativos, así que se comía el menos — y las coordenadas
+        # chilenas SIEMPRE son negativas. Nuroa publica
+        # "latitude": "-33.396466108615016" en su JSON-LD y sus 25 avisos
+        # llegaban sin ubicación con las coordenadas exactas ahí escritas.
+        texto = v.strip()
+        n = P.parse_numero(texto.lstrip("-+"))
+        if n is None:
+            return None
+        return -n if texto.startswith("-") else n
     if isinstance(v, dict):  # QuantitativeValue
         return _num(v.get("value"))
     if isinstance(v, list):
@@ -1294,6 +1303,8 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
                 _completar_con_tarjetas(resultado, soup, base_url, fuente,
                                         valor_uf)
                 _completar_con_serp(resultado, soup, base_url, valor_uf)
+                _completar_con_microdata(resultado, soup, base_url, fuente,
+                                         valor_uf)
                 _completar_con_enlace(resultado, soup, base_url, valor_uf)
             return resultado
 
@@ -1330,6 +1341,69 @@ def coords_de_mapa(html: str) -> tuple[float, float] | None:
             if -56 <= lat <= -17 and -76 <= lon <= -66:
                 return lat, lon
     return None
+
+
+def _completar_con_microdata(avisos: list[Arriendo], soup: BeautifulSoup,
+                             base_url: str, fuente: FuenteConfig,
+                             valor_uf: float | None) -> None:
+    """Precio y link directo desde las tarjetas microdata de schema.org.
+
+    Nuroa es el caso que lo pidió (20-08): su JSON-LD trae dormitorios,
+    baños y coordenadas pero NI el precio NI la URL, así que llegaban 2 de
+    25 avisos con canon y los 25 sin link propio. Y las dos cosas están
+    declaradas en el HTML como microdata —un bloque `Product` por aviso,
+    con su `<a>` y su `itemprop="price"`—, que es un dato del sitio y no
+    una heurística sobre texto.
+
+    Se alinea por orden y solo si hay exactamente un bloque por aviso: el
+    mismo trato que las otras vías.
+
+    OJO con la moneda: nuroa rotula `priceCurrency="CLP"` y publica UF —
+    "$ 53 CLP" para un 3 dormitorios de Vitacura son 53 UF, y su propia
+    página lo delata diciendo "a partir de CLF 25". Cuando la fuente
+    declara `moneda_precio: uf` se le cree a la fuente y no a la etiqueta.
+    """
+    # Un bloque por aviso. Se prueban los tipos de fuera hacia adentro
+    # —`Product` envuelve a `Offer`— y se toma el primero que dé
+    # exactamente un bloque por aviso: contar los dos a la vez da el doble
+    # y desalinea todo.
+    bloques: list = []
+    for tipo in ("Product", "Residence", "Apartment", "Offer"):
+        cand = [b for b in soup.find_all(
+            attrs={"itemtype": lambda v, t=tipo: bool(v)
+                   and v.rstrip("/").endswith(t)})
+            if b.find(attrs={"itemprop": "price"}) is not None]
+        if len(cand) == len(avisos):
+            bloques = cand
+            break
+    if not bloques:
+        return
+
+    en_uf = (fuente.moneda_precio or "").lower() in ("uf", "clf")
+    for a, bloque in zip(avisos, bloques):
+        if a.extras.get("sin_link_directo"):
+            enlace = bloque.find("a", href=True)
+            if enlace and not _HREF_IGNORAR.search(enlace["href"]):
+                url = urljoin(base_url, enlace["href"])
+                if _clave_url(url) != _clave_url(base_url):
+                    a.url = url
+                    a.extras.pop("sin_link_directo", None)
+
+        if a.arriendo_clp is not None or a.arriendo_uf is not None:
+            continue
+        el = bloque.find(attrs={"itemprop": "price"})
+        valor = _num(str(el.get("content") or el.get_text(" ")).strip())
+        if not valor:
+            continue
+        if en_uf:
+            # La banda de un arriendo en UF: bajo 5 es un error de lectura,
+            # sobre 500 es un precio de VENTA publicado en la misma grilla.
+            if 5 <= valor <= 500:
+                a.arriendo_uf = float(valor)
+                if valor_uf:
+                    a.arriendo_clp = round(valor * valor_uf)
+        elif P.BANDA_ARRIENDO[0] <= valor <= P.BANDA_ARRIENDO[1]:
+            a.arriendo_clp = float(valor)
 
 
 def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,

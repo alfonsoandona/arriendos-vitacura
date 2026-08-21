@@ -953,3 +953,70 @@ def test_un_aviso_sin_comuna_no_revienta(fuente):
     avisos = extraer(doc, "https://ejemplo.cl/arriendo", fuente)
     assert len(avisos) == 1
     assert "Calle Larga" in (avisos[0].direccion or "")
+
+
+# Nuroa (20-08): su JSON-LD trae dormitorios, baños y coordenadas pero NI
+# precio NI URL, y las dos cosas están declaradas como microdata en cada
+# tarjeta. Además rotula "CLP" y publica UF.
+
+def _pagina_microdata(moneda_etiqueta="CLP"):
+    import json as _json
+    nodos = [{"@type": "House", "numberOfBedrooms": "3",
+              "numberOfBathroomsTotal": "3",
+              "description": "Depto en Vitacura 140 m2",
+              "geo": {"@type": "GeoCoordinates",
+                      "latitude": "-33.396466108615016",
+                      "longitude": "-70.59124359122981"}},
+             {"@type": "House", "numberOfBedrooms": "4",
+              "numberOfBathroomsTotal": "2",
+              "description": "Otro depto en Vitacura 150 m2",
+              "geo": {"@type": "GeoCoordinates",
+                      "latitude": "-33.3901", "longitude": "-70.5802"}}]
+    pagina = {"@type": "SearchResultsPage", "about": nodos}
+    tarjetas = "".join(
+        f'<div itemscope itemtype="https://schema.org/Product">'
+        f'<a href="/adform/{cod}">Depto</a>'
+        f'<div itemscope itemtype="https://schema.org/Offer">'
+        f'<span itemprop="priceCurrency" content="{moneda_etiqueta}">$</span>'
+        f'<span itemprop="price" content="{p}">{p}</span></div></div>'
+        for cod, p in (("10342-912-aaaa", 53), ("10342-912-bbbb", 47)))
+    return (f'<html><body><script type="application/ld+json">'
+            f'{_json.dumps(pagina, ensure_ascii=False)}</script>'
+            f"{tarjetas}</body></html>")
+
+
+def test_las_coordenadas_negativas_del_jsonld_se_leen():
+    """`parse_numero` está hecho para montos, que nunca son negativos, y se
+    comía el menos — y las latitudes chilenas SIEMPRE son negativas. Los 25
+    avisos de nuroa llegaban sin ubicar con las coordenadas ahí escritas."""
+    from arriendo.sources.generic import _num
+
+    assert _num("-33.396466108615016") == pytest.approx(-33.396466, abs=1e-5)
+    assert _num("-70.59124359122981") == pytest.approx(-70.591243, abs=1e-5)
+    assert _num("1.550.000") == 1_550_000
+    assert _num("140") == 140
+
+
+def test_el_microdata_da_precio_y_link_directo(fuente):
+    fuente.moneda_precio = "uf"
+    avisos = extraer(_pagina_microdata(), "https://www.nuroa.cl/arriendos/x",
+                     fuente, valor_uf=40_800.0)
+    assert len(avisos) == 2
+    a = avisos[0]
+    assert a.arriendo_uf == 53, "rotula CLP y publica UF"
+    assert a.arriendo_clp == round(53 * 40_800)
+    assert a.url.endswith("/adform/10342-912-aaaa"), "el link directo al aviso"
+    assert "sin_link_directo" not in a.extras
+    assert a.lat == pytest.approx(-33.396466, abs=1e-5)
+
+
+def test_un_precio_de_venta_no_se_toma_como_arriendo(fuente):
+    """Nuroa mezcla ventas en la misma grilla: UF 18.500 es un precio de
+    venta y no puede entrar como canon."""
+    fuente.moneda_precio = "uf"
+    doc = _pagina_microdata().replace('content="53">53', 'content="18500">18500')
+    avisos = extraer(doc, "https://www.nuroa.cl/arriendos/x", fuente,
+                     valor_uf=40_800.0)
+    assert avisos[0].arriendo_uf is None and avisos[0].arriendo_clp is None
+    assert avisos[0].url.endswith("/adform/10342-912-aaaa"), \
+        "pero el link sí se aprovecha"
