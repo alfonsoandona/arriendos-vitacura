@@ -162,11 +162,9 @@ fuentes:
     # /departamentos/<comuna>/<id>/<slug>— queda anotada para probarla:
     # https://www.busconido.cl/departamentos/vitacura
     urls: ["https://www.busconido.cl/"]
-    # Medido el 21-08 sobre su HTML real: CERO precios en el documento
-    # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
-    # porque pinta el listado con JavaScript. Con GET simple nunca iba a
-    # entregar nada; con navegador tiene una oportunidad.
-    motor: navegador
+    # (21-08) Se probó con navegador y no sirvió: la URL apunta a la
+    # PORTADA del sitio, y renderizarla no crea un listado que no está.
+    # Vuelve a GET simple hasta tener la URL del buscador filtrado.
     url_confirmada: false
     entrega_variable: true
     notas: >-
@@ -177,10 +175,10 @@ fuentes:
   - id: comunavitacura
     nombre: ComunaVitacura.cl
     comuna_default: Vitacura
-    # Un sitio dedicado exclusivamente a propiedades de la comuna, con la
-    # sección de arriendo de departamentos como ruta propia. URL confirmada
-    # por búsqueda (17-08).
-    urls: ["https://comunavitacura.cl/arriendo-departamentos/"]
+    # La ruta ANTERIOR —/arriendo-departamentos/— estaba mal y por eso el
+    # sitio entregaba cero: no existe, y el servidor devolvía su portada.
+    # Esta salió de sus propios enlaces, leídos en el HTML del 21-08.
+    urls: ["https://comunavitacura.cl/arriendo-departamentos-en-vitacura/"]
     # Medido el 21-08 sobre su HTML real: CERO precios en el documento
     # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
     # porque pinta el listado con JavaScript. Con GET simple nunca iba a
@@ -404,11 +402,9 @@ fuentes:
   - id: century21
     nombre: Century 21 Chile
     urls: ["https://www.century21.cl/"]
-    # Medido el 21-08 sobre su HTML real: CERO precios en el documento
-    # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
-    # porque pinta el listado con JavaScript. Con GET simple nunca iba a
-    # entregar nada; con navegador tiene una oportunidad.
-    motor: navegador
+    # (21-08) Se probó con navegador y no sirvió: la URL apunta a la
+    # PORTADA del sitio, y renderizarla no crea un listado que no está.
+    # Vuelve a GET simple hasta tener la URL del buscador filtrado.
     url_confirmada: false
     notas: >-
       Sus fichas individuales están indexadas
@@ -545,13 +541,9 @@ fuentes:
       oficinas e industrial, pero tiene área residencial en el sector oriente.
 
   - id: zentagroup
+    activa: false
     nombre: Zenta Group
     urls: ["https://www.zentagroup.com/"]
-    # Medido el 21-08 sobre su HTML real: CERO precios en el documento
-    # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
-    # porque pinta el listado con JavaScript. Con GET simple nunca iba a
-    # entregar nada; con navegador tiene una oportunidad.
-    motor: navegador
     url_confirmada: false
     notas: "Corredora chilena con presencia en el sector oriente."
 
@@ -592,11 +584,9 @@ fuentes:
   - id: arriendos_cl
     nombre: Arriendos.cl
     urls: ["https://www.arriendos.cl/"]
-    # Medido el 21-08 sobre su HTML real: CERO precios en el documento
-    # que entrega el servidor —ni un '$' ni una 'UF' en todo el archivo—
-    # porque pinta el listado con JavaScript. Con GET simple nunca iba a
-    # entregar nada; con navegador tiene una oportunidad.
-    motor: navegador
+    # (21-08) Se probó con navegador y no sirvió: la URL apunta a la
+    # PORTADA del sitio, y renderizarla no crea un listado que no está.
+    # Vuelve a GET simple hasta tener la URL del buscador filtrado.
     url_confirmada: false
     notas: "Portal dedicado exclusivamente a arriendo."
 
