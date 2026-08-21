@@ -1396,12 +1396,32 @@ def _completar_con_microdata(avisos: list[Arriendo], soup: BeautifulSoup,
         if not valor:
             continue
         if en_uf:
-            # La banda de un arriendo en UF: bajo 5 es un error de lectura,
-            # sobre 500 es un precio de VENTA publicado en la misma grilla.
+            # `moneda_precio: uf` no significa "todo viene en UF": significa
+            # que a la ETIQUETA no se le puede creer y hay que mirar la
+            # magnitud. Nuroa rotula todo "CLP" y en la misma grilla publica
+            # "$ 3.085.000" (un arriendo en pesos), "$ 110" (un arriendo de
+            # 110 UF) y "$ 18.500" (una VENTA de 18.500 UF). Los tres órdenes
+            # de magnitud no se pisan, así que el número se delata solo:
+            #
+            #      5 – 500        arriendo en UF
+            #    250k – 20M       arriendo en pesos
+            #    lo de en medio   venta en UF, o el $/m² de la tarjeta
             if 5 <= valor <= 500:
                 a.arriendo_uf = float(valor)
                 if valor_uf:
                     a.arriendo_clp = round(valor * valor_uf)
+            elif P.BANDA_ARRIENDO[0] <= valor <= P.BANDA_ARRIENDO[1]:
+                a.arriendo_clp = float(valor)
+            elif 500 < valor < P.BANDA_ARRIENDO[0]:
+                # Ni arriendo en UF ni arriendo en pesos: es una VENTA
+                # publicada en UF, y el precio lo dice mejor que el título.
+                # Nuroa cuela ventas en su listado de arriendos —"UF 18.500"
+                # para un departamento de 190 m²— y varias no dicen "venta"
+                # en ninguna parte del texto, así que el detector de
+                # operación las dejaba pasar como arriendos sin precio.
+                # Marcarlas acá las saca en el filtro, donde corresponde.
+                a.operacion = "venta"
+                a.extras["operacion_por_precio"] = f"UF {valor:g}"
         elif P.BANDA_ARRIENDO[0] <= valor <= P.BANDA_ARRIENDO[1]:
             a.arriendo_clp = float(valor)
 

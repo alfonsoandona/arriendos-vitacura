@@ -1020,3 +1020,29 @@ def test_un_precio_de_venta_no_se_toma_como_arriendo(fuente):
     assert avisos[0].arriendo_uf is None and avisos[0].arriendo_clp is None
     assert avisos[0].url.endswith("/adform/10342-912-aaaa"), \
         "pero el link sí se aprovecha"
+
+
+def test_una_venta_en_uf_se_delata_por_su_precio(fuente):
+    """Nuroa cuela ventas en su listado de arriendos y varias no dicen
+    "venta" en ninguna parte del texto: llegaban como arriendos sin precio.
+    UF 18.500 por un departamento no es un canon — es el precio de venta, y
+    el número lo dice mejor que el título."""
+    fuente.moneda_precio = "uf"
+    doc = _pagina_microdata().replace('content="53">53', 'content="18500">18500')
+    a = extraer(doc, "https://www.nuroa.cl/arriendos/x", fuente,
+                valor_uf=40_800.0)[0]
+    assert a.operacion == "venta"
+    assert a.extras["operacion_por_precio"] == "UF 18500"
+
+
+def test_el_arriendo_en_pesos_del_mismo_portal_sigue_entrando(fuente):
+    """El mismo listado publica "$ 3.085.000" (pesos) y "$ 110" (110 UF),
+    los dos rotulados CLP. Los tres órdenes de magnitud no se pisan."""
+    fuente.moneda_precio = "uf"
+    doc = _pagina_microdata().replace('content="53">53',
+                                      'content="3085000">3085000')
+    a = extraer(doc, "https://www.nuroa.cl/arriendos/x", fuente,
+                valor_uf=40_800.0)[0]
+    assert a.operacion == "arriendo"
+    assert a.arriendo_clp == 3_085_000
+    assert a.arriendo_uf is None
