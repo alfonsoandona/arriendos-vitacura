@@ -1,6 +1,6 @@
 # Pendientes
 
-**Estado al 21-08-2026, corrida de las 18:35.** El radar corre solo 3 veces
+**Estado al 21-08-2026, corrida de las 19:30.** El radar corre solo 3 veces
 al día, avisa por Telegram y publica el dashboard. Nada de esta lista lo
 detiene: todo lo que está acá lo mejora.
 
@@ -12,19 +12,25 @@ Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 
 | | |
 |---|---|
-| Corrida | **268s** · 31/31 fuentes · sin errores (venía de 498s) |
-| Inventario | 1.497 avisos crudos → 521 únicos → **56 candidatos** |
-| Fichas | 45 leídas → 4 ganaron el año, 7 se descartaron al verlas |
+| Corrida | **379s** · 29/29 fuentes · sin errores (venía de 498s) |
+| Inventario | 1.177 avisos crudos → 411 únicos → **41 candidatos** |
+| Fichas | 65 leídas → 6 ganaron el año, 24 se descartaron al verlas |
 | Filtro de antigüedad | **funcionando**: descarta al que publica año y resulta viejo |
 
 **Cobertura de datos en los candidatos** — la lista de tareas está acá:
 
 | Dato | Hoy | Ayer |
 |---|---|---|
-| dirección | **85%** | 62% |
-| en el mapa | **80%** | 41% |
-| precio | **62%** | 41% |
-| año de construcción | **14%** ⚠️ | 12% |
+| precio | **82%** | 41% |
+| dirección | **80%** | 62% |
+| en el mapa | **78%** | 41% |
+| año de construcción | **9%** ⚠️ | 12% |
+
+El año bajó de 12% a 9% y eso es progreso, no retroceso: la lista de
+candidatos se limpió —salieron los que tenían m² inventados por el widget de
+servicios y los que no traían link propio— así que el 9% se mide sobre menos
+avisos y mejores. En números absolutos, las fichas ganaron 6 años esta
+corrida y descartaron 24 avisos al verlos.
 
 Lo que movió esos números hoy: la ficha técnica de goplaceit (vive ARRIBA
 del título y el ancla la botaba entera), "Mts" leído como m² (el widget de
@@ -35,35 +41,46 @@ direcciones que no eran direcciones.
 
 ## 🔴 MI LISTA — en orden de impacto
 
-### 1. El año de construcción: 14% ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
+### 1. El año de construcción: 9% ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
 
-Sin el año no se puede ni aceptar ni descartar, que es la peor posición
-posible. Tres frentes abiertos, en orden de rendimiento:
+**Ya no es un problema del lector.** Audité doce fichas reales de las cinco
+fuentes más grandes buscando dónde publica cada una el año:
 
-- **La libreta de edificios ya está andando** (`arriendo/edificios.py`): lo
-  que un aviso enseña sobre una dirección le sirve a todos los avisos de esa
-  dirección, hoy y siempre. Hoy conoce 6 edificios y todavía no rescata a
-  nadie —a ninguno de los que le falta el año le coincide la dirección con
-  uno que lo tenga— pero el valor es acumulativo por diseño: cada corrida la
-  deja más gorda. **A medir en una semana.**
-- **Auditar dónde publica el año cada portal**, como se hizo con goplaceit.
-  toctoc lo trae en el 10% y mitula en el 16%; los demás en cero. Ese cero
-  casi nunca es del portal: es del extractor.
-- **El presupuesto de fichas subió a 100** (venía de 45) porque ahora rinde.
-  Falta medir cuánto devuelve.
+| Fuente | Fichas con año | Estado |
+|---|---|---|
+| toctoc | 2 de 3, rotulado | se lee bien |
+| mitula | 1 de 3, rotulado | se lee bien |
+| engelvoelkers | 1 de 3, en prosa | **arreglado hoy** |
+| chilepropiedades | 0 de 3 | no lo publica |
+| houm | 0 de 3 | no lo publica |
 
-### 2. El precio: 62%, y el hueco está localizado
+El hueco es de los portales, no del extractor. Quedan tres frentes:
+
+- **La libreta de edificios** (`arriendo/edificios.py`): lo que un aviso
+  enseña sobre una dirección le sirve a todos los avisos de esa dirección,
+  hoy y siempre. Ya conoce 7 edificios y ya hizo su primer trabajo real: dos
+  portales dijeron años distintos del mismo edificio y **anuló la entrada en
+  vez de elegir**. Todavía no rescata a nadie —a ninguno de los que le falta
+  el año le coincide la dirección con uno que lo tenga— y el valor es
+  acumulativo por diseño. **A medir en una semana.**
+- **Más fichas.** El presupuesto subió a 100 (la última corrida usó 65) y
+  ahora rinde: 6 avisos ganaron el año y 24 se descartaron al verlos.
+- **Las fuentes que sí lo publican y todavía no se auditan:** doomos,
+  fuenzalida, icasas, accesoinmobiliario.
+
+### 2. El precio: 82%, y lo que queda es del portal
 
 | Fuente | precio | qué le pasa |
 |---|---|---|
 | nuroa | 17% | su URL de arriendos entrega 22 ventas de cada 25 — es del portal |
-| trovit | 21% | apagada hoy |
 | goplaceit | 50% | sube con cada ficha que se alcanza a leer (era 20%) |
-| doomos | 54% | **sin auditar** |
-| fuenzalida | 89% | **sin auditar** |
+| doomos | **93%** | era 55%: su canon se pinta arriba de la tarjeta |
+| fuenzalida | 91% | |
+| yapo · icasas · economicos · remax | 100% | |
 
-Auditar doomos y fuenzalida contra su HTML real es lo próximo. Ese trabajo
-encontró bugs reales **todas las veces** (mitula, nuroa, yapo, goplaceit).
+Auditados contra su HTML real. Lo que queda es nuroa, y ahí el problema es
+que su listado de arriendos trae sobre todo ventas: no hay precio de
+arriendo que leer.
 
 ### 3. El paso de tests se toma 6 minutos de cada corrida
 
@@ -83,9 +100,6 @@ se calibran sin volver a visitarlos.
 ### 5. Limpieza menor
 
 - Direcciones con HTML crudo adentro (`"Eventos</p><p><strong>Superficie…"`).
-- toctoc antepone la dirección de la corredora a la del departamento
-  (`"Vitacura 312 Metropolitana Juan XXIII 6859 301"` — la buena es Juan
-  XXIII 6859).
 - houm publica la calle sin altura y con la comuna en "Region
   Metropolitana": sirve para el mapa, no para identificar el edificio.
 
@@ -103,8 +117,17 @@ se calibran sin volver a visitarlos.
   colegios, peluquerías), no un portal de arriendos.
 - **zentagroup** apagada: no es una corredora, es una consultora de IA.
 - **trovit y nestoria** apagadas: 52 avisos y ninguno con link propio.
+- **doomos**: 55% → 93% con precio. Su canon se pinta ARRIBA del bloque que
+  la detección de tarjetas reconoce, igual que la ficha de goplaceit.
 - **17 direcciones que no eran direcciones**, publicadas en el tablero y
   mandadas a Google Maps ("Edificio de 18", "Antigüedad: 30", "ID 44348").
+- **La limpieza de direcciones vivía en un solo lado**: el extractor las
+  rechazaba y la memoria del store se las devolvía intactas al aviso. Ahora
+  hay una sola función y la usan los dos.
+- **47 avisos "aparecieron" y ninguno era nuevo**: la huella se calcula con
+  la dirección, así que limpiarlas re-bautizaba a los avisos. Con el año
+  arreglado eso habría sido una andanada de alertas repetidas al teléfono.
+  `es_nuevo` ahora usa la URL como red.
 - Un candidato que era la **calculadora de crédito hipotecario** de
   chilepropiedades.
 
