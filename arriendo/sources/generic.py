@@ -912,7 +912,13 @@ def _armar(texto: str, url: str, fuente: FuenteConfig, base_url: str = "",
         a.comuna = fuente.comuna_default
         a.extras["comuna_origen"] = "del listado, que ya venía filtrado por comuna"
 
-    a.direccion = _direccion_desde(texto, a.comuna)
+    # El único punto donde el texto libre puede poner una dirección, y por eso
+    # el guardia va acá: `_direccion_util` deja pasar solo lo que identifica
+    # un lugar. Aplicado más arriba —en las pasadas que leen el JSON— no
+    # alcanzaba: la corrida del 21-08 publicó "Vitacura 3, Vitacura" y
+    # "Vitacura 4, Vitacura" como direcciones de doomos (la comuna con el
+    # número de dormitorios de altura) y las mandó a Google Maps.
+    a.direccion = _direccion_util(_direccion_desde(texto, a.comuna), a.comuna)
     return a
 
 
@@ -965,6 +971,11 @@ _MARCAS_DE_UNIDAD = {"depto", "depto.", "dpto", "dpto.", "departamento",
 _UNIDAD_TRAS_NUMERO = re.compile(
     r"^\s*(?:m2|m²|mt2|mts2|mts|metros|uf|clp|clf|a[nñ]os?|%"
     r"|dormitorios?|dorm\b|piezas?|habitaciones?|ba[nñ]os?"
+    # "Conserjería 24 horas" llegó al tablero como la dirección "Bodega
+    # Conserjería 24": el 24 tiene forma de altura y las dos palabras de
+    # antes tienen forma de calle. Ninguna numeración se mide en horas,
+    # meses ni pisos.
+    r"|horas?|hrs?\b|meses|mes\b|d[ií]as?"
     r"|estacionamientos?|bodegas?|d\b|b\b)", re.I)
 
 _TOKEN = re.compile(r"[^\s,;·•|]+")
@@ -1272,6 +1283,32 @@ def _completar_con_tarjetas(avisos: list[Arriendo], soup: BeautifulSoup,
         _fusionar(a, t)
 
 
+def _dice_algo(a: Arriendo, fuente: FuenteConfig) -> bool:
+    r"""¿Este "aviso" trae UN dato medible —o al menos su ficha—, o es adorno?
+
+    Un aviso real siempre muestra algo: el canon, el programa, la superficie
+    o la dirección. La corrida del 21-08 dejó pasar como candidato la página
+    /simulador-credito-hipotecario de chilepropiedades —título "Indicadores
+    UF: $ 40.858 USD: $ 922 Simulador crédito hipotecario", y NADA más: sin
+    precio, sin dormitorios, sin baños, sin m², sin dirección, sin tipo—. No
+    la descartaba ningún filtro justamente porque no tenía con qué
+    contradecirlos, así que llegaba al tablero a ocupar una fila.
+
+    Con una excepción que hay que respetar: un aviso mudo cuya URL sí es la
+    de una ficha de esta fuente es una PROMESA, no adorno — el radar va a
+    visitarla y a completarla. goplaceit tiene un aviso así en cada listado
+    (su JSON-LD a veces omite hasta los dormitorios) y botarlo sería perder
+    un departamento real. Lo que no se sostiene es lo mudo Y sin ficha:
+    "/simulador-credito-hipotecario" no calza con "/propiedades/\d+", que es
+    como se ve una ficha de chilepropiedades.
+    """
+    if any((a.arriendo_clp, a.arriendo_uf, a.dormitorios, a.banos,
+            a.m2_totales, a.m2_utiles, a.direccion, a.lat is not None)):
+        return True
+    patron = (fuente.detalle or {}).get("patron")
+    return bool(patron and re.search(patron, a.url or ""))
+
+
 def extraer(html: str, base_url: str, fuente: FuenteConfig,
             valor_uf: float | None = None) -> list[Arriendo]:
     """Extrae los avisos de una página, con las tres pasadas en orden.
@@ -1296,7 +1333,7 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
          lambda: _desde_estado_embebido(html, base_url, fuente, valor_uf)),
         ("tarjetas", lambda: _desde_tarjetas(soup, base_url, fuente, valor_uf)),
     ):
-        resultado = pasada()
+        resultado = [a for a in pasada() if _dice_algo(a, fuente)]
         if resultado:
             log.debug("[%s] %d avisos vía %s", fuente.id, len(resultado), nombre)
             if nombre == "json-ld":

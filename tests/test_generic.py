@@ -1115,3 +1115,62 @@ def test_las_distancias_del_widget_no_son_superficie(fuente):
                            fuente, valor_uf=40_860,
                            titulo=_TITULO_GOPLACEIT)
     assert c.m2_totales == 142, "los 1008 Mts del supermercado no son m²"
+
+
+def test_lo_que_no_dice_nada_no_es_un_aviso(fuente):
+    """La página /simulador-credito-hipotecario de chilepropiedades llegó al
+    tablero como candidato: sin precio, sin programa, sin m², sin dirección
+    y sin tipo. No la descartaba ningún filtro justamente porque no tenía
+    con qué contradecirlos."""
+    from arriendo.sources.generic import extraer
+    doc = """<html><body>
+      <div class="card"><a href="/simulador-credito-hipotecario">
+        Indicadores UF: $ 40.858 USD: $ 922 Simulador crédito hipotecario</a>
+      </div>
+      <div class="card"><a href="/propiedades/12345">Depto Vitacura</a>
+        <span>$1.500.000</span><span>3 dormitorios</span></div>
+    </body></html>"""
+    fuente.detalle = {"patron": r"/propiedades/\d+"}
+    avisos = extraer(doc, "https://chilepropiedades.cl/listado", fuente)
+    assert [a.url.split("/")[-1] for a in avisos] == ["12345"]
+
+
+def test_el_aviso_mudo_con_ficha_propia_se_respeta(fuente):
+    """El JSON-LD de goplaceit a veces omite hasta los dormitorios. Ese
+    aviso es una promesa —el radar visita su ficha y la completa—, no
+    adorno del sitio."""
+    from arriendo.sources.generic import extraer
+    doc = """<html><body><script type="application/ld+json">
+    {"@type": "SearchResultsPage", "about": [
+      {"@type": "Apartment", "name": "Departamento en El Pangue",
+       "url": "https://x.cl/propiedades/999",
+       "address": {"@type": "PostalAddress", "addressLocality": "Vitacura"}}]}
+    </script></body></html>"""
+    fuente.detalle = {"patron": r"/propiedades/\d+"}
+    avisos = extraer(doc, "https://x.cl/listado", fuente)
+    assert len(avisos) == 1 and avisos[0].url.endswith("/999")
+
+    fuente.detalle = {"patron": r"/otra-cosa/\d+"}
+    assert extraer(doc, "https://x.cl/listado", fuente) == [], \
+        "mudo y sin ficha propia es adorno del sitio"
+
+
+def test_la_comuna_con_los_dormitorios_de_altura_no_es_una_direccion():
+    """"Vitacura 3, Vitacura" y "Vitacura 4, Vitacura" salieron al tablero
+    como direcciones de doomos, y de ahí a Google Maps. El guardia existía
+    pero vivía en las pasadas del JSON; el texto libre lo esquivaba."""
+    from arriendo.sources.generic import _direccion_util
+    assert _direccion_util("Vitacura 3, Vitacura", "Vitacura") == ""
+    assert _direccion_util("Candelaria Goyenechea 4400, Vitacura",
+                           "Vitacura") == "Candelaria Goyenechea 4400, Vitacura"
+
+
+def test_las_horas_de_conserjeria_no_son_la_altura_de_una_calle():
+    """"Conserjería 24 horas" llegó como la dirección "Bodega Conserjería
+    24" de economicos: el 24 tiene forma de altura y las dos palabras de
+    antes tienen forma de calle."""
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde("Bodega. Conserjería 24 horas.", "Vitacura") == ""
+    assert _direccion_desde("contrato 12 meses", "Vitacura") == ""
+    assert _direccion_desde("Alonso de Córdova 5900 piso 8", "Vitacura") == \
+        "Alonso de Córdova 5900, Vitacura", "el piso no es parte de la calle"
