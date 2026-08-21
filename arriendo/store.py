@@ -73,7 +73,25 @@ class Store:
 
     # -- consultas --------------------------------------------------------
     def es_nuevo(self, l: Arriendo) -> bool:
-        return l.fingerprint not in self.indice
+        """¿Nunca visto? La huella primero, y la URL como red.
+
+        La huella se calcula con los datos del aviso —dirección incluida—,
+        así que cada vez que el radar aprende a leer mejor una dirección, la
+        huella CAMBIA y el mismo departamento pasa por recién llegado. La
+        corrida de las 19:13 del 21-08 los contó: 47 avisos "aparecieron" el
+        día que se limpiaron las direcciones, y ninguno era nuevo. Esa vez no
+        pasó nada porque casi ninguno traía el año y el filtro de alertas los
+        frenó, pero a medida que el año mejore ese mismo día sería una
+        andanada de alertas repetidas al teléfono del usuario.
+
+        La URL no se mueve cuando mejora un extractor: es lo que el portal
+        dice, no lo que nosotros leímos. `_por_url` solo responde cuando UN
+        registro tiene esa URL, así que un listado paginado —donde muchas
+        tarjetas comparten el link— no puede hacer pasar a todas por vistas.
+        """
+        if l.fingerprint in self.indice:
+            return False
+        return self._por_url(l) is None
 
     def ya_avisado(self, l: Arriendo) -> bool:
         return bool(self.indice.get(l.fingerprint, {}).get("avisado"))

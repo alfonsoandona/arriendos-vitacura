@@ -673,3 +673,40 @@ def test_la_direccion_recordada_pasa_por_la_misma_limpieza(tmp_path):
                      title="Depto", comuna="Vitacura")
     store.completar(nuevo)
     assert nuevo.direccion == "Avda. Presidente Kennedy 4300"
+
+
+def test_mejorar_un_extractor_no_convierte_lo_viejo_en_nuevo(tmp_path):
+    """La huella se calcula con los datos del aviso —dirección incluida—,
+    así que al aprender a leer mejor una dirección la huella CAMBIA y el
+    mismo departamento pasa por recién llegado. La corrida de las 19:13 del
+    21-08 los contó: 47 "aparecieron" el día que se limpiaron las
+    direcciones, y ninguno era nuevo. Esa vez el filtro del año los frenó;
+    a medida que el año mejore, sería una andanada al teléfono.
+    """
+    from arriendo.store import Store
+
+    store = Store(tmp_path)
+    antes = Arriendo(source="toctoc", url="https://toctoc.cl/p/9",
+                     title="Depto", comuna="Vitacura")
+    antes.direccion = "Vitacura 312 Metropolitana Espoz 4200"
+    store.registrar(antes, avisado=True)
+    store.guardar()
+
+    despues = Arriendo(source="toctoc", url="https://toctoc.cl/p/9",
+                       title="Depto", comuna="Vitacura")
+    despues.direccion = "Espoz 4200"
+    assert despues.fingerprint != antes.fingerprint, \
+        "el caso solo tiene sentido si la huella cambió"
+    assert not store.es_nuevo(despues), "ya lo vimos, y ya se avisó"
+
+
+def test_un_aviso_de_verdad_nuevo_sigue_siendo_nuevo(tmp_path):
+    from arriendo.store import Store
+
+    store = Store(tmp_path)
+    store.registrar(Arriendo(source="toctoc", url="https://toctoc.cl/p/9",
+                             title="Depto", comuna="Vitacura"))
+    store.guardar()
+    otro = Arriendo(source="toctoc", url="https://toctoc.cl/p/10",
+                    title="Otro depto", comuna="Vitacura")
+    assert store.es_nuevo(otro)
