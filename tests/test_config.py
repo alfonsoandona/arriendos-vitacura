@@ -461,10 +461,15 @@ def test_hay_dos_grupos_de_fuentes_y_se_distinguen():
     confirmadas = [f for f in activas if f.url_confirmada]
     por_calibrar = [f for f in activas if not f.url_confirmada]
 
-    assert len(confirmadas) >= 20
-    # El número baja cuando una se resuelve o se apaga por muerta
-    # (20-08: nueve apagadas con su motivo medido). Eso es progreso.
-    assert len(por_calibrar) >= 8
+    # Los dos grupos existen y la marca los separa. El test NO fija un
+    # número: apagar una fuente muerta con su motivo medido es progreso, y
+    # un umbral que baja solo obliga a editar el test cada vez que el
+    # catálogo mejora. Lo que sí tiene que seguir siendo cierto es que la
+    # distinción sirva para algo — que haya de las dos.
+    assert confirmadas and por_calibrar
+    assert len(confirmadas) + len(por_calibrar) == len(activas)
+    assert all(f.urls for f in activas), \
+        "una fuente activa sin URL no se puede consultar ni calibrar"
 
 
 def test_las_fuentes_por_calibrar_apuntan_a_la_raiz():

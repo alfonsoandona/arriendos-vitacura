@@ -286,6 +286,23 @@ fuentes:
     urls: ["https://casas.trovit.cl/arriendo-departamento-vitacura"]
     paginacion: {paginas: 3, parametro: page}
     url_confirmada: true
+    # APAGADA el 21-08. Tres medidas, todas de la misma corrida:
+    #
+    # 1. NINGUNO de sus 30 avisos tiene link propio: los 30 apuntan al
+    #    listado. Sus "/adform/" son rutas de imagen; el link de verdad lo
+    #    arma su JavaScript al hacer clic. Una alerta con ese link deja al
+    #    usuario en una grilla de 30 avisos, no en el departamento.
+    # 2. Su URL dice "arriendo-departamento" y la mitad de lo que entrega
+    #    son OFICINAS y LOCALES COMERCIALES ("SE ARRIENDA OF RECIÉN
+    #    REMODELADA", "LOCAL COMERCIAL 366M2").
+    # 3. Solo el 23% trae precio, y a la segunda visita del día responde
+    #    "Access Denied".
+    #
+    # Es el mismo índice de Lifull Connect que mitula, y mitula sí entrega:
+    # 53 avisos, 98% con precio, 100% con dirección y link propio a cada
+    # uno. Se pierde poco y se gana una corrida más corta y un tablero sin
+    # filas en las que no se puede hacer clic.
+    activa: false
     notas: "Unos 461 avisos agregados. Ver la nota del bloque."
 
   - id: nuroa
@@ -319,6 +336,11 @@ fuentes:
     nombre: Nestoria
     urls: ["https://www.nestoria.cl/vitacura/propiedades/arriendo"]
     url_confirmada: true
+    # APAGADA el 21-08, por lo mismo que trovit y peor: sus 22 avisos
+    # apuntan los 22 al listado —cero links propios— y CERO traen precio.
+    # Un aviso sin precio y sin link no se puede mirar ni decidir. Misma
+    # familia Lifull Connect que mitula, que sí entrega.
+    activa: false
     notas: "Metabuscador. Ver la nota del bloque."
 
   # -------------------------------------------------------------------
