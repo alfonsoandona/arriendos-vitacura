@@ -117,6 +117,14 @@ fuentes:
     # El 306 es el id de comuna de Vitacura en su ruta canónica.
     urls: ["https://www.goplaceit.com/cl/departamento/arriendo/comuna/306-vitacura"]
     motor: navegador
+    # Sus tarjetas pintan el precio recién cuando entran en pantalla: el HTML
+    # del servidor trae 2 precios para 30 avisos (medido el 21-08), y esos 2
+    # son las tarjetas "destacadas" de arriba. Bajar la página es lo que
+    # obliga a las otras 28 a mostrarse. Sin esto, goplaceit era la mayor
+    # fuente de candidatos sin precio del radar: 15 de 40.
+    acciones:
+      - {tipo: scroll, valor: 6}
+      - {tipo: esperar_ms, valor: 1500}
     detalle: {patron: "/propiedad/arriendo/departamento/", max: 10}
     paginacion: {paginas: 3, parametro: page}
     url_confirmada: true

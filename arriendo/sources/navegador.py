@@ -22,8 +22,15 @@ log = logging.getLogger(__name__)
 
 # Cuánto esperar a que el sitio termine de armarse. Generoso porque estos
 # portales cargan el listado con una segunda llamada después de pintar.
-TIMEOUT_MS = 30_000
+# 45 segundos y no 30, medido: la corrida del 21-08 perdió DOS de las tres
+# búsquedas de toctoc con "Timeout 30000ms exceeded" y la fuente entregó 318
+# avisos en vez de ~650. Toctoc es un tercio del inventario del radar, así
+# que su timeout arrastra la corrida entera: de 1.400 avisos crudos a 918.
+TIMEOUT_MS = 45_000
 ESPERA_RED_MS = 6_000
+
+# Bajo esto, lo que quedó en la página es un cascarón y no un listado.
+MINIMO_UTIL = 2_000
 
 
 class NavegadorNoDisponible(RuntimeError):
@@ -62,7 +69,28 @@ def bajar_con_navegador(url: str, acciones: list[dict] | None = None,
                 viewport={"width": 1400, "height": 2000},
             )
             pagina = contexto.new_page()
-            pagina.goto(url, timeout=timeout_ms, wait_until="domcontentloaded")
+            try:
+                pagina.goto(url, timeout=timeout_ms,
+                            wait_until="domcontentloaded")
+            except Exception as e:                               # noqa: BLE001
+                # Que `goto` se pase del tiempo NO significa que la página
+                # esté vacía: casi siempre el HTML ya llegó y lo que quedó
+                # colgado es un rastreador, un anuncio o una fuente de
+                # letra. Antes eso costaba la página entera —y con toctoc,
+                # un tercio del inventario de la corrida—. Ahora se lee lo
+                # que haya y se decide por el tamaño, que es el único juez
+                # honesto acá.
+                log.warning("Se pasó del tiempo al abrir %s (%s); "
+                            "se lee lo que alcanzó a llegar", url, type(e).__name__)
+                try:
+                    parcial = pagina.content()
+                except Exception:                                # noqa: BLE001
+                    return None
+                if len(parcial) < MINIMO_UTIL:
+                    return None
+                for accion in acciones or []:
+                    _ejecutar(pagina, accion)
+                return pagina.content()
 
             # `networkidle` es lo que espera a la segunda llamada que trae el
             # listado. Si no llega —hay sitios con polling que nunca quedan
