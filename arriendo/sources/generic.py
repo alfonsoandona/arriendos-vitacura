@@ -1087,11 +1087,35 @@ _DIRECCION_JSON_INVALIDA = re.compile(
     r"|imperdible|exclusiv|espectacular|impecable", re.I)
 
 
+# El encabezado administrativo con el que algunos portales arman su campo
+# dirección: la comuna, su ID interno y la región, ANTES de la calle. toctoc
+# publicaba así cuatro direcciones del 21-08 —"Vitacura 312 Metropolitana
+# Juan XXIII 6859 301"— y el 312 (que es el ID de la comuna, no una altura)
+# se llevaba a "Vitacura" como nombre de calle. La dirección real, Juan
+# XXIII 6859, quedaba de relleno y el aviso sin edificio identificable.
+#
+# Lo que delata al prefijo es la secuencia entera: comuna conocida, un
+# número, y una región. Ninguna calle chilena tiene una región en medio.
+_PREFIJO_ADMINISTRATIVO = re.compile(
+    r"^\s*[\w\s]{3,24}?\s+\d{1,5}\s+(?:regi[oó]n\s+(?:de\s+)?)?"
+    r"(?:metropolitana|de\s+santiago)\b[\s,.\-]*", re.I)
+
+
 def _direccion_de_json(direccion: str, comuna: str = "") -> str:
     """El campo dirección de un payload, con la basura de marketing afuera."""
     d = (direccion or "").strip()
     if not d or _DIRECCION_JSON_INVALIDA.search(d):
         return ""
+    if (m := _PREFIJO_ADMINISTRATIVO.match(d)):
+        cabeza = P.norm(d[:m.end()]).split()
+        # Solo si lo que abre es de verdad una comuna: "Avenida Vitacura 312,
+        # Metropolitana" es una dirección completa y correcta, y el prefijo se
+        # le parece. La diferencia es que ahí la comuna NO abre la frase.
+        conocidas = {P.norm(c) for c in P.COMUNAS_CONOCIDAS}
+        for largo in (3, 2, 1):
+            if " ".join(cabeza[:largo]) in conocidas:
+                resto = d[m.end():].strip(" ,.-")
+                return resto or ""
     return d
 
 
@@ -1402,7 +1426,15 @@ def extraer(html: str, base_url: str, fuente: FuenteConfig,
                 _completar_con_serp(resultado, soup, base_url, valor_uf)
                 _completar_con_microdata(resultado, soup, base_url, fuente,
                                          valor_uf)
-                _completar_con_enlace(resultado, soup, base_url, valor_uf)
+            # El rescate por enlace vale para las TARJETAS igual que para el
+            # JSON-LD, y por mucho tiempo solo corrió para el segundo. doomos
+            # lo cobró: 14 de sus 31 tarjetas llegaban sin precio porque su
+            # canon se pinta ARRIBA del bloque que `_candidatos` reconoce
+            # como tarjeta ("$ 770.000 Arriendo | Arriendo departamento en
+            # av, kennedy, vitacura…"), justo el mismo error de recorte que
+            # el ancla del título cometía en las fichas. El enlace del aviso
+            # es un identificador que ninguna heurística de forma necesita.
+            _completar_con_enlace(resultado, soup, base_url, valor_uf)
             return resultado
 
     return []
@@ -1523,6 +1555,21 @@ def _completar_con_microdata(avisos: list[Arriendo], soup: BeautifulSoup,
             a.arriendo_clp = float(valor)
 
 
+def _es_la_grilla(nodo, propia: str, rutas: set[str]) -> bool:
+    """¿Este bloque contiene el enlace de OTRO aviso de la misma página?
+
+    Es la señal de que la subida se pasó de la tarjeta: un bloque que
+    enlaza a dos departamentos distintos es la grilla, no la tarjeta, y el
+    monto que traiga puede ser de cualquiera de los dos.
+    """
+    propia = propia.rstrip("/")
+    for enlace in nodo.find_all("a", href=True):
+        ruta = urlparse(enlace["href"]).path.rstrip("/")
+        if ruta and ruta != propia and ruta in rutas:
+            return True
+    return False
+
+
 def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,
                           base_url: str, valor_uf: float | None) -> None:
     """El precio desde el bloque que ENLAZA al aviso.
@@ -1538,11 +1585,19 @@ def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,
     sin = [a for a in avisos
            if a.arriendo_clp is None and a.arriendo_uf is None
            and a.url and a.url != base_url]
+    # Las rutas de TODOS los avisos de la página: sirven para saber cuándo la
+    # subida dejó de estar dentro de una tarjeta. Ver `_es_la_grilla`.
+    rutas = {urlparse(x.url).path.rstrip("/") for x in avisos if x.url}
     for a in sin:
         cola = urlparse(a.url).path
         if len(cola) < 8:
             continue
-        ancla = soup.find("a", href=lambda h: h and cola in h)
+        # El calce es por RUTA COMPLETA, no por subcadena: ahora que esta
+        # pasada corre también sobre las tarjetas, un aviso cuya ruta sea
+        # prefijo de la de otro se llevaría el precio del vecino, y un
+        # precio equivocado es peor que ninguno.
+        ancla = soup.find("a", href=lambda h, c=cola: bool(
+            h and (urlparse(h).path.rstrip("/") == c.rstrip("/"))))
         if ancla is None:
             continue
         nodo = ancla
@@ -1550,6 +1605,13 @@ def _completar_con_enlace(avisos: list[Arriendo], soup: BeautifulSoup,
             if nodo.parent is None:
                 break
             nodo = nodo.parent
+            if _es_la_grilla(nodo, cola, rutas):
+                # Se pasó de la tarjeta: este bloque ya contiene OTRO aviso,
+                # así que el monto que traiga puede ser del vecino. El tope
+                # de 600 caracteres no alcanza para verlo —una grilla de dos
+                # tarjetas cortas cabe de sobra— y un precio equivocado es
+                # peor que ninguno.
+                break
             texto = " ".join(nodo.get_text(" ").split())
             if len(texto) > 600:
                 break

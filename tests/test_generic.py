@@ -1239,3 +1239,71 @@ def test_la_palabra_que_descalifica_no_es_solo_un_borde():
     texto = "Edificio de 18 pisos, ubicado en Candelaria Goyenechea 4400"
     assert _direccion_desde(texto, "Vitacura") == \
         "Candelaria Goyenechea 4400, Vitacura"
+
+
+def test_el_encabezado_administrativo_no_es_parte_de_la_calle():
+    """toctoc arma su campo dirección con la comuna, su ID interno y la
+    región ANTES de la calle: "Vitacura 312 Metropolitana Juan XXIII 6859".
+    El 312 —que es el ID de la comuna, no una altura— se llevaba a
+    "Vitacura" como nombre de calle, y la dirección real quedaba de relleno.
+    """
+    from arriendo.sources.generic import _direccion_de_json
+    assert _direccion_de_json("Vitacura 312 Metropolitana Juan XXIII 6859 301") \
+        == "Juan XXIII 6859 301"
+    assert _direccion_de_json(
+        "Las Condes 301 Metropolitana Isabel La Católica 4800") \
+        == "Isabel La Católica 4800"
+
+
+def test_una_direccion_de_verdad_que_se_le_parece_no_se_toca():
+    """"Avenida Vitacura 312, Metropolitana" es una dirección completa y
+    correcta. La diferencia con el prefijo es que ahí la comuna NO abre la
+    frase."""
+    from arriendo.sources.generic import _direccion_de_json
+    for buena in ("Avenida Vitacura 312, Metropolitana",
+                  "Candelaria Goyenechea 4400, Vitacura",
+                  "Espoz 4200, Vitacura, Región Metropolitana de Santiago"):
+        assert _direccion_de_json(buena) == buena
+
+
+def test_el_precio_pintado_arriba_de_la_tarjeta_se_rescata(fuente):
+    """doomos pinta el canon ARRIBA del bloque que la detección de tarjetas
+    reconoce: "$ 770.000 Arriendo | Arriendo departamento en av, kennedy…".
+    Catorce de sus 31 avisos llegaban sin precio por ese recorte. El rescate
+    por enlace ya existía, pero solo corría sobre el JSON-LD.
+    """
+    from arriendo.sources.generic import extraer
+    doc = """<html><body>
+      <div class="fila"><span>$ 770.000</span><span>Arriendo</span>
+        <div class="card">
+          <a href="/de/3020533_depto-kennedy">Arriendo departamento en av, kennedy</a>
+          <p>Departamento - Vitacura 3 Hab. 3 Baños 110.00 m²</p></div></div>
+      <div class="fila"><span>UF. 63</span><span>Arriendo</span>
+        <div class="card">
+          <a href="/de/3056413_depto-manquehue">Arriendo departamento manquehue</a>
+          <p>Departamento - Vitacura 3 Hab. 3 Baños 203.00 m²</p></div></div>
+    </body></html>"""
+    avisos = extraer(doc, "https://www.doomos.cl/listado", fuente,
+                     valor_uf=40_860)
+    por_url = {a.url.split("/")[-1]: a for a in avisos}
+    assert por_url["3020533_depto-kennedy"].arriendo_clp == 770_000
+    assert por_url["3056413_depto-manquehue"].arriendo_uf == 63
+
+
+def test_el_rescate_por_enlace_calza_la_ruta_entera(fuente):
+    """Ahora que corre sobre las tarjetas, un aviso cuya ruta sea prefijo de
+    la de otro se llevaría el precio del vecino — y un precio equivocado es
+    peor que ninguno."""
+    from arriendo.sources.generic import extraer
+    doc = """<html><body>
+      <div class="fila"><span>$ 3.000.000</span>
+        <div class="card"><a href="/de/12345-penthouse">Penthouse Vitacura</a>
+          <p>Departamento - Vitacura 5 Hab. 5 Baños 300.00 m²</p></div></div>
+      <div class="fila">
+        <div class="card"><a href="/de/1234">Depto chico Vitacura</a>
+          <p>Departamento - Vitacura 1 Hab. 1 Baño 40.00 m²</p></div></div>
+    </body></html>"""
+    avisos = extraer(doc, "https://www.doomos.cl/listado", fuente)
+    chico = next(a for a in avisos if a.url.endswith("/1234"))
+    assert chico.arriendo_clp is None, \
+        "el canon del penthouse no es el del departamento de al lado"
