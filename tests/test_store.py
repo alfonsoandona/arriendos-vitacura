@@ -653,3 +653,23 @@ def test_una_direccion_buena_sí_se_recuerda(tmp_path):
                      title="Depto", comuna="Vitacura")
     store.completar(nuevo)
     assert nuevo.direccion == "Candelaria Goyenechea 4400, Vitacura"
+
+
+def test_la_direccion_recordada_pasa_por_la_misma_limpieza(tmp_path):
+    """No basta con rechazar lo malo: una dirección vieja recordada tiene
+    que quedar tan buena como una nueva. toctoc guardó "Vitacura 312
+    Metropolitana Avda. Presidente Kennedy" antes de que el extractor
+    aprendiera a sacar ese encabezado."""
+    from arriendo.store import Store
+
+    store = Store(tmp_path)
+    viejo = Arriendo(source="toctoc", url="https://toctoc.cl/p/3",
+                     title="Depto", comuna="Vitacura")
+    viejo.direccion = "Vitacura 312 Metropolitana Avda. Presidente Kennedy 4300"
+    store.registrar(viejo)
+    store.guardar()
+
+    nuevo = Arriendo(source="toctoc", url="https://toctoc.cl/p/3",
+                     title="Depto", comuna="Vitacura")
+    store.completar(nuevo)
+    assert nuevo.direccion == "Avda. Presidente Kennedy 4300"

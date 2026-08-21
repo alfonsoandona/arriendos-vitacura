@@ -228,7 +228,7 @@ class Arriendo:
         # que además comparten el canon exacto es trabajo de `deduplicar`,
         # que sí puede exigir esa corroboración. El precio sigue fuera de la
         # identidad, así que una baja de canon se reconoce igual.
-        if base and self.comuna and re.search(r"\b\d{3,}\b", base):
+        if base and self.comuna and re.search(r"(?<!\d)\d{3,}", base):
             unidad = _normalize_key(self.extras.get("unidad", "") or "")
             key = f"{base}|{_normalize_key(self.comuna)}"
             if unidad:
@@ -402,7 +402,7 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
     ignorables = _NO_SON_CALLE | _CONECTORES | set(c.split())
     palabras = [p for p in clave.split()
                 if p not in ignorables and not p.isdigit()]
-    if not palabras and not re.search(r"\b\d{3,}\b", clave):
+    if not palabras and not re.search(r"(?<!\d)\d{3,}", clave):
         return ""
 
     # Y una palabra que jamás es calle descalifica la llave entera, tenga la
@@ -416,7 +416,67 @@ def clave_direccion(direccion: str, comuna: str = "") -> str:
     # aprendido.
     if any(p in NUNCA_EN_UNA_CALLE for p in clave.split()):
         return ""
+
+    # Un número de uno o dos dígitos como ÚNICA cifra no es una altura: las
+    # numeraciones de estas comunas no bajan de 100. "Dropdown Productos 1"
+    # (un menú de la página) y "PRINCIPAL EN SUITE CON 2" (un pedazo de la
+    # descripción) llegaron así al tablero. Una dirección SIN cifras sigue
+    # valiendo —"Candelaria Goyenechea, Lo Castillo" ubica en el mapa aunque
+    # no identifique el edificio—; lo que no vale es una cifra que finge ser
+    # altura y no puede serlo.
+    if re.search(r"\d", clave) and not re.search(r"(?<!\d)\d{3,}", clave):
+        return ""
     return clave
+
+
+# El encabezado administrativo con el que algunos portales arman su campo
+# dirección: la comuna, su ID interno y la región, ANTES de la calle. toctoc
+# publicaba así cuatro direcciones del 21-08 —"Vitacura 312 Metropolitana
+# Juan XXIII 6859 301"— y el 312 (que es el ID de la comuna, no una altura)
+# se llevaba a "Vitacura" como nombre de calle. La dirección real, Juan
+# XXIII 6859, quedaba de relleno y el aviso sin edificio identificable.
+#
+# Lo que delata al prefijo es la secuencia entera: comuna conocida, un
+# número, y una región. Ninguna calle chilena tiene una región en medio.
+_PREFIJO_ADMINISTRATIVO = re.compile(
+    r"^\s*[\w\s]{3,24}?\s+\d{1,5}\s+(?:regi[oó]n\s+(?:de\s+)?)?"
+    r"(?:metropolitana|de\s+santiago)\b[\s,.\-]*", re.I)
+
+
+def sin_encabezado_administrativo(direccion: str) -> str:
+    """La dirección sin el "<comuna> <id> <región>" que algunos le anteponen."""
+    d = (direccion or "").strip()
+    m = _PREFIJO_ADMINISTRATIVO.match(d)
+    if not m:
+        return d
+    # Solo si lo que abre es de verdad una comuna: "Avenida Vitacura 312,
+    # Metropolitana" es una dirección completa y correcta, y el prefijo se le
+    # parece. La diferencia es que ahí la comuna NO abre la frase.
+    from .parse import COMUNAS_CONOCIDAS, norm
+    cabeza = norm(d[:m.end()]).split()
+    conocidas = {norm(c) for c in COMUNAS_CONOCIDAS}
+    for largo in (3, 2, 1):
+        if " ".join(cabeza[:largo]) in conocidas:
+            return d[m.end():].strip(" ,.-")
+    return d
+
+
+def limpiar_direccion(direccion: str, comuna: str = "") -> str:
+    """La dirección lista para mostrar, o "" si no identifica ningún lugar.
+
+    Es el único lugar donde se decide si una dirección sirve, y vive acá —y
+    no en el extractor— porque el extractor no es el único que las escribe:
+    la memoria del store le devuelve a cada aviso lo que ya sabía de él, así
+    que una limpieza que vive en un solo lado se deshace desde el otro. La
+    corrida del 21-08 19:13 lo mostró entero: el extractor ya rechazaba
+    "Vitacura 312 Metropolitana Avda. Presidente Kennedy", el aviso llegaba
+    limpio, y la memoria se lo devolvía igual que siempre.
+
+    Si no sirve para identificar, tampoco se muestra ni se manda a Google
+    Maps: una dirección inventada en el mapa es peor que un aviso sin pin.
+    """
+    d = sin_encabezado_administrativo(direccion)
+    return d if d and clave_direccion(d, comuna) else ""
 
 
 # Palabras que jamás son, por sí solas, el nombre de una calle: la cola

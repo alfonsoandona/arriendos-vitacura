@@ -23,7 +23,8 @@ from pathlib import Path
 from typing import Any
 
 from .geo import haversine_km
-from .models import Arriendo, clave_direccion, _normalize_key
+from .models import (Arriendo, clave_direccion, limpiar_direccion,
+                     _normalize_key)
 from .tiempo import ahora_utc
 
 INDICE = "vistos.json"
@@ -207,16 +208,20 @@ class Store:
             valor = prev.get(campo)
             if valor in (None, ""):
                 continue
-            if campo == "direccion" and not clave_direccion(
-                    str(valor), l.comuna or str(prev.get("comuna") or "")):
+            if campo == "direccion":
                 # La memoria no puede deshacer una mejora del extractor. Cada
                 # vez que el radar aprende a NO leer una dirección basura
-                # —"Edificio de 18", "Antigüedad: 30", "Vitacura 3"— el aviso
-                # vuelve a llegar con el campo vacío... y acá se le devolvía
-                # la misma basura que se acababa de dejar de extraer, con la
-                # firma de un dato aprendido. Lo que ya no se acepta al
-                # leerlo tampoco se acepta al recordarlo.
-                continue
+                # —"Edificio de 18", "Vitacura 312 Metropolitana Avda.
+                # Presidente Kennedy"— el aviso vuelve a llegar con el campo
+                # vacío... y acá se le devolvía la misma basura que se
+                # acababa de dejar de extraer, con la firma de un dato
+                # aprendido. Lo que ya no se acepta al leerlo tampoco se
+                # acepta al recordarlo, y pasa por la MISMA limpieza: una
+                # dirección vieja recordada queda tan buena como una nueva.
+                valor = limpiar_direccion(
+                    str(valor), l.comuna or str(prev.get("comuna") or ""))
+                if not valor:
+                    continue
             setattr(l, campo, valor)
             recuperados.append(campo)
         return recuperados

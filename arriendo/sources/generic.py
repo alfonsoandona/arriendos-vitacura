@@ -35,7 +35,9 @@ from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 
 from .. import parse as P
-from ..models import NUNCA_EN_UNA_CALLE, Arriendo
+from ..models import (NUNCA_EN_UNA_CALLE, Arriendo,
+                      limpiar_direccion,
+                      sin_encabezado_administrativo)
 from .base import FuenteConfig
 
 log = logging.getLogger(__name__)
@@ -983,7 +985,15 @@ _TOKEN = re.compile(r"[^\s,;·•|]+")
 # Sin cero inicial: ninguna numeración chilena parte en 0, pero los decimales
 # partidos por la coma sí — "UF38,00" se tokeniza como "UF38" y "00", y ese
 # "00" pasaba por altura. Salió en el teléfono como dirección "UF38 00".
-_ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?([1-9]\d{0,4})$", re.I)
+# Y de TRES dígitos para arriba, que es la regla que `clave_direccion` ya
+# aplica del otro lado: las numeraciones de Vitacura, Las Condes y Lo
+# Barnechea no bajan de 100 —la más chica del corpus real es "Camino El
+# Parque 100"— y una altura de uno o dos dígitos siempre resultó ser otra
+# cosa: "Dropdown Productos 1" (un menú de la página), "PRINCIPAL EN SUITE
+# CON 2", "Vitacura 3", "Quinchos 2", "A 10", "B 1". Con el número pelado
+# hay poco donde agarrarse, y la magnitud es lo único que separa una
+# dirección de una viñeta del aviso.
+_ES_ALTURA = re.compile(r"^(?:n[°ºo]\.?|#)?([1-9]\d{2,4})$", re.I)
 
 # Cuántas palabras hacia atrás puede tener el nombre de una calle. Cuatro
 # alcanza para "Avenida Santa María de Manquehue" y corta antes de tragarse
@@ -1053,18 +1063,6 @@ _DIRECCION_JSON_INVALIDA = re.compile(
     r"|imperdible|exclusiv|espectacular|impecable", re.I)
 
 
-# El encabezado administrativo con el que algunos portales arman su campo
-# dirección: la comuna, su ID interno y la región, ANTES de la calle. toctoc
-# publicaba así cuatro direcciones del 21-08 —"Vitacura 312 Metropolitana
-# Juan XXIII 6859 301"— y el 312 (que es el ID de la comuna, no una altura)
-# se llevaba a "Vitacura" como nombre de calle. La dirección real, Juan
-# XXIII 6859, quedaba de relleno y el aviso sin edificio identificable.
-#
-# Lo que delata al prefijo es la secuencia entera: comuna conocida, un
-# número, y una región. Ninguna calle chilena tiene una región en medio.
-_PREFIJO_ADMINISTRATIVO = re.compile(
-    r"^\s*[\w\s]{3,24}?\s+\d{1,5}\s+(?:regi[oó]n\s+(?:de\s+)?)?"
-    r"(?:metropolitana|de\s+santiago)\b[\s,.\-]*", re.I)
 
 
 def _direccion_de_json(direccion: str, comuna: str = "") -> str:
@@ -1072,17 +1070,7 @@ def _direccion_de_json(direccion: str, comuna: str = "") -> str:
     d = (direccion or "").strip()
     if not d or _DIRECCION_JSON_INVALIDA.search(d):
         return ""
-    if (m := _PREFIJO_ADMINISTRATIVO.match(d)):
-        cabeza = P.norm(d[:m.end()]).split()
-        # Solo si lo que abre es de verdad una comuna: "Avenida Vitacura 312,
-        # Metropolitana" es una dirección completa y correcta, y el prefijo se
-        # le parece. La diferencia es que ahí la comuna NO abre la frase.
-        conocidas = {P.norm(c) for c in P.COMUNAS_CONOCIDAS}
-        for largo in (3, 2, 1):
-            if " ".join(cabeza[:largo]) in conocidas:
-                resto = d[m.end():].strip(" ,.-")
-                return resto or ""
-    return d
+    return sin_encabezado_administrativo(d)
 
 
 def _direccion_util(direccion: str, comuna: str = "") -> str:
@@ -1093,12 +1081,13 @@ def _direccion_util(direccion: str, comuna: str = "") -> str:
     —engelvoelkers publica sus specs en inglés— viajaban como direcciones,
     y `clave_direccion` las aceptaba como llave: CINCUENTA Y TRES
     departamentos distintos fundidos en un registro.
-    `clave_direccion` ya no las acepta, y acá se cierra el círculo: si no
-    sirve para identificar, tampoco se muestra ni se manda a Google Maps.
+
+    Hoy es un alias de `models.limpiar_direccion`, que es donde vive la
+    regla: el extractor no es el único que escribe direcciones —también las
+    escribe la memoria del store— y una limpieza que vive en un solo lado se
+    deshace desde el otro.
     """
-    from ..models import clave_direccion
-    d = (direccion or "").strip()
-    return d if d and clave_direccion(d, comuna) else ""
+    return limpiar_direccion(direccion, comuna)
 
 
 _NO_ES_CALLE = re.compile(

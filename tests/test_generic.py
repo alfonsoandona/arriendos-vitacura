@@ -1307,3 +1307,27 @@ def test_el_rescate_por_enlace_calza_la_ruta_entera(fuente):
     chico = next(a for a in avisos if a.url.endswith("/1234"))
     assert chico.arriendo_clp is None, \
         "el canon del penthouse no es el del departamento de al lado"
+
+
+@pytest.mark.parametrize("texto", [
+    "Dropdown Productos 1",        # un menú de la página
+    "PRINCIPAL EN SUITE CON 2",    # un pedazo de la descripción
+    "Nueva Costanera 3",
+    "Vitacura 3",
+])
+def test_una_altura_de_uno_o_dos_digitos_no_es_una_direccion(texto):
+    """Las numeraciones de Vitacura, Las Condes y Lo Barnechea no bajan de
+    100 —la más chica del corpus real es "Camino El Parque 100"— y con el
+    número pelado la magnitud es lo único que separa una dirección de una
+    viñeta del aviso."""
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde(texto, "Vitacura") == ""
+
+
+@pytest.mark.parametrize("calle", [
+    "Camino El Parque 100", "Av. Club de Campo 125",
+    "Pasaje La Capitanía Interior 290", "Avenida Presidente Kennedy 10290",
+])
+def test_la_altura_mas_chica_del_corpus_real_sobrevive(calle):
+    from arriendo.sources.generic import _direccion_desde
+    assert _direccion_desde(calle, "Vitacura") == f"{calle}, Vitacura"
