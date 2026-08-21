@@ -1,6 +1,6 @@
 # Pendientes
 
-**Estado al 21-08-2026, corrida de las 12:33.** El radar corre solo 3 veces
+**Estado al 21-08-2026, corrida de las 18:35.** El radar corre solo 3 veces
 al día, avisa por Telegram y publica el dashboard. Nada de esta lista lo
 detiene: todo lo que está acá lo mejora.
 
@@ -12,101 +12,105 @@ Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 
 | | |
 |---|---|
-| Corrida | 182s · 32/33 fuentes · sin errores |
-| Inventario | 918 avisos crudos → 433 únicos → **49 candidatos** |
-| Unificación | grupo mayor: 4 publicaciones (venía de 53) |
-| Filtro de antigüedad | **funcionando**: 30 avisos con año conocido, **24 descartados por viejos** |
+| Corrida | **268s** · 31/31 fuentes · sin errores (venía de 498s) |
+| Inventario | 1.497 avisos crudos → 521 únicos → **56 candidatos** |
+| Fichas | 45 leídas → 4 ganaron el año, 7 se descartaron al verlas |
+| Filtro de antigüedad | **funcionando**: descarta al que publica año y resulta viejo |
 
-**Cobertura de datos en los 49 candidatos** — la lista de tareas está acá:
+**Cobertura de datos en los candidatos** — la lista de tareas está acá:
 
-| Dato | Cobertura |
-|---|---|
-| m² totales | 60% |
-| dirección | 62% |
-| precio | **41%** ⚠️ |
-| gastos comunes | 41% |
-| en el mapa | 41% |
-| piso | 33% |
-| año de construcción | **12%** ⚠️ |
+| Dato | Hoy | Ayer |
+|---|---|---|
+| dirección | **85%** | 62% |
+| en el mapa | **80%** | 41% |
+| precio | **62%** | 41% |
+| año de construcción | **14%** ⚠️ | 12% |
+
+Lo que movió esos números hoy: la ficha técnica de goplaceit (vive ARRIBA
+del título y el ancla la botaba entera), "Mts" leído como m² (el widget de
+servicios cercanos ponía "1008 m² totales" a un depto de 240), y 17
+direcciones que no eran direcciones.
 
 ---
 
 ## 🔴 MI LISTA — en orden de impacto
 
-### 1. TocToc se cae por timeout y se lleva media cosecha ⚠️ *lo más urgente*
+### 1. El año de construcción: 14% ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
 
-**Medido hoy:** toctoc entregó **318 avisos cuando entrega ~650**. Dos de sus
-tres búsquedas murieron con `Timeout 30000ms exceeded`. Es la fuente número
-uno del radar —un tercio de todo el inventario— así que cuando se cae, la
-corrida entera baja de 1.400 avisos crudos a 918.
+Sin el año no se puede ni aceptar ni descartar, que es la peor posición
+posible. Tres frentes abiertos, en orden de rendimiento:
 
-**Qué haría:** subir el tope de navegación para las fuentes lentas y
-reintentar la página caída en vez de darla por perdida. Es un cambio chico
-con el mayor retorno de toda la lista.
+- **La libreta de edificios ya está andando** (`arriendo/edificios.py`): lo
+  que un aviso enseña sobre una dirección le sirve a todos los avisos de esa
+  dirección, hoy y siempre. Hoy conoce 6 edificios y todavía no rescata a
+  nadie —a ninguno de los que le falta el año le coincide la dirección con
+  uno que lo tenga— pero el valor es acumulativo por diseño: cada corrida la
+  deja más gorda. **A medir en una semana.**
+- **Auditar dónde publica el año cada portal**, como se hizo con goplaceit.
+  toctoc lo trae en el 10% y mitula en el 16%; los demás en cero. Ese cero
+  casi nunca es del portal: es del extractor.
+- **El presupuesto de fichas subió a 100** (venía de 45) porque ahora rinde.
+  Falta medir cuánto devuelve.
 
-### 2. El precio: solo 41% de los candidatos lo trae
+### 2. El precio: 62%, y el hueco está localizado
 
-Sin canon no se puede aplicar tu filtro de presupuesto — el criterio central
-del pedido. Es el mismo tipo de agujero que ya cerré en el año, y esas
-auditorías (mitula, nuroa, yapo) encontraron bugs reales **todas las veces**.
+| Fuente | precio | qué le pasa |
+|---|---|---|
+| nuroa | 17% | su URL de arriendos entrega 22 ventas de cada 25 — es del portal |
+| trovit | 21% | apagada hoy |
+| goplaceit | 50% | sube con cada ficha que se alcanza a leer (era 20%) |
+| doomos | 54% | **sin auditar** |
+| fuenzalida | 89% | **sin auditar** |
 
-**Qué haría:** auditar portal por portal contra el HTML guardado, como con
-nuroa: ver dónde publica cada uno el precio y por qué no se está leyendo.
+Auditar doomos y fuenzalida contra su HTML real es lo próximo. Ese trabajo
+encontró bugs reales **todas las veces** (mitula, nuroa, yapo, goplaceit).
 
-### 3. Diecinueve candidatos sin link a su propia ficha
+### 3. El paso de tests se toma 6 minutos de cada corrida
 
-De 48 candidatos, **19 no tienen link directo al aviso**. Eso los deja fuera
-del lector de fichas, que es de donde salen el año, los gastos comunes y el
-piso. Es la causa de fondo detrás de los dos puntos anteriores: si no hay
-ficha que abrir, no hay datos que ganar. Nuroa pasó de 0 a 25 links con este
-mismo trabajo.
+Seis minutos por corrida son dieciocho al día de alertas que llegan más
+tarde de lo necesario, y la suite completa corre en 6 segundos acá. Ya quedó
+cronometrado por tramos: la próxima corrida dice en el log cuál de los tres
+se los lleva.
 
-### 4. Dos portales que responden 403
+### 4. Portales que responden pero entregan cero
 
-- **economicos** (El Mercurio): 403 recurrente, con GET y con navegador.
-  Entregaba 20 avisos.
-- **enlaceinmobiliario**: 403.
+`busconido` · `assetplan` · `remax` · `enlaceinmobiliario` (403) ·
+`economicos` (403 intermitente — hoy entregó 0, en la corrida anterior 52)
 
-### 5. Siete fuentes que cargan y extraen cero
+Tengo el HTML real de varios guardado en la rama `diagnostico-datos`, así que
+se calibran sin volver a visitarlos.
 
-`busconido` · `comunavitacura` · `assetplan` · `remax` · `century21` ·
-`zentagroup` · `arriendos_cl`
+### 5. Limpieza menor
 
-Tengo el HTML real de todas guardado en la rama `diagnostico-datos`, así que
-se calibran sin volver a visitarlas.
+- Direcciones con HTML crudo adentro (`"Eventos</p><p><strong>Superficie…"`).
+- toctoc antepone la dirección de la corredora a la del departamento
+  (`"Vitacura 312 Metropolitana Juan XXIII 6859 301"` — la buena es Juan
+  XXIII 6859).
+- houm publica la calle sin altura y con la comuna en "Region
+  Metropolitana": sirve para el mapa, no para identificar el edificio.
 
-### 6. La libreta de edificios
+---
 
-Que un edificio enseñe su año **una vez** y sirva para todos los avisos
-futuros de esa dirección. Es tu idea del rol/SII por un camino gratis. Con
-el año ya funcionando, esto lo multiplica: los avisos se repiten mucho por
-edificio.
+## ✅ Cerrado hoy (21-08)
 
-### 7. Limpieza menor
-
-Direcciones con HTML crudo adentro (`"Eventos</p><p><strong>Superficie…"`).
+- **toctoc** volvió a 770 avisos (venía de 318 por un timeout que se llevaba
+  la página entera).
+- **goplaceit**: 281s → 116s y precio 20% → 50%. El scroll que se probó no
+  servía; lo que servía era leer la cabecera de su ficha.
+- **yapo**: sus 30 avisos llegaban sin m² porque escribe "150 m 2", con
+  espacio. Ahora 18 de 30 lo traen.
+- **comunavitacura** apagada: su HTML es el directorio municipal (bomberos,
+  colegios, peluquerías), no un portal de arriendos.
+- **zentagroup** apagada: no es una corredora, es una consultora de IA.
+- **trovit y nestoria** apagadas: 52 avisos y ninguno con link propio.
+- **17 direcciones que no eran direcciones**, publicadas en el tablero y
+  mandadas a Google Maps ("Edificio de 18", "Antigüedad: 30", "ID 44348").
+- Un candidato que era la **calculadora de crédito hipotecario** de
+  chilepropiedades.
 
 ---
 
 ## 🙋 TU LISTA
-
-### Decisión 1 · El filtro de antigüedad *(la que más cambia el producto)*
-
-Hoy el filtro de "menos de 30 años" **solo descarta a quien publica el año**
-y resulta viejo — 24 descartados así, funciona bien. Pero al 88% que **no
-publica el año** no lo toca: solo le baja el puntaje.
-
-- **(a)** Dejarlo así — mejor ver un edificio viejo que perderse uno bueno
-- **(b)** Duro: sin año publicado, se descarta
-- **(c)** Intermedio: sin año no suena por Telegram, pero sí sale en el dashboard
-
-### Decisión 2 · El tope de 8 alertas por corrida
-
-Si califican más de 8, los que no caben **no vuelven a sonar** (solo salen en
-el mensaje "👉 Ver la lista completa").
-
-- **(a)** Dejarlo así · **(b)** que el que no cupo reintente mañana ·
-  **(c)** subir el tope a ____
 
 ### Paso 1 · Estrenar la gestión (2 min)
 
@@ -128,7 +132,6 @@ Como hiciste con nuroa: eso solo ya subió sus m² de 0% a 100%.
 
 ```
 century21.cl           ______________________________________
-zentagroup.com         ______________________________________
 enlaceinmobiliario.cl  ______________________________________
 arriendos.cl           ______________________________________
 clasificados.cl        ______________________________________
@@ -137,15 +140,14 @@ busconido.cl           ______________________________________
 ```
 
 **Y si ves cualquier portal que "llegue sin info", mándamelo con el link.**
-Los tres arreglos más grandes del radar salieron de un link tuyo.
+Los cuatro arreglos más grandes del radar salieron de un link tuyo.
 
-### Paso 3 · Cuatro respuestas de perfil (1 min)
+### Paso 3 · Tres respuestas de perfil (1 min)
 
 ```
 Mascotas:           tengo / no aplica
 Amoblado:           sin amoblar / amoblado / da lo mismo
 Estacionamientos:   mínimo ____ , ideal ____
-Pieza de servicio:  ¿cuenta como dormitorio? sí / no      (hoy: NO)
 ```
 
 ---
@@ -158,4 +160,5 @@ Pieza de servicio:  ¿cuenta como dormitorio? sí / no      (hoy: NO)
 | `logs/historial.jsonl` | una línea por corrida desde el día uno |
 | `alertas/casos/` | la ficha de cada aviso, aunque el aviso ya no exista |
 | `state/arriendos.json` | cada aviso con su **texto crudo** |
+| `state/edificios.json` | la libreta: qué año se construyó cada edificio conocido |
 | rama `diagnostico-datos` | el HTML real de cada portal, para depurar sin visitarlos |
