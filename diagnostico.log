@@ -1,0 +1,696 @@
+Diagnóstico de 5 fuentes; 3 fichas por fuente.
+
+==========================================================================
+== toctoc (https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/3-dormitorios)
+==========================================================================
+LISTADO: 1,473,331 bytes | pasada: estado-embebido | 146 avisos arriendo:100% gastos:53% m2:75% dormitorios:100% banos:76% antiguedad:2% piso:20% estacionamientos:87% direccion:2%
+
+-- FICHA 1: https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/amplio-depto-vitacura-muy-iluminado-vista-despejada/57d3832684497847e9b5a9b6fecc3d378a420cf3
+   362,316 bytes | candidatos extraídos: 1
+   extraído:  arriendo=2002169.4 gastos=340000.0 m2=— dormitorios=3 banos=3 antiguedad=— piso=— estacionamientos=2 direccion=Las Catalpas  1045
+   tarjeta:   arriendo=2002169.0 gastos=340000.0 m2=140.0 dormitorios=3 banos=3 antiguedad=— piso=— estacionamientos=2 direccion=—
+   NEXT_DATA: presente (51,363 bytes)
+     NEXT_DATA.props.pageProps.initialState.property.property.data.price = 2002169.4
+     NEXT_DATA.props.pageProps.initialState.property.property.data.priceUf = 49
+   -- texto visible con pinta de dato --
+   | arriendo
+   | Precio
+   | Dormitorios:
+   | Baños:
+   | Superf. útil:
+   | 140 m²
+   | Superf. terraza:
+   | 15 m²
+   | Hall de entrada, baño de visitas, Living comedor con linda vista, y salida a terraza, piso flotante, cerámico en cocina, logia, baños, y terraza
+   | 3 dormitorios,buenos closets. principal en suite, con walking closet y climatizador;
+   | 3 baños
+   | 2 estacionamientos - 1 Bodega – Estacionamiento de visitas
+   | Cercano parque Bicentenario, comercio variado, bancos, colegios, supermercados y futura estacion de metro Linea 7
+   | ARRIENDO: UF 49
+   | Contáctanos
+
+-- FICHA 2: https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/penthouse-en-arriendo-amoblado/dbb221698b970441018e72769a23887c47f09081
+   362,454 bytes | candidatos extraídos: 1
+   extraído:  arriendo=3064545.0 gastos=400000.0 m2=— dormitorios=3 banos=— antiguedad=— piso=— estacionamientos=2 direccion=Av. Los Trapenses 3145 13603
+   tarjeta:   arriendo=3064545.0 gastos=400000.0 m2=200.0 dormitorios=3 banos=— antiguedad=— piso=— estacionamientos=2 direccion=—
+   NEXT_DATA: presente (50,203 bytes)
+     NEXT_DATA.props.pageProps.initialState.property.property.data.price = 3064545
+     NEXT_DATA.props.pageProps.initialState.property.property.data.priceUf = 75
+   -- texto visible con pinta de dato --
+   | Venta Departamento Penthouse en arriendo, amoblado. Av. Los Trapenses 3145 13603
+   | Penthouse En Arriendo, Amoblado.
+   | arriendo
+   | 24 de febrero del 2025 - Hace 1 año, 5 meses y 28 días
+   | Precio
+   | Dormitorios:
+   | Baños:
+   | Superf. útil:
+   | 200 m²
+   | Superf. terraza:
+   | 40 m²
+   | Año de construcción:
+   | Departamento totalmente amoblado.
+   | Hall de distribución, luminoso living y comedor con salida a terraza.
+   | Tres dormitorios en suite, con salida a terraza.
+   | Departamento está totalmente rodeado a terrazas.
+   | Cuenta con dos estacionamientos y una bodega.
+   | Gastos comunes $400.000
+   | Contáctanos
+
+-- FICHA 3: https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-remodelado-en-sector-exclusivo/47254c47c8a017ef7b42df950f69e55e39e8de68
+   361,236 bytes | candidatos extraídos: 1
+   extraído:  arriendo=2410775.4 gastos=480000.0 m2=— dormitorios=3 banos=3 antiguedad=— piso=2 estacionamientos=2 direccion=Av. Los Trapenses 3145 206
+   tarjeta:   arriendo=2410775.0 gastos=480000.0 m2=160.0 dormitorios=3 banos=3 antiguedad=— piso=2 estacionamientos=2 direccion=—
+   NEXT_DATA: presente (50,205 bytes)
+     NEXT_DATA.props.pageProps.initialState.property.property.data.price = 2410775.4
+     NEXT_DATA.props.pageProps.initialState.property.property.data.priceUf = 59
+   -- texto visible con pinta de dato --
+   | arriendo
+   | Precio
+   | Dormitorios:
+   | Baños:
+   | Superf. útil:
+   | 160 m²
+   | Año de construcción:
+   | Incluye 2 estacionamientos. G.C $ 480.000 APROX.
+   | Contáctanos
+
+==========================================================================
+== mitula (https://casas.mitula.cl/casas/arriendo-departamentos-vitacura)
+==========================================================================
+LISTADO: 1,224,507 bytes | pasada: json-ld | 30 avisos arriendo:100% gastos:53% m2:56% dormitorios:100% banos:100% antiguedad:6% piso:33% estacionamientos:83% direccion:100%
+
+-- FICHA 1: https://casas.mitula.cl/adform/24301-256-76dc-a5e4ed8d692d-84bc-19ff37b-c29c
+   445,301 bytes | candidatos extraídos: 3
+   extraído:  arriendo=1672800 gastos=— m2=130.0 dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=1550400 gastos=320000.0 m2=150.0 dormitorios=3 banos=3 antiguedad=— piso=2 estacionamientos=2 direccion=Fernando de Arguello 8399, Vitacura, Chile, Metropolitana de Santiago
+   -- texto visible con pinta de dato --
+   | UF 41
+   | 121 m²
+   | UF 44
+   | 130 m²
+   | UF 38
+   | 3 dormitorios
+   | 3 baños
+   | 1 Medio baño
+   | 150 m²
+   | Arriendo
+   | Año de construcción:
+   | Piso:
+   | TODO CON PISO DE PORCELANATO , CALEFACCIÓN CENTRAL CON CALDERA INDIVIDUAL.
+   | 2 ESTACIONAMIENTOS Y BODEGA !!!
+   | EDIFICIO CON SEGURIDAD , PISCINA , JARDINES, GIMNASIO, ESTACIONAMIENTO PARA VISITAS.
+   | GASTOS COMUNES $ 320.000 APROX.
+   | SIN MASCOTAS !!!
+   | 2 MESES DE GARANTÍA
+   | Estacionamiento
+   | Terraza
+   | Vista panorámica
+   | Contáctanos
+
+-- FICHA 2: https://casas.mitula.cl/adform/24301-256-7ead-3630486321fd-8f6f-19ebbdd-73f1
+   438,678 bytes | candidatos extraídos: 3
+   extraído:  arriendo=3060000 gastos=— m2=187.0 dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=3264000 gastos=250000.0 m2=160.0 dormitorios=3 banos=3 antiguedad=— piso=2 estacionamientos=2 direccion=Calle Nilo Azul 1778, Vitacura, Santiago, Metropolitana de Santiago, 7640487, CHL
+   -- texto visible con pinta de dato --
+   | UF 75
+   | 187 m²
+   | UF 65
+   | 145 m²
+   | UF 80
+   | Gastos comunes:
+   | 3 dormitorios
+   | 3 baños
+   | 160 m²
+   | Arriendo
+   | Piso:
+   | Superficie de terreno:
+   | Dos dormitorios luminosos y de buen tamaño con amplios closets comparten un baño completo.
+   | En el segundo piso una gran terraza o rooftop de 100 m2, equipada con quincho.
+   | Cuenta con 2 estacionamientos y una bodega. Gastos comunes $ 250.000 promedio sin calefacción. Al usarla sube $100.000 mensual aprox.
+   | Nota: Las superficies y características entregadas de la propiedad son aproximadas y referenciales y han sido proporcionadas por su dueño.
+   | Estacionamiento
+   | Contáctanos
+
+-- FICHA 3: https://casas.mitula.cl/adform/24301-256-801c-8e70fd5b622f-bc61-19f9272-558b
+   427,726 bytes | candidatos extraídos: 3
+   extraído:  arriendo=2652000 gastos=— m2=145.0 dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=3264000 gastos=430000.0 m2=140.0 dormitorios=3 banos=3 antiguedad=— piso=— estacionamientos=2 direccion=Paul Claudel, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630578, Chile
+   -- texto visible con pinta de dato --
+   | UF 65
+   | 145 m²
+   | UF 67
+   | 112 m²
+   | UF 80
+   | Gastos comunes:
+   | 3 dormitorios
+   | 3 baños
+   | 140 m²
+   | Arriendo
+   | Piso:
+   | Superficie de terreno:
+   | 200 m²
+   | Nativo Propiedades arrienda elegante y amplio departamento amoblado, muy luminoso, con una increíble vista despejada y orientación nororiente y sur.
+   | Gastos comunes: $430.000
+   | Estacionamientos: 2
+   | Bodegas: 2
+   | Estacionamiento
+   | Hospital Metropolitano
+   | Contáctanos
+
+==========================================================================
+== chilepropiedades (https://chilepropiedades.cl/propiedades/arriendo-mensual/departamento/vitacura/0)
+==========================================================================
+LISTADO: 155,215 bytes | pasada: tarjeta | 10 avisos arriendo:100% gastos:0% m2:10% dormitorios:100% banos:100% antiguedad:0% piso:10% estacionamientos:90% direccion:20%
+
+-- FICHA 1: https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/kennedy-parque-arauco-vitacura/131029149
+   103,477 bytes | candidatos extraídos: 2
+   extraído:  arriendo=1700000.0 gastos=— m2=— dormitorios=2 banos=2 antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=1700000.0 gastos=— m2=— dormitorios=2 banos=2 antiguedad=— piso=— estacionamientos=2 direccion=—
+   ld+json: {'RealEstateListing': 1, 'Apartment': 1, 'QuantitativeValue': 1, 'PropertyValue': 10, 'Offer': 1, 'RealEstateAgent': 1, 'PostalAddress': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].@graph[].about.address.streetAddress = Kennedy / Parque Arauco / Vitacura
+     ld[].@graph[].about.address.addressLocality = Vitacura
+     ld[].@graph[].about.address.addressRegion = Región Metropolitana de Santiago (RM)
+     ld[].@graph[].about.address.addressCountry = CL
+     ld[].@graph[].offers.price = 1700000
+     ld[].@graph[].offers.priceCurrency = CLP
+     ld[].@graph[].seller.address.streetAddress = Av. Presidente Kennedy 9798
+     ld[].@graph[].seller.address.addressCountry = CL
+     NODO realestatelisting: {"@type": "RealEstateListing", "@id": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/kennedy-parque-arauco-vitacura/131029149#listing", "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/kennedy-parque-arauco-vitacura/131029149", "name": "Departamento en Arriendo en Vitacura, Kennedy / Parque Arauco / Vitacura", "description": "Se arrienda departamento en la exclusiva comuna de Vitacura, ubicado en el sector de Kennedy/Parque Arauco, cercano a centros comerciales, parques y servicios. Este acogedor departamento cuenta con 2 dormitorios, 2 baños y 108 m2 construidos, ideal para parejas o familias pequeñas en busca de com...", "datePosted": "2026-08-21", "image": ["https://chilepropiedades.cl/imagenes/publicacion/arriendo-mensual/departamento/vitacura/2/d5e45e7c-646b-4ea1-a817-2ea2af77805c-1787339385360.jpg", "htt
+     NODO apartment: {"@type": "Apartment", "name": "Departamento en Arriendo en Vitacura, Kennedy / Parque Arauco / Vitacura", "address": {"streetAddress": "Kennedy / Parque Arauco / Vitacura", "addressLocality": "Vitacura", "addressRegion": "Región Metropolitana de Santiago (RM)", "addressCountry": "CL"}, "floorSize": {"@type": "QuantitativeValue", "value": 108.0, "unitText": "m2"}, "additionalProperty": [{"@type": "PropertyValue", "name": "Tipo de propiedad", "value": "Departamento"}, {"@type": "PropertyValue", "name": "Tipo de publicación", "value": "Arriendo Mensual"}, {"@type": "PropertyValue", "name": "Superficie total", "value": "108 m2"}, {"@type": "PropertyValue", "name": "Superficie útil", "value": "108 m2"}, {"@type": "PropertyValue", "name": "Dormitorios", "value": "2"}, {"@type": "PropertyValue", "name": "Baños", "value": "2"}, {"@type": "PropertyValue", "name": "Estacionamientos", "value": "2"
+   -- texto visible con pinta de dato --
+   | Departamento en arriendo en Kennedy / Parque Arauco / Vitacura, Vitacura
+   | Bodega
+   | Estacionamiento
+   | Precio
+   | Habitaciones
+   | Banos
+   | Departamentos en arriendo en Vitacura
+   | Arriendo Mensual de Departamento
+   | Valor (UF aprox.)*
+   | UF 41,60
+   | Baños
+   | Superficie
+   | 108 m²
+   | Contexto de precio
+   | Comuna y características similares
+   | 3 baños
+   | 107 m2
+   | 2 baños
+   | 104 m2
+   | 113 m2
+   | Gastos Comunes
+   | Amoblado
+   | Superficie Útil
+   | Arriendo Mensual
+   | Vapiano
+
+-- FICHA 2: https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/manquehue-jose-maria-escriba-de-balaguer/131012139
+   114,780 bytes | candidatos extraídos: 2
+   extraído:  arriendo=2570400 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=2570400 gastos=— m2=— dormitorios=3 banos=3 antiguedad=— piso=— estacionamientos=6 direccion=—
+   ld+json: {'RealEstateListing': 1, 'Apartment': 1, 'QuantitativeValue': 1, 'PropertyValue': 10, 'Offer': 1, 'RealEstateAgent': 1, 'PostalAddress': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].@graph[].about.address.streetAddress = Manquehue /jose maría escriba de balaguer
+     ld[].@graph[].about.address.addressLocality = Vitacura
+     ld[].@graph[].about.address.addressRegion = Región Metropolitana de Santiago (RM)
+     ld[].@graph[].about.address.addressCountry = CL
+     ld[].@graph[].offers.price = 63
+     ld[].@graph[].offers.priceCurrency = CLF
+     ld[].@graph[].seller.address.streetAddress = Av. Luis Thayer Ojeda 1039
+     ld[].@graph[].seller.address.addressCountry = CL
+     NODO realestatelisting: {"@type": "RealEstateListing", "@id": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/manquehue-jose-maria-escriba-de-balaguer/131012139#listing", "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/manquehue-jose-maria-escriba-de-balaguer/131012139", "name": "Departamento en Arriendo en Vitacura, Manquehue /jose maría escriba de balaguer", "description": "Usted ha encontrado un precioso departamento ubicado en el mejor sector,linda vista panorámica desde el balcón . Gran conectividad, a pasos de centro gastronómico borde rio . Cercano club de polo san cristóbal, cercano a autopistas principales. Edificio de pocos departamentos , solo 4 departament...", "datePosted": "2026-08-21", "image": ["https://chilepropiedades.cl/imagenes/publicacion/arriendo-mensual/departamento/vitacura/2/49402363-06da-4ed4-b11a-0fff2b644a
+     NODO apartment: {"@type": "Apartment", "name": "Departamento en Arriendo en Vitacura, Manquehue /jose maría escriba de balaguer", "address": {"streetAddress": "Manquehue /jose maría escriba de balaguer", "addressLocality": "Vitacura", "addressRegion": "Región Metropolitana de Santiago (RM)", "addressCountry": "CL"}, "floorSize": {"@type": "QuantitativeValue", "value": 162.0, "unitText": "m2"}, "additionalProperty": [{"@type": "PropertyValue", "name": "Tipo de propiedad", "value": "Departamento"}, {"@type": "PropertyValue", "name": "Tipo de publicación", "value": "Arriendo Mensual"}, {"@type": "PropertyValue", "name": "Superficie total", "value": "203 m2"}, {"@type": "PropertyValue", "name": "Superficie útil", "value": "162 m2"}, {"@type": "PropertyValue", "name": "Dormitorios", "value": "3"}, {"@type": "PropertyValue", "name": "Baños", "value": "3"}, {"@type": "PropertyValue", "name": "Estacionamientos"
+   -- texto visible con pinta de dato --
+   | Departamento en arriendo en Manquehue /jose maría escriba de balaguer, Vitacura
+   | Bodega
+   | Estacionamiento
+   | Precio
+   | Habitaciones
+   | Banos
+   | Departamentos en arriendo en Vitacura
+   | Arriendo Mensual de Departamento
+   | UF 63,00
+   | Baños
+   | Superficie
+   | 203 m²
+   | Contexto de precio
+   | UF 59,07 - UF 83,50
+   | Comuna y características similares
+   | UF 80,00
+   | UF 72,50
+   | 3 baños
+   | 205 m2
+   | UF 85,00
+   | 200 m2
+   | 4 baños
+   | Gastos Comunes
+   | Amoblado
+   | Superficie Útil
+
+-- FICHA 3: https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/mall-casa-costanera/87685919
+   100,555 bytes | candidatos extraídos: 2
+   extraído:  arriendo=1020000 gastos=— m2=— dormitorios=2 banos=2 antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=1020000 gastos=— m2=— dormitorios=2 banos=2 antiguedad=— piso=— estacionamientos=1 direccion=—
+   ld+json: {'RealEstateListing': 1, 'Apartment': 1, 'QuantitativeValue': 1, 'PropertyValue': 10, 'Offer': 1, 'RealEstateAgent': 1, 'PostalAddress': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].@graph[].about.address.streetAddress = Mall Casa Costanera
+     ld[].@graph[].about.address.addressLocality = Vitacura
+     ld[].@graph[].about.address.addressRegion = Región Metropolitana de Santiago (RM)
+     ld[].@graph[].about.address.addressCountry = CL
+     ld[].@graph[].offers.price = 25
+     ld[].@graph[].offers.priceCurrency = CLF
+     ld[].@graph[].seller.address.streetAddress = Las condes
+     ld[].@graph[].seller.address.addressCountry = CL
+     NODO realestatelisting: {"@type": "RealEstateListing", "@id": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/mall-casa-costanera/87685919#listing", "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/mall-casa-costanera/87685919", "name": "Departamento en Arriendo en Vitacura, Mall Casa Costanera", "description": "Se Arrienda acogedor departamento DISPONIBLE EN OCTUBRE en cerca del Mall Casa Costanera, ubicado en el exclusivo sector de Nueva Costanera en Vitacura. Este moderno departamento cuenta con 2 dormitorios, 2 baños y una superficie útil de 68 m2. La propiedad destaca por su orientación Sur-Oriente,...", "datePosted": "2026-08-21", "image": ["https://chilepropiedades.cl/imagenes/publicacion/arriendo-mensual/departamento/vitacura/2/bac655b7-0c3b-4e92-8d05-4337b68ea27c-1787314756599.jpg", "https://chilepropiedades.cl/imagenes/publi
+     NODO apartment: {"@type": "Apartment", "name": "Departamento en Arriendo en Vitacura, Mall Casa Costanera", "address": {"streetAddress": "Mall Casa Costanera", "addressLocality": "Vitacura", "addressRegion": "Región Metropolitana de Santiago (RM)", "addressCountry": "CL"}, "floorSize": {"@type": "QuantitativeValue", "value": 68.0, "unitText": "m2"}, "additionalProperty": [{"@type": "PropertyValue", "name": "Tipo de propiedad", "value": "Departamento"}, {"@type": "PropertyValue", "name": "Tipo de publicación", "value": "Arriendo Mensual"}, {"@type": "PropertyValue", "name": "Superficie total", "value": "80 m2"}, {"@type": "PropertyValue", "name": "Superficie útil", "value": "68 m2"}, {"@type": "PropertyValue", "name": "Dormitorios", "value": "2"}, {"@type": "PropertyValue", "name": "Baños", "value": "2"}, {"@type": "PropertyValue", "name": "Estacionamientos", "value": "1"}, {"@type": "PropertyValue", "na
+   -- texto visible con pinta de dato --
+   | Departamento en arriendo en Mall Casa Costanera, Vitacura
+   | Bodega
+   | Estacionamiento
+   | Precio
+   | Habitaciones
+   | Banos
+   | Departamentos en arriendo en Vitacura
+   | Arriendo Mensual de Departamento
+   | UF 25,00
+   | Baños
+   | Superficie
+   | 80 m²
+   | Contexto de precio
+   | UF 32,73 - UF 43,13
+   | Comuna y características similares
+   | UF 35,49
+   | UF 41,19
+   | 2 baños
+   | 83 m2
+   | UF 34,50
+   | Arriendo departamento amoblado, vista despejada! 2D-2B-1E, Vitacura
+   | 77 m2
+   | UF 33,04
+   | 84 m2
+   | Gastos Comunes
+
+==========================================================================
+== houm (https://houm.com/cl/arriendo-departamentos-region-metropolitana/vitacura/3-dormitorios)
+==========================================================================
+LISTADO: 448,521 bytes | pasada: json-ld | 28 avisos arriendo:100% gastos:0% m2:0% dormitorios:0% banos:0% antiguedad:0% piso:0% estacionamientos:0% direccion:100%
+
+-- FICHA 1: https://www.houm.com/cl/arriendo-departamento-region-metropolitana/las-condes/170742
+   530,648 bytes | candidatos extraídos: 1
+   extraído:  arriendo=2200000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Avenida Presidente Kennedy
+   tarjeta:   arriendo=2200000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Avenida Presidente Kennedy, Region Metropolitana
+   ld+json: {'BreadcrumbList': 1, 'ListItem': 3}
+   NEXT_DATA: presente (312,494 bytes)
+     NEXT_DATA.props.pageProps.property.address = Avenida Presidente Kennedy
+     NEXT_DATA.props.pageProps.property.association_amenities.floors = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.guest_parking_spaces = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.has_bbq_area = False
+     NEXT_DATA.props.pageProps.property.association_amenities.has_pet_area = False
+     NEXT_DATA.props.pageProps.property.comuna = Las Condes
+     NEXT_DATA.props.pageProps.property.for_rental = True
+     NEXT_DATA.props.pageProps.property.property_details[].banos = 2
+     NEXT_DATA.props.pageProps.property.property_details[].bodega = False
+     NEXT_DATA.props.pageProps.property.property_details[].dormitorios = 3
+     NEXT_DATA.props.pageProps.property.property_details[].has_clothing_area = False
+     NEXT_DATA.props.pageProps.property.property_details[].orientacion = southwest
+     NEXT_DATA.props.pageProps.property.property_details[].is_common_expenses_included = False
+     NEXT_DATA.props.pageProps.property.property_details[].valor = 2200000
+     NEXT_DATA.props.pageProps.property.property_details[].estacionamientos = 2
+     NEXT_DATA.props.pageProps.property.property_details[].parking_numbers = 4147,4148
+     NEXT_DATA.props.pageProps.property.property_details[].valor_venta = 1
+     NEXT_DATA.props.pageProps.property.property_details[].parking = False
+     NEXT_DATA.props.pageProps.table.address.capital.fullAddress = Santiago | Av del valle 787, Piso 2 oficinas 202 y 203, Ciudad Empresarial, Huec
+     NEXT_DATA.props.pageProps.table.global.navbar.payRent = Pagar arriendo
+     NEXT_DATA.props.pageProps.table.global.navbar.marketplaceRent = Buscar para arrendar
+     NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[].year = 2018
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.amenities.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceRentRecommendedText = El precio de arriendo sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.placeholders.addressInput = Félix de Amesti 237, Las Condes
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentFirstLine = Descubre el valor de arriendo 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentSecondLine = ideal para tu propiedad
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.buttonText.rent = Obtener recomendación
+     NEXT_DATA.props.pageProps.table.pages.propietary.rent.rent = Arrienda
+     LISTA NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[0]: {"title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "titleBold": "Nace Houm", "year": "2018", "path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble"}
+     LISTA NEXT_DATA.props.pageProps.table.PAGES_WHOWEAREV2_OURHISTORY[0]: {"path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "year": "2018", "title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble", "titleBold": "Nace Houm"}
+   -- texto visible con pinta de dato --
+   | Arriendo de Departamento de 75 m² en Presidente Kennedy
+   | Publicar para arriendo
+   | Pagar arriendo
+   | Departamento en arriendo Region Metropolitana
+   | Arriendo de
+   | Valor arriendo
+   | 75 m² totales
+   | 75 m² útiles
+   | 3 dormitorios
+   | 2 baños
+   | No admite mascotas
+   | 2 estacionamientos
+   | Sin bodega
+   | Grandioso departamento en arriendo, ubicado en la comuna de Las Condes, con una superficie construida de 75.00 m² y superficie total de 75.00 m².
+   | Arrienda sin garantía y sin aval
+   | próximo arriendo
+   | Arrienda 100% sin aval, sin garantía
+   | (2.8 veces el arriendo).
+   | * Arriendo sin garantía aplican términos y condiciones
+   | Certificado de antiguedad laboral o copia del contrato.
+   | Si eres independiente, necesitaremos tu F22 de los últimos 2 años y las 3 últimas boletas de honorarios.
+   | Pago único de 0.8 UF + IVA por Gastos Operacionales.
+   | El primer mes correspondiente al 50% del valor del arriendo + IVA por corretaje
+   | Arriendo
+   | 140 m² totales
+
+-- FICHA 2: https://www.houm.com/cl/arriendo-departamento-region-metropolitana/las-condes/175757
+   536,829 bytes | candidatos extraídos: 1
+   extraído:  arriendo=1000000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Martín de Zamora
+   tarjeta:   arriendo=1000000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Martín de Zamora, Region Metropolitana
+   ld+json: {'BreadcrumbList': 1, 'ListItem': 3}
+   NEXT_DATA: presente (308,577 bytes)
+     NEXT_DATA.props.pageProps.property.address = Martín de Zamora
+     NEXT_DATA.props.pageProps.property.association_amenities.floors = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.guest_parking_spaces = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.has_bbq_area = False
+     NEXT_DATA.props.pageProps.property.association_amenities.has_pet_area = False
+     NEXT_DATA.props.pageProps.property.comuna = Las Condes
+     NEXT_DATA.props.pageProps.property.for_rental = True
+     NEXT_DATA.props.pageProps.property.property_details[].banos = 2
+     NEXT_DATA.props.pageProps.property.property_details[].bodega = True
+     NEXT_DATA.props.pageProps.property.property_details[].dormitorios = 3
+     NEXT_DATA.props.pageProps.property.property_details[].has_clothing_area = False
+     NEXT_DATA.props.pageProps.property.property_details[].is_common_expenses_included = False
+     NEXT_DATA.props.pageProps.property.property_details[].promotional_price = 0
+     NEXT_DATA.props.pageProps.property.property_details[].valor = 1000000
+     NEXT_DATA.props.pageProps.property.property_details[].estacionamientos = 2
+     NEXT_DATA.props.pageProps.property.property_details[].parking_numbers = N/A,N/A
+     NEXT_DATA.props.pageProps.property.property_details[].parking = False
+     NEXT_DATA.props.pageProps.table.address.capital.fullAddress = Santiago | Av del valle 787, Piso 2 oficinas 202 y 203, Ciudad Empresarial, Huec
+     NEXT_DATA.props.pageProps.table.global.navbar.payRent = Pagar arriendo
+     NEXT_DATA.props.pageProps.table.global.navbar.marketplaceRent = Buscar para arrendar
+     NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[].year = 2018
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.amenities.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceRentRecommendedText = El precio de arriendo sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.placeholders.addressInput = Félix de Amesti 237, Las Condes
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentFirstLine = Descubre el valor de arriendo 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentSecondLine = ideal para tu propiedad
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.buttonText.rent = Obtener recomendación
+     NEXT_DATA.props.pageProps.table.pages.propietary.rent.rent = Arrienda
+     NEXT_DATA.props.pageProps.table.pages.propertyFlow.maxPrice = 10000000
+     LISTA NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[0]: {"title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "titleBold": "Nace Houm", "year": "2018", "path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble"}
+     LISTA NEXT_DATA.props.pageProps.table.PAGES_WHOWEAREV2_OURHISTORY[0]: {"path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "year": "2018", "title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble", "titleBold": "Nace Houm"}
+   -- texto visible con pinta de dato --
+   | Arriendo de Departamento de 90 m² en Martín De Zamora
+   | Publicar para arriendo
+   | Pagar arriendo
+   | Departamento en arriendo Region Metropolitana
+   | Arriendo de
+   | Valor arriendo
+   | Gastos comunes aprox.
+   | 90 m² totales
+   | 83 m² útiles
+   | 3 dormitorios
+   | 2 baños
+   | No admite mascotas
+   | 2 estacionamientos
+   | Bodega
+   | Terraza
+   | Grandioso departamento en arriendo, ubicado en la comuna de Las Condes, con una superficie construida de 83.00 m² y superficie total de 90.00 m².
+   | Arrienda sin garantía y sin aval
+   | próximo arriendo
+   | Arrienda 100% sin aval, sin garantía
+   | (2.8 veces el arriendo).
+   | * Arriendo sin garantía aplican términos y condiciones
+   | Certificado de antiguedad laboral o copia del contrato.
+   | Si eres independiente, necesitaremos tu F22 de los últimos 2 años y las 3 últimas boletas de honorarios.
+   | Pago único de 0.8 UF + IVA por Gastos Operacionales.
+   | El primer mes correspondiente al 50% del valor del arriendo + IVA por corretaje
+
+-- FICHA 3: https://www.houm.com/cl/arriendo-departamento-region-metropolitana/nunoa/176912
+   546,480 bytes | candidatos extraídos: 1
+   extraído:  arriendo=1150000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Avenida Eliecer Parada
+   tarjeta:   arriendo=1150000.0 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=Avenida Eliecer Parada, Region Metropolitana
+   ld+json: {'BreadcrumbList': 1, 'ListItem': 3}
+   NEXT_DATA: presente (309,898 bytes)
+     NEXT_DATA.props.pageProps.property.address = Avenida Eliecer Parada
+     NEXT_DATA.props.pageProps.property.association_amenities.floors = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.guest_parking_spaces = 0
+     NEXT_DATA.props.pageProps.property.association_amenities.has_bbq_area = True
+     NEXT_DATA.props.pageProps.property.association_amenities.has_pet_area = False
+     NEXT_DATA.props.pageProps.property.comuna = Ñuñoa
+     NEXT_DATA.props.pageProps.property.for_rental = True
+     NEXT_DATA.props.pageProps.property.property_details[].banos = 2
+     NEXT_DATA.props.pageProps.property.property_details[].bodega = True
+     NEXT_DATA.props.pageProps.property.property_details[].dormitorios = 3
+     NEXT_DATA.props.pageProps.property.property_details[].has_clothing_area = False
+     NEXT_DATA.props.pageProps.property.property_details[].orientacion = northeast
+     NEXT_DATA.props.pageProps.property.property_details[].is_common_expenses_included = False
+     NEXT_DATA.props.pageProps.property.property_details[].promotional_price = 0
+     NEXT_DATA.props.pageProps.property.property_details[].valor = 1150000
+     NEXT_DATA.props.pageProps.property.property_details[].estacionamientos = 1
+     NEXT_DATA.props.pageProps.property.property_details[].parking_numbers = 32
+     NEXT_DATA.props.pageProps.property.property_details[].parking = False
+     NEXT_DATA.props.pageProps.table.address.capital.fullAddress = Santiago | Av del valle 787, Piso 2 oficinas 202 y 203, Ciudad Empresarial, Huec
+     NEXT_DATA.props.pageProps.table.global.navbar.payRent = Pagar arriendo
+     NEXT_DATA.props.pageProps.table.global.navbar.marketplaceRent = Buscar para arrendar
+     NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[].year = 2018
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.amenities.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceRentRecommendedText = El precio de arriendo sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.temp.recommendation.priceSaleRecommendedText = El precio de venta sugerido de 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.placeholders.addressInput = Félix de Amesti 237, Las Condes
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentFirstLine = Descubre el valor de arriendo 
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.titles.askRentSecondLine = ideal para tu propiedad
+     NEXT_DATA.props.pageProps.table.pages.propietary.form.buttonText.rent = Obtener recomendación
+     NEXT_DATA.props.pageProps.table.pages.propietary.rent.rent = Arrienda
+     LISTA NEXT_DATA.props.pageProps.table.pages.whoWeAreV2.ourHistory[0]: {"title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "titleBold": "Nace Houm", "year": "2018", "path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble"}
+     LISTA NEXT_DATA.props.pageProps.table.PAGES_WHOWEAREV2_OURHISTORY[0]: {"path": "/static/images/who-we-are-lp/ourHistory/2018-min.jpg", "year": "2018", "title": "fundado por Benjamín Labra (CEO) y Nicolás Knockaert (COO) para ayudar a millones de personas a encontrar su hogar soñado o a vender o arrendar su propiedad.", "altImg": "Fundadores de Houm en ciudad empresarial", "imgTitle": "Publicar un inmueble gratis en houm, rentar mi inmueble", "titleBold": "Nace Houm"}
+   -- texto visible con pinta de dato --
+   | Arriendo de Departamento de 100 m² en Eliecer Parada
+   | Publicar para arriendo
+   | Pagar arriendo
+   | Departamento en arriendo Region Metropolitana
+   | Arriendo de
+   | Valor arriendo
+   | Gastos comunes aprox.
+   | 100 m² totales
+   | 85 m² útiles
+   | 3 dormitorios
+   | 2 baños
+   | Admite mascotas
+   | 1 estacionamiento
+   | Bodega
+   | Amoblado
+   | Terraza
+   | Grandioso departamento en arriendo, ubicado en la comuna de Ñuñoa, con una superficie construida de 75.00 m² y superficie total de 90.00 m².
+   | Arrienda sin garantía y sin aval
+   | próximo arriendo
+   | Arrienda 100% sin aval, sin garantía
+   | (2.8 veces el arriendo).
+   | * Arriendo sin garantía aplican términos y condiciones
+   | Certificado de antiguedad laboral o copia del contrato.
+   | Si eres independiente, necesitaremos tu F22 de los últimos 2 años y las 3 últimas boletas de honorarios.
+   | Pago único de 0.8 UF + IVA por Gastos Operacionales.
+
+==========================================================================
+== engelvoelkers (https://www.engelvoelkers.com/cl/en/properties/res/rent/apartment/santiago-metropolitan-region/vitacura)
+==========================================================================
+LISTADO: 969,824 bytes | pasada: tarjeta | 16 avisos arriendo:100% gastos:0% m2:12% dormitorios:6% banos:0% antiguedad:0% piso:0% estacionamientos:0% direccion:0%
+
+-- FICHA 1: https://www.engelvoelkers.com/cl/en/exposes/eede8556-37a9-55ed-8428-7ece22808b6e
+   599,803 bytes | candidatos extraídos: 1
+   extraído:  arriendo=3672000 gastos=— m2=180.0 dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   tarjeta:   arriendo=3672000 gastos=— m2=250.0 dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   ld+json: {'Product': 1, 'Offer': 1, 'RealEstateListing': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].offers.price = 90
+     ld[].offers.priceCurrency = CLF
+     NODO product: {"@context": "https://schema.org", "@type": "Product", "name": "Departamento Vista Totalmente Despejada", "description": "4D + 2B   180 m2 construídos  ", "image": "https://uploadcare.engelvoelkers.com/5c00f5cb-ecdf-4194-8e95-9992d11d746a/", "offers": {"@type": "Offer", "price": "90", "priceCurrency": "CLF"}}
+     NODO realestatelisting: {"@context": "https://schema.org", "@type": "RealEstateListing", "datePosted": "2026-08-12T14:11:46.045916Z", "name": "Departamento Vista Totalmente Despejada", "image": "https://uploadcare.engelvoelkers.com/5c00f5cb-ecdf-4194-8e95-9992d11d746a/", "description": "4D + 2B   180 m2 construídos  "}
+   NEXT_DATA: presente (174,729 bytes)
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.sp_header_footer.appSettingsModal.currentCountry = You are viewing Engel & Völkers
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaAsc = Living area ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaDesc = Living area descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceAsc = Price ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceDesc = Price descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.contact.form.label.phoneAreaCode = Phone area code
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.EFFECTIVELY_FLOOD_PRONE_AREA = High flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.POSSIBLY_FLOOD_PRONE_AREA = Low flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.label.floodProneArea = Flood-prone area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.development.label.livingArea = from {{livingArea}} Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingMaterial.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingType.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.features.label.coveredParking = Covered parking
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_one = Bathroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_other = Bathrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_one = Bedroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_other = Bedrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.commercialSurface = Commercial surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.constructionYear = Construction year
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.courtagePassusRentalGermanyProperty = Notes
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floor = Floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_one = Floor plan
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_other = Floor plans
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring = Flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.epoxide_resin_floor = Epoxy resin floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.no_flooring = No flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.wooden_floor = Wooden floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.gardenSurface = Garden surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.livingArea = Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.numberOfFloors = Number of Floors
+   -- texto visible con pinta de dato --
+   | Departamento Vista Totalmente Despejada
+   | Basic rent excl. utilities
+   | UF 90 ~€3,312
+   | UF 90
+   | ~250 m² Total surface
+   | ~180 m² Living area
+   | ~250 m² Plot surface
+   | Construction year 2005
+   | 4D + 2B | 180 m2 construídos | 250 m2 totales | Orientación Norte
+   | Total surface
+   | ~250 m²
+   | ~180 m²
+   | Sector con excelente conectividad, en calle tranquila, cercano a comercios, clínicas, restaurantes, cafés y colegios.
+   | Casa en arriendo cercana Colegio Alianza Francesa
+   | UF 105
+   | ~240 m² Living area
+   | ~420 m² Plot surface
+   | Total rent
+   | ~550 m² Living area
+   | ~1,200 m² Plot surface
+   | Departamento amoblado en arriendo en el corazón de El Golf
+   | UF 100
+   | ~297 m² Living area
+   | ~372 m² Plot surface
+   | ~250 m² Living area
+
+-- FICHA 2: https://www.engelvoelkers.com/cl/en/exposes/7601e973-4015-518a-86e5-1022c4825b8b
+   585,588 bytes | candidatos extraídos: 1
+   extraído:  arriendo=1387200 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=3 estacionamientos=— direccion=—
+   tarjeta:   arriendo=1387200 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   ld+json: {'Product': 1, 'Offer': 1, 'RealEstateListing': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].offers.price = 34
+     ld[].offers.priceCurrency = CLF
+     NODO product: {"@context": "https://schema.org", "@type": "Product", "name": "Departamento Vista Verde en Candelaria Goyenechea", "description": "Departamento en arriendo con vista verde en tercer piso de seis con orientación poniente. Hall de entrada.", "image": "https://uploadcare.engelvoelkers.com/d9ea0800-5cfb-4adf-83db-fdec4be48b05/", "offers": {"@type": "Offer", "price": "34", "priceCurrency": "CLF"}}
+     NODO realestatelisting: {"@context": "https://schema.org", "@type": "RealEstateListing", "datePosted": "2026-07-30T20:23:48.738943Z", "name": "Departamento Vista Verde en Candelaria Goyenechea", "image": "https://uploadcare.engelvoelkers.com/d9ea0800-5cfb-4adf-83db-fdec4be48b05/", "description": "Departamento en arriendo con vista verde en tercer piso de seis con orientación poniente. Hall de entrada."}
+   NEXT_DATA: presente (162,186 bytes)
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.sp_header_footer.appSettingsModal.currentCountry = You are viewing Engel & Völkers
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaAsc = Living area ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaDesc = Living area descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceAsc = Price ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceDesc = Price descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.contact.form.label.phoneAreaCode = Phone area code
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.EFFECTIVELY_FLOOD_PRONE_AREA = High flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.POSSIBLY_FLOOD_PRONE_AREA = Low flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.label.floodProneArea = Flood-prone area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.development.label.livingArea = from {{livingArea}} Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingMaterial.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingType.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.features.label.coveredParking = Covered parking
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_one = Bathroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_other = Bathrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_one = Bedroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_other = Bedrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.commercialSurface = Commercial surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.constructionYear = Construction year
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.courtagePassusRentalGermanyProperty = Notes
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floor = Floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_one = Floor plan
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_other = Floor plans
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring = Flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.epoxide_resin_floor = Epoxy resin floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.no_flooring = No flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.wooden_floor = Wooden floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.gardenSurface = Garden surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.livingArea = Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.numberOfFloors = Number of Floors
+   -- texto visible con pinta de dato --
+   | Basic rent excl. utilities
+   | UF 34 ~€1,251
+   | UF 34
+   | ~84 m² Total surface
+   | ~76 m² Living area
+   | ~84 m² Plot surface
+   | Construction year 2008
+   | El edificio cuenta con conserjería 24/7, sistema de vigilancia con cámaras, sala multiuso y estacionamientos de visita. Gastos comunes de $350.000 aprox.
+   | Total surface
+   | ~84 m²
+   | ~76 m²
+   | Barrio muy tranquilo para caminar, cercano a comercio, supermercados y parques.
+   | Departamento remodelado, amoblado
+   | UF 40
+   | ~79 m² Living area
+   | ~90 m² Plot surface
+   | Departamento amoblado Vitacura y Alonso de Córdova
+   | ~114 m² Living area
+   | ~126 m² Plot surface
+   | Departamento en arriendo con Patio en Augusto Leguía
+   | ~100 m² Living area
+   | ~150 m² Plot surface
+   | Departamento amoblado 2D Presidente Errazuriz
+   | UF 39
+   | ~75 m² Living area
+
+-- FICHA 3: https://www.engelvoelkers.com/cl/en/exposes/606343a3-f62d-5cca-97b9-081d1ea91194
+   589,620 bytes | candidatos extraídos: 1
+   extraído:  arriendo=1550400 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=2 estacionamientos=— direccion=—
+   tarjeta:   arriendo=1550400 gastos=— m2=— dormitorios=— banos=— antiguedad=— piso=— estacionamientos=— direccion=—
+   ld+json: {'Product': 1, 'Offer': 1, 'RealEstateListing': 1, 'BreadcrumbList': 1, 'ListItem': 3}
+     ld[].offers.price = 38
+     ld[].offers.priceCurrency = CLF
+     NODO product: {"@context": "https://schema.org", "@type": "Product", "name": "Departamento a pasos del Estadio Croata", "description": "Departamento ubicado en edificio construido en el año 2021, en un segundo piso de ocho, con orientación norte. Pasillo de entrada que nos lleva a living comedor con salida a terraza, cocina completamente equipada.", "image": "https://uploadcare.engelvoelkers.com/6bf78598-6737-4ea0-97f0-54d6ee0be676/", "offers": {"@type": "Offer", "price": "38", "priceCurrency": "CLF"}}
+     NODO realestatelisting: {"@context": "https://schema.org", "@type": "RealEstateListing", "datePosted": "2026-07-30T16:03:42.275928Z", "name": "Departamento a pasos del Estadio Croata", "image": "https://uploadcare.engelvoelkers.com/6bf78598-6737-4ea0-97f0-54d6ee0be676/", "description": "Departamento ubicado en edificio construido en el año 2021, en un segundo piso de ocho, con orientación norte. Pasillo de entrada que nos lleva a living comedor con salida a terraza, cocina completamente equipada."}
+   NEXT_DATA: presente (167,261 bytes)
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.sp_header_footer.appSettingsModal.currentCountry = You are viewing Engel & Völkers
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaAsc = Living area ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.livingAreaDesc = Living area descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceAsc = Price ascending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.watchlist.search.searchbar.sortBy.priceDesc = Price descending
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.contact.form.label.phoneAreaCode = Phone area code
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.EFFECTIVELY_FLOOD_PRONE_AREA = High flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.floodProneArea.POSSIBLY_FLOOD_PRONE_AREA = Low flood risk
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.countrySpecific.label.floodProneArea = Flood-prone area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.development.label.livingArea = from {{livingArea}} Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingMaterial.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.energy.heatingType.underFloor = Underfloor heating
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.features.label.coveredParking = Covered parking
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_one = Bathroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bathrooms_other = Bathrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_one = Bedroom
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.bedrooms_other = Bedrooms
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.commercialSurface = Commercial surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.constructionYear = Construction year
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.courtagePassusRentalGermanyProperty = Notes
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floor = Floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_one = Floor plan
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.floorPlan_other = Floor plans
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring = Flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.epoxide_resin_floor = Epoxy resin floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.no_flooring = No flooring
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.flooring.wooden_floor = Wooden floor
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.gardenSurface = Garden surface
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.livingArea = Living area
+     NEXT_DATA.props.pageProps._nextI18Next.initialI18nStore.en.property_expose.search.expose.propertyDetails.label.numberOfFloors = Number of Floors
+   -- texto visible con pinta de dato --
+   | Basic rent excl. utilities
+   | UF 38 ~€1,398
+   | UF 38
+   | ~84 m² Total surface
+   | ~74 m² Living area
+   | ~84 m² Plot surface
+   | Construction year 2021
+   | Departamento ubicado en edificio construido en el año 2021, en un segundo piso de ocho, con orientación norte.
+   | Pasillo de entrada que nos lleva a living comedor con salida a terraza, cocina completamente equipada.
+   | Baño de visita y sala de estar
+   | Dormitorio principal en suite, walk in closet.
+   | Segundo dormitorio con baño pasillo completo.
+   | Tiene dos estacionamientos subterráneos y una bodega.
+   | El edificio cuenta con circuito cerrado, conserjería 24/7, varios estacionamientos de visita, piscina, jardines y sala de multiuso.
+   | Gastos comunes 300.000 aprox.
+   | Total surface
+   | ~84 m²
+   | ~74 m²
+   | Cercano a colegios y principales vias.
+   | Oficina dúplex con terraza, Metro Tobalaba
+   | UF 45
+   | ~140 m² Living area
+   | ~220 m² Plot surface
+   | ~70 m² Living area
+   | ~85 m² Plot surface
