@@ -9,7 +9,7 @@
   },
   "@-33 37213 -70 54192": {
     "calle": "Santa Teresa de Los Andes 9770",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 37271 -70 54118": {
     "calle": "Santa Teresa de Los Andes 9770",
@@ -21,7 +21,7 @@
   },
   "@-33 37683 -70 54385": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 37690 -70 54416": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
@@ -41,11 +41,11 @@
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 38575 -70 56115": {
     "calle": "Avenida Vitacura",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 38911 -70 57248": {
     "calle": "Arquitecto Herbage 6169",
@@ -61,14 +61,18 @@
   },
   "@-33 39379 -70 59316": {
     "calle": "Agustín del Castillo 2455",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 39463 -70 59722": {
     "calle": "Isabel Montt 2914",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 39477 -70 59828": {
     "calle": "Francisco Bertrand Vergara 3330",
+    "visto": "2026-08-22"
+  },
+  "@-33 39493 -70 56498": {
+    "calle": "Avenida Presidente Kennedy",
     "visto": "2026-08-22"
   },
   "@-33 39610 -70 58766": {
@@ -113,7 +117,7 @@
   },
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 40465 -70 59453": {
     "calle": "Armando Jaramillo 1358",
@@ -127,9 +131,13 @@
     "calle": "Armando Jaramillo 1118",
     "visto": "2026-08-21"
   },
+  "@-33 40583 -70 59765": {
+    "calle": "Avenida Vitacura 3355",
+    "visto": "2026-08-22"
+  },
   "@-33 40602 -70 59617": {
     "calle": "Las Nieves 3405",
-    "visto": "2026-08-21"
+    "visto": "2026-08-22"
   },
   "@-33 40632 -70 59601": {
     "calle": "Paul Claudel 1135",
