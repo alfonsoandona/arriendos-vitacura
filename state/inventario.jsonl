@@ -4749,3 +4749,218 @@
 {"cuando": "2026-08-25", "evento": "baja", "fp": "faeaf9fe8d3ba4ee", "direccion": "A LA VENTA Lujoso DEPARTAMENTO en Exclusivo CONDOMINIO", "comuna": "Lo Barnechea", "clp": null, "m2": 479.0, "dias": 1, "avisado": false}
 {"cuando": "2026-08-25", "evento": "baja", "fp": "fcc5ca4a502a3d75", "direccion": "Local Nuevo Centro Comercial Paseo Hacienda - Talca UF 19 Ta", "comuna": "Talca", "clp": 776401, "m2": null, "dias": 1, "avisado": false}
 {"cuando": "2026-08-25", "evento": "baja", "fp": "ffe106157e463cbf", "direccion": "penthouse ubicado en el mejor barrio de Vitacura Nueva Costa", "comuna": "Vitacura", "clp": null, "m2": 107.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "fc085e6440a2e285", "clp": 1798098.0, "antes": 1798040.0, "direccion": "Avenida Manquehue Norte 2580, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ad3227d871f75fc9", "clp": 2451952.0, "antes": 2451873.0, "direccion": "Espoz 4200, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "79db691556cb53ce", "clp": 2656282.0, "antes": 2656196.0, "direccion": "Avenida Presidente Kennedy, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "df82302b048d364e", "clp": 3882258, "antes": 3882007, "direccion": "Lo Castillo: 320, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "10cad03d28b83015", "clp": 2084159, "antes": 2084025, "direccion": "AÑO 1990, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "499b2032ab87acb5", "clp": 3269270, "antes": 3269164, "direccion": "Calle Nilo Azul 1778, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ddcb3931ca0770db", "clp": 3269270, "antes": 3269164, "direccion": "Paul Claudel, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "de2a9bd90b5f82e3", "clp": 2411086, "antes": 2411008, "direccion": "Avenida Nueva Costanera, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "9ea9424688c04d59", "clp": 6538539, "antes": 6538328, "direccion": "El Matico, Lo Castillo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "2604fcc2d9b7dea6", "clp": 2697147, "antes": 2697060, "direccion": "Miguel Comas, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "59169f37a29969c1", "clp": 1757232, "antes": 1757176, "direccion": "El Nogal, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "cc4f08fc052dc8b5", "clp": 1634635, "antes": 1634582, "direccion": "Avenida Vitacura, Lo Castillo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "3e3a7f373d9d225e", "clp": 9807809, "antes": 9807492, "direccion": "Alonso de Monroy, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "fc9f03ee03944b8b", "clp": 3064940, "antes": 3064841, "direccion": "Candelaria Goyenechea, Jardín del Este, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "14a128f265c6e963", "clp": 1103378, "antes": 1103343, "direccion": "Las Nieves, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "29247dce640e415f", "clp": 3555331, "antes": 3555216, "direccion": "Vía Esmeralda, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7287e731dae3aacb", "clp": 1512037, "antes": 1511988, "direccion": "Pasaje Hualtatas, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "bf17d5e7871e42ce", "clp": 2451952, "antes": 2451873, "direccion": "Camino Santa Teresa de Los Andes, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "008d0930c7fe512a", "clp": 3800526, "antes": 3800403, "direccion": "Costanera Sur San Josemaría Escrivá de Balaguer, Planta Tratamiento Aguas Lo Gallo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "94539002b7bf8762", "clp": 1021647, "antes": 1021614, "direccion": "Avenida Club de Campo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "737b187ed743705c", "clp": 1225976, "antes": 1225936, "direccion": "El Manantial, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "277ea7ac8d5eae74", "clp": 2533684, "antes": 2533602, "direccion": "Fernando de Argüello, El Dorado, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7fe7b02f425101af", "clp": 2165891, "antes": 2165821, "direccion": "Alonso de Sotomayor, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "fb0de4f95deabd81", "clp": 2819745, "antes": 2819654, "direccion": "El Tamarugo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "d2c616644f9a12ef", "clp": 3677928, "antes": 3677810, "direccion": "Las Nieves, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6ae4283ff69eaca5", "clp": 3677928, "antes": 3677810, "direccion": "Chapultepec, Jardín del Este, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "b1205e323bdae18b", "clp": 2574550, "antes": 2574467, "direccion": "El Arcángel, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8d4f8cb059e5015e", "clp": 5108234, "antes": 5108069, "direccion": "Calle Luis Carrera 1131, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7ccbbeba8e07fee3", "clp": 3064940, "antes": 3064841, "direccion": "Teresa Concha, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "78e15ac3f848fc34", "clp": 2247623, "antes": 2247550, "direccion": "Calle Paul Claudel 1114, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "348a8e86cbe93b41", "clp": 5721222, "antes": 5721037, "direccion": "Calle El Coigüe 3859, Vitacura"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "58fc0bfca37c1d35", "fuente": "mitula", "direccion": "Las Tranqueras, Vitacura", "comuna": "Vitacura", "clp": 1350000.0, "gc": 180000.0, "m2": null, "dorm": 3, "anos": null, "score": 88, "url": "https://casas.mitula.cl/adform/24301-256-71d2-e85ea3c58286-894b-1a03922-bb1d"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "33615f67cb615328", "clp": 2942343, "antes": 2942248, "direccion": "Avenida Presidente Kennedy 10290, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ea6f91016243559c", "clp": 1430305, "antes": 1430259, "direccion": "Los Acantos, Vitacura"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "46cc70b7c0ead379", "fuente": "mitula", "direccion": "Pedro Luma, Vitacura", "comuna": "Vitacura", "clp": 1500000.0, "gc": null, "m2": 70.0, "dorm": 2, "anos": null, "score": 0, "url": "https://casas.mitula.cl/adform/24301-256-79d6-2afb1f024389-a3fa-1a0386d-e917"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "e7ab19cbf603bb6c", "clp": 3269270, "antes": 3268742, "direccion": "Las Nieves, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "0746e510260c3cba", "clp": 3882258, "antes": 3882132, "direccion": "Las Fresas, Vitacura"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "c895495e5f9f30fd", "fuente": "mitula", "direccion": "Alejandro Serani, Vitacura", "comuna": "Vitacura", "clp": 2043294, "gc": null, "m2": 156.0, "dorm": 4, "anos": null, "score": 0, "url": "https://casas.mitula.cl/adform/24301-256-775b-1430d3b88633-ae00-1a03628-e656"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f5b62129b1f9263b", "clp": 4822173, "antes": 4822017, "direccion": "Lo Curro, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7a86b52bd57854c7", "clp": 2860611, "antes": 2860334, "direccion": "Jardines Nueva Costanera, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "519218a354fd49a8", "clp": 3473599, "antes": 3473375, "direccion": "Jardines Nueva Costanera, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "803e77331e991010", "clp": 2656282, "antes": 2656024, "direccion": "Pasaje Ascencio de Zavala, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "1e4585934f314f60", "clp": 2451952, "antes": 2451715, "direccion": "Espoz, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "0cfe0404b0ac56f8", "clp": 2738013, "antes": 2737836, "direccion": "Francisco de Aguirre, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c44d40b7130770bf", "clp": 2247623, "antes": 2247405, "direccion": "Avenida Vitacura, Lo Castillo, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "bd678fade0d6681c", "clp": 2125025, "antes": 2124888, "direccion": "Rodrigo de Quiroga, Vitacura"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "85eb7b94a0868680", "fuente": "mitula", "direccion": "Calle La Aurora 2097, Vitacura", "comuna": "Vitacura", "clp": 2000000.0, "gc": null, "m2": 140.0, "dorm": 4, "anos": null, "score": 0, "url": "https://casas.mitula.cl/adform/24301-256-731c-7ab6c11125f6-b804-19eaf29-96de"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c4fdde6cd1ba74e2", "clp": 3064940.0, "antes": 3064841.0, "direccion": "Penthouse en arriendo, amoblado."}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ea7fb32dec79d279", "clp": 2411086.0, "antes": 2411008.0, "direccion": "Departamento remodelado en sector exclusivo."}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f9084b1091f301e4", "clp": 3064940.0, "antes": 3064841.0, "direccion": "Arriendo penthouse con gran terraza y vista privilegiada"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "a665254c49429105", "clp": 1348574.0, "antes": 1348530.0, "direccion": "Departamento en Arriendo en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c7c810c918108f98", "clp": 4699575.0, "antes": 4699423.0, "direccion": "Penthouse con terraza"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "34c601be7f2449e2", "clp": 2533684.0, "antes": 2533602.0, "direccion": "Finas terminaciones 3 dormitorios más escritorio en Navidad"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "fa9f8da6d822b2c3", "clp": 4004855.0, "antes": 4004726.0, "direccion": "Departamento exclusivo con vistas y alta seguridad"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f4b9107a45c79b43", "clp": 1634635.0, "antes": 1634582.0, "direccion": "Alonso de Córdova 2313, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c00271dd4f384a8a", "clp": 1920696.0, "antes": 1920634.0, "direccion": "LOOFF PROP DPTO 3D/2B MAS SERVICIOS"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "77832d1b2a33c28f", "clp": 3064940.0, "antes": 3064841.0, "direccion": "EXPECTACULAR PENTHOUSE AMOBLADO"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "42709023b70dd1c9", "clp": 2165891.0, "antes": 2165821.0, "direccion": "MUSEO RALLI / PLAZA TURQUIA / CANDELARIA GOYENECHEA"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7e0b3958c09fc044", "clp": 2574550.0, "antes": 2574467.0, "direccion": "Departamento en arriendo de 03 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "394367fca5c4ee64", "clp": 2533684.0, "antes": 2533602.0, "direccion": "Amplio: Luis Carrera - Parque Arauco"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f7140c195c1ce61f", "clp": 1961562.0, "antes": 1961498.0, "direccion": "Remodelado / Las Nieves "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "4eec6764a7383eaa", "clp": 3064940.0, "antes": 3064841.0, "direccion": "AMOBLADO Las Nieves / Penthouse"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "a3a349bf8f8c8b2d", "clp": 2043294.0, "antes": 2043228.0, "direccion": "Amoblado: Bicentenario - CEPAL - Alonso de Cordova "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "aae91f2572cd809b", "clp": 3064940.0, "antes": 3064841.0, "direccion": "PENTHOUSE GRAN TERRAZA PANORAMICA / MUSEO RALLI"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "21d2cd3721af090d", "clp": 2654238.0, "antes": 2654153.0, "direccion": "NUEVO / PLAZA TURQUIA / FRANCISCO DE AGUIRRE"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f1ee6ad19095e8b0", "clp": 1430305.0, "antes": 1430259.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "aed7d475c2abf814", "clp": 4699575.0, "antes": 4822017.0, "direccion": "Arriendo departamento amoblado vista a santiago"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "68c1c0e943076295", "clp": 2411086.0, "antes": 2411008.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8e2e601aa801a46f", "clp": 1961562.0, "antes": 1961498.0, "direccion": "Arriendo departamento en condominio sector La Llavería"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "a371635250c928f7", "clp": 1961562.0, "antes": 1961498.0, "direccion": "Departamento en Arriendo Sector Las Nieves"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "327f317047ba1ce2", "clp": 2411086.0, "antes": 2411008.0, "direccion": "Moderno y luminoso Penthouse"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "cc698df9be475ced", "clp": 4004855.0, "antes": 4004726.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ba6a677defe9300e", "clp": 1961562.0, "antes": 1961498.0, "direccion": "VESPUCIO | PARQUE BICENTENARIO | 3 DORMI | CONCEPT"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6f13c9a07c16402a", "clp": 2451952.0, "antes": 2451873.0, "direccion": "ARRENDO VITACURA SEMI AMOBLADO "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "b5ff1eb5bd2a2d9a", "clp": 3269270.0, "antes": 3269164.0, "direccion": "Arriendo Moderno Departamento Amoblado Club de Polo"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "41cc9e78c8086552", "clp": 3596197.0, "antes": 3596080.0, "direccion": "Fino, amoblado, clásico, amoblado"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6822e02dbe4a8638", "clp": 3473599.0, "antes": 3473487.0, "direccion": "PENTHOUSE 3D 3B"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "d2f876aa76b13d4b", "clp": 3269270.0, "antes": 3269164.0, "direccion": "Inversión Segura en Zona Central"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "0db734dfa1d461b0", "clp": 2247623.0, "antes": 2247550.0, "direccion": "Arriendo Cómodo Departamento Vista Despejada, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "9d765a5933ed604e", "clp": 3269270.0, "antes": 3269164.0, "direccion": "VITACURA, KENNEDY, PAUL CLAUDEL, PENTHOUSE"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "3b741ac7948d1442", "clp": 1200639.0, "antes": 1200600.0, "direccion": "DPTO AMOBLADO EXCELENTE UBICACION 3D+2B"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8f59867b8b74a178", "clp": 3269270.0, "antes": 3269164.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "661b35d89fa60117", "clp": 3064940.0, "antes": 3064841.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6bb1d58ca4bc836b", "clp": 2002428.0, "antes": 2002363.0, "direccion": "Estupendo Depto. 140 mt2, 3 D, 3 B, 2 Est. 1 B"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "2a0d23bd8aca398c", "clp": 1225976.0, "antes": 1225937.0, "direccion": "Arriendo en vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ba2adef5bd2217c5", "clp": 4699575.0, "antes": 4699423.0, "direccion": "Penthouse-Duplex en arriendo. 3D-4B+2E+Piscina Privada"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "567ea768a902464a", "clp": 5067368.0, "antes": 5067204.0, "direccion": "Moderno Depto con Excelente Conectividad"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "9c225f16f38e5056", "clp": 3064940.0, "antes": 3064841.0, "direccion": "vista verde, DOBLE ALTURA, 3dormitorios mas sala d"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ee590e75094cfa4d", "clp": 3269270.0, "antes": 3269164.0, "direccion": "VITACURA, LO GALLO, MAR JONICO, PENTHOUSE 3D 3B"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6c60dee4f6df515f", "clp": 2942343.0, "antes": 2942248.0, "direccion": "Departamento en arriendo de 3 dorm. en Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "18a30c786fd47440", "clp": 1600716.0, "antes": 1600664.0, "direccion": "ARRIENDO DEPTO DUPLEX, TERRAZA EN LA AZOTEA, SPORT"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "85c01c1531bb304b", "clp": 3473599.0, "antes": 3473487.0, "direccion": "Oportunidad Única depto vista cancha de golf"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "04decfefff2cb050", "clp": 2860611.0, "antes": 2860519.0, "direccion": "AMOBLADO  y Vista despejada al oriente- Bicentenar"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ab983f2c3b24dd2b", "clp": 4699575.0, "antes": 4822017.0, "direccion": "Departamento de lujo completamente amoblado, con e"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "4e5a7f68af5bffef", "fuente": "chilepropiedades", "direccion": ", Doble altura, casi nuevo departamento Habitaciones: 3 Baño", "comuna": "Vitacura", "clp": 3064940, "gc": null, "m2": null, "dorm": 3, "anos": null, "score": 0, "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/doble-altura-casi-nuevo-departamento/132117936"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "3f3ffbf0a34b109e", "fuente": "chilepropiedades", "direccion": ", Escriva de balaguer Habitaciones: 3 Baños: 2 Terreno: 100,", "comuna": "Vitacura", "clp": 1471171, "gc": null, "m2": null, "dorm": 3, "anos": null, "score": 77, "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/escriva-de-balaguer/132112044"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "73b5090f1616a5ab", "clp": 1021647, "antes": 1021581, "direccion": ", Mall Casa Costanera Habitaciones: 2 Baños: 2 Terreno: 80 m"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "06ef35fd73565707", "clp": 830000.0, "antes": 2149504.0, "direccion": "Vitacura 9976, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "06ef35fd73565707", "clp": 1838964, "antes": 2149504.0, "direccion": "Vitacura 9976, Vitacura"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8c3d0bfb9d9d110b", "clp": 1798098, "antes": 1798040, "direccion": "Marta Lopez Astrada Vitacura Excelente Vista Depto en arrien"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "49047f2bece3a915", "clp": 2697147, "antes": 2697060, "direccion": "Gretel Dellepiani Vitacura Departamento en arriendo de 2 dor"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "585ceb3ddbc62c47", "clp": 1798098, "antes": 1798040, "direccion": "Easy Prop - Marta López-Astrada Vitacura DEPARTAMENTO Av. Vi"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "1e720a6657013e0b", "clp": 3677928, "antes": 3677810, "direccion": "Lorena Sanmartín Vitacura Arriendo, DEPARTAMENTO, VITACURA. "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "bfc4e2a4fb416087", "clp": 1716367, "antes": 1716311, "direccion": "Coldwell Banker Chile Vitacura Amplio Departamento remodelad"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "0a97a84d542e77a2", "clp": 3677928, "antes": 3677810, "direccion": "LUCIA RAMIREZ Vitacura DPTO 5D Y 5B C JARDIN CERCA PASEO EL "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "bc12900af67edcb7", "clp": 939915, "antes": 939885, "direccion": "Daniela Droguett Massone Vitacura Arriendo moderno dpto 1D/1"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "d5c26331ee00f08e", "clp": 2125025, "antes": 2124957, "direccion": "Patricio Smith Fuentes Vitacura Departamento AVDA BICENTENAR"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "6e51cab6a336f023", "clp": 4290916, "antes": 4290778, "direccion": "ALMAVI SPA Vitacura Departamento AMOBLADO en arriendo de 2 d"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c2bff970224ca1a2", "clp": 1879830, "antes": 1879769, "direccion": "Corredora Ruta Inmobiliaria Vitacura Departamento en arriend"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c801d78dec1dd161", "clp": 2084159, "antes": 2084092, "direccion": "Hobbins Propiedades Vitacura Depa 3 dorm. + serv. 2 estc bod"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7bd6838c3233a892", "clp": 612988, "antes": 612968, "direccion": "Solange Barbé Carreño Vitacura Depto. 1 dormitorio, Armando "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f80438ff50b873e0", "clp": 1634635, "antes": 1634582, "direccion": "Corredora Ruta Inmobiliaria Vitacura Departamento en arriend"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "4161f66b5b414c48", "clp": 1798098, "antes": 1798040, "direccion": "Coldwell Banker Chile Vitacura Depto Nuevo 80 m²"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "41cdc81efb13ccf1", "clp": 5067368, "antes": 5067204, "direccion": "Lorena Alvarez Vitacura Moderno Depto con Excelente Conectiv"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8aea6df3de97fec1", "clp": 3432733, "antes": 3432622, "direccion": "AFS SpA Vitacura DEPARTAMENTO Aurelio Gonzalez Entre árboles"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "9eb857263cb3dce5", "clp": 3269270, "antes": 3269164, "direccion": "Lorena Alvarez Vitacura Confort y Estilo en Cada Rincón (179"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "46027e095545343f", "clp": 5721222, "antes": 5721037, "direccion": "Coldwell Banker Chile Vitacura Lujoso Penthouse Duplex vitac"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "b5a5cac662a91b8f", "clp": 3596197, "antes": 3596080, "direccion": "Jacqueline Apud Sabag Vitacura Museo Ralí. Fino Amoblado, cl"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "c372525cc902b0b8", "clp": 1021647, "antes": 1021614, "direccion": "Coldwell Banker Chile Vitacura Arriendo amoblado sector Sanh"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "80cd60d064fca7a7", "clp": 1225976, "antes": 1225936, "direccion": "Lyon y Balmaceda Ltda. Vitacura Precioso e Impecable dpto 2 "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "069a8792148a2a70", "clp": 2942343, "antes": 2942248, "direccion": "Vivaqui Vitacura Departamento en arriendo de 3 dorm. en Vita"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "2f8da7c4facd166c", "clp": 3473599, "antes": 3473487, "direccion": "Contacto Avt Spa Vitacura PENTHOUSE 3D 3B (170055) Descubre "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "2b9155175f1e1105", "clp": 4903904, "antes": 4903588, "direccion": "Departamento en Arriendo en Vitacura 5 dormitorios 5 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7d30152d31e1ad2d", "clp": 2247623, "antes": 2247478, "direccion": "Departamento en Arriendo en Vitacura 4 dormitorios 4 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ab75c48c21836ab7", "clp": 5721222, "antes": 5720852, "direccion": "Departamento en Arriendo en Vitacura 2 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "baa00f666cfa780e", "clp": 3269270, "antes": 3269058, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 4 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "dd404526ad426640", "clp": 2165891, "antes": 2165751, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "99240570abea309c", "fuente": "economicos", "direccion": "Departamento en Arriendo en Vitacura 2 dormitorios 2 baños /", "comuna": "Vitacura", "clp": 690000.0, "gc": null, "m2": null, "dorm": 2, "anos": null, "score": 0, "url": "https://www.economicos.cl/search/propiedades/departamento-en-arriendo-en-vitacura-2-dormitorios-2-banos-codR76039513-7L0-202713358.html"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "4238f279511070f4", "clp": 5108234, "antes": 5107904, "direccion": "Departamento en Arriendo en Vitacura 5 dormitorios 4 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "4071f42344977b6b", "clp": 4699575, "antes": 4699271, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 4 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "12ebe1579fefac9f", "clp": 2451952, "antes": 2451794, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "4ccc445990419569", "clp": 3677928, "antes": 3677691, "direccion": "Departamento en Arriendo en Vitacura 4 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "ee7f8e9dd0408cf8", "clp": 2574550, "antes": 2574383, "direccion": "Departamento en Arriendo en Vitacura 4 dormitorios 4 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "26b0dbab6a0c5fe8", "clp": 2451952, "antes": 2451794, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 2 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "66b59b567224f343", "clp": 2247623, "antes": 2247478, "direccion": "Departamento en Arriendo en Vitacura 3 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "738de60aa5f4f694", "clp": 2533684, "antes": 2533520, "direccion": "Departamento en Arriendo en Vitacura 4 dormitorios 3 baños /"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "8dc1e08965d0035e", "clp": 2247623, "antes": 2247478, "direccion": "(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "7f07f842f1e13b1b", "clp": 2247623, "antes": 2247478, "direccion": "(Correa Propiedades) Extraordinario penthouse, 230 m2 más te"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "925d0f2ef8bfe629", "clp": 2247623, "antes": 2247478, "direccion": "(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "25c64f139596aa17", "clp": 2247623, "antes": 2247478, "direccion": "(Correa Propiedades) Extraordinario penthouse, 230 m2 mas te"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "a1cc89f5b5d35119", "clp": 2533684, "antes": 2533520, "direccion": "UF62, Bicentenario, dúplex, 3 dormitorios, 2 baños, gran est"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "f3b4390b02bab420", "clp": 2533684, "antes": 2533520, "direccion": "Vitacura, Bicentenario. Dúplex, 3 dormitorios, 2 baños, gran"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "39a84183721bb5d8", "clp": 939915, "antes": 939854, "direccion": "Vitacura/ Fatima, amplio, comodos 2 dormitorios, baños, terr"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "e7274a908482235e", "clp": 1062513, "antes": 1062444, "direccion": "Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "abe2acdf774387d1", "clp": 980781, "antes": 980718, "direccion": "Las Nieves, dos dormitorios estacionamiento, bodega piscina "}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "1bf6559064914dba", "clp": 1704107, "antes": 1703997, "direccion": "Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estaci"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "980d83b6797c3048", "clp": 1062513, "antes": 1062444, "direccion": "Las Hualtatas cercano a Parque Arauco, 2 dormitorios, 2 baño"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "5f4aad6000ce83c8", "clp": 1512037, "antes": 1511940, "direccion": "valdiviapropiedades +56998951965 Antonio Pastrana/ Francisco"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "b922c96c8ca91a04", "clp": 1062513, "antes": 1062444, "direccion": "Las Hualtatas cercano a Parque Arauco, 2 dormitorios, 2 baño"}
+{"cuando": "2026-08-25", "evento": "precio", "fp": "5404a236115bcf1a", "clp": 1716367, "antes": 1634635, "direccion": "Vitacura 9035, Vitacura"}
+{"cuando": "2026-08-25", "evento": "alta", "fp": "7e7ec6fd5f22d5a2", "fuente": "fuenzalida", "direccion": "ARRIENDO 711 \"Fuenzalida Propiedades El Golf (Código Fuenzal", "comuna": "Las Condes", "clp": 5925551.0, "gc": null, "m2": 197.0, "dorm": null, "anos": null, "score": 0, "url": "https://fuenzalida.com/fuenzalida/propiedades/arriendo/ficha-propiedad/arriendo/santiago/las-condes/localcomercial/205410599"}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "0624e729018b627b", "direccion": "ARRIENDO 573 \"cod. 410.639 CdePA Metro Toesca ,964 mts 2 - 8", "comuna": "Santiago", "clp": 6355663.0, "m2": 964.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "067457f2919a5ff3", "direccion": "Descubre este exclusivo departamento en venta, ubicado en un", "comuna": "Vitacura", "clp": 3882132, "m2": 207.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "0fff3acbc7d5579c", "direccion": "ARRIENDO 975 \"Oficina en venta y-o arriendo, 3 pisos, 6 priv", "comuna": "Las Condes", "clp": 14302593.0, "m2": 930.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "119b1f39b06ef4c2", "direccion": "ARRIENDO 645 \"EXCELENTE PROPIEDAD INDUSTRIAL, que correspond", "comuna": "Puerto Montt", "clp": 11319480.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "1de7cd46702d797b", "direccion": "ARRIENDO 716 \"Te presentamos esta amplia y luminosa oficina ", "comuna": "Providencia", "clp": 10134408.0, "m2": 960.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "2134e61a2e4e5e39", "direccion": "CASA EN VENTA - SAN ESTEBAN - IMPECABLE!!! UF 9.420 San Este", "comuna": "Valparaíso", "clp": null, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "263d6619e9225a69", "direccion": "Avenida Vitacura 7490, Vitacura, Santiago, Metropolitana de Santiago, 7640534, CHL", "comuna": "Vitacura", "clp": 3473375, "m2": 130.0, "dias": 7, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "299313c17d1bf8ef", "direccion": "Departamento Vitacura, Santiago, Metropolitana De Santiago, ", "comuna": "Vitacura", "clp": 1250000.0, "m2": 103.0, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "3029002e1932136b", "direccion": "Cod.: 8.401 Venta UF 24.900 Departamento en Lo Barnechea A p", "comuna": "Lo Barnechea", "clp": null, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "41503608d6f8e125", "direccion": "Cód. PI73294", "comuna": "Vitacura", "clp": 2043228, "m2": 156.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "4291d2c68796a3c5", "direccion": "Cod.: 5.801 Venta UF 8.500 Casa en Navidad El Manzano, Camin", "comuna": "", "clp": null, "m2": null, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "49bdbb2ee3a077e9", "direccion": "ARRIENDO DEPARTAMENTO 2HAB 2BA VITACURA", "comuna": "Vitacura", "clp": 1797982, "m2": 10.0, "dias": 4, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "4e3b093a9cf54a96", "direccion": "Cod.: 6.710 Venta UF 27.900 Arriendo $ 5.500.000", "comuna": "", "clp": 5500000.0, "m2": null, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "4eafd1140bed0d49", "direccion": "ARRIENDO 563 \"Te presentamos esta amplia y luminosa oficina ", "comuna": "Providencia", "clp": 10134408.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "535e8c7e69cca6b2", "direccion": "ARRIENDO 163 \"¡Gran oportunidad de inversión! Este amplio lo", "comuna": "", "clp": 8172910.0, "m2": 1000.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "597914173bec3d76", "direccion": "Las Nieves, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630578, Chile", "comuna": "Vitacura", "clp": 3064742, "m2": 160.0, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "5fd48b19ec1cd257", "direccion": "COD: 51.277 Local Comercial en Santiago San Diego / Chiloé V", "comuna": "Santiago", "clp": 2012988, "m2": null, "dias": 6, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "6545c2aa367bf253", "direccion": "Venta en Macul 3D / 1B Venta", "comuna": "Macul", "clp": null, "m2": null, "dias": 3, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "657e27207f77d77c", "direccion": "Espectacular departamento de 245 m² totales aprox., en impec", "comuna": "Independencia", "clp": null, "m2": 205.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "67fa13ec64ae65e0", "direccion": "Este hermoso y moderno departamento cuenta con 3 dormitorios", "comuna": "Las Condes", "clp": null, "m2": 105.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "6c5a1f9bf28bab7e", "direccion": "Único y espacioso departamento, resultado de la fusión de do", "comuna": "Vitacura", "clp": null, "m2": 226.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "6cf20e5ab47abd43", "direccion": "Extraordinario departamento en venta en Vitacura por UF 19.0", "comuna": "Independencia", "clp": null, "m2": 223.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "6d058bb99190597e", "direccion": "ARRIENDO 649 \"cod 410.493 CdePA Propiedad para fines educaci", "comuna": "Santiago", "clp": 15451704.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "71312fe1d4593708", "direccion": "ARRIENDO 1043 \"Espectacular local comercial. Instalaciones m", "comuna": "Las Condes", "clp": 12668010.0, "m2": 720.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "73598f8f7135fba4", "direccion": "Amplio Departamento Vitacura 4D +( 3d+ Servicio)", "comuna": "Padre Hurtado", "clp": null, "m2": 190.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "7ca01fb29575570e", "direccion": "ARRIENDO 1191 \"Local comercial en arriendo, 1.100 m2. constr", "comuna": "Santiago", "clp": null, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "7d7b1bdf8ed2352f", "direccion": "A LA VENTA Lujoso DEPARTAMENTO en Exclusivo CONDOMINIO", "comuna": "Lo Barnechea", "clp": null, "m2": 479.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "7ee37af45dcfda2f", "direccion": "ARRIENDO 362 \"Excelente oportunidad en Lo Barnechea de casa ", "comuna": "Lo Barnechea", "clp": 9807492.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "7f7721ec3dc4a176", "direccion": "ARRIENDO 60 \"Planta industrial en arriendo, terreno de 9.300", "comuna": "Paine", "clp": 14711238.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "831116066d56e4c0", "direccion": "Remodelado, 3 dormitorios, 3 baños, estacionamiento y bodega", "comuna": "Vitacura", "clp": null, "m2": 100.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "83d8c3a19fe07b52", "direccion": "Casa en Lo Barnechea CAMINO REAL 6 Dorm. 7 Baños 450 / 834 m", "comuna": "Lo Barnechea", "clp": null, "m2": null, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "86561677cb843812", "direccion": "ARRIENDO 816 \"Se vende o arrienda oficina en el sector de Pl", "comuna": "Santiago", "clp": 11809855.0, "m2": 877.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "8b22c6a46d0ad5b0", "direccion": "MARAVILLOSA OPORTUNIDAD DEPARTAMENTO A REMODELAR", "comuna": "Vitacura", "clp": null, "m2": 120.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "9129a3d818f7f0e9", "direccion": "ARRIENDO 954 \"cod: 405.473 CdePA Salvador Gutiérrez - Rada. ", "comuna": "Quinta Normal", "clp": 20432275, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "93368d7953b05c95", "direccion": "¡No pierdas la oportunidad de adquirir este espectacular dep", "comuna": "Vitacura", "clp": null, "m2": 130.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "96fc7b51a38a40a7", "direccion": "ARRIENDO 440 \"Espectacular terreno en Pintué, 7.3 ha. 4 casa", "comuna": "Paine", "clp": 9276253.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "991683f7cb9be5f8", "direccion": "ARRIENDO 558 \"Se arrienda amplio local comercial en Portada ", "comuna": "Vitacura", "clp": 7454920.0, "m2": 400.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "9a87713229d5dcda", "direccion": "ARRIENDO 63 \"Planta industrial en arriendo, terreno de 9.300", "comuna": "Paine", "clp": 14711238.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "9dd6426963718e54", "direccion": "COD: 50.852 Departamento en Las Condes Parque Casona Santa R", "comuna": "Las Condes", "clp": null, "m2": null, "dias": 6, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "9ea59cf2b990bbab", "direccion": "ARRIENDO 458 \"EXCELENTE PROPIEDAD INDUSTRIAL, que correspond", "comuna": "Puerto Montt", "clp": 11319480.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "9f1030b76147095e", "direccion": "departamento en venta en El Golf, Presidente Riesco, Las Con", "comuna": "Las Condes", "clp": 4495100, "m2": 291.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "a1b3703beb0724ea", "direccion": "ARRIENDO 1691 \"Oficina en venta, 340 m2., El Bosque Norte, s", "comuna": "El Bosque", "clp": 5560848.0, "m2": 340.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "a96d84d49b2060d2", "direccion": "COD: 48.793 Departamento en Independencia Nueva Andrés de Be", "comuna": "Independencia", "clp": null, "m2": null, "dias": 6, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "ab70630a03033402", "direccion": "Espectacular Departamento en Santa María – Club de Polo", "comuna": "Santiago", "clp": null, "m2": 233.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "acd5b468d8588f0d", "direccion": "COD: 50.888 Oficina en Las Condes MUT / Metro Tobalaba Arrie", "comuna": "Las Condes", "clp": 900655, "m2": null, "dias": 4, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "ae873ffd6ab5fc9b", "direccion": "Precioso depto. ubicado Av. Santa María lateral a pasos roto", "comuna": "Vitacura", "clp": null, "m2": 147.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "af435ae157c587d2", "direccion": "Las Cuijas, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile", "comuna": "Vitacura", "clp": 3882007, "m2": 207.0, "dias": 2, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "b189a9fd497485a3", "direccion": "Exclusiva propiedad ubicada a pocos pasos de Alonso de Córdo", "comuna": "Vitacura", "clp": null, "m2": 130.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "b6aa31a3a42dddb9", "direccion": "COD: 51.302 Casa en Las Condes Plaza Renacimiento Italiano V", "comuna": "Las Condes", "clp": null, "m2": null, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "bb91525ab267e8e5", "direccion": "El Matico, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630530, Chile", "comuna": "Vitacura", "clp": 3473375, "m2": 205.0, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "c39f0b7c7e46021e", "direccion": "El Arcángel, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630280, Chile", "comuna": "Vitacura", "clp": 3500000.0, "m2": 150.0, "dias": 2, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "c6419f1c960d6f20", "direccion": "ARRIENDO 574 \"cod: 411.591 CdePA Barrio Brasil. 1.530 mts2. ", "comuna": "Santiago", "clp": 11850720.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "ceea66d0b5ad185d", "direccion": "penthouse ubicado en el mejor barrio de Vitacura Nueva Costa", "comuna": "Vitacura", "clp": null, "m2": 107.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "d1012e8458855a5a", "direccion": "Cód. IB58326", "comuna": "Vitacura", "clp": null, "m2": 140.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "d71a0828500c0e27", "direccion": "Cód. XV45193", "comuna": "Vitacura", "clp": null, "m2": 132.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "d8e121c0df23d24f", "direccion": "Vive en uno de los sectores más tranquilos y privilegiados d", "comuna": "Los Andes", "clp": null, "m2": 122.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "dc3fdd1f27505fa1", "direccion": "Cod.: 6.721 Venta UF 16.600 Casa en Colina Condominio La Res", "comuna": "Colina", "clp": null, "m2": null, "dias": 4, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "dfbd239f3cba512b", "direccion": "Calle El Pangue 4262, Vitacura, Santiago, Metropolitana de Santiago, 7630528, CHL", "comuna": "Vitacura", "clp": 4086323, "m2": 306.0, "dias": 7, "avisado": true}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "dfbe476c5c3c0395", "direccion": "ARRIENDO 1798 \"Venta de casa en Vitacura.- Casa en venta y-o", "comuna": "Vitacura", "clp": 6946974.0, "m2": null, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "e1e890e8669e82d2", "direccion": "Cod.: 7.137 Venta UF 13.100 Casa en Colina PRECIOSA CASA NO ", "comuna": "Colina", "clp": null, "m2": null, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "e293b79a1bd024b0", "direccion": "ARRIENDO 882 \"Te presentamos esta amplia y luminosa oficina ", "comuna": "Providencia", "clp": 10134408.0, "m2": 960.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "eb40e40c3be63c27", "direccion": "Calle La Aurora 2097, Vitacura, Santiago, Metropolitana de Santiago, CHL", "comuna": "Vitacura", "clp": 2000000.0, "m2": 140.0, "dias": 5, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "efbab04080617c64", "direccion": "[ARR] ID HOUM: 150762", "comuna": "Vitacura", "clp": 3085000.0, "m2": 380.0, "dias": 1, "avisado": false}
+{"cuando": "2026-08-25", "evento": "baja", "fp": "f0b486edca82b960", "direccion": "ARRIENDO 837 \"Oficina en Venta y Arriendo, 14 privados, Av. ", "comuna": "Vitacura", "clp": 9398846.0, "m2": null, "dias": 1, "avisado": false}
