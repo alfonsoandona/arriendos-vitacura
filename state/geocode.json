@@ -9,11 +9,15 @@
   },
   "@-33 37213 -70 54192": {
     "calle": "Santa Teresa de Los Andes 9770",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 37271 -70 54118": {
     "calle": "Santa Teresa de Los Andes 9770",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
+  },
+  "@-33 37587 -70 54678": {
+    "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9433",
+    "visto": "2026-08-25"
   },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
@@ -25,7 +29,7 @@
   },
   "@-33 37690 -70 54416": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 37923 -70 56906": {
     "calle": "Avenida Juan XXIII",
@@ -33,7 +37,7 @@
   },
   "@-33 38001 -70 54185": {
     "calle": "Vitacura 9976",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 38221 -70 58025": {
     "calle": "Avenida Manquehue Norte 2580",
@@ -41,7 +45,7 @@
   },
   "@-33 38319 -70 54913": {
     "calle": "Vitacura 9035",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
@@ -65,7 +69,7 @@
   },
   "@-33 39289 -70 55517": {
     "calle": "Avenida Presidente Kennedy Lateral 7773",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 39379 -70 59316": {
     "calle": "Agustín del Castillo 2455",
@@ -77,7 +81,7 @@
   },
   "@-33 39477 -70 59828": {
     "calle": "Francisco Bertrand Vergara 3330",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 39493 -70 56498": {
     "calle": "Avenida Presidente Kennedy",
@@ -89,11 +93,11 @@
   },
   "@-33 39871 -70 57442": {
     "calle": "Teresa Concha 1000",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 39926 -70 59316": {
     "calle": "Candelaria Goyenechea 3920",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 39946 -70 57750": {
     "calle": "Kennedy Interior 5420",
@@ -101,15 +105,15 @@
   },
   "@-33 39999 -70 58619": {
     "calle": "Las Fresas 4444",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40065 -70 58194": {
     "calle": "Andrés de Vera 5067",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40143 -70 58206": {
     "calle": "El Arcángel 5011",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40153 -70 59393": {
     "calle": "Alonso de Córdova 2313",
@@ -117,7 +121,7 @@
   },
   "@-33 40156 -70 59404": {
     "calle": "Alonso de Córdova 2313",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40335 -70 59688": {
     "calle": "Antonio de Pastrana 2658",
@@ -125,19 +129,19 @@
   },
   "@-33 40436 -70 60124": {
     "calle": "Avenida Bicentenario 3116",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40465 -70 59453": {
     "calle": "Armando Jaramillo 1358",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40483 -70 59414": {
     "calle": "Armando Jaramillo 1240",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 40537 -70 59387": {
     "calle": "Armando Jaramillo 1118",
@@ -145,7 +149,7 @@
   },
   "@-33 40583 -70 59765": {
     "calle": "Avenida Vitacura 3355",
-    "visto": "2026-08-22"
+    "visto": "2026-08-25"
   },
   "@-33 40602 -70 59617": {
     "calle": "Las Nieves 3405",
@@ -153,11 +157,11 @@
   },
   "@-33 40632 -70 59601": {
     "calle": "Paul Claudel 1135",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "@-33 41217 -70 57080": {
     "calle": "Pasaje La Capitanía Interior 290",
-    "visto": "2026-08-24"
+    "visto": "2026-08-25"
   },
   "alejandro serani vitacura provincia de santiago región metropolitana de santiago 7630000 chile vitacura chile": {
     "lat": -33.3771223,
@@ -573,6 +577,11 @@
     "lat": -33.4057412,
     "lon": -70.5723087,
     "visto": "2026-08-18"
+  },
+  "rotonda lo curro vitacura chile": {
+    "lat": -33.3770767,
+    "lon": -70.5697825,
+    "visto": "2026-08-25"
   },
   "rotonda lo curro vitacura región metropolitana de santiago (rm) vitacura chile": {
     "lat": -33.3770767,
