@@ -16,6 +16,15 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements-dev.txt
+
+      - name: Análisis estático, y acá SÍ es bloqueante
+        # En la corrida del radar pyflakes solo advierte, porque ahí abortar
+        # cuesta las alertas del día. Acá cuesta un push rechazado, que es
+        # barato — y pyflakes caza lo que los tests no pueden: la corrida del
+        # 20-08 murió por un NameError en una línea que 596 tests recorrían
+        # sin activar. Leer el código encuentra eso; ejecutarlo no.
+        run: python -m pyflakes arriendo/ tests/
+
       - run: python -m pytest tests/ -q
 
       - name: Verificar que el perfil y las fuentes sean válidos
