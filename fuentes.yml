@@ -423,6 +423,10 @@ fuentes:
 
   - id: remax
     nombre: RE/MAX Chile
+    # Entrega 12 o 0, alternando, en las corridas del 21-08 al 25-08 (12 en
+    # cuatro de once corridas): anti-bot intermitente, no muerte — igual que
+    # mitula, doomos y economicos.
+    entrega_variable: true
     motor: navegador
     comuna_default: Vitacura
     urls: ["https://www.remax.cl/es-cl/busqueda/metropolitana-de-santiago/santiago/vitacura/residencial-departamento/arriendo/"]

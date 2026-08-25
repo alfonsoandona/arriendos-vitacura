@@ -15,7 +15,7 @@ Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 | Corridas | 10 seguidas sin errores (21-08 a 24-08) · 5-7 min cada una |
 | Inventario | ~1.300 avisos crudos → ~460 únicos → **~40 candidatos** por corrida |
 | Fuentes | 28 activas de 45 registradas; 24 entregan avisos |
-| Tests | **701**, sin red, corren en 7 segundos |
+| Tests | **705**, sin red, corren en 7 segundos |
 
 **Cobertura de datos en los candidatos:**
 
@@ -74,7 +74,16 @@ en cero UNA SEMANA seguida, eso ya es otra cosa y hay que mirarla.
 - **Una llave YAML duplicada** en busconido que la hacía reportarse como no
   confirmada; los tres YAML quedaron verificados contra duplicados.
 - **Direcciones con HTML crudo**: ya no queda ninguna en el estado.
-- **Verificación de entrega**: suite completa 3 veces (701/701 las tres),
+- **El widget "Información de Mercado" de busconido fuera del tablero**:
+  entró como candidato de 87 puntos con el promedio del sector ($350.000)
+  como canon. Dos defensas: los montos "promedio/mediana" quedan rotulados
+  como estadística (no son de nadie), y /contactanos entra al filtro de
+  links que ya cubría /contacto.
+- **El link a Google Maps ya no tartamudea**: "Vitacura 9976, Vitacura,
+  Vitacura, Chile" → "Vitacura 9976, Vitacura, Chile". Eran tres armadores
+  con el mismo bug (mensaje, ficha, dashboard); ahora es uno.
+- **remax también queda `entrega_variable`** (12 ó 0, alternando).
+- **Verificación de entrega**: suite completa 3 veces (705/705 al cierre),
   pyflakes limpio, dashboard reconstruido 3 veces desde el estado real (byte
   a byte idéntico) y probado en Chromium — tabla, buscador, chips, mapa y el
   popup del pin con sus cuatro links, cero errores de JavaScript.
