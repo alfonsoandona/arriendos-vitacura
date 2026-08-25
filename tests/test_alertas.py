@@ -890,3 +890,15 @@ def test_la_ficha_apunta_a_la_rama_real(monkeypatch):
     monkeypatch.setenv("GITHUB_REF_NAME", "claude/telegram-vitacura-rentals-alert-48wnuy")
     url = url_ficha(_completo())
     assert "/blob/claude/telegram-vitacura-rentals-alert-48wnuy/" in url
+
+
+def test_el_link_a_maps_no_repite_la_comuna():
+    """"Vitacura 9976, Vitacura" + comuna + país producía "Vitacura 9976,
+    Vitacura, Vitacura, Chile" en el mensaje, la ficha y el dashboard —
+    tres armadores con el mismo bug, ahora uno solo."""
+    from arriendo.models import consulta_maps
+    assert consulta_maps("Vitacura 9976, Vitacura", "Vitacura") == \
+        "Vitacura 9976, Vitacura, Chile"
+    assert consulta_maps("Espoz 4200", "Vitacura") == "Espoz 4200, Vitacura, Chile"
+    assert consulta_maps("Camino El Parque 100, Las Condes", "Las Condes") == \
+        "Camino El Parque 100, Las Condes, Chile"

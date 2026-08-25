@@ -19,7 +19,7 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 from . import scoring as S
-from .models import Arriendo
+from .models import Arriendo, consulta_maps
 from .parse import strip_accents
 from .scoring import RUBRO_COMPLETO, desglose, techo_alcanzable
 
@@ -408,7 +408,7 @@ def _maps(a: Arriendo) -> str:
     """
     if not a.direccion:
         return ""
-    consulta = quote_plus(f"{a.direccion}, {a.comuna or 'Vitacura'}, Chile")
+    consulta = quote_plus(consulta_maps(a.direccion, a.comuna))
     return f"https://www.google.com/maps/search/?api=1&query={consulta}"
 
 

@@ -521,6 +521,24 @@ def limpiar_direccion(direccion: str, comuna: str = "") -> str:
     return recortada if recortada and clave_direccion(recortada, comuna) else d
 
 
+def consulta_maps(direccion: str, comuna: str = "") -> str:
+    """La búsqueda que se le manda a Google Maps, sin repetirse.
+
+    "Vitacura 9976, Vitacura" + comuna "Vitacura" + "Chile" producía
+    "Vitacura 9976, Vitacura, Vitacura, Chile" en el mensaje de Telegram,
+    la ficha y el dashboard — tres armadores distintos con el mismo bug.
+    La comuna se agrega solo si la dirección no termina ya en ella.
+    """
+    d = (direccion or "").strip().rstrip(",")
+    partes = [d] if d else []
+    c = (comuna or "Vitacura").strip()
+    ultima = d.split(",")[-1].strip() if d else ""
+    if _normalize_key(ultima) != _normalize_key(c):
+        partes.append(c)
+    partes.append("Chile")
+    return ", ".join(partes)
+
+
 # Palabras que jamás son, por sí solas, el nombre de una calle: la cola
 # administrativa (región, provincia, país) y las specs que algunos portales
 # meten en el campo dirección, en castellano y en inglés.

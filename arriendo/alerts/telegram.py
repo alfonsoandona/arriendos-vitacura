@@ -50,7 +50,7 @@ from urllib.parse import quote_plus
 import requests
 
 from .. import scoring as S
-from ..models import Arriendo
+from ..models import Arriendo, consulta_maps
 
 log = logging.getLogger(__name__)
 
@@ -485,7 +485,7 @@ def _google_maps(a: Arriendo) -> str:
     """El link a Google Maps por DIRECCIÓN. Vacío si el aviso no trae una."""
     if not a.direccion:
         return ""
-    consulta = quote_plus(f"{a.direccion}, {a.comuna or 'Vitacura'}, Chile")
+    consulta = quote_plus(consulta_maps(a.direccion, a.comuna))
     return f"https://www.google.com/maps/search/?api=1&query={consulta}"
 
 
