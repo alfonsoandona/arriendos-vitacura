@@ -160,6 +160,22 @@ _MONTOS_UF = [
 # específica a la más genérica, porque "gastos comunes" también contiene
 # "comunes" y "valor arriendo" también contiene "arriendo".
 _ETIQUETAS = [
+    # Va PRIMERA porque describe al mercado, no a esta propiedad, y le gana a
+    # cualquier otra lectura del mismo monto. "Valor promedio de arriendo
+    # $350.000" es el widget de estadísticas de busconido, y entró al tablero
+    # del 24-08 como un candidato de puntaje 87: sin dormitorios, sin baños,
+    # sin m² y sin dirección, no contradecía ningún filtro, y la red de los
+    # incompletos hizo el resto. Un monto estadístico no es de nadie: no cae
+    # a "sin rotular" (donde el mayor pasa a canon), se descarta entero.
+    #
+    # La forma exige promedio/mediana PEGADO a la palabra de precio
+    # ("arriendo promedio", "valor promedio de arriendo", "promedio del
+    # sector"): "gastos comunes promedio $180.000" sigue siendo un dato de
+    # ESTA propiedad y conserva su rótulo de siempre.
+    ("estadistica", re.compile(
+        r"(?:arriendos?|precios?|valor(?:es)?|canon)\s+(?:promedios?|median[oa]s?)"
+        r"|(?:promedios?|median[oa]s?)\s+(?:de[l]?\s+)?(?:arriendos?|sector|mercado)"
+        r"|valor\s+promedio", re.I)),
     ("gastos_comunes", re.compile(
         # La sigla cubre G.C., GC, GGCC y GG.CC.: la forma doble ("gastos
         # generales comunes") es como la escribe medio mitula, y sin ella

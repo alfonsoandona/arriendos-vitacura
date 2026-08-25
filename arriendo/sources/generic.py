@@ -108,7 +108,11 @@ _MAX_CODIGOS_POR_TARJETA = 1
 # distinto. Son decenas de avisos fantasma, todos apuntando a un listado.
 _HREF_IGNORAR = re.compile(
     r"^(#|javascript:|mailto:|tel:)"
-    r"|/(login|ingresar|registro|contacto|terminos|privacidad|nosotros|blog"
+    # "contact(o|anos|enos)": /contactanos de busconido pasaba el filtro
+    # porque el patrón exigía que el segmento terminara en "contacto" — y su
+    # tarjeta era el widget "Valor promedio de arriendo", que entró al
+    # tablero como candidato de 87 puntos con el promedio como canon.
+    r"|/(login|ingresar|registro|contact(?:o|anos|enos)|terminos|privacidad|nosotros|blog"
     r"|faq|ayuda|planes|precios|publicar|suscri(?:pcion|birse))(/|$|\?)"
     r"|applied_filter_id|applied_value_id"
     r"|_(?:price\*?range|covered\*?area|total\*?area|land\*?area)_"

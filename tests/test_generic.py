@@ -1331,3 +1331,20 @@ def test_una_altura_de_uno_o_dos_digitos_no_es_una_direccion(texto):
 def test_la_altura_mas_chica_del_corpus_real_sobrevive(calle):
     from arriendo.sources.generic import _direccion_desde
     assert _direccion_desde(calle, "Vitacura") == f"{calle}, Vitacura"
+
+
+def test_la_pagina_de_contacto_no_es_un_aviso(fuente):
+    """El widget "Información de Mercado" de busconido enlaza a /contactanos
+    y sus filas repiten "$ 350.000" (el promedio del sector). El filtro de
+    hrefs cubría /contacto pero no /contactanos, y el widget entró al
+    tablero como candidato de 87 puntos con el promedio como canon."""
+    from arriendo.sources.generic import extraer
+    doc = """<html><body>
+      <div class="card"><a href="/contactanos">Información de Mercado
+        Valor promedio de arriendo $ 350.000 Productos $ 350.000</a></div>
+      <div class="card"><a href="/departamentos/vitacura/1/x">Depto Espoz
+        $1.500.000 3 dormitorios 120 m2</a></div>
+    </body></html>"""
+    avisos = extraer(doc, "https://www.busconido.cl/departamentos/vitacura",
+                     fuente)
+    assert len(avisos) == 1 and "contactanos" not in avisos[0].url

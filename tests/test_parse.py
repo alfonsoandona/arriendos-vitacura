@@ -891,3 +891,22 @@ def test_una_fecha_de_entrega_no_es_el_ano_de_construccion():
     se construyó; el relleno aceptado es corto a propósito."""
     assert P.parse_antiguedad("entregada en enero 2025")[0] is None
     assert P.parse_antiguedad("construido en el mes 3 de 2024")[0] is None
+
+
+def test_un_promedio_del_mercado_no_es_el_canon():
+    """"Valor promedio de arriendo $350.000" es el widget de estadísticas de
+    busconido, y entró al tablero como candidato de 87 puntos: sin datos, no
+    contradecía ningún filtro. Un monto estadístico no es de nadie — tampoco
+    cae a "sin rotular", donde el mayor pasa a canon."""
+    assert P.parse_montos("Valor promedio de arriendo $350.000") == {}
+    assert P.parse_montos("arriendo promedio del sector $1.900.000") == {}
+    assert P.parse_montos(
+        "Precio promedio de arriendo de departamentos $2.100.000") == {}
+
+
+def test_el_promedio_de_gastos_comunes_si_es_de_esta_propiedad():
+    """"gastos comunes promedio $180.000" describe a ESTE departamento (es
+    como se publica un GC que varía por estación); el veto es solo para las
+    estadísticas del mercado."""
+    r = P.parse_montos("gastos comunes promedio $180.000 arriendo $1.500.000")
+    assert r == {"arriendo_clp": 1_500_000, "gastos_comunes_clp": 180_000}
