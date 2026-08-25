@@ -13,7 +13,7 @@ portal que lo publicaba se cayó un martes.
 from __future__ import annotations
 
 import json
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 from arriendo import historial as H
 from arriendo.models import Arriendo

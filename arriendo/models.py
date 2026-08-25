@@ -488,7 +488,37 @@ def limpiar_direccion(direccion: str, comuna: str = "") -> str:
     Maps: una dirección inventada en el mapa es peor que un aviso sin pin.
     """
     d = sin_encabezado_administrativo(direccion)
-    return d if d and clave_direccion(d, comuna) else ""
+    if not d or not clave_direccion(d, comuna):
+        return ""
+    # Y la COLA administrativa se recorta también de lo que se muestra, no
+    # solo de la llave: houm publica "Aníbal Pinto, Region Metropolitana" y
+    # mitula "…, Vitacura, Provincia de Santiago, Región Metropolitana de
+    # Santiago, 7630574, CHL". El link a Google Maps agrega la comuna y el
+    # país por su cuenta, así que la cola solo duplicaba —"…Vitacura,
+    # Vitacura, Chile"— y alargaba la fila de la tabla. Se corta en la coma
+    # ANTERIOR a la palabra administrativa: la cola siempre llega como
+    # elemento propio de la lista, nunca en medio del nombre de la calle.
+    # Dos tijeras, gana la que corte antes: una palabra administrativa corta
+    # DESDE ella ("…, Region Metropolitana" se va entera), y la primera
+    # comuna conocida corta DESPUÉS de ella — lo que sigue a la comuna solo
+    # puede ser más administración ("…, Vitacura, Chile, Metropolitana de
+    # Santiago", "…, Vitacura, Santiago, 7630571, CHL").
+    from .parse import COMUNAS_CONOCIDAS
+    conocidas = {_normalize_key(c) for c in COMUNAS_CONOCIDAS}
+    partes = [p.strip() for p in d.split(",")]
+    corte = len(partes)
+    for i, parte in enumerate(partes[1:], start=1):
+        clave = _normalize_key(parte)
+        if _COLA_ADMINISTRATIVA.match(clave):
+            corte = i
+            break
+        if clave in conocidas:
+            corte = i + 1
+            break
+    recortada = ", ".join(partes[:corte])
+    # Solo si lo que queda sigue identificando; si el recorte se lo lleva
+    # todo (la dirección ERA la cola), se prefiere la original completa.
+    return recortada if recortada and clave_direccion(recortada, comuna) else d
 
 
 # Palabras que jamás son, por sí solas, el nombre de una calle: la cola

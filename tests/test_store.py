@@ -737,3 +737,22 @@ def test_una_comuna_sola_no_es_una_direccion_aunque_el_aviso_no_traiga_comuna(di
 def test_lo_que_salva_a_una_calle_con_nombre_de_comuna_es_la_altura(direccion):
     from arriendo.models import clave_direccion
     assert clave_direccion(direccion, "")
+
+
+@pytest.mark.parametrize("cruda, limpia", [
+    ("Aníbal Pinto, Region Metropolitana", "Aníbal Pinto"),
+    ("Calle Las Nieves 3405, Vitacura, Santiago, Metropolitana de Santiago,"
+     " 7630571, CHL", "Calle Las Nieves 3405, Vitacura"),
+    ("Fernando de Arguello 8399, Vitacura, Chile, Metropolitana de Santiago",
+     "Fernando de Arguello 8399, Vitacura"),
+    ("Candelaria Goyenechea, Lo Castillo, Vitacura, Provincia de Santiago",
+     "Candelaria Goyenechea, Lo Castillo, Vitacura"),
+])
+def test_la_cola_administrativa_no_se_muestra(cruda, limpia):
+    """houm publica "Aníbal Pinto, Region Metropolitana" y mitula agrega
+    provincia, región, código postal y país. El link a Google Maps pone la
+    comuna y el país por su cuenta, así que la cola solo duplicaba. La
+    primera comuna conocida cierra la dirección: lo que sigue solo puede
+    ser más administración."""
+    from arriendo.models import limpiar_direccion
+    assert limpiar_direccion(cruda, "Vitacura") == limpia

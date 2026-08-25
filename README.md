@@ -13,9 +13,11 @@ nuevos.
 > **Este radar complementa a Portal Inmobiliario, no lo reemplaza.** Ya tienes
 > alertas configuradas ahí, así que Portal Inmobiliario está deliberadamente
 > apagado en [`fuentes.yml`](fuentes.yml) y lo que este radar cubre es todo lo
-> demás: **41 portales** — TocToc, GoPlaceIt, Houm, Hey, Engel & Völkers,
-> Chilepropiedades, Yapo, Economicos, Property Partners y las corredoras del
-> sector oriente que publican solo en su propio sitio.
+> demás: **45 portales registrados, 28 activos** — TocToc, GoPlaceIt, Houm,
+> Yapo, Engel & Völkers, Chilepropiedades, BuscoNido, Economicos y las
+> corredoras del sector oriente que publican solo en su propio sitio. Los
+> apagados quedan en el catálogo con su motivo medido, para que la omisión
+> nunca parezca un olvido.
 
 ---
 
@@ -40,30 +42,33 @@ basta el navegador de un celular o la app de GitHub.
 
 ### ¿Cuánto cuesta?
 
-**Cero.** El radar corre 2 veces al día y cada corrida toma unos 6 minutos:
-alrededor de **360 minutos al mes**, dentro del plan gratuito de GitHub Actions
-incluso con el repositorio privado (2.000 minutos al mes). En repositorio
-público los minutos son ilimitados.
+**Cero.** El radar corre 3 veces al día y cada corrida toma unos 7 minutos
+de punta a punta: alrededor de **630 minutos al mes**, dentro del plan
+gratuito de GitHub Actions incluso con el repositorio privado (2.000 minutos
+al mes). En repositorio público los minutos son ilimitados.
 
 ---
 
 > **¿Qué falta para que quede al 100%?** Está todo en
-> [`PENDIENTES.md`](PENDIENTES.md), en formato de campos por rellenar: el bot
-> de Telegram, las 19 fuentes a las que les falta afinar la URL, y las
-> decisiones que tomé yo y que quizás quieras cambiar.
+> [`PENDIENTES.md`](PENDIENTES.md), con el estado medido de cada frente: la
+> cobertura del año de construcción, las fuentes que esperan su URL filtrada,
+> y las decisiones que tomé yo y que quizás quieras cambiar.
 
 ---
 
 ## ¿Qué portales tienen resultados en Vitacura?
 
-Ya no es una suposición: el radar corrió contra los 39 el 16-08-2026 y trajo
-**633 avisos, 328 únicos, 91 candidatos**. El detalle portal por portal está
+Ya no es una suposición: la primera corrida (16-08-2026) trajo 633 avisos y
+la de hoy trae **~1.300 avisos crudos, ~460 únicos y ~50 candidatos** en cada
+pasada. El detalle portal por portal está
 en **[`FUENTES.md`](FUENTES.md)** — y la lista completa de los 42 links,
 uno por uno para revisar, en **[`LINKS.md`](LINKS.md)** — cuáles entregan Vitacura, cuáles entregan
 pero de otras comunas, y cuáles no entregaron nada y por qué.
 
-Resumen: **15 entregan Vitacura**, 7 entregan sin Vitacura (URL o filtro mal),
-17 no entregaron nada (14 son corredoras cuya URL apunta a la portada).
+Resumen de esa primera auditoría: **15 entregaban Vitacura**, 7 entregaban
+otras comunas (URL o filtro mal) y 17 nada. Desde entonces el catálogo se ha
+depurado corrida a corrida: hoy 24 de las 28 activas entregan avisos, y las
+que se apagaron quedaron en `fuentes.yml` con su motivo medido.
 
 Lo que más sorprende: los metabuscadores (Trovit 47, Mitula 46, Nestoria 13)
 entregan más Vitacura que los portales grandes. Tiene sentido —agregan el
@@ -158,8 +163,8 @@ presupuesto de 30 minutos del job.
 
 ### El presupuesto de tiempo
 
-El job de Actions corta a los 30 minutos. Con 39 fuentes la corrida normal
-toma unos 12, pero si varias se cuelgan hasta su timeout el peor caso llega a
+El job de Actions corta a los 30 minutos. Con las 28 fuentes activas la
+corrida normal toma unos 6, pero si varias se cuelgan hasta su timeout el peor caso llega a
 54 — y que lo corte Actions es el peor final posible: mata el proceso, así que
 no se manda ninguna alerta, no se guarda el estado y no se escribe la
 bitácora. Se pierde también todo lo que las fuentes sanas ya habían entregado.
@@ -466,12 +471,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              433 tests.
+tests/              701 tests.
 ```
 
 ### Sobre los tests
 
-433 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+701 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
@@ -497,17 +502,17 @@ python -m pytest tests/ -q
 
 | Pieza | Estado |
 |---|---|
-| Parser de avisos chilenos (montos, superficies, programa) | ✅ 74 tests |
-| Filtros duros y puntaje | ✅ 61 tests |
-| Deduplicación y fusión entre portales | ✅ 31 tests |
-| Extracción (JSON-LD, SPA, tarjetas) | ✅ 42 tests |
-| Alertas por Telegram y fichas | ✅ 53 tests |
-| Configuración, fuentes, paginación y CLI | ✅ 45 tests |
-| Corrida completa de punta a punta | ✅ 13 tests |
-| Automatización (GitHub Actions, 2x al día) | ✅ Configurada |
-| URLs de 20 portales | ✅ Confirmadas una por una |
-| URLs de otros 19 portales | ⚠️ Solo dominio verificado — apuntan a la raíz |
-| **Que el extractor entienda cada portal** | ⚠️ **Correr `Calibrar fuentes`** |
+| Parser de avisos chilenos (montos, superficies, programa) | ✅ 118 tests |
+| Extracción (JSON-LD, estado embebido, tarjetas, fichas) | ✅ 151 tests |
+| Filtros duros y puntaje | ✅ 71 tests |
+| Deduplicación, fusión y memoria entre corridas | ✅ 64 tests |
+| Alertas por Telegram y fichas | ✅ 90 tests |
+| Libreta de edificios (el año por dirección) | ✅ 12 tests |
+| Dashboard con mapa interactivo | ✅ 23 tests |
+| Configuración, fuentes, historial, UF, gestión y CLI | ✅ 172 tests |
+| Automatización (GitHub Actions, 3x al día) | ✅ Corriendo sola |
+| URLs de 18 fuentes activas | ✅ Confirmadas una por una |
+| URLs de otras 10 | ⚠️ Apuntan a la raíz — esperan la URL filtrada |
 | **Telegram** | ⚠️ **Falta crear el bot — ver `PENDIENTES.md`** |
 
 El último punto es el que falta, y está explicado arriba.

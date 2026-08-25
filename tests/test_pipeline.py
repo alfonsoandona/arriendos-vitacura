@@ -10,7 +10,7 @@ el estado se complete ANTES de evaluar, que un envío fallido no se marque como
 avisado.
 """
 
-from datetime import datetime
+
 from pathlib import Path
 
 import pytest

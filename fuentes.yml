@@ -158,19 +158,13 @@ fuentes:
     # cualquier fuente de este catálogo. Salió de la auditoría de fuentes
     # del 17-08: no estaba en ninguna lista previa.
     #
-    # (21-08) Se prueba la ruta candidata. El HTML real de la raíz confirmó
-    # el diagnóstico: 212 KB que dicen "Bienvenido al primer portal de Chile
-    # especializado en arriendo" — es la PORTADA, y renderizarla con
-    # navegador no crea un listado que no está. La candidata sale del patrón
-    # confirmado de sus fichas (/departamentos/<comuna>/<id>/<slug>), así que
-    # /departamentos/vitacura es el listado de la comuna si el patrón manda.
-    #
-    # Si entrega cero otra vez, la corrida lo dirá y se apaga hasta tener la
-    # URL del buscador filtrado (está en la lista del usuario).
+    # La raíz se midió y era la portada (212 KB de "Bienvenido al primer
+    # portal…"); la ruta salió del patrón confirmado de sus propias fichas
+    # (/departamentos/<comuna>/<id>/<slug>) y se probó como candidata el
+    # 21-08. CONFIRMADA el 24-08: 23 avisos en DIEZ corridas seguidas, sin
+    # fallar una.
     urls: ["https://www.busconido.cl/departamentos/vitacura"]
-    ruta_candidata: true
-    url_confirmada: false
-    entrega_variable: true
+    url_confirmada: true
     notas: >-
       Agregador 100% de arriendo, 797 propiedades declaradas en Vitacura.
       Ruta candidata: /departamentos/vitacura — probarla desde el navegador
@@ -226,6 +220,9 @@ fuentes:
     urls: ["https://www.economicos.cl/search/propiedades/vitacura/arriendo/departamento/0"]
     paginacion: {paginas: 3, plantilla: "{url}/{n}"}
     url_confirmada: true
+    # Entrega 51 o 0 según le pegue su 403 intermitente (medido 21-08 a
+    # 24-08: tres corridas con 51, siete con 0, sin patrón de hora).
+    entrega_variable: true
     notas: >-
       Los clasificados de El Mercurio, unos 253 avisos de departamentos en
       arriendo en Vitacura. Es distinto de Emol Propiedades y no se pisan: acá
@@ -247,6 +244,9 @@ fuentes:
     comuna_default: Vitacura
     urls: ["https://www.doomos.cl/departamentos-vitacura-arriendo"]
     url_confirmada: true
+    # Entrega 31 o 0, alternando, en las corridas del 21-08 al 24-08. Igual
+    # que mitula: intermitencia del sitio, no muerte.
+    entrega_variable: true
     notas: "Unos 67 avisos, de corredoras chicas. Antiguo pero sigue vivo."
 
   - id: zoominmobiliario
@@ -336,6 +336,11 @@ fuentes:
     urls: ["https://casas.mitula.cl/casas/arriendo-departamentos-vitacura"]
     paginacion: {paginas: 2, parametro: page}
     url_confirmada: true
+    # Medido en las diez corridas del 21-08 al 24-08: entrega 60 u entrega 0,
+    # sin término medio — su anti-bot responde 401 a visitas repetidas y a la
+    # corrida siguiente vuelve. La marca evita que cada cero dispare la
+    # alarma de "dejó de entregar", que es para muertes de verdad.
+    entrega_variable: true
     notas: "Metabuscador, mismo grupo que Nuroa. Ver la nota del bloque."
 
   - id: nestoria
@@ -383,18 +388,15 @@ fuentes:
     comuna_default: Vitacura
     urls: ["https://www.assetplan.cl/arriendo/departamento/vitacura"]
     url_confirmada: true
-    # (21-08) La URL es la correcta —su HTML renderizado titula "Departamentos
-    # en Arriendo en Vitacura" y trae los filtros, el "Ordenar por" y el "Ver
-    # mapa"— pero la grilla llega vacía: el listado lo pide un XHR posterior y
-    # `networkidle` nunca se cumple porque su analítica hace polling, así que
-    # la página se lee a los 6 segundos con el cascarón puesto. Los 1.169 "$"
-    # del archivo son plantillas de JavaScript, no precios.
-    #
-    # Cinco segundos más de espera es el experimento. Medible: si sigue en
-    # cero, se apaga y se recupera el tiempo — igual que el scroll de
-    # goplaceit, que se probó y se revirtió el mismo día.
+    # APAGADA el 24-08, con el experimento medido y perdido: cinco segundos
+    # extra de espera (la grilla la pinta un XHR tardío y su analítica hace
+    # polling, así que networkidle nunca se cumple) entregaron UN aviso en
+    # DIEZ corridas, a 14-22 segundos de Chromium cada una. Y su inventario
+    # es multifamily chico, que el filtro de 100 m² descarta casi entero:
+    # el aviso que entregó tampoco fue candidato. Se recupera el tiempo.
     acciones:
       - {tipo: esperar_ms, valor: 5000}
+    activa: false
     notas: >-
       Especialista en multifamily. La mayor parte de su inventario son
       departamentos chicos de renta, así que probablemente entregue poco que
