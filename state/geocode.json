@@ -17,7 +17,7 @@
   },
   "@-33 37587 -70 54678": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9433",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
   },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
@@ -37,19 +37,27 @@
   },
   "@-33 38001 -70 54185": {
     "calle": "Vitacura 9976",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
+  },
+  "@-33 38092 -70 53519": {
+    "calle": "Las Hualtatas 10343",
+    "visto": "2026-08-27"
   },
   "@-33 38221 -70 58025": {
     "calle": "Avenida Manquehue Norte 2580",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
   },
   "@-33 38319 -70 54913": {
     "calle": "Vitacura 9035",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
+  },
+  "@-33 38496 -70 55920": {
+    "calle": "Nilo Azul 1782",
+    "visto": "2026-08-27"
   },
   "@-33 38575 -70 56115": {
     "calle": "Avenida Vitacura",
@@ -57,7 +65,7 @@
   },
   "@-33 38650 -70 54116": {
     "calle": "Avenida Presidente Kennedy Lateral 9570",
-    "visto": "2026-08-26"
+    "visto": "2026-08-27"
   },
   "@-33 38911 -70 57248": {
     "calle": "Arquitecto Herbage 6169",
@@ -87,9 +95,25 @@
     "calle": "Avenida Presidente Kennedy",
     "visto": "2026-08-22"
   },
+  "@-33 39600 -70 57827": {
+    "calle": "Los Gomeros 1493",
+    "visto": "2026-08-27"
+  },
   "@-33 39610 -70 58766": {
     "calle": "Espoz 4580C",
     "visto": "2026-08-20"
+  },
+  "@-33 39611 -70 59052": {
+    "calle": "Alonso de Sotomayor 4320",
+    "visto": "2026-08-27"
+  },
+  "@-33 39670 -70 59099": {
+    "calle": "Alonso de Sotomayor 4200",
+    "visto": "2026-08-27"
+  },
+  "@-33 39782 -70 58954": {
+    "calle": "San Patricio 4260",
+    "visto": "2026-08-27"
   },
   "@-33 39871 -70 57442": {
     "calle": "Teresa Concha 1000",
@@ -126,6 +150,10 @@
   "@-33 40335 -70 59688": {
     "calle": "Antonio de Pastrana 2658",
     "visto": "2026-08-24"
+  },
+  "@-33 40433 -70 58776": {
+    "calle": "Avenida Presidente Kennedy Lateral",
+    "visto": "2026-08-27"
   },
   "@-33 40436 -70 60124": {
     "calle": "Avenida Bicentenario 3116",
