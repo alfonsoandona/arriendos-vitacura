@@ -7,6 +7,10 @@
     "calle": "Raimundo Larraín",
     "visto": "2026-08-20"
   },
+  "@-33 37208 -70 54712": {
+    "calle": "Las Cuijas",
+    "visto": "2026-08-27"
+  },
   "@-33 37213 -70 54192": {
     "calle": "Santa Teresa de Los Andes 9770",
     "visto": "2026-08-25"
@@ -19,6 +23,10 @@
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9433",
     "visto": "2026-08-27"
   },
+  "@-33 37663 -70 54414": {
+    "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
+    "visto": "2026-08-27"
+  },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
     "visto": "2026-08-25"
@@ -29,7 +37,11 @@
   },
   "@-33 37690 -70 54416": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-08-25"
+    "visto": "2026-08-27"
+  },
+  "@-33 37737 -70 54849": {
+    "calle": "Del Mirador 2070-A",
+    "visto": "2026-08-27"
   },
   "@-33 37923 -70 56906": {
     "calle": "Avenida Juan XXIII",
@@ -161,7 +173,7 @@
   },
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
-    "visto": "2026-08-25"
+    "visto": "2026-08-27"
   },
   "@-33 40465 -70 59453": {
     "calle": "Armando Jaramillo 1358",
