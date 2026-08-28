@@ -133,3 +133,21 @@ def test_una_direccion_que_hoy_no_es_direccion_no_entra(libreta):
     aplicar([_aviso(direccion="Edificio de 18, Vitacura", ano=2010)], libreta)
     aplicar([_aviso(direccion="ID 44348, Las Condes", ano=1991)], libreta)
     assert libreta.datos == {}
+
+
+def test_las_llaves_largas_del_extractor_viejo_se_purgan(tmp_path):
+    """"espoz 3276 vitacura santiago metropolitana de santiago" es la forma
+    que escribió el extractor de ANTES del recorte de colas, y fragmentaba
+    la libreta: el mismo edificio dos veces, una bajo una llave que las
+    consultas de hoy ya nunca producen. La medición del 28-08 encontró
+    cuatro pares así en 30 entradas."""
+    import json
+    (tmp_path / "edificios.json").write_text(json.dumps({
+        "espoz 3276": {"ano": 2007},
+        "espoz 3276 vitacura santiago metropolitana de santiago": {"ano": 2007},
+        "312 metropolitana juan xxiii 6859 301": {"ano": 1983},
+        "vitacura 9976": {"ano": 2015},
+    }), encoding="utf-8")
+    libreta = Libreta(tmp_path)
+    assert set(libreta.datos) == {"espoz 3276", "vitacura 9976"}, \
+        "la comuna como nombre de calle (Vitacura 9976) tiene que sobrevivir"

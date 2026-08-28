@@ -42,7 +42,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from .models import NUNCA_EN_UNA_CALLE, Arriendo, clave_direccion
+from .models import (NUNCA_EN_UNA_CALLE, _NO_SON_CALLE, Arriendo,
+                     clave_direccion)
 
 log = logging.getLogger(__name__)
 
@@ -54,11 +55,23 @@ BANDA_ANO = (1900, date.today().year + 3)
 
 
 def _llave_valida(clave: str) -> bool:
-    """¿Esta llave es la que el extractor de hoy produciría?"""
+    """¿Esta llave es la que el extractor de hoy produciría?
+
+    Además del vocabulario que jamás es calle, se rechazan las llaves con
+    palabras administrativas adentro ("espoz 3276 vitacura santiago
+    metropolitana de santiago", "312 metropolitana juan xxiii 6859 301"):
+    son las formas largas que escribió el extractor de ANTES de que la
+    limpieza recortara las colas, y quedaron fragmentando la libreta — el
+    mismo edificio dos veces, una bajo la llave que las consultas de hoy ya
+    nunca producen. La medición del 28-08 encontró cuatro pares así en 30
+    entradas. La forma corta ya existe o se re-aprende en la corrida
+    siguiente, así que borrar la larga no pierde nada.
+    """
     partes = (clave or "").split()
     if not any(p.isdigit() and len(p) >= 3 for p in partes):
         return False
-    return not any(p in NUNCA_EN_UNA_CALLE for p in partes)
+    return not any(p in NUNCA_EN_UNA_CALLE or p in _NO_SON_CALLE
+                   for p in partes)
 
 
 def _clave_de_edificio(a: Arriendo) -> str:

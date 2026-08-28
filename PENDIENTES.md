@@ -44,19 +44,28 @@ rotulado y se lee bien; engelvoelkers lo escribía en prosa y se arregló;
 chilepropiedades y houm simplemente **no lo publican**. El hueco es de los
 portales.
 
-Lo que lo va a cerrar es **la libreta de edificios** (`state/edificios.json`):
-lo que un aviso enseña sobre una dirección le sirve a todos los avisos de esa
-dirección, para siempre. Ya conoce 10 edificios (9 con año útil; 1 anulado
-porque dos portales dijeron años distintos y ante la duda se calla). Todavía
-no rescata a nadie — el valor es acumulativo. **Medir el 28-08**: cuántos
-edificios conoce y cuántos avisos ganaron el año por ella.
+Lo que lo va a cerrar es **la libreta de edificios** (`state/edificios.json`).
+**Medición del 28-08**: conoce **25 edificios** (venía de 10 el lunes —
+aprende ~5 por día) pero todavía **rescata cero**: de los 45 candidatos sin
+año, 20 tienen dirección de edificio y ninguna coincide aún con las 25
+conocidas. Es lo esperable a esta edad — la libreta paga cuando un aviso
+NUEVO llega a una dirección YA aprendida, y eso es rotación de semanas.
+
+Dos cosas se hicieron con la medición: las llaves largas del extractor viejo
+se purgan solas (fragmentaban la libreta: el mismo edificio dos veces) y se
+sembró con los 14 casos históricos de `alertas/casos/` que publican año —
+los guardias botaron la basura y quedó 1 edificio nuevo legítimo.
+**Próxima medición: 04-09.** Si a esa fecha sigue en cero, el paso siguiente
+es un poblado inicial de verdad (visitar fichas de TODO el inventario, no
+solo candidatos, unas corridas).
 
 ### 2. Fuentes intermitentes — vigilar, no arreglar
 
-mitula (60 ó 0), doomos (31 ó 0) y economicos (51 ó 0) alternan sin patrón:
-anti-bot intermitente, no muerte. Quedaron marcadas `entrega_variable` para
-que sus ceros no disparen la alarma de "dejó de entregar". Si alguna se queda
-en cero UNA SEMANA seguida, eso ya es otra cosa y hay que mirarla.
+mitula (60 ó 0), doomos (31 ó 0), economicos (51 ó 0) y remax alternan sin
+patrón: anti-bot intermitente, no muerte. **Chequeado el 28-08**: las cuatro
+entregaron esta semana — mitula 8 de 10 corridas, doomos 9 de 10, economicos
+3 de 10, remax 3 de 10. Ninguna lleva una semana en cero, que es el umbral
+que las convertiría en otra cosa.
 
 ---
 

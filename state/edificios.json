@@ -1,15 +1,15 @@
 {
- "312 metropolitana juan xxiii 6859 301": {
-  "ano": 1983,
-  "anotado": "2026-08-21",
-  "de": "toctoc",
-  "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/departamento-en-arriendo-de-4-dorm-en-vitacura/4154a144e91d137460fdac12a07df659bde59be5"
- },
  "3355 vitacura 87": {
   "ano": 2003,
   "anotado": "2026-08-25",
   "de": "toctoc",
   "url": "https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_c64be9920cb0f7dbdcbdce638ad9d953d48fa8ff"
+ },
+ "alonso de sotomayor 4200": {
+  "ano": 2006,
+  "anotado": "2026-08-28",
+  "de": "caso-historico",
+  "url": "alertas/casos/vitacura-calle-alonso-de-sotomayor-4200-vitacura-santiago-metropolitana-de-santiago-763025.md"
  },
  "andres de vera 0 5067": {
   "ano": 2008,
@@ -47,12 +47,6 @@
   "de": "mitula",
   "url": "https://casas.mitula.cl/adform/24301-256-7ec7-b0d409890d64-832a-19cb3e9-479b"
  },
- "espoz 3276 vitacura santiago metropolitana de santiago 7630000 chl": {
-  "ano": 2007,
-  "anotado": "2026-08-22",
-  "de": "mitula",
-  "url": "https://casas.mitula.cl/adform/24301-256-7ec7-b0d409890d64-832a-19cb3e9-479b"
- },
  "fernando de arguello 7505 407": {
   "ano": 2018,
   "anotado": "2026-08-26",
@@ -65,23 +59,11 @@
   "de": "toctoc",
   "url": "https://www.toctoc.com/propiedades/arriendocorredorasr/departamento/vitacura/-fernando-de-arguello--padre-hurtado/e746f57b89555e7b388a3a9c03d83568a16c6d84"
  },
- "fernando de arguello 8399 vitacura chile metropolitana de santiago": {
-  "ano": 2012,
-  "anotado": "2026-08-21",
-  "de": "mitula",
-  "url": "https://casas.mitula.cl/adform/24301-256-76dc-a5e4ed8d692d-84bc-19ff37b-c29c"
- },
  "francisco cook 831": {
   "ano": 2022,
   "anotado": "2026-08-25",
   "de": "nuroa",
   "url": "https://www.nuroa.cl/adform/10342-912-4998-1a03e43-b4c7-b53d12fca943-8025?click_type=0&pos=1&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=5938c89b-de76-4bb4-bc47-045e1175d54f&t_pvid=5938c89b-de76-4bb4-bc47-045e1175d54f&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.212.136.246&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0"
- },
- "hipodromo de chile 1770": {
-  "ano": 2021,
-  "anotado": "2026-08-25",
-  "de": "accesoinmobiliario",
-  "url": "https://placehold.co/1920x1080.mp4"
  },
  "independencia 801": {
   "ano": 2018,
@@ -113,12 +95,6 @@
   "de": "accesoinmobiliario",
   "url": "https://placehold.co/1920x1080.mp4"
  },
- "n de la casa 728": {
-  "ano": 1991,
-  "anotado": "2026-08-23",
-  "de": "accesoinmobiliario",
-  "url": "https://placehold.co/1920x1080.mp4"
- },
  "padre orellana 1308": {
   "ano": 2022,
   "anotado": "2026-08-25",
@@ -128,12 +104,6 @@
  "paul claudel 1114": {
   "ano": 1993,
   "anotado": "2026-08-25",
-  "de": "mitula",
-  "url": "https://casas.mitula.cl/adform/24301-256-48b2-8ef2cdb81ce3-a03e-5f17cab2-b086"
- },
- "paul claudel 1114 vitacura santiago metropolitana de santiago 7630574 chl": {
-  "ano": 1993,
-  "anotado": "2026-08-21",
   "de": "mitula",
   "url": "https://casas.mitula.cl/adform/24301-256-48b2-8ef2cdb81ce3-a03e-5f17cab2-b086"
  },
