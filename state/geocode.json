@@ -21,7 +21,7 @@
   },
   "@-33 37587 -70 54678": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9433",
-    "visto": "2026-08-30"
+    "visto": "2026-08-31"
   },
   "@-33 37663 -70 54414": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
@@ -37,7 +37,7 @@
   },
   "@-33 37690 -70 54416": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-08-30"
+    "visto": "2026-08-31"
   },
   "@-33 37737 -70 54849": {
     "calle": "Del Mirador 2070-A",
@@ -127,9 +127,17 @@
     "calle": "Alonso de Sotomayor 4320",
     "visto": "2026-08-30"
   },
+  "@-33 39619 -70 58859": {
+    "calle": "Avenida Américo Vespucio Norte 2055",
+    "visto": "2026-08-31"
+  },
   "@-33 39670 -70 59099": {
     "calle": "Alonso de Sotomayor 4200",
     "visto": "2026-08-30"
+  },
+  "@-33 39685 -70 58844": {
+    "calle": "Avenida Américo Vespucio Norte 1861",
+    "visto": "2026-08-31"
   },
   "@-33 39782 -70 58954": {
     "calle": "San Patricio 4260",
@@ -181,7 +189,7 @@
   },
   "@-33 40436 -70 60124": {
     "calle": "Avenida Bicentenario 3116",
-    "visto": "2026-08-25"
+    "visto": "2026-08-31"
   },
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
