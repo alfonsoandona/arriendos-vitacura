@@ -15,6 +15,10 @@
     "calle": "Santa Teresa de Los Andes 9770",
     "visto": "2026-08-25"
   },
+  "@-33 37243 -70 55497": {
+    "calle": "Pasaje El Canal",
+    "visto": "2026-09-01"
+  },
   "@-33 37271 -70 54118": {
     "calle": "Santa Teresa de Los Andes 9770",
     "visto": "2026-08-25"
@@ -25,7 +29,7 @@
   },
   "@-33 37663 -70 54414": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-08-30"
+    "visto": "2026-09-01"
   },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
@@ -45,7 +49,7 @@
   },
   "@-33 37738 -70 54849": {
     "calle": "Del Mirador 2070-A",
-    "visto": "2026-08-30"
+    "visto": "2026-09-01"
   },
   "@-33 37923 -70 56906": {
     "calle": "Avenida Juan XXIII",
@@ -455,6 +459,11 @@
     "lat": -33.4014057,
     "lon": -70.5824352,
     "visto": "2026-08-18"
+  },
+  "el canal/gran vía vitacura chile": {
+    "fallo": "2026-09-01",
+    "intentos": 1,
+    "visto": "2026-09-01"
   },
   "el clonqui sin número el clonqui vitacura chile": {
     "fallo": "2026-08-18",
