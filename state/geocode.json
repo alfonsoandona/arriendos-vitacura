@@ -1,4 +1,8 @@
 {
+  "@-33 36337 -70 54865": {
+    "calle": "Vía Código 10105",
+    "visto": "2026-09-20"
+  },
   "@-33 36561 -70 54449": {
     "calle": "Avenida José Alcalde Délano",
     "visto": "2026-08-20"
@@ -23,13 +27,21 @@
     "calle": "Santa Teresa de Los Andes 9770",
     "visto": "2026-08-25"
   },
+  "@-33 37575 -70 54910": {
+    "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9409",
+    "visto": "2026-09-20"
+  },
   "@-33 37587 -70 54678": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9433",
     "visto": "2026-09-15"
   },
+  "@-33 37644 -70 54469": {
+    "calle": "Costanera Sur San Josemaría Escrivá de Balaguer",
+    "visto": "2026-09-20"
+  },
   "@-33 37663 -70 54414": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-09-02"
+    "visto": "2026-09-20"
   },
   "@-33 37671 -70 54727": {
     "calle": "Alejandro Serani Norte 9347",
@@ -41,15 +53,19 @@
   },
   "@-33 37690 -70 54416": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9547",
-    "visto": "2026-09-02"
+    "visto": "2026-09-20"
+  },
+  "@-33 37711 -70 54439": {
+    "calle": "Alejandro Serani 9533",
+    "visto": "2026-09-20"
   },
   "@-33 37737 -70 54849": {
     "calle": "Del Mirador 2070-A",
-    "visto": "2026-09-17"
+    "visto": "2026-09-20"
   },
   "@-33 37738 -70 54849": {
     "calle": "Del Mirador 2070-A",
-    "visto": "2026-09-02"
+    "visto": "2026-09-20"
   },
   "@-33 37923 -70 56906": {
     "calle": "Avenida Juan XXIII",
@@ -73,6 +89,10 @@
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
+    "visto": "2026-09-20"
+  },
+  "@-33 38398 -70 57917": {
+    "calle": "Espoz 6286",
     "visto": "2026-09-20"
   },
   "@-33 38496 -70 55920": {
@@ -99,6 +119,10 @@
     "calle": "Avenida Presidente Kennedy Lateral 7773",
     "visto": "2026-08-25"
   },
+  "@-33 39312 -70 57912": {
+    "calle": "Chapultepec 5545",
+    "visto": "2026-09-20"
+  },
   "@-33 39347 -70 58934": {
     "calle": "Ascencio de Zavala 2238",
     "visto": "2026-09-01"
@@ -121,7 +145,7 @@
   },
   "@-33 39494 -70 59139": {
     "calle": "Candelaria Goyenechea 4330",
-    "visto": "2026-09-15"
+    "visto": "2026-09-20"
   },
   "@-33 39600 -70 57827": {
     "calle": "Los Gomeros 1493",
@@ -145,7 +169,7 @@
   },
   "@-33 39652 -70 58803": {
     "calle": "Espoz 4440",
-    "visto": "2026-09-15"
+    "visto": "2026-09-20"
   },
   "@-33 39670 -70 59099": {
     "calle": "Alonso de Sotomayor 4200",
@@ -154,6 +178,10 @@
   "@-33 39685 -70 58844": {
     "calle": "Avenida Américo Vespucio Norte 1861",
     "visto": "2026-09-02"
+  },
+  "@-33 39727 -70 57440": {
+    "calle": "Teresa Concha 1198",
+    "visto": "2026-09-20"
   },
   "@-33 39782 -70 58954": {
     "calle": "San Patricio 4260",
@@ -189,7 +217,7 @@
   },
   "@-33 40143 -70 58206": {
     "calle": "El Arcángel 5011",
-    "visto": "2026-08-25"
+    "visto": "2026-09-20"
   },
   "@-33 40153 -70 59393": {
     "calle": "Alonso de Córdova 2313",
@@ -237,7 +265,7 @@
   },
   "@-33 40574 -70 59708": {
     "calle": "Paul Claudel 1490",
-    "visto": "2026-09-17"
+    "visto": "2026-09-20"
   },
   "@-33 40583 -70 59765": {
     "calle": "Avenida Vitacura 3355",
