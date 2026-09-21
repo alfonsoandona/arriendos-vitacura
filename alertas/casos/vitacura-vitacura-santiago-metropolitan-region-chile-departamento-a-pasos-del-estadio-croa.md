@@ -1,29 +1,29 @@
-# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,380 2 Bedrooms 2 Bathrooms 
+# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,362 2 Bedrooms 2 Bathrooms 
 
-**86/100** · `#TQ53M` · Vitacura · sin ubicar
+**90/100** · `#PTGDV` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.553.304 |
+| Arriendo | $1.557.376 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.553.304** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.557.376** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 38 |
-| Por m² | $11.256 / m² |
+| Por m² | $4.326 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
 | Tipo | departamento |
-| Superficie total | 138 m² |
+| Superficie total | 360 m² |
 | Superficie útil | 74 m² |
 | Terraza | 220 m² |
 | Dormitorios | 3 |
 | Baños | 2 |
-| Estacionamientos | — |
-| Bodega | — |
+| Estacionamientos | 1 |
+| Bodega | sí |
 | Antigüedad | 5 años (construido en 2021) |
 | Piso | 2 |
 | Orientación | norte |
@@ -34,28 +34,29 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | 22/24 | 5 años (construido en 2021) |
-| Precio | 16/20 | $1.553.304 · GC no publicados |
-| Superficie | 14/16 | 138 m² totales, terraza 220 m² |
+| Precio | 16/20 | $1.557.376 · GC no publicados |
+| Superficie | 16/16 | 360 m² totales, terraza 220 m² |
 | Programa | 10/14 | 3D · 2B |
-| _Preferencias_ | +4 | desempate entre las que ya calificaron |
+| _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
 - Antigüedad: 5 años (construido en 2021)
-- Precio: $1.553.304 · GC no publicados
-- Superficie: 138 m² totales, terraza 220 m²
+- Precio: $1.557.376 · GC no publicados
+- Superficie: 360 m² totales, terraza 220 m²
 - Programa: 3D · 2B
 - orientación norte
-- 46 m² por dormitorio
+- 120 m² por dormitorio
+- 1 estacionamientos
+- con bodega
 
 </details>
 
 ## Qué preguntar antes de ir
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
-- [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.106.608 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.114.752 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -69,7 +70,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: TQ53M
+  - codigo: PTGDV
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # nota: "lo que te dijeron"
@@ -80,9 +81,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,380 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
+Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,362 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 03-09-2026 15:31 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 21-09-2026 17:28 UTC.
 
 </details>
