@@ -1,86 +1,86 @@
 # Historial de búsquedas
 
-_Actualizado 23-09-2026 15:53 UTC · 8000 eventos guardados_
+_Actualizado 23-09-2026 19:59 UTC · 8000 eventos guardados_
 
 ## El mercado, últimos 90 días
 
 | | |
 |---|---|
-| Departamentos nuevos | 671 |
-| Dejaron de publicarse | 4077 |
-| Cambios de precio | 3252 (207 a la baja) |
-| Canon mediano | $2.982.078 |
-| Canon mediano por m² | $15.307 |
-| Días publicado antes de irse | 2 |
+| Departamentos nuevos | 668 |
+| Dejaron de publicarse | 4059 |
+| Cambios de precio | 3273 (210 a la baja) |
+| Canon mediano | $2.909.834 |
+| Canon mediano por m² | $15.311 |
+| Días publicado antes de irse | 1 |
 | Rebaja mediana | 14% |
 
 ## Avisos nuevos por mes
 
 | Mes | Nuevos |
 |---|---|
-| 2026-09 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 671 |
+| 2026-09 | ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ 668 |
 
 ## Últimos movimientos
 
 | Fecha | | Departamento | Canon |
 |---|---|---|---|
-| 2026-09-23 | 📤 | PENTHOUSE DE LUJO EN VITACURA - UNA CASA EN LAS ALTU · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | COD: 50.806 Departamento en Independencia Avenida Fr · Independencia — 35 días publicado | — |
-| 2026-09-23 | 📤 | Este departamento en venta se encuentra en una excel · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | Ascencio de Zavala 2850 · Vitacura — 28 días publicado | $3.279.340 |
-| 2026-09-23 | 📤 | ARRIENDO DEPARTAMENTO 3HAB 0BA VITACURA · Vitacura — 6 días publicado | $1.598.678 |
-| 2026-09-23 | 📤 | Cod.: 5.787 Venta UF 11.200 Casa en Colina Av chamis · Colina — 33 días publicado | — |
-| 2026-09-23 | 📤 | Excelente oportunidad de inversión en Padre Hurtado  · Padre Hurtado — 1 días publicado | — |
-| 2026-09-23 | 📤 | Céntrico Departamento Edif El Roble - Talca CLP 90.0 · Talca — 2 días publicado | — |
-| 2026-09-23 | 📤 | AV. VICUÑA MACKENNA 563, Santiago · Santiago — 2 días publicado | $480.000 |
-| 2026-09-23 | 📤 | Alonso de Sotomayor 4320, Vitacura · Vitacura — 27 días publicado | $3.074.381 |
-| 2026-09-23 | 📤 | ARRIENDO 922 "Arriendo de oficina, 1.000 m2. 8 priva · Santiago — 1 días publicado | $11.887.608 |
-| 2026-09-23 | 📤 | COD: 49.276 Oficina en San Joaquín Av. Las Industria · San Joaquín — 27 días publicado | — |
-| 2026-09-23 | 📤 | Las Nieves 601 · Vitacura — 28 días publicado | $3.600.000 |
-| 2026-09-23 | 📤 | ARRIENDO 494 "Se arrienda céntrico local ubicado en  · Coquimbo — 1 días publicado | $5.328.928 |
-| 2026-09-23 | 📤 | y elegante departamento, ubicado en condominio con e · Santiago — 1 días publicado | — |
-| 2026-09-23 | 📤 | Vitacura RM (Metropolitana) Luminoso 4d 3b terrazas  · Vitacura — 1 días publicado | $2.043.900 |
-| 2026-09-23 | 📤 | Avenida Juan XXIII 6650, Vitacura · Vitacura — 36 días publicado | $1.721.654 |
-| 2026-09-23 | 📤 | ARRIENDO 80 "EXCELENTE PROPIEDAD INDUSTRIAL, que cor · Puerto Montt — 1 días publicado | $8.198.350 |
-| 2026-09-23 | 📤 | ARRIENDO 47 "419.075 - YBV 360 mts2. Esta exclusiva  · Providencia — 1 días publicado | — |
-| 2026-09-23 | 📤 | Av. Los Trapenses 3145 504C · Vitacura — 28 días publicado | $4.509.092 |
-| 2026-09-23 | 📤 | ARRIENDO 73 "Comercial en Arriendo – Centro Históric · La Serena — 1 días publicado | $8.198.350 |
-| 2026-09-23 | 📤 | ARRIENDO 534 "*MPB*411.605. Luis Thayer Ojeda- Carme · Providencia — 1 días publicado | $6.000.000 |
-| 2026-09-23 | 📤 | Avenida Vitacura 3441 · Vitacura — 18 días publicado | $3.484.299 |
-| 2026-09-23 | 📤 | HERMOSA CASA REMODELADA 4D+2B BICENTENARIO (21 Norte · Talca — 2 días publicado | — |
-| 2026-09-23 | 📤 | Av. Los Trapenses 3145 801 · Vitacura — 28 días publicado | $1.967.604 |
-| 2026-09-23 | 📤 | Cod.: 7.925 Venta UF 98.000 Casa en Vitacura ESPECTA · Vitacura — 35 días publicado | — |
-| 2026-09-23 | 📤 | Casa Parque Del Sol 4D+2B - Talca UF 5.300 Casa - Ve · Talca — 2 días publicado | — |
-| 2026-09-23 | 📤 | Avenida Vitacura, Lo Castillo, Vitacura · Vitacura — 34 días publicado | $4.304.134 |
-| 2026-09-23 | 📤 | Consulta Médica Edificio Alameda - Talca CLP 250.000 · Talca — 2 días publicado | $250.000 |
+| 2026-09-23 | 📤 | Departamento ubicado en el sector de La Llavería, en · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Estupendo departamento, ubicado en un consolidado y  · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Fernando de Argüello, El Dorado, Vitacura · Vitacura — 1 días publicado | $1.680.662 |
+| 2026-09-23 | 📤 | Avenida Vitacura 3706, Vitacura · Vitacura — 28 días publicado | $4.919.010 |
+| 2026-09-23 | 📤 | Venta en Maipú 4D / 1B Venta · Maipú — 7 días publicado | — |
 | 2026-09-23 | 📤 | Departamento NUEVO en el sector de LO CURRO.CERO CO · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | Departamento ubicado en el sector de La Llavería, en · Vitacura — 1 días publicado | $2.254.546 |
-| 2026-09-23 | 📤 | ARRIENDO 478 "Espectacular terreno en Pintué, 7.3 ha · Paine — 1 días publicado | $9.305.127 |
-| 2026-09-23 | 📤 | Cod.: 8.810 Venta UF 25.890 Casa en Lo Barnechea Cam · Lo Barnechea — 34 días publicado | — |
-| 2026-09-23 | 📤 | COD: 47.769 Oficina en Santiago Compañía / Amunategu · Santiago — 36 días publicado | — |
-| 2026-09-23 | 📤 | Departamento en Vitacura, Provincia De Santiago DISP · Vitacura — 1 días publicado | $1.885.620 |
-| 2026-09-23 | 📤 | Paul Claudel 1200 - 1500 · Vitacura — 28 días publicado | $3.279.340 |
-| 2026-09-23 | 📤 | Av. Los Trapenses 3145 13603 · Vitacura — 27 días publicado | $3.074.381 |
-| 2026-09-23 | 📤 | Las Hualtatas 11500-11600 · Vitacura — 27 días publicado | $2.172.563 |
-| 2026-09-23 | 📤 | ARRIENDO 704 "cod 410.493 CdePA Propiedad para fines · Santiago — 1 días publicado | $15.499.801 |
-| 2026-09-23 | 📤 | Paul Claudel 1400 · Vitacura — 28 días publicado | $3.279.340 |
-| 2026-09-23 | 📤 | ARRIENDO 640 "Código: LA397.988* Arriendo local come — 1 días publicado | $12.297.525 |
-| 2026-09-23 | 📤 | Amplio y luminoso departamento remodelado, ubicado e · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | Avenida Presidente Kennedy Lateral, Vitacura · Vitacura — 21 días publicado | $1.200.000 |
-| 2026-09-23 | 📤 | ARRIENDO 2033 "Venta de casa en Vitacura.- Casa en v · Vitacura — 1 días publicado | $6.968.598 |
-| 2026-09-23 | 📤 | Paul Claudel 1490, Vitacura · Vitacura — 25 días publicado | $3.279.340 |
-| 2026-09-23 | 📤 | Legales y Públicos Banco Chile - avisos nulos por ro · Vitacura — 4 días publicado | $8.900.000 |
-| 2026-09-23 | 📤 | Venta en San Bernardo 5D / 1B Venta · San Bernardo — 7 días publicado | — |
-| 2026-09-23 | 📤 | Gran Casa Centro de Talca 6D+3B - Talca UF 8.450 Cas · Talca — 2 días publicado | — |
-| 2026-09-23 | 📤 | Candelaria Goyenechea 4330, Vitacura · Vitacura — 8 días publicado | $1.926.612 |
-| 2026-09-23 | 📤 | ARRIENDO 180 "cod: 395.668 CdePA Rotonda Atenas 196  · Las Condes — 1 días publicado | $5.123.969 |
-| 2026-09-23 | 📤 | Av. Los Trapenses 3145 803 · Vitacura — 27 días publicado | $4.714.051 |
-| 2026-09-23 | 📤 | Espectacular departamento pent house, frente Club de · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | ARRIENDO 843 "Oficina en venta y arriendo, 620 m2.,  · Santiago — 1 días publicado | $5.615.870 |
-| 2026-09-23 | 📤 | SE ARRIENDA DEPTO 2D-2B, CON EST,PISO9, CENTRO SAN B · San Bernardo — 2 días publicado | $480.000 |
-| 2026-09-23 | 📤 | departamento en venta ubicado en una de las zonas má · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | Se vende amplio departamento en Camino El Parque, en · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Camino El Parque, Vitacura · Las Condes — 1 días publicado | $1.557.686 |
+| 2026-09-23 | 📤 | ARRIENDO 495 "Se arrienda céntrico local ubicado en  · Coquimbo — 1 días publicado | $5.328.928 |
+| 2026-09-23 | 📤 | Cod.: 7.137 Venta UF 13.100 Casa en Colina PRECIOSA  · Colina — 34 días publicado | — |
+| 2026-09-23 | 📤 | Cod.: 8.529 Venta UF 12.900 Casa en Machalí Parque R · Machalí — 36 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 806 "Oficina en venta y arriendo, 646 m2.,  · Santiago — 1 días publicado | $5.615.870 |
+| 2026-09-23 | 📤 | ARRIENDO 782 "Fuenzalida Propiedades El Golf (Código · Las Condes — 1 días publicado | $5.943.804 |
+| 2026-09-23 | 📤 | Cod.: 7.304 Venta UF 21.300 Casa en Colina CASA CON  · Colina — 34 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 631 "Se arrienda amplia oficina a pasos de  · Santiago — 1 días publicado | $8.280.334 |
+| 2026-09-23 | 📤 | COD: 51.196 Departamento en Las Condes MÁLAGA / EL G · Las Condes — 13 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 767 "Oficina en venta y arriendo, 622 m2.,  · Santiago — 1 días publicado | $5.123.969 |
+| 2026-09-23 | 📤 | y elegante departamento, ubicado en condominio con e · Santiago — 1 días publicado | — |
+| 2026-09-23 | 📤 | Excelente oportunidad de inversión en Padre Hurtado  · Padre Hurtado — 1 días publicado | — |
+| 2026-09-23 | 📤 | Excelente departamento con vista despejada a Club de · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Vitacura, Wisconsin Habitaciones: 2 Baños: 2 Terreno · Vitacura — 8 días publicado | $950.000 |
+| 2026-09-23 | 📤 | ARRIENDO 2039 "Venta de casa en Vitacura.- Casa en v · Vitacura — 1 días publicado | $6.968.598 |
 | 2026-09-23 | 📤 | DEPARTAMENTO EN VITACURA – 3D + 3B · Vitacura — 1 días publicado | — |
-| 2026-09-23 | 📤 | Camino El Parque 1 - 300 · Vitacura — 27 días publicado | $2.377.522 |
-| 2026-09-23 | 📤 | Amplio departamento en venta en El Golf, calle San S · Las Condes — 1 días publicado | — |
+| 2026-09-23 | 📤 | Espectacular departamento pent house, frente Club de · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | departamento en venta ubicado en una de las zonas má · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Cod.: 5.586 Venta UF 32.000 Departamento en Zapallar — 35 días publicado | — |
+| 2026-09-23 | 📤 | Arriendo en Santiago 3D / 2B Arriendo · Santiago — 7 días publicado | $550.000 |
+| 2026-09-23 | 📤 | COD: 51.276 Local Comercial en Santiago Metro Rondiz · Santiago — 27 días publicado | — |
+| 2026-09-23 | 📤 | Paul Claudel 1570 · Vitacura — 11 días publicado | $1.598.678 |
 | 2026-09-23 | 📤 | penthouse ubicado en el mejor barrio de Vitacura Nue · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 844 "Oficina en venta y arriendo, 620 m2.,  · Santiago — 1 días publicado | $5.615.870 |
+| 2026-09-23 | 📤 | Espectacular Departamento en Santa María – Club de P · Santiago — 1 días publicado | — |
+| 2026-09-23 | 📤 | Arriendo en Santiago 0D / 2B Arriendo · Santiago — 7 días publicado | $1.980.000 |
+| 2026-09-23 | 📤 | Costado Museo Ralli 180 mt2 amoblado 998952155 Costa · Vitacura — 7 días publicado | $3.643.178 |
+| 2026-09-23 | 📤 | Se vende amplio departamento en Camino El Parque, en · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Arriendo en Santiago 1D / 1B Arriendo · Santiago — 6 días publicado | $315.000 |
+| 2026-09-23 | 📤 | DEPARTAMENTO TIPO ESTUDIO NUEVO, A ESTRENAR PISO 4,  — 5 días publicado | — |
+| 2026-09-23 | 📤 | Penthouse en Venta – Vitacura · Las Condes — 1 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 923 "Arriendo de oficina, 1.000 m2. 8 priva · Santiago — 1 días publicado | $11.887.608 |
+| 2026-09-23 | 📤 | En Castro&Letelier Propiedades contamos con este lin · Castro — 6 días publicado | $390.000 |
+| 2026-09-23 | 📤 | Arriendo en Copiapó 1D / 1B Arriendo · Copiapó — 7 días publicado | $540.000 |
+| 2026-09-23 | 📤 | Departamento ubicado en el sector de La Llavería, en · Vitacura — 1 días publicado | $2.254.546 |
+| 2026-09-23 | 📤 | Departamento con amplio patio, totalmente renovado,  · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Cód. VX15384 · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 1267 "Local comercial en arriendo, 1.100 m2 · Santiago — 1 días publicado | — |
+| 2026-09-23 | 📤 | Se vende espacioso departamento ubicado en la comuna · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | COD: 51.090 Casa en Puerto Varas Molino Viejo Venta: · Puerto Varas — 34 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 48 "419.075 - YBV 360 mts2. Esta exclusiva  · Providencia — 1 días publicado | — |
+| 2026-09-23 | 📤 | Se vende excelente departamento sector Las Catalpas  · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 345 "cod: 395.668 CdePA Rotonda Atenas 196  · Las Condes — 1 días publicado | $5.123.969 |
+| 2026-09-23 | 📤 | IMPECABLE DPTO. MOLLER Y PEREZ-COTAPOS  · Vitacura — 28 días publicado | $2.377.522 |
+| 2026-09-23 | 📤 | COD: 51.274 Local Comercial en Santiago Metro Rondiz · Santiago — 32 días publicado | — |
+| 2026-09-23 | 📤 | ARRIENDO 731 "Excelente oportunidad en Lo Barnechea  · Lo Barnechea — 1 días publicado | $9.838.020 |
+| 2026-09-23 | 📤 | ¡No pierdas la oportunidad de adquirir este espectac · Vitacura — 1 días publicado | — |
+| 2026-09-23 | 📤 | Cod.: 8.141 Venta UF 10.700 Casa en Machalí Adobe de · Machalí — 28 días publicado | — |
+| 2026-09-23 | 📤 | Paul Claudel, Vitacura · Vitacura — 1 días publicado | $1.598.678 |
+| 2026-09-23 | 📤 | Arriendo en Temuco 1D / 1B Arriendo · Temuco — 6 días publicado | $390.000 |
+| 2026-09-23 | 📤 | Mostrando 1 - 20 de 4937 resultados CASA EN LOS ANDE · Valparaíso — 1 días publicado | $1.800.000 |
+| 2026-09-23 | 📤 | Camino El Parque, Vitacura · Vitacura — 6 días publicado | $1.352.728 |
+| 2026-09-23 | 📤 | El Nogal, Vitacura · Vitacura — 34 días publicado | $1.639.670 |
+| 2026-09-23 | 📤 | COD: 51.273 Local Comercial en Santiago Metro Rondiz · Santiago — 35 días publicado | — |
