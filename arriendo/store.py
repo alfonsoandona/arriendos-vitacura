@@ -136,6 +136,9 @@ class Store:
         cosas a la vez —que sigue disponible y que hay margen para negociar—.
         Es probablemente el mejor momento para llamar, y sin esto el radar se
         lo perdería entero por haberlo avisado una vez hace un mes.
+
+        Con `alertas.solo_nuevos` (25-09) el resultado ya no manda mensajes:
+        decide si la ficha se reescribe con el cambio. Ver cli, paso 6.
         """
         prev = self.indice.get(l.fingerprint)
         if not prev:

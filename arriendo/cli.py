@@ -75,6 +75,10 @@ def correr(args: argparse.Namespace) -> int:
     radar es reventar sin decir nada: desde el lado del usuario, una corrida
     que se cayó a la mitad se ve exactamente igual que una que no encontró
     ningún departamento.
+
+    Con `alertas.solo_nuevos` el teléfono calla también el fallo —es la
+    decisión del usuario (25-09)— y el rastro queda en la bitácora y en la
+    pestaña Actions, donde el job sale en rojo y GitHub avisa por correo.
     """
     perfil = cargar_perfil(args.perfil)
     fuentes = fuentes_activas(cargar_fuentes(args.fuentes), args.fuente)
@@ -823,8 +827,13 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             motivo = ""
         elif solo_nuevos:
             # Ya visto: no suena ni por baja de canon ni por días publicado.
-            # El cambio no se pierde —queda en el tablero y en la ficha, con
-            # el historial de precios—; solo no interrumpe.
+            # Pero el cambio no se pierde: la ficha —el link que el usuario
+            # abrió cuando le llegó, y el que abre desde el tablero— se
+            # reescribe con el precio de hoy y el motivo. Sin esto quedaba
+            # congelada en el precio con que se avisó, y el tablero mandaba
+            # a un documento que lo contradecía.
+            if (cambio := store.cambio_relevante(a, perfil)):
+                escribir_ficha(a, dir_alertas() / "casos", perfil, cambio)
             continue
         else:
             # Ya visto —avisado o no—: solo alerta si CAMBIÓ (baja de canon,
@@ -872,7 +881,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     # GC ni m² totales… y 14 tenían ficha propia donde esos datos VIVEN. El
     # radar mandaba el link con la respuesta adentro sin leerla.
     #
-    # Son a lo más `tope` fetches (8) por corrida, solo de los que van a
+    # Son a lo más `tope` fetches (5) por corrida, solo de los que van a
     # alertar: el costo es un minuto y el beneficio es doble. La alerta sale
     # completa, y el filtro duro trabaja con datos: si la ficha revela 40
     # años, el aviso se descarta acá en vez de llegar al teléfono.
@@ -921,20 +930,34 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             log.error("No se pudo avisar %s", a.url)
             store.registrar(a, avisado=False, fallido=True)
 
-    for a in unicos:
-        if not any(a is x for x, _ in a_avisar):
-            store.registrar(a)
-
-    stats["avisados"] = enviados
-
     # El índice de los que calificaron y no cupieron. Es su ÚNICA
     # aparición en el teléfono —quedan registrados como vistos, así que no
     # vuelven a sonar salvo que bajen de precio, y con `solo_nuevos` ni
     # eso—, y por eso el mensaje lleva el link a la lista completa en vez
     # de un recorte silencioso. Sale solo junto con avisos de hoy: es parte
     # de la noticia de que llegaron nuevos, no un mensaje aparte.
+    #
+    # Va ANTES de registrar, porque el registro depende de si salió. Si
+    # Telegram estaba caído no hubo avisos ni índice, y un sobrante marcado
+    # como visto sin que nadie lo haya recibido se perdía en silencio —con
+    # `solo_nuevos`, para siempre—. Sin índice entregado, los sobrantes
+    # quedan como entrega pendiente, igual que los avisos que fallaron, y
+    # la corrida siguiente los reintenta.
+    indice_entregado = False
     if enviados and sobrantes:
-        telegram.enviar(mensaje_sobrantes(sobrantes, solo_nuevos=solo_nuevos))
+        indice_entregado = telegram.enviar(
+            mensaje_sobrantes(sobrantes, solo_nuevos=solo_nuevos))
+    # Pendientes solo si había una entrega que hacer y no se hizo. Con el
+    # tope en cero no la había: es la configuración, no una falla, y los
+    # sobrantes quedan vistos como siempre.
+    sobrantes_pendientes = bool(sobrantes) and tope > 0 and not indice_entregado
+
+    for a in unicos:
+        if not any(a is x for x, _ in a_avisar):
+            pendiente = sobrantes_pendientes and any(a is s for s in sobrantes)
+            store.registrar(a, fallido=pendiente)
+
+    stats["avisados"] = enviados
 
     # El cierre del ciclo: los departamentos AVISADOS que dejaron de
     # aparecer en todos los portales. De los que nunca se avisaron nadie

@@ -15,7 +15,7 @@ Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 | Corridas | 10 seguidas sin errores (21-08 a 24-08) · 5-7 min cada una |
 | Inventario | ~1.300 avisos crudos → ~460 únicos → **~40 candidatos** por corrida |
 | Fuentes | 28 activas de 45 registradas; 24 entregan avisos |
-| Tests | **705**, sin red, corren en 7 segundos |
+| Tests | **726**, sin red, corren en 8 segundos |
 
 **Cobertura de datos en los candidatos:**
 
@@ -66,11 +66,17 @@ en cero UNA SEMANA seguida, eso ya es otra cosa y hay que mirarla.
   solo lance mensajes cuando llegue uno nuevo". Se apagaron en Telegram las
   bajas de canon, el "lleva 45 días publicado", el "se fueron del mercado",
   las fuentes caídas, el radar ciego, el corte por tiempo, el "radar falló",
-  el "job se cayó" y el latido semanal. Nada de eso se dejó de medir: queda
-  en la ficha, el tablero, `alertas/historial.md`, `logs/ultima-corrida.md`
-  y la pestaña Actions (GitHub avisa por correo si un job falla). Es un
-  interruptor —`alertas.solo_nuevos` en `perfil.yml`— y en `false` vuelve
-  todo lo anterior, con sus tests: 13 nuevos, 718 en total.
+  el "job se cayó" y el latido semanal. Nada de eso se dejó de medir: las
+  bajas reescriben la ficha y salen en el tablero, las despedidas van a
+  `alertas/historial.md`, las fuentes caídas a `logs/ultima-corrida.md`, y
+  el radar o el job caídos a la pestaña Actions (GitHub avisa por correo si
+  tienes activas las notificaciones). Es un interruptor —`alertas.solo_nuevos`
+  en `perfil.yml`— y en `false` vuelve todo lo anterior, con sus tests.
+- **De paso, un hueco que el interruptor volvía permanente**: si Telegram
+  estaba caído en una corrida con más nuevos que el tope, los sobrantes
+  quedaban registrados como vistos sin que nadie los recibiera. Ahora quedan
+  pendientes, como los avisos que fallaron, y la corrida siguiente los
+  reintenta.
 
 ## ✅ Cerrado en la revisión final (25-08)
 

@@ -599,7 +599,7 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
     L.append("")
     L.append("Edita [`gestion.yml`](../gestion.yml) desde el teléfono (lápiz "
              "✏️ → Commit). El radar lo recuerda para siempre: un "
-             "`descartado` no vuelve a sonar ni aunque baje de precio, y los "
+             "`descartado` no vuelve a sonar nunca, y los "
              "datos que averigües por teléfono entran al puntaje.")
     L.append("")
     L.append("```yaml")

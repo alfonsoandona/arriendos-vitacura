@@ -171,7 +171,7 @@ class Telegram:
                 marca_dir: Any = None) -> None:
         """Avisa cuando el silencio dejaría de significar algo.
 
-        No manda un mensaje por corrida. Un aviso que llega dos veces al día y
+        No manda un mensaje por corrida. Un aviso que llega tres veces al día y
         nunca dice nada enseña a ignorarlo, y entonces el que importa también
         se ignora.
 

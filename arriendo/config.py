@@ -131,6 +131,21 @@ def validar_perfil(perfil: dict[str, Any]) -> None:
     if not perfil.get("comunas", {}).get("nucleo"):
         raise PerfilInvalido("'comunas.nucleo' no puede estar vacío")
 
+    alertas = perfil.get("alertas")
+    if alertas is not None and not isinstance(alertas, dict):
+        raise PerfilInvalido(
+            "'alertas' tiene que ser un bloque con llaves adentro "
+            "(score_minimo, max_por_corrida, solo_nuevos…)")
+    solo = (alertas or {}).get("solo_nuevos")
+    if solo is not None and not isinstance(solo, bool):
+        # Un `"true"` entre comillas es un texto, y bool("false") es True.
+        # El interruptor que apaga los mensajes del teléfono no puede
+        # depender de eso, y el workflow lo lee con grep: los dos lados
+        # tienen que ver lo mismo, y eso solo pasa con un booleano de YAML.
+        raise PerfilInvalido(
+            "'alertas.solo_nuevos' debe ser true o false, sin comillas "
+            f"(vino {solo!r})")
+
 
 def comunas_nucleo(perfil: dict) -> list[str]:
     return list((perfil.get("comunas") or {}).get("nucleo") or [])

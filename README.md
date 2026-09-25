@@ -329,11 +329,12 @@ más nuevos que el tope: los que no cupieron van en un mensaje con el link a
 la lista completa, para que el tope no sea un recorte silencioso.
 
 Todo lo demás se sigue midiendo, pero queda en el repositorio y no en el
-teléfono: las bajas de canon y los "lleva 45 días publicado" en la ficha y en
-el tablero; los que se fueron del mercado en `alertas/historial.md`; las
-fuentes caídas, el radar ciego y el corte por tiempo en
-`logs/ultima-corrida.md`; y el job caído en la pestaña Actions, que GitHub
-avisa por correo.
+teléfono: las bajas de canon y los "lleva 45 días publicado" reescriben la
+ficha y salen en el tablero; los que se fueron del mercado en
+`alertas/historial.md`; las fuentes caídas, el radar ciego y el corte por
+tiempo en `logs/ultima-corrida.md`; y el radar o el job caídos en la pestaña
+Actions, con el job en rojo (GitHub avisa por correo si tienes activas las
+notificaciones de Actions).
 
 El interruptor es `alertas.solo_nuevos` en [`perfil.yml`](perfil.yml). En
 `false` vuelve el canal de antes, que era este:
@@ -495,12 +496,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              718 tests.
+tests/              726 tests.
 ```
 
 ### Sobre los tests
 
-718 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+726 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
@@ -526,17 +527,15 @@ python -m pytest tests/ -q
 
 | Pieza | Estado |
 |---|---|
-| Parser de avisos chilenos (montos, superficies, programa) | ✅ 118 tests |
-| Extracción (JSON-LD, estado embebido, tarjetas, fichas) | ✅ 151 tests |
+| Parser de avisos chilenos (montos, superficies, programa) | ✅ 120 tests |
+| Extracción (JSON-LD, estado embebido, tarjetas, fichas) | ✅ 152 tests |
 | Filtros duros y puntaje | ✅ 71 tests |
 | Deduplicación, fusión y memoria entre corridas | ✅ 64 tests |
-| Alertas por Telegram y fichas | ✅ 90 tests |
+| Alertas por Telegram y fichas | ✅ 95 tests |
 | Libreta de edificios (el año por dirección) | ✅ 12 tests |
 | Dashboard con mapa interactivo | ✅ 23 tests |
-| Configuración, fuentes, historial, UF, gestión y CLI | ✅ 172 tests |
+| Configuración, fuentes, historial, UF, gestión y CLI | ✅ 189 tests |
 | Automatización (GitHub Actions, 3x al día) | ✅ Corriendo sola |
 | URLs de 18 fuentes activas | ✅ Confirmadas una por una |
 | URLs de otras 10 | ⚠️ Apuntan a la raíz — esperan la URL filtrada |
-| **Telegram** | ⚠️ **Falta crear el bot — ver `PENDIENTES.md`** |
-
-El último punto es el que falta, y está explicado arriba.
+| **Telegram** | ✅ Avisando; solo departamentos nuevos (`alertas.solo_nuevos`) |

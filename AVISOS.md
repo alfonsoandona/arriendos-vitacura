@@ -131,7 +131,7 @@ En unos segundos deberías recibir esto:
 > Prueba de conexión. Si estás leyendo esto, las alertas van a llegar a esta
 > conversación.
 
-Si llegó, estás listo. El radar corre solo dos veces al día.
+Si llegó, estás listo. El radar corre solo tres veces al día.
 
 ---
 
@@ -184,14 +184,23 @@ Todo lo demás se calla y queda escrito en el repositorio:
 
 | Lo que antes llegaba al teléfono | Dónde queda ahora |
 |---|---|
-| "Bajó el canon X%" · "Lleva 45 días publicado" | la ficha y el tablero, con el historial de precios |
+| "Bajó el canon X%" · "Lleva 45 días publicado" | la ficha se reescribe con el cambio, y el tablero lo lista en "Bajaron de precio" |
 | "Se fueron del mercado" | [`alertas/historial.md`](alertas/historial.md) |
 | "Fuentes que dejaron de entregar" · "El radar quedó ciego" · "Se cortó por tiempo" | `logs/ultima-corrida.md` |
-| "El radar falló" · "El job se cayó" | la pestaña **Actions** — GitHub avisa por correo cuando un job falla |
+| "El radar falló" · "El job se cayó" | la pestaña **Actions**, con el job en rojo |
 | El "sigo acá" semanal | no sale |
 
-El interruptor es `alertas.solo_nuevos` en [`perfil.yml`](perfil.yml). En
-`false` vuelven todos esos mensajes, con las condiciones de abajo.
+Para el job en rojo, GitHub manda un correo si tienes activas las
+notificaciones de Actions (tu perfil → Settings → Notifications → Actions,
+"Send notifications for failed workflows", que viene activa). En las corridas
+programadas ese correo le llega a quien tocó por última vez el `cron` del
+workflow.
+
+El interruptor es `alertas.solo_nuevos` en [`perfil.yml`](perfil.yml), y va
+sin comillas. En `false` vuelven todos esos mensajes, con las condiciones de
+abajo; la primera corrida después de apagarlo trae de golpe lo acumulado en
+silencio (el latido y las bajas de canon medidas mientras tanto, hasta el
+tope por corrida).
 
 <details>
 <summary>Qué manda el canal con <code>solo_nuevos: false</code></summary>

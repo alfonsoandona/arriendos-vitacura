@@ -1086,7 +1086,15 @@ def solo_nuevos(perfil: dict) -> bool:
     Es un interruptor del perfil y no una borradura del código: en `false`
     vuelve todo lo anterior, y ese "todo" sigue probado.
     """
-    return bool((perfil.get("alertas") or {}).get("solo_nuevos", False))
+    cfg = perfil.get("alertas")
+    if not isinstance(cfg, dict):
+        # Se consulta también desde el camino de la excepción: un perfil
+        # roto no puede apagar el aviso de que el radar falló.
+        return False
+    # `is True` y no `bool(...)`: bool("false") es True, y el interruptor
+    # que apaga los mensajes no puede depender de unas comillas. El perfil
+    # ya rechaza lo que no sea booleano (config.validar_perfil).
+    return cfg.get("solo_nuevos", False) is True
 
 
 def debe_alertar(l: Arriendo, perfil: dict) -> bool:

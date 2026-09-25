@@ -257,7 +257,19 @@ jobs:
           #
           # El interruptor se lee con grep y no con Python a propósito: este
           # paso corre también cuando pip no alcanzó a instalar nada.
-          if grep -Eq '^[[:space:]]*solo_nuevos:[[:space:]]*(true|yes|on)\b' perfil.yml 2>/dev/null; then
+          #
+          # Sin perfil.yml (se cayó el checkout mismo) no hay cómo leerlo:
+          # se calla, que es la regla del usuario, y el job caído queda en
+          # esta pestaña igual.
+          if [[ ! -f perfil.yml ]]; then
+            echo "Sin perfil.yml no se puede leer alertas.solo_nuevos: no se avisa"
+            exit 0
+          fi
+          # -i porque YAML también lee True/Yes/On como verdadero, y el radar
+          # (config.validar_perfil) solo acepta booleanos de YAML: lo que
+          # enciende el silencio en Python lo enciende también acá. Hay un
+          # test que corre este mismo grep contra lo que lee PyYAML.
+          if grep -Eiq '^[[:space:]]*solo_nuevos:[[:space:]]*(true|yes|on)[[:space:]]*(#.*)?$' perfil.yml; then
             echo "alertas.solo_nuevos: el job caído no se avisa por Telegram"
             exit 0
           fi

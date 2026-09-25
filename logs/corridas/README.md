@@ -15,6 +15,6 @@ Lo demás del rastro vive en:
 |---|---|
 | `logs/historial.jsonl` | una línea por corrida, para siempre: duración, fuentes, avisos, candidatos |
 | `logs/ultima-corrida.md` | el resumen de la ÚLTIMA corrida, para mirar rápido |
-| `alertas/historial.md` | qué se avisó y cuándo |
+| `alertas/historial.md` | el mercado: qué salió, qué bajó y qué se fue — incluidas las despedidas que ya no llegan al teléfono |
 | `alertas/casos/` | la ficha de cada aviso, aunque el aviso ya no exista |
 | `state/arriendos.json` | cada aviso con su TEXTO CRUDO — la materia prima para reproducir cualquier error de lectura |

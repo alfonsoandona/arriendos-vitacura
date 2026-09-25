@@ -362,7 +362,7 @@ alertas:
   # 100 m², con tres piezas y dentro del presupuesto. Entre esos, preferimos
   # un aviso de más que enterarnos de que se arrendó.
   #
-  # Y el orden importa más que el umbral: con el tope de 8 avisos por corrida,
+  # Y el orden importa más que el umbral: con el tope de 5 avisos por corrida,
   # lo que decide qué llega es el ranking (puntaje, confianza), no este piso.
   score_minimo: 40
 
@@ -390,20 +390,28 @@ alertas:
   # calla y queda escrito en el repositorio, no en el teléfono:
   #
   #   · bajas de canon y "lleva 45 días publicado" (`reavisar`, abajo)
-  #       → la ficha y el tablero, con el historial de precios
+  #       → la ficha se reescribe con el cambio, y el tablero lo lista en
+  #         "Bajaron de precio"
   #   · "se fueron del mercado"
   #       → alertas/historial.md
   #   · "fuentes que dejaron de entregar", "el radar quedó ciego", "se cortó
-  #     por tiempo", "el radar falló", "el job se cayó"
-  #       → logs/ultima-corrida.md y la pestaña Actions (GitHub avisa por
-  #         correo cuando un job falla)
+  #     por tiempo"
+  #       → logs/ultima-corrida.md (el job termina en verde)
+  #   · "el radar falló", "el job se cayó"
+  #       → la pestaña Actions, con el job en rojo; GitHub avisa por correo
+  #         si tienes activas las notificaciones de Actions
   #   · el "sigo acá" semanal
   #       → no sale
   #
   # Lo único que acompaña a los nuevos es el índice "además calificaron N
   # más" cuando en una corrida aparecen más nuevos que el tope de arriba.
   #
-  # En `false` vuelve todo lo anterior, con sus condiciones de siempre.
+  # En `false` vuelve todo lo anterior, con sus condiciones de siempre. Ojo
+  # al apagarlo: la primera corrida trae de golpe lo acumulado en silencio
+  # —el latido, y las bajas de canon que se midieron mientras tanto, hasta
+  # el tope de arriba—.
+  #
+  # Va sin comillas: `"true"` es un texto y el perfil lo rechaza.
   solo_nuevos: true
 
   # Re-avisar algo ya visto cuando cambia lo que importa. En arriendo la

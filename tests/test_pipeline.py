@@ -364,16 +364,16 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
 
     monkeypatch.setattr(registry, "barrer", barrer)
 
-    perfil = tmp_path / "perfil.yml"
-    original = Path("perfil.yml").read_text(encoding="utf-8")
-    perfil.write_text(original.replace("max_por_corrida: 5",
-                                       "max_por_corrida: 3"), encoding="utf-8")
+    perfil = _perfil_con(tmp_path, max_por_corrida=3, solo_nuevos=True)
 
-    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(perfil))) == 0
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
     assert len(mensajes) == 3
     # Los 17 que no cupieron llegan en UN mensaje índice, no en silencio.
     assert len(mensajes.otros) == 1
     assert "calificaron 17 más" in mensajes.otros[0]
+    # Y con solo_nuevos el índice no promete un re-aviso que no va a llegar.
+    assert "solo si cambian" not in mensajes.otros[0]
+    assert "Quedan en el tablero" in mensajes.otros[0]
 
 
 # ---------------------------------------------------------------------------
@@ -640,19 +640,21 @@ def _perfil_con(tmp_path, **alertas) -> str:
     return str(ruta)
 
 
-def _portal_con(*avisos):
+def _portal_con(*avisos, dias=None):
     """Un `barrer` que publica (número, canon) por aviso, completos y con año
-    —sin el año no interrumpen por Telegram desde el 21-08—."""
+    —sin el año no interrumpen por Telegram desde el 21-08—. Con `dias`, cada
+    aviso dice además hace cuánto se publicó."""
     # "Calle …": sin el prefijo el extractor no reconoce la dirección, y sin
     # dirección la huella cae a la URL con el precio adentro — o sea que la
     # baja de canon se vería como un aviso distinto en vez del mismo más
     # barato, que es justo lo que estos tests miden.
+    publicado = f"<p>Publicado hace {dias} días</p>" if dias else ""
     tarjetas = "".join(
         f"""<article><a href="/aviso/{n}">Departamento en arriendo</a>
         <p>Calle Luis Carrera {1000 + n}, Vitacura</p>
         <p>${f"{canon:,}".replace(",", ".")} + G.C. $180.000</p>
         <p>134 m² totales · 3 dormitorios · 3 baños</p>
-        <p>Año de construcción: 2018</p></article>"""
+        <p>Año de construcción: 2018</p>{publicado}</article>"""
         for n, canon in avisos)
 
     def barrer(fuente, fetcher, seguir_detalles=True, valor_uf=None,
@@ -665,16 +667,119 @@ def _portal_con(*avisos):
 
 
 def test_con_solo_nuevos_una_baja_de_canon_no_vuelve_a_sonar(
-        entorno, mensajes, una_fuente, monkeypatch):
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    perfil = _perfil_con(tmp_path, solo_nuevos=True)
     monkeypatch.setattr(registry, "barrer", _portal_con((1, 1_500_000)))
-    assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 0
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
     assert mensajes.motivos == [""], "la primera vez es nuevo, y suena"
 
     # Baja 10%: más que el 4% que `reavisar` pide para volver a avisar.
     monkeypatch.setattr(registry, "barrer", _portal_con((1, 1_350_000)))
-    assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 0
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
     assert len(mensajes) == 1, "ya visto: no suena ni por baja de canon"
     assert mensajes.otros == []
+
+
+def test_con_solo_nuevos_la_baja_queda_en_la_ficha(
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    """Lo que el teléfono calla, la ficha lo dice: es el link que el usuario
+    abrió cuando le llegó, y el que abre desde el tablero. Congelada en el
+    precio con que se avisó, el tablero mandaría a un documento que lo
+    contradice."""
+    perfil = _perfil_con(tmp_path, solo_nuevos=True)
+    monkeypatch.setattr(registry, "barrer", _portal_con((1, 1_500_000)))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    [ficha] = (entorno / "alertas" / "casos").glob("*.md")
+    assert "$1.500.000" in ficha.read_text(encoding="utf-8")
+
+    monkeypatch.setattr(registry, "barrer", _portal_con((1, 1_350_000)))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert len(mensajes) == 1, "sigue sin sonar"
+    texto = ficha.read_text(encoding="utf-8")
+    assert "$1.350.000" in texto
+    assert "Bajó 10%" in texto
+
+
+def test_con_solo_nuevos_los_45_dias_no_vuelven_a_sonar(
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    """El segundo motivo de `reavisar`, que también se calla."""
+    perfil = _perfil_con(tmp_path, solo_nuevos=True)
+    monkeypatch.setattr(registry, "barrer",
+                        _portal_con((1, 1_500_000), dias=30))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert mensajes.motivos == [""]
+
+    monkeypatch.setattr(registry, "barrer",
+                        _portal_con((1, 1_500_000), dias=50))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert mensajes.motivos == [""], "cruzar los 45 días no suena"
+    assert mensajes.otros == []
+    # …pero la ficha lo anota.
+    [ficha] = (entorno / "alertas" / "casos").glob("*.md")
+    assert "Lleva 50 días publicado" in ficha.read_text(encoding="utf-8")
+
+
+def test_sin_solo_nuevos_los_45_dias_si_vuelven_a_sonar(
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    perfil = _perfil_con(tmp_path, solo_nuevos=False)
+    monkeypatch.setattr(registry, "barrer",
+                        _portal_con((1, 1_500_000), dias=30))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+
+    monkeypatch.setattr(registry, "barrer",
+                        _portal_con((1, 1_500_000), dias=50))
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert len(mensajes) == 2
+    assert mensajes.motivos[1].startswith("Lleva 50 días publicado")
+
+
+def test_con_telegram_caido_los_sobrantes_no_se_pierden(
+        entorno, una_fuente, tmp_path, monkeypatch):
+    """Con `solo_nuevos`, un sobrante registrado como visto sin que nadie lo
+    haya recibido no vuelve a sonar NUNCA —ni por baja de canon—. Así que
+    sin índice entregado los sobrantes quedan pendientes, como los avisos
+    que fallaron, y la corrida siguiente los reintenta."""
+    perfil = _perfil_con(tmp_path, solo_nuevos=True, max_por_corrida=5)
+    monkeypatch.setattr(registry, "barrer",
+                        _portal_con(*((n, 1_500_000) for n in range(1, 8))))
+
+    enviados = Mensajes()
+
+    class TelegramCaido:
+        def __init__(self, *a, **kw):
+            pass
+
+        def alertar(self, aviso, motivo=""):
+            return False
+
+        def enviar(self, texto):
+            return False
+
+        def resumen(self, *a, **kw):
+            pass
+
+    class TelegramSano(TelegramCaido):
+        def alertar(self, aviso, motivo=""):
+            enviados.append(aviso.url)
+            enviados.motivos.append(motivo)
+            return True
+
+        def enviar(self, texto):
+            enviados.otros.append(texto)
+            return True
+
+    monkeypatch.setattr(cli, "Telegram", TelegramCaido)
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert enviados == []
+
+    monkeypatch.setattr(cli, "Telegram", TelegramSano)
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert len(enviados) == 5, "los cinco que cupieron"
+    assert any("calificaron 2 más" in m for m in enviados.otros), \
+        "y el índice de los otros dos"
+
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil)) == 0
+    assert len(enviados) == 7, "los dos sobrantes, ahora con mensaje propio"
 
 
 def test_sin_solo_nuevos_la_baja_de_canon_si_vuelve_a_sonar(
@@ -704,8 +809,9 @@ def _cuatro_corridas(una_fuente, monkeypatch, perfil=None):
 
 
 def test_con_solo_nuevos_los_que_se_fueron_no_se_despiden(
-        entorno, mensajes, una_fuente, monkeypatch):
-    _cuatro_corridas(una_fuente, monkeypatch)
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    _cuatro_corridas(una_fuente, monkeypatch,
+                     perfil=_perfil_con(tmp_path, solo_nuevos=True))
 
     assert len(mensajes) == 2, "el 1 y el 2, cada uno la vez que llegó"
     assert mensajes.otros == [], "la despedida queda en el historial"
@@ -752,9 +858,10 @@ def _portal_vacio(fuente, fetcher, seguir_detalles=True, valor_uf=None,
 
 
 def test_con_solo_nuevos_una_fuente_caida_no_suena(
-        entorno, mensajes, una_fuente, monkeypatch, capsys):
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch, capsys):
     salida = _segunda_corrida_con_el_canal_real(
-        entorno, mensajes, una_fuente, monkeypatch, capsys, _portal_vacio)
+        entorno, mensajes, una_fuente, monkeypatch, capsys, _portal_vacio,
+        perfil=_perfil_con(tmp_path, solo_nuevos=True))
     assert "[DRY-RUN] Telegram" not in salida
     # Pero la bitácora sí lo dice: el silencio es del teléfono, no del radar.
     bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
@@ -776,7 +883,7 @@ def _portal_que_revienta(fuente, fetcher, seguir_detalles=True, valor_uf=None,
 
 
 def test_con_solo_nuevos_la_corrida_que_revienta_no_suena(
-        entorno, mensajes, una_fuente, monkeypatch, capsys):
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch, capsys):
     """El fallo queda en la bitácora y en Actions, no en el teléfono."""
     # `barrer` que revienta lo atrapa el barrido paralelo; para voltear la
     # corrida entera hay que reventar en una parte fatal del pipeline.
@@ -784,11 +891,13 @@ def test_con_solo_nuevos_la_corrida_que_revienta_no_suena(
         raise RuntimeError("el navegador no arrancó")
 
     from arriendo.alerts.telegram import Telegram
+    perfil = _perfil_con(tmp_path, solo_nuevos=True)
     monkeypatch.setattr(registry, "barrer", _portal_con((1, 1_500_000)))
     monkeypatch.setattr(cli, "deduplicar", deduplicar_roto)
     monkeypatch.setattr(cli, "Telegram", Telegram)
     capsys.readouterr()
-    assert cli.correr(ArgsFalsos(fuentes=una_fuente, dry_run=True)) == 1
+    assert cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=perfil,
+                                 dry_run=True)) == 1
     salida = capsys.readouterr().out
     assert "[DRY-RUN] Telegram" not in salida
     bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")

@@ -6,12 +6,16 @@ mintiendo, que es peor que uno que lo detiene: un `max` menor que un `min` no
 rompe nada, descarta todo el inventario en silencio.
 """
 
+from pathlib import Path
+
 import pytest
 
 from arriendo.config import (PerfilInvalido, cargar_perfil, comunas_nucleo,
                              comunas_vecinas, valor_uf, validar_perfil)
 from arriendo.sources.registry import (FuentesInvalidas, cargar_fuentes,
                                        fuentes_activas)
+
+RAIZ_REPO = Path(__file__).resolve().parent.parent
 
 
 # ---------------------------------------------------------------------------
@@ -86,6 +90,79 @@ def _base() -> dict:
 def test_falta_requisitos():
     with pytest.raises(PerfilInvalido, match="requisitos"):
         validar_perfil({"comunas": {"nucleo": ["Vitacura"]}})
+
+
+def test_alertas_tiene_que_ser_un_bloque():
+    perfil = _base()
+    perfil["alertas"] = "telegram"
+    with pytest.raises(PerfilInvalido, match="alertas"):
+        validar_perfil(perfil)
+
+
+def test_solo_nuevos_entre_comillas_no_es_un_booleano():
+    """bool("false") es True: el interruptor que apaga los mensajes del
+    teléfono no puede depender de si el editor puso comillas. Y el workflow
+    lo lee con grep, así que los dos lados tienen que ver lo mismo."""
+    for valor in ("true", "false", "yes", 1, 0):
+        perfil = _base()
+        perfil["alertas"] = {"solo_nuevos": valor}
+        with pytest.raises(PerfilInvalido, match="solo_nuevos"):
+            validar_perfil(perfil)
+    for valor in (True, False):
+        perfil = _base()
+        perfil["alertas"] = {"solo_nuevos": valor}
+        validar_perfil(perfil)
+
+
+def test_solo_nuevos_tolera_un_perfil_roto():
+    """Se consulta desde el camino de la excepción: un perfil roto no puede
+    apagar el aviso de que el radar falló, ni un texto encenderlo."""
+    from arriendo import scoring as S
+    assert S.solo_nuevos({"alertas": "telegram"}) is False
+    assert S.solo_nuevos({"alertas": {"solo_nuevos": "true"}}) is False
+    assert S.solo_nuevos({"alertas": {"solo_nuevos": True}}) is True
+
+
+def test_el_workflow_lee_el_interruptor_igual_que_el_radar(tmp_path):
+    """El paso "el job se cayó" de radar.yml decide con un grep sobre
+    perfil.yml, sin Python (corre aunque pip no haya instalado nada). Si ese
+    grep y PyYAML leyeran distinto, el mismo interruptor callaría al radar y
+    dejaría hablar al workflow. Acá corre el grep REAL del workflow, sacado
+    del YAML, contra lo que lee el radar."""
+    import re
+    import shutil
+    import subprocess
+
+    import yaml
+
+    from arriendo import scoring as S
+
+    if not shutil.which("grep"):
+        pytest.skip("sin grep")
+    workflow = (RAIZ_REPO / ".github" / "workflows" / "radar.yml").read_text(
+        encoding="utf-8")
+    m = re.search(r"grep -Eiq '([^']+)' perfil\.yml", workflow)
+    assert m, "el paso del workflow ya no lee el interruptor con grep -Eiq"
+    patron = m.group(1)
+
+    casos = {
+        "alertas:\n  solo_nuevos: true\n": True,
+        "alertas:\n  solo_nuevos: True\n": True,
+        "alertas:\n  solo_nuevos: yes\n": True,
+        "alertas:\n  solo_nuevos: on   # comentario\n": True,
+        "alertas:\n  solo_nuevos: false\n": False,
+        "alertas:\n  solo_nuevos: no\n": False,
+        "alertas:\n  # solo_nuevos: true\n  score_minimo: 40\n": False,
+        "alertas:\n  score_minimo: 40\n": False,
+        "": False,
+    }
+    for texto, esperado in casos.items():
+        ruta = tmp_path / "perfil.yml"
+        ruta.write_text(texto, encoding="utf-8")
+        radar = S.solo_nuevos(yaml.safe_load(texto) or {})
+        rc = subprocess.run(["grep", "-Eiq", patron, str(ruta)]).returncode
+        assert radar is esperado, texto
+        assert (rc == 0) is esperado, f"grep del workflow discrepa en {texto!r}"
 
 
 def test_tipo_vacio():
