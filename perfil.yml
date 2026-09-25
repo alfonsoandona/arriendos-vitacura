@@ -374,16 +374,44 @@ alertas:
   # Tope de alertas por corrida. Existe porque la primera corrida contra
   # portales de arriendo trae inventario acumulado, no novedades del día, y
   # sin tope serían cuarenta mensajes seguidos a las ocho de la mañana.
-  # Se mandan las de mayor puntaje; el resto queda en el tablero y alerta en
-  # la corrida siguiente.
+  # Se mandan las de mayor puntaje; el resto queda en el tablero y llega en
+  # UN mensaje índice con el link a la lista completa (no alerta en la
+  # corrida siguiente: para entonces ya no es nuevo).
   max_por_corrida: 5
 
   # Por dónde avisar. Telegram y nada más.
   canales: [telegram]
 
+  # SOLO departamentos nuevos. Pedido del 25-09-2026: "que solo lance
+  # mensajes cuando llegue uno nuevo".
+  #
+  # Con esto en `true`, un mensaje en Telegram significa exactamente una
+  # cosa: apareció un departamento que el radar no conocía. Todo lo demás se
+  # calla y queda escrito en el repositorio, no en el teléfono:
+  #
+  #   · bajas de canon y "lleva 45 días publicado" (`reavisar`, abajo)
+  #       → la ficha y el tablero, con el historial de precios
+  #   · "se fueron del mercado"
+  #       → alertas/historial.md
+  #   · "fuentes que dejaron de entregar", "el radar quedó ciego", "se cortó
+  #     por tiempo", "el radar falló", "el job se cayó"
+  #       → logs/ultima-corrida.md y la pestaña Actions (GitHub avisa por
+  #         correo cuando un job falla)
+  #   · el "sigo acá" semanal
+  #       → no sale
+  #
+  # Lo único que acompaña a los nuevos es el índice "además calificaron N
+  # más" cuando en una corrida aparecen más nuevos que el tope de arriba.
+  #
+  # En `false` vuelve todo lo anterior, con sus condiciones de siempre.
+  solo_nuevos: true
+
   # Re-avisar algo ya visto cuando cambia lo que importa. En arriendo la
   # señal es la baja de precio: un aviso que baja el canon lleva tiempo sin
   # arrendarse y se negocia.
+  #
+  # Solo aplica con `solo_nuevos: false`. Con `true` estos cambios quedan en
+  # el tablero y en la ficha, sin mensaje.
   reavisar:
     baja_precio_pct: 4     # baja de 4% o más -> vuelve a avisar
     # Un aviso que lleva mucho tiempo publicado se negocia mejor. Se avisa

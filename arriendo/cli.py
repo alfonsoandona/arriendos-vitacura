@@ -89,10 +89,13 @@ def correr(args: argparse.Namespace) -> int:
         escribir_bitacora(stats, dir_logs())
         # El aviso de que el radar se cayó es lo único que no se puede perder:
         # es lo que separa "no hay nada nuevo" de "llevas dos semanas sin
-        # radar y no te has dado cuenta".
+        # radar y no te has dado cuenta". Se le entrega al canal igual; si el
+        # perfil pide `solo_nuevos`, es el canal el que calla y el fallo
+        # queda en la bitácora y en Actions.
         try:
-            Telegram(dry_run=args.dry_run).resumen(stats, alertas=0,
-                                                   marca_dir=dir_estado())
+            Telegram(dry_run=args.dry_run,
+                     solo_nuevos=S.solo_nuevos(perfil)).resumen(
+                stats, alertas=0, marca_dir=dir_estado())
         except Exception:                                        # noqa: BLE001
             log.error("Tampoco se pudo avisar que la corrida falló")
         return 1
@@ -802,6 +805,11 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     libreta.guardar()
 
     # --- 6. decidir a quién avisar ---
+    #
+    # Pedido del 25-09: "que solo lance mensajes cuando llegue uno nuevo".
+    # Con `solo_nuevos` la única noticia es un departamento que el radar no
+    # conocía; lo ya visto no vuelve a sonar por nada. Ver `scoring.solo_nuevos`.
+    solo_nuevos = S.solo_nuevos(perfil)
     a_avisar: list[tuple[Arriendo, str]] = []
     # Orden = (puntaje, confianza). El desempate por confianza es lo que
     # decide cuál de dos avisos igual de buenos se mira primero: el que
@@ -813,6 +821,11 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             # Nunca visto es LA noticia; y un envío que falló ayer es una
             # entrega pendiente, no noticia vieja: se reintenta.
             motivo = ""
+        elif solo_nuevos:
+            # Ya visto: no suena ni por baja de canon ni por días publicado.
+            # El cambio no se pierde —queda en el tablero y en la ficha, con
+            # el historial de precios—; solo no interrumpe.
+            continue
         else:
             # Ya visto —avisado o no—: solo alerta si CAMBIÓ (baja de canon,
             # umbral de días publicado). Pedido del 18-08: "la corrida de
@@ -839,9 +852,10 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         # OJO —y este comentario decía lo contrario hasta el 20-08—: los
         # sobrantes NO alertan en la corrida siguiente. Abajo se registran
         # como vistos igual que todos, así que dejan de ser "nuevos" y solo
-        # vuelven a sonar si BAJAN de precio. Es la regla del 18-08 ("que
-        # sea solo de nuevos o modificaciones"), y su contrapeso es el
-        # mensaje índice: un click y ahí está la lista completa.
+        # vuelven a sonar si BAJAN de precio —y con `solo_nuevos`, ni eso—.
+        # Es la regla del 18-08 ("que sea solo de nuevos o modificaciones"),
+        # y su contrapeso es el mensaje índice: un click y ahí está la lista
+        # completa.
         #
         # Pero el recorte ya no es silencioso: los que no cupieron van en UN
         # mensaje índice (ver el paso 7). Si el noveno era justo el bueno, la
@@ -885,6 +899,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         # aviso sin gastos comunes, el mensaje puede decir el típico de la
         # zona según su superficie. Ver historial.gc_tipico.
         gc_tipico=lambda m2: gc_tipico(previos, m2),
+        solo_nuevos=solo_nuevos,
     )
 
     enviados = 0
@@ -914,17 +929,21 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
 
     # El índice de los que calificaron y no cupieron. Es su ÚNICA
     # aparición en el teléfono —quedan registrados como vistos, así que no
-    # vuelven a sonar salvo que bajen de precio—, y por eso el mensaje
-    # lleva el link a la lista completa en vez de un recorte silencioso.
+    # vuelven a sonar salvo que bajen de precio, y con `solo_nuevos` ni
+    # eso—, y por eso el mensaje lleva el link a la lista completa en vez
+    # de un recorte silencioso. Sale solo junto con avisos de hoy: es parte
+    # de la noticia de que llegaron nuevos, no un mensaje aparte.
     if enviados and sobrantes:
-        telegram.enviar(mensaje_sobrantes(sobrantes))
+        telegram.enviar(mensaje_sobrantes(sobrantes, solo_nuevos=solo_nuevos))
 
     # El cierre del ciclo: los departamentos AVISADOS que dejaron de
     # aparecer en todos los portales. De los que nunca se avisaron nadie
-    # está esperando noticias, así que no se molesta por ellos.
+    # está esperando noticias, así que no se molesta por ellos. Y con
+    # `solo_nuevos` no se molesta por nadie: la despedida queda en
+    # alertas/historial.md, que es donde se lee cuánto duró cada uno.
     despedidas = [e for e in eventos
                   if e.get("evento") == "baja" and e.get("avisado")]
-    if despedidas:
+    if despedidas and not solo_nuevos:
         telegram.enviar(mensaje_bajas(despedidas))
 
     telegram.resumen(stats, enviados, marca_dir=dir_estado())

@@ -60,6 +60,18 @@ en cero UNA SEMANA seguida, eso ya es otra cosa y hay que mirarla.
 
 ---
 
+## ✅ Cerrado el 25-09
+
+- **El teléfono es solo para departamentos nuevos.** Pedido textual: "que
+  solo lance mensajes cuando llegue uno nuevo". Se apagaron en Telegram las
+  bajas de canon, el "lleva 45 días publicado", el "se fueron del mercado",
+  las fuentes caídas, el radar ciego, el corte por tiempo, el "radar falló",
+  el "job se cayó" y el latido semanal. Nada de eso se dejó de medir: queda
+  en la ficha, el tablero, `alertas/historial.md`, `logs/ultima-corrida.md`
+  y la pestaña Actions (GitHub avisa por correo si un job falla). Es un
+  interruptor —`alertas.solo_nuevos` en `perfil.yml`— y en `false` vuelve
+  todo lo anterior, con sus tests: 13 nuevos, 718 en total.
+
 ## ✅ Cerrado en la revisión final (25-08)
 
 - **busconido CONFIRMADA**: su ruta candidata entregó 23 avisos en diez

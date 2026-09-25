@@ -1073,6 +1073,22 @@ def techo_alcanzable(l: Arriendo) -> int:
                       + l.extras.get("preferencias", 0)))
 
 
+def solo_nuevos(perfil: dict) -> bool:
+    """¿El canal habla SOLO cuando aparece un departamento nuevo?
+
+    Pedido del 25-09-2026: "que solo lance mensajes cuando llegue uno nuevo".
+    Con esto un mensaje en el teléfono significa exactamente una cosa: el
+    radar encontró un departamento que no conocía. Todo lo demás —la baja de
+    canon, el "lleva 45 días publicado", el "se fueron del mercado", las
+    fuentes caídas, el latido semanal, incluso "el radar falló"— se calla y
+    queda escrito en el repositorio: tablero, ficha, historial y bitácora.
+
+    Es un interruptor del perfil y no una borradura del código: en `false`
+    vuelve todo lo anterior, y ese "todo" sigue probado.
+    """
+    return bool((perfil.get("alertas") or {}).get("solo_nuevos", False))
+
+
 def debe_alertar(l: Arriendo, perfil: dict) -> bool:
     """¿Este hallazgo merece interrumpir a alguien?"""
     if l.descartado:

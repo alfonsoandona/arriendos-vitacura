@@ -321,6 +321,26 @@ porque a veces una copia trae mejores fotos o el teléfono directo.
 
 ## Cuándo vuelve a avisar de algo ya avisado
 
+**Nunca, desde el 25-09-2026.** Pedido textual: "que solo lance mensajes
+cuando llegue uno nuevo". Un mensaje de Telegram significa una sola cosa:
+apareció un departamento que el radar no conocía. Lo único que lo acompaña
+es el índice **📋 "Además calificaron N más"** cuando en una corrida aparecen
+más nuevos que el tope: los que no cupieron van en un mensaje con el link a
+la lista completa, para que el tope no sea un recorte silencioso.
+
+Todo lo demás se sigue midiendo, pero queda en el repositorio y no en el
+teléfono: las bajas de canon y los "lleva 45 días publicado" en la ficha y en
+el tablero; los que se fueron del mercado en `alertas/historial.md`; las
+fuentes caídas, el radar ciego y el corte por tiempo en
+`logs/ultima-corrida.md`; y el job caído en la pestaña Actions, que GitHub
+avisa por correo.
+
+El interruptor es `alertas.solo_nuevos` en [`perfil.yml`](perfil.yml). En
+`false` vuelve el canal de antes, que era este:
+
+<details>
+<summary>Con <code>solo_nuevos: false</code></summary>
+
 Un departamento se avisa **una sola vez**… salvo que cambie algo que importa:
 
 - **El canon baja 4% o más.** Es la mejor señal del mercado de arriendo: un
@@ -331,10 +351,8 @@ Un departamento se avisa **una sola vez**… salvo que cambie algo que importa:
   suman nunca.
 - **Cruza los 45 días publicado.** Se avisa una sola vez, no todos los días.
 
-### Los otros tres mensajes del canal
-
-Además del aviso por departamento, el canal manda tres mensajes más, cada uno
-con una condición estricta para no volverse ruido:
+Y además del aviso por departamento, el canal manda tres mensajes más, cada
+uno con una condición estricta para no volverse ruido:
 
 - **📋 "Además calificaron N más"** — cuando califican más departamentos que
   el tope por corrida, los que no cupieron llegan como índice de una línea.
@@ -345,6 +363,12 @@ con una condición estricta para no volverse ruido:
 - **🚨 "El job se cayó"** — desde el workflow mismo, con curl directo: cubre
   los fallos donde el radar ni siquiera alcanzó a partir, que desde el
   teléfono se ven idénticos a "no hay departamentos".
+
+Y sin un departamento que mostrar, dos motivos para hablar: algo se rompió
+(ninguna fuente respondió, o una que venía entregando pasó a cero), o pasó
+una semana sin alertas —un "sigo acá" con los números—.
+
+</details>
 
 ### Y además guarda la tendencia
 
@@ -471,12 +495,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              701 tests.
+tests/              718 tests.
 ```
 
 ### Sobre los tests
 
-701 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+718 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación

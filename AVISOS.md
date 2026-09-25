@@ -174,10 +174,29 @@ completa**, que vive en este mismo repositorio y se abre desde el link.
 
 ### Cuándo NO te va a llegar nada
 
-Por diseño. Un aviso que llega dos veces al día y nunca dice nada enseña a
-ignorarlo, y entonces el que importa también se ignora.
+Por diseño, y desde el 25-09-2026 con una regla sola: **el teléfono suena
+únicamente cuando aparece un departamento que el radar no conocía.** Un
+mensaje de este bot significa eso y nada más. Si en una corrida aparecen más
+nuevos que el tope (5), los que no cupieron llegan en un solo mensaje índice
+con el link a la lista completa.
 
-Hay exactamente dos excepciones:
+Todo lo demás se calla y queda escrito en el repositorio:
+
+| Lo que antes llegaba al teléfono | Dónde queda ahora |
+|---|---|
+| "Bajó el canon X%" · "Lleva 45 días publicado" | la ficha y el tablero, con el historial de precios |
+| "Se fueron del mercado" | [`alertas/historial.md`](alertas/historial.md) |
+| "Fuentes que dejaron de entregar" · "El radar quedó ciego" · "Se cortó por tiempo" | `logs/ultima-corrida.md` |
+| "El radar falló" · "El job se cayó" | la pestaña **Actions** — GitHub avisa por correo cuando un job falla |
+| El "sigo acá" semanal | no sale |
+
+El interruptor es `alertas.solo_nuevos` en [`perfil.yml`](perfil.yml). En
+`false` vuelven todos esos mensajes, con las condiciones de abajo.
+
+<details>
+<summary>Qué manda el canal con <code>solo_nuevos: false</code></summary>
+
+**Sin un departamento que mostrar**, hay exactamente dos motivos para hablar:
 
 - **Algo se rompió.** Si ninguna fuente respondió, o si una que venía
   entregando pasó a cero, te avisa. Un radar ciego no se puede distinguir de
@@ -185,11 +204,14 @@ Hay exactamente dos excepciones:
 - **Pasó una semana sin ninguna alerta.** Un "sigo acá" con los números, para
   que el silencio se pueda leer.
 
-### Cuándo te va a llegar dos veces el mismo departamento
-
-Solo cuando cambió algo que importa:
+**El mismo departamento llega dos veces** solo cuando cambió algo que importa:
 
 - **Bajó el canon 4% o más.** Es la mejor señal del mercado de arriendo: un
   aviso que baja de precio lleva semanas sin arrendarse, así que sigue
   disponible y hay margen para negociar.
 - **Cruzó los 45 días publicado.** Se avisa una sola vez, no todos los días.
+
+Y cuando un departamento **avisado** deja de aparecer en todos los portales,
+llega un "📤 Se fueron del mercado" con cuánto estuvo publicado.
+
+</details>

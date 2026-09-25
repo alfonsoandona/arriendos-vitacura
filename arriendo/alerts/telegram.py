@@ -78,7 +78,7 @@ class Telegram:
     def __init__(self, token: str = "", chat_id: str = "", dry_run: bool = False,
                  caminable_km: float = 0.0, ancla: str = "",
                  tope_arriendo: float = 0.0, mediana_mercado: float = 0.0,
-                 gc_tipico=None):
+                 gc_tipico=None, solo_nuevos: bool = False):
         self.token = token or os.environ.get(VAR_TOKEN, "")
         self.chat_id = chat_id or os.environ.get(VAR_CHAT_ID, "")
         self.dry_run = dry_run
@@ -98,6 +98,11 @@ class Telegram:
         # típico de la zona, o None. Sale del historial de búsquedas; sin
         # datos suficientes queda en None y el mensaje dice lo de siempre.
         self.gc_tipico = gc_tipico
+        # Pedido del 25-09: "que solo lance mensajes cuando llegue uno
+        # nuevo". Con esto el canal no habla sin un departamento nuevo que
+        # mostrar: ni lo que se rompió, ni el latido semanal. Viene de
+        # `alertas.solo_nuevos` en el perfil; ver `scoring.solo_nuevos`.
+        self.solo_nuevos = solo_nuevos
         self.s = requests.Session()
 
     @property
@@ -174,7 +179,14 @@ class Telegram:
         corridas sin novedad se ven idénticas a un radar caído. Así que hay
         exactamente dos motivos para hablar sin una propiedad que mostrar, y
         los dos son informativos: algo se rompió, o pasó una semana.
+
+        Salvo que el perfil pida `solo_nuevos`: entonces el canal calla
+        también estos dos. Es la decisión del usuario (25-09) y tiene su
+        red: lo que se rompió queda en `logs/ultima-corrida.md`, y el job
+        caído lo dice la pestaña Actions —GitHub avisa por correo—.
         """
+        if self.solo_nuevos:
+            return  # el teléfono es solo para departamentos nuevos
         if alertas:
             return  # ya se avisó propiedad por propiedad
 
@@ -747,7 +759,7 @@ def mensaje_bajas(bajas: list[dict]) -> str:
     return "\n".join(L)
 
 
-def mensaje_sobrantes(avisos: list) -> str:
+def mensaje_sobrantes(avisos: list, solo_nuevos: bool = False) -> str:
     """Un aviso corto de que hay más, con el link a la lista completa.
 
     Sin esto, el tope de avisos por corrida era un recorte SILENCIOSO. La
@@ -767,8 +779,13 @@ def mensaje_sobrantes(avisos: list) -> str:
     if (panel := _url_panel()):
         L.append(f'📊 <a href="{_escapar(panel)}">O en el panel</a>, '
                  "con mapa y filtros")
-    L.append("<i>Quedan en el tablero; avisan con mensaje propio "
-             "solo si cambian.</i>")
+    if solo_nuevos:
+        # Con el canal en "solo nuevos" no se promete un re-aviso que no va
+        # a llegar: lo que no cupo hoy queda en el tablero, y punto.
+        L.append("<i>Quedan en el tablero.</i>")
+    else:
+        L.append("<i>Quedan en el tablero; avisan con mensaje propio "
+                 "solo si cambian.</i>")
     return "\n".join(L)
 
 

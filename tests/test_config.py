@@ -45,6 +45,19 @@ def test_el_perfil_dice_lo_que_se_pidio():
     assert round(S.tope_arriendo(cargar_perfil())[1]) == 1_904_000
 
 
+def test_el_telefono_es_solo_para_departamentos_nuevos():
+    """Pedido del 25-09-2026: "que solo lance mensajes cuando llegue uno
+    nuevo". Si alguien apaga el interruptor sin querer, vuelven las bajas de
+    precio, las despedidas y las fuentes caídas al teléfono."""
+    from arriendo import scoring as S
+    perfil = cargar_perfil()
+    assert perfil["alertas"]["solo_nuevos"] is True
+    assert S.solo_nuevos(perfil) is True
+    # Sin la llave el radar se comporta como antes del 25-09.
+    assert S.solo_nuevos({}) is False
+    assert S.solo_nuevos({"alertas": {}}) is False
+
+
 def test_la_zona_es_la_pedida():
     perfil = cargar_perfil()
     assert perfil["radio_km"]["anillo"] == 1.2

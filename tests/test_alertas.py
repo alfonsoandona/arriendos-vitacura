@@ -220,6 +220,58 @@ def test_no_manda_latido_si_hubo_alertas(tmp_path):
     assert enviados == []
 
 
+# Todo lo que el canal diría sin un departamento que mostrar: la corrida que
+# reventó, el radar ciego, el corte por tiempo, una fuente caída y el latido
+# (una corrida sana sin marca previa).
+_SIN_DEPARTAMENTO = (
+    {"error": "RuntimeError: el navegador no arrancó"},
+    {"fuentes_consultadas": 17, "fuentes_ok": 0},
+    {"fuentes_consultadas": 39, "fuentes_ok": 20,
+     "corte_por_tiempo": [f"F{n}" for n in range(19)]},
+    {"fuentes_consultadas": 17, "fuentes_ok": 16,
+     "fuentes_caidas": ["TocToc: 0 avisos"]},
+    {"fuentes_consultadas": 17, "fuentes_ok": 17, "total": 143},
+)
+
+
+def test_con_solo_nuevos_el_canal_no_habla_sin_departamento(tmp_path):
+    """Pedido del 25-09: "que solo lance mensajes cuando llegue uno nuevo".
+
+    Ni lo que se rompió ni el "sigo acá": un mensaje de este bot significa
+    una sola cosa. Y no deja marca de latido, porque no hubo latido.
+    """
+    t = Telegram(dry_run=True, solo_nuevos=True)
+    enviados = []
+    t.enviar = lambda texto: enviados.append(texto) or True
+    for stats in _SIN_DEPARTAMENTO:
+        t.resumen(stats, alertas=0, marca_dir=tmp_path)
+    assert enviados == []
+    assert not (tmp_path / "ultimo_aviso.json").exists()
+
+
+def test_sin_solo_nuevos_lo_roto_sigue_avisando(tmp_path):
+    """El interruptor apagado devuelve el canal de antes: cada situación de
+    arriba tiene su mensaje. Es lo que hace que apagarlo sea una decisión
+    y no una pérdida."""
+    t = Telegram(dry_run=True, solo_nuevos=False)
+    enviados = []
+    t.enviar = lambda texto: enviados.append(texto) or True
+    for stats in _SIN_DEPARTAMENTO:
+        (tmp_path / "ultimo_aviso.json").unlink(missing_ok=True)
+        t.resumen(stats, alertas=0, marca_dir=tmp_path)
+    assert len(enviados) == len(_SIN_DEPARTAMENTO)
+    assert "falló" in enviados[0]
+    assert "ciego" in enviados[1]
+    assert "cortó por tiempo" in enviados[2]
+    assert "TocToc" in enviados[3]
+    assert "Sin novedades" in enviados[4]
+
+
+def test_por_omision_el_canal_no_es_solo_nuevos():
+    """La llave la pone el perfil; el canal a secas se comporta como antes."""
+    assert Telegram(dry_run=True).solo_nuevos is False
+
+
 # ---------------------------------------------------------------------------
 # La ficha
 # ---------------------------------------------------------------------------
@@ -837,6 +889,21 @@ def test_los_sobrantes_son_un_click_no_una_lista(monkeypatch):
 def test_sobrantes_vacios_no_mandan_nada():
     from arriendo.alerts.telegram import mensaje_sobrantes
     assert mensaje_sobrantes([]) == ""
+
+
+def test_el_indice_con_solo_nuevos_no_promete_un_reaviso():
+    """Con el canal en "solo nuevos", "avisan con mensaje propio solo si
+    cambian" sería una promesa falsa: lo que no cupo hoy queda en el
+    tablero y no vuelve a sonar."""
+    from arriendo.alerts.telegram import mensaje_sobrantes
+    a = Arriendo(source="x", url="https://x.cl/1", title="Depto",
+                 direccion="Calle 1 100", comuna="Vitacura",
+                 m2_totales=120, dormitorios=3, arriendo_clp=1_400_000)
+    S.evaluar(a, cargar_perfil())
+    assert "solo si cambian" in mensaje_sobrantes([a])
+    con_solo_nuevos = mensaje_sobrantes([a], solo_nuevos=True)
+    assert "solo si cambian" not in con_solo_nuevos
+    assert "Quedan en el tablero" in con_solo_nuevos
 
 
 def test_los_gc_estimados_van_marcados_como_estimacion():
