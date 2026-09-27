@@ -470,12 +470,12 @@ arriendo/
 alertas/            Tablero y fichas. Se lee desde el teléfono.
 state/              Qué se vio y qué se avisó. Versionado.
 logs/               Bitácora de cada corrida. Versionada.
-tests/              701 tests.
+tests/              692 tests.
 ```
 
 ### Sobre los tests
 
-701 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
+692 tests, todos sin red — y sin red de verdad: `tests/conftest.py` corta el
 socket, así que un test que intente salir a internet falla en el acto. No es
 paranoia: un bug de argparse hacía que `arriendo --fuentes f.yml run` ignorara
 el archivo y cargara el catálogo real, y el síntoma fue un test de validación
@@ -501,14 +501,15 @@ python -m pytest tests/ -q
 
 | Pieza | Estado |
 |---|---|
-| Parser de avisos chilenos (montos, superficies, programa) | ✅ 118 tests |
-| Extracción (JSON-LD, estado embebido, tarjetas, fichas) | ✅ 151 tests |
+| Parser de avisos chilenos (montos, superficies, programa) | ✅ 120 tests |
+| Extracción (JSON-LD, estado embebido, tarjetas, fichas) | ✅ 152 tests |
 | Filtros duros y puntaje | ✅ 71 tests |
-| Deduplicación, fusión y memoria entre corridas | ✅ 64 tests |
-| Alertas por Telegram y fichas | ✅ 90 tests |
-| Libreta de edificios (el año por dirección) | ✅ 12 tests |
+| Deduplicación, fusión y memoria entre corridas | ✅ 55 tests |
+| Alertas por Telegram y fichas | ✅ 82 tests |
+| Libreta de edificios (el año por dirección) | ✅ 13 tests |
 | Dashboard con mapa interactivo | ✅ 23 tests |
-| Configuración, fuentes, historial, UF, gestión y CLI | ✅ 172 tests |
+| Configuración, fuentes, historial, UF, gestión y CLI | ✅ 139 tests |
+| Corrida completa de punta a punta | ✅ 37 tests |
 | Automatización (GitHub Actions, 3x al día) | ✅ Corriendo sola |
 | URLs de 18 fuentes activas | ✅ Confirmadas una por una |
 | URLs de otras 10 | ⚠️ Apuntan a la raíz — esperan la URL filtrada |
