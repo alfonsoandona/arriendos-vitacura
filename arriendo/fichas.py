@@ -19,6 +19,7 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 from . import scoring as S
+from .config import comunas_nucleo
 from .models import Arriendo, consulta_maps
 from .parse import strip_accents
 from .scoring import RUBRO_COMPLETO, desglose, techo_alcanzable
@@ -160,24 +161,21 @@ def _preguntas(a: Arriendo) -> list[str]:
 # La ficha
 # ---------------------------------------------------------------------------
 
-def escribir_ficha(a: Arriendo, directorio: Path, perfil: dict | None = None,
-                   motivo: str = "") -> Path:
+def escribir_ficha(a: Arriendo, directorio: Path,
+                   perfil: dict | None = None) -> Path:
     """Escribe (o reescribe) la ficha de un arriendo. Devuelve la ruta."""
     directorio.mkdir(parents=True, exist_ok=True)
     ruta = directorio / nombre_archivo(a)
-    ruta.write_text(_ficha(a, perfil or {}, motivo), encoding="utf-8")
+    ruta.write_text(_ficha(a, perfil or {}), encoding="utf-8")
     return ruta
 
 
-def _ficha(a: Arriendo, perfil: dict, motivo: str = "") -> str:
+def _ficha(a: Arriendo, perfil: dict) -> str:
     L: list[str] = []
 
     titulo = a.direccion or a.title or "Arriendo sin dirección"
     L.append(f"# {titulo}")
     L.append("")
-    if motivo:
-        L.append(f"> ♻️ **{motivo}**")
-        L.append("")
 
     # -- el resumen de una línea, que es lo que se lee primero --
     L.append(f"**{a.score}/100** · `#{a.codigo}` · "
@@ -500,7 +498,7 @@ def escribir_tablero(hallazgos: list[Arriendo], directorio: Path,
     ruta = directorio / "README.md"
     perfil = perfil or {}
 
-    nucleo = (((perfil.get("comunas") or {}).get("nucleo") or ["Vitacura"])
+    nucleo = ((comunas_nucleo(perfil) or ["Vitacura"])
               or ["Vitacura"])[0]
     vivos = _sin_fichas_repetidas(
         sorted([a for a in hallazgos if not a.descartado],

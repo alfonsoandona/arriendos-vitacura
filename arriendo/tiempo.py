@@ -21,19 +21,9 @@ nada.
 
 from __future__ import annotations
 
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 
 
 def ahora_utc() -> datetime:
     """El instante actual en UTC, naive. Reemplazo directo de `utcnow()`."""
     return datetime.now(timezone.utc).replace(tzinfo=None)
-
-
-def hoy_utc() -> date:
-    """La fecha de hoy en UTC.
-
-    En UTC y no local a propósito: el radar corre en runners de Actions que
-    están en UTC, y el estado tiene que ser comparable entre corridas sin que
-    importe dónde corrió cada una.
-    """
-    return ahora_utc().date()

@@ -13,8 +13,8 @@ from . import parse as P
 from . import scoring as S
 from .alerts.telegram import Telegram
 from .bitacora import escribir_bitacora
-from .config import (PerfilInvalido, cargar_perfil, dir_alertas,
-                     dir_docs, dir_estado, dir_logs)
+from .config import (PerfilInvalido, cargar_perfil, comunas_nucleo,
+                     dir_alertas, dir_docs, dir_estado, dir_logs)
 from .uf import valor_uf as valor_uf_del_dia
 from .fichas import escribir_ficha, escribir_tablero, url_ficha
 from .edificios import Libreta, aplicar as aplicar_libreta
@@ -864,7 +864,7 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     # precio. Es la diferencia entre un dato y un juicio: $1.490.000 no dice
     # si es caro; comparado contra lo que efectivamente se publica en la zona,
     # sí. Acotada a la comuna núcleo, que es donde el número significa algo.
-    nucleo = ((perfil.get("comunas") or {}).get("nucleo") or [""])[0]
+    nucleo = (comunas_nucleo(perfil) or [""])[0]
     mediana = resumen_mercado(previos, comuna=nucleo).get("precio_mediano") or 0
     stats["mediana_mercado"] = mediana
 
@@ -1125,7 +1125,7 @@ def calibrar(args: argparse.Namespace) -> int:
     destino = Path(args.fixtures)
     destino.mkdir(parents=True, exist_ok=True)
 
-    nucleo = {c.lower() for c in (perfil.get("comunas") or {}).get("nucleo") or []}
+    nucleo = {c.lower() for c in comunas_nucleo(perfil)}
     L: list[str] = ["# Calibración de fuentes", "",
                     f"Corrida: {ahora_utc():%d-%m-%Y %H:%M} UTC", "",
                     "| Fuente | URL | Estado | Avisos | En zona | Pasan filtros |",

@@ -32,6 +32,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from . import parse as P
+from .config import comunas_nucleo, comunas_vecinas
 from .geo import haversine_km
 from .models import Arriendo
 
@@ -165,19 +166,16 @@ def orden(l: Arriendo) -> tuple:
     return (l.score, l.extras.get("confianza", 0))
 
 
-def _intentar_encoger_no_va(*_a, **_k):  # pragma: no cover - marcador histórico
-    """Acá vivió un encogimiento del puntaje hacia 50 según la confianza.
-
-    Se probó y se sacó: la idea era que un puntaje sostenido por poca
-    evidencia no afirmara tanto, pero en la práctica le bajaba el puntaje a
-    todo aviso que publicara poco, que es literalmente lo que la regla nº2 de
-    este módulo existe para no hacer. Dos tests lo atraparon en el acto.
-
-    La misma información se publica ahora como un segundo número —la
-    confianza— y se usa para ORDENAR, no para puntuar. Queda anotado para que
-    a nadie se le ocurra de nuevo.
-    """
-    raise NotImplementedError
+# UN ENCOGIMIENTO DEL PUNTAJE HACIA 50 SEGÚN LA CONFIANZA: NO VA.
+#
+# Acá vivió esa idea, y queda anotada para que a nadie se le ocurra de nuevo.
+# La intención era que un puntaje sostenido por poca evidencia no afirmara
+# tanto; en la práctica le bajaba el puntaje a todo aviso que publicara poco,
+# que es literalmente lo que la regla nº2 de este módulo existe para no hacer.
+# Dos tests lo atraparon en el acto.
+#
+# La misma información se publica ahora como un segundo número —la confianza—
+# y se usa para ORDENAR, no para puntuar.
 
 
 @dataclass
@@ -295,8 +293,8 @@ def evaluar_zona(l: Arriendo, perfil: dict) -> tuple[bool, str, float | None]:
     Mirar la distancia primero lo descartaría antes de llegar a la regla que
     lo salva.
     """
-    nucleo = [P.norm(c) for c in (perfil.get("comunas") or {}).get("nucleo") or []]
-    vecinas = [P.norm(c) for c in (perfil.get("comunas") or {}).get("vecinas") or []]
+    nucleo = [P.norm(c) for c in comunas_nucleo(perfil)]
+    vecinas = [P.norm(c) for c in comunas_vecinas(perfil)]
     comuna = P.norm(l.comuna)
 
     distancia = _distancia_al_ancla(l, perfil)
