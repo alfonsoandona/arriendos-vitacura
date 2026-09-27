@@ -37,7 +37,7 @@
   },
   "@-33 37615 -70 54544": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9451",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 37644 -70 54469": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer",
@@ -77,7 +77,7 @@
   },
   "@-33 38001 -70 54185": {
     "calle": "Vitacura 9976",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 38092 -70 53519": {
     "calle": "Las Hualtatas 10343",
@@ -85,15 +85,15 @@
   },
   "@-33 38221 -70 58025": {
     "calle": "Avenida Manquehue Norte 2580",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 38319 -70 54913": {
     "calle": "Vitacura 9035",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 38398 -70 57917": {
     "calle": "Espoz 6286",
@@ -149,7 +149,7 @@
   },
   "@-33 39494 -70 59139": {
     "calle": "Candelaria Goyenechea 4330",
-    "visto": "2026-09-24"
+    "visto": "2026-09-27"
   },
   "@-33 39600 -70 57827": {
     "calle": "Los Gomeros 1493",
@@ -173,7 +173,7 @@
   },
   "@-33 39652 -70 58803": {
     "calle": "Espoz 4440",
-    "visto": "2026-09-22"
+    "visto": "2026-09-27"
   },
   "@-33 39670 -70 59099": {
     "calle": "Alonso de Sotomayor 4200",
@@ -237,11 +237,11 @@
   },
   "@-33 40252 -70 59496": {
     "calle": "Avenida Vitacura 3678",
-    "visto": "2026-09-17"
+    "visto": "2026-09-27"
   },
   "@-33 40270 -70 58596": {
     "calle": "La Luma 1160",
-    "visto": "2026-09-15"
+    "visto": "2026-09-27"
   },
   "@-33 40335 -70 59688": {
     "calle": "Antonio de Pastrana 2658",
@@ -257,7 +257,7 @@
   },
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
-    "visto": "2026-09-17"
+    "visto": "2026-09-27"
   },
   "@-33 40465 -70 59453": {
     "calle": "Armando Jaramillo 1358",
@@ -273,7 +273,7 @@
   },
   "@-33 40574 -70 59708": {
     "calle": "Paul Claudel 1490",
-    "visto": "2026-09-24"
+    "visto": "2026-09-27"
   },
   "@-33 40583 -70 59765": {
     "calle": "Avenida Vitacura 3355",
@@ -283,9 +283,13 @@
     "calle": "Las Nieves 3435",
     "visto": "2026-09-12"
   },
+  "@-33 40590 -70 59684": {
+    "calle": "Paul Claudel 1312",
+    "visto": "2026-09-27"
+  },
   "@-33 40597 -70 59658": {
     "calle": "Las Nieves 3420",
-    "visto": "2026-09-26"
+    "visto": "2026-09-27"
   },
   "@-33 40602 -70 59617": {
     "calle": "Las Nieves 3405",
