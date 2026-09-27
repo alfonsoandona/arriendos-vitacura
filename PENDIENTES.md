@@ -37,7 +37,7 @@ cumplan tu búsqueda.** Para confirmar que el canal sigue vivo:
 | Corridas | 79 en septiembre, sin errores · 5-7 min cada una |
 | Inventario | ~1.300 avisos crudos → ~500 únicos → **55 candidatos** |
 | Fuentes | 28 activas de 45 registradas |
-| Tests | **691**, sin red, corren en 8 segundos |
+| Tests | **692**, sin red, corren en 7 segundos |
 
 **Cobertura en los 55 candidatos:** precio 83% · dirección 63% · mapa 63% ·
 **año de construcción 14%**.

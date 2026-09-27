@@ -6,8 +6,7 @@
 # llega en cada alerta de Telegram y aparece en el tablero y la ficha.
 #
 #   estado:
-#     descartado   no te interesa: sale del tablero y NUNCA vuelve a sonar,
-#                  ni aunque baje de precio
+#     descartado   no te interesa: sale del tablero para siempre
 #     visto        ya lo miraste (queda en tu lista corta del tablero)
 #     contactado   llamaste o escribiste
 #     visita       tienes visita agendada

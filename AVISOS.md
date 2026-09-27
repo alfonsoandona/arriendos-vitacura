@@ -131,7 +131,7 @@ En unos segundos deberías recibir esto:
 > Prueba de conexión. Si estás leyendo esto, las alertas van a llegar a esta
 > conversación.
 
-Si llegó, estás listo. El radar corre solo dos veces al día.
+Si llegó, estás listo. El radar corre solo tres veces al día.
 
 ---
 
