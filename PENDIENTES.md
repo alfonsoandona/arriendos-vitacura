@@ -141,7 +141,20 @@ libreta de edificios en producción.
 Un `descartado` no vuelve a sonar nunca; lo que corrijas **pisa** al aviso y
 lo re-puntúa.
 
-### Paso 2 · URLs de corredoras (2 min c/u)
+### Paso 2 · Borrar una rama que sobró (10 seg)
+
+Existe `claude/compra-vitacura-scoring-bm4n1u` (SHA `68dbfba`), que resolvía lo
+mismo del 27-09 como interruptor de perfil en vez de borrar el código. Se
+revisó archivo por archivo: no tiene nada que la rama de producción no tenga,
+y le faltan ~100 commits. **Yo no la puedo borrar** —el proxy de este entorno
+rechaza el borrado de ramas con un 403— así que te toca:
+
+**GitHub → branches → la papelera 🗑 al lado de esa rama.**
+
+El SHA queda anotado acá arriba: mientras exista en el reflog de GitHub es
+recuperable, así que borrarla no es definitivo.
+
+### Paso 3 · URLs de corredoras (2 min c/u)
 
 Entras → filtras **arriendo + departamento + Vitacura** → me pegas la URL.
 Como hiciste con nuroa: eso solo ya subió sus m² de 0% a 100%.
@@ -157,7 +170,7 @@ rentas.cl              ______________________________________
 **Y si ves cualquier portal que "llegue sin info", mándamelo con el link.**
 Los cuatro arreglos más grandes del radar salieron de un link tuyo.
 
-### Paso 3 · Tres respuestas de perfil (1 min)
+### Paso 4 · Tres respuestas de perfil (1 min)
 
 ```
 Mascotas:           tengo / no aplica
