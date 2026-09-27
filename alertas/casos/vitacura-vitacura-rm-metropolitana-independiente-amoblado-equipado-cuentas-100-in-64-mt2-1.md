@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.200.000** ⚠️ sin gastos comunes |
 | Por m² | $18.750 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-27 | $1.200.000 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
+| Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Independiente, amoblado, equipado, cuentas 100% in... 64 Mt2 1 1 $ 1.200.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 16:03 UTC.
+Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
 
 </details>

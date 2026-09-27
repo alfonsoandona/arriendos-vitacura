@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.400.000** ⚠️ sin gastos comunes |
 | Por m² | $11.290 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-27 | $1.400.000 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Luis carrera / estadio manquehue / las hualtatas 124 Mt2 3 3 $ 1.400.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 16:03 UTC.
+Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
 
 </details>

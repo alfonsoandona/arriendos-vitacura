@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-18 | $1.843.158 |
 | 2026-09-19 | $1.843.526 |
 | 2026-09-20 | $1.843.893 |
 | 2026-09-21 | $1.843.526 |
@@ -28,8 +27,9 @@
 | 2026-09-25 | $1.845.365 |
 | 2026-09-25 | $1.845.733 |
 | 2026-09-26 | $1.846.101 |
+| 2026-09-27 | $1.846.469 |
 
-**subió 0% en 9 días. desde $1.843.158.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 8 días. desde $1.843.526.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -105,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo 4d + 3b Gran Terraza En Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 27-09-2026 16:04 UTC.
+Leído de `toctoc` vía `json-ld` el 27-09-2026 19:55 UTC.
 
 </details>

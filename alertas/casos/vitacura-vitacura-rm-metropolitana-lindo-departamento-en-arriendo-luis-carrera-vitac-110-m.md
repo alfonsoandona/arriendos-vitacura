@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.568.886** ⚠️ sin gastos comunes |
 | Por m² | $14.263 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-27 | $1.568.886 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Lindo departamento en arriendo. luis carrera,vitac... 110 Mt2 2 2 $ 1.568.886
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 16:03 UTC.
+Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
 
 </details>
