@@ -359,13 +359,15 @@ def test_el_tope_por_corrida_se_respeta(entorno, mensajes, una_fuente,
 # Fallar sin quedarse callado
 # ---------------------------------------------------------------------------
 
-def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
-                                                      monkeypatch):
-    """El modo de fallar más caro que tiene este radar.
-
-    Desde el lado del usuario, una corrida que se cayó a la mitad se ve
-    exactamente igual que una que no encontró ningún departamento. Sin este
-    camino se pueden pasar dos semanas sin radar sin que nadie lo note.
+def test_una_corrida_que_revienta_deja_rastro_y_sale_en_rojo(entorno, mensajes,
+                                                            una_fuente,
+                                                            monkeypatch):
+    """Desde el lado del usuario, una corrida que se cayó a la mitad se ve
+    igual que una que no encontró nada, así que la caída tiene que dejar
+    rastro en alguna parte. Desde el 27-09 ese rastro NO es un mensaje: el
+    canal quedó reservado para publicaciones nuevas. Es la bitácora —que se
+    versiona corrida a corrida, con el traceback— más el job de Actions en
+    rojo, que GitHub notifica por su cuenta.
 
     El fallo se simula en la deduplicación y no en el barrido a propósito: una
     fuente que revienta ya NO voltea la corrida (la atrapa `barrer_todas`, ver
@@ -379,28 +381,13 @@ def test_una_corrida_que_revienta_deja_rastro_y_avisa(entorno, una_fuente,
 
     monkeypatch.setattr(cli, "deduplicar", deduplicar_roto)
 
-    avisos: list[str] = []
-
-    class TelegramEspia:
-        def __init__(self, *a, **kw):
-            pass
-
-        def alertar(self, aviso, motivo=""):
-            return True
-
-        def resumen(self, stats, alertas, marca_dir=None):
-            if stats.get("error"):
-                avisos.append(stats["error"])
-
-    monkeypatch.setattr(cli, "Telegram", TelegramEspia)
-
+    # Sale en ROJO, que es la notificación: GitHub avisa los jobs fallidos
+    # por su cuenta. El canal de Telegram quedó reservado para publicaciones
+    # nuevas (27-09), así que la caída no manda mensaje.
     assert cli.correr(ArgsFalsos(fuentes=una_fuente)) == 1
+    assert mensajes == [], "el canal es solo para publicaciones nuevas"
 
-    # Avisó por Telegram...
-    assert len(avisos) == 1
-    assert "el navegador no arrancó" in avisos[0]
-
-    # ...y dejó la bitácora, que es donde se lee el detalle.
+    # Y deja la bitácora, que es donde se lee el detalle.
     bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
     assert "La corrida falló" in bitacora
     assert "el navegador no arrancó" in bitacora
@@ -500,14 +487,16 @@ def test_sin_tope_se_barren_todas(entorno, mensajes, una_fuente, monkeypatch):
     assert len(mensajes) == 1
 
 
-def test_el_corte_por_tiempo_se_avisa_por_telegram():
-    """Cortar en silencio sería el mismo error que fallar en silencio."""
-    from arriendo.alerts.telegram import _que_se_rompio
-
-    texto = _que_se_rompio({"fuentes_consultadas": 39, "fuentes_ok": 20,
-                            "corte_por_tiempo": [f"F{n}" for n in range(19)]})
-    assert "cortó por tiempo" in texto
-    assert "19 fuentes" in texto
+def test_el_corte_por_tiempo_queda_en_la_bitacora(entorno, una_fuente,
+                                                 monkeypatch):
+    """Cortar en silencio sería el mismo error que fallar en silencio — pero
+    "no en silencio" ya no significa "por Telegram": el canal es solo para
+    publicaciones nuevas. Queda en la bitácora, que se versiona corrida a
+    corrida y se lee entera."""
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    bitacora = (entorno / "logs" / "ultima-corrida.md").read_text(encoding="utf-8")
+    assert "Fuentes consultadas" in bitacora
 
 # ---------------------------------------------------------------------------
 # Historial de búsquedas
@@ -566,32 +555,58 @@ def test_una_corrida_en_seco_no_deja_historial(entorno, mensajes, una_fuente,
 
 
 
-def test_lo_visto_sin_avisar_no_realerta_sin_cambio(entorno, mensajes,
-                                                    una_fuente, tmp_path,
-                                                    monkeypatch):
-    """"La corrida de todos los días que sea solo de nuevos o modificaciones."
+def test_lo_ya_visto_no_vuelve_a_sonar(entorno, mensajes, una_fuente,
+                                       monkeypatch):
+    """Solo publicaciones NUEVAS (27-09).
 
-    Antes, lo visto-pero-no-avisado seguía en cola y cada corrida mandaba los
-    8 siguientes del acumulado: días de avisos viejos disfrazados de novedad.
-    Ahora lo ya visto solo alerta si CAMBIÓ. El envío fallido es la excepción
-    —es una entrega pendiente, no noticia vieja— y conserva su propio test.
+    Hasta esa fecha lo ya visto podía volver a sonar si bajaba de canon o si
+    cruzaba el umbral de "lleva mucho publicado". Los dos siguen medidos y
+    visibles —el tablero los marca, la ficha lleva el historial de precios
+    completo y el dashboard tiene su filtro "Bajaron"—, pero ya no
+    interrumpen.
+    """
+    monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
+
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert len(mensajes) == 1, "la primera vez sí es noticia"
+
+    mensajes.clear()
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert mensajes == [], "visto = no es una publicación nueva"
+
+
+def test_lo_que_no_cupo_en_el_tope_suena_en_la_corrida_siguiente(
+        entorno, mensajes, una_fuente, tmp_path, monkeypatch):
+    """El tope es un RITMO, no un filtro.
+
+    Existe para que una corrida con inventario acumulado no mande cuarenta
+    mensajes seguidos. Lo que no puede hacer es tragarse un departamento
+    nuevo: hasta el 27-09 los sobrantes se registraban como vistos —dejaban
+    de ser nuevos— y su única aparición era un mensaje índice. Al quedar el
+    canal en "solo publicaciones nuevas" ese índice ya no se manda, así que
+    el recorte sería una pérdida silenciosa.
+
+    Ahora quedan marcados como entrega pendiente y suenan después. Una vez.
     """
     import yaml
     from arriendo.config import cargar_perfil
 
     monkeypatch.setattr(registry, "barrer", _fuente_falsa("portal_tarjetas.html"))
 
-    # Primera corrida con tope 0: todo queda VISTO, nada avisado.
     perfil = cargar_perfil()
     perfil["alertas"]["max_por_corrida"] = 0
     p0 = tmp_path / "tope-cero.yml"
     p0.write_text(yaml.safe_dump(perfil, allow_unicode=True), encoding="utf-8")
-    cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(p0)))
-    assert mensajes == []
 
-    # Segunda corrida con el perfil normal: lo visto sin cambio NO alerta.
+    cli.correr(ArgsFalsos(fuentes=una_fuente, perfil=str(p0)))
+    assert mensajes == [], "con tope 0 no suena nada en esta corrida"
+
     cli.correr(ArgsFalsos(fuentes=una_fuente))
-    assert mensajes == [], "visto sin avisar y sin cambio = noticia vieja"
+    assert len(mensajes) == 1, "lo que no cupo suena en la corrida siguiente"
+
+    mensajes.clear()
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert mensajes == [], "y suena UNA vez, no en cada corrida"
 
 
 def test_la_ficha_propia_completa_el_aviso_antes_de_mandarlo(monkeypatch):
@@ -620,10 +635,10 @@ def test_la_ficha_propia_completa_el_aviso_antes_de_mandarlo(monkeypatch):
         def registrar(self, *a, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
     assert len(salida) == 1
-    listo = salida[0][0]
+    listo = salida[0]
     assert listo.m2_totales == 134
     assert listo.antiguedad_anos is not None
     assert listo.gastos_comunes_clp == 180_000
@@ -654,7 +669,7 @@ def test_si_la_ficha_revela_mas_de_30_anos_no_se_alerta(monkeypatch):
         def registrar(self, x, **k): registrados.append(x)
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
     assert salida == [], "la ficha reveló 40 años: no llega al teléfono"
     assert registrados and registrados[0].clase_descarte == "antiguedad"
@@ -692,10 +707,10 @@ def test_los_similares_de_la_ficha_no_engordan_el_aviso(monkeypatch):
         def registrar(self, *x, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
     assert len(salida) == 1, "el aviso sigue alertable, escueto pero honesto"
-    listo = salida[0][0]
+    listo = salida[0]
     assert listo.dormitorios is None and listo.banos is None
     assert not listo.extras.get("enriquecido_de_ficha")
 
@@ -726,9 +741,9 @@ def test_de_la_ficha_se_fusiona_la_propiedad_y_no_el_vecino(monkeypatch):
         def registrar(self, *x, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
-    listo = salida[0][0]
+    listo = salida[0]
     assert (listo.dormitorios, listo.banos) == (3, 2), \
         "los 6D/7B del vecino no son de este departamento"
     assert listo.extras.get("enriquecido_de_ficha")
@@ -759,9 +774,9 @@ def test_el_precio_de_la_ficha_rescata_al_aviso_sin_precio(monkeypatch):
         def registrar(self, *x, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
-    listo = salida[0][0]
+    listo = salida[0]
     assert listo.arriendo_clp == 1_500_000
     assert not listo.extras.get("sin_precio"), \
         "con el precio puesto, el marcador tiene que desaparecer"
@@ -790,9 +805,9 @@ def test_el_precio_del_listado_no_se_pisa_con_el_de_la_ficha(monkeypatch):
         def registrar(self, *x, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
-    assert salida[0][0].arriendo_clp == 1_500_000
+    assert salida[0].arriendo_clp == 1_500_000
 
 
 def test_si_la_ficha_revela_un_precio_sobre_el_tope_no_se_alerta(monkeypatch):
@@ -818,7 +833,7 @@ def test_si_la_ficha_revela_un_precio_sobre_el_tope_no_se_alerta(monkeypatch):
         def registrar(self, x, **k): registrados.append(x)
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
     assert salida == [], "$4,5 millones no es un aviso para este perfil"
     assert registrados and registrados[0].descartado
@@ -857,9 +872,9 @@ def test_la_ficha_sin_candidatos_pero_con_texto_enriquece_igual(monkeypatch):
         def registrar(self, *x, **k): pass
 
     fuente = FuenteConfig(id="f1", nombre="F1", urls=["https://f1.cl/"])
-    salida = C._enriquecer_por_ficha([(a, "")], [fuente], Fetcher(delay=0),
+    salida = C._enriquecer_por_ficha([a], [fuente], Fetcher(delay=0),
                                      40_854, perfil, StoreFalso())
-    listo = salida[0][0]
+    listo = salida[0]
     assert (listo.dormitorios, listo.banos) == (4, 3)
     assert listo.m2_totales == 142
     assert listo.gastos_comunes_clp == 250_000

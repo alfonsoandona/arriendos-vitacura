@@ -348,6 +348,18 @@ excluir:
 
 # ---------------------------------------------------------------------------
 # ALERTAS
+#
+# EL CANAL MANDA PUBLICACIONES NUEVAS Y NADA MÁS. Pedido del 27-09: "que solo
+# genere avisos de publicaciones nuevas; todo el resto de los mensajes no".
+#
+# Un departamento suena UNA vez: la primera. Después no vuelve a sonar aunque
+# baje de precio, aunque lleve meses publicado o aunque se vaya del mercado.
+# Nada de eso se perdió de vista —el tablero lo marca, la ficha guarda el
+# historial de precios completo, el dashboard tiene su filtro "Bajaron" y la
+# bitácora deja cada corrida entera en logs/corridas/—: dejó de interrumpir.
+#
+# Tampoco hay latido semanal ni aviso de corrida caída. Si el radar se cae, el
+# job de Actions queda en rojo y GitHub lo notifica por su cuenta.
 # ---------------------------------------------------------------------------
 alertas:
   # Puntaje mínimo (0-100) para que un hallazgo genere aviso.
@@ -371,21 +383,14 @@ alertas:
   # días: perder uno por esperar un dato es peor que revisarlo a mano.
   alertar_incompletos: true
 
-  # Tope de alertas por corrida. Existe porque la primera corrida contra
-  # portales de arriendo trae inventario acumulado, no novedades del día, y
-  # sin tope serían cuarenta mensajes seguidos a las ocho de la mañana.
-  # Se mandan las de mayor puntaje; el resto queda en el tablero y alerta en
-  # la corrida siguiente.
+  # Cuántos avisos nuevos suenan por corrida. Existe porque una corrida con
+  # inventario acumulado mandaría cuarenta mensajes seguidos a las ocho de la
+  # mañana.
+  #
+  # Es un RITMO, no un filtro: lo que no cabe queda como entrega pendiente y
+  # suena en la corrida siguiente, los de mejor puntaje primero. Ninguna
+  # publicación nueva se pierde por el tope.
   max_por_corrida: 5
 
   # Por dónde avisar. Telegram y nada más.
   canales: [telegram]
-
-  # Re-avisar algo ya visto cuando cambia lo que importa. En arriendo la
-  # señal es la baja de precio: un aviso que baja el canon lleva tiempo sin
-  # arrendarse y se negocia.
-  reavisar:
-    baja_precio_pct: 4     # baja de 4% o más -> vuelve a avisar
-    # Un aviso que lleva mucho tiempo publicado se negocia mejor. Se avisa
-    # una sola vez al cruzar el umbral, no todos los días.
-    dias_publicado_aviso: 45

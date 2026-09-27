@@ -11,7 +11,7 @@ from pathlib import Path
 
 from . import parse as P
 from . import scoring as S
-from .alerts.telegram import Telegram, mensaje_bajas, mensaje_sobrantes
+from .alerts.telegram import Telegram
 from .bitacora import escribir_bitacora
 from .config import (PerfilInvalido, cargar_perfil, dir_alertas,
                      dir_docs, dir_estado, dir_logs)
@@ -87,14 +87,11 @@ def correr(args: argparse.Namespace) -> int:
         stats["error"] = f"{type(e).__name__}: {e}"
         stats["fin"] = ahora_utc()
         escribir_bitacora(stats, dir_logs())
-        # El aviso de que el radar se cayó es lo único que no se puede perder:
-        # es lo que separa "no hay nada nuevo" de "llevas dos semanas sin
-        # radar y no te has dado cuenta".
-        try:
-            Telegram(dry_run=args.dry_run).resumen(stats, alertas=0,
-                                                   marca_dir=dir_estado())
-        except Exception:                                        # noqa: BLE001
-            log.error("Tampoco se pudo avisar que la corrida falló")
+        # La caída NO se avisa por Telegram: el canal quedó reservado para
+        # publicaciones nuevas y nada más (pedido del 27-09). Queda anotada
+        # donde se puede leer entera —la bitácora de la corrida, con el
+        # traceback— y el `return 1` deja el job de Actions en rojo, que es
+        # la notificación que GitHub ya manda por su cuenta.
         return 1
 
 
@@ -223,8 +220,8 @@ def _completar_candidatos(candidatos: list, fuentes: list, fetcher,
     sin_ano_antes = {id(a) for a in elegidos if a.antiguedad_anos is None}
     sin_dir_antes = {id(a) for a in elegidos if not a.direccion}
 
-    vivos = [a for a, _ in _enriquecer_por_ficha(
-        [(a, "") for a in elegidos], fuentes, fetcher, uf, perfil, store)]
+    vivos = _enriquecer_por_ficha(elegidos, fuentes, fetcher, uf, perfil,
+                                  store)
 
     ganados_ano = sum(1 for a in elegidos
                       if id(a) in sin_ano_antes and a.antiguedad_anos is not None)
@@ -284,7 +281,7 @@ def _sin_lo_que_contradice(a, candidato):
     return limpio
 
 
-def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
+def _enriquecer_por_ficha(avisos: list, fuentes: list, fetcher,
                           uf: float, perfil: dict, store) -> list:
     """Completa cada alerta con los datos de su propia ficha. Ver paso 6b.
 
@@ -299,7 +296,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
 
     por_id = {f.id: f for f in fuentes}
     salida = []
-    for a, motivo in a_avisar:
+    for a in avisos:
         fuente = por_id.get(a.source)
         faltan = (a.antiguedad_anos is None or a.gastos_comunes_clp is None
                   or a.m2_totales is None or a.piso is None
@@ -307,7 +304,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                   or a.lat is None or not a.direccion
                   or (a.arriendo_clp is None and a.arriendo_uf is None))
         if not (fuente and faltan) or a.extras.get("sin_link_directo"):
-            salida.append((a, motivo))
+            salida.append(a)
             continue
 
         try:
@@ -315,7 +312,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         except Exception:                                        # noqa: BLE001
             html = None
         if not html:
-            salida.append((a, motivo))
+            salida.append(a)
             continue
 
         # El pin del mapa embebido, ANTES de mirar candidatos: es el dato
@@ -341,7 +338,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
         except Exception:                                        # noqa: BLE001
             log.exception("Ficha de %s reventó al extraer; se deja como está",
                           a.codigo)
-            salida.append((a, motivo))
+            salida.append(a)
             continue
         propios = _candidatos_propios(a, candidatos)
         # El plan B, del diagnóstico contra fichas reales: goplaceit e iCasas
@@ -407,7 +404,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
             # listado). El aviso sigue tal cual: escueto pero honesto.
             log.debug("Ficha de %s sin candidato propio; no se fusiona",
                       a.codigo)
-            salida.append((a, motivo))
+            salida.append(a)
             continue
         for candidato in propios:
             _fusionar(a, candidato)
@@ -439,7 +436,7 @@ def _enriquecer_por_ficha(a_avisar: list, fuentes: list, fetcher,
                      a.motivo_descarte)
             store.registrar(a)
             continue
-        salida.append((a, motivo))
+        salida.append(a)
     return salida
 
 
@@ -802,53 +799,49 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     libreta.guardar()
 
     # --- 6. decidir a quién avisar ---
-    a_avisar: list[tuple[Arriendo, str]] = []
+    a_avisar: list[Arriendo] = []
     # Orden = (puntaje, confianza). El desempate por confianza es lo que
     # decide cuál de dos avisos igual de buenos se mira primero: el que
     # SABEMOS que es bueno le gana al que PARECE bueno. Ver `scoring.orden`.
     for a in sorted(candidatos, key=S.orden, reverse=True):
         if not S.debe_alertar(a, perfil):
             continue
-        if store.es_nuevo(a) or store.envio_pendiente(a):
-            # Nunca visto es LA noticia; y un envío que falló ayer es una
-            # entrega pendiente, no noticia vieja: se reintenta.
-            motivo = ""
-        else:
-            # Ya visto —avisado o no—: solo alerta si CAMBIÓ (baja de canon,
-            # umbral de días publicado). Pedido del 18-08: "la corrida de
-            # todos los días que sea solo de nuevos o modificaciones".
-            #
-            # Antes, lo visto-pero-no-avisado seguía en cola y cada corrida
-            # mandaba los 8 siguientes del acumulado: cuatro días de avisos
-            # viejos disfrazados de novedad. Un aviso que el radar conoce
-            # hace tres corridas no es una novedad por no haber cabido en el
-            # tope; si amerita mirarse, está en el tablero con su puntaje.
-            motivo = store.cambio_relevante(a, perfil)
-            if not motivo:
-                continue
-        a_avisar.append((a, motivo))
+        # PUBLICACIONES NUEVAS Y NADA MÁS. Pedido del usuario (27-09): "que
+        # solo genere avisos de publicaciones nuevas; todo el resto de los
+        # mensajes no".
+        #
+        # Antes también sonaban las bajas de canon y el umbral de "lleva
+        # mucho publicado". Los dos siguen MEDIDOS y visibles —el tablero
+        # los marca, la ficha lleva el historial de precios completo y el
+        # dashboard tiene su filtro "Bajaron"—, pero ya no interrumpen: se
+        # miran cuando el usuario quiere mirar.
+        #
+        # `envio_pendiente` no es una excepción a la regla: marca un aviso
+        # NUEVO cuya entrega quedó pendiente —falló el envío, o no cupo en
+        # el tope de la corrida— y que por lo tanto todavía no se avisó.
+        if not (store.es_nuevo(a) or store.envio_pendiente(a)):
+            continue
+        a_avisar.append(a)
 
     tope = int((perfil.get("alertas") or {}).get("max_por_corrida", 8))
     sobrantes: list[Arriendo] = []
     if len(a_avisar) > tope:
-        # Las de mayor puntaje primero; el resto queda en el tablero. Sin
-        # tope, la primera corrida contra portales de arriendo manda
-        # cuarenta mensajes seguidos, porque trae inventario acumulado y no
-        # novedades del día.
+        # El tope existe para que una corrida con inventario acumulado no
+        # mande cuarenta mensajes seguidos a las ocho de la mañana.
         #
-        # OJO —y este comentario decía lo contrario hasta el 20-08—: los
-        # sobrantes NO alertan en la corrida siguiente. Abajo se registran
-        # como vistos igual que todos, así que dejan de ser "nuevos" y solo
-        # vuelven a sonar si BAJAN de precio. Es la regla del 18-08 ("que
-        # sea solo de nuevos o modificaciones"), y su contrapeso es el
-        # mensaje índice: un click y ahí está la lista completa.
+        # Lo que NO puede hacer es tragarse un departamento nuevo. Hasta el
+        # 27-09 los sobrantes se registraban como vistos —dejaban de ser
+        # nuevos— y su única aparición era un mensaje índice; al quedar el
+        # canal en "solo publicaciones nuevas" ese índice ya no se manda, así
+        # que el recorte sería una pérdida silenciosa.
         #
-        # Pero el recorte ya no es silencioso: los que no cupieron van en UN
-        # mensaje índice (ver el paso 7). Si el noveno era justo el bueno, la
-        # única forma de saberlo era abrir el tablero por iniciativa propia.
-        log.info("%d avisos por mandar, tope %d: se posponen %d",
+        # Así que los sobrantes quedan con la MISMA marca que un envío que
+        # falló: decididos pero no entregados. La corrida siguiente los toma
+        # por `envio_pendiente` y suenan ahí, los de mejor puntaje primero.
+        # El tope pasa a ser un ritmo, no un filtro.
+        log.info("%d avisos nuevos, tope %d: %d suenan en la corrida siguiente",
                  len(a_avisar), tope, len(a_avisar) - tope)
-        sobrantes = [a for a, _m in a_avisar[tope:]]
+        sobrantes = a_avisar[tope:]
         a_avisar = a_avisar[:tope]
 
     # --- 6b. enriquecer desde la ficha propia, ANTES de avisar ---
@@ -888,16 +881,16 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
     )
 
     enviados = 0
-    for a, motivo in a_avisar:
+    for a in a_avisar:
         # La ficha se escribe ANTES de mandar el mensaje: el mensaje lleva su
         # link adentro, y mandarlo primero es garantizar un 404.
-        escribir_ficha(a, dir_alertas() / "casos", perfil, motivo)
+        escribir_ficha(a, dir_alertas() / "casos", perfil)
         if (url := url_ficha(a)):
             a.extras["ficha_url"] = url
 
-        if telegram.alertar(a, motivo):
+        if telegram.alertar(a):
             enviados += 1
-            store.registrar(a, avisado=True, motivo=motivo)
+            store.registrar(a, avisado=True)
         else:
             # No se marca como avisado: si el envío falló, la corrida
             # siguiente tiene que volver a intentarlo. Marcarlo igual haría
@@ -906,28 +899,35 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
             log.error("No se pudo avisar %s", a.url)
             store.registrar(a, avisado=False, fallido=True)
 
+    # Los que no cupieron en el tope: decididos pero no entregados, igual
+    # que un envío fallido. Suenan en la corrida siguiente.
+    for a in sobrantes:
+        store.registrar(a, avisado=False, fallido=True)
+
+    ya_tratados = a_avisar + sobrantes
     for a in unicos:
-        if not any(a is x for x, _ in a_avisar):
+        if not any(a is x for x in ya_tratados):
             store.registrar(a)
 
     stats["avisados"] = enviados
+    stats["pospuestos"] = len(sobrantes)
 
-    # El índice de los que calificaron y no cupieron. Es su ÚNICA
-    # aparición en el teléfono —quedan registrados como vistos, así que no
-    # vuelven a sonar salvo que bajen de precio—, y por eso el mensaje
-    # lleva el link a la lista completa en vez de un recorte silencioso.
-    if enviados and sobrantes:
-        telegram.enviar(mensaje_sobrantes(sobrantes))
-
-    # El cierre del ciclo: los departamentos AVISADOS que dejaron de
-    # aparecer en todos los portales. De los que nunca se avisaron nadie
-    # está esperando noticias, así que no se molesta por ellos.
-    despedidas = [e for e in eventos
-                  if e.get("evento") == "baja" and e.get("avisado")]
-    if despedidas:
-        telegram.enviar(mensaje_bajas(despedidas))
-
-    telegram.resumen(stats, enviados, marca_dir=dir_estado())
+    # NO se manda nada más que las publicaciones nuevas. Pedido del usuario
+    # (27-09): "solo quiero que me llegue eso en mensaje; todo el resto de
+    # los mensajes no".
+    #
+    # Lo que se quitó, y dónde quedó a la vista en cambio:
+    #
+    #   el índice de los que no cupieron  →  ya no hay recorte que compensar:
+    #                                        los sobrantes suenan en la
+    #                                        corrida siguiente (paso 6)
+    #   los que dejaron de publicarse     →  el tablero y la bitácora
+    #   el latido semanal                 →  logs/corridas/ y el dashboard,
+    #                                        que dice su fecha de corrida
+    #   el aviso de corrida caída         →  el job de Actions queda en rojo
+    #                                        y GitHub lo notifica por su lado
+    #
+    # Ninguno de esos datos se perdió: dejaron de interrumpir.
 
     # --- 8. guardar ---
     #

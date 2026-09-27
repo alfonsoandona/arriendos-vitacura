@@ -128,48 +128,6 @@ class Store:
                 or self._por_url(l))
         return list((prev or {}).get("historial_precio") or [])
 
-    def cambio_relevante(self, l: Arriendo, perfil: dict | None = None) -> str:
-        """Detecta cambios que justifican volver a avisar algo ya visto.
-
-        En arriendo la señal es la BAJA DE CANON, y no es un detalle: un aviso
-        que baja el precio lleva semanas sin arrendarse, y eso significa dos
-        cosas a la vez —que sigue disponible y que hay margen para negociar—.
-        Es probablemente el mejor momento para llamar, y sin esto el radar se
-        lo perdería entero por haberlo avisado una vez hace un mes.
-        """
-        prev = self.indice.get(l.fingerprint)
-        if not prev:
-            return ""
-
-        cfg = ((perfil or {}).get("alertas") or {}).get("reavisar") or {}
-
-        # La comparación es contra el precio con el que se AVISÓ, no contra el
-        # de la corrida anterior. La diferencia importa: un canon que baja 2%
-        # por corrida durante tres corridas cayó 6% en total y nunca habría
-        # disparado el umbral del 4%, porque cada paso individual se queda
-        # corto. Contra el precio avisado, la baja se acumula y se detecta.
-        #
-        # Es además el número correcto desde el lado del usuario: lo que le
-        # interesa es cuánto bajó respecto de lo que él vio, no respecto de un
-        # precio intermedio que nunca le llegó.
-        antes = prev.get("precio_al_avisar") or prev.get("arriendo_clp")
-        ahora = l.arriendo_clp
-        umbral = float(cfg.get("baja_precio_pct", 4)) / 100
-        if antes and ahora and ahora < antes * (1 - umbral):
-            baja = round(100 * (antes - ahora) / antes)
-            return (f"Bajó {baja}%: de ${antes:,.0f} a ${ahora:,.0f}"
-                    .replace(",", "."))
-
-        # Cruzar el umbral de "lleva mucho publicado" avisa UNA vez, no todos
-        # los días: es una señal de negociación, no una alarma.
-        dias_umbral = cfg.get("dias_publicado_aviso")
-        dias = l.dias_publicado
-        if dias_umbral and dias is not None and dias >= int(dias_umbral):
-            if not prev.get("aviso_antiguedad_publicacion"):
-                return f"Lleva {dias} días publicado — se negocia"
-
-        return ""
-
     def _por_direccion(self, l: Arriendo) -> dict | None:
         """El registro anterior del mismo departamento, si no hay ambigüedad.
 
@@ -255,7 +213,7 @@ class Store:
         return bool(self.indice.get(l.fingerprint, {}).get("envio_pendiente"))
 
     def registrar(self, l: Arriendo, avisado: bool = False,
-                  motivo: str = "", fallido: bool = False) -> None:
+                  fallido: bool = False) -> None:
         fp = l.fingerprint
         prev = self.indice.get(fp, {})
         ahora = ahora_utc().isoformat(timespec="seconds")
@@ -279,13 +237,11 @@ class Store:
             "envio_pendiente": (fallido or prev.get("envio_pendiente", False))
                                and not (avisado or prev.get("avisado", False)),
             "veces_visto": prev.get("veces_visto", 0) + 1,
-            # Marca de una sola vez: el aviso de "lleva mucho publicado" no se
-            # repite en cada corrida.
-            "aviso_antiguedad_publicacion": (
-                prev.get("aviso_antiguedad_publicacion", False)
-                or "días publicado" in motivo),
-            # El canon con el que se avisó, para poder medir la baja contra el
-            # precio que el usuario ya vio y no contra el de ayer.
+            # El canon con el que se avisó. Ya no dispara nada —desde el
+            # 27-09 el canal manda publicaciones nuevas y nada más— pero se
+            # sigue guardando: es contra este número, y no contra el de
+            # ayer, que la ficha y el dashboard miden cuánto bajó respecto
+            # de lo que el usuario efectivamente vio.
             "precio_al_avisar": (
                 l.arriendo_clp if avisado else prev.get("precio_al_avisar")),
             "historial_precio": self._anotar_precio(prev, l),

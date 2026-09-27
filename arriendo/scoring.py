@@ -1083,8 +1083,8 @@ def debe_alertar(l: Arriendo, perfil: dict) -> bool:
     # (21-08): "que se vaya al dashboard, no se alerta, y que baje puntaje".
     # La antigüedad es su criterio SÍ O SÍ, y el 88% de los avisos no la
     # publica: alertarlos a todos es prometer un filtro que no se aplicó.
-    # El aviso NO se descarta —sigue en el tablero, en el dashboard y en el
-    # mensaje índice de "ver la lista completa"—, solo no suena.
+    # El aviso NO se descarta —sigue en el tablero y en el dashboard con su
+    # puntaje—, solo no suena.
     req = (perfil.get("requisitos") or {}).get("antiguedad_anos") or {}
     if req.get("alertar_sin_ano") is False \
             and l.antiguedad_anos is None and l.ano_construccion is None:

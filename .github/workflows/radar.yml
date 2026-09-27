@@ -229,37 +229,12 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
-      - name: Avisar por Telegram que el job se cayó
-        # La red que faltaba, y la corrida perdida del 17-08 la justificó: el
-        # radar promete avisar cuando ÉL falla, pero eso solo cubre lo que
-        # pasa dentro de Python. Un pip roto, un gate previo o un runner caído
-        # matan el job sin que el radar haya llegado a partir — y desde el
-        # teléfono eso se ve exactamente igual que "no hay departamentos".
-        #
-        # Este paso corre a nivel del WORKFLOW, así que cubre cualquier paso
-        # caído. Con curl directo, sin pasar por el código del radar: si el
-        # problema es el código, el aviso tiene que salir igual.
-        if: ${{ failure() && inputs.dry_run != true }}
-        env:
-          TOKEN: ${{ secrets.TELEGRAM_TOKEN_ARRIENDOS }}
-          CHAT: ${{ secrets.TELEGRAM_CHAT_ID_ARRIENDOS }}
-        run: |
-          # OJO con este bloque: la primera versión escribió el mensaje con
-          # líneas sin indentar dentro del `run: |`, lo que INVALIDÓ el YAML
-          # completo — y un workflow inválido pierde TODOS sus triggers, cron
-          # incluido. El radar entero apagado por el paso que existía para
-          # avisar que el radar se apagó. El mensaje se arma ahora con
-          # printf, que mantiene cada línea dentro del bloque.
-          [[ -z "$TOKEN" || -z "$CHAT" ]] && exit 0
-          MSG="$(printf '%s\n\n%s\n\n%s' \
-            '🚨 <b>Radar de Arriendos: el job se cayó</b>' \
-            'La corrida de hoy no terminó. No es "no hay departamentos": es que el radar no corrió.' \
-            '🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')"
-          curl -sS --max-time 20 "https://api.telegram.org/bot${TOKEN}/sendMessage" \
-            -d chat_id="$CHAT" \
-            -d parse_mode=HTML \
-            --data-urlencode text="$MSG" \
-            > /dev/null || true
+      # NO hay paso de "avisar que el job se cayó". El canal de Telegram
+      # quedó reservado para publicaciones nuevas y nada más (pedido del
+      # 27-09), y un job caído ya se nota sin mandar mensajes: queda en rojo
+      # en Actions y GitHub manda su propia notificación de workflow fallido
+      # —por mail, y en la app si está instalada—. El detalle se lee en el
+      # artifact de diagnóstico que el paso de arriba deja subido.
 
   # GitHub Pages es la única forma de VER los dashboards: la app y la web de
   # GitHub muestran un HTML del repo como código fuente. Y tiene que ser un

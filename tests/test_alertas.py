@@ -11,8 +11,8 @@ from datetime import date, timedelta
 import pytest
 
 from arriendo import scoring as S
-from arriendo.alerts.telegram import (Telegram, _falta, _latido, _mensaje,
-                                      _que_se_rompio, titulo_corto)
+from arriendo.alerts.telegram import (Telegram, _falta, _mensaje,
+                                      titulo_corto)
 from arriendo.config import cargar_perfil
 from arriendo.fichas import (escribir_ficha, escribir_tablero, nombre_archivo,
                              url_ficha)
@@ -181,43 +181,6 @@ def test_sin_configurar_no_manda_nada(monkeypatch):
 def test_dry_run_no_toca_la_red(capsys):
     assert Telegram(dry_run=True).enviar("hola") is True
     assert "hola" in capsys.readouterr().out
-
-
-# ---------------------------------------------------------------------------
-# El latido y los avisos de que algo se rompió
-# ---------------------------------------------------------------------------
-
-def test_el_radar_ciego_se_avisa():
-    """Cuando fallan todas a la vez no es falta de inventario: es la corrida."""
-    texto = _que_se_rompio({"fuentes_consultadas": 17, "fuentes_ok": 0})
-    assert "quedó ciego" in texto
-
-
-def test_una_fuente_caida_se_avisa():
-    texto = _que_se_rompio({"fuentes_consultadas": 17, "fuentes_ok": 16,
-                            "fuentes_caidas": ["TocToc: 0 avisos"]})
-    assert "TocToc" in texto
-
-
-def test_una_corrida_sana_no_avisa_nada():
-    assert _que_se_rompio({"fuentes_consultadas": 17, "fuentes_ok": 17}) == ""
-
-
-def test_el_latido_dice_numeros_de_verdad():
-    """Lo único que aporta el latido es que se le pueda creer."""
-    texto = _latido({"total": 143, "candidatos": 4, "fuentes_ok": 15})
-    assert "143" in texto
-    assert "4" in texto
-    assert "15" in texto
-
-
-def test_no_manda_latido_si_hubo_alertas(tmp_path):
-    t = Telegram(dry_run=True)
-    enviados = []
-    t.enviar = lambda texto: enviados.append(texto) or True
-    t.resumen({"fuentes_consultadas": 5, "fuentes_ok": 5}, alertas=2,
-              marca_dir=tmp_path)
-    assert enviados == []
 
 
 # ---------------------------------------------------------------------------
@@ -782,61 +745,27 @@ def test_con_muchos_portales_se_resumen():
     assert "y 3 más" in texto
 
 # ---------------------------------------------------------------------------
-# El cierre del ciclo y el recorte que dejó de ser invisible
+# El canal manda publicaciones nuevas y NADA MÁS (27-09)
 # ---------------------------------------------------------------------------
 
-def test_las_despedidas_dicen_cuanto_duro_publicado():
-    """Con unas cuantas se aprende a qué velocidad se mueve el rango."""
-    from arriendo.alerts.telegram import mensaje_bajas
-    texto = mensaje_bajas([
-        {"direccion": "Alonso de Córdova 4200", "clp": 1_490_000,
-         "dias": 23, "avisado": True},
-        {"direccion": "Espoz 2620", "clp": 1_600_000, "dias": 41,
-         "avisado": True},
-    ])
-    assert "Se fueron del mercado" in texto
-    assert "23 días publicado" in texto
-    assert "$1.490.000" in texto
+def test_el_canal_no_tiene_como_mandar_otra_cosa():
+    """El pedido fue "solo avisos de publicaciones nuevas; todo el resto de
+    los mensajes no", y la forma de cumplirlo que no se deshace sola es que
+    los otros mensajes NO EXISTAN. Mientras la función esté ahí, la próxima
+    edición del orquestador puede volver a llamarla sin que nadie lo note.
 
+    Lo que se quitó: el índice de los que no cupieron, las despedidas de los
+    que dejaron de publicarse, el latido semanal y el aviso de corrida
+    caída. Ninguno de esos datos se perdió —viven en el tablero, la ficha,
+    el dashboard y la bitácora—: dejaron de interrumpir.
+    """
+    from arriendo.alerts import telegram
 
-def test_muchas_despedidas_se_resumen():
-    from arriendo.alerts.telegram import mensaje_bajas
-    texto = mensaje_bajas([{"direccion": f"Calle {i}", "clp": 1_000_000,
-                            "dias": 10} for i in range(9)])
-    assert "y 3 más" in texto
-
-
-def test_sin_bajas_no_hay_mensaje():
-    from arriendo.alerts.telegram import mensaje_bajas
-    assert mensaje_bajas([]) == ""
-
-
-def test_los_sobrantes_son_un_click_no_una_lista(monkeypatch):
-    """Pedido del 18-08: el índice de líneas truncadas "no tiene nada de
-    info" — mejor un 'para más avisos haz click acá' que lleve a la lista
-    completa en git."""
-    from arriendo.alerts.telegram import mensaje_sobrantes
-    monkeypatch.setenv("GITHUB_REPOSITORY", "alfonsoandona/arriendos-vitacura")
-    monkeypatch.setenv("GITHUB_REF_NAME", "rama-x")
-    avisos = []
-    for i in range(12):
-        a = Arriendo(source="x", url=f"https://x.cl/{i}", title="Depto",
-                     direccion=f"Calle {i} 100", comuna="Vitacura",
-                     m2_totales=120, dormitorios=3, arriendo_clp=1_400_000)
-        S.evaluar(a, cargar_perfil())
-        avisos.append(a)
-    texto = mensaje_sobrantes(avisos)
-    assert "calificaron 12 más" in texto
-    assert ("https://github.com/alfonsoandona/arriendos-vitacura/blob/"
-            "rama-x/alertas/README.md") in texto
-    assert "Ver la lista completa" in texto
-    assert "Calle 3 100" not in texto, "sin líneas de relleno"
-    assert texto.count("\n") <= 4, "es un click, no una lista"
-
-
-def test_sobrantes_vacios_no_mandan_nada():
-    from arriendo.alerts.telegram import mensaje_sobrantes
-    assert mensaje_sobrantes([]) == ""
+    for muerto in ("mensaje_bajas", "mensaje_sobrantes", "resumen",
+                   "_latido", "_que_se_rompio", "_toca_latido"):
+        assert not hasattr(telegram, muerto), \
+            f"{muerto} volvió: el canal puede mandar algo que no es una alerta"
+    assert not hasattr(telegram.Telegram, "resumen")
 
 
 def test_los_gc_estimados_van_marcados_como_estimacion():

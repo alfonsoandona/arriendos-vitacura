@@ -319,32 +319,31 @@ porque a veces una copia trae mejores fotos o el teléfono directo.
 
 ---
 
-## Cuándo vuelve a avisar de algo ya avisado
+## El canal manda publicaciones nuevas y nada más
 
-Un departamento se avisa **una sola vez**… salvo que cambie algo que importa:
+Un departamento suena **una sola vez: la primera**. Después no vuelve a sonar
+nunca, y el canal tampoco manda ninguna otra clase de mensaje.
 
-- **El canon baja 4% o más.** Es la mejor señal del mercado de arriendo: un
-  aviso que baja de precio lleva semanas sin arrendarse, así que sigue
-  disponible *y* hay margen para negociar. Perdérselo sería perder el mejor
-  momento para llamar. La baja se mide contra el precio **con el que se
-  avisó**, no contra el de la corrida anterior: si no, tres bajas de 2% no
-  suman nunca.
-- **Cruza los 45 días publicado.** Se avisa una sola vez, no todos los días.
+Es una decisión explícita (27-09) y el criterio es simple: **interrumpir tiene
+que significar "hay algo nuevo que mirar"**. Un canal que también manda
+resúmenes, despedidas y latidos enseña a ignorarlo, y entonces el mensaje que
+importa también se ignora.
 
-### Los otros tres mensajes del canal
+Lo que se dejó de mandar **no se dejó de medir**. Sigue todo, pero donde se
+mira cuando uno quiere mirar:
 
-Además del aviso por departamento, el canal manda tres mensajes más, cada uno
-con una condición estricta para no volverse ruido:
+| Antes interrumpía | Ahora vive en |
+|---|---|
+| bajas de canon del 4% o más | el filtro **Bajaron** del dashboard, y la tabla de precios de la ficha |
+| "lleva 45 días publicado" | la columna **Días** del tablero y del dashboard |
+| "se fueron del mercado" | el tablero y `state/inventario.jsonl` |
+| el latido semanal | `logs/corridas/`, y la fecha de corrida del dashboard |
+| "el job se cayó" | el job en rojo en Actions, que GitHub notifica por su cuenta |
 
-- **📋 "Además calificaron N más"** — cuando califican más departamentos que
-  el tope por corrida, los que no cupieron llegan como índice de una línea.
-  El tope dejó de ser un recorte silencioso.
-- **📤 "Se fueron del mercado"** — cuando un departamento AVISADO deja de
-  aparecer en todos los portales. Con "estuvo N días publicado", que con unas
-  cuantas enseña a qué velocidad se mueve el rango que buscas.
-- **🚨 "El job se cayó"** — desde el workflow mismo, con curl directo: cubre
-  los fallos donde el radar ni siquiera alcanzó a partir, que desde el
-  teléfono se ven idénticos a "no hay departamentos".
+**El tope por corrida es un ritmo, no un filtro.** Si califican más
+publicaciones nuevas que el tope, las que no caben quedan como entrega
+pendiente y suenan en la corrida siguiente, las de mejor puntaje primero.
+Ninguna publicación nueva se pierde.
 
 ### Y además guarda la tendencia
 

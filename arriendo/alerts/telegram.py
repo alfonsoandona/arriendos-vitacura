@@ -43,7 +43,7 @@ from __future__ import annotations
 import logging
 import os
 import re
-from datetime import date, timedelta
+from datetime import date
 from typing import Any
 from urllib.parse import quote_plus
 
@@ -161,32 +161,6 @@ class Telegram:
         return self.enviar(_mensaje(a, motivo, self.caminable_km, self.ancla,
                                     self.tope_arriendo, self.mediana_mercado,
                                     self.gc_tipico))
-
-    def resumen(self, stats: dict[str, Any], alertas: int,
-                marca_dir: Any = None) -> None:
-        """Avisa cuando el silencio dejaría de significar algo.
-
-        No manda un mensaje por corrida. Un aviso que llega dos veces al día y
-        nunca dice nada enseña a ignorarlo, y entonces el que importa también
-        se ignora.
-
-        Pero callar SIEMPRE tampoco sirve: desde el lado del usuario, cinco
-        corridas sin novedad se ven idénticas a un radar caído. Así que hay
-        exactamente dos motivos para hablar sin una propiedad que mostrar, y
-        los dos son informativos: algo se rompió, o pasó una semana.
-        """
-        if alertas:
-            return  # ya se avisó propiedad por propiedad
-
-        problema = _que_se_rompio(stats)
-        if problema:
-            self.enviar(problema)
-            _marcar_aviso(marca_dir)
-            return
-
-        if _toca_latido(marca_dir):
-            self.enviar(_latido(stats))
-            _marcar_aviso(marca_dir)
 
 
 # ---------------------------------------------------------------------------
@@ -621,166 +595,6 @@ def _lo_mejor_y_lo_peor(a: Arriendo) -> tuple[str, str]:
     return bueno, ojo
 
 
-# ---------------------------------------------------------------------------
-# El latido
-#
-# Vive acá y no en el orquestador porque es una decisión del CANAL: cuándo
-# vale la pena interrumpir a alguien. El orquestador solo entrega los números.
-# ---------------------------------------------------------------------------
-
-DIAS_ENTRE_LATIDOS = 7
-_MARCA = "ultimo_aviso.json"
-
-
-def _ruta_marca(marca_dir: Any = None):
-    from pathlib import Path
-
-    from ..config import STATE_DIR
-
-    return Path(marca_dir or STATE_DIR) / _MARCA
-
-
-def _ultimo_aviso(marca_dir: Any = None) -> date | None:
-    import json
-
-    try:
-        d = json.loads(_ruta_marca(marca_dir).read_text(encoding="utf-8"))
-        return date.fromisoformat(d["cuando"])
-    except Exception:                                            # noqa: BLE001
-        # Sin marca legible se asume que toca: es preferible un mensaje de más
-        # que dejar de dar señales de vida por un archivo corrupto.
-        return None
-
-
-def _marcar_aviso(marca_dir: Any = None) -> None:
-    import json
-
-    try:
-        ruta = _ruta_marca(marca_dir)
-        ruta.parent.mkdir(parents=True, exist_ok=True)
-        ruta.write_text(
-            json.dumps({"cuando": date.today().isoformat()}, ensure_ascii=False),
-            encoding="utf-8")
-    except OSError as e:
-        log.warning("No se pudo anotar el último aviso: %s", e)
-
-
-def _toca_latido(marca_dir: Any = None) -> bool:
-    ultimo = _ultimo_aviso(marca_dir)
-    if ultimo is None:
-        return True
-    return date.today() - ultimo >= timedelta(days=DIAS_ENTRE_LATIDOS)
-
-
-def _que_se_rompio(stats: dict) -> str:
-    """El texto del aviso si algo falló, o vacío si la corrida estuvo sana."""
-    if stats.get("error"):
-        return (f"⚠️ <b>El radar falló</b>\n\n{_escapar(str(stats['error'])[:400])}"
-                "\n\nRevisa logs/ultima-corrida.md")
-
-    # Ninguna fuente respondió. No es "hoy no hay arriendos": es un radar
-    # ciego. Se mira aparte de las caídas porque esas se detectan comparando
-    # con la corrida anterior, y la primera corrida no tiene con qué comparar
-    # —que es justo cuando un apagón completo pasaría por "sin novedades"—.
-    consultadas = stats.get("fuentes_consultadas", 0)
-    if consultadas and not stats.get("fuentes_ok", 0):
-        return (
-            "⚠️ <b>El radar quedó ciego</b>\n\n"
-            f"Ninguna de las {consultadas} fuentes entregó nada. "
-            "Cuando fallan todas a la vez no es falta de inventario: es la "
-            "corrida.\n\nRevisa logs/ultima-corrida.md"
-        )
-
-    # Cortar por tiempo no es un error, pero sí hay que decirlo: significa
-    # que el radar miró una parte del mercado y no todo, y el usuario no
-    # tiene cómo saberlo si no se lo dicen.
-    pendientes = stats.get("corte_por_tiempo") or []
-    if len(pendientes) >= 5:
-        return (
-            "⏱ <b>La corrida se cortó por tiempo</b>\n\n"
-            f"Quedaron {len(pendientes)} fuentes sin revisar, así que esta "
-            "vez el radar miró solo una parte del mercado.\n\n"
-            "Se cortó a propósito, para alcanzar a avisar lo encontrado antes "
-            "de que GitHub Actions matara el job.\n\n"
-            "Revisa logs/ultima-corrida.md: si se repite, hay una fuente "
-            "colgándose."
-        )
-
-    caidas = stats.get("fuentes_caidas") or []
-    if caidas:
-        lista = "\n".join(f"· {_escapar(str(c))}" for c in caidas[:8])
-        return (
-            "⚠️ <b>Fuentes que dejaron de entregar</b>\n\n"
-            f"{lista}\n\n"
-            "Venían trayendo avisos y hoy no trajeron ninguno. Puede ser que "
-            "no haya inventario nuevo, o que el sitio haya cambiado."
-        )
-    return ""
-
-
-def mensaje_bajas(bajas: list[dict]) -> str:
-    """"Se arrendó": el cierre del ciclo de un aviso que se mandó.
-
-    Solo para los que se AVISARON: de los demás nadie está esperando noticias.
-    Y en un solo mensaje, no uno por departamento — la noticia de que algo ya
-    no está disponible no amerita interrumpir tres veces.
-
-    El dato que lo hace útil es "estuvo N días publicado": con unas cuantas de
-    estas se aprende a qué velocidad se mueve el rango que se busca, que es lo
-    que dice cuánto se puede esperar antes de decidir.
-    """
-    if not bajas:
-        return ""
-    L = ["📤 <b>Se fueron del mercado</b>", ""]
-    for b in bajas[:6]:
-        linea = f"· {_escapar(str(b.get('direccion') or '—')[:52])}"
-        if b.get("clp"):
-            linea += f" — {_pesos(b['clp'])}"
-        if b.get("dias"):
-            linea += f" · {b['dias']} días publicado"
-        L.append(linea)
-    if len(bajas) > 6:
-        L.append(f"· y {len(bajas) - 6} más")
-    L.append("")
-    L.append("<i>Dejaron de aparecer en todos los portales: lo más probable "
-             "es que se hayan arrendado.</i>")
-    return "\n".join(L)
-
-
-def mensaje_sobrantes(avisos: list) -> str:
-    """Un aviso corto de que hay más, con el link a la lista completa.
-
-    Sin esto, el tope de avisos por corrida era un recorte SILENCIOSO. La
-    primera versión era un índice de una línea por departamento, y el usuario
-    la retiró con razón (18-08): "no tienen nada de info — prefiero un 'para
-    más avisos haz click acá' que me lleve a la lista completa". Diez líneas
-    truncadas a 40 caracteres no dejaban decidir nada; la lista completa —el
-    tablero, con todas las columnas y ordenada— sí.
-    """
-    if not avisos:
-        return ""
-    mejor = max((a.score for a in avisos), default=0)
-    L = [f"📋 <b>Además calificaron {len(avisos)} más</b> "
-         f"(el mejor con ⭐{mejor})."]
-    if (tablero := _url_tablero()):
-        L.append(f'👉 <a href="{_escapar(tablero)}">Ver la lista completa</a>')
-    if (panel := _url_panel()):
-        L.append(f'📊 <a href="{_escapar(panel)}">O en el panel</a>, '
-                 "con mapa y filtros")
-    L.append("<i>Quedan en el tablero; avisan con mensaje propio "
-             "solo si cambian.</i>")
-    return "\n".join(L)
-
-
-def _url_tablero() -> str:
-    """El tablero en GitHub, que se renderiza en la app y el navegador."""
-    repo = os.environ.get("GITHUB_REPOSITORY", "")
-    rama = os.environ.get("GITHUB_REF_NAME", "") or "main"
-    if not repo:
-        return ""
-    return f"https://github.com/{repo}/blob/{rama}/alertas/README.md"
-
-
 def _volvio(a: Any) -> str:
     """"Ya estuvo publicado", en una línea, si el historial lo vio antes.
 
@@ -808,28 +622,3 @@ def _volvio(a: Any) -> str:
         pct = round(100 * (nuevo - viejo) / viejo)
         texto += f", a {_pesos(viejo)} ({pct:+d}%)"
     return texto
-
-
-def _latido(stats: dict) -> str:
-    """El "sigo acá" semanal, con los números que lo hacen creíble."""
-    # El movimiento del mercado va en el latido porque es lo único que
-    # distingue "el radar funciona y no hay nada" de "el radar funciona y hay
-    # harto, pero nada te sirve". Sin esta línea, una semana con 14
-    # departamentos nuevos que no calificaron se lee igual que una semana
-    # muerta, y son dos situaciones que piden decisiones opuestas: la primera
-    # dice que hay que revisar el presupuesto, la segunda que hay que esperar.
-    movimiento = ""
-    if stats.get("nuevos") or stats.get("se_fueron"):
-        movimiento = (f"En el mercado: {stats.get('nuevos', 0)} nuevos, "
-                      f"{stats.get('se_fueron', 0)} se dejaron de publicar\n")
-
-    return (
-        "🔎 <b>Sin novedades</b>\n\n"
-        f"Avisos revisados: {stats.get('total', 0)}\n"
-        f"Pasaron los filtros: {stats.get('candidatos', 0)}\n"
-        f"Fuentes entregando: {stats.get('fuentes_ok', 0)}\n"
-        f"{movimiento}\n"
-        "Ningún departamento nuevo desde el último aviso. El radar corre dos "
-        f"veces al día; este resumen sale cada {DIAS_ENTRE_LATIDOS} días si "
-        "no hay nada que mostrar."
-    )

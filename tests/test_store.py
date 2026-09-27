@@ -156,102 +156,21 @@ def test_un_estado_corrupto_no_voltea_la_corrida(tmp_path):
 
 
 # ---------------------------------------------------------------------------
-# La baja de canon — la señal del mercado de arriendo
+# El precio con el que se avisó — ya no dispara, pero se guarda
 # ---------------------------------------------------------------------------
 
-@pytest.fixture
-def perfil_reaviso():
-    return {"alertas": {"reavisar": {"baja_precio_pct": 4,
-                                     "dias_publicado_aviso": 45}}}
-
-
-def test_la_baja_de_canon_vuelve_a_avisar(store, perfil_reaviso):
+def test_se_recuerda_el_canon_con_el_que_se_aviso(store):
+    """Desde el 27-09 el canal manda publicaciones nuevas y nada más: una
+    baja de canon ya NO vuelve a sonar. Pero el número se sigue guardando,
+    porque es contra el precio que el usuario efectivamente vio —y no contra
+    el de la corrida anterior— que la ficha y el dashboard miden la baja.
+    """
     store.registrar(aviso(arriendo_clp=1_600_000), avisado=True)
-    motivo = store.cambio_relevante(aviso(arriendo_clp=1_450_000), perfil_reaviso)
-    assert "Bajó" in motivo
-    assert "9%" in motivo
+    store.registrar(aviso(arriendo_clp=1_450_000))
 
-
-def test_una_baja_minima_no_molesta(store, perfil_reaviso):
-    """Un 1% es redondeo del portal, no una negociación."""
-    store.registrar(aviso(arriendo_clp=1_600_000), avisado=True)
-    assert store.cambio_relevante(aviso(arriendo_clp=1_585_000),
-                                  perfil_reaviso) == ""
-
-
-def test_una_subida_no_avisa(store, perfil_reaviso):
-    store.registrar(aviso(arriendo_clp=1_500_000), avisado=True)
-    assert store.cambio_relevante(aviso(arriendo_clp=1_600_000),
-                                  perfil_reaviso) == ""
-
-
-def test_lleva_mucho_publicado_avisa_una_sola_vez(store, perfil_reaviso):
-    viejo = aviso(publicado_el=date.today() - timedelta(days=60))
-    store.registrar(viejo, avisado=True)
-
-    motivo = store.cambio_relevante(viejo, perfil_reaviso)
-    assert "60 días publicado" in motivo
-
-    # Al registrarlo con ese motivo queda marcado y no se repite.
-    store.registrar(viejo, avisado=True, motivo=motivo)
-    assert store.cambio_relevante(viejo, perfil_reaviso) == ""
-
-
-# ---------------------------------------------------------------------------
-# Aprender entre corridas
-# ---------------------------------------------------------------------------
-
-def test_hereda_lo_que_costo_averiguar(store):
-    """Si TocToc publicó la superficie y Yapo no, no hay que volver a buscarla."""
-    store.registrar(aviso(source="toctoc", m2_totales=134.0,
-                          antiguedad_anos=8, lat=-33.38, lon=-70.56))
-
-    flaco = aviso(source="yapo", url="https://yapo.cl/9",
-                  m2_totales=None, antiguedad_anos=None)
-    recuperados = store.completar(flaco)
-
-    assert flaco.m2_totales == 134.0
-    assert flaco.antiguedad_anos == 8
-    assert flaco.lat == -33.38
-    assert set(recuperados) >= {"m2_totales", "antiguedad_anos", "lat"}
-
-
-def test_nunca_pisa_un_dato_fresco(store):
-    store.registrar(aviso(m2_totales=134.0))
-    fresco = aviso(m2_totales=140.0)
-    store.completar(fresco)
-    assert fresco.m2_totales == 140.0
-
-
-def test_el_precio_no_se_hereda(store):
-    """Heredarlo escondería la baja de canon, que es la señal que interesa."""
-    store.registrar(aviso(arriendo_clp=1_600_000))
-    sin_precio = aviso(arriendo_clp=None)
-    store.completar(sin_precio)
-    assert sin_precio.arriendo_clp is None
-
-
-def test_cruza_por_direccion_cuando_el_fingerprint_no_alcanza(store):
-    """Un portal publica la unidad y otro no: caen en fingerprints distintos."""
-    store.registrar(aviso(source="toctoc", m2_totales=134.0))
-
-    con_unidad = aviso(source="yapo", url="https://yapo.cl/9",
-                       extras={"unidad": "802"}, m2_totales=None)
-    assert con_unidad.fingerprint != aviso().fingerprint
-    store.completar(con_unidad)
-    assert con_unidad.m2_totales == 134.0
-
-
-def test_no_hereda_cuando_hay_ambiguedad(store):
-    """Dos unidades del mismo edificio: heredar le pegaría los datos de otra."""
-    store.registrar(aviso(source="a", url="https://a.cl/1",
-                          extras={"unidad": "802"}, m2_totales=134.0))
-    store.registrar(aviso(source="b", url="https://b.cl/2",
-                          extras={"unidad": "1204"}, m2_totales=180.0))
-
-    tercero = aviso(source="c", url="https://c.cl/3", m2_totales=None)
-    store.completar(tercero)
-    assert tercero.m2_totales is None
+    entrada = store.indice[aviso().fingerprint]
+    assert entrada["precio_al_avisar"] == 1_600_000
+    assert entrada["arriendo_clp"] == 1_450_000
 
 
 # ---------------------------------------------------------------------------
@@ -264,27 +183,6 @@ def test_purga_lo_viejo(store):
     store.indice[fp]["ultima_vez"] = "2020-01-01T00:00:00"
     assert store.purgar(dias=120) == 1
     assert fp not in store.indice
-
-
-def test_la_baja_se_mide_contra_el_precio_avisado(store, perfil_reaviso):
-    """Una baja gradual tiene que acumularse.
-
-    Un canon que baja 2% por corrida durante tres corridas cayó 6% en total y
-    nunca dispararía un umbral del 4% comparando contra la corrida anterior:
-    cada paso individual se queda corto. Contra el precio con el que se avisó,
-    la baja se acumula y se detecta.
-    """
-    store.registrar(aviso(arriendo_clp=1_600_000), avisado=True)
-
-    # Dos corridas de bajas chicas: ninguna sola alcanza el umbral.
-    for precio in (1_570_000, 1_540_000):
-        motivo = store.cambio_relevante(aviso(arriendo_clp=precio), perfil_reaviso)
-        store.registrar(aviso(arriendo_clp=precio), avisado=bool(motivo))
-
-    # Acumuladas son 6,25%, y eso sí se avisa.
-    motivo = store.cambio_relevante(aviso(arriendo_clp=1_500_000), perfil_reaviso)
-    assert "Bajó" in motivo
-    assert "1.600.000" in motivo, "la baja se mide desde el precio que el usuario vio"
 
 
 # ---------------------------------------------------------------------------

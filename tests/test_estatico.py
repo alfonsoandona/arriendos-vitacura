@@ -40,3 +40,56 @@ def test_el_codigo_no_acumula_pelusa():
     pyflakes que nadie lee, y ahí es donde se escondió el NameError."""
     ruido = _pyflakes()
     assert not ruido, "pyflakes tiene algo que decir:\n" + "\n".join(ruido)
+
+
+def test_la_corrida_automatica_tiene_un_solo_camino_para_mandar_mensajes():
+    """El canal manda publicaciones nuevas y NADA MÁS (pedido del 27-09).
+
+    Esa promesa no se sostiene con un comentario: se sostiene si en todo el
+    paquete hay un único punto que interrumpe al usuario sin que él lo haya
+    pedido. Este test lo cuenta leyendo el código, que es lo que sobrevive a
+    la próxima edición del orquestador — un `telegram.enviar(...)` nuevo
+    metido en el paso 7 no rompería ningún test de comportamiento, porque
+    los tests miran lo que SÍ llega, no lo que se agregó de más.
+
+    Los dos permitidos:
+      - `alertar()`, la publicación nueva
+      - `Telegram.alertar` llamando a su propio `enviar`
+
+    `probar-aviso` no cuenta: lo dispara el usuario a mano desde Actions
+    para comprobar que el bot está vivo, y vive en su propio subcomando.
+    """
+    import re
+
+    paquete = RAIZ / "arriendo"
+    envios = []
+    for archivo in sorted(paquete.rglob("*.py")):
+        for n, linea in enumerate(archivo.read_text().splitlines(), 1):
+            if re.search(r"\.(enviar|alertar)\(", linea):
+                envios.append(f"{archivo.relative_to(RAIZ)}:{n}: {linea.strip()}")
+
+    esperados = {
+        "arriendo/cli.py": 2,            # la alerta + el probar-aviso manual
+        "arriendo/alerts/telegram.py": 1,  # alertar() -> enviar()
+    }
+    reales: dict[str, int] = {}
+    for e in envios:
+        reales[e.split(":")[0]] = reales.get(e.split(":")[0], 0) + 1
+
+    assert reales == esperados, (
+        "cambió quién puede mandar mensajes; si es a propósito, actualiza "
+        "este test Y la promesa del README:\n" + "\n".join(envios))
+
+
+def test_el_canal_no_conserva_los_mensajes_que_se_quitaron():
+    """Mientras la función exista, la próxima edición puede volver a
+    llamarla sin que nadie lo note. La forma de cumplir "nada más que
+    publicaciones nuevas" que no se deshace sola es que no haya qué llamar.
+    """
+    from arriendo.alerts import telegram
+
+    for muerto in ("mensaje_bajas", "mensaje_sobrantes", "resumen",
+                   "_latido", "_que_se_rompio", "_toca_latido",
+                   "_marcar_aviso", "DIAS_ENTRE_LATIDOS"):
+        assert not hasattr(telegram, muerto), \
+            f"{muerto} volvió: el canal puede mandar algo que no es una alerta"

@@ -174,22 +174,27 @@ completa**, que vive en este mismo repositorio y se abre desde el link.
 
 ### Cuándo NO te va a llegar nada
 
-Por diseño. Un aviso que llega dos veces al día y nunca dice nada enseña a
-ignorarlo, y entonces el que importa también se ignora.
+**Casi siempre, y es a propósito.** El canal manda un solo tipo de mensaje:
+una publicación nueva que pasó los filtros. Nada más.
 
-Hay exactamente dos excepciones:
+No llegan resúmenes, ni "sigo acá" semanales, ni avisos de que algo se rompió,
+ni despedidas de departamentos que salieron del mercado. Un canal que manda de
+todo enseña a ignorarlo, y entonces el mensaje que importa también se ignora.
 
-- **Algo se rompió.** Si ninguna fuente respondió, o si una que venía
-  entregando pasó a cero, te avisa. Un radar ciego no se puede distinguir de
-  un mercado sin novedades a menos que alguien lo diga.
-- **Pasó una semana sin ninguna alerta.** Un "sigo acá" con los números, para
-  que el silencio se pueda leer.
+Así que el silencio significa una cosa sola: **no hay publicaciones nuevas que
+cumplan tu búsqueda.** Si quieres mirar el mercado completo —lo que bajó de
+precio, lo que lleva meses publicado, lo que se fue— está todo en el dashboard
+y en el tablero, que se actualizan en cada corrida.
+
+Y si alguna vez quieres confirmar que el canal sigue vivo:
+**Actions → Probar aviso de Telegram → Run workflow.** Llega al instante.
 
 ### Cuándo te va a llegar dos veces el mismo departamento
 
-Solo cuando cambió algo que importa:
+**Nunca.** Suena una sola vez, la primera. Ni siquiera si baja de precio: esa
+baja queda marcada en el dashboard (filtro **Bajaron**) y en la ficha, con la
+tabla de precios completa.
 
-- **Bajó el canon 4% o más.** Es la mejor señal del mercado de arriendo: un
-  aviso que baja de precio lleva semanas sin arrendarse, así que sigue
-  disponible y hay margen para negociar.
-- **Cruzó los 45 días publicado.** Se avisa una sola vez, no todos los días.
+La única repetición posible no es una repetición de verdad: si el envío falla
+—Telegram caído, red— el mensaje se reintenta en la corrida siguiente, porque
+un departamento perdido en silencio es peor que un mensaje duplicado.
