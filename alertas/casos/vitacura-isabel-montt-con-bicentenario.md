@@ -1,68 +1,64 @@
-# Arriendo departamento 2hab 2ba vitacura
+# Isabel Montt con Bicentenario
 
-**76/100** · `#2HWEW` · Vitacura · sin ubicar
+**65/100** · `#UGGVE` · Vitacura · a 3,67 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Isabel+Montt+con+Bicentenario%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.641.306 |
+| Arriendo | $1.850.000 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.641.306** ⚠️ sin gastos comunes |
-| Publicado en UF | UF 40 |
+| **Costo mensual** | **$1.850.000** ⚠️ sin gastos comunes |
+| Por m² | $13.214 / m² |
 
 
 ### Cómo se movió el precio
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-15 | $1.637.383 |
-| 2026-09-17 | $1.637.710 |
-| 2026-09-18 | $1.638.036 |
-| 2026-09-18 | $1.638.363 |
-| 2026-09-19 | $1.638.690 |
-| 2026-09-20 | $1.639.016 |
-| 2026-09-21 | $1.639.343 |
-| 2026-09-22 | $1.639.670 |
-| 2026-09-23 | $1.639.997 |
-| 2026-09-24 | $1.640.324 |
-| 2026-09-25 | $1.640.651 |
-| 2026-09-26 | $1.640.978 |
-
-**subió 0% en 12 días. desde $1.637.383.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+| 2026-08-26 | $1.850.000 |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | — |
-| Superficie total | — |
-| Superficie útil | — |
-| Dormitorios | — |
-| Baños | — |
+| Tipo | departamento |
+| Superficie total | 140 m² |
+| Superficie útil | 120 m² |
+| Terraza | 20 m² |
+| Dormitorios | 3 |
+| Baños | 4 |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-08-21 |
+| Orientación | oriente |
+| Amoblado | amoblado |
+| Visto por el radar | desde el 2026-08-26 |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
+| Ubicación | 18/26 | Vitacura · a 3,7 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 15/20 | $1.641.306 · GC no publicados |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
-| Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
+| Precio | 4/20 | $1.850.000 · GC no publicados · sobre el tope de $1.700.000 |
+| Superficie | 14/16 | 140 m² totales, terraza 20 m² |
+| Programa | 12/14 | 3D · 4B |
+| _Preferencias_ | +2 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **46 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **89/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **74/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.641.306 · GC no publicados
+- Ubicación: Vitacura · a 3,7 km — fuera del anillo
+- Precio: $1.850.000 · GC no publicados · sobre el tope de $1.700.000
+- Superficie: 140 m² totales, terraza 20 m²
+- Programa: 3D · 4B
+- orientación oriente
+- 47 m² por dormitorio
+- amoblado (se prefiere sin amoblar)
 
 </details>
 
@@ -70,23 +66,22 @@
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.282.612 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.700.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Doomos](https://www.doomos.cl/de/3060819_arriendo-departamento-2hab-2ba-vitacura.html)
+- [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_8d7cfebe1062033f05e1df1296cb8647a46a8d1b)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 2HWEW
+  - codigo: UGGVE
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -99,9 +94,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-UF. 40 Arriendo Ver más Contactar
+Departamento en arriendo de 3 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `doomos` vía `tarjeta` el 27-09-2026 16:03 UTC.
+Leído de `toctoc` vía `json-ld` el 27-09-2026 16:03 UTC.
 
 </details>

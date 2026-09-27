@@ -6,10 +6,30 @@
 
 | | |
 |---|---|
-| Arriendo | $1.838.964 |
+| Arriendo | $1.846.469 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.838.964** ⚠️ sin gastos comunes |
-| Por m² | $12.352 / m² |
+| **Costo mensual** | **$1.846.469** ⚠️ sin gastos comunes |
+| Por m² | $12.402 / m² |
+
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-18 | $1.843.158 |
+| 2026-09-19 | $1.843.526 |
+| 2026-09-20 | $1.843.893 |
+| 2026-09-21 | $1.843.526 |
+| 2026-09-21 | $1.844.261 |
+| 2026-09-22 | $1.844.629 |
+| 2026-09-23 | $1.844.261 |
+| 2026-09-24 | $1.844.629 |
+| 2026-09-24 | $1.844.997 |
+| 2026-09-25 | $1.845.365 |
+| 2026-09-25 | $1.845.733 |
+| 2026-09-26 | $1.846.101 |
+
+**subió 0% en 9 días. desde $1.843.158.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -26,7 +46,7 @@
 | Antigüedad | 19 años (construido en 2007) |
 | Piso | 6 |
 | Orientación | nororiente |
-| Publicado | hace 21 días |
+| Visto por el radar | desde el 2026-08-25 |
 
 ## De dónde sale el puntaje
 
@@ -34,7 +54,7 @@
 |---|---|---|
 | Ubicación | 21/26 | Vitacura · a 2,9 km — fuera del anillo |
 | Antigüedad | 16/24 | 19 años (construido en 2007) |
-| Precio | 5/20 | $1.838.964 · GC no publicados · sobre el tope de $1.700.000 |
+| Precio | 5/20 | $1.846.469 · GC no publicados · sobre el tope de $1.700.000 |
 | Superficie | 15/16 | 148.88 m² totales, terraza 34.42 m² |
 | Programa | 13/14 | 4D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -43,7 +63,7 @@
 
 - Ubicación: Vitacura · a 2,9 km — fuera del anillo
 - Antigüedad: 19 años (construido en 2007)
-- Precio: $1.838.964 · GC no publicados · sobre el tope de $1.700.000
+- Precio: $1.846.469 · GC no publicados · sobre el tope de $1.700.000
 - Superficie: 148.88 m² totales, terraza 34.42 m²
 - Programa: 4D · 3B
 - piso 6
@@ -57,7 +77,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.677.928 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.692.938 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -85,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo 4d + 3b Gran Terraza En Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 25-08-2026 23:27 UTC.
+Leído de `toctoc` vía `json-ld` el 27-09-2026 16:04 UTC.
 
 </details>
