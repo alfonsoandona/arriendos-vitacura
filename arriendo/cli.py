@@ -880,11 +880,21 @@ def _correr(args: argparse.Namespace, perfil: dict, fuentes: list,
         gc_tipico=lambda m2: gc_tipico(previos, m2),
     )
 
+    # La ficha de TODOS los candidatos vivos, no solo la de los que van a
+    # sonar, y se escribe ANTES de mandar los mensajes: el mensaje lleva su
+    # link adentro, y mandarlo primero es garantizar un 404.
+    #
+    # Antes solo se escribía la de los que alertaban, y eso dejaba la ficha
+    # de un departamento ya avisado congelada en el precio con el que se
+    # avisó. Con el canal en "solo publicaciones nuevas" eso pasó de ser
+    # feo a ser un problema: la ficha es ahora lo ÚNICO que el usuario va a
+    # revisitar de un departamento que ya sonó —el tablero y el dashboard le
+    # enlazan ahí para ver la baja— y no puede mostrarle un precio viejo.
+    for a in candidatos:
+        escribir_ficha(a, dir_alertas() / "casos", perfil)
+
     enviados = 0
     for a in a_avisar:
-        # La ficha se escribe ANTES de mandar el mensaje: el mensaje lleva su
-        # link adentro, y mandarlo primero es garantizar un 404.
-        escribir_ficha(a, dir_alertas() / "casos", perfil)
         if (url := url_ficha(a)):
             a.extras["ficha_url"] = url
 

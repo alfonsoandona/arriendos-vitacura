@@ -971,3 +971,40 @@ def test_el_ano_se_rescata_aunque_el_texto_no_ancle():
 
     # Sin año no hay nada que rescatar.
     assert _solo_el_ano(Arriendo(source="x", url="u", title="t")) is None
+
+
+def test_la_ficha_de_un_aviso_ya_visto_se_mantiene_al_dia(entorno, mensajes,
+                                                          una_fuente,
+                                                          monkeypatch):
+    """La ficha es lo ÚNICO que el usuario revisita de un departamento que
+    ya sonó.
+
+    Con el canal en "solo publicaciones nuevas" una baja de canon ya no
+    manda mensaje: el tablero la marca y enlaza a la ficha. Si la ficha solo
+    se reescribiera al alertar —como pasaba hasta el 27-09— ese link
+    llevaría al precio con el que se avisó, y el usuario vería un número que
+    ya no existe justo en la pantalla a la que fue a mirar la baja.
+    """
+    html = ('<html><body><article><a href="/aviso/77">Departamento Espoz 2620'
+            ', 3 dormitorios, 134 m2 totales, construido en 2018, '
+            'arriendo ${}</a></article></body></html>')
+
+    def fuente(precio):
+        def barrer(f, fetcher, seguir_detalles=True, valor_uf=None, limite=None):
+            return ResultadoFuente(
+                fuente_id=f.id,
+                hallazgos=extraer(html.format(precio), f.urls[0], f), urls_ok=1)
+        return barrer
+
+    monkeypatch.setattr(registry, "barrer", fuente("1.500.000"))
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert len(mensajes) == 1
+
+    monkeypatch.setattr(registry, "barrer", fuente("1.300.000"))
+    mensajes.clear()
+    cli.correr(ArgsFalsos(fuentes=una_fuente))
+    assert mensajes == [], "la baja no interrumpe"
+
+    fichas = list((entorno / "alertas" / "casos").glob("*.md"))
+    texto = "\n".join(f.read_text(encoding="utf-8") for f in fichas)
+    assert "1.300.000" in texto, "la ficha quedó congelada en el precio viejo"
