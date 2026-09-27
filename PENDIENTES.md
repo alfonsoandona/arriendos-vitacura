@@ -1,111 +1,129 @@
 # Pendientes
 
-**Estado al 25-08-2026, tras la revisión de entrega final.** El radar corre
-solo 3 veces al día (09:00, 13:00 y 19:00 de Chile), avisa por Telegram y
-publica el dashboard. Diez corridas seguidas sin un solo error.
+**Estado al 27-09-2026.** El radar corre solo 3 veces al día, avisa por
+Telegram y publica el dashboard. Un mes de corridas sin un solo error.
 
 Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 
 ---
 
-## 📊 Dónde está parado hoy
+## 📬 Qué te llega al teléfono
+
+**Publicaciones nuevas, y nada más.** Un departamento suena una sola vez: la
+primera. No vuelve a sonar nunca — ni si baja de precio, ni si lleva meses
+publicado, ni si se va del mercado. Tampoco hay resúmenes, ni latidos
+semanales, ni avisos de que el radar se cayó.
+
+Nada de eso se dejó de medir; dejó de interrumpir:
+
+| Lo que ya no suena | Dónde se mira |
+|---|---|
+| bajas de canon | filtro **Bajaron** del dashboard, tabla de precios de la ficha |
+| días publicado | columna **Días** del tablero y del dashboard |
+| se fueron del mercado | tablero y `state/inventario.jsonl` |
+| cómo salió cada corrida | `logs/corridas/`, una por corrida, completas |
+| el radar se cayó | el job en rojo en Actions, que GitHub te notifica |
+
+El silencio significa una cosa sola: **no hay publicaciones nuevas que
+cumplan tu búsqueda.** Para confirmar que el canal sigue vivo:
+**Actions → Probar aviso de Telegram → Run workflow.**
+
+---
+
+## 📊 Dónde está parado
 
 | | |
 |---|---|
-| Corridas | 10 seguidas sin errores (21-08 a 24-08) · 5-7 min cada una |
-| Inventario | ~1.300 avisos crudos → ~460 únicos → **~40 candidatos** por corrida |
-| Fuentes | 28 activas de 45 registradas; 24 entregan avisos |
-| Tests | **705**, sin red, corren en 7 segundos |
+| Corridas | 79 en septiembre, sin errores · 5-7 min cada una |
+| Inventario | ~1.300 avisos crudos → ~500 únicos → **55 candidatos** |
+| Fuentes | 28 activas de 45 registradas |
+| Tests | **691**, sin red, corren en 8 segundos |
 
-**Cobertura de datos en los candidatos:**
-
-| Dato | Ahora | Al partir la auditoría (21-08 AM) |
-|---|---|---|
-| precio | **87%** | 41% |
-| dirección | 60% | 62% |
-| en el mapa | 58% | 41% |
-| año de construcción | **6%** ⚠️ | 12% |
-
-La dirección se ve igual y el año se ve peor, y las dos cosas son el mismo
-fenómeno: las direcciones que no ubicaban nada se BORRAN en vez de mostrarse
-("Vitacura", "Edificio de 18", "Antigüedad: 30"), y el inventario rota — los
-candidatos de hoy son avisos nuevos que llegan sin año, no los mismos de la
-semana pasada. El año es acumulativo por diseño (ver el punto 1).
+**Cobertura en los 55 candidatos:** precio 83% · dirección 63% · mapa 63% ·
+**año de construcción 14%**.
 
 ---
 
-## 🔴 MI LISTA — lo único abierto
+## 🔴 LO ÚNICO ABIERTO
 
-### 1. El año de construcción ⚠️ *el criterio SÍ O SÍ, y el dato más escaso*
+### El año de construcción — 14%, y ya no es culpa del lector
 
-**Ya no es un problema del lector** — se auditó ficha por ficha contra el
-HTML real de las cinco fuentes más grandes: toctoc y mitula lo publican
+Se auditó ficha por ficha contra el HTML real: toctoc y mitula lo publican
 rotulado y se lee bien; engelvoelkers lo escribía en prosa y se arregló;
-chilepropiedades y houm simplemente **no lo publican**. El hueco es de los
-portales.
+chilepropiedades y houm **no lo publican**. El hueco es de los portales.
 
-Lo que lo va a cerrar es **la libreta de edificios** (`state/edificios.json`).
-**Medición del 28-08**: conoce **25 edificios** (venía de 10 el lunes —
-aprende ~5 por día) pero todavía **rescata cero**: de los 45 candidatos sin
-año, 20 tienen dirección de edificio y ninguna coincide aún con las 25
-conocidas. Es lo esperable a esta edad — la libreta paga cuando un aviso
-NUEVO llega a una dirección YA aprendida, y eso es rotación de semanas.
+La apuesta para cerrarlo es **la libreta de edificios**
+(`state/edificios.json`): lo que un aviso enseña sobre una dirección le sirve
+a todos los avisos de esa dirección, para siempre.
 
-Dos cosas se hicieron con la medición: las llaves largas del extractor viejo
-se purgan solas (fragmentaban la libreta: el mismo edificio dos veces) y se
-sembró con los 14 casos históricos de `alertas/casos/` que publican año —
-los guardias botaron la basura y quedó 1 edificio nuevo legítimo.
-**Próxima medición: 04-09.** Si a esa fecha sigue en cero, el paso siguiente
-es un poblado inicial de verdad (visitar fichas de TODO el inventario, no
-solo candidatos, unas corridas).
+**Medición del 27-09 — conoce 42 edificios (venía de 10 el 25-08) y rescató
+cero.** Y el porqué vale la pena anotarlo, porque no es lo que parecía:
 
-### 2. Fuentes intermitentes — vigilar, no arreglar
+De los 47 candidatos sin año, 26 tienen dirección de edificio. Coinciden con
+la libreta **15 avisos… y los 15 son la misma dirección: Vitacura 9976**, que
+es justo la entrada anulada. Anulada con razón: entre los avisos históricos y
+los de hoy, esa dirección tiene **cuatro años distintos declarados** (2015,
+2003, 2018, 2003). No es un portal equivocándose — es que Vitacura 9976 no es
+un solo edificio. La libreta se calla, que es exactamente para lo que está esa
+regla.
 
-mitula (60 ó 0), doomos (31 ó 0), economicos (51 ó 0) y remax alternan sin
-patrón: anti-bot intermitente, no muerte. **Chequeado el 28-08**: las cuatro
-entregaron esta semana — mitula 8 de 10 corridas, doomos 9 de 10, economicos
-3 de 10, remax 3 de 10. Ninguna lleva una semana en cero, que es el umbral
-que las convertiría en otra cosa.
+O sea: el mecanismo funciona, la coincidencia existe, y le tocó la única
+dirección del barrio donde la respuesta es legítimamente "no se sabe". Lo que
+falta es que la libreta acumule más direcciones DISTINTAS, y eso es tiempo.
+
+**Próxima medición: 11-10.** Si a esa fecha sigue en cero con >60 edificios,
+la apuesta no está rindiendo y el paso siguiente es poblarla a la fuerza:
+subir el presupuesto de fichas unas corridas para visitar inventario
+completo, no solo candidatos.
 
 ---
 
-## ✅ Cerrado en la revisión final (25-08)
+## 👁 VIGILAR (no hay nada que arreglar)
 
-- **busconido CONFIRMADA**: su ruta candidata entregó 23 avisos en diez
-  corridas seguidas. Era el portal 100% de arriendo que faltaba.
-- **assetplan apagada**: el experimento de la espera extra entregó 1 aviso en
-  diez corridas, a 14-22 s de Chromium cada una, y ni ese fue candidato.
-- **La cola administrativa ya no se muestra**: "Aníbal Pinto, Region
-  Metropolitana" → "Aníbal Pinto". La primera comuna conocida cierra la
-  dirección.
-- **README al día**: 45 fuentes registradas / 28 activas (decía 41), 701
-  tests (decía 433), 3 corridas al día (decía 2).
-- **Una llave YAML duplicada** en busconido que la hacía reportarse como no
-  confirmada; los tres YAML quedaron verificados contra duplicados.
-- **Direcciones con HTML crudo**: ya no queda ninguna en el estado.
-- **El widget "Información de Mercado" de busconido fuera del tablero**:
-  entró como candidato de 87 puntos con el promedio del sector ($350.000)
-  como canon. Dos defensas: los montos "promedio/mediana" quedan rotulados
-  como estadística (no son de nadie), y /contactanos entra al filtro de
-  links que ya cubría /contacto.
-- **El link a Google Maps ya no tartamudea**: "Vitacura 9976, Vitacura,
-  Vitacura, Chile" → "Vitacura 9976, Vitacura, Chile". Eran tres armadores
-  con el mismo bug (mensaje, ficha, dashboard); ahora es uno.
-- **remax también queda `entrega_variable`** (12 ó 0, alternando).
-- **Verificación de entrega**: suite completa 3 veces (705/705 al cierre),
-  pyflakes limpio, dashboard reconstruido 3 veces desde el estado real (byte
-  a byte idéntico) y probado en Chromium — tabla, buscador, chips, mapa y el
-  popup del pin con sus cuatro links, cero errores de JavaScript.
+Cuatro fuentes alternan entre entregar y dar cero, sin patrón: es su anti-bot,
+no muerte. Están marcadas `entrega_variable` para que sus ceros no disparen
+falsas alarmas. En septiembre:
 
-## ✅ Cerrado el 21-08 (resumen)
+| Fuente | Entregó en | Última entrega |
+|---|---|---|
+| mitula | 67 de 79 corridas | hoy |
+| doomos | 60 de 79 | hoy |
+| remax | 21 de 79 | 23-09 |
+| economicos | 14 de 79 | 26-09 |
 
-toctoc recuperada (timeout tolerante) · la ficha técnica que vivía ARRIBA del
-título (precio+año de goplaceit) · "Mts" ya no es m² · el canon de doomos
-(55%→93%) · "150 m 2" con espacio (yapo) · 17 direcciones que no eran
-direcciones · la limpieza unificada en `limpiar_direccion` (extractor y
-memoria) · `es_nuevo` con la URL de red (47 falsos "nuevos" → 3) · "Vitacura,
-Metropolitana" fuera de las llaves · el paso de tests de 5 min 53 s → 15 s ·
-comunavitacura, zentagroup, trovit y nestoria apagadas con motivo medido ·
+**El umbral es una semana completa en cero.** Ninguna lo cruza. remax es la
+más floja y la que hay que mirar primero si alguna se muere de verdad.
+
+---
+
+## ✅ Cerrado el 27-09
+
+- **El canal quedó en publicaciones nuevas y nada más.** Se borraron los
+  cuatro mensajes que no lo eran (índice de sobrantes, despedidas, latido,
+  corrida caída — este último también en el workflow, que mandaba su propio
+  curl) y las dos razones de reaviso (baja de canon, días publicado).
+- **El tope por corrida pasó a ser un ritmo, no un filtro.** Antes los
+  sobrantes se registraban como vistos y su única aparición era el mensaje
+  índice; al quitar ese índice el recorte habría sido una pérdida silenciosa
+  de publicaciones nuevas. Ahora quedan como entrega pendiente y suenan en la
+  corrida siguiente.
+- **La limpieza es de verdad, no un `if` que apaga las llamadas**: 269 líneas
+  borradas entre `telegram.py` y `store.py`, más la config `reavisar` y el
+  estado `ultimo_aviso.json`. Dos guardias en `tests/test_estatico.py` — uno
+  cuenta leyendo el código que solo existan dos puntos capaces de mandar, y
+  está probado que muerde.
+- **Código muerto fuera**: el banner de reaviso de la ficha, `hoy_utc()`, y un
+  marcador histórico que era un comentario disfrazado de función invocable.
+- **Cuatro llamadores abrían `perfil["comunas"]["nucleo"]` a mano**, cada uno
+  con su propio manejo del caso vacío. Ahora usan el helper que ya existía.
+
+## ✅ Antes (resumen)
+
+toctoc recuperada · la ficha técnica que vivía ARRIBA del título · "Mts" ya no
+es m² · el canon de doomos (55%→93%) · 17 direcciones que no eran direcciones
+· la limpieza unificada en `limpiar_direccion` · `es_nuevo` con la URL de red
+· el paso de tests de 5 min 53 s → 15 s · busconido confirmada · assetplan,
+comunavitacura, zentagroup, trovit y nestoria apagadas con su motivo medido ·
 libreta de edificios en producción.
 
 ---
@@ -114,16 +132,14 @@ libreta de edificios en producción.
 
 ### Paso 1 · Estrenar la gestión (2 min)
 
-Escríbeme una frase con cualquier aviso que mires:
-
 ```
 "descarta el #FX6GA, ya se arrendó"
 "llamé por el #BB6M4, visita el jueves"
 "el #VQ3SD en realidad son 95 m²"
 ```
 
-Un `descartado` no vuelve a sonar nunca; los contactados salen marcados
-📞📅 en tabla y mapa; y lo que corrijas **pisa** al aviso y lo re-puntúa.
+Un `descartado` no vuelve a sonar nunca; lo que corrijas **pisa** al aviso y
+lo re-puntúa.
 
 ### Paso 2 · URLs de corredoras (2 min c/u)
 
