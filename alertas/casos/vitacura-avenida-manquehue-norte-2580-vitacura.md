@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.805.436 |
+| Arriendo | $1.805.796 |
 | Gastos comunes | $316.000 (17,5% del canon) |
-| **Costo mensual** | **$2.121.436** |
-| Por m² | $95.023 / m² |
+| **Costo mensual** | **$2.121.796** |
+| Por m² | $95.042 / m² |
 
 
 ### Cómo se movió el precio
@@ -32,7 +32,7 @@
 | Antigüedad | — |
 | Piso | 1 |
 | Orientación | norte |
-| Publicado | hace 6 días |
+| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-08-24 |
 
 ## De dónde sale el puntaje
@@ -41,7 +41,7 @@
 |---|---|---|
 | Ubicación | 24/26 | Vitacura · a 1,7 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 6/20 | $1.805.436 · GC $316.000 · 17.5% del canon · sobre el tope de $1.700.000 |
+| Precio | 6/20 | $1.805.796 · GC $316.000 · 17.5% del canon · sobre el tope de $1.700.000 |
 | Superficie | 5/16 | 19 m² útiles (total no publicada) |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +1 | desempate entre las que ya calificaron |
@@ -53,7 +53,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 1,7 km — fuera del anillo
-- Precio: $1.805.436 · GC $316.000 · 17.5% del canon · sobre el tope de $1.700.000
+- Precio: $1.805.796 · GC $316.000 · 17.5% del canon · sobre el tope de $1.700.000
 - Superficie: 19 m² útiles (total no publicada)
 - Programa: 3D · 3B
 - primer piso
@@ -68,7 +68,7 @@
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.610.872 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.611.592 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -96,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Depto con el privilegio de un jardín solo para ti!  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 18:58 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
 
 </details>

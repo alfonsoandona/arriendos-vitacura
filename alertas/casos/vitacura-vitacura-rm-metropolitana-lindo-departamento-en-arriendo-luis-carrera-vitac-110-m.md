@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-27 | $1.568.886 |
+| 2026-09-28 | $1.559.551 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-28 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Lindo departamento en arriendo. luis carrera,vitac... 110 Mt2 2 2 $ 1.559.551
 ```
 
-Leído de `busconido` vía `tarjeta` el 28-09-2026 18:58 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 22:19 UTC.
 
 </details>

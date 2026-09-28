@@ -6,17 +6,16 @@
 
 | | |
 |---|---|
-| Arriendo | $1.477.175 |
+| Arriendo | $1.477.470 |
 | Gastos comunes | $400.000 (27,1% del canon) |
-| **Costo mensual** | **$1.877.175** |
-| Por m² | $10.551 / m² |
+| **Costo mensual** | **$1.877.470** |
+| Por m² | $10.553 / m² |
 
 
 ### Cómo se movió el precio
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-17 | $1.473.939 |
 | 2026-09-17 | $1.473.939 |
 | 2026-09-17 | $1.474.232 |
 | 2026-09-18 | $1.474.527 |
@@ -28,6 +27,7 @@
 | 2026-09-25 | $1.476.292 |
 | 2026-09-26 | $1.476.586 |
 | 2026-09-26 | $1.476.881 |
+| 2026-09-28 | $1.477.175 |
 
 **subió 0% en 11 días. desde $1.473.939.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
@@ -54,7 +54,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.477.175 · GC $400.000 · 27.1% del canon — altos |
+| Precio | 13/20 | $1.477.470 · GC $400.000 · 27.1% del canon — altos |
 | Superficie | 14/16 | 140 m² totales, terraza 140 m² |
 | Programa | 13/14 | 4D · 4B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -66,7 +66,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.477.175 · GC $400.000 · 27.1% del canon — altos
+- Precio: $1.477.470 · GC $400.000 · 27.1% del canon — altos
 - Superficie: 140 m² totales, terraza 140 m²
 - Programa: 4D · 4B
 - orientación nororiente
@@ -80,7 +80,7 @@
 
 - [ ] **Los gastos comunes son altos** (27,1% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.954.350 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.954.940 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -88,7 +88,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_ac8626fbaf17f6797538373e1135be54043ecbc1)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=14&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=c0976ede-0aad-4ef8-9b51-ac47dc1a657c&t_pvid=c0976ede-0aad-4ef8-9b51-ac47dc1a657c&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.165.62.81&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=14&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=29c4a330-c06e-422f-b86d-613217f8d846&t_pvid=29c4a330-c06e-422f-b86d-613217f8d846&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=158.23.27.7&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 01:27 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
 
 </details>

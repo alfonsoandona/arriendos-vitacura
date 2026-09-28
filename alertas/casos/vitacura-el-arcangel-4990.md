@@ -46,6 +46,7 @@
 | Antigüedad | 19 años (construido en 2007) |
 | Piso | 6 |
 | Orientación | nororiente |
+| Publicado | hace 60 días |
 | Visto por el radar | desde el 2026-08-25 |
 
 ## De dónde sale el puntaje
@@ -71,6 +72,7 @@
 - 37 m² por dormitorio
 - 3 estacionamientos
 - con bodega
+- publicado hace 60 días — se negocia
 
 </details>
 
@@ -80,6 +82,7 @@
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.692.938 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
+- [ ] **Lleva 60 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
@@ -105,6 +108,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo 4d + 3b Gran Terraza En Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 01:27 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
 
 </details>

@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Hermoso Y Amplio Departamento Sector Vitacura Norte  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 18:59 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
 
 </details>

@@ -45,7 +45,7 @@
 | Antigüedad | — |
 | Piso | 1 |
 | Mascotas | no acepta |
-| Publicado | hace 6 días |
+| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-12 |
 
 ## De dónde sale el puntaje
@@ -106,6 +106,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 4 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 01:27 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
 
 </details>

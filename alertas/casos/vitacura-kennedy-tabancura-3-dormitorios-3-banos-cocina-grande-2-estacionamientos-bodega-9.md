@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-02 | $1.062.787 |
 | 2026-09-04 | $1.062.855 |
 | 2026-09-07 | $1.062.958 |
 | 2026-09-09 | $1.062.992 |
@@ -28,8 +27,9 @@
 | 2026-09-23 | $1.065.998 |
 | 2026-09-26 | $1.066.423 |
 | 2026-09-26 | $1.066.636 |
+| 2026-09-28 | $1.067.061 |
 
-**subió 0% en 26 días. desde $1.062.787.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 24 días. desde $1.062.855.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -105,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 Región: Metropolitana de Santiago Publicado el: 2025-01-25 00:16:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 28-09-2026 18:58 UTC.
+Leído de `economicos` vía `tarjeta` el 28-09-2026 22:19 UTC.
 
 </details>

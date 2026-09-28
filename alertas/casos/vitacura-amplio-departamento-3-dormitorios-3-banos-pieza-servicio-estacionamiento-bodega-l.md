@@ -84,6 +84,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 14.000 Amplio departamento, 3 dormitorios, 3 baños, pieza servicio, estacionamiento, bodega. Lado Club de Golf Sport Francés, Vitacura. Cel: 995472638 UF 14.000 Amplio departamento, 3 dormitorios, 3 baños, pieza servicio, estacionamiento, bodega. Lado Club de Golf Sport Francés, Vitacura. Cel: 995472638 Región: Metropolitana de Santiago Publicado el: 2025-02-14 00:0:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 28-09-2026 18:58 UTC.
+Leído de `economicos` vía `tarjeta` el 28-09-2026 22:19 UTC.
 
 </details>

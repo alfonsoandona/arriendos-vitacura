@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-27 | $1.651.459 |
+| 2026-09-28 | $1.641.633 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-28 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.641.633
 ```
 
-Leído de `busconido` vía `tarjeta` el 28-09-2026 18:58 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 22:19 UTC.
 
 </details>

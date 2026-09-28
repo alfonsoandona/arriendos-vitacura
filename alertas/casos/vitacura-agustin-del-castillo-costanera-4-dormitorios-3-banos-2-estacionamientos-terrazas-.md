@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 1.500.000 Agustín del Castillo - Costanera. 4 dormitorios, 3 baños, 2 estacionamientos, terrazas. 977976786 1.500.000 Agustín del Castillo - Costanera. 4 dormitorios, 3 baños, 2 estacionamientos, terrazas. 977976786 Región: Metropolitana de Santiago Publicado el: 2025-08-30 00:02:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 28-09-2026 18:58 UTC.
+Leído de `economicos` vía `tarjeta` el 28-09-2026 22:19 UTC.
 
 </details>
