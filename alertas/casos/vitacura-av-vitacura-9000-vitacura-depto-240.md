@@ -1,6 +1,6 @@
 # AV VITACURA 9000, Vitacura
 
-**76/100** · `#K97ES` · Vitacura · sin ubicar · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=AV+VITACURA+9000%2C+Vitacura%2C+Vitacura%2C+Chile)
+**76/100** · `#K97ES` · Vitacura · sin ubicar · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=AV+VITACURA+9000%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -86,6 +86,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 EXCLUSIVO DEPARTAMENTO 240 METROS PISO ALTO EXCLUSIVO DEPARTAMENTO ANTIGUO 240 METROS ,PISO ALTO NOR ORIENTE .HALL ENTRADA, BAÑO DE VISITA, COCINA CON COMEDOR DE DIARIO (BASURERO ) INTERIOR PIEZA DE SERVICIO BAÑO. 3 DORMITORIO 2 BAÑOS UNO EN SUITE GRAN LIVING Y COMEDOR YSALA DE JUEGO , TERRAZA PRECIOSO . CANCHA DE TENIS Y FOTBOOL ,JU Región: Metropolitana de Santiago Publicado el: 2025-02-03 15:59:43
 ```
 
-Leído de `economicos` vía `tarjeta` el 20-08-2026 23:33 UTC.
+Leído de `economicos` vía `tarjeta` el 28-09-2026 18:58 UTC.
 
 </details>

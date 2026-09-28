@@ -6,10 +6,30 @@
 
 | | |
 |---|---|
-| Arriendo | $1.062.273 |
+| Arriendo | $1.067.061 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.062.273** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.067.061** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 26 |
+
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-02 | $1.062.787 |
+| 2026-09-04 | $1.062.855 |
+| 2026-09-07 | $1.062.958 |
+| 2026-09-09 | $1.062.992 |
+| 2026-09-11 | $1.063.238 |
+| 2026-09-12 | $1.063.663 |
+| 2026-09-15 | $1.064.299 |
+| 2026-09-18 | $1.064.936 |
+| 2026-09-21 | $1.065.361 |
+| 2026-09-23 | $1.065.998 |
+| 2026-09-26 | $1.066.423 |
+| 2026-09-26 | $1.066.636 |
+
+**subió 0% en 26 días. desde $1.062.787.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -23,6 +43,7 @@
 | Estacionamientos | 2 |
 | Bodega | sí |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
 
@@ -30,7 +51,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 19/20 | $1.062.273 · GC no publicados |
+| Precio | 19/20 | $1.067.061 · GC no publicados |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +3 | desempate entre las que ya calificaron |
@@ -42,7 +63,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.062.273 · GC no publicados
+- Precio: $1.067.061 · GC no publicados
 - Programa: 3D · 3B
 - 2 estacionamientos
 - con bodega
@@ -54,7 +75,7 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.124.546 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.134.122 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -84,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 Región: Metropolitana de Santiago Publicado el: 2025-01-25 00:16:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 18-08-2026 13:47 UTC.
+Leído de `economicos` vía `tarjeta` el 28-09-2026 18:58 UTC.
 
 </details>

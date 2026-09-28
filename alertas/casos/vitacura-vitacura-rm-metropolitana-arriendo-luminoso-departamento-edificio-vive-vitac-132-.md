@@ -1,15 +1,15 @@
-# Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.651.459
+# Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.641.633
 
-**79/100** · `#98N9T` · Vitacura · sin ubicar
+**79/100** · `#FYAVK` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.651.459 |
+| Arriendo | $1.641.633 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.651.459** ⚠️ sin gastos comunes |
-| Por m² | $12.511 / m² |
+| **Costo mensual** | **$1.641.633** ⚠️ sin gastos comunes |
+| Por m² | $12.437 / m² |
 
 
 ### Cómo se movió el precio
@@ -30,7 +30,6 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
 
@@ -38,7 +37,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 15/20 | $1.651.459 · GC no publicados |
+| Precio | 15/20 | $1.641.633 · GC no publicados |
 | Superficie | 14/16 | 132 m² útiles (total no publicada) |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
@@ -49,7 +48,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.651.459 · GC no publicados
+- Precio: $1.641.633 · GC no publicados
 - Superficie: 132 m² útiles (total no publicada)
 
 </details>
@@ -60,7 +59,7 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.302.918 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.283.266 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -74,7 +73,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 98N9T
+  - codigo: FYAVK
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -87,9 +86,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.651.459
+Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.641.633
 ```
 
-Leído de `busconido` vía `tarjeta` el 28-09-2026 01:27 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 18:58 UTC.
 
 </details>

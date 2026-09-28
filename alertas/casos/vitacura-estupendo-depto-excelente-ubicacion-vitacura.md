@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.723.371 |
+| Arriendo | $1.723.714 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.723.371** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.723.714** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 42 |
 
 
@@ -51,7 +51,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.723.371 · GC no publicados · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.723.714 · GC no publicados · sobre el tope de $1.700.000 |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
@@ -62,7 +62,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.723.371 · GC no publicados · sobre el tope de $1.700.000
+- Precio: $1.723.714 · GC no publicados · sobre el tope de $1.700.000
 
 </details>
 
@@ -72,7 +72,7 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.446.742 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.447.428 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -102,6 +102,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF. 42 Arriendo Ver más Contactar
 ```
 
-Leído de `doomos` vía `tarjeta` el 28-09-2026 01:27 UTC.
+Leído de `doomos` vía `tarjeta` el 28-09-2026 18:58 UTC.
 
 </details>

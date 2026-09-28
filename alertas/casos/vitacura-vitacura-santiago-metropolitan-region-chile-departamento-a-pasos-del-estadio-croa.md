@@ -1,31 +1,16 @@
-# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,362 2 Bedrooms 2 Bathrooms 
+# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,385 2 Bedrooms 2 Bathrooms 
 
-**90/100** · `#PTGDV` · Vitacura · sin ubicar
+**90/100** · `#3KH73` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.559.240 |
+| Arriendo | $1.559.551 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.559.240** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.559.551** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 38 |
-| Por m² | $4.331 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-09-21 | $1.557.376 |
-| 2026-09-22 | $1.557.686 |
-| 2026-09-23 | $1.557.997 |
-| 2026-09-24 | $1.558.308 |
-| 2026-09-25 | $1.558.619 |
-| 2026-09-26 | $1.558.929 |
-| 2026-09-27 | $1.559.240 |
-
-**subió 0% en 7 días. desde $1.557.376.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+| Por m² | $4.332 / m² |
 
 ## Qué es
 
@@ -42,7 +27,6 @@
 | Antigüedad | 5 años (construido en 2021) |
 | Piso | 2 |
 | Orientación | norte |
-| Visto por el radar | desde el 2026-09-21 |
 
 ## De dónde sale el puntaje
 
@@ -50,7 +34,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | 22/24 | 5 años (construido en 2021) |
-| Precio | 16/20 | $1.559.240 · GC no publicados |
+| Precio | 16/20 | $1.559.551 · GC no publicados |
 | Superficie | 16/16 | 360 m² totales, terraza 220 m² |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -59,7 +43,7 @@
 
 - Ubicación: Vitacura, sin ubicar en el mapa
 - Antigüedad: 5 años (construido en 2021)
-- Precio: $1.559.240 · GC no publicados
+- Precio: $1.559.551 · GC no publicados
 - Superficie: 360 m² totales, terraza 220 m²
 - Programa: 3D · 2B
 - orientación norte
@@ -72,7 +56,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.118.480 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.119.102 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -86,7 +70,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: PTGDV
+  - codigo: 3KH73
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # nota: "lo que te dijeron"
@@ -97,9 +81,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,362 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
+Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,385 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 28-09-2026 01:28 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 28-09-2026 18:59 UTC.
 
 </details>

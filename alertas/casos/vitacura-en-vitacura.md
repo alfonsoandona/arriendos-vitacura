@@ -81,6 +81,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 en VITACURA  Vitacura
 ```
 
-Leído de `goplaceit` vía `json-ld` el 28-09-2026 01:27 UTC.
+Leído de `goplaceit` vía `json-ld` el 28-09-2026 18:58 UTC.
 
 </details>

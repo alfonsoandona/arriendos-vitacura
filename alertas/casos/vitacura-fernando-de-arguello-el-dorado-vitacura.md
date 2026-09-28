@@ -71,7 +71,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7e95-2bf0a040325e-8976-1a0c76b-184e)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=18&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=847cec7c-de28-405e-a13a-9a69c5e39bea&t_pvid=847cec7c-de28-405e-a13a-9a69c5e39bea&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.167.148&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=20&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=c235f48e-c176-406b-bd08-268514cd9a24&t_pvid=c235f48e-c176-406b-bd08-268514cd9a24&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=130.131.202.3&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -126,6 +126,6 @@ Incluye:
 Gastos Comunes: $290.000.-. EasyBroker ID: EB-XB1092 Fernando de Argüello, El Dorado, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 27-09-2026 16:03 UTC.
+Leído de `mitula` vía `json-ld` el 28-09-2026 18:59 UTC.
 
 </details>
