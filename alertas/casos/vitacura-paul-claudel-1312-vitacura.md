@@ -66,7 +66,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-3e9b-1a0e30e-bd4c-4f30fb45531b-7a22?click_type=0&pos=4&searchType=1&page=1&section=1&t_sec=1&sectionType=1&pageViewId=d83899de-a905-43b0-ac18-afaaed514e2f&t_pvid=d83899de-a905-43b0-ac18-afaaed514e2f&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.159.245.153&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-3e9b-1a0e30e-bd4c-4f30fb45531b-7a22?click_type=0&pos=4&searchType=1&page=1&section=1&t_sec=1&sectionType=1&pageViewId=2c307f80-ceaa-45ae-88f3-ee1dc4f6abea&t_pvid=2c307f80-ceaa-45ae-88f3-ee1dc4f6abea&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.165.62.81&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -107,6 +107,6 @@ III. Ubicación y Entorno:
 Uicación extraordinaria, de las mejores en Santiago. A dos minutos caminando de la futura Estación Vitacura de la L7 del Metro de Santiago. y de Av. Nueva Costanera. Inmediata al Parque Bicentenario (5 min caminando). Muy cerca de
 ```
 
-Leído de `nuroa` vía `json-ld` el 27-09-2026 19:55 UTC.
+Leído de `nuroa` vía `json-ld` el 28-09-2026 01:27 UTC.
 
 </details>

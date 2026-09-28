@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo luminoso departamento edificio vive vitac... 132 Mt2 4 3 $ 1.651.459
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 01:27 UTC.
 
 </details>

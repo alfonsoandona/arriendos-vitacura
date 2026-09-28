@@ -96,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Depto con el privilegio de un jardín solo para ti!  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 27-09-2026 19:55 UTC.
+Leído de `toctoc` vía `json-ld` el 28-09-2026 01:27 UTC.
 
 </details>

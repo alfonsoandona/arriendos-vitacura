@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo amplio departamento las nieves 3d/3b 120 Mt2 3 3 $ 1.527.599
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 01:27 UTC.
 
 </details>

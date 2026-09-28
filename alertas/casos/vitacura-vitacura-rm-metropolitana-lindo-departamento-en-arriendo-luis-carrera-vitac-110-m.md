@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Lindo departamento en arriendo. luis carrera,vitac... 110 Mt2 2 2 $ 1.568.886
 ```
 
-Leído de `busconido` vía `tarjeta` el 27-09-2026 19:55 UTC.
+Leído de `busconido` vía `tarjeta` el 28-09-2026 01:27 UTC.
 
 </details>
