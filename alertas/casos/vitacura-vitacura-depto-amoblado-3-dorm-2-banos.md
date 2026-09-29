@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura depto. amoblado 3 dorm. 2 baños...
 ```
 
-Leído de `doomos` vía `tarjeta` el 29-09-2026 17:18 UTC.
+Leído de `doomos` vía `tarjeta` el 29-09-2026 21:07 UTC.
 
 </details>

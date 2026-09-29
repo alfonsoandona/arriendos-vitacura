@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.559.551** ⚠️ sin gastos comunes |
 | Por m² | $11.552 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-29 | $1.559.551 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-29 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Amplio depto vitacura uf 38 135 Mt2 3 3 $ 1.559.551
 ```
 
-Leído de `busconido` vía `tarjeta` el 29-09-2026 17:18 UTC.
+Leído de `busconido` vía `tarjeta` el 29-09-2026 21:07 UTC.
 
 </details>

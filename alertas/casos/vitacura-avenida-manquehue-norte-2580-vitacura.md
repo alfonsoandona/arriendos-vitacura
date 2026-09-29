@@ -67,7 +67,8 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=24&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=ab1095dc-b5e7-4c4e-92d7-c3414090f50f&t_pvid=ab1095dc-b5e7-4c4e-92d7-c3414090f50f&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.176.37.68&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=24&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=f227b4fe-6e3e-4365-8ef4-e40c2160b30b&t_pvid=f227b4fe-6e3e-4365-8ef4-e40c2160b30b&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=134.33.78.210&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=1&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=4b19d47e-ad57-4c19-9fce-04b9d497133d&t_pvid=4b19d47e-ad57-4c19-9fce-04b9d497133d&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=134.33.78.210&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +114,6 @@ Gastos comunes aprox. $350.000
 
 ```
 
-Leído de `nuroa` vía `json-ld` el 29-09-2026 17:18 UTC.
+Leído de `nuroa` vía `json-ld` el 29-09-2026 21:07 UTC.
 
 </details>

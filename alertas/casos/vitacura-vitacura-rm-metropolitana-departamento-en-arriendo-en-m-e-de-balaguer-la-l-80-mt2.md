@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en m e de balaguer / la l... 80 Mt2 3 2 $ 1.600.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 29-09-2026 17:18 UTC.
+Leído de `busconido` vía `tarjeta` el 29-09-2026 21:07 UTC.
 
 </details>
