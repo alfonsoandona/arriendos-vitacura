@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,385 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 28-09-2026 22:20 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 29-09-2026 02:31 UTC.
 
 </details>

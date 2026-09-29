@@ -20,8 +20,9 @@
 | 2026-09-17 | $1.474.232 |
 | 2026-09-20 | $1.475.115 |
 | 2026-09-22 | $1.475.703 |
+| 2026-09-28 | $1.477.470 |
 
-**subió 0% en 11 días. desde $1.474.232.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 12 días. desde $1.474.232.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -80,7 +81,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=14&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=026f3aa3-b0ac-4250-868e-4a5483bde601&t_pvid=026f3aa3-b0ac-4250-868e-4a5483bde601&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=130.131.202.3&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=15&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=83c9eadf-222e-45ff-b585-d39501443262&t_pvid=83c9eadf-222e-45ff-b585-d39501443262&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=134.33.99.229&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -130,6 +131,6 @@ Gastos Comunes: $400.000 aprox.
 DISPONIBLE DESDE EL 1 DE DICIEMBRE Autopista Costanera Norte, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 1742102, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 28-09-2026 18:59 UTC.
+Leído de `mitula` vía `json-ld` el 29-09-2026 02:31 UTC.
 
 </details>

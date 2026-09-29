@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Independiente, amoblado, equipado, cuentas 100% in... 64 Mt2 1 1 $ 1.200.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 28-09-2026 22:19 UTC.
+Leído de `busconido` vía `tarjeta` el 29-09-2026 02:30 UTC.
 
 </details>

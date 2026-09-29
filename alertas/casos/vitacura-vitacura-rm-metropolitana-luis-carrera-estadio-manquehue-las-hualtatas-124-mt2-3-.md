@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Luis carrera / estadio manquehue / las hualtatas 124 Mt2 3 3 $ 1.400.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 28-09-2026 22:19 UTC.
+Leído de `busconido` vía `tarjeta` el 29-09-2026 02:30 UTC.
 
 </details>
