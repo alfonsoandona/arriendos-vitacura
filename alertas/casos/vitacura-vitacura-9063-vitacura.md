@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo departamento en av, kennedy, vitacura... Arriendo departamento en av, kennedy, vitacura... Departamento - Región Metropolitana - Vitacura 3 Hab. 3 Baños 110.00 m² Departamento en arriendo (3d,3b,1e,1bo), av. kennedy, vitacura, cuenta con 3 dormitorios, 3 baños. logia, terraza, conexión a lavadora y lavavajillas, 1 estacionamiento amplio en subterráneo (2... Publicado el 30/10/2020
 ```
 
-Leído de `doomos` vía `tarjeta` el 29-09-2026 02:30 UTC.
+Leído de `doomos` vía `tarjeta` el 29-09-2026 17:18 UTC.
 
 </details>

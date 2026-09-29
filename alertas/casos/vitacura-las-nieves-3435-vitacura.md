@@ -1,15 +1,15 @@
 # Las Nieves 3435, Vitacura
 
-**71/100** · `#TV8U9` · Vitacura · a 4,13 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Las+Nieves+3435%2C+Vitacura%2C+Chile)
+**70/100** · `#TV8U9` · Vitacura · a 4,13 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Las+Nieves+3435%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.608.479 |
+| Arriendo | $1.609.121 |
 | Gastos comunes | $180.000 (11,2% del canon) |
-| **Costo mensual** | **$1.788.479** |
-| Por m² | $15.466 / m² |
+| **Costo mensual** | **$1.789.121** |
+| Por m² | $15.472 / m² |
 
 
 ### Cómo se movió el precio
@@ -29,7 +29,7 @@
 | 2026-09-26 | $1.608.159 |
 | 2026-09-27 | $1.608.479 |
 
-**subió 0% en 14 días. desde $1.603.995.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 15 días. desde $1.603.995.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -41,10 +41,9 @@
 | Dormitorios | 4 |
 | Baños | 3 |
 | Estacionamientos | 1 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
 | Piso | 1 |
-| Mascotas | no acepta |
 | Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-12 |
 
@@ -54,33 +53,33 @@
 |---|---|---|
 | Ubicación | 17/26 | Vitacura · a 4,1 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.608.479 · GC $180.000 · 11.2% del canon — bajos |
+| Precio | 16/20 | $1.609.121 · GC $180.000 · 11.2% del canon — bajos |
 | Superficie | 9/16 | 104 m² totales |
 | Programa | 13/14 | 4D · 3B |
-| _Preferencias_ | -1 | desempate entre las que ya calificaron |
+| _Preferencias_ | -2 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **78/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **77/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 4,1 km — fuera del anillo
-- Precio: $1.608.479 · GC $180.000 · 11.2% del canon — bajos
+- Precio: $1.609.121 · GC $180.000 · 11.2% del canon — bajos
 - Superficie: 104 m² totales
 - Programa: 4D · 3B
 - primer piso
 - solo 26 m² por dormitorio
 - 1 estacionamientos
-- con bodega
 
 </details>
 
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.216.958 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.218.242 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
+- [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
@@ -106,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 4 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 28-09-2026 22:19 UTC.
+Leído de `toctoc` vía `json-ld` el 29-09-2026 17:18 UTC.
 
 </details>
