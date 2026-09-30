@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Amplio depto vitacura uf 38 135 Mt2 3 3 $ 1.559.551
 ```
 
-Leído de `busconido` vía `tarjeta` el 29-09-2026 21:07 UTC.
+Leído de `busconido` vía `tarjeta` el 30-09-2026 01:53 UTC.
 
 </details>

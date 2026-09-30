@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-17 | $1.474.232 |
 | 2026-09-18 | $1.474.527 |
 | 2026-09-19 | $1.474.821 |
 | 2026-09-20 | $1.475.115 |
@@ -28,8 +27,9 @@
 | 2026-09-26 | $1.476.881 |
 | 2026-09-28 | $1.477.175 |
 | 2026-09-28 | $1.477.470 |
+| 2026-09-29 | $1.477.764 |
 
-**subió 0% en 12 días. desde $1.474.232.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 12 días. desde $1.474.527.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -88,7 +88,10 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_ac8626fbaf17f6797538373e1135be54043ecbc1)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=16&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=6949a9c3-901d-47a2-ab8d-08bb54d4661b&t_pvid=6949a9c3-901d-47a2-ab8d-08bb54d4661b&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.176.37.68&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=18&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=3f9d0964-356a-4564-b19f-8f216d6770cd&t_pvid=3f9d0964-356a-4564-b19f-8f216d6770cd&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.178.117.210&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+
+> Publicado en varios portales a la vez. Suele significar que lleva tiempo en el mercado, y a veces que hay más de una corredora compitiendo por arrendarlo — que es una buena posición para negociar.
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +113,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 29-09-2026 17:18 UTC.
+Leído de `toctoc` vía `json-ld` el 30-09-2026 01:53 UTC.
 
 </details>

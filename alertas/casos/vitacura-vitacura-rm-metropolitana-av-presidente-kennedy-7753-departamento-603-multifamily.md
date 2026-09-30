@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.200.000** ⚠️ sin gastos comunes |
 | Por m² | $18.182 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-29 | $1.200.000 |
+
 ## Qué es
 
 | | |
@@ -23,7 +30,8 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Piso | 6 _deducido del número del departamento_ |
+| Piso | 6 |
+| Visto por el radar | desde el 2026-09-29 |
 
 ## De dónde sale el puntaje
 
@@ -84,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Av presidente kennedy 7753 - departamento 603 Multifamily 66 Mt2 2 2 $ 1.200.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 29-09-2026 21:07 UTC.
+Leído de `busconido` vía `tarjeta` el 30-09-2026 01:53 UTC.
 
 </details>

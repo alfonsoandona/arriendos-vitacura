@@ -37,7 +37,7 @@
   },
   "@-33 37615 -70 54544": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer 9451",
-    "visto": "2026-09-28"
+    "visto": "2026-09-30"
   },
   "@-33 37644 -70 54469": {
     "calle": "Costanera Sur San Josemaría Escrivá de Balaguer",
@@ -77,7 +77,7 @@
   },
   "@-33 38001 -70 54185": {
     "calle": "Vitacura 9976",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 38092 -70 53519": {
     "calle": "Las Hualtatas 10343",
@@ -85,15 +85,15 @@
   },
   "@-33 38221 -70 58025": {
     "calle": "Avenida Manquehue Norte 2580",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 38319 -70 54913": {
     "calle": "Vitacura 9035",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 38353 -70 54898": {
     "calle": "Vitacura 9063",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 38398 -70 57917": {
     "calle": "Espoz 6286",
@@ -285,11 +285,11 @@
   },
   "@-33 40590 -70 59684": {
     "calle": "Paul Claudel 1312",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 40597 -70 59658": {
     "calle": "Las Nieves 3420",
-    "visto": "2026-09-29"
+    "visto": "2026-09-30"
   },
   "@-33 40602 -70 59617": {
     "calle": "Las Nieves 3405",
@@ -651,6 +651,11 @@
     "fallo": "2026-08-18",
     "intentos": 1,
     "visto": "2026-08-18"
+  },
+  "longaví chile maule chile": {
+    "lat": -36.0557543,
+    "lon": -71.7643186,
+    "visto": "2026-09-30"
   },
   "los acantos lo castillo vitacura provincia de santiago región metropolitana de santiago 7630391 chile vitacura chile": {
     "lat": -33.4034427,

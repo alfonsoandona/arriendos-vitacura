@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Depto en las condes a pasos de parque arauco 85 Mt2 2 2 $ 1.800.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 29-09-2026 21:07 UTC.
+Leído de `busconido` vía `tarjeta` el 30-09-2026 01:53 UTC.
 
 </details>
