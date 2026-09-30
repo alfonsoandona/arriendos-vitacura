@@ -67,7 +67,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=4&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=60ee3f5a-cf47-4054-80be-758d3d685e18&t_pvid=60ee3f5a-cf47-4054-80be-758d3d685e18&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=13.89.127.133&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=2&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=dc921045-5069-4a4a-bf38-29e5fd372d5c&t_pvid=dc921045-5069-4a4a-bf38-29e5fd372d5c&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.172&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +113,6 @@ Gastos comunes aprox. $350.000
 
 ```
 
-Leído de `nuroa` vía `json-ld` el 30-09-2026 17:16 UTC.
+Leído de `nuroa` vía `json-ld` el 30-09-2026 21:05 UTC.
 
 </details>

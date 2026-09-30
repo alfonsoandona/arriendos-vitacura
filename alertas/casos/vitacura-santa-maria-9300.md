@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.477.764 |
+| Arriendo | $1.478.059 |
 | Gastos comunes | $400.000 (27,1% del canon) |
-| **Costo mensual** | **$1.877.764** |
-| Por m² | $10.555 / m² |
+| **Costo mensual** | **$1.878.059** |
+| Por m² | $10.558 / m² |
 
 
 ### Cómo se movió el precio
@@ -54,7 +54,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.477.764 · GC $400.000 · 27.1% del canon — altos |
+| Precio | 13/20 | $1.478.059 · GC $400.000 · 27.1% del canon — altos |
 | Superficie | 14/16 | 140 m² totales, terraza 140 m² |
 | Programa | 13/14 | 4D · 4B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -66,7 +66,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.477.764 · GC $400.000 · 27.1% del canon — altos
+- Precio: $1.478.059 · GC $400.000 · 27.1% del canon — altos
 - Superficie: 140 m² totales, terraza 140 m²
 - Programa: 4D · 4B
 - orientación nororiente
@@ -80,7 +80,7 @@
 
 - [ ] **Los gastos comunes son altos** (27,1% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.955.528 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.956.118 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -88,10 +88,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_ac8626fbaf17f6797538373e1135be54043ecbc1)
-- [mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=18&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=3f9d0964-356a-4564-b19f-8f216d6770cd&t_pvid=3f9d0964-356a-4564-b19f-8f216d6770cd&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.178.117.210&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
-
-> Publicado en varios portales a la vez. Suele significar que lleva tiempo en el mercado, y a veces que hay más de una corredora compitiendo por arrendarlo — que es una buena posición para negociar.
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=18&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=58e3a756-6d47-4262-84f1-f09695ec6f6e&t_pvid=58e3a756-6d47-4262-84f1-f09695ec6f6e&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.172&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 30-09-2026 01:53 UTC.
+Leído de `toctoc` vía `json-ld` el 30-09-2026 21:06 UTC.
 
 </details>

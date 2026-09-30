@@ -1,6 +1,6 @@
 # Lo Beltrán 1720
 
-**77/100** · `#3U2S4` · Vitacura · a 0,81 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Lo+Beltr%C3%A1n+1720%2C+Vitacura%2C+Chile)
+**76/100** · `#3U2S4` · Vitacura · a 0,81 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Lo+Beltr%C3%A1n+1720%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -28,7 +28,7 @@
 | Dormitorios | 3 |
 | Baños | 2 |
 | Estacionamientos | 1 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
 | Orientación | norte |
 | Amoblado | amoblado |
@@ -44,9 +44,9 @@
 | Precio | 16/20 | $1.480.000 · GC $140.000 · 9.5% del canon — bajos |
 | Superficie | 5/16 | 85 m² útiles (total no publicada) |
 | Programa | 10/14 | 3D · 2B |
-| _Preferencias_ | +2 | desempate entre las que ya calificaron |
+| _Preferencias_ | +1 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **83/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **82/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
@@ -59,7 +59,6 @@
 - orientación norte
 - solo 28 m² por dormitorio
 - 1 estacionamientos
-- con bodega
 - amoblado (se prefiere sin amoblar)
 
 </details>
@@ -97,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Hermoso Y Amplio Departamento Sector Vitacura Norte  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 30-09-2026 17:16 UTC.
+Leído de `toctoc` vía `json-ld` el 30-09-2026 21:06 UTC.
 
 </details>

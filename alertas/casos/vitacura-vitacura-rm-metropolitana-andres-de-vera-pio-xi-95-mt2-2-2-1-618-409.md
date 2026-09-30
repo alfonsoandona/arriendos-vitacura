@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.618.409** ⚠️ sin gastos comunes |
 | Por m² | $17.036 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-30 | $1.618.409 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-09-30 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Andrés de vera / pio xi 95 Mt2 2 2 $ 1.618.409
 ```
 
-Leído de `busconido` vía `tarjeta` el 30-09-2026 17:15 UTC.
+Leído de `busconido` vía `tarjeta` el 30-09-2026 21:05 UTC.
 
 </details>
