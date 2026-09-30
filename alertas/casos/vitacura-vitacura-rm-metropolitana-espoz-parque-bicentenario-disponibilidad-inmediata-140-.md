@@ -1,21 +1,15 @@
-# rentas.cl
+# Vitacura RM (Metropolitana) Espoz parque bicentenario disponibilidad inmediata 140 Mt2 3 2 $ 1.900.000
 
-**17/100** · `#63YS8` · comuna desconocida · sin ubicar
+**58/100** · `#QPVS4` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.400.000 |
+| Arriendo | $1.900.000 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.400.000** ⚠️ sin gastos comunes |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-08-18 | $1.400.000 |
+| **Costo mensual** | **$1.900.000** ⚠️ sin gastos comunes |
+| Por m² | $13.571 / m² |
 
 ## Qué es
 
@@ -23,31 +17,33 @@
 |---|---|
 | Tipo | — |
 | Superficie total | — |
-| Superficie útil | — |
+| Superficie útil | 140 m² |
 | Dormitorios | — |
 | Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-08-18 |
+| Disponible | ya |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | — /26 | sin comuna ni coordenadas · _falta la dirección o la comuna_ |
+| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 17/20 | $1.400.000 · GC no publicados |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Precio | 2/20 | $1.900.000 · GC no publicados · sobre el tope de $1.700.000 |
+| Superficie | 14/16 | 140 m² útiles (total no publicada) |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **20 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **97/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **74/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Precio: $1.400.000 · GC no publicados
+- Ubicación: Vitacura, sin ubicar en el mapa
+- Precio: $1.900.000 · GC no publicados · sobre el tope de $1.700.000
+- Superficie: 140 m² útiles (total no publicada)
 
 </details>
 
@@ -57,21 +53,21 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.800.000 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.800.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Rentas.cl](https://www.rentas.cl/)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10768146/espoz-parque-bicentenario-disponibilidad-inmediata)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 63YS8
+  - codigo: QPVS4
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -84,9 +80,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-rentas.cl Dominio premium rentas.cl disponible para compra. Dominio premium para empresas de inversiones, administradoras de propiedades, asesorías financieras y plataformas de renta fija. Palabra genérica de alto tráfico en búsquedas financieras e inmobiliarias.
+Vitacura RM (Metropolitana) Espoz parque bicentenario disponibilidad inmediata 140 Mt2 3 2 $ 1.900.000
 ```
 
-Leído de `rentas_cl` vía `json-ld` el 30-09-2026 17:17 UTC.
+Leído de `busconido` vía `tarjeta` el 30-09-2026 17:15 UTC.
 
 </details>

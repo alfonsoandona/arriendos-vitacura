@@ -32,7 +32,7 @@
 | Antigüedad | — |
 | Orientación | norte |
 | Amoblado | amoblado |
-| Publicado | hace 6 días |
+| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-24 |
 
 ## De dónde sale el puntaje
@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Hermoso Y Amplio Departamento Sector Vitacura Norte  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 29-09-2026 17:18 UTC.
+Leído de `toctoc` vía `json-ld` el 30-09-2026 17:16 UTC.
 
 </details>

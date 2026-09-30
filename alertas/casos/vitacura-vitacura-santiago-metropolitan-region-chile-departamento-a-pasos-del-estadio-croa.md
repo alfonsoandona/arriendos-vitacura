@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.559.862 |
+| Arriendo | $1.560.174 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.559.862** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.560.174** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 38 |
-| Por m² | $4.333 / m² |
+| Por m² | $4.334 / m² |
 
 
 ### Cómo se movió el precio
@@ -33,7 +33,7 @@
 | Dormitorios | 3 |
 | Baños | 2 |
 | Estacionamientos | 1 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | 5 años (construido en 2021) |
 | Piso | 2 |
 | Orientación | norte |
@@ -45,7 +45,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | 22/24 | 5 años (construido en 2021) |
-| Precio | 16/20 | $1.559.862 · GC no publicados |
+| Precio | 16/20 | $1.560.174 · GC no publicados |
 | Superficie | 16/16 | 360 m² totales, terraza 220 m² |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -54,20 +54,19 @@
 
 - Ubicación: Vitacura, sin ubicar en el mapa
 - Antigüedad: 5 años (construido en 2021)
-- Precio: $1.559.862 · GC no publicados
+- Precio: $1.560.174 · GC no publicados
 - Superficie: 360 m² totales, terraza 220 m²
 - Programa: 3D · 2B
 - orientación norte
 - 120 m² por dormitorio
 - 1 estacionamientos
-- con bodega
 
 </details>
 
 ## Qué preguntar antes de ir
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.119.724 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.120.348 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -95,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,385 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 30-09-2026 01:53 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 30-09-2026 17:16 UTC.
 
 </details>

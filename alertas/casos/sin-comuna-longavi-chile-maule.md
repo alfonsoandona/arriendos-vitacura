@@ -83,6 +83,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo de Campamento Agrícola en Longaví CLP 1.000.000 Terreno - Arriendo Longaví, Maule, Chile 18 1 420 m²
 ```
 
-Leído de `bienesonline` vía `tarjeta` el 30-09-2026 01:53 UTC.
+Leído de `bienesonline` vía `tarjeta` el 30-09-2026 17:16 UTC.
 
 </details>

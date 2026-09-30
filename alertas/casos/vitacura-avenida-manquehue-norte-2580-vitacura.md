@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.806.156 |
+| Arriendo | $1.806.517 |
 | Gastos comunes | $350.000 (19,4% del canon) |
-| **Costo mensual** | **$2.156.156** |
+| **Costo mensual** | **$2.156.517** |
 | Publicado en UF | UF 44 |
-| Por m² | $16.126 / m² |
+| Por m² | $16.130 / m² |
 
 ## Qué es
 
@@ -33,7 +33,7 @@
 |---|---|---|
 | Ubicación | 24/26 | Vitacura · a 1,7 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 6/20 | $1.806.156 · GC $350.000 · 19.4% del canon · sobre el tope de $1.700.000 |
+| Precio | 6/20 | $1.806.517 · GC $350.000 · 19.4% del canon · sobre el tope de $1.700.000 |
 | Superficie | 11/16 | 112 m² totales |
 | Programa | 12/14 | 3D · 3B · + servicio |
 | _Preferencias_ | +2 | desempate entre las que ya calificaron |
@@ -45,7 +45,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 1,7 km — fuera del anillo
-- Precio: $1.806.156 · GC $350.000 · 19.4% del canon · sobre el tope de $1.700.000
+- Precio: $1.806.517 · GC $350.000 · 19.4% del canon · sobre el tope de $1.700.000
 - Superficie: 112 m² totales
 - Programa: 3D · 3B · + servicio
 - primer piso
@@ -60,14 +60,14 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.612.312 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.613.034 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=2&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=1687375a-49d2-428b-bc3c-2649e6f8d8fc&t_pvid=1687375a-49d2-428b-bc3c-2649e6f8d8fc&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.178.117.210&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-b45c-1a0ce6e-984c-ada286d9a1f6-77e4?click_type=0&pos=4&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=60ee3f5a-cf47-4054-80be-758d3d685e18&t_pvid=60ee3f5a-cf47-4054-80be-758d3d685e18&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=13.89.127.133&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +113,6 @@ Gastos comunes aprox. $350.000
 
 ```
 
-Leído de `nuroa` vía `json-ld` el 30-09-2026 01:53 UTC.
+Leído de `nuroa` vía `json-ld` el 30-09-2026 17:16 UTC.
 
 </details>
