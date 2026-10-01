@@ -1,35 +1,28 @@
-# Arriendo departamento en av kennedy vitacura
+# Vitacura RM (Metropolitana) Departamento en arriendo en pérez zujovic, vitacur... 160 Mt2 4 3 $ 1.519.116
 
-**87/100** · `#YVT22` · Vitacura · sin ubicar
+**82/100** · `#PEFRY` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $770.000 |
+| Arriendo | $1.519.116 |
 | Gastos comunes | — |
-| **Costo mensual** | **$770.000** ⚠️ sin gastos comunes |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-08-18 | $770.000 |
+| **Costo mensual** | **$1.519.116** ⚠️ sin gastos comunes |
+| Por m² | $9.494 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | — |
+| Tipo | departamento |
 | Superficie total | — |
-| Superficie útil | — |
+| Superficie útil | 160 m² |
 | Dormitorios | — |
 | Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
 
@@ -37,18 +30,19 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 20/20 | $770.000 · GC no publicados |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Precio | 16/20 | $1.519.116 · GC no publicados |
+| Superficie | 15/16 | 160 m² útiles (total no publicada) |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **46 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **94/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **89/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $770.000 · GC no publicados
+- Precio: $1.519.116 · GC no publicados
+- Superficie: 160 m² útiles (total no publicada)
 
 </details>
 
@@ -58,21 +52,21 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $1.540.000 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.038.232 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Doomos](https://www.doomos.cl/de/1465886_arriendo-departamento-en-av-kennedy-vitacura.html)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10779250/departamento-en-arriendo-en-prez-zujovic-vitacura)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: YVT22
+  - codigo: PEFRY
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -85,9 +79,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-$ 770.000 Arriendo Ver más Contactar
+Vitacura RM (Metropolitana) Departamento en arriendo en pérez zujovic, vitacur... 160 Mt2 4 3 $ 1.519.116
 ```
 
-Leído de `doomos` vía `tarjeta` el 01-10-2026 17:48 UTC.
+Leído de `busconido` vía `tarjeta` el 01-10-2026 17:48 UTC.
 
 </details>

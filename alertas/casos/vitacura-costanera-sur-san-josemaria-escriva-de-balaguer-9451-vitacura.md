@@ -30,7 +30,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | norte |
-| Publicado | hace 6 días |
+| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-25 |
 
 ## De dónde sale el puntaje
@@ -94,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento luminoso Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 01-10-2026 01:50 UTC.
+Leído de `toctoc` vía `json-ld` el 01-10-2026 17:48 UTC.
 
 </details>

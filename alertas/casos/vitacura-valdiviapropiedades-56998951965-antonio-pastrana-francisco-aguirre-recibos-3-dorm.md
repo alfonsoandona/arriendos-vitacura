@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.519.116 |
+| Arriendo | $1.519.419 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.519.116** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.519.419** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 37 |
 
 
@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-04 | $1.512.524 |
 | 2026-09-07 | $1.512.671 |
 | 2026-09-09 | $1.512.720 |
 | 2026-09-11 | $1.513.070 |
@@ -28,8 +27,9 @@
 | 2026-09-26 | $1.517.602 |
 | 2026-09-26 | $1.517.905 |
 | 2026-09-28 | $1.518.510 |
+| 2026-10-01 | $1.519.116 |
 
-**subió 0% en 27 días. desde $1.512.524.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 24 días. desde $1.512.671.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -51,7 +51,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.519.116 · GC no publicados |
+| Precio | 16/20 | $1.519.419 · GC no publicados |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +3 | desempate entre las que ya calificaron |
@@ -63,7 +63,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.519.116 · GC no publicados
+- Precio: $1.519.419 · GC no publicados
 - Programa: 3D · 3B
 - 1 estacionamientos
 - con bodega
@@ -75,7 +75,7 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.038.232 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.038.838 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -105,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 37 valdiviapropiedades +56998951965 Antonio Pastrana/ Francisco Aguirre, recibos, 3 dormitorios, 3 baños, terrazas, estacionamiento, bodega, Reg.Acop.653 Excelente departamento en el corazón de barrio de Vitacura. Sector plaza del Hoyo, Parque Bicentenario, Nueva Costanera y mall Casa Costanera. Desocupado. Tiene living y comedor amplio con salida a amplia terraza. Tiene tres dormitorios, con tres baños. El dormitorio principal tiene salida a terra Región: Metropolitana de Santiago Publicado el: 2024-08-10 00:27:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 01-10-2026 01:50 UTC.
+Leído de `economicos` vía `tarjeta` el 01-10-2026 17:48 UTC.
 
 </details>

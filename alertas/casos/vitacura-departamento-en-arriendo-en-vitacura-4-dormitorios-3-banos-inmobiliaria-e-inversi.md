@@ -89,9 +89,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-$ 1.650.000 Departamento en Arriendo en Vitacura 4 dormitorios 3 baños / Inmobiliaria e Inversiones Greene Ltda. Exclusivo departamento de elegantes terminaciones, luminoso, con vista panoramica y 4 dormitorios en Vitacura, cerca de la clínica Alemana, Pueblo de Inglés y Juan XXIII. Este departamento tiene una amplia terraza y una distribución muy funcional: - Living Comedor - Terraza - Cocina - Logia - D Región: Metropolitana de Santiago Publicado el: 2026-09-30 00:15:00 Diario: El Mercurio
+$ 1.650.000 Departamento en Arriendo en Vitacura 4 dormitorios 3 baños / Inmobiliaria e Inversiones Greene Ltda. Exclusivo departamento de elegantes terminaciones, luminoso, con vista panoramica y 4 dormitorios en Vitacura, cerca de la clínica Alemana, Pueblo de Inglés y Juan XXIII. Este departamento tiene una amplia terraza y una distribución muy funcional: - Living Comedor - Terraza - Cocina - Logia - D Región: Metropolitana de Santiago Publicado el: 2026-10-01 00:00:02 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 01-10-2026 01:50 UTC.
+Leído de `economicos` vía `tarjeta` el 01-10-2026 17:48 UTC.
 
 </details>

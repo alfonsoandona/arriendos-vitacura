@@ -87,9 +87,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-$ 1.300.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Departamento en Vitacura de 3 dormitorios, 2 baños completos, cocina, logia, terraza, 1 estacionamiento, 1 bodega, de 87 metros Gastos comunes $85.000 aprox. Recién remodelado y pintado. Región: Metropolitana de Santiago Publicado el: 2026-09-30 00:00:19 Diario: El Mercurio
+$ 1.300.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Departamento en Vitacura de 3 dormitorios, 2 baños completos, cocina, logia, terraza, 1 estacionamiento, 1 bodega, de 87 metros Gastos comunes $85.000 aprox. Recién remodelado y pintado. Región: Metropolitana de Santiago Publicado el: 2026-10-01 00:00:04 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 01-10-2026 01:50 UTC.
+Leído de `economicos` vía `tarjeta` el 01-10-2026 17:48 UTC.
 
 </details>

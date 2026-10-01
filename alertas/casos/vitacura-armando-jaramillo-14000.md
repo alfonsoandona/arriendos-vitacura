@@ -23,14 +23,14 @@
 | | |
 |---|---|
 | Tipo | departamento |
-| Superficie total | — |
+| Superficie total | 105 m² |
 | Superficie útil | 105 m² |
 | Dormitorios | 3 |
 | Baños | 3 |
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | — |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
 | Visto por el radar | desde el 2026-09-30 |
 
 ## De dónde sale el puntaje
@@ -40,7 +40,7 @@
 | Ubicación | 17/26 | Vitacura · a 3,9 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
 | Precio | 16/20 | $1.500.000 · GC $250.000 · 16.7% del canon |
-| Superficie | 10/16 | 105 m² útiles (total no publicada) |
+| Superficie | 10/16 | 105 m² totales |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
 
@@ -52,7 +52,7 @@
 
 - Ubicación: Vitacura · a 3,9 km — fuera del anillo
 - Precio: $1.500.000 · GC $250.000 · 16.7% del canon
-- Superficie: 105 m² útiles (total no publicada)
+- Superficie: 105 m² totales
 - Programa: 3D · 3B
 - 35 m² por dormitorio
 - 1 estacionamientos
@@ -63,7 +63,6 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.000.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
@@ -72,6 +71,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_bd704e36d78ff37f9e7020fc9e499cbefef849cb)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=10&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=4c55f9a2-95a1-47cc-b106-ef82e708c824&t_pvid=4c55f9a2-95a1-47cc-b106-ef82e708c824&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.217.25.154&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 TRANQUILIDAD IDEAL PARA LA VIDA DE BARRIO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 01-10-2026 01:50 UTC.
+Leído de `toctoc` vía `json-ld` el 01-10-2026 17:48 UTC.
 
 </details>

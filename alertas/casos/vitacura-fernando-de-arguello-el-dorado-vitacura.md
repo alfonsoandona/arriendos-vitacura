@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.642.288 |
+| Arriendo | $1.642.615 |
 | Gastos comunes | $290.000 (17,7% del canon) |
-| **Costo mensual** | **$1.932.288** |
+| **Costo mensual** | **$1.932.615** |
 | Publicado en UF | UF 40 |
-| Por m² | $14.406 / m² |
+| Por m² | $14.409 / m² |
 
 
 ### Cómo se movió el precio
@@ -45,7 +45,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 1,3 km — fuera del anillo |
 | Antigüedad | 15/24 | 21 años (construido en 2005) |
-| Precio | 15/20 | $1.642.288 · GC $290.000 · 17.7% del canon |
+| Precio | 15/20 | $1.642.615 · GC $290.000 · 17.7% del canon |
 | Superficie | 11/16 | 114 m² totales |
 | Programa | 13/14 | 4D · 3B · + servicio |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -54,7 +54,7 @@
 
 - Ubicación: Vitacura · a 1,3 km — fuera del anillo
 - Antigüedad: 21 años (construido en 2005)
-- Precio: $1.642.288 · GC $290.000 · 17.7% del canon
+- Precio: $1.642.615 · GC $290.000 · 17.7% del canon
 - Superficie: 114 m² totales
 - Programa: 4D · 3B · + servicio
 - piso 14
@@ -68,7 +68,7 @@
 
 ## Qué preguntar antes de ir
 
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.284.576 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.285.230 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -76,7 +76,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7e95-2bf0a040325e-8976-1a0c76b-184e)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=3&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=f516ecc7-b77c-48fa-b10d-e5a9e9f59a22&t_pvid=f516ecc7-b77c-48fa-b10d-e5a9e9f59a22&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.151.122.151&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=4&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=82f25d7b-fec2-4f5d-b5fe-3fa24caa5573&t_pvid=82f25d7b-fec2-4f5d-b5fe-3fa24caa5573&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.217.25.154&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -131,6 +131,6 @@ Incluye:
 Gastos Comunes: $290.000.-. EasyBroker ID: EB-XB1092 Fernando de Argüello, El Dorado, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 01-10-2026 01:50 UTC.
+Leído de `mitula` vía `json-ld` el 01-10-2026 17:48 UTC.
 
 </details>
