@@ -20,6 +20,7 @@
 | 2026-09-23 | $1.750.000 |
 | 2026-09-30 | $1.641.960 (-6%) |
 | 2026-09-30 | $1.642.288 |
+| 2026-10-01 | $1.642.615 |
 
 **1 baja en 8 días: -6% desde $1.750.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
@@ -76,7 +77,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7e95-2bf0a040325e-8976-1a0c76b-184e)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=4&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=82f25d7b-fec2-4f5d-b5fe-3fa24caa5573&t_pvid=82f25d7b-fec2-4f5d-b5fe-3fa24caa5573&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.217.25.154&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=6&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=fa2c8d3c-d444-485e-9a8a-aa83e5377873&t_pvid=fa2c8d3c-d444-485e-9a8a-aa83e5377873&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.172.206.34&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -131,6 +132,6 @@ Incluye:
 Gastos Comunes: $290.000.-. EasyBroker ID: EB-XB1092 Fernando de Argüello, El Dorado, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 01-10-2026 17:48 UTC.
+Leído de `mitula` vía `json-ld` el 01-10-2026 21:29 UTC.
 
 </details>

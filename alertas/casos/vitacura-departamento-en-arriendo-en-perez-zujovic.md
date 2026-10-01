@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.446.030** ⚠️ sin gastos comunes |
 | Por m² | $9.038 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-01 | $1.446.030 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Orientación | poniente |
+| Visto por el radar | desde el 2026-10-01 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en Arriendo en Pérez Zujovic  Vitacura
 ```
 
-Leído de `goplaceit` vía `json-ld` el 01-10-2026 17:48 UTC.
+Leído de `goplaceit` vía `json-ld` el 01-10-2026 21:29 UTC.
 
 </details>

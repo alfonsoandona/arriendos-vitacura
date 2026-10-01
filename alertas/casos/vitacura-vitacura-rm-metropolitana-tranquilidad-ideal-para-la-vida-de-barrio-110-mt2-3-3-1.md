@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.500.000** ⚠️ sin gastos comunes |
 | Por m² | $13.636 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-01 | $1.500.000 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-01 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Tranquilidad ideal para la vida de barrio 110 Mt2 3 3 $ 1.500.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 01-10-2026 17:48 UTC.
+Leído de `busconido` vía `tarjeta` el 01-10-2026 21:29 UTC.
 
 </details>
