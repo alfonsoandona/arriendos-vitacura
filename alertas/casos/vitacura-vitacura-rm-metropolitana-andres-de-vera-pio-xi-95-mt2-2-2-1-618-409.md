@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Andrés de vera / pio xi 95 Mt2 2 2 $ 1.618.409
 ```
 
-Leído de `busconido` vía `tarjeta` el 30-09-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 01-10-2026 01:50 UTC.
 
 </details>

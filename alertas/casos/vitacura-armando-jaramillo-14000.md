@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.750.000** |
 | Por m² | $14.286 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-30 | $1.500.000 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Publicado | hace 0 días |
+| Visto por el radar | desde el 2026-09-30 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 TRANQUILIDAD IDEAL PARA LA VIDA DE BARRIO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 30-09-2026 21:05 UTC.
+Leído de `toctoc` vía `json-ld` el 01-10-2026 01:50 UTC.
 
 </details>

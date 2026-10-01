@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Excelente muy amplio preciosa vista cercano parque... 180 Mt2 3 3 $ 1.843.758
 ```
 
-Leído de `busconido` vía `tarjeta` el 30-09-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 01-10-2026 01:50 UTC.
 
 </details>

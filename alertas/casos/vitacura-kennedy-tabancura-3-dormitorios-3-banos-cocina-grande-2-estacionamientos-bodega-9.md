@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.067.061 |
+| Arriendo | $1.067.487 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.067.061** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.067.487** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 26 |
 
 
@@ -29,7 +29,7 @@
 | 2026-09-26 | $1.066.636 |
 | 2026-09-28 | $1.067.061 |
 
-**subió 0% en 24 días. desde $1.062.855.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 27 días. desde $1.062.855.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -51,7 +51,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 19/20 | $1.067.061 · GC no publicados |
+| Precio | 19/20 | $1.067.487 · GC no publicados |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +3 | desempate entre las que ya calificaron |
@@ -63,7 +63,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.067.061 · GC no publicados
+- Precio: $1.067.487 · GC no publicados
 - Programa: 3D · 3B
 - 2 estacionamientos
 - con bodega
@@ -75,7 +75,7 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.134.122 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.134.974 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -105,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 UF 26 Kennedy/ Tabancura, 3 dormitorios, 3 baños, cocina grande, 2 estacionamientos, bodega. 993545668 Región: Metropolitana de Santiago Publicado el: 2025-01-25 00:16:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 28-09-2026 22:19 UTC.
+Leído de `economicos` vía `tarjeta` el 01-10-2026 01:50 UTC.
 
 </details>
