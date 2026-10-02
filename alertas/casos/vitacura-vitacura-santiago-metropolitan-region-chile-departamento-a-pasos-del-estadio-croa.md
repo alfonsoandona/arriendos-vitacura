@@ -21,6 +21,7 @@
 | 2026-09-29 | $1.559.862 |
 | 2026-09-30 | $1.560.174 |
 | 2026-10-01 | $1.560.484 |
+| 2026-10-02 | $1.560.796 |
 
 **subió 0% en 4 días. desde $1.559.551.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
@@ -96,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,385 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 02-10-2026 17:05 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

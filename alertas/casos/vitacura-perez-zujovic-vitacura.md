@@ -18,6 +18,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-10-01 | $1.519.419 |
+| 2026-10-02 | $1.519.722 |
+
+**subió 0% en 1 días. desde $1.519.419.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -95,6 +98,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 30/09/2026 Arriendo Mensual / Departamento / Vitacura UF 37 Departamento en Arriendo en Pérez Zujovic Habitaciones: 4 Baños: 3 Terreno: 160 m² Estacionamientos: 2 Gran oportunidad en Vitacura! Este exclusivo departamento de 200 m2 está ubicado en uno de los sectores más cotizados de la comuna, en Pérez Zujovic, ... Publicado: 30/09/2026 Cód: 57631981 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 02-10-2026 17:04 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

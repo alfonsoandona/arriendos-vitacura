@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.889.384** ⚠️ sin gastos comunes |
 | Por m² | $10.497 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-02 | $1.889.384 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-02 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Espoz- vitacura-vespucio 180 Mt2 4 4 $ 1.889.384
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 17:04 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

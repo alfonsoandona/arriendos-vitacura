@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.848.311** ⚠️ sin gastos comunes |
 | Por m² | $21.162 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-02 | $1.848.311 |
+
 ## Qué es
 
 | | |
@@ -25,6 +32,7 @@
 | Antigüedad | — |
 | Orientación | norte |
 | Amoblado | amoblado |
+| Visto por el radar | desde el 2026-10-02 |
 
 ## De dónde sale el puntaje
 
@@ -86,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo amoblado espoz vespucio norte 87.34 Mt2 2 2 $ 1.848.311
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 17:04 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-10-01 | $1.561.396 |
+| 2026-10-02 | $1.560.796 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-02 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Amplio departamento en arriendo en vitacura 126 Mt2 2 2 $ 1.560.796
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 17:04 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

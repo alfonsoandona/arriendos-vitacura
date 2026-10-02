@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-10-01 | $1.643.575 |
+| 2026-10-02 | $1.642.943 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-02 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Excelente departamento, a pasos de casa costanera 119 Mt2 3 2 $ 1.642.943
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 17:04 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
 
 </details>

@@ -64,7 +64,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-4d50-1a0e30c-9b06-5d5e6067edc0-77f6?click_type=0&pos=11&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=51c1b0ec-9b79-4515-9ab2-be4751480ae4&t_pvid=51c1b0ec-9b79-4515-9ab2-be4751480ae4&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.3.183.233&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-4d50-1a0e30c-9b06-5d5e6067edc0-77f6?click_type=0&pos=10&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=3c61c857-7614-4e90-9d26-2589e41d4f99&t_pvid=3c61c857-7614-4e90-9d26-2589e41d4f99&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.174.198.162&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -122,6 +122,6 @@ Ubicación Privilegiada:
 **En REMAX ENLACE fomentamos activamente el CANJE. Si eres corredor independiente o perteneces a otra empresa y cuentas con un cliente interesado, te invito a contactarme para coordinar una visita y conocer en detalle esta atractiva propiedad** Región Metropolitana de Sa
 ```
 
-Leído de `nuroa` vía `json-ld` el 02-10-2026 17:04 UTC.
+Leído de `nuroa` vía `json-ld` el 02-10-2026 21:05 UTC.
 
 </details>
