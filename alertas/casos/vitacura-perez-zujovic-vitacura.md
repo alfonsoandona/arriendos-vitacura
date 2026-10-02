@@ -33,7 +33,7 @@
 | Antigüedad | — |
 | Piso | 8 |
 | Orientación | poniente |
-| Publicado | hace 1 días |
+| Publicado | hace 2 días |
 | Visto por el radar | desde el 2026-10-01 |
 
 ## De dónde sale el puntaje
@@ -95,6 +95,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 30/09/2026 Arriendo Mensual / Departamento / Vitacura UF 37 Departamento en Arriendo en Pérez Zujovic Habitaciones: 4 Baños: 3 Terreno: 160 m² Estacionamientos: 2 Gran oportunidad en Vitacura! Este exclusivo departamento de 200 m2 está ubicado en uno de los sectores más cotizados de la comuna, en Pérez Zujovic, ... Publicado: 30/09/2026 Cód: 57631981 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>

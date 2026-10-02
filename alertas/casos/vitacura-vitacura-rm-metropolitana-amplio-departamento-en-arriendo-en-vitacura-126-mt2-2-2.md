@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Amplio departamento en arriendo en vitacura 126 Mt2 2 2 $ 1.561.396
 ```
 
-Leído de `busconido` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>

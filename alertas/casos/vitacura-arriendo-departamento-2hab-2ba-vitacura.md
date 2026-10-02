@@ -29,7 +29,7 @@
 | 2026-09-30 | $1.642.288 |
 | 2026-10-01 | $1.642.615 |
 
-**subió 0% en 11 días. desde $1.639.016.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 12 días. desde $1.639.016.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -102,6 +102,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF. 40 Arriendo Ver más Contactar
 ```
 
-Leído de `doomos` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `doomos` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>

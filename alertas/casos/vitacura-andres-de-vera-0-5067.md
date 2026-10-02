@@ -19,7 +19,7 @@
 | 2026-08-25 | $1.700.000 |
 | 2026-09-03 | $1.650.000 (-3%) |
 
-**1 baja en 37 días: -3% desde $1.700.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**1 baja en 38 días: -3% desde $1.700.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 3 dorm. 3 baños. 2 estac. Piso bajo. Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 01-10-2026 01:50 UTC.
+Leído de `toctoc` vía `json-ld` el 02-10-2026 02:03 UTC.
 
 </details>

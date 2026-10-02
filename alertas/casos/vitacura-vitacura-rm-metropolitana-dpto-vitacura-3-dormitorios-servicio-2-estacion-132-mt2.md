@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Dpto vitacura 3 dormitorios + servicio, 2 estacion... 132 Mt2 4 3 $ 1.900.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>

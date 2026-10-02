@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en las hualtatas / la lun... 63 Mt2 1 1 $ 1.272.773
 ```
 
-Leído de `busconido` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>

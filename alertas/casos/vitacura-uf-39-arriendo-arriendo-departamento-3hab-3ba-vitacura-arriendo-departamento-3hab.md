@@ -30,7 +30,7 @@
 | 2026-09-30 | $1.601.231 |
 | 2026-10-01 | $1.601.550 |
 
-**subió 0% en 11 días. desde $1.598.041.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 12 días. desde $1.598.041.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -46,7 +46,7 @@
 | Antigüedad | — |
 | Piso | 9 |
 | Disponible | ya |
-| Publicado | hace 21 días |
+| Publicado | hace 22 días |
 | Visto por el radar | desde el 2026-09-11 |
 
 ## De dónde sale el puntaje
@@ -111,6 +111,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF. 39 Arriendo Arriendo departamento 3hab 3ba vitacura Arriendo departamento 3hab 3ba vitacura Departamento - Región Metropolitana - Vitacura 3 Hab. 3 Baños 97.00 m² Disponibilidad inmediata estupendo departamento en av vitacura ubicado a 20 mins caminando a metro tobalaba. está recién remodelado y cuenta con 3 dormitorios y 3 baños, uno en suite. piso 9 (último... Publicado el 10/09/2026 UF. 39 Arriendo Ver más Contactar
 ```
 
-Leído de `doomos` vía `tarjeta` el 01-10-2026 21:29 UTC.
+Leído de `doomos` vía `tarjeta` el 02-10-2026 02:03 UTC.
 
 </details>
