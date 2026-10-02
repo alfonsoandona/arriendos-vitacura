@@ -1,53 +1,55 @@
-# rentas.cl
+# Vitacura RM (Metropolitana) Departamento en arriendo en vitacura 100 Mt2 2 2 $ 1.519.722
 
-**17/100** · `#63YS8` · comuna desconocida · sin ubicar
+**73/100** · `#G7PTX` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.400.000 |
+| Arriendo | $1.519.722 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.400.000** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.519.722** ⚠️ sin gastos comunes |
+| Por m² | $15.197 / m² |
 
 
 ### Cómo se movió el precio
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-08-18 | $1.400.000 |
+| 2026-10-01 | $1.520.307 |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | — |
+| Tipo | departamento |
 | Superficie total | — |
-| Superficie útil | — |
+| Superficie útil | 100 m² |
 | Dormitorios | — |
 | Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | — /26 | sin comuna ni coordenadas · _falta la dirección o la comuna_ |
+| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 17/20 | $1.400.000 · GC no publicados |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Precio | 16/20 | $1.519.722 · GC no publicados |
+| Superficie | 9/16 | 100 m² útiles (total no publicada) |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **20 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **97/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **83/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Precio: $1.400.000 · GC no publicados
+- Ubicación: Vitacura, sin ubicar en el mapa
+- Precio: $1.519.722 · GC no publicados
+- Superficie: 100 m² útiles (total no publicada)
 
 </details>
 
@@ -57,21 +59,21 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.800.000 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.039.444 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Rentas.cl](https://www.rentas.cl/)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10780700/departamento-en-arriendo-en-vitacura)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 63YS8
+  - codigo: G7PTX
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -84,9 +86,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-rentas.cl Dominio premium rentas.cl disponible para compra. Dominio premium para empresas de inversiones, administradoras de propiedades, asesorías financieras y plataformas de renta fija. Palabra genérica de alto tráfico en búsquedas financieras e inmobiliarias.
+Vitacura RM (Metropolitana) Departamento en arriendo en vitacura 100 Mt2 2 2 $ 1.519.722
 ```
 
-Leído de `rentas_cl` vía `json-ld` el 02-10-2026 17:05 UTC.
+Leído de `busconido` vía `tarjeta` el 02-10-2026 17:04 UTC.
 
 </details>

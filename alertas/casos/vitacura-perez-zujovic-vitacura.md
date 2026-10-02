@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.519.419 |
+| Arriendo | $1.519.722 |
 | Gastos comunes | $260.000 (17,1% del canon) |
-| **Costo mensual** | **$1.779.419** |
+| **Costo mensual** | **$1.779.722** |
 | Publicado en UF | UF 37 |
-| Por m² | $10.853 / m² |
+| Por m² | $10.855 / m² |
 
 
 ### Cómo se movió el precio
@@ -42,7 +42,7 @@
 |---|---|---|
 | Ubicación | 16/26 | Vitacura · a 4,5 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.519.419 · GC $260.000 · 17.1% del canon |
+| Precio | 16/20 | $1.519.722 · GC $260.000 · 17.1% del canon |
 | Superficie | 14/16 | 140 m² totales |
 | Programa | 13/14 | 4D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -54,7 +54,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 4,5 km — fuera del anillo
-- Precio: $1.519.419 · GC $260.000 · 17.1% del canon
+- Precio: $1.519.722 · GC $260.000 · 17.1% del canon
 - Superficie: 140 m² totales
 - Programa: 4D · 3B
 - piso 8
@@ -67,7 +67,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.038.838 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.039.444 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -95,6 +95,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 30/09/2026 Arriendo Mensual / Departamento / Vitacura UF 37 Departamento en Arriendo en Pérez Zujovic Habitaciones: 4 Baños: 3 Terreno: 160 m² Estacionamientos: 2 Gran oportunidad en Vitacura! Este exclusivo departamento de 200 m2 está ubicado en uno de los sectores más cotizados de la comuna, en Pérez Zujovic, ... Publicado: 30/09/2026 Cód: 57631981 Agregar a favoritos Quitar de favoritos Ver detalles
 ```
 
-Leído de `chilepropiedades` vía `tarjeta` el 02-10-2026 02:03 UTC.
+Leído de `chilepropiedades` vía `tarjeta` el 02-10-2026 17:04 UTC.
 
 </details>

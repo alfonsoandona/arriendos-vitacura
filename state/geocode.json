@@ -61,7 +61,7 @@
   },
   "@-33 37711 -70 54439": {
     "calle": "Alejandro Serani 9533",
-    "visto": "2026-10-01"
+    "visto": "2026-10-02"
   },
   "@-33 37737 -70 54849": {
     "calle": "Del Mirador 2070-A",
@@ -126,6 +126,10 @@
   "@-33 39312 -70 57912": {
     "calle": "Chapultepec 5545",
     "visto": "2026-09-20"
+  },
+  "@-33 39319 -70 58856": {
+    "calle": "Candelaria Goyenechea 4686",
+    "visto": "2026-10-02"
   },
   "@-33 39347 -70 58934": {
     "calle": "Ascencio de Zavala 2238",
@@ -258,6 +262,10 @@
   "@-33 40454 -70 59420": {
     "calle": "Las Nieves 3606",
     "visto": "2026-09-27"
+  },
+  "@-33 40457 -70 59423": {
+    "calle": "Las Nieves 3606",
+    "visto": "2026-10-02"
   },
   "@-33 40465 -70 59453": {
     "calle": "Armando Jaramillo 1358",
