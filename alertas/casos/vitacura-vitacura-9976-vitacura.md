@@ -84,6 +84,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en Arriendo en Santa Teresa Gran Via  Vitacura
 ```
 
-Leído de `goplaceit` vía `json-ld` el 02-10-2026 21:05 UTC.
+Leído de `goplaceit` vía `json-ld` el 03-10-2026 01:47 UTC.
 
 </details>

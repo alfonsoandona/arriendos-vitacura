@@ -94,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) 3 dorm cocina americana con logia, jardines, pisci... 100 Mt2 3 2 $ 1.600.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 01:47 UTC.
 
 </details>

@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Excelente departamento, a pasos de casa costanera 119 Mt2 3 2 $ 1.642.943
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 01:47 UTC.
 
 </details>

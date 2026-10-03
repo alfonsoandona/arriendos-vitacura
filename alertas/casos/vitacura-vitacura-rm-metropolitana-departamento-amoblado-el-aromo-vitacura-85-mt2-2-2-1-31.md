@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.314.354
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 01:47 UTC.
 
 </details>

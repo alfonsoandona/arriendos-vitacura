@@ -94,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo amoblado espoz vespucio norte 87.34 Mt2 2 2 $ 1.848.311
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 21:05 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 01:47 UTC.
 
 </details>
