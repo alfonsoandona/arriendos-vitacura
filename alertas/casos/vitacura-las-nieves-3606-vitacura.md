@@ -1,14 +1,14 @@
 # Las Nieves 3606, Vitacura
 
-**78/100** · `#DNSPN` · Vitacura · a 3,93 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Las+Nieves+3606%2C+Vitacura%2C+Chile)
+**77/100** · `#DNSPN` · Vitacura · a 3,93 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Las+Nieves+3606%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
 | Arriendo | $1.500.000 |
-| Gastos comunes | $250.000 (16,7% del canon) |
-| **Costo mensual** | **$1.750.000** |
+| Gastos comunes | $230.000 (15,3% del canon) |
+| **Costo mensual** | **$1.730.000** |
 | Por m² | $14.286 / m² |
 
 ## Qué es
@@ -21,8 +21,9 @@
 | Dormitorios | 3 |
 | Baños | 3 |
 | Estacionamientos | 1 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
+| Publicado | hace 0 días |
 | Visto por el radar | desde el 2026-08-20 |
 
 ## De dónde sale el puntaje
@@ -31,24 +32,23 @@
 |---|---|---|
 | Ubicación | 17/26 | Vitacura · a 3,9 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.500.000 · GC $250.000 · 16.7% del canon |
+| Precio | 16/20 | $1.500.000 · GC $230.000 · 15.3% del canon |
 | Superficie | 10/16 | 105 m² totales |
 | Programa | 12/14 | 3D · 3B |
-| _Preferencias_ | +6 | desempate entre las que ya calificaron |
+| _Preferencias_ | +5 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **85/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **84/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 3,9 km — fuera del anillo
-- Precio: $1.500.000 · GC $250.000 · 16.7% del canon
+- Precio: $1.500.000 · GC $230.000 · 15.3% del canon
 - Superficie: 105 m² totales
 - Programa: 3D · 3B
 - 35 m² por dormitorio
 - 1 estacionamientos
-- con bodega
 - conserje
 
 </details>
@@ -63,7 +63,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=22&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=bff65999-7ee3-45da-a69e-3e4237d4c1f2&t_pvid=bff65999-7ee3-45da-a69e-3e4237d4c1f2&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.51.199.12&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=21&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=c1c18fbe-2923-4c04-888a-f85b11d0ca8e&t_pvid=c1c18fbe-2923-4c04-888a-f85b11d0ca8e&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.159.161.226&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -85,6 +85,8 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en buen estado, listo para habitar. Excelente ubicación, rodeado de comercio de pimer nivel; tiendas, restaurantes, cafés, ademas locales de barrio para compras cotidianas, colegios y supermercado.
 Entorno tranquilo y silencioso.
 
+Conserjería y Seguridad 24 horas
+
 Descripción
 
 Hall de acceso
@@ -95,13 +97,9 @@ Cocina
 Loggia
 
 1 estacionamiento
-1 bodega
-
-Gastos Comunes $ 250.000.-
-
-Conserjería 24 horas. Región Metropolitana de Santiago, Provincia de Santiago
+Gastos Comunes $ 230.000.- Región Metropolitana de Santiago, Provincia de Santiago
 ```
 
-Leído de `nuroa` vía `json-ld` el 03-10-2026 01:47 UTC.
+Leído de `nuroa` vía `json-ld` el 03-10-2026 15:26 UTC.
 
 </details>
