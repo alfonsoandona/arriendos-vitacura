@@ -10,6 +10,13 @@
 | Gastos comunes | $400.000 (26,7% del canon) |
 | **Costo mensual** | **$1.900.000** |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-03 | $1.500.000 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Antigüedad | — |
 | Piso | 1 |
 | Publicado | hace 0 días |
+| Visto por el radar | desde el 2026-10-03 |
 
 ## De dónde sale el puntaje
 
@@ -83,6 +91,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Lo castillo / Paseo El Mañio  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 15:26 UTC.
+Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
 
 </details>

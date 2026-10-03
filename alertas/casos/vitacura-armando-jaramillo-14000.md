@@ -1,6 +1,6 @@
 # Armando Jaramillo 14000
 
-**77/100** · `#99XYN` · Vitacura · a 3,93 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Armando+Jaramillo+14000%2C+Vitacura%2C+Chile)
+**76/100** · `#99XYN` · Vitacura · a 3,93 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Armando+Jaramillo+14000%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -28,9 +28,9 @@
 | Dormitorios | 3 |
 | Baños | 3 |
 | Estacionamientos | 1 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
-| Publicado | hace 1 días |
+| Publicado | hace 3 días |
 | Visto por el radar | desde el 2026-09-30 |
 
 ## De dónde sale el puntaje
@@ -42,9 +42,9 @@
 | Precio | 16/20 | $1.500.000 · GC $250.000 · 16.7% del canon |
 | Superficie | 10/16 | 105 m² totales |
 | Programa | 12/14 | 3D · 3B |
-| _Preferencias_ | +5 | desempate entre las que ya calificaron |
+| _Preferencias_ | +4 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **84/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **83/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
@@ -56,7 +56,6 @@
 - Programa: 3D · 3B
 - 35 m² por dormitorio
 - 1 estacionamientos
-- con bodega
 
 </details>
 
@@ -71,7 +70,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_bd704e36d78ff37f9e7020fc9e499cbefef849cb)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=11&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=f3b07d7a-d587-4db4-b129-bf21b9c4dd21&t_pvid=f3b07d7a-d587-4db4-b129-bf21b9c4dd21&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.215.223.208&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=21&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=0ea3e7c5-8161-408c-aef0-466cde32870b&t_pvid=0ea3e7c5-8161-408c-aef0-466cde32870b&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.182.226.66&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -93,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 TRANQUILIDAD IDEAL PARA LA VIDA DE BARRIO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 02-10-2026 02:03 UTC.
+Leído de `toctoc` vía `json-ld` el 03-10-2026 19:34 UTC.
 
 </details>

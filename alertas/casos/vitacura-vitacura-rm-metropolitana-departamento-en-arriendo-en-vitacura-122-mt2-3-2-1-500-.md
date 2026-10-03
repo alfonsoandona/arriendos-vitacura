@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.500.000** ⚠️ sin gastos comunes |
 | Por m² | $12.295 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-03 | $1.500.000 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-03 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en vitacura 122 Mt2 3 2 $ 1.500.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 03-10-2026 15:26 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 19:34 UTC.
 
 </details>

@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-22 | $1.721.654 |
 | 2026-09-24 | $1.721.997 |
 | 2026-09-24 | $1.722.340 |
 | 2026-09-25 | $1.722.684 |
@@ -28,8 +27,9 @@
 | 2026-09-30 | $1.724.402 |
 | 2026-10-01 | $1.724.746 |
 | 2026-10-02 | $1.724.402 |
+| 2026-10-03 | $1.725.434 |
 
-**subió 0% en 11 días. desde $1.721.654.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 9 días. desde $1.721.997.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -104,6 +104,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Avenida Juan XXIII  6650  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 15:26 UTC.
+Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
 
 </details>

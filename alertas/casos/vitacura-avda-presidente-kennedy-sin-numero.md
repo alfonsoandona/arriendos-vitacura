@@ -100,6 +100,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Amplio dpto. 3 dormitorios más servicio, Estoril  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 01:47 UTC.
+Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
 
 </details>

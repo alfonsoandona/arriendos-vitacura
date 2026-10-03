@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-10-02 | $1.889.384 |
+| 2026-10-03 | $1.889.761 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-03 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Espoz- vitacura-vespucio 180 Mt2 4 4 $ 1.889.761
 ```
 
-Leído de `busconido` vía `tarjeta` el 03-10-2026 15:26 UTC.
+Leído de `busconido` vía `tarjeta` el 03-10-2026 19:34 UTC.
 
 </details>
