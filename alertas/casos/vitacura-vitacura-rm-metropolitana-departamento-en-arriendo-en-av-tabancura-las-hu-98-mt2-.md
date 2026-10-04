@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en av. tabancura / las hu... 98 Mt2 3 2 $ 1.700.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 03-10-2026 19:34 UTC.
+Leído de `busconido` vía `tarjeta` el 04-10-2026 02:27 UTC.
 
 </details>

@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 3 dorm. en Chillán &amp;#55356;&#65533; Departamento en arriendo en Chillán &#8211; 3 dormitorios | $270.000<br /><br />¡Una excelente alternativa para quienes buscan un departamento amplio, funcional y sin gastos comunes!<br /><br />Departamento ubicado en las cercanías de calle Los Puelches, Chillán, en segundo piso de un conjunto de bloques de tres pisos.<br /><br />Cuenta con 3 dormitorios, 1 baño, amplio living-comedor, cocina tradicional y logia. Además, dispone de agua caliente mediante termo solar individual y calefont, junto con ventanas de termopanel.<br /><br />También cuenta con acceso a estacionamiento dentro del sitio y bodega, agregando comodidad y espacio de almacenamiento.<br /><br />¿Por qué es una oportunidad?<br />Por solo $270.000 mensuales, obtienes 3 dormitorios, estacionamiento, bodega y, además, ¡sin gastos comunes! Una alternativa difícil de encontrar para quienes buscan maximizar su presupuesto de arriendo.<br /><br />&#128176; Arriendo mensual: $270.000<br />&#128273; 1 mes de garantía<br />&#129309; Comisión de corretaje: 50% del primer mes de arriendo<br />&#128683; Sin gastos comunes<br /> El Volcan, 6607, Avenida Luis Pasteur, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7640165, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 02-10-2026 21:05 UTC.
+Leído de `mitula` vía `json-ld` el 04-10-2026 02:27 UTC.
 
 </details>

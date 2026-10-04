@@ -23,7 +23,7 @@
 | Estacionamientos | 1 |
 | Bodega | — |
 | Antigüedad | — |
-| Publicado | hace 2164 días |
+| Publicado | hace 2165 días |
 | Visto por el radar | desde el 2026-08-21 |
 
 ## De dónde sale el puntaje
@@ -50,7 +50,7 @@
 - 37 m² por dormitorio
 - 1 estacionamientos
 - logia
-- publicado hace 2164 días — se negocia
+- publicado hace 2165 días — se negocia
 
 </details>
 
@@ -62,7 +62,7 @@
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $1.540.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
-- [ ] **Lleva 2164 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
+- [ ] **Lleva 2165 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo departamento en av, kennedy, vitacura... Arriendo departamento en av, kennedy, vitacura... Departamento - Región Metropolitana - Vitacura 3 Hab. 3 Baños 110.00 m² Departamento en arriendo (3d,3b,1e,1bo), av. kennedy, vitacura, cuenta con 3 dormitorios, 3 baños. logia, terraza, conexión a lavadora y lavavajillas, 1 estacionamiento amplio en subterráneo (2... Publicado el 30/10/2020
 ```
 
-Leído de `doomos` vía `tarjeta` el 03-10-2026 19:34 UTC.
+Leído de `doomos` vía `tarjeta` el 04-10-2026 02:27 UTC.
 
 </details>

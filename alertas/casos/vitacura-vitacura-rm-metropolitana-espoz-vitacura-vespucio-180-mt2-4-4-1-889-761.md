@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Espoz- vitacura-vespucio 180 Mt2 4 4 $ 1.889.761
 ```
 
-Leído de `busconido` vía `tarjeta` el 03-10-2026 19:34 UTC.
+Leído de `busconido` vía `tarjeta` el 04-10-2026 02:27 UTC.
 
 </details>
