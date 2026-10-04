@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.848.679 |
+| Arriendo | $1.849.048 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.848.679** ⚠️ sin gastos comunes |
-| Por m² | $12.417 / m² |
+| **Costo mensual** | **$1.849.048** ⚠️ sin gastos comunes |
+| Por m² | $12.420 / m² |
 
 
 ### Cómo se movió el precio
@@ -29,7 +29,7 @@
 | 2026-10-02 | $1.848.311 |
 | 2026-10-03 | $1.848.679 |
 
-**subió 0% en 10 días. desde $1.844.261.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 11 días. desde $1.844.261.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -55,7 +55,7 @@
 |---|---|---|
 | Ubicación | 21/26 | Vitacura · a 2,9 km — fuera del anillo |
 | Antigüedad | 16/24 | 19 años (construido en 2007) |
-| Precio | 4/20 | $1.848.679 · GC no publicados · sobre el tope de $1.700.000 |
+| Precio | 4/20 | $1.849.048 · GC no publicados · sobre el tope de $1.700.000 |
 | Superficie | 15/16 | 148.88 m² totales, terraza 34.42 m² |
 | Programa | 13/14 | 4D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -64,7 +64,7 @@
 
 - Ubicación: Vitacura · a 2,9 km — fuera del anillo
 - Antigüedad: 19 años (construido en 2007)
-- Precio: $1.848.679 · GC no publicados · sobre el tope de $1.700.000
+- Precio: $1.849.048 · GC no publicados · sobre el tope de $1.700.000
 - Superficie: 148.88 m² totales, terraza 34.42 m²
 - Programa: 4D · 3B
 - piso 6
@@ -79,7 +79,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.697.358 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.698.096 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **Lleva 60 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
@@ -108,6 +108,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo 4d + 3b Gran Terraza En Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
+Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
 
 </details>

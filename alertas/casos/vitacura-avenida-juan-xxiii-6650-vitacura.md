@@ -1,22 +1,21 @@
 # Avenida Juan XXIII 6650, Vitacura
 
-**84/100** · `#892GM` · Vitacura · a 0,72 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Avenida+Juan+XXIII+6650%2C+Vitacura%2C+Chile)
+**85/100** · `#892GM` · Vitacura · a 0,72 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Avenida+Juan+XXIII+6650%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.725.090 |
+| Arriendo | $1.725.778 |
 | Gastos comunes | $280.000 (16,2% del canon) |
-| **Costo mensual** | **$2.005.090** |
-| Por m² | $14.376 / m² |
+| **Costo mensual** | **$2.005.778** |
+| Por m² | $14.381 / m² |
 
 
 ### Cómo se movió el precio
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-24 | $1.721.997 |
 | 2026-09-24 | $1.722.340 |
 | 2026-09-25 | $1.722.684 |
 | 2026-09-27 | $1.723.027 |
@@ -28,8 +27,9 @@
 | 2026-10-01 | $1.724.746 |
 | 2026-10-02 | $1.724.402 |
 | 2026-10-03 | $1.725.434 |
+| 2026-10-04 | $1.725.090 |
 
-**subió 0% en 10 días. desde $1.721.997.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 10 días. desde $1.722.340.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -43,6 +43,7 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | — |
+| Publicado | hace 60 días |
 | Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
@@ -51,33 +52,35 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,7 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.725.090 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.725.778 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000 |
 | Superficie | 12/16 | 120 m² totales |
 | Programa | 12/14 | 3D · 3B |
-| _Preferencias_ | +5 | desempate entre las que ya calificaron |
+| _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **89/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **90/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,7 km — zona caminable
-- Precio: $1.725.090 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000
+- Precio: $1.725.778 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000
 - Superficie: 120 m² totales
 - Programa: 3D · 3B
 - 40 m² por dormitorio
 - 1 estacionamientos
 - con bodega
+- publicado hace 60 días — se negocia
 
 </details>
 
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.450.180 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.451.556 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
+- [ ] **Lleva 60 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
@@ -104,6 +107,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Avenida Juan XXIII  6650  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 04-10-2026 02:27 UTC.
+Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
 
 </details>

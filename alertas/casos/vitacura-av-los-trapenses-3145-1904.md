@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento con vista despejada  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
+Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
 
 </details>

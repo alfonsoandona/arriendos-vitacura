@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-21 | $1.475.409 |
 | 2026-09-22 | $1.475.703 |
 | 2026-09-23 | $1.475.997 |
 | 2026-09-25 | $1.476.292 |
@@ -28,8 +27,9 @@
 | 2026-09-30 | $1.478.059 |
 | 2026-10-01 | $1.478.354 |
 | 2026-10-03 | $1.478.649 |
+| 2026-10-03 | $1.478.943 |
 
-**subió 0% en 12 días. desde $1.475.409.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 12 días. desde $1.475.703.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -88,7 +88,6 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_ac8626fbaf17f6797538373e1135be54043ecbc1)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=6&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=6d64dcfe-adda-43c7-a443-1fc46f4bb521&t_pvid=6d64dcfe-adda-43c7-a443-1fc46f4bb521&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.182.226.66&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +109,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
+Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
 
 </details>

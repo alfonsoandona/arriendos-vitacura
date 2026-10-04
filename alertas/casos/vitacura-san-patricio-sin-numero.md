@@ -30,7 +30,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Piso | 1 |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
 | Visto por el radar | desde el 2026-10-03 |
 
 ## De dónde sale el puntaje
@@ -91,6 +91,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Lo castillo / Paseo El Mañio  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 03-10-2026 19:35 UTC.
+Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
 
 </details>
