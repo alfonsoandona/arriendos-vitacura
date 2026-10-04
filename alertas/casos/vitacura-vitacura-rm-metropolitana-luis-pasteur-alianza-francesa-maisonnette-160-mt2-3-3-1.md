@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.869.671** ⚠️ sin gastos comunes |
 | Por m² | $11.685 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-04 | $1.869.671 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-04 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Luis pasteur / alianza francesa / maisonnette 160 Mt2 3 3 $ 1.869.671
 ```
 
-Leído de `busconido` vía `tarjeta` el 04-10-2026 16:11 UTC.
+Leído de `busconido` vía `tarjeta` el 04-10-2026 19:51 UTC.
 
 </details>

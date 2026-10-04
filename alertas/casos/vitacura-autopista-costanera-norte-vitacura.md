@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.478.649 |
-| Gastos comunes | $400.000 (27,1% del canon) |
-| **Costo mensual** | **$1.878.649** |
+| Arriendo | $1.479.239 |
+| Gastos comunes | $400.000 (27,0% del canon) |
+| **Costo mensual** | **$1.879.239** |
 | Publicado en UF | UF 36 |
-| Por m² | $10.562 / m² |
+| Por m² | $10.566 / m² |
 
 
 ### Cómo se movió el precio
@@ -22,8 +22,9 @@
 | 2026-09-22 | $1.475.703 |
 | 2026-09-28 | $1.477.470 |
 | 2026-09-29 | $1.477.764 |
+| 2026-10-02 | $1.478.649 |
 
-**subió 0% en 15 días. desde $1.474.232.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 17 días. desde $1.474.232.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -46,7 +47,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.478.649 · GC $400.000 · 27.1% del canon — altos |
+| Precio | 13/20 | $1.479.239 · GC $400.000 · 27% del canon — altos |
 | Superficie | 14/16 | 140 m² totales |
 | Programa | 13/14 | 4D · 4B · + servicio |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -58,7 +59,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.478.649 · GC $400.000 · 27.1% del canon — altos
+- Precio: $1.479.239 · GC $400.000 · 27% del canon — altos
 - Superficie: 140 m² totales
 - Programa: 4D · 4B · + servicio
 - orientación nororiente
@@ -72,9 +73,9 @@
 
 ## Qué preguntar antes de ir
 
-- [ ] **Los gastos comunes son altos** (27,1% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
+- [ ] **Los gastos comunes son altos** (27,0% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.957.298 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.958.478 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -82,7 +83,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=25&searchType=2&page=3&section=1&t_sec=1&sectionType=1&pageViewId=4af9b585-09d9-42cd-88f9-da6c754ec7a8&t_pvid=4af9b585-09d9-42cd-88f9-da6c754ec7a8&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.3.183.233&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=5&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=b2197102-2ebd-42bf-bd03-b7e8ac396c17&t_pvid=b2197102-2ebd-42bf-bd03-b7e8ac396c17&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.127.247.146&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -132,6 +133,6 @@ Gastos Comunes: $400.000 aprox.
 DISPONIBLE DESDE EL 1 DE DICIEMBRE Autopista Costanera Norte, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 1742102, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 02-10-2026 17:04 UTC.
+Leído de `mitula` vía `json-ld` el 04-10-2026 19:51 UTC.
 
 </details>
