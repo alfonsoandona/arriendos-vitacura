@@ -29,7 +29,7 @@
 | 2026-10-02 | $1.970.746 |
 | 2026-10-04 | $1.849.048 (-6%) |
 
-**3 bajas en 10 días: -6% desde $1.968.389.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**3 bajas en 11 días: -6% desde $1.968.389.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -89,6 +89,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_862dbcd897aab34e48956608eefc2df36db3f214)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=7&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=61574ad7-bb45-4b5e-b78c-3c659a852dcd&t_pvid=61574ad7-bb45-4b5e-b78c-3c659a852dcd&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.214.44.209&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -109,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura 140m2 3D+3B | Vista al Manquehue  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 04-10-2026 19:51 UTC.
+Leído de `toctoc` vía `json-ld` el 05-10-2026 01:42 UTC.
 
 </details>

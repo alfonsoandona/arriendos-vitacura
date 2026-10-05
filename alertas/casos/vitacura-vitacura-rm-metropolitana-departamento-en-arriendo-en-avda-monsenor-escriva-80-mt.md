@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en avda monseñor escrivá... 80 Mt2 2 2 $ 1.232.453
 ```
 
-Leído de `busconido` vía `tarjeta` el 04-10-2026 19:51 UTC.
+Leído de `busconido` vía `tarjeta` el 05-10-2026 01:41 UTC.
 
 </details>

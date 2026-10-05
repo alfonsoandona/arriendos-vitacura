@@ -1,0 +1,105 @@
+# Las Nieves, Vitacura
+
+**77/100** · `#C437T` · Vitacura · a 3,93 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Las+Nieves%2C+Vitacura%2C+Chile)
+
+## Cuánto cuesta
+
+| | |
+|---|---|
+| Arriendo | $1.500.000 |
+| Gastos comunes | $230.000 (15,3% del canon) |
+| **Costo mensual** | **$1.730.000** |
+| Por m² | $14.286 / m² |
+
+## Qué es
+
+| | |
+|---|---|
+| Tipo | departamento |
+| Superficie total | 105 m² |
+| Superficie útil | 105 m² |
+| Dormitorios | 3 |
+| Baños | 3 |
+| Estacionamientos | 1 |
+| Bodega | — |
+| Antigüedad | — |
+| Publicado | hace 1 días |
+
+## De dónde sale el puntaje
+
+| Rubro | Puntos | Qué se midió |
+|---|---|---|
+| Ubicación | 17/26 | Vitacura · a 3,9 km — fuera del anillo |
+| Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
+| Precio | 16/20 | $1.500.000 · GC $230.000 · 15.3% del canon |
+| Superficie | 10/16 | 105 m² totales |
+| Programa | 12/14 | 3D · 3B |
+| _Preferencias_ | +5 | desempate entre las que ya calificaron |
+
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **84/100**.
+>
+> Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
+
+<details><summary>Detalle criterio por criterio</summary>
+
+- Ubicación: Vitacura · a 3,9 km — fuera del anillo
+- Precio: $1.500.000 · GC $230.000 · 15.3% del canon
+- Superficie: 105 m² totales
+- Programa: 3D · 3B
+- 35 m² por dormitorio
+- 1 estacionamientos
+- conserje
+
+</details>
+
+## Qué preguntar antes de ir
+
+- [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.000.000 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
+- [ ] **¿El reglamento del edificio acepta mascotas?**
+- [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
+
+## Dónde está publicado
+
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=22&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=a6ee7cfd-21e8-4005-8f78-83d19fbb5c74&t_pvid=a6ee7cfd-21e8-4005-8f78-83d19fbb5c74&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.214.44.209&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [mitula](https://casas.mitula.cl/adform/24301-256-7a59-77f6c1d458af-a922-1a0f766-b8ff)
+
+## ✏️ ¿Lo viste o llamaste? Anótalo
+
+En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
+
+```yaml
+  - codigo: C437T
+    estado: visita        # descartado | visto | contactado | visita
+    # ano_construccion: 2015
+    # piso: 8
+    # nota: "lo que te dijeron"
+```
+
+---
+
+<details><summary>Datos crudos del aviso</summary>
+
+```
+Departamento en buen estado, listo para habitar. Excelente ubicación, rodeado de comercio de pimer nivel; tiendas, restaurantes, cafés, ademas locales de barrio para compras cotidianas, colegios y supermercado.
+Entorno tranquilo y silencioso.
+
+Conserjería y Seguridad 24 horas
+
+Descripción
+
+Hall de acceso
+Living comedor juntos con salida a la terraza
+3 dormitorio, principal en suite
+3 baños
+Cocina
+Loggia
+
+1 estacionamiento
+Gastos Comunes $ 230.000.- Región Metropolitana de Santiago, Provincia de Santiago
+```
+
+Leído de `nuroa` vía `json-ld` el 05-10-2026 01:42 UTC.
+
+</details>

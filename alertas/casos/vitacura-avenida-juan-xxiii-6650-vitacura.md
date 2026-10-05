@@ -29,7 +29,7 @@
 | 2026-10-04 | $1.725.090 |
 | 2026-10-04 | $1.725.778 |
 
-**subió 0% en 9 días. desde $1.722.684.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 10 días. desde $1.722.684.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -107,6 +107,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Avenida Juan XXIII  6650  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 04-10-2026 19:51 UTC.
+Leído de `toctoc` vía `json-ld` el 05-10-2026 01:42 UTC.
 
 </details>

@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Luis pasteur / alianza francesa / maisonnette 160 Mt2 3 3 $ 1.869.671
 ```
 
-Leído de `busconido` vía `tarjeta` el 04-10-2026 19:51 UTC.
+Leído de `busconido` vía `tarjeta` el 05-10-2026 01:41 UTC.
 
 </details>

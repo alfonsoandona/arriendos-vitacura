@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Lo castillo / paseo el mañio 109 Mt2 3 2 $ 1.500.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 04-10-2026 19:51 UTC.
+Leído de `busconido` vía `tarjeta` el 05-10-2026 01:41 UTC.
 
 </details>

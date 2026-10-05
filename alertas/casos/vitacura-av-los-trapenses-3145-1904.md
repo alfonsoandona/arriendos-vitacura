@@ -26,7 +26,7 @@
 | Piso | 19 |
 | Orientación | oriente |
 | Amoblado | amoblado |
-| Publicado | hace 1 días |
+| Publicado | hace 3 días |
 | Visto por el radar | desde el 2026-10-03 |
 
 ## De dónde sale el puntaje
@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento con vista despejada  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 04-10-2026 16:11 UTC.
+Leído de `toctoc` vía `json-ld` el 05-10-2026 01:42 UTC.
 
 </details>

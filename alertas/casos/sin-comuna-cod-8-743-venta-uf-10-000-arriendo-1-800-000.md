@@ -86,6 +86,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Cod.: 8.743 Venta UF 10.000 Arriendo $ 1.800.000
 ```
 
-Leído de `magnoliaproperty` vía `tarjeta` el 02-10-2026 21:06 UTC.
+Leído de `magnoliaproperty` vía `tarjeta` el 05-10-2026 01:42 UTC.
 
 </details>
