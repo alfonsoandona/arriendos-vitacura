@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.849.048 |
+| Arriendo | $1.849.417 |
 | Gastos comunes | $250.000 (13,5% del canon) |
-| **Costo mensual** | **$2.099.048** |
-| Por m² | $13.207 / m² |
+| **Costo mensual** | **$2.099.417** |
+| Por m² | $13.210 / m² |
 
 
 ### Cómo se movió el precio
@@ -46,7 +46,7 @@
 | Piso | 8 |
 | Orientación | norte |
 | Disponible | ya |
-| Publicado | hace 1 días |
+| Publicado | hace 2 días |
 | Visto por el radar | desde el 2026-09-22 |
 
 ## De dónde sale el puntaje
@@ -55,7 +55,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 1,3 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 4/20 | $1.849.048 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000 |
+| Precio | 4/20 | $1.849.417 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000 |
 | Superficie | 14/16 | 140 m² totales |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -67,7 +67,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 1,3 km — fuera del anillo
-- Precio: $1.849.048 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000
+- Precio: $1.849.417 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000
 - Superficie: 140 m² totales
 - Programa: 3D · 2B
 - piso 8
@@ -81,7 +81,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.698.096 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.698.834 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -89,7 +89,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_862dbcd897aab34e48956608eefc2df36db3f214)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=7&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=61574ad7-bb45-4b5e-b78c-3c659a852dcd&t_pvid=61574ad7-bb45-4b5e-b78c-3c659a852dcd&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.214.44.209&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=8&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=961ca86e-559f-45dc-824e-0e62e7159e07&t_pvid=961ca86e-559f-45dc-824e-0e62e7159e07&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.165.213.182&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura 140m2 3D+3B | Vista al Manquehue  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 05-10-2026 01:42 UTC.
+Leído de `toctoc` vía `json-ld` el 05-10-2026 22:59 UTC.
 
 </details>

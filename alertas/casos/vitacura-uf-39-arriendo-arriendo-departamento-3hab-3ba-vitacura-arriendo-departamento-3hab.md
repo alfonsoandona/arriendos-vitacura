@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.602.508 |
+| Arriendo | $1.602.828 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.602.508** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.602.828** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 39 |
-| Por m² | $16.521 / m² |
+| Por m² | $16.524 / m² |
 
 
 ### Cómo se movió el precio
@@ -55,7 +55,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.602.508 · GC no publicados |
+| Precio | 16/20 | $1.602.828 · GC no publicados |
 | Superficie | 5/16 | 97 m² útiles (total no publicada) |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +2 | desempate entre las que ya calificaron |
@@ -67,7 +67,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.602.508 · GC no publicados
+- Precio: $1.602.828 · GC no publicados
 - Superficie: 97 m² útiles (total no publicada)
 - Programa: 3D · 3B
 - piso 9
@@ -82,7 +82,7 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.205.016 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.205.656 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -111,6 +111,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF. 39 Arriendo Arriendo departamento 3hab 3ba vitacura Arriendo departamento 3hab 3ba vitacura Departamento - Región Metropolitana - Vitacura 3 Hab. 3 Baños 97.00 m² Disponibilidad inmediata estupendo departamento en av vitacura ubicado a 20 mins caminando a metro tobalaba. está recién remodelado y cuenta con 3 dormitorios y 3 baños, uno en suite. piso 9 (último... Publicado el 10/09/2026 UF. 39 Arriendo Ver más Contactar
 ```
 
-Leído de `doomos` vía `tarjeta` el 05-10-2026 01:42 UTC.
+Leído de `doomos` vía `tarjeta` el 05-10-2026 22:58 UTC.
 
 </details>
