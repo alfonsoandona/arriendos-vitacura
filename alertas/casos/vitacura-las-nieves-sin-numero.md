@@ -10,6 +10,13 @@
 | Gastos comunes | $180.000 (12,2% del canon) |
 | **Costo mensual** | **$1.659.829** |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-06 | $1.479.829 |
+
 ## Qué es
 
 | | |
@@ -25,6 +32,8 @@
 | Piso | 1 |
 | Orientación | oriente |
 | Mascotas | no acepta |
+| Publicado | hace 1 días |
+| Visto por el radar | desde el 2026-10-06 |
 
 ## De dónde sale el puntaje
 
@@ -58,7 +67,7 @@
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.959.657 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.959.658 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
@@ -85,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Con piscina, impecable, a pasos de Rotonda Pérez Zujovic  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 17:38 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 21:21 UTC.
 
 </details>

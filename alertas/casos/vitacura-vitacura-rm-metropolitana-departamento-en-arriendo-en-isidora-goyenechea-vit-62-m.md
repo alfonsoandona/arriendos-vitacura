@@ -11,6 +11,13 @@
 | **Costo mensual** | **$860.000** ⚠️ sin gastos comunes |
 | Por m² | $13.871 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-06 | $860.000 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-06 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en isidora goyenechea/vit... 62 Mt2 1 1 $ 860.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `busconido` vía `tarjeta` el 06-10-2026 21:21 UTC.
 
 </details>

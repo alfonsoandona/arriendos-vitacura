@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 3 dorm. 3 baños. 2 estac. Piso bajo. Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 17:37 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 21:21 UTC.
 
 </details>

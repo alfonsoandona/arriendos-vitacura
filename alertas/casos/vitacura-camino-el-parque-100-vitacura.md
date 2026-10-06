@@ -9,7 +9,6 @@
 | Arriendo | $1.438.722 |
 | Gastos comunes | $450.000 (31,3% del canon) |
 | **Costo mensual** | **$1.888.722** |
-| Publicado en UF | UF 35 |
 | Por m² | $5.801 / m² |
 
 
@@ -19,6 +18,7 @@
 |---|---|
 | 2026-09-20 | $2.400.000 |
 | 2026-10-05 | $1.438.435 (-40%) |
+| 2026-10-06 | $1.438.722 |
 
 **1 baja en 16 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
@@ -38,6 +38,7 @@
 | Piso | 3 |
 | Orientación | norte |
 | Amoblado | amoblado |
+| Publicado | hace 1 días |
 | Visto por el radar | desde el 2026-09-20 |
 
 ## De dónde sale el puntaje
@@ -101,6 +102,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Camino El Parque 100  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 17:38 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 21:21 UTC.
 
 </details>
