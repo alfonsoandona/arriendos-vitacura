@@ -1,6 +1,6 @@
 # San Patricio Sin número
 
-**71/100** · `#PRCX6` · Vitacura · a 3,23 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=San+Patricio+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)
+**72/100** · `#PRCX6` · Vitacura · a 3,23 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=San+Patricio+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -27,7 +27,7 @@
 | Dormitorios | 3 |
 | Baños | 2 |
 | Estacionamientos | 2 |
-| Bodega | — |
+| Bodega | sí |
 | Antigüedad | — |
 | Piso | 1 |
 | Publicado | hace 2 días |
@@ -42,9 +42,8 @@
 | Precio | 13/20 | $1.500.000 · GC $400.000 · 26.7% del canon — altos |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 10/14 | 3D · 2B |
-| _Preferencias_ | -1 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **60 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **82/100**.
+> El puntaje se midió sobre **60 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **83/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
@@ -55,6 +54,7 @@
 - Programa: 3D · 2B
 - primer piso
 - 2 estacionamientos
+- con bodega
 
 </details>
 
@@ -91,6 +91,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Lo castillo / Paseo El Mañio  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 05-10-2026 22:59 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 02:44 UTC.
 
 </details>

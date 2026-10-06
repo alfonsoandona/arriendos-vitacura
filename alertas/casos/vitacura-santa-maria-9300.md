@@ -6,37 +6,17 @@
 
 | | |
 |---|---|
-| Arriendo | $1.479.239 |
+| Arriendo | $1.479.533 |
 | Gastos comunes | $400.000 (27,0% del canon) |
-| **Costo mensual** | **$1.879.239** |
-| Por m² | $10.566 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-09-22 | $1.475.703 |
-| 2026-09-23 | $1.475.997 |
-| 2026-09-25 | $1.476.292 |
-| 2026-09-26 | $1.476.586 |
-| 2026-09-26 | $1.476.881 |
-| 2026-09-28 | $1.477.175 |
-| 2026-09-28 | $1.477.470 |
-| 2026-09-29 | $1.477.764 |
-| 2026-09-30 | $1.478.059 |
-| 2026-10-01 | $1.478.354 |
-| 2026-10-03 | $1.478.649 |
-| 2026-10-03 | $1.478.943 |
-
-**subió 0% en 13 días. desde $1.475.703.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+| **Costo mensual** | **$1.879.533** |
+| Por m² | $10.568 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
 | Tipo | departamento |
-| Superficie total | 140 m² |
+| Superficie total | — |
 | Superficie útil | 140 m² |
 | Terraza | 140 m² |
 | Dormitorios | 4 |
@@ -45,7 +25,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | nororiente |
-| Visto por el radar | desde el 2026-09-08 |
+| Publicado | hace 1 días |
 
 ## De dónde sale el puntaje
 
@@ -53,8 +33,8 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.479.239 · GC $400.000 · 27% del canon — altos |
-| Superficie | 14/16 | 140 m² totales, terraza 140 m² |
+| Precio | 13/20 | $1.479.533 · GC $400.000 · 27% del canon — altos |
+| Superficie | 14/16 | 140 m² útiles (total no publicada), terraza 140 m² |
 | Programa | 13/14 | 4D · 4B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
@@ -65,8 +45,8 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.479.239 · GC $400.000 · 27% del canon — altos
-- Superficie: 140 m² totales, terraza 140 m²
+- Precio: $1.479.533 · GC $400.000 · 27% del canon — altos
+- Superficie: 140 m² útiles (total no publicada), terraza 140 m²
 - Programa: 4D · 4B
 - orientación nororiente
 - 35 m² por dormitorio
@@ -79,15 +59,15 @@
 
 - [ ] **Los gastos comunes son altos** (27,0% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.958.478 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.959.066 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_ac8626fbaf17f6797538373e1135be54043ecbc1)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=4&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=ee777de0-5ccc-4f31-82de-d6cd69c333e0&t_pvid=ee777de0-5ccc-4f31-82de-d6cd69c333e0&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=172.214.44.209&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_2d236e16b08fb0829414965e8d340eeeb75580e6)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -109,6 +89,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 05-10-2026 01:42 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 02:45 UTC.
 
 </details>

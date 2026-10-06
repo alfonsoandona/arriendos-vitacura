@@ -17,6 +17,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-09-20 | $2.400.000 |
+| 2026-10-05 | $1.438.435 (-40%) |
+
+**1 baja en 16 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -98,6 +101,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Camino El Parque 100  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 05-10-2026 22:59 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 02:44 UTC.
 
 </details>

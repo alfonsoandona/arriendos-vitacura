@@ -65,7 +65,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=16&searchType=1&page=1&section=1&t_sec=1&sectionType=1&pageViewId=c18f36fe-1b4a-4fef-8279-e7d55ef3dbd5&t_pvid=c18f36fe-1b4a-4fef-8279-e7d55ef3dbd5&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.165.213.182&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=17&searchType=1&page=1&section=1&t_sec=1&sectionType=1&pageViewId=fa4308e9-9070-4ae1-b502-8e956b2e6c3c&t_pvid=fa4308e9-9070-4ae1-b502-8e956b2e6c3c&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.220.125.203&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -92,6 +92,6 @@ Con un generosa terraza, este espacio es perfecto para disfrutar tus momentos de
 Este espectacular departamento está distribuido en 4 pisos, combinando diseño moderno con funcionalidad. Por un precio competitivo de UF 16,200, tendrás la oportunidad de convertirlo en tu nuevo hogar. Vive la experiencia premium que mereces en una de las mejores zonas de la ciudad. ¡Contáctanos y hazlo tuyo hoy mismo! Región Metropolitana de Santiago, Provincia de Santiago
 ```
 
-Leído de `nuroa` vía `json-ld` el 05-10-2026 22:58 UTC.
+Leído de `nuroa` vía `json-ld` el 06-10-2026 02:44 UTC.
 
 </details>

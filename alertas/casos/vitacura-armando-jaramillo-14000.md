@@ -30,7 +30,7 @@
 | Estacionamientos | 1 |
 | Bodega | — |
 | Antigüedad | — |
-| Publicado | hace 4 días |
+| Publicado | hace 6 días |
 | Visto por el radar | desde el 2026-09-30 |
 
 ## De dónde sale el puntaje
@@ -70,7 +70,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_bd704e36d78ff37f9e7020fc9e499cbefef849cb)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=22&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=f64e3faf-3a48-430b-95c7-6bc90cb612f7&t_pvid=f64e3faf-3a48-430b-95c7-6bc90cb612f7&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.127.247.146&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=2&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=29f208b0-86e8-43d0-a401-4e8336a00966&t_pvid=29f208b0-86e8-43d0-a401-4e8336a00966&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.220.125.203&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -92,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 TRANQUILIDAD IDEAL PARA LA VIDA DE BARRIO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 04-10-2026 19:51 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 02:44 UTC.
 
 </details>
