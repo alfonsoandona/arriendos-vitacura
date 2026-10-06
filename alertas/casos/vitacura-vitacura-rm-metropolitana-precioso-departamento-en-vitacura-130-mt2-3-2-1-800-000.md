@@ -1,6 +1,6 @@
 # Vitacura RM (Metropolitana) Precioso departamento en vitacura 130 Mt2 3 2 $ 1.800.000
 
-**66/100** · `#RBUTV` · Vitacura · sin ubicar
+**66/100** · `#P6JRX` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
@@ -10,13 +10,6 @@
 | Gastos comunes | — |
 | **Costo mensual** | **$1.800.000** ⚠️ sin gastos comunes |
 | Por m² | $13.846 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-10-04 | $1.800.000 |
 
 ## Qué es
 
@@ -30,7 +23,6 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-10-04 |
 
 ## De dónde sale el puntaje
 
@@ -67,15 +59,14 @@
 
 ## Dónde está publicado
 
-- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10805344/precioso-departamento-en-vitacura)
-- [busconido](https://www.busconido.cl/departamentos/vitacura/10805281/precioso-departamento-en-vitacura)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10805281/precioso-departamento-en-vitacura)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: RBUTV
+  - codigo: P6JRX
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -91,6 +82,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Precioso departamento en vitacura 130 Mt2 3 2 $ 1.800.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 06-10-2026 02:44 UTC.
+Leído de `busconido` vía `tarjeta` el 06-10-2026 17:37 UTC.
 
 </details>

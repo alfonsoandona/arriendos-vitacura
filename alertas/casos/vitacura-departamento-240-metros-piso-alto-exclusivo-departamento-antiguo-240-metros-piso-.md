@@ -85,6 +85,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 EXCLUSIVO DEPARTAMENTO 240 METROS PISO ALTO EXCLUSIVO DEPARTAMENTO ANTIGUO 240 METROS PISO ALTO NOR ORIENTE .HALL ENTRADA BAÑO DE VISITA, COCIINA CON COMEDOR DE DIARIO PIEZA DE SERVICIO BAÑO. 3 DORMITORIO 2 BAÑOS Región: Metropolitana de Santiago Publicado el: 2025-02-03 18:12:17
 ```
 
-Leído de `economicos` vía `tarjeta` el 01-10-2026 17:48 UTC.
+Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
 
 </details>

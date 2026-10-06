@@ -46,7 +46,6 @@
 | Piso | 8 |
 | Orientación | norte |
 | Disponible | ya |
-| Publicado | hace 2 días |
 | Visto por el radar | desde el 2026-09-22 |
 
 ## De dónde sale el puntaje
@@ -89,7 +88,6 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_862dbcd897aab34e48956608eefc2df36db3f214)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=9&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=29f208b0-86e8-43d0-a401-4e8336a00966&t_pvid=29f208b0-86e8-43d0-a401-4e8336a00966&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.220.125.203&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +108,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura 140m2 3D+3B | Vista al Manquehue  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 02:44 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 17:38 UTC.
 
 </details>

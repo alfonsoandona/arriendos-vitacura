@@ -31,7 +31,6 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Piso | 1 |
-| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
@@ -94,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 3 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 02:44 UTC.
+Leído de `toctoc` vía `json-ld` el 06-10-2026 17:38 UTC.
 
 </details>

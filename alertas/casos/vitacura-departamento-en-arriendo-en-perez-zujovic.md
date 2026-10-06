@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en Arriendo en Pérez Zujovic  Vitacura
 ```
 
-Leído de `goplaceit` vía `json-ld` el 05-10-2026 22:58 UTC.
+Leído de `goplaceit` vía `json-ld` el 06-10-2026 17:37 UTC.
 
 </details>
