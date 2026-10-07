@@ -86,9 +86,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-$ 1.300.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Excelente departamento en la comuna de Vitacura,en sector residencial,tranquilo,cercano a plazas,cafés,en inmejorable ub ación,con muy buena conectividad vial y transporte público (furura linea 7 del metro). La proíedad esta´recién pintada y renodelada. Su distribución consta de un living com Región: Metropolitana de Santiago Publicado el: 2026-10-06 00:00:16 Diario: El Mercurio
+$ 1.300.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Excelente departamento en la comuna de Vitacura,en sector residencial,tranquilo,cercano a plazas,cafés,en inmejorable ub ación,con muy buena conectividad vial y transporte público (furura linea 7 del metro). La proíedad esta´recién pintada y renodelada. Su distribución consta de un living com Región: Metropolitana de Santiago Publicado el: 2026-10-07 00:00:29 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 18:13 UTC.
 
 </details>

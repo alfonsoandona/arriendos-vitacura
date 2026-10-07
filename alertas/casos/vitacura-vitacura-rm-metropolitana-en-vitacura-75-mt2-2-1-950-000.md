@@ -1,30 +1,28 @@
-# DEPARTAMENTO 240 METROS PISO ALTO EXCLUSIVO DEPARTAMENTO ANTIGUO 240 METROS PISO ALTO NOR ORIENTE .HALL ENTRADA BAÑO DE VISITA, COCIINA CON COMEDOR DE
+# Vitacura RM (Metropolitana) En vitacura 75 Mt2 2 1 $ 950.000
 
-**53/100** · `#XEC3Z` · Vitacura · sin ubicar
+**73/100** · `#2FZ6T` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | — |
+| Arriendo | $950.000 |
 | Gastos comunes | — |
-| **Costo mensual** | **—** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$950.000** ⚠️ sin gastos comunes |
+| Por m² | $12.667 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | departamento |
+| Tipo | — |
 | Superficie total | — |
-| Superficie útil | — |
-| Dormitorios | 3 + pieza de servicio |
-| Baños | 2 |
+| Superficie útil | 75 m² |
+| Dormitorios | — |
+| Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Piso | 2 |
-| Orientación | nororiente |
-| Visto por el radar | desde el 2026-08-18 |
 
 ## De dónde sale el puntaje
 
@@ -32,21 +30,19 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | — /20 | el aviso no publica el valor · _falta el arriendo mensual_ |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
-| Programa | 10/14 | 3D · 2B · + servicio |
-| _Preferencias_ | +2 | desempate entre las que ya calificaron |
+| Precio | 20/20 | $950.000 · GC no publicados |
+| Superficie | 5/16 | 75 m² útiles (total no publicada) |
+| Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **40 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **92/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **83/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Programa: 3D · 2B · + servicio
-- orientación nororiente
-- sin precio publicado: no se puede verificar contra el presupuesto, así que no compite con los que sí lo publican
+- Precio: $950.000 · GC no publicados
+- Superficie: 75 m² útiles (total no publicada)
 
 </details>
 
@@ -56,24 +52,25 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son varios millones al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $1.900.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Economicos (El Mercurio)](https://www.economicos.cl/search/propiedades/exclusivo-departamento-240-metros-piso-alto-codAAUWM6Q.html)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10816242/en-vitacura)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: XEC3Z
+  - codigo: 2FZ6T
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
+    # piso: 8
     # nota: "lo que te dijeron"
 ```
 
@@ -82,9 +79,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-EXCLUSIVO DEPARTAMENTO 240 METROS PISO ALTO EXCLUSIVO DEPARTAMENTO ANTIGUO 240 METROS PISO ALTO NOR ORIENTE .HALL ENTRADA BAÑO DE VISITA, COCIINA CON COMEDOR DE DIARIO PIEZA DE SERVICIO BAÑO. 3 DORMITORIO 2 BAÑOS Región: Metropolitana de Santiago Publicado el: 2025-02-03 18:12:17
+Vitacura RM (Metropolitana) En vitacura 75 Mt2 2 1 $ 950.000
 ```
 
-Leído de `economicos` vía `tarjeta` el 07-10-2026 18:13 UTC.
+Leído de `busconido` vía `tarjeta` el 07-10-2026 18:13 UTC.
 
 </details>

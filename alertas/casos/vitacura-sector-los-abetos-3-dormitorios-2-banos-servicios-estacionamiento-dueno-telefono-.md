@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.714.135 |
+| Arriendo | $1.714.476 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.714.135** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.714.476** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 41,7 |
 
 
@@ -51,7 +51,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.714.135 · GC no publicados · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.714.476 · GC no publicados · sobre el tope de $1.700.000 |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +2 | desempate entre las que ya calificaron |
@@ -63,7 +63,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.714.135 · GC no publicados · sobre el tope de $1.700.000
+- Precio: $1.714.476 · GC no publicados · sobre el tope de $1.700.000
 - Programa: 3D · 2B
 - 1 estacionamientos
 
@@ -74,7 +74,7 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.428.270 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.428.952 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -104,6 +104,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 41.70 Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estacionamiento. Dueño. Teléfono +56975700560 UF 41.70 Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estacionamiento. Dueño. Teléfono +56975700560 Región: Metropolitana de Santiago Publicado el: 2024-12-20 00:0:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 18:13 UTC.
 
 </details>
