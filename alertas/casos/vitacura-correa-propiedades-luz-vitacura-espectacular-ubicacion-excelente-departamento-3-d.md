@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 1.400.000 (Correa Propiedades) Luz, Vitacura, Espectacular ubicación, excelente departamento, 3 dormitorios, 2 baños, terraza, estacionamiento, 56992238855 1.400.000 (Correa Propiedades) Luz, Vitacura, Espectacular ubicación, excelente departamento, 3 dormitorios, 2 baños, terraza, estacionamiento, 56992238855 Región: Metropolitana de Santiago Publicado el: 2024-10-31 00:0:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

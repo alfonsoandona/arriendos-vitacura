@@ -96,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Depto arriendo SIN MUEBLES Juan XXIII/Eduardo Acevedo Depto Arriendo --SIN MUEBLES-- Juan XXIII/Eduardo Acevedo de 4 dormitorios 4 baños (dormitorio principal en suite), cocina tradicional equipada y amoblada con comedor de diario y loggia, living-comedor juntos más terraza METRAJE 180 m2 totales 160 m2 construídos 20 m2 de terraza PISO 2 VALOR AR Región: Metropolitana de Santiago Publicado el: 2024-08-22 01:04:02
 ```
 
-Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-09 | $1.512.720 |
 | 2026-09-11 | $1.513.070 |
 | 2026-09-12 | $1.513.674 |
 | 2026-09-15 | $1.514.579 |
@@ -28,8 +27,9 @@
 | 2026-09-28 | $1.518.510 |
 | 2026-10-01 | $1.519.116 |
 | 2026-10-01 | $1.519.419 |
+| 2026-10-06 | $1.520.935 |
 
-**subió 0% en 27 días. desde $1.512.720.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 1% en 26 días. desde $1.513.070.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -105,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 37 valdiviapropiedades +56998951965 Antonio Pastrana/ Francisco Aguirre, recibos, 3 dormitorios, 3 baños, terrazas, estacionamiento, bodega, Reg.Acop.653 Excelente departamento en el corazón de barrio de Vitacura. Sector plaza del Hoyo, Parque Bicentenario, Nueva Costanera y mall Casa Costanera. Desocupado. Tiene living y comedor amplio con salida a amplia terraza. Tiene tres dormitorios, con tres baños. El dormitorio principal tiene salida a terra Región: Metropolitana de Santiago Publicado el: 2024-08-10 00:27:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

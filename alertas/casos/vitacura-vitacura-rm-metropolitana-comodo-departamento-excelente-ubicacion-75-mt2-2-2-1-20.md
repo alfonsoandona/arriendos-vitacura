@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Cómodo departamento! excelente ubicación 75 Mt2 2 2 $ 1.200.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 06-10-2026 21:21 UTC.
+Leído de `busconido` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

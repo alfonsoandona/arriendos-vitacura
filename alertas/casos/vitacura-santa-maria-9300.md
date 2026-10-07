@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-25 | $1.476.292 |
 | 2026-09-26 | $1.476.586 |
 | 2026-09-26 | $1.476.881 |
 | 2026-09-28 | $1.477.175 |
@@ -28,8 +27,9 @@
 | 2026-10-03 | $1.478.943 |
 | 2026-10-05 | $1.479.239 |
 | 2026-10-06 | $1.479.533 |
+| 2026-10-06 | $1.479.829 |
 
-**subió 0% en 11 días. desde $1.476.292.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 11 días. desde $1.476.586.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -88,7 +88,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_2d236e16b08fb0829414965e8d340eeeb75580e6)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=12&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=3db568fd-2981-44ff-ae71-b31316035fa5&t_pvid=3db568fd-2981-44ff-ae71-b31316035fa5&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=104.209.5.149&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=14&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=84785ee4-8c5a-4a57-afe9-74dc5b4e52b3&t_pvid=84785ee4-8c5a-4a57-afe9-74dc5b4e52b3&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.151.138.0&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 21:21 UTC.
+Leído de `toctoc` vía `json-ld` el 07-10-2026 02:10 UTC.
 
 </details>

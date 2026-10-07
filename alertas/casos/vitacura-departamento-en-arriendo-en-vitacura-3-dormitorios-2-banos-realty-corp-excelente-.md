@@ -10,6 +10,13 @@
 | Gastos comunes | $85.000 (6,5% del canon) |
 | **Costo mensual** | **$1.385.000** |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-06 | $1.300.000 |
+
 ## Qué es
 
 | | |
@@ -22,6 +29,7 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-06 |
 
 ## De dónde sale el puntaje
 
@@ -81,6 +89,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 $ 1.300.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Excelente departamento en la comuna de Vitacura,en sector residencial,tranquilo,cercano a plazas,cafés,en inmejorable ub ación,con muy buena conectividad vial y transporte público (furura linea 7 del metro). La proíedad esta´recién pintada y renodelada. Su distribución consta de un living com Región: Metropolitana de Santiago Publicado el: 2026-10-06 00:00:16 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

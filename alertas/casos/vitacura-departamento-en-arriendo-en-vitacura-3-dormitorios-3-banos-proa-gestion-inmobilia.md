@@ -23,6 +23,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Piso | 3 |
+| Visto por el radar | desde el 2026-10-06 |
 
 ## De dónde sale el puntaje
 
@@ -81,6 +82,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 15.400 Departamento en Arriendo en Vitacura 3 dormitorios 3 baños / Proa Gestión Inmobiliaria ¡descubre este lindo departamento en arriendo en Vitacura! Ubicado en el exclusivo sector de Jardín del Este, esta propiedad ofrece 160 m2 de construcción y 210 m2 de superficie total. Con una distribución de 4 dormitorios, el principal en suite , 2 dormitorios de niños que comparten un ba� Región: Metropolitana de Santiago Publicado el: 2026-10-06 00:27:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 06-10-2026 17:37 UTC.
+Leído de `economicos` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>

@@ -22,7 +22,7 @@
 | 2026-09-11 | $1.800.000 (-3%) |
 | 2026-09-23 | $1.750.000 (-3%) |
 
-**3 bajas en 42 días: -5% desde $1.850.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**3 bajas en 43 días: -5% desde $1.850.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -100,6 +100,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Amplio dpto. 3 dormitorios más servicio, Estoril  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 06-10-2026 21:21 UTC.
+Leído de `toctoc` vía `json-ld` el 07-10-2026 02:10 UTC.
 
 </details>

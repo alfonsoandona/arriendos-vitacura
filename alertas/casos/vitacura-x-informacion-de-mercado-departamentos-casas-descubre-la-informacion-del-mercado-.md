@@ -88,6 +88,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 X Información de Mercado Departamentos Casas Descubre la información del mercado del arriendo en las zonas de interés para ti, y toma decisiones mas inteligentes. Cantidad de unidades por tipo de vivienda en tus zonas de elección y sus cercanías Cant. Valor promedio de arriendo para Dropdown Productos 1 Habitación $ 350.000 Productos 2 Habitación $ 350.000 Productos 3 Habitación $ 350.000 Productos 4+ Habitación $ 350.000 Valor histórico de arriendos en Dropdown + Ingreso promedio necesario para arrendar en Dropdown + ¿Piensas que nuestros algoritmos podrían haber cometido algún error? Si quieres cuéntanos aquí , nuestro equipo te lo agradecerá de corazón ¿Quieres saber más o comparar más zonas? Accede al Estimador de Arriendo Si necesitas más información sobre el mercado o quieres tomar mejores decisiones prueba
 ```
 
-Leído de `busconido` vía `tarjeta` el 06-10-2026 21:21 UTC.
+Leído de `busconido` vía `tarjeta` el 07-10-2026 02:09 UTC.
 
 </details>
