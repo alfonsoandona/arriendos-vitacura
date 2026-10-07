@@ -1,6 +1,6 @@
 # San Patricio Sin número
 
-**72/100** · `#PRCX6` · Vitacura · a 3,23 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=San+Patricio+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)
+**72/100** · `#CW7HG` · Vitacura · a 3,23 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=San+Patricio+Sin+n%C3%BAmero%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -30,8 +30,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Piso | 1 |
-| Publicado | hace 3 días |
-| Visto por el radar | desde el 2026-10-03 |
+| Publicado | hace 4 días |
 
 ## De dónde sale el puntaje
 
@@ -77,7 +76,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: PRCX6
+  - codigo: CW7HG
     estado: visita        # descartado | visto | contactado | visita
     # ano_construccion: 2015
     # nota: "lo que te dijeron"
@@ -88,9 +87,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Lo castillo / Paseo El Mañio  Vitacura, Metropolitana
+Lo castillo / 3 Dorm + Taller  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 07-10-2026 02:10 UTC.
+Leído de `toctoc` vía `json-ld` el 07-10-2026 21:45 UTC.
 
 </details>

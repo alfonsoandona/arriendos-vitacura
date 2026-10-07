@@ -12,6 +12,13 @@
 | Publicado en UF | UF 38 |
 | Por m² | $4.340 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-07 | $1.562.353 |
+
 ## Qué es
 
 | | |
@@ -27,6 +34,7 @@
 | Antigüedad | 5 años (construido en 2021) |
 | Piso | 2 |
 | Orientación | norte |
+| Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
 
@@ -83,6 +91,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,361 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 07-10-2026 18:13 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 07-10-2026 21:45 UTC.
 
 </details>

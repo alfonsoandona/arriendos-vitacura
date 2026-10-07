@@ -70,7 +70,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7566-5d5e6067eb30-9876-1a0e07c-4ac0)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-4d50-1a0e30c-9b06-5d5e6067edc0-77f6?click_type=0&pos=25&searchType=2&page=1&section=1&t_sec=1&sectionType=1&pageViewId=a1636bc8-704d-4e9a-baeb-613fd7d03a32&t_pvid=a1636bc8-704d-4e9a-baeb-613fd7d03a32&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=68.154.54.99&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-4d50-1a0e30c-9b06-5d5e6067edc0-77f6?click_type=0&pos=2&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&t_pvid=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.214.53.67&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -126,6 +126,6 @@ Ubicación Privilegiada:
 **En REMAX ENLACE fomentamos activamente el CANJE. Si eres corredor independiente o perteneces a otra empresa y cuentas con un cliente interesado, te invito a contactarme para coordinar una visita y conocer en detalle esta atractiva 
 ```
 
-Leído de `mitula` vía `json-ld` el 07-10-2026 18:13 UTC.
+Leído de `mitula` vía `json-ld` el 07-10-2026 21:45 UTC.
 
 </details>

@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Estupendo depto, excelente ubicación vitacura... Estupendo depto, excelente ubicación vitacura... Departamento - Región Metropolitana - Vitacura 4 Hab. 4 Baños 140.00 m² Estupendo departamento de 3 dormitorios, uno de ellos en suite, mas dormitorio y baño de servicio. cocina con comedor de diario, amplia loggia, terraza en living-comedor y todos los dormitorios. amplio... Publicado el 18/08/2023
 ```
 
-Leído de `doomos` vía `tarjeta` el 07-10-2026 18:13 UTC.
+Leído de `doomos` vía `tarjeta` el 07-10-2026 21:45 UTC.
 
 </details>
