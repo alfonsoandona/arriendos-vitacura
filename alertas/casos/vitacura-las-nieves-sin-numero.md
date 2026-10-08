@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.480.123 |
+| Arriendo | $1.480.419 |
 | Gastos comunes | $180.000 (12,2% del canon) |
-| **Costo mensual** | **$1.660.123** |
+| **Costo mensual** | **$1.660.419** |
 
 
 ### Cómo se movió el precio
@@ -45,7 +45,7 @@
 |---|---|---|
 | Ubicación | 17/26 | Vitacura · a 4,1 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.480.123 · GC $180.000 · 12.2% del canon |
+| Precio | 16/20 | $1.480.419 · GC $180.000 · 12.2% del canon |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +3 | desempate entre las que ya calificaron |
@@ -57,7 +57,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 4,1 km — fuera del anillo
-- Precio: $1.480.123 · GC $180.000 · 12.2% del canon
+- Precio: $1.480.419 · GC $180.000 · 12.2% del canon
 - Programa: 3D · 3B
 - primer piso
 - orientación oriente
@@ -71,7 +71,7 @@
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.960.246 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.960.838 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
@@ -98,6 +98,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Con piscina, impecable, a pasos de Rotonda Pérez Zujovic  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 08-10-2026 02:35 UTC.
+Leído de `toctoc` vía `json-ld` el 08-10-2026 18:12 UTC.
 
 </details>

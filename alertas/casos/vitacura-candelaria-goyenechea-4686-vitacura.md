@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $666.056 |
+| Arriendo | $666.188 |
 | Gastos comunes | — |
-| **Costo mensual** | **$666.056** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$666.188** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 16,2 |
-| Por m² | $4.470 / m² |
+| Por m² | $4.471 / m² |
 
 ## Qué es
 
@@ -32,7 +32,7 @@
 |---|---|---|
 | Ubicación | 21/26 | Vitacura · a 2,8 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 20/20 | $666.056 · GC no publicados |
+| Precio | 20/20 | $666.188 · GC no publicados |
 | Superficie | 15/16 | 149 m² totales |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -44,7 +44,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 2,8 km — fuera del anillo
-- Precio: $666.056 · GC no publicados
+- Precio: $666.188 · GC no publicados
 - Superficie: 149 m² totales
 - Programa: 3D · 3B
 - 50 m² por dormitorio
@@ -58,14 +58,14 @@
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $1.332.112 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $1.332.376 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=1&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=959c7b74-2af1-4b68-9dcb-95232c0942a6&t_pvid=959c7b74-2af1-4b68-9dcb-95232c0942a6&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=135.119.78.129&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=3&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=4ff914c0-489d-41c0-9081-f2ec29aad6f2&t_pvid=4ff914c0-489d-41c0-9081-f2ec29aad6f2&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.36&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -92,6 +92,6 @@ Con un generosa terraza, este espacio es perfecto para disfrutar tus momentos de
 Este espectacular departamento está distribuido en 4 pisos, combinando diseño moderno con funcionalidad. Por un precio competitivo de UF 16,200, tendrás la oportunidad de convertirlo en tu nuevo hogar. Vive la experiencia premium que mereces en una de las mejores zonas de la ciudad. ¡Contáctanos y hazlo tuyo hoy mismo! Región Metropolitana de Santiago, Provincia de Santiago
 ```
 
-Leído de `nuroa` vía `json-ld` el 08-10-2026 02:35 UTC.
+Leído de `nuroa` vía `json-ld` el 08-10-2026 18:12 UTC.
 
 </details>

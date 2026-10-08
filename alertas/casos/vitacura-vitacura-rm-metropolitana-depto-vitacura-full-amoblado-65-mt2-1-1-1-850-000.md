@@ -1,6 +1,6 @@
 # Vitacura RM (Metropolitana) Depto vitacura - full amoblado 65 Mt2 1 1 $ 1.850.000
 
-**45/100** · `#VQADQ` · Vitacura · sin ubicar
+**45/100** · `#75TZH` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
@@ -10,13 +10,6 @@
 | Gastos comunes | — |
 | **Costo mensual** | **$1.850.000** ⚠️ sin gastos comunes |
 | Por m² | $28.462 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-10-01 | $1.850.000 |
 
 ## Qué es
 
@@ -31,7 +24,6 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
-| Visto por el radar | desde el 2026-10-01 |
 
 ## De dónde sale el puntaje
 
@@ -70,14 +62,14 @@
 
 ## Dónde está publicado
 
-- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10778231/depto-vitacura-full-amoblado)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10823999/depto-vitacura-full-amoblado)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: VQADQ
+  - codigo: 75TZH
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -93,6 +85,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Depto vitacura - full amoblado 65 Mt2 1 1 $ 1.850.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 02-10-2026 02:03 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
 
 </details>

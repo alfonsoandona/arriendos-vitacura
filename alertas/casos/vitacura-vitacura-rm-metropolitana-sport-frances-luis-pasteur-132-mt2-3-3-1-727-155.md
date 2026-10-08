@@ -1,6 +1,6 @@
-# Vitacura 9035, Vitacura
+# Vitacura RM (Metropolitana) Sport francés / luis pasteur 132 Mt2 3 3 $ 1.727.155
 
-**87/100** · `#P8XMT` · Vitacura · a 1,21 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Vitacura+9035%2C+Vitacura%2C+Chile)
+**71/100** · `#NDNQ5` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
@@ -9,47 +9,40 @@
 | Arriendo | $1.727.155 |
 | Gastos comunes | — |
 | **Costo mensual** | **$1.727.155** ⚠️ sin gastos comunes |
-| Publicado en UF | UF 42 |
-| Por m² | $12.337 / m² |
+| Por m² | $13.085 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | departamento |
+| Tipo | — |
 | Superficie total | — |
-| Superficie útil | 140 m² |
-| Dormitorios | 4 + pieza de servicio |
-| Baños | 4 |
+| Superficie útil | 132 m² |
+| Dormitorios | — |
+| Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Publicado | hace 1147 días |
-| Visto por el radar | desde el 2026-08-21 |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | 26/26 | Vitacura · a 1,2 km — fuera del anillo |
+| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
 | Precio | 10/20 | $1.727.155 · GC no publicados · sobre el tope de $1.700.000 |
-| Superficie | 14/16 | 140 m² útiles (total no publicada) |
-| Programa | 13/14 | 4D · 4B · + servicio |
-| _Preferencias_ | +4 | desempate entre las que ya calificaron |
+| Superficie | 14/16 | 132 m² útiles (total no publicada) |
+| Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **91/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **82/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Ubicación: Vitacura · a 1,2 km — fuera del anillo
+- Ubicación: Vitacura, sin ubicar en el mapa
 - Precio: $1.727.155 · GC no publicados · sobre el tope de $1.700.000
-- Superficie: 140 m² útiles (total no publicada)
-- Programa: 4D · 4B · + servicio
-- 35 m² por dormitorio
-- publicado hace 1147 días — se negocia
+- Superficie: 132 m² útiles (total no publicada)
 
 </details>
 
@@ -62,19 +55,18 @@
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.454.310 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
-- [ ] **Lleva 1147 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Doomos](https://www.doomos.cl/de/2168989_estupendo-depto-excelente-ubicacion-vitacura.html)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10823824/sport-francs-luis-pasteur)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: P8XMT
+  - codigo: NDNQ5
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -87,9 +79,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Estupendo depto, excelente ubicación vitacura... Estupendo depto, excelente ubicación vitacura... Departamento - Región Metropolitana - Vitacura 4 Hab. 4 Baños 140.00 m² Estupendo departamento de 3 dormitorios, uno de ellos en suite, mas dormitorio y baño de servicio. cocina con comedor de diario, amplia loggia, terraza en living-comedor y todos los dormitorios. amplio... Publicado el 18/08/2023
+Vitacura RM (Metropolitana) Sport francés / luis pasteur 132 Mt2 3 3 $ 1.727.155
 ```
 
-Leído de `doomos` vía `tarjeta` el 08-10-2026 18:13 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
 
 </details>

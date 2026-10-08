@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.850.154 |
+| Arriendo | $1.850.523 |
 | Gastos comunes | $250.000 (13,5% del canon) |
-| **Costo mensual** | **$2.100.154** |
+| **Costo mensual** | **$2.100.523** |
 | Publicado en UF | UF 45 |
-| Por m² | $13.215 / m² |
+| Por m² | $13.218 / m² |
 
 ## Qué es
 
@@ -34,7 +34,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 1,3 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 4/20 | $1.850.154 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000 |
+| Precio | 4/20 | $1.850.523 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000 |
 | Superficie | 14/16 | 140 m² totales |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -46,7 +46,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 1,3 km — fuera del anillo
-- Precio: $1.850.154 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000
+- Precio: $1.850.523 · GC $250.000 · 13.5% del canon · sobre el tope de $1.700.000
 - Superficie: 140 m² totales
 - Programa: 3D · 2B
 - orientación norte
@@ -60,14 +60,14 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.700.308 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.701.046 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=18&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&t_pvid=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.214.53.67&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=17&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=4ff914c0-489d-41c0-9081-f2ec29aad6f2&t_pvid=4ff914c0-489d-41c0-9081-f2ec29aad6f2&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.36&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -99,6 +99,6 @@ El edificio tiene solo 2 departamentos por piso, conserjería 24 horas y estacio
 La ubicación resuelve dos cosas que suelen ser excluyentes: conectividad y tranquilidad. Esta a pasos de Costanera Norte y Avenida Kennedy, y cerca de centros comerciales, supermercados, farmacias, clínicas y colegios. Es un edificio residencial en un barrio tranquilo
 ```
 
-Leído de `nuroa` vía `json-ld` el 07-10-2026 21:45 UTC.
+Leído de `nuroa` vía `json-ld` el 08-10-2026 18:12 UTC.
 
 </details>

@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.726.811 |
+| Arriendo | $1.727.155 |
 | Gastos comunes | $280.000 (16,2% del canon) |
-| **Costo mensual** | **$2.006.811** |
-| Por m² | $14.390 / m² |
+| **Costo mensual** | **$2.007.155** |
+| Por m² | $14.393 / m² |
 
 
 ### Cómo se movió el precio
@@ -52,7 +52,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,7 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.726.811 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.727.155 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000 |
 | Superficie | 12/16 | 120 m² totales |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -64,7 +64,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,7 km — zona caminable
-- Precio: $1.726.811 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000
+- Precio: $1.727.155 · GC $280.000 · 16.2% del canon · sobre el tope de $1.700.000
 - Superficie: 120 m² totales
 - Programa: 3D · 3B
 - 40 m² por dormitorio
@@ -77,7 +77,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.453.622 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.454.310 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **Lleva 60 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
@@ -107,6 +107,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Avenida Juan XXIII  6650  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 08-10-2026 02:35 UTC.
+Leído de `toctoc` vía `json-ld` el 08-10-2026 18:12 UTC.
 
 </details>

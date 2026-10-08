@@ -164,10 +164,12 @@
   "url": "https://chilepropiedades.cl/ver-publicacion/arriendo-mensual/vitacura/departamento/vitacura-mar-jonico-3d-3b-con-terraza-57350/64277865"
  },
  "matucana 1161": {
-  "ano": 2023,
-  "anotado": "2026-09-10",
-  "de": "accesoinmobiliario",
-  "url": "https://placehold.co/1920x1080.mp4"
+  "ano": null,
+  "anotado": "2026-10-08",
+  "disputa": [
+   2023,
+   2026
+  ]
  },
  "matucana 700": {
   "ano": 2016,
@@ -241,15 +243,33 @@
   "de": "accesoinmobiliario",
   "url": "https://placehold.co/1920x1080.mp4"
  },
+ "santa victoria 562": {
+  "ano": 2026,
+  "anotado": "2026-10-08",
+  "de": "accesoinmobiliario",
+  "url": "https://placehold.co/1920x1080.mp4"
+ },
  "tabancura 1623 1804": {
   "ano": 2009,
   "anotado": "2026-08-31",
   "de": "toctoc",
   "url": "https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_a980d8085ff1b8a8ad39918e8343fc77f14f4e9d"
  },
+ "toro mazotte 110": {
+  "ano": 2016,
+  "anotado": "2026-10-08",
+  "de": "accesoinmobiliario",
+  "url": "https://placehold.co/1920x1080.mp4"
+ },
  "tucapel jimenez 136": {
   "ano": 2016,
   "anotado": "2026-08-25",
+  "de": "accesoinmobiliario",
+  "url": "https://placehold.co/1920x1080.mp4"
+ },
+ "vecinal 1636": {
+  "ano": 2026,
+  "anotado": "2026-10-08",
   "de": "accesoinmobiliario",
   "url": "https://placehold.co/1920x1080.mp4"
  },
