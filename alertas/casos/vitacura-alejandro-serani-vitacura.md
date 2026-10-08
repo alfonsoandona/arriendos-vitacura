@@ -1,6 +1,6 @@
 # Alejandro Serani, Vitacura
 
-**74/100** · `#5JYDB` · Vitacura · a 1,71 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Alejandro+Serani%2C+Vitacura%2C+Chile)
+**74/100** · `#XY6WW` · Vitacura · a 1,71 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Alejandro+Serani%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -10,16 +10,6 @@
 | Gastos comunes | $300.000 (15,8% del canon) |
 | **Costo mensual** | **$2.200.000** |
 | Por m² | $13.571 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-09-27 | $2.000.000 |
-| 2026-10-01 | $1.900.000 (-5%) |
-
-**1 baja en 10 días: -5% desde $2.000.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -33,7 +23,6 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | 21 años (construido en 2005) |
-| Visto por el radar | desde el 2026-09-27 |
 
 ## De dónde sale el puntaje
 
@@ -69,15 +58,14 @@
 
 ## Dónde está publicado
 
-- [Mitula](https://casas.mitula.cl/adform/24301-256-7566-5d5e6067eb30-9876-1a0e07c-4ac0)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-4d50-1a0e30c-9b06-5d5e6067edc0-77f6?click_type=0&pos=2&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&t_pvid=0cb6b28c-217f-4a7a-a1ef-fba406b55d2d&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=48.214.53.67&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Mitula](https://casas.mitula.cl/adform/24301-256-7286-a1ee46b643bb-875f-1a11e47-81d2)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 5JYDB
+  - codigo: XY6WW
     estado: visita        # descartado | visto | contactado | visita
     # piso: 8
     # nota: "lo que te dijeron"
@@ -126,6 +114,6 @@ Ubicación Privilegiada:
 **En REMAX ENLACE fomentamos activamente el CANJE. Si eres corredor independiente o perteneces a otra empresa y cuentas con un cliente interesado, te invito a contactarme para coordinar una visita y conocer en detalle esta atractiva 
 ```
 
-Leído de `mitula` vía `json-ld` el 07-10-2026 21:45 UTC.
+Leído de `mitula` vía `json-ld` el 08-10-2026 21:37 UTC.
 
 </details>

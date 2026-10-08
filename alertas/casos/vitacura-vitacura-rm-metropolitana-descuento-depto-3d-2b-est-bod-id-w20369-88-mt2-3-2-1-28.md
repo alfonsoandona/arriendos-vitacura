@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.280.562** ⚠️ sin gastos comunes |
 | Por m² | $14.552 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-08 | $1.280.562 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) ¡descuento! depto. 3d + 2b +est +bod [id: w20369] 88 Mt2 3 2 $ 1.280.562
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
 
 </details>

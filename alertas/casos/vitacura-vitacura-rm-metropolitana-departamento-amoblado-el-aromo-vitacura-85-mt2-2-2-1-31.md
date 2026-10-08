@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.315.928** ⚠️ sin gastos comunes |
 | Por m² | $15.482 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-08 | $1.315.928 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
+| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.315.928
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
 
 </details>

@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.850.000** ⚠️ sin gastos comunes |
 | Por m² | $28.462 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-08 | $1.850.000 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
+| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Depto vitacura - full amoblado 65 Mt2 1 1 $ 1.850.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
 
 </details>

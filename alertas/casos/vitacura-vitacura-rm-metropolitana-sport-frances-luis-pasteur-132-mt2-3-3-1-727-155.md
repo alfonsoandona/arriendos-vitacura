@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.727.155** ⚠️ sin gastos comunes |
 | Por m² | $13.085 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-08 | $1.727.155 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -82,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Sport francés / luis pasteur 132 Mt2 3 3 $ 1.727.155
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 18:11 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
 
 </details>

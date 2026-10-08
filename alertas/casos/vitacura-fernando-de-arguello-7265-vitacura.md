@@ -67,7 +67,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=17&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=4ff914c0-489d-41c0-9081-f2ec29aad6f2&t_pvid=4ff914c0-489d-41c0-9081-f2ec29aad6f2&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.36&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-528e-1a0d39b-b6ec-29592751fa14-7dbc?click_type=0&pos=19&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=50915fb8-d67b-44c3-8c40-09f2bce70694&t_pvid=50915fb8-d67b-44c3-8c40-09f2bce70694&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.55.223.214&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -99,6 +99,6 @@ El edificio tiene solo 2 departamentos por piso, conserjería 24 horas y estacio
 La ubicación resuelve dos cosas que suelen ser excluyentes: conectividad y tranquilidad. Esta a pasos de Costanera Norte y Avenida Kennedy, y cerca de centros comerciales, supermercados, farmacias, clínicas y colegios. Es un edificio residencial en un barrio tranquilo
 ```
 
-Leído de `nuroa` vía `json-ld` el 08-10-2026 18:12 UTC.
+Leído de `nuroa` vía `json-ld` el 08-10-2026 21:37 UTC.
 
 </details>
