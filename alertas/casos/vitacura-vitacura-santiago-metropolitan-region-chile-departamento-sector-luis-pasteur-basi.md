@@ -12,6 +12,13 @@
 | Publicado en UF | UF 42 |
 | Por m² | $4.451 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-07 | $1.726.811 |
+
 ## Qué es
 
 | | |
@@ -26,6 +33,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Disponible | ya |
+| Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
 
@@ -86,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento Sector Luis Pasteur Basic rent excl. utilities UF 42 ~€1,516 3 Bedrooms 3 Bathrooms ~116 m² Living area ~133 m² Plot surface Departamento Sector Luis Pasteur
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 07-10-2026 21:45 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 08-10-2026 02:36 UTC.
 
 </details>

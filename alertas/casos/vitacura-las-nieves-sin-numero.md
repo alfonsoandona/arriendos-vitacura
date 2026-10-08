@@ -17,8 +17,9 @@
 |---|---|
 | 2026-10-06 | $1.479.829 |
 | 2026-10-06 | $1.479.829 |
+| 2026-10-07 | $1.480.123 |
 
-**subió 0% en 1 días. desde $1.479.829.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 2 días. desde $1.479.829.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -35,7 +36,7 @@
 | Piso | 1 |
 | Orientación | oriente |
 | Mascotas | no acepta |
-| Publicado | hace 2 días |
+| Publicado | hace 3 días |
 | Visto por el radar | desde el 2026-10-06 |
 
 ## De dónde sale el puntaje
@@ -97,6 +98,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Con piscina, impecable, a pasos de Rotonda Pérez Zujovic  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 07-10-2026 21:45 UTC.
+Leído de `toctoc` vía `json-ld` el 08-10-2026 02:35 UTC.
 
 </details>

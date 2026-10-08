@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.151.207** ⚠️ sin gastos comunes |
 | Por m² | $14.039 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-07 | $1.151.207 |
+
 ## Qué es
 
 | | |
@@ -25,7 +32,8 @@
 | Antigüedad | — |
 | Piso | 1 |
 | Orientación | norte |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
+| Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
 
@@ -90,6 +98,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Muy buena ubicación, excelente departamento  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 07-10-2026 21:45 UTC.
+Leído de `toctoc` vía `json-ld` el 08-10-2026 02:35 UTC.
 
 </details>

@@ -87,6 +87,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 rentas.cl Dominio premium rentas.cl disponible para compra. Dominio premium para empresas de inversiones, administradoras de propiedades, asesorías financieras y plataformas de renta fija. Palabra genérica de alto tráfico en búsquedas financieras e inmobiliarias.
 ```
 
-Leído de `rentas_cl` vía `json-ld` el 07-10-2026 21:46 UTC.
+Leído de `rentas_cl` vía `json-ld` el 08-10-2026 02:36 UTC.
 
 </details>

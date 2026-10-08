@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) En vitacura 75 Mt2 2 1 $ 950.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 07-10-2026 21:45 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 02:35 UTC.
 
 </details>

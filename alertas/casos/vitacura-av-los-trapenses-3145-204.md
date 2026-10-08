@@ -11,6 +11,13 @@
 | **Costo mensual** | **$2.026.811** |
 | Por m² | $11.512 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-07 | $1.726.811 |
+
 ## Qué es
 
 | | |
@@ -27,7 +34,8 @@
 | Piso | 2 |
 | Orientación | norte |
 | Disponible | ya |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
+| Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
 
@@ -88,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Sector Luis Pasteur  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 07-10-2026 21:45 UTC.
+Leído de `toctoc` vía `json-ld` el 08-10-2026 02:35 UTC.
 
 </details>

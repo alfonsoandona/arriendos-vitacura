@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Arriendo moderno departamento vista despejada, vit... 135 Mt2 2 2 $ 1.808.679
 ```
 
-Leído de `busconido` vía `tarjeta` el 07-10-2026 21:45 UTC.
+Leído de `busconido` vía `tarjeta` el 08-10-2026 02:35 UTC.
 
 </details>

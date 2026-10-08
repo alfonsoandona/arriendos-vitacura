@@ -89,6 +89,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 850.000 recibos 3 dormitorios, 2 baños, garage automático. 944890649. 850.000 recibos 3 dormitorios, 2 baños, garage automático. 944890649. Región: Publicado el: 2025-02-28 00:0:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 07-10-2026 18:13 UTC.
+Leído de `economicos` vía `tarjeta` el 08-10-2026 02:35 UTC.
 
 </details>

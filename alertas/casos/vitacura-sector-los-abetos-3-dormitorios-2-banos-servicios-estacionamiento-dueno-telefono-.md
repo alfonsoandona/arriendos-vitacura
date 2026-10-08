@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-11 | $1.705.271 |
 | 2026-09-12 | $1.705.951 |
 | 2026-09-15 | $1.706.972 |
 | 2026-09-18 | $1.707.993 |
@@ -28,8 +27,9 @@
 | 2026-10-01 | $1.712.085 |
 | 2026-10-01 | $1.712.426 |
 | 2026-10-06 | $1.714.135 |
+| 2026-10-07 | $1.714.476 |
 
-**subió 1% en 26 días. desde $1.705.271.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 26 días. desde $1.705.951.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -104,6 +104,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 41.70 Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estacionamiento. Dueño. Teléfono +56975700560 UF 41.70 Sector Los Abetos. 3 dormitorios, 2 baños. Servicios. Estacionamiento. Dueño. Teléfono +56975700560 Región: Metropolitana de Santiago Publicado el: 2024-12-20 00:0:00 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 07-10-2026 18:13 UTC.
+Leído de `economicos` vía `tarjeta` el 08-10-2026 02:35 UTC.
 
 </details>
