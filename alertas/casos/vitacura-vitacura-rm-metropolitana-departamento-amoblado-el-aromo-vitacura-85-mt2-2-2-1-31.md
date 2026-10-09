@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-10-08 | $1.315.928 |
+| 2026-10-09 | $1.316.190 |
 
 ## Qué es
 
@@ -31,6 +31,7 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
+| Visto por el radar | desde el 2026-10-09 |
 
 ## De dónde sale el puntaje
 
@@ -92,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.316.190
 ```
 
-Leído de `busconido` vía `tarjeta` el 09-10-2026 17:44 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 21:23 UTC.
 
 </details>

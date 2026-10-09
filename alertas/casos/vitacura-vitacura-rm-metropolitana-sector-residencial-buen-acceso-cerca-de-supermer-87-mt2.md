@@ -16,7 +16,7 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-10-08 | $1.233.682 |
+| 2026-10-09 | $1.233.928 |
 
 ## Qué es
 
@@ -30,6 +30,7 @@
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
+| Visto por el radar | desde el 2026-10-09 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Sector residencial, buen acceso, cerca de supermer... 87 Mt2 3 2 $ 1.233.928
 ```
 
-Leído de `busconido` vía `tarjeta` el 09-10-2026 17:44 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 21:23 UTC.
 
 </details>
