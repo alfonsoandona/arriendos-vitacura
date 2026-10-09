@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) ¡descuento! depto. 3d + 2b +est +bod [id: w20369] 88 Mt2 3 2 $ 1.280.562
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
 
 </details>

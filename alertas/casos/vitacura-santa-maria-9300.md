@@ -16,7 +16,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-26 | $1.476.881 |
 | 2026-09-28 | $1.477.175 |
 | 2026-09-28 | $1.477.470 |
 | 2026-09-29 | $1.477.764 |
@@ -28,8 +27,9 @@
 | 2026-10-06 | $1.479.533 |
 | 2026-10-06 | $1.479.829 |
 | 2026-10-08 | $1.480.123 |
+| 2026-10-08 | $1.480.419 |
 
-**subió 0% en 12 días. desde $1.476.881.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 11 días. desde $1.477.175.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -88,10 +88,7 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_2d236e16b08fb0829414965e8d340eeeb75580e6)
-- [mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=17&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=6e27ffc0-f980-421d-933f-6c686acccf46&t_pvid=6e27ffc0-f980-421d-933f-6c686acccf46&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=57.154.4.36&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
-
-> Publicado en varios portales a la vez. Suele significar que lleva tiempo en el mercado, y a veces que hay más de una corredora compitiendo por arrendarlo — que es una buena posición para negociar.
+- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=18&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=78da7f97-b5a6-43f6-87ec-abda90d354f4&t_pvid=78da7f97-b5a6-43f6-87ec-abda90d354f4&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.155.63.145&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 08-10-2026 18:12 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 02:50 UTC.
 
 </details>

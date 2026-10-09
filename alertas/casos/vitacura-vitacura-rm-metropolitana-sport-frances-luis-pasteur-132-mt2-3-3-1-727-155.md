@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Sport francés / luis pasteur 132 Mt2 3 3 $ 1.727.155
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
 
 </details>

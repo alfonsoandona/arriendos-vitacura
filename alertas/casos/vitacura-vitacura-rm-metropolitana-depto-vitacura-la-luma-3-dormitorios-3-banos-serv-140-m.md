@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Depto vitacura la luma 3 dormitorios 3 baños, serv... 140 Mt2 4 3 $ 1.700.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
 
 </details>

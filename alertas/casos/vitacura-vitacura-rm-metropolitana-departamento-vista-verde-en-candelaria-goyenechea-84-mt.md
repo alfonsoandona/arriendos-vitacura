@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento vista verde en candelaria goyenechea 84 Mt2 2 2 $ 1.398.173
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
 
 </details>

@@ -17,6 +17,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-10-07 | $1.726.811 |
+| 2026-10-08 | $1.727.155 |
+
+**subió 0% en 2 días. desde $1.726.811.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -96,6 +99,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Sector Luis Pasteur  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 08-10-2026 18:12 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 02:50 UTC.
 
 </details>

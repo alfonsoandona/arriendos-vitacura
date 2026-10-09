@@ -21,8 +21,9 @@
 | 2026-10-06 | $1.438.722 |
 | 2026-10-06 | $1.438.722 |
 | 2026-10-07 | $1.439.009 |
+| 2026-10-08 | $1.439.296 |
 
-**2 bajas en 18 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**2 bajas en 19 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -104,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Camino El Parque 100  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 08-10-2026 18:12 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 02:50 UTC.
 
 </details>

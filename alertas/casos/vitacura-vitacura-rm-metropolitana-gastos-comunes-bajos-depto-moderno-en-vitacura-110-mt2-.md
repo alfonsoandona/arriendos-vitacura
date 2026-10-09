@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Gastos comunes bajos! - depto moderno en vitacura 110 Mt2 3 2 $ 1.644.910
 ```
 
-Leído de `busconido` vía `tarjeta` el 08-10-2026 21:37 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
 
 </details>

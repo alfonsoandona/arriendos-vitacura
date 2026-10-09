@@ -84,6 +84,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Arriendo Apartamento tst de prpiedad Aisén UF 9.000 3 dorm. 9 baños 45 m²
 ```
 
-Leído de `arriendos_cl` vía `tarjeta` el 08-10-2026 21:38 UTC.
+Leído de `arriendos_cl` vía `tarjeta` el 09-10-2026 02:51 UTC.
 
 </details>

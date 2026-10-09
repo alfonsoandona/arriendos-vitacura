@@ -11,6 +11,13 @@
 | **Costo mensual** | **$2.200.000** |
 | Por m² | $13.571 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-08 | $1.900.000 |
+
 ## Qué es
 
 | | |
@@ -23,6 +30,7 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | 21 años (construido en 2005) |
+| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -114,6 +122,6 @@ Ubicación Privilegiada:
 **En REMAX ENLACE fomentamos activamente el CANJE. Si eres corredor independiente o perteneces a otra empresa y cuentas con un cliente interesado, te invito a contactarme para coordinar una visita y conocer en detalle esta atractiva 
 ```
 
-Leído de `mitula` vía `json-ld` el 08-10-2026 21:37 UTC.
+Leído de `mitula` vía `json-ld` el 09-10-2026 02:50 UTC.
 
 </details>
