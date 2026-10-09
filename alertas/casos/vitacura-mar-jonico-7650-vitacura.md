@@ -1,49 +1,54 @@
-# en VITACURA
+# Mar Jónico 7650, Vitacura
 
-**59/100** · `#HEPWQ` · Vitacura · sin ubicar
+**92/100** · `#M5Z8Q` · Vitacura · a 0,38 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Mar+J%C3%B3nico+7650%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | — |
+| Arriendo | $1.624.672 |
 | Gastos comunes | — |
-| **Costo mensual** | **—** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.624.672** ⚠️ sin gastos comunes |
+| Por m² | $15.473 / m² |
 
 ## Qué es
 
 | | |
 |---|---|
-| Tipo | — |
+| Tipo | departamento |
 | Superficie total | — |
-| Superficie útil | — |
+| Superficie útil | 105 m² |
 | Dormitorios | 3 |
 | Baños | 3 |
-| Estacionamientos | — |
-| Bodega | — |
+| Estacionamientos | 2 |
+| Bodega | sí |
 | Antigüedad | 4 años (construido en 2022) |
-| Visto por el radar | desde el 2026-09-25 |
+| Piso | 3 |
+| Orientación | norte |
+| Publicado | hace 0 días |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
+| Ubicación | 26/26 | Vitacura · a 0,4 km — zona caminable |
 | Antigüedad | 23/24 | 4 años (construido en 2022) |
-| Precio | — /20 | el aviso no publica el valor · _falta el arriendo mensual_ |
-| Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
+| Precio | 15/20 | $1.624.672 · GC no publicados |
+| Superficie | 10/16 | 105 m² útiles (total no publicada) |
 | Programa | 12/14 | 3D · 3B |
-
-> El puntaje se midió sobre **64 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **91/100**.
->
-> Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
+| _Preferencias_ | +6 | desempate entre las que ya calificaron |
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Ubicación: Vitacura, sin ubicar en el mapa
+- Ubicación: Vitacura · a 0,4 km — zona caminable
 - Antigüedad: 4 años (construido en 2022)
+- Precio: $1.624.672 · GC no publicados
+- Superficie: 105 m² útiles (total no publicada)
 - Programa: 3D · 3B
-- sin precio publicado: no se puede verificar contra el presupuesto, así que no compite con los que sí lo publican
+- orientación norte
+- 35 m² por dormitorio
+- 2 estacionamientos
+- con bodega
 
 </details>
 
@@ -51,25 +56,23 @@
 
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son varios millones al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.249.344 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [GoPlaceIt](https://www.goplaceit.com/cl/propiedad/arriendo/departamento/vitacura/12660998-en-vitacura)
+- [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_faed6a714459c75993a599a683bf4a06ceb24c03)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: HEPWQ
+  - codigo: M5Z8Q
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
-    # piso: 8
     # nota: "lo que te dijeron"
 ```
 
@@ -78,9 +81,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-en VITACURA  Vitacura
+Vitacura, Mar Jónico: 3D/3B con terraza  Vitacura, Metropolitana
 ```
 
-Leído de `goplaceit` vía `json-ld` el 09-10-2026 17:44 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 17:45 UTC.
 
 </details>

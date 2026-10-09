@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.727.155 |
+| Arriendo | $1.727.499 |
 | Gastos comunes | $300.000 (17,4% del canon) |
-| **Costo mensual** | **$2.027.155** |
+| **Costo mensual** | **$2.027.499** |
 | Publicado en UF | UF 42 |
-| Por m² | $4.451 / m² |
+| Por m² | $4.452 / m² |
 
 
 ### Cómo se movió el precio
@@ -44,7 +44,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.727.155 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.727.499 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000 |
 | Superficie | 16/16 | 388 m² totales, terraza 220 m² |
 | Programa | 6/14 | 3D |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
@@ -56,7 +56,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.727.155 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000
+- Precio: $1.727.499 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000
 - Superficie: 388 m² totales, terraza 220 m²
 - Programa: 3D
 - 129 m² por dormitorio
@@ -68,7 +68,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.454.310 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.454.998 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento Sector Luis Pasteur Basic rent excl. utilities UF 42 ~€1,516 3 Bedrooms 3 Bathrooms ~116 m² Living area ~133 m² Plot surface Departamento Sector Luis Pasteur
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 09-10-2026 02:50 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 09-10-2026 17:45 UTC.
 
 </details>

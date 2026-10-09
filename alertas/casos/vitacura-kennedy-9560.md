@@ -95,6 +95,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Kennedy con la Llaveria.  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 09-10-2026 02:50 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 17:45 UTC.
 
 </details>

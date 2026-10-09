@@ -1,15 +1,15 @@
-# Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.315.928
+# Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.316.190
 
-**67/100** · `#2NXG9` · Vitacura · sin ubicar
+**67/100** · `#PP7RP` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | $1.315.928 |
+| Arriendo | $1.316.190 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.315.928** ⚠️ sin gastos comunes |
-| Por m² | $15.482 / m² |
+| **Costo mensual** | **$1.316.190** ⚠️ sin gastos comunes |
+| Por m² | $15.485 / m² |
 
 
 ### Cómo se movió el precio
@@ -31,7 +31,6 @@
 | Bodega | — |
 | Antigüedad | — |
 | Amoblado | amoblado |
-| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
@@ -39,7 +38,7 @@
 |---|---|---|
 | Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 18/20 | $1.315.928 · GC no publicados |
+| Precio | 18/20 | $1.316.190 · GC no publicados |
 | Superficie | 5/16 | 85 m² útiles (total no publicada) |
 | Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 | _Preferencias_ | -2 | desempate entre las que ya calificaron |
@@ -51,7 +50,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura, sin ubicar en el mapa
-- Precio: $1.315.928 · GC no publicados
+- Precio: $1.316.190 · GC no publicados
 - Superficie: 85 m² útiles (total no publicada)
 - amoblado (se prefiere sin amoblar)
 
@@ -63,7 +62,7 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.631.856 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.632.380 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -77,7 +76,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: 2NXG9
+  - codigo: PP7RP
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -90,9 +89,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.315.928
+Vitacura RM (Metropolitana) Departamento amoblado el aromo/ vitacura 85 Mt2 2 2 $ 1.316.190
 ```
 
-Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 17:44 UTC.
 
 </details>

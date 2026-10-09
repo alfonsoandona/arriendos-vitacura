@@ -93,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Depto vitacura - full amoblado 65 Mt2 1 1 $ 1.850.000
 ```
 
-Leído de `busconido` vía `tarjeta` el 09-10-2026 02:50 UTC.
+Leído de `busconido` vía `tarjeta` el 09-10-2026 17:44 UTC.
 
 </details>

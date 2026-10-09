@@ -45,7 +45,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | nororiente |
-| Publicado | hace 3 días |
+| Publicado | hace 4 días |
 | Visto por el radar | desde el 2026-09-08 |
 
 ## De dónde sale el puntaje
@@ -88,7 +88,6 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_2d236e16b08fb0829414965e8d340eeeb75580e6)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=18&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=78da7f97-b5a6-43f6-87ec-abda90d354f4&t_pvid=78da7f97-b5a6-43f6-87ec-abda90d354f4&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.155.63.145&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -110,6 +109,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 09-10-2026 02:50 UTC.
+Leído de `toctoc` vía `json-ld` el 09-10-2026 17:45 UTC.
 
 </details>
