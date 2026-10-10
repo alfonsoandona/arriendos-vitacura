@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Arriendo | $1.645.238 |
+| Arriendo | $1.645.450 |
 | Gastos comunes | $290.000 (17,6% del canon) |
-| **Costo mensual** | **$1.935.238** |
+| **Costo mensual** | **$1.935.450** |
 | Publicado en UF | UF 40 |
-| Por m² | $14.957 / m² |
+| Por m² | $14.959 / m² |
 
 
 ### Cómo se movió el precio
@@ -18,6 +18,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-09-24 | $1.749.816 |
+| 2026-10-10 | $1.645.238 (-6%) |
+
+**1 baja en 16 días: -6% desde $1.749.816.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -40,7 +43,7 @@
 |---|---|---|
 | Ubicación | 9/26 | Las Condes, sin ubicar en el mapa |
 | Antigüedad | 15/24 | 21 años (construido en 2005) |
-| Precio | 15/20 | $1.645.238 · GC $290.000 · 17.6% del canon |
+| Precio | 15/20 | $1.645.450 · GC $290.000 · 17.6% del canon |
 | Superficie | 10/16 | 110 m² totales |
 | Programa | 13/14 | 4D · 3B |
 | _Preferencias_ | +4 | desempate entre las que ya calificaron |
@@ -49,7 +52,7 @@
 
 - Ubicación: Las Condes, sin ubicar en el mapa
 - Antigüedad: 21 años (construido en 2005)
-- Precio: $1.645.238 · GC $290.000 · 17.6% del canon
+- Precio: $1.645.450 · GC $290.000 · 17.6% del canon
 - Superficie: 110 m² totales
 - Programa: 4D · 3B
 - orientación nororiente
@@ -61,7 +64,7 @@
 
 ## Qué preguntar antes de ir
 
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.290.476 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.290.900 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -89,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 40 Departamento en Vitacura, Provincia De Santiago Colegio Alemán Alto Las Condes Autopista Departamento de 4 dormitorios, orientación nor-oriente Características: - Hall... 114m2 4 3
 ```
 
-Leído de `icasas` vía `tarjeta` el 10-10-2026 02:10 UTC.
+Leído de `icasas` vía `tarjeta` el 10-10-2026 16:37 UTC.
 
 </details>

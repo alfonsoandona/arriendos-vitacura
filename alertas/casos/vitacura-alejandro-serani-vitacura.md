@@ -122,6 +122,6 @@ Ubicación Privilegiada:
 **En REMAX ENLACE fomentamos activamente el CANJE. Si eres corredor independiente o perteneces a otra empresa y cuentas con un cliente interesado, te invito a contactarme para coordinar una visita y conocer en detalle esta atractiva 
 ```
 
-Leído de `mitula` vía `json-ld` el 09-10-2026 17:45 UTC.
+Leído de `mitula` vía `json-ld` el 10-10-2026 16:38 UTC.
 
 </details>

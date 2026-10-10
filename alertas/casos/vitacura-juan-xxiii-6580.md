@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.879.608** |
 | Por m² | $12.071 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-10 | $1.629.608 |
+
 ## Qué es
 
 | | |
@@ -24,6 +31,8 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | — |
+| Publicado | hace 1 días |
+| Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
 
@@ -85,6 +94,6 @@ Exclusivo departamento en arriendo en Vitacura
   Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 02:10 UTC.
+Leído de `toctoc` vía `json-ld` el 10-10-2026 16:37 UTC.
 
 </details>

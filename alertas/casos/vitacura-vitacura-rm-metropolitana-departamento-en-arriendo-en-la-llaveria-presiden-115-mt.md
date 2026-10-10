@@ -1,14 +1,15 @@
-# Arriendo Apartamento tst de prpiedad Aisén UF 9.000 3 dorm. 9 baños 45 m²
+# Vitacura RM (Metropolitana) Departamento en arriendo en la llaveria / presiden... 115 Mt2 3 2 $ 1.604.313
 
-**11/100** · `#HMZCQ` · comuna desconocida · sin ubicar
+**76/100** · `#WFRGC` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
 | | |
 |---|---|
-| Arriendo | — |
+| Arriendo | $1.604.313 |
 | Gastos comunes | — |
-| **Costo mensual** | **—** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.604.313** ⚠️ sin gastos comunes |
+| Por m² | $13.951 / m² |
 
 ## Qué es
 
@@ -16,35 +17,32 @@
 |---|---|
 | Tipo | departamento |
 | Superficie total | — |
-| Superficie útil | 45 m² |
-| Dormitorios | 3 |
-| Baños | 9 |
+| Superficie útil | 115 m² |
+| Dormitorios | — |
+| Baños | — |
 | Estacionamientos | — |
 | Bodega | — |
 | Antigüedad | — |
-| Visto por el radar | desde el 2026-10-08 |
 
 ## De dónde sale el puntaje
 
 | Rubro | Puntos | Qué se midió |
 |---|---|---|
-| Ubicación | — /26 | sin comuna ni coordenadas · _falta la dirección o la comuna_ |
+| Ubicación | 20/26 | Vitacura, sin ubicar en el mapa |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | — /20 | el aviso no publica el valor · _falta el arriendo mensual_ |
-| Superficie | 5/16 | 45 m² útiles (total no publicada) |
-| Programa | 12/14 | 3D · 9B |
-| _Preferencias_ | -1 | desempate entre las que ya calificaron |
+| Precio | 16/20 | $1.604.313 · GC no publicados |
+| Superficie | 11/16 | 115 m² útiles (total no publicada) |
+| Programa | — /14 | el aviso no publica dormitorios ni baños · _falta dormitorios y baños_ |
 
-> El puntaje se midió sobre **30 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **86/100**.
+> El puntaje se midió sobre **62 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **85/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
 <details><summary>Detalle criterio por criterio</summary>
 
-- Superficie: 45 m² útiles (total no publicada)
-- Programa: 3D · 9B
-- solo 15 m² por dormitorio
-- sin precio publicado: no se puede verificar contra el presupuesto, así que no compite con los que sí lo publican
+- Ubicación: Vitacura, sin ubicar en el mapa
+- Precio: $1.604.313 · GC no publicados
+- Superficie: 115 m² útiles (total no publicada)
 
 </details>
 
@@ -54,21 +52,21 @@
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Incluye estacionamiento y bodega, o se pagan aparte?** En arriendo se cobran por separado con frecuencia.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son varios millones al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.208.626 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
 
-- [Arriendos.cl](https://www.arriendos.cl/index.php?mod=details&id=45)
+- [BuscoNido](https://www.busconido.cl/departamentos/vitacura/10837544/departamento-en-arriendo-en-la-llaveria-presidente-kennedy)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: HMZCQ
+  - codigo: WFRGC
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # ano_construccion: 2015
@@ -81,9 +79,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Arriendo Apartamento tst de prpiedad Aisén UF 9.000 3 dorm. 9 baños 45 m²
+Vitacura RM (Metropolitana) Departamento en arriendo en la llaveria / presiden... 115 Mt2 3 2 $ 1.604.313
 ```
 
-Leído de `arriendos_cl` vía `tarjeta` el 10-10-2026 16:38 UTC.
+Leído de `busconido` vía `tarjeta` el 10-10-2026 16:37 UTC.
 
 </details>
