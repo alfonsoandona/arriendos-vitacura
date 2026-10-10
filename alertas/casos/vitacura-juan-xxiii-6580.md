@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.629.608 |
+| Arriendo | $1.629.818 |
 | Gastos comunes | $250.000 (15,3% del canon) |
-| **Costo mensual** | **$1.879.608** |
-| Por m² | $12.071 / m² |
+| **Costo mensual** | **$1.879.818** |
+| Por m² | $12.073 / m² |
 
 
 ### Cómo se movió el precio
@@ -17,6 +17,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-10-10 | $1.629.608 |
+| 2026-10-10 | $1.629.608 |
+
+**subió 0%. desde $1.629.608.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -40,7 +43,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 15/20 | $1.629.608 · GC $250.000 · 15.3% del canon |
+| Precio | 15/20 | $1.629.818 · GC $250.000 · 15.3% del canon |
 | Superficie | 14/16 | 135 m² totales, terraza 15 m² |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
@@ -52,7 +55,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.629.608 · GC $250.000 · 15.3% del canon
+- Precio: $1.629.818 · GC $250.000 · 15.3% del canon
 - Superficie: 135 m² totales, terraza 15 m²
 - Programa: 3D · 3B
 - 45 m² por dormitorio
@@ -64,7 +67,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.259.216 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.259.636 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -94,6 +97,6 @@ Exclusivo departamento en arriendo en Vitacura
   Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 16:37 UTC.
+Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
 
 </details>

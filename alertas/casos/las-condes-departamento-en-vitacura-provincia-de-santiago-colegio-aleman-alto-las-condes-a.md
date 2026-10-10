@@ -19,6 +19,7 @@
 |---|---|
 | 2026-09-24 | $1.749.816 |
 | 2026-10-10 | $1.645.238 (-6%) |
+| 2026-10-10 | $1.645.450 |
 
 **1 baja en 16 días: -6% desde $1.749.816.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
@@ -92,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 UF 40 Departamento en Vitacura, Provincia De Santiago Colegio Alemán Alto Las Condes Autopista Departamento de 4 dormitorios, orientación nor-oriente Características: - Hall... 114m2 4 3
 ```
 
-Leído de `icasas` vía `tarjeta` el 10-10-2026 16:37 UTC.
+Leído de `icasas` vía `tarjeta` el 10-10-2026 20:22 UTC.
 
 </details>

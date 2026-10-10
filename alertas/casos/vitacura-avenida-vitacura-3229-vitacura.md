@@ -12,6 +12,13 @@
 | Publicado en UF | UF 37 |
 | Por m² | $7.610 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-10 | $1.522.041 |
+
 ## Qué es
 
 | | |
@@ -27,6 +34,7 @@
 | Antigüedad | — |
 | Piso | 8 |
 | Orientación | poniente |
+| Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
 
@@ -89,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 4 dorm. en Vitacura ¡Gran oportunidad en Vitacura! Este exclusivo departamento de 200 m2 está ubicado en uno de los sectores más cotizados de la comuna, en Pérez Zujovic, cerca de la Rotonda Pérez Zujovic. Con una orientación Nor-Poniente que garantiza una excelente iluminación natural, este departamento cuenta con 4 dormitorios y 3 baños, ideal para familias que buscan amplitud y comodidad.<br /><br />Además, sus amplios espacios permiten una distribución cómoda y funcional, perfecta para disfrutar en familia o con amigos. Aunque no cuenta con calefacción, sus característica lo convierten en un lugar acogedor y cálido durante todo el año.<br /><br />Distribución:<br />Hall de acceso con ascensor directo a la puerta, amplia cocina con de apoyo y logia.<br />Habitación y baño de servicio.<br />Amplio living y comedor más terraza con malla de seguridad.<br />2 habitaciones de buen tamaño más baño completo con shower door.<br />1 habitación matrimonial en suite con amplios armarios, sala de estar o escritorio dentro de la misma habitación.<br />Cuenta con aire acondicionado en la habitación matrimonial,<br />Cuenta con 2 estacionamientos en tándem y bodega.<br />GGCC $400.000<br />No pierdas la oportunidad de vivir en este exclusivo sector de Vitacura, con fácil acceso a servicios, comercios y con excelente conectividad. ¡Contáctanos para agendar una visita y conocer más detalles sobre este maravilloso departamento en arriendo en Pérez Zujovic!<br />D
 ```
 
-Leído de `mitula` vía `json-ld` el 10-10-2026 16:38 UTC.
+Leído de `mitula` vía `json-ld` el 10-10-2026 20:22 UTC.
 
 </details>

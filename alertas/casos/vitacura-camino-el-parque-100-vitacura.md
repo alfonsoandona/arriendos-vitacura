@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.439.583 |
+| Arriendo | $1.439.768 |
 | Gastos comunes | $450.000 (31,3% del canon) |
-| **Costo mensual** | **$1.889.583** |
-| Por m² | $5.805 / m² |
+| **Costo mensual** | **$1.889.768** |
+| Por m² | $5.806 / m² |
 
 
 ### Cómo se movió el precio
@@ -24,6 +24,7 @@
 | 2026-10-08 | $1.439.296 |
 | 2026-10-09 | $1.439.583 |
 | 2026-10-09 | $1.439.296 |
+| 2026-10-10 | $1.439.583 |
 | 2026-10-10 | $1.439.583 |
 
 **3 bajas en 20 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
@@ -53,7 +54,7 @@
 |---|---|---|
 | Ubicación | 19/26 | Vitacura · a 3,5 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 14/20 | $1.439.583 · GC $450.000 · 31.3% del canon — altos |
+| Precio | 14/20 | $1.439.768 · GC $450.000 · 31.3% del canon — altos |
 | Superficie | 16/16 | 248 m² totales, terraza 124 m² |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
@@ -65,7 +66,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 3,5 km — fuera del anillo
-- Precio: $1.439.583 · GC $450.000 · 31.3% del canon — altos
+- Precio: $1.439.768 · GC $450.000 · 31.3% del canon — altos
 - Superficie: 248 m² totales, terraza 124 m²
 - Programa: 3D · 2B
 - orientación norte
@@ -80,7 +81,7 @@
 
 - [ ] **Los gastos comunes son altos** (31,3% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.879.166 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.879.536 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -108,6 +109,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Camino El Parque 100  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 16:37 UTC.
+Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
 
 </details>
