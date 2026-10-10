@@ -9,7 +9,28 @@
 | Arriendo | $1.624.672 |
 | Gastos comunes | — |
 | **Costo mensual** | **$1.624.672** ⚠️ sin gastos comunes |
+| Publicado en UF | UF 41 |
 | Por m² | $15.473 / m² |
+
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-09-26 | $1.599.635 |
+| 2026-09-26 | $1.682.003 (+5%) |
+| 2026-09-27 | $1.682.338 |
+| 2026-09-28 | $1.682.674 |
+| 2026-09-29 | $1.683.009 |
+| 2026-09-30 | $1.683.345 |
+| 2026-10-01 | $1.601.550 (-5%) |
+| 2026-10-03 | $1.601.869 |
+| 2026-10-03 | $1.602.189 |
+| 2026-10-08 | $1.603.787 |
+| 2026-10-09 | $1.604.107 |
+| 2026-10-09 | $1.624.672 (+1%) |
+
+**subió 2% en 14 días. desde $1.599.635.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -25,7 +46,7 @@
 | Antigüedad | 4 años (construido en 2022) |
 | Piso | 3 |
 | Orientación | norte |
-| Publicado | hace 0 días |
+| Visto por el radar | desde el 2026-08-28 |
 
 ## De dónde sale el puntaje
 
@@ -84,6 +105,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Mar Jónico: 3D/3B con terraza  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 09-10-2026 17:45 UTC.
+Leído de `toctoc` vía `json-ld` el 10-10-2026 02:10 UTC.
 
 </details>

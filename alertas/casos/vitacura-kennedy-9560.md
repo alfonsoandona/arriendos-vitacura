@@ -1,6 +1,6 @@
 # Kennedy  9560
 
-**80/100** · `#JT37U` · Vitacura · a 1,80 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Kennedy++9560%2C+Vitacura%2C+Chile)
+**78/100** · `#JT37U` · Vitacura · a 1,80 km del Sport Francés · [📍 abrir en Google Maps](https://www.google.com/maps/search/?api=1&query=Kennedy++9560%2C+Vitacura%2C+Chile)
 
 ## Cuánto cuesta
 
@@ -32,7 +32,6 @@
 | Antigüedad | — |
 | Piso | 3 |
 | Mascotas | acepta |
-| Publicado | hace 60 días |
 | Visto por el radar | desde el 2026-08-26 |
 
 ## De dónde sale el puntaje
@@ -44,9 +43,9 @@
 | Precio | 19/20 | $1.100.000 · GC $120.000 · 10.9% del canon — bajos |
 | Superficie | 5/16 | 98 m² útiles (total no publicada) |
 | Programa | 10/14 | 3D · 2B |
-| _Preferencias_ | +4 | desempate entre las que ya calificaron |
+| _Preferencias_ | +2 | desempate entre las que ya calificaron |
 
-> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **86/100**.
+> El puntaje se midió sobre **76 de 100** puntos posibles: hay rubros que este aviso no publica. Con esos datos podría llegar a **84/100**.
 >
 > Por eso un puntaje bajo acá no significa necesariamente un mal departamento: puede ser uno del que se sabe poco.
 
@@ -59,7 +58,6 @@
 - solo 33 m² por dormitorio
 - 1 estacionamientos
 - con bodega
-- publicado hace 60 días — se negocia
 
 </details>
 
@@ -69,7 +67,6 @@
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
 - [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.200.000 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
-- [ ] **Lleva 60 días publicado.** Vale la pena preguntar directamente si hay flexibilidad en el canon: a esa altura el propietario ya perdió más en meses vacíos que lo que cede bajando el precio.
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
 
 ## Dónde está publicado
@@ -95,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Kennedy con la Llaveria.  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 09-10-2026 21:23 UTC.
+Leído de `toctoc` vía `json-ld` el 10-10-2026 02:10 UTC.
 
 </details>

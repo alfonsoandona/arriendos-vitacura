@@ -17,13 +17,13 @@
 |---|---|
 | Tipo | departamento |
 | Superficie total | 105 m² |
-| Superficie útil | 105 m² |
+| Superficie útil | 15 m² |
 | Dormitorios | 3 |
 | Baños | 3 |
 | Estacionamientos | 1 |
 | Bodega | — |
 | Antigüedad | — |
-| Publicado | hace 5 días |
+| Publicado | hace 6 días |
 | Visto por el radar | desde el 2026-08-20 |
 
 ## De dónde sale el puntaje
@@ -63,7 +63,7 @@
 
 ## Dónde está publicado
 
-- [Nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=13&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=50915fb8-d67b-44c3-8c40-09f2bce70694&t_pvid=50915fb8-d67b-44c3-8c40-09f2bce70694&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.55.223.214&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [Nuroa](https://www.nuroa.cl/adform/10342-912-bb8f-1a0f9f6-abb2-77f6c1d45b3f-7ce9?click_type=0&pos=17&searchType=2&page=2&section=1&t_sec=1&sectionType=1&pageViewId=7c965005-1d2a-46aa-93de-f73f7b5de858&t_pvid=7c965005-1d2a-46aa-93de-f73f7b5de858&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=52.234.43.177&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -100,6 +100,6 @@ Loggia
 Gastos Comunes $ 230.000.- Región Metropolitana de Santiago, Provincia de Santiago
 ```
 
-Leído de `nuroa` vía `json-ld` el 08-10-2026 21:37 UTC.
+Leído de `nuroa` vía `json-ld` el 10-10-2026 02:10 UTC.
 
 </details>
