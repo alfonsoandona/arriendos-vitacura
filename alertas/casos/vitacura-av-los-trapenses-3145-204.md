@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.727.722 |
+| Arriendo | $1.727.944 |
 | Gastos comunes | $300.000 (17,4% del canon) |
-| **Costo mensual** | **$2.027.722** |
-| Por m² | $11.518 / m² |
+| **Costo mensual** | **$2.027.944** |
+| Por m² | $11.520 / m² |
 
 
 ### Cómo se movió el precio
@@ -51,7 +51,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,7 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 10/20 | $1.727.722 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000 |
+| Precio | 10/20 | $1.727.944 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000 |
 | Superficie | 15/16 | 150 m² totales, terraza 17 m² |
 | Programa | 12/14 | 3D · 3B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -63,7 +63,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,7 km — zona caminable
-- Precio: $1.727.722 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000
+- Precio: $1.727.944 · GC $300.000 · 17.4% del canon · sobre el tope de $1.700.000
 - Superficie: 150 m² totales, terraza 17 m²
 - Programa: 3D · 3B
 - orientación norte
@@ -76,7 +76,7 @@
 ## Qué preguntar antes de ir
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.455.444 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.455.888 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -104,6 +104,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Sector Luis Pasteur  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 17:03 UTC.
 
 </details>

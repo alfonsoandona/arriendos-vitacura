@@ -45,7 +45,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | nororiente |
-| Publicado | hace 5 días |
+| Publicado | hace 6 días |
 | Visto por el radar | desde el 2026-09-08 |
 
 ## De dónde sale el puntaje
@@ -88,10 +88,6 @@
 ## Dónde está publicado
 
 - [TocToc](https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/b_2d236e16b08fb0829414965e8d340eeeb75580e6)
-- [mitula](https://casas.mitula.cl/adform/24301-256-7f59-b794d4f44134-ad32-1a0b012-c63d)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-c8cd-1a0b2a2-afc2-b794d4f443c4-81e9?click_type=0&pos=19&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=075f931e-bf0f-4c36-9465-f243ecbec828&t_pvid=075f931e-bf0f-4c36-9465-f243ecbec828&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.249.19.240&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
-
-> Publicado en varios portales a la vez. Suele significar que lleva tiempo en el mercado, y a veces que hay más de una corredora compitiendo por arrendarlo — que es una buena posición para negociar.
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -113,6 +109,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 17:03 UTC.
 
 </details>
