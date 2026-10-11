@@ -45,7 +45,7 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | nororiente |
-| Publicado | hace 6 días |
+| Publicado | hace 5 días |
 | Visto por el radar | desde el 2026-09-08 |
 
 ## De dónde sale el puntaje
@@ -109,6 +109,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 17:03 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 20:40 UTC.
 
 </details>

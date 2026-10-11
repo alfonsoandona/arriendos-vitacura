@@ -17,7 +17,6 @@
 
 | Cuándo | Arriendo |
 |---|---|
-| 2026-09-30 | $1.641.960 |
 | 2026-09-30 | $1.642.288 |
 | 2026-10-01 | $1.642.615 |
 | 2026-10-02 | $1.642.943 |
@@ -29,8 +28,9 @@
 | 2026-10-08 | $1.644.910 |
 | 2026-10-09 | $1.645.238 |
 | 2026-10-10 | $1.645.450 |
+| 2026-10-11 | $1.645.661 |
 
-**subió 0% en 11 días. desde $1.641.960.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 11 días. desde $1.642.288.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -85,7 +85,7 @@
 ## Dónde está publicado
 
 - [Mitula](https://casas.mitula.cl/adform/24301-256-7e95-2bf0a040325e-8976-1a0c76b-184e)
-- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=10&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=b2ed1de9-5b78-449a-8bb6-627a9b4cc39b&t_pvid=b2ed1de9-5b78-449a-8bb6-627a9b4cc39b&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.109.95.97&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
+- [nuroa](https://www.nuroa.cl/adform/10342-912-1ade-1a0c9fb-8c06-2bf0a04034ee-8125?click_type=0&pos=11&searchType=2&page=4&section=1&t_sec=1&sectionType=1&pageViewId=03b4f3d6-a648-47b2-9716-6b9a271460dc&t_pvid=03b4f3d6-a648-47b2-9716-6b9a271460dc&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=20.106.231.144&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0)
 
 ## ✏️ ¿Lo viste o llamaste? Anótalo
 
@@ -140,6 +140,6 @@ Incluye:
 Gastos Comunes: $290.000.-. EasyBroker ID: EB-XB1092 Fernando de Argüello, El Dorado, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7650191, Chile
 ```
 
-Leído de `mitula` vía `json-ld` el 11-10-2026 17:02 UTC.
+Leído de `mitula` vía `json-ld` el 11-10-2026 20:40 UTC.
 
 </details>

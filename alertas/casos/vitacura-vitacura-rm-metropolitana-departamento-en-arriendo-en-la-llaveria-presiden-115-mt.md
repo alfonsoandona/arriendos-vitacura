@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento en arriendo en la llaveria / presiden... 115 Mt2 3 2 $ 1.604.313
 ```
 
-Leído de `busconido` vía `tarjeta` el 11-10-2026 17:02 UTC.
+Leído de `busconido` vía `tarjeta` el 11-10-2026 20:40 UTC.
 
 </details>
