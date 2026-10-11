@@ -18,8 +18,9 @@
 |---|---|
 | 2026-10-10 | $1.629.608 |
 | 2026-10-10 | $1.629.608 |
+| 2026-10-10 | $1.629.818 |
 
-**subió 0%. desde $1.629.608.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 1 días. desde $1.629.608.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -34,7 +35,7 @@
 | Estacionamientos | 1 |
 | Bodega | sí |
 | Antigüedad | — |
-| Publicado | hace 1 días |
+| Publicado | hace 2 días |
 | Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
@@ -97,6 +98,6 @@ Exclusivo departamento en arriendo en Vitacura
   Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
 
 </details>

@@ -11,6 +11,13 @@
 | **Costo mensual** | **$1.684.313** |
 | Por m² | $16.043 / m² |
 
+
+### Cómo se movió el precio
+
+| Cuándo | Arriendo |
+|---|---|
+| 2026-10-10 | $1.604.313 |
+
 ## Qué es
 
 | | |
@@ -25,7 +32,8 @@
 | Antigüedad | — |
 | Piso | 3 |
 | Orientación | nororiente |
-| Publicado | hace 0 días |
+| Publicado | hace 1 días |
+| Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
 
@@ -87,6 +95,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 ARRIENDO DEPARTAMENTO 3HAB 2BA VITACURA  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:36 UTC.
 
 </details>

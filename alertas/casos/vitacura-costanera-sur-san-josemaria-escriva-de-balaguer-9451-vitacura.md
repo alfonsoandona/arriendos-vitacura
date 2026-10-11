@@ -94,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 DEPARTAMENTO LUMINOSO VITACURA  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:36 UTC.
 
 </details>

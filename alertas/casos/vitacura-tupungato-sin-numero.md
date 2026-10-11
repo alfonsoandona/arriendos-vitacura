@@ -19,7 +19,7 @@
 | 2026-09-27 | $1.300.000 |
 | 2026-10-10 | $1.150.000 (-12%) |
 
-**1 baja en 13 días: -12% desde $1.300.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**1 baja en 14 días: -12% desde $1.300.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 3 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
 
 </details>

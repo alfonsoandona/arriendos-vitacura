@@ -17,6 +17,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-09-28 | $2.000.000 |
+| 2026-10-09 | $1.900.000 (-5%) |
+
+**1 baja en 13 días: -5% desde $2.000.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -93,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 1/45 1.900.000 $ Mensual 46,48 UF 4 3 9 140 Departamento Vitacura, Santiago, Metropolitana De Santiago, Chile
 ```
 
-Leído de `remax` vía `tarjeta` el 09-10-2026 17:45 UTC.
+Leído de `remax` vía `tarjeta` el 11-10-2026 01:37 UTC.
 
 </details>

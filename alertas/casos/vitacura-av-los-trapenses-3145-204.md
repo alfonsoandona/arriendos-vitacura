@@ -22,8 +22,9 @@
 | 2026-10-09 | $1.727.155 |
 | 2026-10-10 | $1.727.499 |
 | 2026-10-10 | $1.727.499 |
+| 2026-10-10 | $1.727.722 |
 
-**subió 0% en 3 días. desde $1.726.811.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 4 días. desde $1.726.811.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -41,7 +42,7 @@
 | Piso | 2 |
 | Orientación | norte |
 | Disponible | ya |
-| Publicado | hace 3 días |
+| Publicado | hace 4 días |
 | Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
@@ -103,6 +104,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento Sector Luis Pasteur  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
 
 </details>

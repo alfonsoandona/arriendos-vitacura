@@ -26,8 +26,9 @@
 | 2026-10-09 | $1.439.296 |
 | 2026-10-10 | $1.439.583 |
 | 2026-10-10 | $1.439.583 |
+| 2026-10-10 | $1.439.768 |
 
-**3 bajas en 20 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**3 bajas en 21 días: -40% desde $2.400.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -45,7 +46,7 @@
 | Piso | 3 |
 | Orientación | norte |
 | Amoblado | amoblado |
-| Publicado | hace 5 días |
+| Publicado | hace 6 días |
 | Visto por el radar | desde el 2026-09-20 |
 
 ## De dónde sale el puntaje
@@ -109,6 +110,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento, Camino El Parque 100  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 10-10-2026 20:22 UTC.
+Leído de `toctoc` vía `json-ld` el 11-10-2026 01:37 UTC.
 
 </details>

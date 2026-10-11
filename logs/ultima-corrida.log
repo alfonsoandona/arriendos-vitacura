@@ -1,204 +1,221 @@
-20:21:55 INFO    UF = $41.136.24 (API del día)
-20:21:55 INFO    Barriendo TocToc (toctoc)…
-20:21:55 INFO    Barriendo Chilepropiedades (chilepropiedades)…
-20:21:55 INFO    Barriendo GoPlaceIt (goplaceit)…
-20:21:55 INFO    Barriendo Yapo (yapo)…
-20:21:55 WARNING https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura respondió 403
-20:21:55 INFO    [yapo] https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura rebotó al GET; se reintenta con navegador
-20:21:55 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
-20:21:57 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
-20:21:59 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
-20:21:59 INFO      chilepropiedades: 30 avisos en 4s
-20:21:59 INFO    Barriendo BuscoNido (busconido)…
-20:22:00 DEBUG   [busconido] 23 avisos vía tarjetas
-20:22:00 INFO      busconido: 23 avisos en 1s
-20:22:00 INFO    Barriendo BienesOnline (bienesonline)…
-20:22:01 DEBUG   [bienesonline] 11 avisos vía tarjetas
-20:22:01 INFO      bienesonline: 11 avisos en 1s
-20:22:01 INFO    Barriendo Economicos (El Mercurio) (economicos)…
-20:22:01 DEBUG   [economicos] 20 avisos vía tarjetas
-20:22:01 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:02 DEBUG   La red no quedó en silencio en https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura; se lee igual
-20:22:02 INFO      yapo: 0 avisos en 7s
-20:22:02 INFO    Barriendo iCasas (icasas)…
-20:22:03 DEBUG   [icasas] 15 avisos vía tarjetas
-20:22:04 DEBUG   [goplaceit] 30 avisos vía json-ld
-20:22:05 DEBUG   [icasas] 15 avisos vía tarjetas
-20:22:05 INFO      icasas: 30 avisos en 3s
-20:22:05 INFO    Barriendo Doomos (doomos)…
-20:22:08 DEBUG   [economicos] 18 avisos vía tarjetas
-20:22:08 DEBUG   [economicos] 13 avisos vía tarjetas
-20:22:08 INFO      economicos: 51 avisos en 8s
-20:22:08 INFO    Barriendo Top Propiedades (toppropiedades)…
-20:22:09 DEBUG   La red no quedó en silencio en https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/3-dormitorios?pagina=2; se lee igual
-20:22:10 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:12 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:14 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:16 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:17 DEBUG   La red no quedó en silencio en https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/3-dormitorios?pagina=3; se lee igual
-20:22:17 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:18 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:20 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:22 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:24 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:25 DEBUG   La red no quedó en silencio en https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/4-dormitorios; se lee igual
-20:22:26 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:26 DEBUG   [toppropiedades] 1 avisos vía json-ld
-20:22:26 INFO      toppropiedades: 8 avisos en 18s
-20:22:26 INFO    Barriendo Nuroa (nuroa)…
-20:22:27 DEBUG   Encoding detection: ascii is most likely the one.
-20:22:28 DEBUG   [nuroa] 25 avisos vía json-ld
-20:22:29 DEBUG   [nuroa] 25 avisos vía json-ld
-20:22:31 DEBUG   [nuroa] 25 avisos vía json-ld
-20:22:32 DEBUG   La red no quedó en silencio en https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/4-dormitorios?pagina=2; se lee igual
-20:22:33 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:33 DEBUG   [nuroa] 25 avisos vía json-ld
-20:22:34 INFO      nuroa: 100 avisos en 8s
-20:22:34 INFO    Barriendo Mitula (mitula)…
-20:22:34 DEBUG   [goplaceit] 30 avisos vía json-ld
-20:22:35 WARNING Error en https://www.doomos.cl/departamentos-vitacura-arriendo (intento 1/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
-20:22:36 DEBUG   [mitula] 30 avisos vía json-ld
-20:22:37 DEBUG   [mitula] 30 avisos vía json-ld
-20:22:38 INFO      mitula: 60 avisos en 4s
-20:22:38 INFO    Barriendo Houm (houm)…
-20:22:41 DEBUG   [toctoc] 20 avisos vía json-ld
-20:22:41 INFO      toctoc: 120 avisos en 46s
-20:22:41 INFO    Barriendo Hey! Homes (heyhomes)…
-20:22:43 DEBUG   [heyhomes] 9 avisos vía tarjetas
-20:22:43 INFO      heyhomes: 9 avisos en 2s
-20:22:43 INFO    Barriendo Engel & Völkers (engelvoelkers)…
-20:22:46 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamentos-region-metropolitana/vitacura/3-dormitorios; se lee igual
-20:22:46 DEBUG   [houm] 28 avisos vía json-ld
-20:22:49 DEBUG   [engelvoelkers] 18 avisos vía tarjetas
-20:22:49 INFO      engelvoelkers: 18 avisos en 5s
-20:22:49 INFO    Barriendo RE/MAX Chile (remax)…
-20:22:53 INFO      remax: 0 avisos en 4s
-20:22:53 INFO    Barriendo Fuenzalida Propiedades (fuenzalida)…
-20:22:55 DEBUG   [fuenzalida] 16 avisos vía tarjetas
-20:22:56 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/170742; se lee igual
-20:22:56 DEBUG   [houm] 1 avisos vía estado-embebido
-20:22:57 DEBUG   [fuenzalida] 20 avisos vía tarjetas
-20:22:57 WARNING Error en https://www.doomos.cl/departamentos-vitacura-arriendo (intento 2/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
-20:22:59 DEBUG   [fuenzalida] 20 avisos vía tarjetas
-20:22:59 INFO      fuenzalida: 56 avisos en 6s
-20:22:59 INFO    Barriendo Century 21 Chile (century21)…
-20:23:01 INFO      century21: 0 avisos en 1s
-20:23:01 INFO    Barriendo Property Partners (propertypartners)…
-20:23:01 DEBUG   [propertypartners] 1 avisos vía tarjetas
-20:23:01 INFO      propertypartners: 1 avisos en 0s
-20:23:01 INFO    Barriendo Acceso Inmobiliario (accesoinmobiliario)…
-20:23:03 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/181066; se lee igual
-20:23:03 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:05 DEBUG   [accesoinmobiliario] 15 avisos vía tarjetas
-20:23:09 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:12 DEBUG   [goplaceit] 30 avisos vía json-ld
-20:23:13 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/lo-barnechea/74201; se lee igual
-20:23:13 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:14 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:21 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/178185; se lee igual
-20:23:21 WARNING Error en https://www.doomos.cl/departamentos-vitacura-arriendo (intento 3/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
-20:23:21 WARNING   doomos: el sitio no respondió a tiempo
-20:23:21 INFO      doomos: 0 avisos en 76s
-20:23:21 INFO    Barriendo Magnolia Property (magnoliaproperty)…
-20:23:21 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:22 DEBUG   [magnoliaproperty] 7 avisos vía tarjetas
-20:23:22 INFO      magnoliaproperty: 7 avisos en 1s
-20:23:22 INFO    Barriendo Portilla Propiedades (portillapropiedades)…
-20:23:22 DEBUG   [portillapropiedades] 2 avisos vía tarjetas
-20:23:22 INFO      portillapropiedades: 2 avisos en 0s
-20:23:22 INFO    Barriendo Nativo Propiedades (nativopropiedades)…
-20:23:23 DEBUG   [nativopropiedades] 10 avisos vía tarjetas
-20:23:23 INFO      nativopropiedades: 10 avisos en 1s
-20:23:23 INFO    Barriendo Enlace Inmobiliario (enlaceinmobiliario)…
-20:23:23 WARNING https://www.enlaceinmobiliario.cl/ respondió 403
-20:23:23 INFO    [enlaceinmobiliario] https://www.enlaceinmobiliario.cl/ rebotó al GET; se reintenta con navegador
-20:23:23 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:31 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/176207; se lee igual
-20:23:31 DEBUG   La red no quedó en silencio en https://www.enlaceinmobiliario.cl/; se lee igual
-20:23:31 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:31 INFO      enlaceinmobiliario: 0 avisos en 8s
-20:23:31 INFO    Barriendo Rentas.cl (rentas_cl)…
-20:23:33 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:33 DEBUG   [rentas_cl] 1 avisos vía json-ld
-20:23:33 INFO      rentas_cl: 1 avisos en 2s
-20:23:33 INFO    Barriendo Arriendos.cl (arriendos_cl)…
-20:23:34 DEBUG   [arriendos_cl] 3 avisos vía tarjetas
-20:23:34 INFO      arriendos_cl: 3 avisos en 1s
-20:23:34 INFO    Barriendo Propiedades.cl (propiedades_cl)…
-20:23:34 DEBUG   [propiedades_cl] 6 avisos vía tarjetas
-20:23:34 INFO      propiedades_cl: 6 avisos en 1s
-20:23:34 INFO    Barriendo Clasificados.cl (clasificados_cl)…
-20:23:38 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:39 DEBUG   [clasificados_cl] 1 avisos vía tarjetas
-20:23:39 INFO      clasificados_cl: 1 avisos en 5s
-20:23:40 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/177842; se lee igual
-20:23:40 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:42 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:49 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:49 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/176958; se lee igual
-20:23:49 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:51 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
-20:23:53 INFO      goplaceit: 90 avisos en 118s
-20:23:55 INFO      accesoinmobiliario: 23 avisos en 54s
-20:23:59 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/90462; se lee igual
-20:23:59 DEBUG   [houm] 1 avisos vía estado-embebido
-20:23:59 INFO      houm: 36 avisos en 81s
-20:23:59 INFO    Total crudo: 696 avisos
-20:23:59 INFO    Después de deduplicar: 503
-20:24:00 DEBUG   Libreta: eleuterio ramirez 1024 se construyó en 2014 (accesoinmobiliario)
-20:24:00 INFO    Pasaron los filtros: 65
-20:24:24 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:25 DEBUG   Ficha de HW5MX sin candidato propio; no se fusiona
-20:24:26 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:28 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:30 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:32 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:34 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:36 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:38 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:40 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:40 DEBUG   Ficha de XEC3Z sin candidato propio; no se fusiona
-20:24:42 DEBUG   [economicos] 1 avisos vía tarjetas
-20:24:47 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:24:51 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:24:56 DEBUG   Pin del mapa para EUJGC: -33.38419, -70.55936
-20:24:56 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:25:02 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:25:02 DEBUG   [busconido] 10 avisos vía tarjetas
-20:25:02 DEBUG   Ficha de WFRGC sin candidato propio; no se fusiona
-20:25:07 DEBUG   Pin del mapa para HAPZ9: -33.38416, -70.53784
-20:25:07 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:25:09 DEBUG   [engelvoelkers] 1 avisos vía json-ld
-20:25:11 DEBUG   [busconido] 10 avisos vía tarjetas
-20:25:11 DEBUG   Ficha de N9KAH sin candidato propio; no se fusiona
-20:25:11 DEBUG   [economicos] 1 avisos vía tarjetas
-20:25:11 INFO    Enriquecido y descartado: S84GC (arriendo de $3.108.725 sobre el máximo negociable de $1.904.000)
-20:25:15 INFO    Enriquecido y descartado: YAVJA (arriendo de $3.517.371 sobre el máximo negociable de $1.904.000)
-20:25:15 DEBUG   [economicos] 1 avisos vía tarjetas
-20:25:29 INFO    Enriquecido y descartado: CC2AY (arriendo de $2.032.258 sobre el máximo negociable de $1.904.000)
-20:25:29 DEBUG   [busconido] 11 avisos vía tarjetas
-20:25:29 DEBUG   Ficha de 75TZH sin candidato propio; no se fusiona
-20:25:30 DEBUG   Ficha de HMZCQ sin candidato propio; no se fusiona
-20:25:30 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=7&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=b0e59c6a-db98-4295-8bd8-95ec2d446d04&t_pvid=b0e59c6a-db98-4295-8bd8-95ec2d446d04&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=135.232.200.72&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
-20:25:34 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:25:47 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:25:51 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:00 DEBUG   [engelvoelkers] 1 avisos vía json-ld
-20:26:04 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:09 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:09 DEBUG   [mitula] 3 avisos vía tarjetas
-20:26:14 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:22 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:27 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:31 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:26:36 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:27:02 INFO    Enriquecido y descartado: 75BRH (arriendo de $2.149.504 sobre el máximo negociable de $1.904.000)
-20:27:06 INFO    Enriquecido y descartado: 75BRH (arriendo de $1.954.095 sobre el máximo negociable de $1.904.000)
-20:27:24 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:27:28 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-3e9b-1a0e30e-bd4c-4f30fb45531b-7a22?click_type=0&pos=8&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=b0e59c6a-db98-4295-8bd8-95ec2d446d04&t_pvid=b0e59c6a-db98-4295-8bd8-95ec2d446d04&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=135.232.200.72&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
-20:27:28 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-e7f8-1a0a016-97e0-4460cb69457-7a3c?click_type=0&pos=10&searchType=1&page=4&section=1&t_sec=1&sectionType=1&pageViewId=4a3718b0-a321-43d5-b1c1-fddd0a072d8a&t_pvid=4a3718b0-a321-43d5-b1c1-fddd0a072d8a&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=135.232.200.72&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
-20:27:33 DEBUG   [toctoc] 1 avisos vía estado-embebido
-20:27:34 DEBUG   [mitula] 3 avisos vía tarjetas
-20:27:38 INFO    Enriquecido y descartado: 75BRH (arriendo de $4.299.009 sobre el máximo negociable de $1.904.000)
-20:27:42 INFO    Fichas leídas: 65 — 1 ganaron el año, 3 la dirección; 6 se descartaron al verlas (0 por viejos)
-20:27:43 INFO    Listo: 0 avisados de 59 candidatos
+01:36:35 INFO    No se pudo traer la UF del día (ReadTimeout); se usa el respaldo
+01:36:35 INFO    UF = $41.136.24 (caché de hace 1 día(s) — la API no respondió)
+01:36:35 INFO    Barriendo TocToc (toctoc)…
+01:36:35 INFO    Barriendo Chilepropiedades (chilepropiedades)…
+01:36:35 INFO    Barriendo GoPlaceIt (goplaceit)…
+01:36:35 INFO    Barriendo Yapo (yapo)…
+01:36:35 WARNING https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura respondió 403
+01:36:35 INFO    [yapo] https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura rebotó al GET; se reintenta con navegador
+01:36:35 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
+01:36:37 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
+01:36:38 DEBUG   [goplaceit] 30 avisos vía json-ld
+01:36:39 DEBUG   [chilepropiedades] 10 avisos vía tarjetas
+01:36:40 INFO      chilepropiedades: 30 avisos en 5s
+01:36:40 INFO    Barriendo BuscoNido (busconido)…
+01:36:40 DEBUG   [busconido] 23 avisos vía tarjetas
+01:36:40 INFO      busconido: 23 avisos en 1s
+01:36:40 INFO    Barriendo BienesOnline (bienesonline)…
+01:36:41 DEBUG   [bienesonline] 11 avisos vía tarjetas
+01:36:41 INFO      bienesonline: 11 avisos en 1s
+01:36:41 INFO    Barriendo Economicos (El Mercurio) (economicos)…
+01:36:42 DEBUG   [toctoc] 20 avisos vía json-ld
+01:36:42 DEBUG   [economicos] 20 avisos vía tarjetas
+01:36:44 DEBUG   [economicos] 18 avisos vía tarjetas
+01:36:45 DEBUG   La red no quedó en silencio en https://www.yapo.cl/bienes-raices-alquiler-apartamentos/region-metropolitana-vitacura; se lee igual
+01:36:45 INFO      yapo: 0 avisos en 10s
+01:36:45 INFO    Barriendo iCasas (icasas)…
+01:36:46 DEBUG   [icasas] 15 avisos vía tarjetas
+01:36:46 DEBUG   [economicos] 13 avisos vía tarjetas
+01:36:46 INFO      economicos: 51 avisos en 5s
+01:36:46 INFO    Barriendo Doomos (doomos)…
+01:36:48 DEBUG   [icasas] 15 avisos vía tarjetas
+01:36:48 INFO      icasas: 30 avisos en 2s
+01:36:48 INFO    Barriendo Top Propiedades (toppropiedades)…
+01:36:48 DEBUG   [doomos] 32 avisos vía tarjetas
+01:36:48 INFO      doomos: 32 avisos en 3s
+01:36:48 INFO    Barriendo Nuroa (nuroa)…
+01:36:49 DEBUG   Encoding detection: ascii is most likely the one.
+01:36:50 DEBUG   [nuroa] 25 avisos vía json-ld
+01:36:51 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:36:52 DEBUG   [nuroa] 25 avisos vía json-ld
+01:36:52 DEBUG   [toctoc] 20 avisos vía json-ld
+01:36:53 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:36:54 DEBUG   [nuroa] 25 avisos vía json-ld
+01:36:55 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:36:56 DEBUG   [nuroa] 25 avisos vía json-ld
+01:36:56 INFO      nuroa: 100 avisos en 8s
+01:36:56 INFO    Barriendo Mitula (mitula)…
+01:36:57 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:36:58 DEBUG   [mitula] 30 avisos vía json-ld
+01:36:59 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:36:59 DEBUG   La red no quedó en silencio en https://www.toctoc.com/arriendo/departamento/metropolitana/vitacura/3-dormitorios?pagina=3; se lee igual
+01:37:00 DEBUG   [mitula] 30 avisos vía json-ld
+01:37:00 INFO      mitula: 60 avisos en 4s
+01:37:00 INFO    Barriendo Houm (houm)…
+01:37:00 DEBUG   [toctoc] 20 avisos vía json-ld
+01:37:01 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:37:03 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:37:05 DEBUG   [toppropiedades] 1 avisos vía json-ld
+01:37:05 INFO      toppropiedades: 8 avisos en 17s
+01:37:05 INFO    Barriendo Hey! Homes (heyhomes)…
+01:37:06 DEBUG   [toctoc] 20 avisos vía json-ld
+01:37:07 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamentos-region-metropolitana/vitacura/3-dormitorios; se lee igual
+01:37:07 DEBUG   [heyhomes] 9 avisos vía tarjetas
+01:37:07 INFO      heyhomes: 9 avisos en 2s
+01:37:07 INFO    Barriendo Engel & Völkers (engelvoelkers)…
+01:37:07 DEBUG   [houm] 28 avisos vía json-ld
+01:37:13 DEBUG   [toctoc] 14 avisos vía json-ld
+01:37:16 DEBUG   [engelvoelkers] 18 avisos vía tarjetas
+01:37:16 INFO      engelvoelkers: 18 avisos en 9s
+01:37:16 INFO    Barriendo RE/MAX Chile (remax)…
+01:37:17 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/170742; se lee igual
+01:37:17 DEBUG   [houm] 1 avisos vía estado-embebido
+01:37:18 DEBUG   [goplaceit] 30 avisos vía json-ld
+01:37:23 DEBUG   [toctoc] 20 avisos vía json-ld
+01:37:24 INFO      toctoc: 114 avisos en 49s
+01:37:24 INFO    Barriendo Fuenzalida Propiedades (fuenzalida)…
+01:37:26 DEBUG   [fuenzalida] 16 avisos vía tarjetas
+01:37:26 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/ñuñoa/181066; se lee igual
+01:37:26 DEBUG   [houm] 1 avisos vía estado-embebido
+01:37:28 DEBUG   [fuenzalida] 20 avisos vía tarjetas
+01:37:30 DEBUG   [fuenzalida] 20 avisos vía tarjetas
+01:37:30 INFO      fuenzalida: 56 avisos en 6s
+01:37:30 INFO    Barriendo Century 21 Chile (century21)…
+01:37:31 DEBUG   La red no quedó en silencio en https://www.remax.cl/es-cl/busqueda/metropolitana-de-santiago/santiago/vitacura/residencial-departamento/arriendo/; se lee igual
+01:37:31 INFO      century21: 0 avisos en 1s
+01:37:31 INFO    Barriendo Property Partners (propertypartners)…
+01:37:31 DEBUG   [remax] 3 avisos vía tarjetas
+01:37:31 DEBUG   [propertypartners] 1 avisos vía tarjetas
+01:37:31 INFO      propertypartners: 1 avisos en 0s
+01:37:31 INFO    Barriendo Acceso Inmobiliario (accesoinmobiliario)…
+01:37:37 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/lo-barnechea/74201; se lee igual
+01:37:37 DEBUG   [houm] 1 avisos vía estado-embebido
+01:37:37 INFO      remax: 3 avisos en 21s
+01:37:37 INFO    Barriendo Magnolia Property (magnoliaproperty)…
+01:37:38 DEBUG   [magnoliaproperty] 6 avisos vía tarjetas
+01:37:38 INFO      magnoliaproperty: 6 avisos en 0s
+01:37:38 INFO    Barriendo Portilla Propiedades (portillapropiedades)…
+01:37:38 DEBUG   [portillapropiedades] 2 avisos vía tarjetas
+01:37:38 INFO      portillapropiedades: 2 avisos en 0s
+01:37:38 INFO    Barriendo Nativo Propiedades (nativopropiedades)…
+01:37:39 DEBUG   [nativopropiedades] 10 avisos vía tarjetas
+01:37:39 INFO      nativopropiedades: 10 avisos en 1s
+01:37:39 INFO    Barriendo Enlace Inmobiliario (enlaceinmobiliario)…
+01:37:39 WARNING https://www.enlaceinmobiliario.cl/ respondió 403
+01:37:39 INFO    [enlaceinmobiliario] https://www.enlaceinmobiliario.cl/ rebotó al GET; se reintenta con navegador
+01:37:40 DEBUG   [accesoinmobiliario] 15 avisos vía tarjetas
+01:37:47 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/178185; se lee igual
+01:37:47 DEBUG   [houm] 1 avisos vía estado-embebido
+01:37:48 DEBUG   La red no quedó en silencio en https://www.enlaceinmobiliario.cl/; se lee igual
+01:37:48 INFO      enlaceinmobiliario: 0 avisos en 9s
+01:37:48 INFO    Barriendo Rentas.cl (rentas_cl)…
+01:37:49 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:37:50 DEBUG   [rentas_cl] 1 avisos vía json-ld
+01:37:50 INFO      rentas_cl: 1 avisos en 2s
+01:37:50 INFO    Barriendo Arriendos.cl (arriendos_cl)…
+01:37:51 DEBUG   [arriendos_cl] 3 avisos vía tarjetas
+01:37:51 INFO      arriendos_cl: 3 avisos en 1s
+01:37:51 INFO    Barriendo Propiedades.cl (propiedades_cl)…
+01:37:51 DEBUG   [propiedades_cl] 6 avisos vía tarjetas
+01:37:51 INFO      propiedades_cl: 6 avisos en 0s
+01:37:51 INFO    Barriendo Clasificados.cl (clasificados_cl)…
+01:37:53 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:37:54 DEBUG   [clasificados_cl] 1 avisos vía tarjetas
+01:37:54 INFO      clasificados_cl: 1 avisos en 3s
+01:37:56 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/176207; se lee igual
+01:37:56 DEBUG   [houm] 1 avisos vía estado-embebido
+01:38:04 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/las-condes/177842; se lee igual
+01:38:04 DEBUG   [houm] 1 avisos vía estado-embebido
+01:38:04 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:06 DEBUG   [goplaceit] 30 avisos vía json-ld
+01:38:09 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:12 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/176958; se lee igual
+01:38:12 DEBUG   [houm] 1 avisos vía estado-embebido
+01:38:14 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:19 DEBUG   La red no quedó en silencio en https://houm.com/cl/arriendo-departamento-región-metropolitana/recoleta/90462; se lee igual
+01:38:19 DEBUG   [houm] 1 avisos vía estado-embebido
+01:38:19 INFO      houm: 36 avisos en 80s
+01:38:20 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:22 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:24 DEBUG   [accesoinmobiliario] 1 avisos vía tarjetas
+01:38:26 INFO      accesoinmobiliario: 23 avisos en 55s
+01:38:33 INFO      goplaceit: 90 avisos en 118s
+01:38:33 INFO    Total crudo: 724 avisos
+01:38:33 INFO    Después de deduplicar: 548
+01:38:34 INFO    Pasaron los filtros: 71
+01:38:51 DEBUG   [economicos] 1 avisos vía tarjetas
+01:38:55 DEBUG   [doomos] 18 avisos vía tarjetas
+01:38:55 DEBUG   Ficha de YVT22 sin candidato propio; no se fusiona
+01:38:56 DEBUG   Ficha de HW5MX sin candidato propio; no se fusiona
+01:38:56 DEBUG   [economicos] 1 avisos vía tarjetas
+01:38:58 DEBUG   [economicos] 1 avisos vía tarjetas
+01:39:00 DEBUG   [economicos] 1 avisos vía tarjetas
+01:39:02 DEBUG   [economicos] 1 avisos vía tarjetas
+01:39:04 DEBUG   [economicos] 1 avisos vía tarjetas
+01:39:08 DEBUG   [doomos] 27 avisos vía tarjetas
+01:39:08 DEBUG   Ficha de U44VT sin candidato propio; no se fusiona
+01:39:13 DEBUG   [doomos] 27 avisos vía tarjetas
+01:39:13 DEBUG   Ficha de KNAE9 sin candidato propio; no se fusiona
+01:39:33 WARNING Error en https://www.doomos.cl/de/1379469_vitacura-depto-amoblado-3-dorm-2-banos-ser-y-estar.html (intento 1/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:39:55 WARNING Error en https://www.doomos.cl/de/1379469_vitacura-depto-amoblado-3-dorm-2-banos-ser-y-estar.html (intento 2/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:40:19 WARNING Error en https://www.doomos.cl/de/1379469_vitacura-depto-amoblado-3-dorm-2-banos-ser-y-estar.html (intento 3/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:40:39 WARNING Error en https://www.doomos.cl/de/3060819_arriendo-departamento-2hab-2ba-vitacura.html (intento 1/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:41:01 WARNING Error en https://www.doomos.cl/de/3060819_arriendo-departamento-2hab-2ba-vitacura.html (intento 2/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:41:25 WARNING Error en https://www.doomos.cl/de/3060819_arriendo-departamento-2hab-2ba-vitacura.html (intento 3/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:41:26 DEBUG   [economicos] 1 avisos vía tarjetas
+01:41:46 WARNING Error en https://www.doomos.cl/de/2168989_estupendo-depto-excelente-ubicacion-vitacura.html (intento 1/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:42:08 WARNING Error en https://www.doomos.cl/de/2168989_estupendo-depto-excelente-ubicacion-vitacura.html (intento 2/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:42:32 WARNING Error en https://www.doomos.cl/de/2168989_estupendo-depto-excelente-ubicacion-vitacura.html (intento 3/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:42:32 DEBUG   [economicos] 1 avisos vía tarjetas
+01:42:34 DEBUG   [economicos] 1 avisos vía tarjetas
+01:42:34 DEBUG   Ficha de XEC3Z sin candidato propio; no se fusiona
+01:42:36 DEBUG   [economicos] 1 avisos vía tarjetas
+01:42:41 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:42:47 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:42:52 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:42:53 DEBUG   [busconido] 10 avisos vía tarjetas
+01:42:53 DEBUG   Ficha de WFRGC sin candidato propio; no se fusiona
+01:43:13 WARNING Error en https://www.doomos.cl/de/3070749_arriendo-departamento-3hab-3ba-vitacura.html (intento 1/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:43:35 WARNING Error en https://www.doomos.cl/de/3070749_arriendo-departamento-3hab-3ba-vitacura.html (intento 2/3): HTTPSConnectionPool(host='www.doomos.cl', port=443): Read timed out. (read timeout=20)
+01:43:54 DEBUG   [doomos] 27 avisos vía tarjetas
+01:43:54 DEBUG   Ficha de FQ6XQ sin candidato propio; no se fusiona
+01:43:57 DEBUG   [engelvoelkers] 1 avisos vía json-ld
+01:43:58 DEBUG   [busconido] 10 avisos vía tarjetas
+01:43:58 DEBUG   Ficha de N9KAH sin candidato propio; no se fusiona
+01:44:05 DEBUG   La red no quedó en silencio en https://www.remax.cl/es-cl/propiedades/departamento/arriendo/vitacura/1028056067-99; se lee igual
+01:44:05 DEBUG   [remax] 1 avisos vía json-ld
+01:44:06 DEBUG   [economicos] 1 avisos vía tarjetas
+01:44:06 INFO    Enriquecido y descartado: S84GC (arriendo de $3.108.725 sobre el máximo negociable de $1.904.000)
+01:44:09 INFO    Enriquecido y descartado: YAVJA (arriendo de $3.517.371 sobre el máximo negociable de $1.904.000)
+01:44:09 DEBUG   [economicos] 1 avisos vía tarjetas
+01:44:19 INFO    Enriquecido y descartado: CC2AY (arriendo de $2.032.258 sobre el máximo negociable de $1.904.000)
+01:44:20 DEBUG   [busconido] 11 avisos vía tarjetas
+01:44:20 DEBUG   Ficha de 75TZH sin candidato propio; no se fusiona
+01:44:20 DEBUG   Ficha de HMZCQ sin candidato propio; no se fusiona
+01:44:24 DEBUG   [doomos] 18 avisos vía tarjetas
+01:44:24 DEBUG   Ficha de J5JN4 sin candidato propio; no se fusiona
+01:44:24 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-101d5-1a0ff48-a45a-2e1434470692-7ad1?click_type=0&pos=9&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=2df5ce78-71a4-4640-9581-994fb88d778e&t_pvid=2df5ce78-71a4-4640-9581-994fb88d778e&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.249.19.240&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
+01:44:29 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:44:36 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:44:40 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:44:47 DEBUG   [engelvoelkers] 1 avisos vía json-ld
+01:44:59 DEBUG   [doomos] 27 avisos vía tarjetas
+01:44:59 DEBUG   Ficha de P8XMT sin candidato propio; no se fusiona
+01:45:05 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:09 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:14 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:18 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:27 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:32 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:37 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:45:41 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:46:02 INFO    Enriquecido y descartado: 75BRH (arriendo de $2.149.504 sobre el máximo negociable de $1.904.000)
+01:46:05 INFO    Enriquecido y descartado: 75BRH (arriendo de $1.954.095 sobre el máximo negociable de $1.904.000)
+01:46:21 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:46:24 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-3e9b-1a0e30e-bd4c-4f30fb45531b-7a22?click_type=0&pos=8&searchType=1&page=2&section=1&t_sec=1&sectionType=1&pageViewId=2df5ce78-71a4-4640-9581-994fb88d778e&t_pvid=2df5ce78-71a4-4640-9581-994fb88d778e&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.249.19.240&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
+01:46:24 WARNING robots.txt no permite https://www.nuroa.cl/adform/10342-912-e7f8-1a0a016-97e0-4460cb69457-7a3c?click_type=0&pos=8&searchType=1&page=4&section=1&t_sec=1&sectionType=1&pageViewId=075f931e-bf0f-4c36-9465-f243ecbec828&t_pvid=075f931e-bf0f-4c36-9465-f243ecbec828&userAgent=Mozilla%2F5.0+%28compatible%3B+radar-arriendos%2F1.0%3B+uso+personal%2C+busqueda+de+arriendo%3B+%2Bhttps%3A%2F%2Fgithub.com%2Falfonsoandona%2Farriendos-vitacura%29&browser=1&isHuman=true&userIp=4.249.19.240&what=vitacura+departamento&search_terms=vitacura+departamento&origin=1&t_or=1&splitTestId=0 — se omite
+01:46:29 DEBUG   [toctoc] 1 avisos vía estado-embebido
+01:46:30 DEBUG   [mitula] 3 avisos vía tarjetas
+01:46:33 INFO    Enriquecido y descartado: 75BRH (arriendo de $4.299.009 sobre el máximo negociable de $1.904.000)
+01:46:36 INFO    Fichas leídas: 71 — 0 ganaron el año, 1 la dirección; 6 se descartaron al verlas (0 por viejos)
+01:46:37 INFO    Listo: 0 avisados de 65 candidatos

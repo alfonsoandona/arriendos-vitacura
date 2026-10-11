@@ -16,6 +16,9 @@
 | Cuándo | Arriendo |
 |---|---|
 | 2026-10-06 | $1.300.000 |
+| 2026-10-10 | $1.150.000 (-12%) |
+
+**1 baja en 5 días: -12% desde $1.300.000.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -89,6 +92,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 $ 1.150.000 Departamento en Arriendo en Vitacura 3 dormitorios 2 baños / Realty.Corp Excelente departamento en la comuna de Vitacura,en sector residencial,tranquilo,cercano a plazas,cafés,en inmejorable ub ación,con muy buena conectividad vial y transporte público (furura linea 7 del metro). La proíedad esta´recién pintada y renodelada. Su distribución consta de un living com Región: Metropolitana de Santiago Publicado el: 2026-10-10 00:00:27 Diario: El Mercurio
 ```
 
-Leído de `economicos` vía `tarjeta` el 10-10-2026 20:22 UTC.
+Leído de `economicos` vía `tarjeta` el 11-10-2026 01:36 UTC.
 
 </details>
