@@ -100,6 +100,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento Sector Luis Pasteur Basic rent excl. utilities UF 42 ~€1,516 3 Bedrooms 3 Bathrooms ~116 m² Living area ~133 m² Plot surface Departamento Sector Luis Pasteur
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 12-10-2026 02:09 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 12-10-2026 20:37 UTC.
 
 </details>

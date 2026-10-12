@@ -1,6 +1,6 @@
-# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,361 2 Bedrooms 2 Bathrooms 
+# Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,372 2 Bedrooms 2 Bathrooms 
 
-**88/100** · `#EJS6D` · Vitacura · sin ubicar
+**88/100** · `#9U6QY` · Vitacura · sin ubicar
 
 ## Cuánto cuesta
 
@@ -11,19 +11,6 @@
 | **Costo mensual** | **$1.563.378** ⚠️ sin gastos comunes |
 | Publicado en UF | UF 38 |
 | Por m² | $4.343 / m² |
-
-
-### Cómo se movió el precio
-
-| Cuándo | Arriendo |
-|---|---|
-| 2026-10-07 | $1.562.353 |
-| 2026-10-08 | $1.562.664 |
-| 2026-10-09 | $1.562.976 |
-| 2026-10-10 | $1.563.177 |
-| 2026-10-11 | $1.563.378 |
-
-**subió 0% en 5 días. desde $1.562.353.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -40,7 +27,6 @@
 | Antigüedad | 5 años (construido en 2021) |
 | Piso | 2 |
 | Orientación | norte |
-| Visto por el radar | desde el 2026-10-07 |
 
 ## De dónde sale el puntaje
 
@@ -83,7 +69,7 @@
 En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda para siempre: un `descartado` no vuelve a sonar, y lo que averigües entra al puntaje.
 
 ```yaml
-  - codigo: EJS6D
+  - codigo: 9U6QY
     estado: visita        # descartado | visto | contactado | visita
     # gastos_comunes_clp: 250000
     # nota: "lo que te dijeron"
@@ -94,9 +80,9 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 <details><summary>Datos crudos del aviso</summary>
 
 ```
-Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,361 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
+Vitacura, Santiago Metropolitan Region, Chile Departamento a pasos del Estadio Croata Basic rent excl. utilities UF 38 ~€1,372 2 Bedrooms 2 Bathrooms ~74 m² Living area ~84 m² Plot surface Departamento a pasos del Estadio Croata
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 12-10-2026 02:09 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 12-10-2026 20:37 UTC.
 
 </details>

@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.563.177 |
+| Arriendo | $1.563.580 |
 | Gastos comunes | — |
-| **Costo mensual** | **$1.563.177** ⚠️ sin gastos comunes |
+| **Costo mensual** | **$1.563.580** ⚠️ sin gastos comunes |
 
 
 ### Cómo se movió el precio
@@ -30,7 +30,6 @@
 | Bodega | sí |
 | Antigüedad | — |
 | Orientación | norte |
-| Publicado | hace 14 días |
 | Visto por el radar | desde el 2026-09-25 |
 
 ## De dónde sale el puntaje
@@ -39,7 +38,7 @@
 |---|---|---|
 | Ubicación | 25/26 | Vitacura · a 1,7 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.563.177 · GC no publicados |
+| Precio | 16/20 | $1.563.580 · GC no publicados |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
@@ -51,7 +50,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 1,7 km — fuera del anillo
-- Precio: $1.563.177 · GC no publicados
+- Precio: $1.563.580 · GC no publicados
 - Programa: 3D · 2B
 - orientación norte
 - 1 estacionamientos
@@ -64,7 +63,7 @@
 - [ ] **¿Cuánto son los gastos comunes?** Es la pregunta más rentable de la lista: en departamentos de más de 100 m² en Vitacura van entre $150.000 y $400.000 al mes, y eso mueve el costo real más que cualquier negociación del canon.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.126.354 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.127.159 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -94,6 +93,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 DEPARTAMENTO LUMINOSO VITACURA  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 01:36 UTC.
+Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
 
 </details>

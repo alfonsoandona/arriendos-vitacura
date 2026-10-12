@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.480.905 |
+| Arriendo | $1.481.286 |
 | Gastos comunes | $400.000 (27,0% del canon) |
-| **Costo mensual** | **$1.880.905** |
-| Por m² | $10.578 / m² |
+| **Costo mensual** | **$1.881.286** |
+| Por m² | $10.581 / m² |
 
 
 ### Cómo se movió el precio
@@ -29,7 +29,7 @@
 | 2026-10-10 | $1.480.714 |
 | 2026-10-10 | $1.480.905 |
 
-**subió 0% en 12 días. desde $1.477.764.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 13 días. desde $1.477.764.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -42,10 +42,10 @@
 | Dormitorios | 4 |
 | Baños | 4 |
 | Estacionamientos | 2 |
-| Bodega | sí |
+| Bodega | — |
 | Antigüedad | — |
 | Orientación | nororiente |
-| Publicado | hace 5 días |
+| Publicado | hace 7 días |
 | Visto por el radar | desde el 2026-09-08 |
 
 ## De dónde sale el puntaje
@@ -54,7 +54,7 @@
 |---|---|---|
 | Ubicación | 26/26 | Vitacura · a 0,8 km — zona caminable |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 13/20 | $1.480.905 · GC $400.000 · 27% del canon — altos |
+| Precio | 13/20 | $1.481.286 · GC $400.000 · 27% del canon — altos |
 | Superficie | 14/16 | 140 m² totales, terraza 140 m² |
 | Programa | 13/14 | 4D · 4B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -66,13 +66,12 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 0,8 km — zona caminable
-- Precio: $1.480.905 · GC $400.000 · 27% del canon — altos
+- Precio: $1.481.286 · GC $400.000 · 27% del canon — altos
 - Superficie: 140 m² totales, terraza 140 m²
 - Programa: 4D · 4B
 - orientación nororiente
 - 35 m² por dormitorio
 - 2 estacionamientos
-- con bodega
 
 </details>
 
@@ -80,7 +79,7 @@
 
 - [ ] **Los gastos comunes son altos** (27,0% del canon). Preguntar qué incluyen y si hay algún gasto extraordinario vigente — una reparación de fachada se reparte entre todos los departamentos y puede durar años.
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.961.810 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $2.962.572 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -109,6 +108,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 PRECIOSO DEPARTAMENTO CON VISTA A SANTIAGO  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 20:40 UTC.
+Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
 
 </details>

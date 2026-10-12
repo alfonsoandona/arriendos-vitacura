@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 ARRIENDO DEPARTAMENTO 3HAB 2BA VITACURA  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 01:36 UTC.
+Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
 
 </details>

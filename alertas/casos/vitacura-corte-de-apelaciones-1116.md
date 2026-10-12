@@ -6,10 +6,10 @@
 
 | | |
 |---|---|
-| Arriendo | $1.604.313 |
+| Arriendo | $1.604.726 |
 | Gastos comunes | $80.000 (5,0% del canon) |
-| **Costo mensual** | **$1.684.313** |
-| Por m² | $16.043 / m² |
+| **Costo mensual** | **$1.684.726** |
+| Por m² | $16.047 / m² |
 
 
 ### Cómo se movió el precio
@@ -32,7 +32,6 @@
 | Antigüedad | — |
 | Piso | 3 |
 | Orientación | nororiente |
-| Publicado | hace 1 días |
 | Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
@@ -41,7 +40,7 @@
 |---|---|---|
 | Ubicación | 23/26 | Vitacura · a 2,3 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.604.313 · GC $80.000 · 5% del canon — bajos |
+| Precio | 16/20 | $1.604.726 · GC $80.000 · 5% del canon — bajos |
 | Superficie | 9/16 | 100 m² útiles (total no publicada) |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +6 | desempate entre las que ya calificaron |
@@ -53,7 +52,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 2,3 km — fuera del anillo
-- Precio: $1.604.313 · GC $80.000 · 5% del canon — bajos
+- Precio: $1.604.726 · GC $80.000 · 5% del canon — bajos
 - Superficie: 100 m² útiles (total no publicada)
 - Programa: 3D · 2B
 - orientación nororiente
@@ -67,7 +66,7 @@
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.208.626 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.209.453 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -95,6 +94,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 ARRIENDO DEPARTAMENTO 3HAB 2BA VITACURA  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 01:36 UTC.
+Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
 
 </details>

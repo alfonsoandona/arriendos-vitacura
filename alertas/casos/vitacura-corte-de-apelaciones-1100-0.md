@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| Arriendo | $1.604.520 |
+| Arriendo | $1.604.726 |
 | Gastos comunes | $80.000 (5,0% del canon) |
-| **Costo mensual** | **$1.684.520** |
+| **Costo mensual** | **$1.684.726** |
 
 
 ### Cómo se movió el precio
@@ -17,8 +17,9 @@
 |---|---|
 | 2026-10-10 | $1.604.107 |
 | 2026-10-10 | $1.604.313 |
+| 2026-10-11 | $1.604.520 |
 
-**subió 0% en 1 días. desde $1.604.107.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 2 días. desde $1.604.107.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -35,7 +36,6 @@
 | Antigüedad | — |
 | Piso | 3 |
 | Orientación | nororiente |
-| Publicado | hace 2 días |
 | Visto por el radar | desde el 2026-10-10 |
 
 ## De dónde sale el puntaje
@@ -44,7 +44,7 @@
 |---|---|---|
 | Ubicación | 23/26 | Vitacura · a 2,3 km — fuera del anillo |
 | Antigüedad | — /24 | el aviso no publica el año · _falta el año de construcción_ |
-| Precio | 16/20 | $1.604.520 · GC $80.000 · 5% del canon — bajos |
+| Precio | 16/20 | $1.604.726 · GC $80.000 · 5% del canon — bajos |
 | Superficie | — /16 | el aviso no publica los metros · _falta los m² totales_ |
 | Programa | 10/14 | 3D · 2B |
 | _Preferencias_ | +5 | desempate entre las que ya calificaron |
@@ -56,7 +56,7 @@
 <details><summary>Detalle criterio por criterio</summary>
 
 - Ubicación: Vitacura · a 2,3 km — fuera del anillo
-- Precio: $1.604.520 · GC $80.000 · 5% del canon — bajos
+- Precio: $1.604.726 · GC $80.000 · 5% del canon — bajos
 - Programa: 3D · 2B
 - orientación nororiente
 - 1 estacionamientos
@@ -68,7 +68,7 @@
 
 - [ ] **¿De qué año es el edificio?** Define casi un cuarto del puntaje de este radar y el aviso no lo publica.
 - [ ] **¿Cuántos m² totales y cuántos útiles?** El aviso no aclara cuál de las dos publicó, y el filtro de este radar es sobre la total.
-- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.209.040 al firmar, además del primer mes y la comisión.
+- [ ] **¿Cuántos meses de garantía?** Con dos meses sobre este canon son $3.209.453 al firmar, además del primer mes y la comisión.
 - [ ] **¿Cuánto es la comisión de corretaje?** Lo habitual es medio mes más IVA, a cargo del arrendatario.
 - [ ] **¿El reglamento del edificio acepta mascotas?**
 - [ ] **¿Está disponible para visitar esta semana?** En Vitacura, un departamento de más de 100 m² con 3 dormitorios dentro de tu presupuesto se toma en días.
@@ -96,6 +96,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 3 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 11-10-2026 17:03 UTC.
+Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
 
 </details>
