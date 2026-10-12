@@ -23,7 +23,7 @@
 | 2026-10-10 | $1.727.722 |
 | 2026-10-11 | $1.727.944 |
 
-**subió 0% en 4 días. desde $1.726.811.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
+**subió 0% en 5 días. desde $1.726.811.** Un aviso que lleva bajando es un propietario que no está logrando arrendar, y eso cambia con qué número conviene llamar.
 
 ## Qué es
 
@@ -100,6 +100,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura, Santiago Metropolitan Region, Chile Departamento Sector Luis Pasteur Basic rent excl. utilities UF 42 ~€1,516 3 Bedrooms 3 Bathrooms ~116 m² Living area ~133 m² Plot surface Departamento Sector Luis Pasteur
 ```
 
-Leído de `engelvoelkers` vía `tarjeta` el 11-10-2026 20:40 UTC.
+Leído de `engelvoelkers` vía `tarjeta` el 12-10-2026 02:09 UTC.
 
 </details>

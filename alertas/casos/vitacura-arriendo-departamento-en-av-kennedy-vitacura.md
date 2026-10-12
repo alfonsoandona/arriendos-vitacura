@@ -88,6 +88,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 $ 770.000 Arriendo Ver más Contactar
 ```
 
-Leído de `doomos` vía `tarjeta` el 11-10-2026 01:36 UTC.
+Leído de `doomos` vía `tarjeta` el 12-10-2026 02:09 UTC.
 
 </details>

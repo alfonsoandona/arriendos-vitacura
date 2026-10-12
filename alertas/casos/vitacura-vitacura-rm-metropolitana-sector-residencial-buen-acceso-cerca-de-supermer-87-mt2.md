@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Sector residencial, buen acceso, cerca de supermer... 87 Mt2 3 2 $ 1.234.246
 ```
 
-Leído de `busconido` vía `tarjeta` el 11-10-2026 20:40 UTC.
+Leído de `busconido` vía `tarjeta` el 12-10-2026 02:09 UTC.
 
 </details>
