@@ -90,6 +90,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Vitacura RM (Metropolitana) Departamento pérez zujovic 160 Mt2 4 3 $ 1.522.433
 ```
 
-Leído de `busconido` vía `tarjeta` el 12-10-2026 23:19 UTC.
+Leído de `busconido` vía `tarjeta` el 13-10-2026 03:23 UTC.
 
 </details>

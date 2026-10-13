@@ -97,6 +97,6 @@ En [`gestion.yml`](../../gestion.yml), desde el teléfono. El radar lo recuerda 
 Departamento en arriendo de 3 dorm. en Vitacura  Vitacura, Metropolitana
 ```
 
-Leído de `toctoc` vía `json-ld` el 12-10-2026 20:37 UTC.
+Leído de `toctoc` vía `json-ld` el 13-10-2026 03:23 UTC.
 
 </details>
