@@ -1,16 +1,36 @@
 name: Radar de Arriendos
 
 on:
-  schedule:
-    # 08:00, 13:00 y 19:00 en Chile continental (UTC-4). En horario de
-    # verano (UTC-3) corre una hora después; la diferencia no es relevante.
-    #
-    # Tres veces al día a pedido del usuario (17-08): mañana, almuerzo y
-    # tarde. No más que eso: el mercado de arriendo se mueve en días, no en
-    # horas, y una corrida cada hora solo agrega ruido.
-    - cron: "0 12 * * *"
-    - cron: "0 17 * * *"
-    - cron: "0 23 * * *"
+  # ───────────────────────────────────────────────────────────────────────
+  # APAGADO el 13-10-2026, a pedido del usuario. No corre solo.
+  #
+  # Las tres corridas diarias están COMENTADAS, no borradas: para volver a
+  # encenderlo se descomentan las tres líneas `- cron:` de abajo y se
+  # pushea. Eso es todo; no hay nada más que tocar.
+  #
+  # Nada se perdió. El estado (`state/`), las fichas de `alertas/casos/`,
+  # el historial, la bitácora y el dashboard quedan como estaban, así que
+  # al reencenderlo retoma donde quedó. Ojo con una cosa al reencender: lo
+  # que se haya publicado mientras estuvo apagado va a entrar como NUEVO,
+  # porque para el radar lo es. No llega de golpe —el tope de 5 por corrida
+  # lo reparte entre corridas, que es justo para lo que se cambió el 27-09—
+  # pero el primer día va a hablar más de lo normal.
+  #
+  # Lo que sigue disponible, porque es manual y no interrumpe a nadie:
+  #   · Actions → Radar de Arriendos → Run workflow   (una corrida suelta)
+  #   · Actions → Probar aviso de Telegram            (ver si el canal vive)
+  # ───────────────────────────────────────────────────────────────────────
+  #
+  # schedule:
+  #   # 08:00, 13:00 y 19:00 en Chile continental (UTC-4). En horario de
+  #   # verano (UTC-3) corre una hora después; la diferencia no es relevante.
+  #   #
+  #   # Tres veces al día a pedido del usuario (17-08): mañana, almuerzo y
+  #   # tarde. No más que eso: el mercado de arriendo se mueve en días, no
+  #   # en horas, y una corrida cada hora solo agrega ruido.
+  #   - cron: "0 12 * * *"
+  #   - cron: "0 17 * * *"
+  #   - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       dry_run:

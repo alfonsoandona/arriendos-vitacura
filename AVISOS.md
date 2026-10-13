@@ -131,7 +131,11 @@ En unos segundos deberías recibir esto:
 > Prueba de conexión. Si estás leyendo esto, las alertas van a llegar a esta
 > conversación.
 
-Si llegó, estás listo. El radar corre solo tres veces al día.
+Si llegó, el canal anda.
+
+**Ojo:** las corridas automáticas están **apagadas** desde el 13-10-2026, así
+que el radar no va a avisarte nada por su cuenta. Cómo encenderlo está en
+[`PENDIENTES.md`](PENDIENTES.md).
 
 ---
 

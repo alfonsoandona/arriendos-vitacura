@@ -1,7 +1,27 @@
 # Pendientes
 
-**Estado al 27-09-2026.** El radar corre solo 3 veces al día, avisa por
-Telegram y publica el dashboard. Un mes de corridas sin un solo error.
+## ⏸ APAGADO el 13-10-2026
+
+El radar **no corre solo**. Las tres corridas diarias quedaron comentadas en
+[`.github/workflows/radar.yml`](.github/workflows/radar.yml) a tu pedido; no
+va a llegar ningún mensaje hasta que lo enciendas.
+
+**Para encenderlo:** descomentar las tres líneas `- cron:` de ese archivo y
+pushear. Nada más. O pídemelo y lo hago.
+
+Nada se borró: el estado, las fichas, el historial y el dashboard quedan como
+estaban, así que retoma donde quedó. Lo único a saber es que lo publicado
+mientras esté apagado va a entrar como **nuevo** —para el radar lo es—, y el
+primer día va a hablar más de lo normal. No de golpe: el tope de 5 por corrida
+lo reparte.
+
+Sigue disponible a mano: **Actions → Radar de Arriendos → Run workflow** para
+una corrida suelta, y **Probar aviso de Telegram** para ver si el canal vive.
+
+---
+
+**Estado al apagarlo.** Corría 3 veces al día, avisaba por Telegram y
+publicaba el dashboard. Mes y medio de corridas sin un solo error.
 
 Se trabaja **conversando en el chat**: tú contestas, yo edito y pusheo.
 

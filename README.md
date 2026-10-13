@@ -42,10 +42,14 @@ basta el navegador de un celular o la app de GitHub.
 
 ### ¿Cuánto cuesta?
 
-**Cero.** El radar corre 3 veces al día y cada corrida toma unos 7 minutos
-de punta a punta: alrededor de **630 minutos al mes**, dentro del plan
-gratuito de GitHub Actions incluso con el repositorio privado (2.000 minutos
-al mes). En repositorio público los minutos son ilimitados.
+**Cero.** Hoy, menos que cero: las corridas automáticas están **apagadas**
+desde el 13-10-2026 (ver [`PENDIENTES.md`](PENDIENTES.md)) y solo gasta
+minutos cuando lo corres a mano.
+
+Encendido corría 3 veces al día, unos 7 minutos por corrida de punta a punta:
+alrededor de **630 minutos al mes**, dentro del plan gratuito de GitHub
+Actions incluso con el repositorio privado (2.000 minutos al mes). En
+repositorio público los minutos son ilimitados.
 
 ---
 
